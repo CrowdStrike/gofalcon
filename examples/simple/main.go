@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"context"
 	"fmt"
 
@@ -12,6 +13,23 @@ import (
 )
 
 func main() {
+	falconClientId := os.Getenv("FALCON_CLIENT_ID")
+	falconClientSecret := os.Getenv("FALCON_CLIENT_SECRET")
+	if falconClientId == "" {
+		fmt.Printf("Please provide your Falcon Client ID: ")
+		_, err := fmt.Scanln(&falconClientId)
+		if err != nil {
+			panic(err)
+		}
+	}
+	if falconClientSecret == "" {
+		fmt.Printf("Please provide your Falcon Client Secret: ")
+		_, err := fmt.Scanln(&falconClientSecret)
+		if err != nil {
+			panic(err)
+		}
+	}
+
 	config := clientcredentials.Config{
 		ClientID: falconClientId,
 		ClientSecret: falconClientSecret,
