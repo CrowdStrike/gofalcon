@@ -20,7 +20,7 @@ import (
 // with the default values initialized.
 func NewGetSampleV3Params() *GetSampleV3Params {
 	var (
-		passwordProtectedDefault = string(false)
+		passwordProtectedDefault = string("false")
 	)
 	return &GetSampleV3Params{
 		PasswordProtected: &passwordProtectedDefault,
@@ -33,7 +33,7 @@ func NewGetSampleV3Params() *GetSampleV3Params {
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetSampleV3ParamsWithTimeout(timeout time.Duration) *GetSampleV3Params {
 	var (
-		passwordProtectedDefault = string(false)
+		passwordProtectedDefault = string("false")
 	)
 	return &GetSampleV3Params{
 		PasswordProtected: &passwordProtectedDefault,
@@ -46,7 +46,7 @@ func NewGetSampleV3ParamsWithTimeout(timeout time.Duration) *GetSampleV3Params {
 // with the default values initialized, and the ability to set a context for a request
 func NewGetSampleV3ParamsWithContext(ctx context.Context) *GetSampleV3Params {
 	var (
-		passwordProtectedDefault = string(false)
+		passwordProtectedDefault = string("false")
 	)
 	return &GetSampleV3Params{
 		PasswordProtected: &passwordProtectedDefault,
@@ -59,7 +59,7 @@ func NewGetSampleV3ParamsWithContext(ctx context.Context) *GetSampleV3Params {
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetSampleV3ParamsWithHTTPClient(client *http.Client) *GetSampleV3Params {
 	var (
-		passwordProtectedDefault = string(false)
+		passwordProtectedDefault = string("false")
 	)
 	return &GetSampleV3Params{
 		PasswordProtected: &passwordProtectedDefault,

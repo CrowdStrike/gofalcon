@@ -223,9 +223,10 @@ func (m *DomainSession) validateCommands(formats strfmt.Registry) error {
 			return err
 		}
 		if val, ok := m.Commands[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				return err
-			}
+			_ = val
+			//if err := val.Validate(formats); err != nil {
+			//return err
+			//}
 		}
 
 	}
