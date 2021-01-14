@@ -11,11 +11,11 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	config := clientcredentials.Config{
 		ClientID: ac.ClientId,
 		ClientSecret: ac.ClientSecret,
-		TokenURL: "https://" + client.DefaultHost + "/oauth2/token",
+		TokenURL: "https://" + ac.Host() + "/oauth2/token",
 	}
 	authenticatedClient := config.Client(ac.Context)
 	customTransport := httptransport.NewWithClient(
-		client.DefaultHost, client.DefaultBasePath, []string{}, authenticatedClient)
+		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
 
 	return client.New(customTransport, strfmt.Default), nil
 }
