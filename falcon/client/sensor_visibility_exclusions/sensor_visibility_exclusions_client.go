@@ -25,15 +25,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateSVExclusionsV1OK, error)
+	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*CreateSVExclusionsV1OK, error)
 
-	DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSensorVisibilityExclusionsV1OK, error)
+	DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params) (*DeleteSensorVisibilityExclusionsV1OK, error)
 
-	GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSensorVisibilityExclusionsV1OK, error)
+	GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params) (*GetSensorVisibilityExclusionsV1OK, error)
 
-	QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorVisibilityExclusionsV1OK, error)
+	QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params) (*QuerySensorVisibilityExclusionsV1OK, error)
 
-	UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorVisibilityExclusionsV1OK, error)
+	UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params) (*UpdateSensorVisibilityExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
   CreateSVExclusionsV1 creates the sensor visibility exclusions
 */
-func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateSVExclusionsV1OK, error) {
+func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*CreateSVExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSVExclusionsV1Params()
@@ -56,7 +56,6 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateSVExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -75,7 +74,7 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, authIn
 /*
   DeleteSensorVisibilityExclusionsV1 deletes the sensor visibility exclusions by id
 */
-func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params) (*DeleteSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSensorVisibilityExclusionsV1Params()
@@ -90,7 +89,6 @@ func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibili
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteSensorVisibilityExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -109,7 +107,7 @@ func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibili
 /*
   GetSensorVisibilityExclusionsV1 gets a set of sensor visibility exclusions by specifying their i ds
 */
-func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params) (*GetSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorVisibilityExclusionsV1Params()
@@ -124,7 +122,6 @@ func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExcl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorVisibilityExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -143,7 +140,7 @@ func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExcl
 /*
   QuerySensorVisibilityExclusionsV1 searches for sensor visibility exclusions
 */
-func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorVisibilityExclusionsV1OK, error) {
+func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params) (*QuerySensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorVisibilityExclusionsV1Params()
@@ -158,7 +155,6 @@ func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibility
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySensorVisibilityExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -177,7 +173,7 @@ func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibility
 /*
   UpdateSensorVisibilityExclusionsV1 updates the sensor visibility exclusions
 */
-func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params) (*UpdateSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorVisibilityExclusionsV1Params()
@@ -192,7 +188,6 @@ func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibili
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateSensorVisibilityExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

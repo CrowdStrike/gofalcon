@@ -25,17 +25,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CrowdScore(params *CrowdScoreParams, authInfo runtime.ClientAuthInfoWriter) (*CrowdScoreOK, error)
+	CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error)
 
-	GetBehaviors(params *GetBehaviorsParams, authInfo runtime.ClientAuthInfoWriter) (*GetBehaviorsOK, error)
+	GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, error)
 
-	GetIncidents(params *GetIncidentsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncidentsOK, error)
+	GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, error)
 
-	PerformIncidentAction(params *PerformIncidentActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformIncidentActionOK, error)
+	PerformIncidentAction(params *PerformIncidentActionParams) (*PerformIncidentActionOK, error)
 
-	QueryBehaviors(params *QueryBehaviorsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryBehaviorsOK, error)
+	QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK, error)
 
-	QueryIncidents(params *QueryIncidentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIncidentsOK, error)
+	QueryIncidents(params *QueryIncidentsParams) (*QueryIncidentsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 /*
   CrowdScore queries environment wide crowd score and return the entity data
 */
-func (a *Client) CrowdScore(params *CrowdScoreParams, authInfo runtime.ClientAuthInfoWriter) (*CrowdScoreOK, error) {
+func (a *Client) CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCrowdScoreParams()
@@ -58,7 +58,6 @@ func (a *Client) CrowdScore(params *CrowdScoreParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CrowdScoreReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -77,7 +76,7 @@ func (a *Client) CrowdScore(params *CrowdScoreParams, authInfo runtime.ClientAut
 /*
   GetBehaviors gets details on behaviors by providing behavior i ds
 */
-func (a *Client) GetBehaviors(params *GetBehaviorsParams, authInfo runtime.ClientAuthInfoWriter) (*GetBehaviorsOK, error) {
+func (a *Client) GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBehaviorsParams()
@@ -92,7 +91,6 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetBehaviorsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -111,7 +109,7 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams, authInfo runtime.Clien
 /*
   GetIncidents gets details on incidents by providing incident i ds
 */
-func (a *Client) GetIncidents(params *GetIncidentsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncidentsOK, error) {
+func (a *Client) GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIncidentsParams()
@@ -126,7 +124,6 @@ func (a *Client) GetIncidents(params *GetIncidentsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIncidentsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -145,7 +142,7 @@ func (a *Client) GetIncidents(params *GetIncidentsParams, authInfo runtime.Clien
 /*
   PerformIncidentAction performs a set of actions on one or more incidents such as adding tags or comments or updating the incident name or description
 */
-func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformIncidentActionOK, error) {
+func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams) (*PerformIncidentActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformIncidentActionParams()
@@ -160,7 +157,6 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformIncidentActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -179,7 +175,7 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, auth
 /*
   QueryBehaviors searches for behaviors by providing an f q l filter sorting and paging details
 */
-func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryBehaviorsOK, error) {
+func (a *Client) QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryBehaviorsParams()
@@ -194,7 +190,6 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryBehaviorsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -213,7 +208,7 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, authInfo runtime.C
 /*
   QueryIncidents searches for incidents by providing an f q l filter sorting and paging details
 */
-func (a *Client) QueryIncidents(params *QueryIncidentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIncidentsOK, error) {
+func (a *Client) QueryIncidents(params *QueryIncidentsParams) (*QueryIncidentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIncidentsParams()
@@ -228,7 +223,6 @@ func (a *Client) QueryIncidents(params *QueryIncidentsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIncidentsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

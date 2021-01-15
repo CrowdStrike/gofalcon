@@ -1,15 +1,12 @@
 package main
 
 import (
-	"os"
 	"context"
 	"fmt"
+	"os"
 
-	"github.com/crowdstrike/gofalcon/falcon/client"
+	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
-	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/go-openapi/strfmt"
-	"golang.org/x/oauth2/clientcredentials"
 )
 
 func main() {
@@ -30,19 +27,16 @@ func main() {
 		}
 	}
 
-	config := clientcredentials.Config{
-		ClientID: falconClientId,
+	apiclient, err := falcon.NewClient(&falcon.ApiConfig{
+		ClientId: falconClientId,
 		ClientSecret: falconClientSecret,
-		TokenURL: "https://" + client.DefaultHost + "/oauth2/token",
+		Context: context.Background(),
+	})
+	if err != nil {
+		panic(err)
 	}
-	authenticatedClient := config.Client(context.Background())
 
-	customTransport := httptransport.NewWithClient(
-		client.DefaultHost, client.DefaultBasePath, []string{}, authenticatedClient)
-
-	apiKeyHeaderAuth := httptransport.APIKeyAuth("X-API-TOKEN", "header", "THIS-SHALL-BE-REMOVED")
-	apiclient := client.New(customTransport, strfmt.Default)
-	res, err := apiclient.SensorDownload.GetCombinedSensorInstallersByQuery(&sensor_download.GetCombinedSensorInstallersByQueryParams{Context: context.Background()}, apiKeyHeaderAuth)
+	res, err := apiclient.SensorDownload.GetCombinedSensorInstallersByQuery(&sensor_download.GetCombinedSensorInstallersByQueryParams{Context: context.Background()})
 	if err != nil {
 		panic(err)
 	}

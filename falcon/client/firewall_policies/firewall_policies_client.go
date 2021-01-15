@@ -27,25 +27,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateFirewallPolicies(params *CreateFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFirewallPoliciesCreated, error)
+	CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*CreateFirewallPoliciesCreated, error)
 
-	DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFirewallPoliciesOK, error)
+	DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*DeleteFirewallPoliciesOK, error)
 
-	GetFirewallPolicies(params *GetFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetFirewallPoliciesOK, error)
+	GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFirewallPoliciesOK, error)
 
-	PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformFirewallPoliciesActionOK, error)
+	PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams) (*PerformFirewallPoliciesActionOK, error)
 
-	QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedFirewallPoliciesOK, error)
+	QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams) (*QueryCombinedFirewallPoliciesOK, error)
 
-	QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedFirewallPolicyMembersOK, error)
+	QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams) (*QueryCombinedFirewallPolicyMembersOK, error)
 
-	QueryFirewallPolicies(params *QueryFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallPoliciesOK, error)
+	QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*QueryFirewallPoliciesOK, error)
 
-	QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallPolicyMembersOK, error)
+	QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams) (*QueryFirewallPolicyMembersOK, error)
 
-	SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetFirewallPoliciesPrecedenceOK, error)
+	SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams) (*SetFirewallPoliciesPrecedenceOK, error)
 
-	UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFirewallPoliciesOK, error)
+	UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams) (*UpdateFirewallPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ type ClientService interface {
 /*
   CreateFirewallPolicies creates firewall policies by specifying details about the policy to create
 */
-func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFirewallPoliciesCreated, error) {
+func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*CreateFirewallPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateFirewallPoliciesParams()
@@ -68,7 +68,6 @@ func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -88,7 +87,7 @@ func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, au
 /*
   DeleteFirewallPolicies deletes a set of firewall policies by specifying their i ds
 */
-func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFirewallPoliciesOK, error) {
+func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*DeleteFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteFirewallPoliciesParams()
@@ -103,7 +102,6 @@ func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -122,7 +120,7 @@ func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, au
 /*
   GetFirewallPolicies retrieves a set of firewall policies by specifying their i ds
 */
-func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetFirewallPoliciesOK, error) {
+func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFirewallPoliciesParams()
@@ -137,7 +135,6 @@ func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -156,7 +153,7 @@ func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, authInfo
 /*
   PerformFirewallPoliciesAction performs the specified action on the firewall policies specified in the request
 */
-func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformFirewallPoliciesActionOK, error) {
+func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams) (*PerformFirewallPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformFirewallPoliciesActionParams()
@@ -171,7 +168,6 @@ func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesAc
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformFirewallPoliciesActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -190,7 +186,7 @@ func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesAc
 /*
   QueryCombinedFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policies which match the filter criteria
 */
-func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedFirewallPoliciesOK, error) {
+func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams) (*QueryCombinedFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedFirewallPoliciesParams()
@@ -205,7 +201,6 @@ func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -224,7 +219,7 @@ func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoli
 /*
   QueryCombinedFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedFirewallPolicyMembersOK, error) {
+func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams) (*QueryCombinedFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedFirewallPolicyMembersParams()
@@ -239,7 +234,6 @@ func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewal
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedFirewallPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -258,7 +252,7 @@ func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewal
 /*
   QueryFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policy i ds which match the filter criteria
 */
-func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallPoliciesOK, error) {
+func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*QueryFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallPoliciesParams()
@@ -273,7 +267,6 @@ func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -292,7 +285,7 @@ func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, auth
 /*
   QueryFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallPolicyMembersOK, error) {
+func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams) (*QueryFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallPolicyMembersParams()
@@ -307,7 +300,6 @@ func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryFirewallPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -326,7 +318,7 @@ func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersPa
 /*
   SetFirewallPoliciesPrecedence sets the precedence of firewall policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetFirewallPoliciesPrecedenceOK, error) {
+func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams) (*SetFirewallPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetFirewallPoliciesPrecedenceParams()
@@ -341,7 +333,6 @@ func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPreced
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SetFirewallPoliciesPrecedenceReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -360,7 +351,7 @@ func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPreced
 /*
   UpdateFirewallPolicies updates firewall policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFirewallPoliciesOK, error) {
+func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams) (*UpdateFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateFirewallPoliciesParams()
@@ -375,7 +366,6 @@ func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateFirewallPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

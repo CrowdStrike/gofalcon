@@ -25,33 +25,33 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetIntelActorEntities(params *GetIntelActorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelActorEntitiesOK, error)
+	GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*GetIntelActorEntitiesOK, error)
 
-	GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelIndicatorEntitiesOK, error)
+	GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams) (*GetIntelIndicatorEntitiesOK, error)
 
-	GetIntelReportEntities(params *GetIntelReportEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelReportEntitiesOK, error)
+	GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*GetIntelReportEntitiesOK, error)
 
-	GetIntelReportPDF(params *GetIntelReportPDFParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelReportPDFOK, error)
+	GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelReportPDFOK, error)
 
-	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelRuleEntitiesOK, error)
+	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetIntelRuleEntitiesOK, error)
 
-	GetIntelRuleFile(params *GetIntelRuleFileParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelRuleFileOK, error)
+	GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRuleFileOK, error)
 
-	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, authInfo runtime.ClientAuthInfoWriter) (*GetLatestIntelRuleFileOK, error)
+	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*GetLatestIntelRuleFileOK, error)
 
-	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelActorEntitiesOK, error)
+	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) (*QueryIntelActorEntitiesOK, error)
 
-	QueryIntelActorIds(params *QueryIntelActorIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelActorIdsOK, error)
+	QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryIntelActorIdsOK, error)
 
-	QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelIndicatorEntitiesOK, error)
+	QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams) (*QueryIntelIndicatorEntitiesOK, error)
 
-	QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelIndicatorIdsOK, error)
+	QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*QueryIntelIndicatorIdsOK, error)
 
-	QueryIntelReportEntities(params *QueryIntelReportEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelReportEntitiesOK, error)
+	QueryIntelReportEntities(params *QueryIntelReportEntitiesParams) (*QueryIntelReportEntitiesOK, error)
 
-	QueryIntelReportIds(params *QueryIntelReportIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelReportIdsOK, error)
+	QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryIntelReportIdsOK, error)
 
-	QueryIntelRuleIds(params *QueryIntelRuleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelRuleIdsOK, error)
+	QueryIntelRuleIds(params *QueryIntelRuleIdsParams) (*QueryIntelRuleIdsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -59,7 +59,7 @@ type ClientService interface {
 /*
   GetIntelActorEntities retrieves specific actors using their actor i ds
 */
-func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelActorEntitiesOK, error) {
+func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*GetIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelActorEntitiesParams()
@@ -74,7 +74,6 @@ func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelActorEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -93,7 +92,7 @@ func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, auth
 /*
   GetIntelIndicatorEntities retrieves specific indicators using their indicator i ds
 */
-func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelIndicatorEntitiesOK, error) {
+func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams) (*GetIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelIndicatorEntitiesParams()
@@ -108,7 +107,6 @@ func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelIndicatorEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -127,7 +125,7 @@ func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesPara
 /*
   GetIntelReportEntities retrieves specific reports using their report i ds
 */
-func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelReportEntitiesOK, error) {
+func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*GetIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelReportEntitiesParams()
@@ -142,7 +140,6 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelReportEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -161,7 +158,7 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, au
 /*
   GetIntelReportPDF returns a report p d f attachment
 */
-func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelReportPDFOK, error) {
+func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelReportPDFOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelReportPDFParams()
@@ -176,7 +173,6 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelReportPDFReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -195,7 +191,7 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, authInfo run
 /*
   GetIntelRuleEntities retrieves details for rule sets for the specified ids
 */
-func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelRuleEntitiesOK, error) {
+func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetIntelRuleEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelRuleEntitiesParams()
@@ -210,7 +206,6 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelRuleEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -229,7 +224,7 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, authIn
 /*
   GetIntelRuleFile downloads earlier rule sets
 */
-func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, authInfo runtime.ClientAuthInfoWriter) (*GetIntelRuleFileOK, error) {
+func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelRuleFileParams()
@@ -244,7 +239,6 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIntelRuleFileReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -263,7 +257,7 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, authInfo runti
 /*
   GetLatestIntelRuleFile downloads the latest rule set
 */
-func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, authInfo runtime.ClientAuthInfoWriter) (*GetLatestIntelRuleFileOK, error) {
+func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*GetLatestIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLatestIntelRuleFileParams()
@@ -278,7 +272,6 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetLatestIntelRuleFileReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -297,7 +290,7 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, au
 /*
   QueryIntelActorEntities gets info about actors that match provided f q l filters
 */
-func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelActorEntitiesOK, error) {
+func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) (*QueryIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelActorEntitiesParams()
@@ -312,7 +305,6 @@ func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelActorEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -331,7 +323,7 @@ func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, 
 /*
   QueryIntelActorIds gets actor i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelActorIdsOK, error) {
+func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryIntelActorIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelActorIdsParams()
@@ -346,7 +338,6 @@ func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelActorIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -365,7 +356,7 @@ func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, authInfo r
 /*
   QueryIntelIndicatorEntities gets info about indicators that match provided f q l filters
 */
-func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelIndicatorEntitiesOK, error) {
+func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams) (*QueryIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelIndicatorEntitiesParams()
@@ -380,7 +371,6 @@ func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntities
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelIndicatorEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -399,7 +389,7 @@ func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntities
 /*
   QueryIntelIndicatorIds gets indicators i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelIndicatorIdsOK, error) {
+func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*QueryIntelIndicatorIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelIndicatorIdsParams()
@@ -414,7 +404,6 @@ func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelIndicatorIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -433,7 +422,7 @@ func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, au
 /*
   QueryIntelReportEntities gets info about reports that match provided f q l filters
 */
-func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelReportEntitiesOK, error) {
+func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams) (*QueryIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelReportEntitiesParams()
@@ -448,7 +437,6 @@ func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelReportEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -467,7 +455,7 @@ func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams
 /*
   QueryIntelReportIds gets report i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelReportIdsOK, error) {
+func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryIntelReportIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelReportIdsParams()
@@ -482,7 +470,6 @@ func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelReportIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -501,7 +488,7 @@ func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, authInfo
 /*
   QueryIntelRuleIds searches for rule i ds that match provided filter criteria
 */
-func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIntelRuleIdsOK, error) {
+func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams) (*QueryIntelRuleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelRuleIdsParams()
@@ -516,7 +503,6 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIntelRuleIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

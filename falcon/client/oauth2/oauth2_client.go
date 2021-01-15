@@ -29,7 +29,7 @@ type Client struct {
 type ClientService interface {
 	Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2AccessTokenCreated, error)
 
-	Oauth2RevokeToken(params *Oauth2RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*Oauth2RevokeTokenOK, error)
+	Oauth2RevokeToken(params *Oauth2RevokeTokenParams) (*Oauth2RevokeTokenOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -71,7 +71,7 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2Acce
 /*
   Oauth2RevokeToken revokes a previously issued o auth2 access token before the end of its standard 30 minute lifespan
 */
-func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*Oauth2RevokeTokenOK, error) {
+func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams) (*Oauth2RevokeTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewOauth2RevokeTokenParams()
@@ -86,7 +86,6 @@ func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &Oauth2RevokeTokenReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

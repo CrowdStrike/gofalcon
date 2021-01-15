@@ -27,25 +27,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreatePreventionPolicies(params *CreatePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePreventionPoliciesCreated, error)
+	CreatePreventionPolicies(params *CreatePreventionPoliciesParams) (*CreatePreventionPoliciesCreated, error)
 
-	DeletePreventionPolicies(params *DeletePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePreventionPoliciesOK, error)
+	DeletePreventionPolicies(params *DeletePreventionPoliciesParams) (*DeletePreventionPoliciesOK, error)
 
-	GetPreventionPolicies(params *GetPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetPreventionPoliciesOK, error)
+	GetPreventionPolicies(params *GetPreventionPoliciesParams) (*GetPreventionPoliciesOK, error)
 
-	PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformPreventionPoliciesActionOK, error)
+	PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams) (*PerformPreventionPoliciesActionOK, error)
 
-	QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedPreventionPoliciesOK, error)
+	QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams) (*QueryCombinedPreventionPoliciesOK, error)
 
-	QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedPreventionPolicyMembersOK, error)
+	QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams) (*QueryCombinedPreventionPolicyMembersOK, error)
 
-	QueryPreventionPolicies(params *QueryPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPreventionPoliciesOK, error)
+	QueryPreventionPolicies(params *QueryPreventionPoliciesParams) (*QueryPreventionPoliciesOK, error)
 
-	QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPreventionPolicyMembersOK, error)
+	QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams) (*QueryPreventionPolicyMembersOK, error)
 
-	SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetPreventionPoliciesPrecedenceOK, error)
+	SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams) (*SetPreventionPoliciesPrecedenceOK, error)
 
-	UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePreventionPoliciesOK, error)
+	UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams) (*UpdatePreventionPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ type ClientService interface {
 /*
   CreatePreventionPolicies creates prevention policies by specifying details about the policy to create
 */
-func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePreventionPoliciesCreated, error) {
+func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams) (*CreatePreventionPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePreventionPoliciesParams()
@@ -68,7 +68,6 @@ func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreatePreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -88,7 +87,7 @@ func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams
 /*
   DeletePreventionPolicies deletes a set of prevention policies by specifying their i ds
 */
-func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePreventionPoliciesOK, error) {
+func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams) (*DeletePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePreventionPoliciesParams()
@@ -103,7 +102,6 @@ func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeletePreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -122,7 +120,7 @@ func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams
 /*
   GetPreventionPolicies retrieves a set of prevention policies by specifying their i ds
 */
-func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetPreventionPoliciesOK, error) {
+func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams) (*GetPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPreventionPoliciesParams()
@@ -137,7 +135,6 @@ func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetPreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -156,7 +153,7 @@ func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, auth
 /*
   PerformPreventionPoliciesAction performs the specified action on the prevention policies specified in the request
 */
-func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformPreventionPoliciesActionOK, error) {
+func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams) (*PerformPreventionPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformPreventionPoliciesActionParams()
@@ -171,7 +168,6 @@ func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPolici
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformPreventionPoliciesActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -190,7 +186,7 @@ func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPolici
 /*
   QueryCombinedPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policies which match the filter criteria
 */
-func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedPreventionPoliciesOK, error) {
+func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams) (*QueryCombinedPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedPreventionPoliciesParams()
@@ -205,7 +201,6 @@ func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPrevention
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedPreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -224,7 +219,7 @@ func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPrevention
 /*
   QueryCombinedPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedPreventionPolicyMembersOK, error) {
+func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams) (*QueryCombinedPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedPreventionPolicyMembersParams()
@@ -239,7 +234,6 @@ func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreve
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedPreventionPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -258,7 +252,7 @@ func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreve
 /*
   QueryPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policy i ds which match the filter criteria
 */
-func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPreventionPoliciesOK, error) {
+func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams) (*QueryPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPreventionPoliciesParams()
@@ -273,7 +267,6 @@ func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -292,7 +285,7 @@ func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, 
 /*
   QueryPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPreventionPolicyMembersOK, error) {
+func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams) (*QueryPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPreventionPolicyMembersParams()
@@ -307,7 +300,6 @@ func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembe
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPreventionPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -326,7 +318,7 @@ func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembe
 /*
   SetPreventionPoliciesPrecedence sets the precedence of prevention policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetPreventionPoliciesPrecedenceOK, error) {
+func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams) (*SetPreventionPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetPreventionPoliciesPrecedenceParams()
@@ -341,7 +333,6 @@ func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPr
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SetPreventionPoliciesPrecedenceReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -360,7 +351,7 @@ func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPr
 /*
   UpdatePreventionPolicies updates prevention policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePreventionPoliciesOK, error) {
+func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams) (*UpdatePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePreventionPoliciesParams()
@@ -375,7 +366,6 @@ func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdatePreventionPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

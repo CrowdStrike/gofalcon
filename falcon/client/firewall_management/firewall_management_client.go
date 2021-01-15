@@ -27,45 +27,45 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateEvents(params *AggregateEventsParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateEventsOK, error)
+	AggregateEvents(params *AggregateEventsParams) (*AggregateEventsOK, error)
 
-	AggregatePolicyRules(params *AggregatePolicyRulesParams, authInfo runtime.ClientAuthInfoWriter) (*AggregatePolicyRulesOK, error)
+	AggregatePolicyRules(params *AggregatePolicyRulesParams) (*AggregatePolicyRulesOK, error)
 
-	AggregateRuleGroups(params *AggregateRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateRuleGroupsOK, error)
+	AggregateRuleGroups(params *AggregateRuleGroupsParams) (*AggregateRuleGroupsOK, error)
 
-	AggregateRules(params *AggregateRulesParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateRulesOK, error)
+	AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK, error)
 
-	CreateRuleGroup(params *CreateRuleGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleGroupCreated, error)
+	CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGroupCreated, error)
 
-	DeleteRuleGroups(params *DeleteRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleGroupsOK, error)
+	DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGroupsOK, error)
 
-	GetEvents(params *GetEventsParams, authInfo runtime.ClientAuthInfoWriter) (*GetEventsOK, error)
+	GetEvents(params *GetEventsParams) (*GetEventsOK, error)
 
-	GetFirewallFields(params *GetFirewallFieldsParams, authInfo runtime.ClientAuthInfoWriter) (*GetFirewallFieldsOK, error)
+	GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewallFieldsOK, error)
 
-	GetPlatforms(params *GetPlatformsParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformsOK, error)
+	GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, error)
 
-	GetPolicyContainers(params *GetPolicyContainersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPolicyContainersOK, error)
+	GetPolicyContainers(params *GetPolicyContainersParams) (*GetPolicyContainersOK, error)
 
-	GetRuleGroups(params *GetRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetRuleGroupsOK, error)
+	GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, error)
 
-	GetRules(params *GetRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRulesOK, error)
+	GetRules(params *GetRulesParams) (*GetRulesOK, error)
 
-	QueryEvents(params *QueryEventsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEventsOK, error)
+	QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error)
 
-	QueryFirewallFields(params *QueryFirewallFieldsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallFieldsOK, error)
+	QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryFirewallFieldsOK, error)
 
-	QueryPlatforms(params *QueryPlatformsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPlatformsOK, error)
+	QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK, error)
 
-	QueryPolicyRules(params *QueryPolicyRulesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPolicyRulesOK, error)
+	QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyRulesOK, error)
 
-	QueryRuleGroups(params *QueryRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsOK, error)
+	QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroupsOK, error)
 
-	QueryRules(params *QueryRulesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRulesOK, error)
+	QueryRules(params *QueryRulesParams) (*QueryRulesOK, error)
 
-	UpdatePolicyContainer(params *UpdatePolicyContainerParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
+	UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
 
-	UpdateRuleGroup(params *UpdateRuleGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleGroupOK, error)
+	UpdateRuleGroup(params *UpdateRuleGroupParams) (*UpdateRuleGroupOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -73,7 +73,7 @@ type ClientService interface {
 /*
   AggregateEvents aggregates events for customer
 */
-func (a *Client) AggregateEvents(params *AggregateEventsParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateEventsOK, error) {
+func (a *Client) AggregateEvents(params *AggregateEventsParams) (*AggregateEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateEventsParams()
@@ -88,7 +88,6 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AggregateEventsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -107,7 +106,7 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams, authInfo runtime
 /*
   AggregatePolicyRules aggregates rules within a policy for customer
 */
-func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, authInfo runtime.ClientAuthInfoWriter) (*AggregatePolicyRulesOK, error) {
+func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams) (*AggregatePolicyRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatePolicyRulesParams()
@@ -122,7 +121,6 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AggregatePolicyRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -141,7 +139,7 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, authIn
 /*
   AggregateRuleGroups aggregates rule groups for customer
 */
-func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateRuleGroupsOK, error) {
+func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams) (*AggregateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateRuleGroupsParams()
@@ -156,7 +154,6 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AggregateRuleGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -175,7 +172,7 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, authInfo
 /*
   AggregateRules aggregates rules for customer
 */
-func (a *Client) AggregateRules(params *AggregateRulesParams, authInfo runtime.ClientAuthInfoWriter) (*AggregateRulesOK, error) {
+func (a *Client) AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateRulesParams()
@@ -190,7 +187,6 @@ func (a *Client) AggregateRules(params *AggregateRulesParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AggregateRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -209,7 +205,7 @@ func (a *Client) AggregateRules(params *AggregateRulesParams, authInfo runtime.C
 /*
   CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
 */
-func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleGroupCreated, error) {
+func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGroupCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleGroupParams()
@@ -224,7 +220,6 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateRuleGroupReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -244,7 +239,7 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, authInfo runtime
 /*
   DeleteRuleGroups deletes rule group entities by ID
 */
-func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleGroupsOK, error) {
+func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleGroupsParams()
@@ -259,7 +254,6 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteRuleGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -278,7 +272,7 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, authInfo runti
 /*
   GetEvents gets events entities by ID and optionally version
 */
-func (a *Client) GetEvents(params *GetEventsParams, authInfo runtime.ClientAuthInfoWriter) (*GetEventsOK, error) {
+func (a *Client) GetEvents(params *GetEventsParams) (*GetEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEventsParams()
@@ -293,7 +287,6 @@ func (a *Client) GetEvents(params *GetEventsParams, authInfo runtime.ClientAuthI
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetEventsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -312,7 +305,7 @@ func (a *Client) GetEvents(params *GetEventsParams, authInfo runtime.ClientAuthI
 /*
   GetFirewallFields gets the firewall field specifications by ID
 */
-func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, authInfo runtime.ClientAuthInfoWriter) (*GetFirewallFieldsOK, error) {
+func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFirewallFieldsParams()
@@ -327,7 +320,6 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetFirewallFieldsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -346,7 +338,7 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, authInfo run
 /*
   GetPlatforms gets platforms by ID e g windows or mac or droid
 */
-func (a *Client) GetPlatforms(params *GetPlatformsParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformsOK, error) {
+func (a *Client) GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformsParams()
@@ -361,7 +353,6 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetPlatformsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -380,7 +371,7 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams, authInfo runtime.Clien
 /*
   GetPolicyContainers gets policy container entities by policy ID
 */
-func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPolicyContainersOK, error) {
+func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams) (*GetPolicyContainersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPolicyContainersParams()
@@ -395,7 +386,6 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetPolicyContainersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -414,7 +404,7 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, authInfo
 /*
   GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
 */
-func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetRuleGroupsOK, error) {
+func (a *Client) GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleGroupsParams()
@@ -429,7 +419,6 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRuleGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -448,7 +437,7 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, authInfo runtime.Cli
 /*
   GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
 */
-func (a *Client) GetRules(params *GetRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRulesOK, error) {
+func (a *Client) GetRules(params *GetRulesParams) (*GetRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesParams()
@@ -463,7 +452,6 @@ func (a *Client) GetRules(params *GetRulesParams, authInfo runtime.ClientAuthInf
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -482,7 +470,7 @@ func (a *Client) GetRules(params *GetRulesParams, authInfo runtime.ClientAuthInf
 /*
   QueryEvents finds all event i ds matching the query with filter
 */
-func (a *Client) QueryEvents(params *QueryEventsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEventsOK, error) {
+func (a *Client) QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryEventsParams()
@@ -497,7 +485,6 @@ func (a *Client) QueryEvents(params *QueryEventsParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryEventsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -516,7 +503,7 @@ func (a *Client) QueryEvents(params *QueryEventsParams, authInfo runtime.ClientA
 /*
   QueryFirewallFields gets the firewall field specification i ds for the provided platform
 */
-func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFirewallFieldsOK, error) {
+func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallFieldsParams()
@@ -531,7 +518,6 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryFirewallFieldsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -550,7 +536,7 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, authInfo
 /*
   QueryPlatforms gets the list of platform names
 */
-func (a *Client) QueryPlatforms(params *QueryPlatformsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPlatformsOK, error) {
+func (a *Client) QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPlatformsParams()
@@ -565,7 +551,6 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPlatformsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -584,7 +569,7 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams, authInfo runtime.C
 /*
   QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
 */
-func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPolicyRulesOK, error) {
+func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPolicyRulesParams()
@@ -599,7 +584,6 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPolicyRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -618,7 +602,7 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, authInfo runti
 /*
   QueryRuleGroups finds all rule group i ds matching the query with filter
 */
-func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsOK, error) {
+func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsParams()
@@ -633,7 +617,6 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRuleGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -652,7 +635,7 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, authInfo runtime
 /*
   QueryRules finds all rule i ds matching the query with filter
 */
-func (a *Client) QueryRules(params *QueryRulesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRulesOK, error) {
+func (a *Client) QueryRules(params *QueryRulesParams) (*QueryRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRulesParams()
@@ -667,7 +650,6 @@ func (a *Client) QueryRules(params *QueryRulesParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -686,7 +668,7 @@ func (a *Client) QueryRules(params *QueryRulesParams, authInfo runtime.ClientAut
 /*
   UpdatePolicyContainer updates an identified policy container
 */
-func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
+func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePolicyContainerParams()
@@ -701,7 +683,6 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdatePolicyContainerReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -722,7 +703,7 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, auth
 /*
   UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
 */
-func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleGroupOK, error) {
+func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams) (*UpdateRuleGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRuleGroupParams()
@@ -737,7 +718,6 @@ func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateRuleGroupReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

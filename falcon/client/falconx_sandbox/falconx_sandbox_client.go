@@ -27,29 +27,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteReport(params *DeleteReportParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReportAccepted, error)
+	DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted, error)
 
-	DeleteSampleV2(params *DeleteSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSampleV2OK, error)
+	DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK, error)
 
-	GetArtifacts(params *GetArtifactsParams, authInfo runtime.ClientAuthInfoWriter) error
+	GetArtifacts(params *GetArtifactsParams) error
 
-	GetReports(params *GetReportsParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsOK, error)
+	GetReports(params *GetReportsParams) (*GetReportsOK, error)
 
-	GetSampleV2(params *GetSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetSampleV2OK, error)
+	GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error)
 
-	GetSubmissions(params *GetSubmissionsParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubmissionsOK, error)
+	GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK, error)
 
-	GetSummaryReports(params *GetSummaryReportsParams, authInfo runtime.ClientAuthInfoWriter) (*GetSummaryReportsOK, error)
+	GetSummaryReports(params *GetSummaryReportsParams) (*GetSummaryReportsOK, error)
 
-	QueryReports(params *QueryReportsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryReportsOK, error)
+	QueryReports(params *QueryReportsParams) (*QueryReportsOK, error)
 
-	QuerySampleV1(params *QuerySampleV1Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySampleV1OK, error)
+	QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, error)
 
-	QuerySubmissions(params *QuerySubmissionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubmissionsOK, error)
+	QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmissionsOK, error)
 
-	Submit(params *SubmitParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitOK, error)
+	Submit(params *SubmitParams) (*SubmitOK, error)
 
-	UploadSampleV2(params *UploadSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*UploadSampleV2OK, error)
+	UploadSampleV2(params *UploadSampleV2Params) (*UploadSampleV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,7 +57,7 @@ type ClientService interface {
 /*
   DeleteReport deletes report based on the report ID operation can be checked for success by polling for the report ID on the report summaries endpoint
 */
-func (a *Client) DeleteReport(params *DeleteReportParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReportAccepted, error) {
+func (a *Client) DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteReportParams()
@@ -72,7 +72,6 @@ func (a *Client) DeleteReport(params *DeleteReportParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteReportReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -92,7 +91,7 @@ func (a *Client) DeleteReport(params *DeleteReportParams, authInfo runtime.Clien
 /*
   DeleteSampleV2 removes a sample including file meta and submissions from the collection
 */
-func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSampleV2OK, error) {
+func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSampleV2Params()
@@ -107,7 +106,6 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteSampleV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -126,7 +124,7 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, authInfo runtime.C
 /*
   GetArtifacts downloads i o c packs p c a p files and other analysis artifacts
 */
-func (a *Client) GetArtifacts(params *GetArtifactsParams, authInfo runtime.ClientAuthInfoWriter) error {
+func (a *Client) GetArtifacts(params *GetArtifactsParams) error {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetArtifactsParams()
@@ -141,7 +139,6 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetArtifactsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -154,7 +151,7 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams, authInfo runtime.Clien
 /*
   GetReports gets a full sandbox report
 */
-func (a *Client) GetReports(params *GetReportsParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsOK, error) {
+func (a *Client) GetReports(params *GetReportsParams) (*GetReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetReportsParams()
@@ -169,7 +166,6 @@ func (a *Client) GetReports(params *GetReportsParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetReportsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -188,7 +184,7 @@ func (a *Client) GetReports(params *GetReportsParams, authInfo runtime.ClientAut
 /*
   GetSampleV2 retrieves the file associated with the given ID s h a256
 */
-func (a *Client) GetSampleV2(params *GetSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetSampleV2OK, error) {
+func (a *Client) GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSampleV2Params()
@@ -203,7 +199,6 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSampleV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -222,7 +217,7 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params, authInfo runtime.ClientA
 /*
   GetSubmissions checks the status of a sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
-func (a *Client) GetSubmissions(params *GetSubmissionsParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubmissionsOK, error) {
+func (a *Client) GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSubmissionsParams()
@@ -237,7 +232,6 @@ func (a *Client) GetSubmissions(params *GetSubmissionsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSubmissionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -256,7 +250,7 @@ func (a *Client) GetSubmissions(params *GetSubmissionsParams, authInfo runtime.C
 /*
   GetSummaryReports gets a short summary version of a sandbox report
 */
-func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, authInfo runtime.ClientAuthInfoWriter) (*GetSummaryReportsOK, error) {
+func (a *Client) GetSummaryReports(params *GetSummaryReportsParams) (*GetSummaryReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSummaryReportsParams()
@@ -271,7 +265,6 @@ func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSummaryReportsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -290,7 +283,7 @@ func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, authInfo run
 /*
   QueryReports finds sandbox reports by providing an f q l filter and paging details returns a set of report i ds that match your criteria
 */
-func (a *Client) QueryReports(params *QueryReportsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryReportsOK, error) {
+func (a *Client) QueryReports(params *QueryReportsParams) (*QueryReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryReportsParams()
@@ -305,7 +298,6 @@ func (a *Client) QueryReports(params *QueryReportsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryReportsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -324,7 +316,7 @@ func (a *Client) QueryReports(params *QueryReportsParams, authInfo runtime.Clien
 /*
   QuerySampleV1 retrieves a list with sha256 of samples that exist and customer has rights to access them maximum number of accepted items is 200
 */
-func (a *Client) QuerySampleV1(params *QuerySampleV1Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySampleV1OK, error) {
+func (a *Client) QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySampleV1Params()
@@ -339,7 +331,6 @@ func (a *Client) QuerySampleV1(params *QuerySampleV1Params, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySampleV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -358,7 +349,7 @@ func (a *Client) QuerySampleV1(params *QuerySampleV1Params, authInfo runtime.Cli
 /*
   QuerySubmissions finds submission i ds for uploaded files by providing an f q l filter and paging details returns a set of submission i ds that match your criteria
 */
-func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubmissionsOK, error) {
+func (a *Client) QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmissionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySubmissionsParams()
@@ -373,7 +364,6 @@ func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySubmissionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -392,7 +382,7 @@ func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, authInfo runti
 /*
   Submit submits an uploaded file or a URL for sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
-func (a *Client) Submit(params *SubmitParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitOK, error) {
+func (a *Client) Submit(params *SubmitParams) (*SubmitOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubmitParams()
@@ -407,7 +397,6 @@ func (a *Client) Submit(params *SubmitParams, authInfo runtime.ClientAuthInfoWri
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SubmitReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -426,7 +415,7 @@ func (a *Client) Submit(params *SubmitParams, authInfo runtime.ClientAuthInfoWri
 /*
   UploadSampleV2 uploads a file for sandbox analysis after uploading use falconx entities submissions v1 to start analyzing the file
 */
-func (a *Client) UploadSampleV2(params *UploadSampleV2Params, authInfo runtime.ClientAuthInfoWriter) (*UploadSampleV2OK, error) {
+func (a *Client) UploadSampleV2(params *UploadSampleV2Params) (*UploadSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadSampleV2Params()
@@ -441,7 +430,6 @@ func (a *Client) UploadSampleV2(params *UploadSampleV2Params, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadSampleV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

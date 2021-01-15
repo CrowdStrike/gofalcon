@@ -27,35 +27,35 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
+	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
 
-	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
+	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
 
-	DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error)
+	DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error)
 
-	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
+	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
 
-	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
+	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
 
-	GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsAccountScriptsAttachmentOK, error)
+	GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams) (*GetCSPMAwsAccountScriptsAttachmentOK, error)
 
-	GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error)
+	GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error)
 
-	GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error)
+	GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error)
 
-	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureUserScriptsAttachmentOK, error)
+	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams) (*GetCSPMAzureUserScriptsAttachmentOK, error)
 
-	GetCSPMPolicy(params *GetCSPMPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error)
+	GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error)
 
-	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
+	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
 
-	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMScanScheduleOK, error)
+	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSPMScanScheduleOK, error)
 
-	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMAzureAccountClientIDCreated, error)
+	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams) (*UpdateCSPMAzureAccountClientIDCreated, error)
 
-	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
+	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
 
-	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMScanScheduleOK, error)
+	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams) (*UpdateCSPMScanScheduleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,7 +63,7 @@ type ClientService interface {
 /*
   CreateCSPMAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
 */
-func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
+func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMAwsAccountParams()
@@ -78,7 +78,6 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateCSPMAwsAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -99,7 +98,7 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, authIn
 /*
   CreateCSPMAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
 */
-func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
+func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMAzureAccountParams()
@@ -114,7 +113,6 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateCSPMAzureAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -135,7 +133,7 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, au
 /*
   DeleteCSPMAwsAccount deletes an existing a w s account or organization in our system
 */
-func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
+func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCSPMAwsAccountParams()
@@ -150,7 +148,6 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteCSPMAwsAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -171,7 +168,7 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, authIn
 /*
   DeleteCSPMAzureAccount deletes an azure subscription from the system
 */
-func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
+func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCSPMAzureAccountParams()
@@ -186,7 +183,6 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteCSPMAzureAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -207,7 +203,7 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, au
 /*
   GetCSPMAwsAccount returns information about the current status of an a w s account
 */
-func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
+func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsAccountParams()
@@ -222,7 +218,6 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAwsAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -243,7 +238,7 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, authInfo run
 /*
   GetCSPMAwsAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
 */
-func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsAccountScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams) (*GetCSPMAwsAccountScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsAccountScriptsAttachmentParams()
@@ -258,7 +253,6 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAwsAccountScriptsAttachmentReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -277,7 +271,7 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 /*
   GetCSPMAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
 */
-func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
+func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsConsoleSetupURLsParams()
@@ -292,7 +286,6 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAwsConsoleSetupURLsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -313,7 +306,7 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 /*
   GetCSPMAzureAccount returns information about azure account registration
 */
-func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
+func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureAccountParams()
@@ -328,7 +321,6 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAzureAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -349,7 +341,7 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, authInfo
 /*
   GetCSPMAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
 */
-func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureUserScriptsAttachmentParams()
@@ -364,7 +356,6 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAzureUserScriptsAttachmentReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -383,7 +374,7 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 /*
   GetCSPMPolicy givens a policy ID returns detailed policy information
 */
-func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error) {
+func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMPolicyParams()
@@ -398,7 +389,6 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMPolicyReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -419,7 +409,7 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, authInfo runtime.Cli
 /*
   GetCSPMPolicySettings returns information about current policy settings
 */
-func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error) {
+func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMPolicySettingsParams()
@@ -434,7 +424,6 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMPolicySettingsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -455,7 +444,7 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, auth
 /*
   GetCSPMScanSchedule returns scan schedule configuration for one or more cloud platforms
 */
-func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMScanScheduleOK, error) {
+func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMScanScheduleParams()
@@ -470,7 +459,6 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMScanScheduleReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -489,7 +477,7 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, authInfo
 /*
   UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
 */
-func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMAzureAccountClientIDCreated, error) {
+func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams) (*UpdateCSPMAzureAccountClientIDCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMAzureAccountClientIDParams()
@@ -504,7 +492,6 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateCSPMAzureAccountClientIDReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -524,7 +511,7 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 /*
   UpdateCSPMPolicySettings updates a policy setting can be used to override policy severity or to disable a policy entirely
 */
-func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error) {
+func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMPolicySettingsParams()
@@ -539,7 +526,6 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateCSPMPolicySettingsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -560,7 +546,7 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 /*
   UpdateCSPMScanSchedule updates scan schedule configuration for one or more cloud platforms
 */
-func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCSPMScanScheduleOK, error) {
+func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams) (*UpdateCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMScanScheduleParams()
@@ -575,7 +561,6 @@ func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateCSPMScanScheduleReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

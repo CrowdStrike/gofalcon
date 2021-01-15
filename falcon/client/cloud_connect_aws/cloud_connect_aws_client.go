@@ -27,23 +27,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOrUpdateAWSSettingsCreated, error)
+	CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams) (*CreateOrUpdateAWSSettingsCreated, error)
 
-	DeleteAWSAccounts(params *DeleteAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAWSAccountsOK, error)
+	DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSAccountsOK, error)
 
-	GetAWSAccounts(params *GetAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAWSAccountsOK, error)
+	GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK, error)
 
-	GetAWSSettings(params *GetAWSSettingsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAWSSettingsOK, error)
+	GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK, error)
 
-	ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*ProvisionAWSAccountsCreated, error)
+	ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*ProvisionAWSAccountsCreated, error)
 
-	QueryAWSAccounts(params *QueryAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAWSAccountsOK, error)
+	QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAccountsOK, error)
 
-	QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAWSAccountsForIDsOK, error)
+	QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*QueryAWSAccountsForIDsOK, error)
 
-	UpdateAWSAccounts(params *UpdateAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAWSAccountsOK, error)
+	UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSAccountsOK, error)
 
-	VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyAWSAccountAccessOK, error)
+	VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams) (*VerifyAWSAccountAccessOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 /*
   CreateOrUpdateAWSSettings creates or update global settings which are applicable to all provisioned a w s accounts
 */
-func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOrUpdateAWSSettingsCreated, error) {
+func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams) (*CreateOrUpdateAWSSettingsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateOrUpdateAWSSettingsParams()
@@ -66,7 +66,6 @@ func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateOrUpdateAWSSettingsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -86,7 +85,7 @@ func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsPara
 /*
   DeleteAWSAccounts deletes a set of a w s accounts by specifying their i ds
 */
-func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAWSAccountsOK, error) {
+func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAWSAccountsParams()
@@ -101,7 +100,6 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteAWSAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -120,7 +118,7 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, authInfo run
 /*
   GetAWSAccounts retrieves a set of a w s accounts by specifying their i ds
 */
-func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAWSAccountsOK, error) {
+func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAWSAccountsParams()
@@ -135,7 +133,6 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetAWSAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -154,7 +151,7 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, authInfo runtime.C
 /*
   GetAWSSettings retrieves a set of global settings which are applicable to all provisioned a w s accounts
 */
-func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAWSSettingsOK, error) {
+func (a *Client) GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAWSSettingsParams()
@@ -169,7 +166,6 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetAWSSettingsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -188,7 +184,7 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, authInfo runtime.C
 /*
   ProvisionAWSAccounts provisions a w s accounts by specifying details about the accounts to provision
 */
-func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*ProvisionAWSAccountsCreated, error) {
+func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*ProvisionAWSAccountsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProvisionAWSAccountsParams()
@@ -203,7 +199,6 @@ func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ProvisionAWSAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -223,7 +218,7 @@ func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, authIn
 /*
   QueryAWSAccounts searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s accounts which match the filter criteria
 */
-func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAWSAccountsOK, error) {
+func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAWSAccountsParams()
@@ -238,7 +233,6 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryAWSAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -257,7 +251,7 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, authInfo runti
 /*
   QueryAWSAccountsForIDs searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s account i ds which match the filter criteria
 */
-func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAWSAccountsForIDsOK, error) {
+func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*QueryAWSAccountsForIDsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAWSAccountsForIDsParams()
@@ -272,7 +266,6 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryAWSAccountsForIDsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -291,7 +284,7 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, au
 /*
   UpdateAWSAccounts updates a w s accounts by specifying the ID of the account and details to update
 */
-func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAWSAccountsOK, error) {
+func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAWSAccountsParams()
@@ -306,7 +299,6 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateAWSAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -325,7 +317,7 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, authInfo run
 /*
   VerifyAWSAccountAccess performs an access verification check on the specified a w s account i ds
 */
-func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyAWSAccountAccessOK, error) {
+func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams) (*VerifyAWSAccountAccessOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerifyAWSAccountAccessParams()
@@ -340,7 +332,6 @@ func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &VerifyAWSAccountAccessReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

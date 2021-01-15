@@ -25,15 +25,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadSensorInstallerByIDOK, error)
+	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams) (*DownloadSensorInstallerByIDOK, error)
 
-	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCombinedSensorInstallersByQueryOK, error)
+	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams) (*GetCombinedSensorInstallersByQueryOK, error)
 
-	GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersByQueryOK, error)
+	GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams) (*GetSensorInstallersByQueryOK, error)
 
-	GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersCCIDByQueryOK, error)
+	GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams) (*GetSensorInstallersCCIDByQueryOK, error)
 
-	GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error)
+	GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
   DownloadSensorInstallerByID downloads sensor installer by s h a256 ID
 */
-func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadSensorInstallerByIDOK, error) {
+func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams) (*DownloadSensorInstallerByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadSensorInstallerByIDParams()
@@ -56,7 +56,6 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DownloadSensorInstallerByIDReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -75,7 +74,7 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 /*
   GetCombinedSensorInstallersByQuery gets sensor installer details by provided query
 */
-func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCombinedSensorInstallersByQueryOK, error) {
+func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams) (*GetCombinedSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCombinedSensorInstallersByQueryParams()
@@ -90,7 +89,6 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCombinedSensorInstallersByQueryReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -109,7 +107,7 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 /*
   GetSensorInstallersByQuery gets sensor installer i ds by provided query
 */
-func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersByQueryOK, error) {
+func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams) (*GetSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersByQueryParams()
@@ -124,7 +122,6 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorInstallersByQueryReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -143,7 +140,7 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 /*
   GetSensorInstallersCCIDByQuery gets c c ID to use with sensor installers
 */
-func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersCCIDByQueryOK, error) {
+func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams) (*GetSensorInstallersCCIDByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersCCIDByQueryParams()
@@ -158,7 +155,6 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorInstallersCCIDByQueryReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -177,7 +173,7 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 /*
   GetSensorInstallersEntities gets sensor installer details by provided s h a256 i ds
 */
-func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error) {
+func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersEntitiesParams()
@@ -192,7 +188,6 @@ func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntities
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorInstallersEntitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

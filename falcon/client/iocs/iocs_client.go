@@ -25,23 +25,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOC(params *CreateIOCParams, authInfo runtime.ClientAuthInfoWriter) (*CreateIOCOK, error)
+	CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error)
 
-	DeleteIOC(params *DeleteIOCParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIOCOK, error)
+	DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error)
 
-	DevicesCount(params *DevicesCountParams, authInfo runtime.ClientAuthInfoWriter) (*DevicesCountOK, error)
+	DevicesCount(params *DevicesCountParams) (*DevicesCountOK, error)
 
-	DevicesRanOn(params *DevicesRanOnParams, authInfo runtime.ClientAuthInfoWriter) (*DevicesRanOnOK, error)
+	DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, error)
 
-	GetIOC(params *GetIOCParams, authInfo runtime.ClientAuthInfoWriter) (*GetIOCOK, error)
+	GetIOC(params *GetIOCParams) (*GetIOCOK, error)
 
-	ProcessesRanOn(params *ProcessesRanOnParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessesRanOnOK, error)
+	ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK, error)
 
-	QueryIOCs(params *QueryIOCsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIOCsOK, error)
+	QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error)
 
-	UpdateIOC(params *UpdateIOCParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIOCOK, error)
+	UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error)
 
-	EntitiesProcesses(params *EntitiesProcessesParams, authInfo runtime.ClientAuthInfoWriter) (*EntitiesProcessesOK, error)
+	EntitiesProcesses(params *EntitiesProcessesParams) (*EntitiesProcessesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ type ClientService interface {
 /*
   CreateIOC creates a new i o c
 */
-func (a *Client) CreateIOC(params *CreateIOCParams, authInfo runtime.ClientAuthInfoWriter) (*CreateIOCOK, error) {
+func (a *Client) CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateIOCParams()
@@ -64,7 +64,6 @@ func (a *Client) CreateIOC(params *CreateIOCParams, authInfo runtime.ClientAuthI
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateIOCReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -83,7 +82,7 @@ func (a *Client) CreateIOC(params *CreateIOCParams, authInfo runtime.ClientAuthI
 /*
   DeleteIOC deletes an i o c by providing a type and value
 */
-func (a *Client) DeleteIOC(params *DeleteIOCParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIOCOK, error) {
+func (a *Client) DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteIOCParams()
@@ -98,7 +97,6 @@ func (a *Client) DeleteIOC(params *DeleteIOCParams, authInfo runtime.ClientAuthI
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteIOCReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -117,7 +115,7 @@ func (a *Client) DeleteIOC(params *DeleteIOCParams, authInfo runtime.ClientAuthI
 /*
   DevicesCount numbers of hosts in your customer account that have observed a given custom i o c
 */
-func (a *Client) DevicesCount(params *DevicesCountParams, authInfo runtime.ClientAuthInfoWriter) (*DevicesCountOK, error) {
+func (a *Client) DevicesCount(params *DevicesCountParams) (*DevicesCountOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevicesCountParams()
@@ -132,7 +130,6 @@ func (a *Client) DevicesCount(params *DevicesCountParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DevicesCountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -151,7 +148,7 @@ func (a *Client) DevicesCount(params *DevicesCountParams, authInfo runtime.Clien
 /*
   DevicesRanOn finds hosts that have observed a given custom i o c for details about those hosts use g e t devices entities devices v1
 */
-func (a *Client) DevicesRanOn(params *DevicesRanOnParams, authInfo runtime.ClientAuthInfoWriter) (*DevicesRanOnOK, error) {
+func (a *Client) DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevicesRanOnParams()
@@ -166,7 +163,6 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DevicesRanOnReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -185,7 +181,7 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams, authInfo runtime.Clien
 /*
   GetIOC gets an i o c by providing a type and value
 */
-func (a *Client) GetIOC(params *GetIOCParams, authInfo runtime.ClientAuthInfoWriter) (*GetIOCOK, error) {
+func (a *Client) GetIOC(params *GetIOCParams) (*GetIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIOCParams()
@@ -200,7 +196,6 @@ func (a *Client) GetIOC(params *GetIOCParams, authInfo runtime.ClientAuthInfoWri
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIOCReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -219,7 +214,7 @@ func (a *Client) GetIOC(params *GetIOCParams, authInfo runtime.ClientAuthInfoWri
 /*
   ProcessesRanOn searches for processes associated with a custom i o c
 */
-func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessesRanOnOK, error) {
+func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProcessesRanOnParams()
@@ -234,7 +229,6 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ProcessesRanOnReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -253,7 +247,7 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, authInfo runtime.C
 /*
   QueryIOCs searches the custom i o cs in your customer account
 */
-func (a *Client) QueryIOCs(params *QueryIOCsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIOCsOK, error) {
+func (a *Client) QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIOCsParams()
@@ -268,7 +262,6 @@ func (a *Client) QueryIOCs(params *QueryIOCsParams, authInfo runtime.ClientAuthI
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIOCsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -287,7 +280,7 @@ func (a *Client) QueryIOCs(params *QueryIOCsParams, authInfo runtime.ClientAuthI
 /*
   UpdateIOC updates an i o c by providing a type and value
 */
-func (a *Client) UpdateIOC(params *UpdateIOCParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIOCOK, error) {
+func (a *Client) UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateIOCParams()
@@ -302,7 +295,6 @@ func (a *Client) UpdateIOC(params *UpdateIOCParams, authInfo runtime.ClientAuthI
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateIOCReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -321,7 +313,7 @@ func (a *Client) UpdateIOC(params *UpdateIOCParams, authInfo runtime.ClientAuthI
 /*
   EntitiesProcesses fors the provided process ID retrieve the process details
 */
-func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams, authInfo runtime.ClientAuthInfoWriter) (*EntitiesProcessesOK, error) {
+func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams) (*EntitiesProcessesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesProcessesParams()
@@ -336,7 +328,6 @@ func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &EntitiesProcessesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

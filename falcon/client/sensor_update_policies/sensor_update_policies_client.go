@@ -27,37 +27,37 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSensorUpdatePoliciesCreated, error)
+	CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams) (*CreateSensorUpdatePoliciesCreated, error)
 
-	CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateSensorUpdatePoliciesV2Created, error)
+	CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params) (*CreateSensorUpdatePoliciesV2Created, error)
 
-	DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSensorUpdatePoliciesOK, error)
+	DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams) (*DeleteSensorUpdatePoliciesOK, error)
 
-	GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorUpdatePoliciesOK, error)
+	GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) (*GetSensorUpdatePoliciesOK, error)
 
-	GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetSensorUpdatePoliciesV2OK, error)
+	GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params) (*GetSensorUpdatePoliciesV2OK, error)
 
-	PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformSensorUpdatePoliciesActionOK, error)
+	PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams) (*PerformSensorUpdatePoliciesActionOK, error)
 
-	QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdateBuildsOK, error)
+	QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams) (*QueryCombinedSensorUpdateBuildsOK, error)
 
-	QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePoliciesOK, error)
+	QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams) (*QueryCombinedSensorUpdatePoliciesOK, error)
 
-	QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePoliciesV2OK, error)
+	QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params) (*QueryCombinedSensorUpdatePoliciesV2OK, error)
 
-	QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePolicyMembersOK, error)
+	QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams) (*QueryCombinedSensorUpdatePolicyMembersOK, error)
 
-	QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorUpdatePoliciesOK, error)
+	QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams) (*QuerySensorUpdatePoliciesOK, error)
 
-	QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorUpdatePolicyMembersOK, error)
+	QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams) (*QuerySensorUpdatePolicyMembersOK, error)
 
-	RevealUninstallToken(params *RevealUninstallTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevealUninstallTokenOK, error)
+	RevealUninstallToken(params *RevealUninstallTokenParams) (*RevealUninstallTokenOK, error)
 
-	SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetSensorUpdatePoliciesPrecedenceOK, error)
+	SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams) (*SetSensorUpdatePoliciesPrecedenceOK, error)
 
-	UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorUpdatePoliciesOK, error)
+	UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams) (*UpdateSensorUpdatePoliciesOK, error)
 
-	UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorUpdatePoliciesV2OK, error)
+	UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params) (*UpdateSensorUpdatePoliciesV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -65,7 +65,7 @@ type ClientService interface {
 /*
   CreateSensorUpdatePolicies creates sensor update policies by specifying details about the policy to create
 */
-func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSensorUpdatePoliciesCreated, error) {
+func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams) (*CreateSensorUpdatePoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSensorUpdatePoliciesParams()
@@ -80,7 +80,6 @@ func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateSensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -100,7 +99,7 @@ func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesPa
 /*
   CreateSensorUpdatePoliciesV2 creates sensor update policies by specifying details about the policy to create with additional support for uninstall protection
 */
-func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateSensorUpdatePoliciesV2Created, error) {
+func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params) (*CreateSensorUpdatePoliciesV2Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSensorUpdatePoliciesV2Params()
@@ -115,7 +114,6 @@ func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePolicies
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateSensorUpdatePoliciesV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -135,7 +133,7 @@ func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePolicies
 /*
   DeleteSensorUpdatePolicies deletes a set of sensor update policies by specifying their i ds
 */
-func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSensorUpdatePoliciesOK, error) {
+func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams) (*DeleteSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSensorUpdatePoliciesParams()
@@ -150,7 +148,6 @@ func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteSensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -169,7 +166,7 @@ func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesPa
 /*
   GetSensorUpdatePolicies retrieves a set of sensor update policies by specifying their i ds
 */
-func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetSensorUpdatePoliciesOK, error) {
+func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) (*GetSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorUpdatePoliciesParams()
@@ -184,7 +181,6 @@ func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -203,7 +199,7 @@ func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, 
 /*
   GetSensorUpdatePoliciesV2 retrieves a set of sensor update policies with additional support for uninstall protection by specifying their i ds
 */
-func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetSensorUpdatePoliciesV2OK, error) {
+func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params) (*GetSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorUpdatePoliciesV2Params()
@@ -218,7 +214,6 @@ func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Para
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSensorUpdatePoliciesV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -237,7 +232,7 @@ func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Para
 /*
   PerformSensorUpdatePoliciesAction performs the specified action on the sensor update policies specified in the request
 */
-func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformSensorUpdatePoliciesActionOK, error) {
+func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams) (*PerformSensorUpdatePoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformSensorUpdatePoliciesActionParams()
@@ -252,7 +247,6 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformSensorUpdatePoliciesActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -271,7 +265,7 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 /*
   QueryCombinedSensorUpdateBuilds retrieves available builds for use with sensor update policies
 */
-func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdateBuildsOK, error) {
+func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams) (*QueryCombinedSensorUpdateBuildsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdateBuildsParams()
@@ -286,7 +280,6 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedSensorUpdateBuildsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -305,7 +298,7 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 /*
   QueryCombinedSensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePoliciesOK, error) {
+func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams) (*QueryCombinedSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePoliciesParams()
@@ -320,7 +313,6 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedSensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -339,7 +331,7 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 /*
   QueryCombinedSensorUpdatePoliciesV2 searches for sensor update policies with additional support for uninstall protection in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePoliciesV2OK, error) {
+func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params) (*QueryCombinedSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePoliciesV2Params()
@@ -354,7 +346,6 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedSensorUpdatePoliciesV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -373,7 +364,7 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 /*
   QueryCombinedSensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedSensorUpdatePolicyMembersOK, error) {
+func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams) (*QueryCombinedSensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePolicyMembersParams()
@@ -388,7 +379,6 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedSensorUpdatePolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -407,7 +397,7 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 /*
   QuerySensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policy i ds which match the filter criteria
 */
-func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorUpdatePoliciesOK, error) {
+func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams) (*QuerySensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorUpdatePoliciesParams()
@@ -422,7 +412,6 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -441,7 +430,7 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 /*
   QuerySensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySensorUpdatePolicyMembersOK, error) {
+func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams) (*QuerySensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorUpdatePolicyMembersParams()
@@ -456,7 +445,6 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySensorUpdatePolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -475,7 +463,7 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 /*
   RevealUninstallToken reveals an uninstall token for a specific device to retrieve the bulk maintenance token pass the value m a i n t e n a n c e as the value for device id
 */
-func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevealUninstallTokenOK, error) {
+func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams) (*RevealUninstallTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevealUninstallTokenParams()
@@ -490,7 +478,6 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RevealUninstallTokenReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -509,7 +496,7 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, authIn
 /*
   SetSensorUpdatePoliciesPrecedence sets the precedence of sensor update policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetSensorUpdatePoliciesPrecedenceOK, error) {
+func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams) (*SetSensorUpdatePoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetSensorUpdatePoliciesPrecedenceParams()
@@ -524,7 +511,6 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SetSensorUpdatePoliciesPrecedenceReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -543,7 +529,7 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 /*
   UpdateSensorUpdatePolicies updates sensor update policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorUpdatePoliciesOK, error) {
+func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams) (*UpdateSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorUpdatePoliciesParams()
@@ -558,7 +544,6 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateSensorUpdatePoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -577,7 +562,7 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 /*
   UpdateSensorUpdatePoliciesV2 updates sensor update policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 */
-func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSensorUpdatePoliciesV2OK, error) {
+func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params) (*UpdateSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorUpdatePoliciesV2Params()
@@ -592,7 +577,6 @@ func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePolicies
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateSensorUpdatePoliciesV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

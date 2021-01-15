@@ -27,29 +27,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchAdminCmd(params *BatchAdminCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchAdminCmdCreated, error)
+	BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreated, error)
 
-	RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckAdminCommandStatusOK, error)
+	RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams) (*RTRCheckAdminCommandStatusOK, error)
 
-	RTRCreatePutFiles(params *RTRCreatePutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCreatePutFilesOK, error)
+	RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreatePutFilesOK, error)
 
-	RTRCreateScripts(params *RTRCreateScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCreateScriptsOK, error)
+	RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScriptsOK, error)
 
-	RTRDeletePutFiles(params *RTRDeletePutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeletePutFilesOK, error)
+	RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeletePutFilesOK, error)
 
-	RTRDeleteScripts(params *RTRDeleteScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteScriptsOK, error)
+	RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScriptsOK, error)
 
-	RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteAdminCommandCreated, error)
+	RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*RTRExecuteAdminCommandCreated, error)
 
-	RTRGetPutFiles(params *RTRGetPutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetPutFilesOK, error)
+	RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK, error)
 
-	RTRGetScripts(params *RTRGetScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetScriptsOK, error)
+	RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, error)
 
-	RTRListPutFiles(params *RTRListPutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListPutFilesOK, error)
+	RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFilesOK, error)
 
-	RTRListScripts(params *RTRListScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListScriptsOK, error)
+	RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK, error)
 
-	RTRUpdateScripts(params *RTRUpdateScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRUpdateScriptsOK, error)
+	RTRUpdateScripts(params *RTRUpdateScriptsParams) (*RTRUpdateScriptsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,7 +57,7 @@ type ClientService interface {
 /*
   BatchAdminCmd batches executes a r t r administrator command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchAdminCmdCreated, error) {
+func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchAdminCmdParams()
@@ -72,7 +72,6 @@ func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchAdminCmdReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -92,7 +91,7 @@ func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, authInfo runtime.Cli
 /*
   RTRCheckAdminCommandStatus gets status of an executed r t r administrator command on a single host
 */
-func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckAdminCommandStatusOK, error) {
+func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams) (*RTRCheckAdminCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckAdminCommandStatusParams()
@@ -107,7 +106,6 @@ func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRCheckAdminCommandStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -126,7 +124,7 @@ func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusPa
 /*
   RTRCreatePutFiles uploads a new put file to use for the r t r put command
 */
-func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCreatePutFilesOK, error) {
+func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreatePutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCreatePutFilesParams()
@@ -141,7 +139,6 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRCreatePutFilesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -160,7 +157,7 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, authInfo run
 /*
   RTRCreateScripts uploads a new custom script to use for the r t r runscript command
 */
-func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCreateScriptsOK, error) {
+func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCreateScriptsParams()
@@ -175,7 +172,6 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRCreateScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -194,7 +190,7 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, authInfo runti
 /*
   RTRDeletePutFiles deletes a put file based on the ID given can only delete one file at a time
 */
-func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeletePutFilesOK, error) {
+func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeletePutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeletePutFilesParams()
@@ -209,7 +205,6 @@ func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRDeletePutFilesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -228,7 +223,7 @@ func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, authInfo run
 /*
   RTRDeleteScripts deletes a custom script based on the ID given can only delete one script at a time
 */
-func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteScriptsOK, error) {
+func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteScriptsParams()
@@ -243,7 +238,6 @@ func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRDeleteScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -262,7 +256,7 @@ func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, authInfo runti
 /*
   RTRExecuteAdminCommand executes a r t r administrator command on a single host
 */
-func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteAdminCommandCreated, error) {
+func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*RTRExecuteAdminCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteAdminCommandParams()
@@ -277,7 +271,6 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRExecuteAdminCommandReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -297,7 +290,7 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, au
 /*
   RTRGetPutFiles gets put files based on the ID s given these are used for the r t r put command
 */
-func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetPutFilesOK, error) {
+func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetPutFilesParams()
@@ -312,7 +305,6 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRGetPutFilesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -331,7 +323,7 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, authInfo runtime.C
 /*
   RTRGetScripts gets custom scripts based on the ID s given these are used for the r t r runscript command
 */
-func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetScriptsOK, error) {
+func (a *Client) RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetScriptsParams()
@@ -346,7 +338,6 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRGetScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -365,7 +356,7 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, authInfo runtime.Cli
 /*
   RTRListPutFiles gets a list of put file ID s that are available to the user for the put command
 */
-func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListPutFilesOK, error) {
+func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListPutFilesParams()
@@ -380,7 +371,6 @@ func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListPutFilesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -399,7 +389,7 @@ func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, authInfo runtime
 /*
   RTRListScripts gets a list of custom script ID s that are available to the user for the runscript command
 */
-func (a *Client) RTRListScripts(params *RTRListScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListScriptsOK, error) {
+func (a *Client) RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListScriptsParams()
@@ -414,7 +404,6 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -433,7 +422,7 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams, authInfo runtime.C
 /*
   RTRUpdateScripts uploads a new scripts to replace an existing one
 */
-func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRUpdateScriptsOK, error) {
+func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams) (*RTRUpdateScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRUpdateScriptsParams()
@@ -448,7 +437,6 @@ func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRUpdateScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

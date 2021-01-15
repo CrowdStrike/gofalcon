@@ -27,15 +27,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDeviceDetails(params *GetDeviceDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeviceDetailsOK, error)
+	GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDetailsOK, error)
 
-	PerformActionV2(params *PerformActionV2Params, authInfo runtime.ClientAuthInfoWriter) (*PerformActionV2Accepted, error)
+	PerformActionV2(params *PerformActionV2Params) (*PerformActionV2Accepted, error)
 
-	QueryDevicesByFilter(params *QueryDevicesByFilterParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDevicesByFilterOK, error)
+	QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*QueryDevicesByFilterOK, error)
 
-	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDevicesByFilterScrollOK, error)
+	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams) (*QueryDevicesByFilterScrollOK, error)
 
-	QueryHiddenDevices(params *QueryHiddenDevicesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryHiddenDevicesOK, error)
+	QueryHiddenDevices(params *QueryHiddenDevicesParams) (*QueryHiddenDevicesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 /*
   GetDeviceDetails gets details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
 */
-func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeviceDetailsOK, error) {
+func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDetailsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeviceDetailsParams()
@@ -58,7 +58,6 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetDeviceDetailsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -77,7 +76,7 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, authInfo runti
 /*
   PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host delete or restore a host
 */
-func (a *Client) PerformActionV2(params *PerformActionV2Params, authInfo runtime.ClientAuthInfoWriter) (*PerformActionV2Accepted, error) {
+func (a *Client) PerformActionV2(params *PerformActionV2Params) (*PerformActionV2Accepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformActionV2Params()
@@ -92,7 +91,6 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformActionV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -112,7 +110,7 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params, authInfo runtime
 /*
   QueryDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria
 */
-func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDevicesByFilterOK, error) {
+func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*QueryDevicesByFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDevicesByFilterParams()
@@ -127,7 +125,6 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryDevicesByFilterReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -146,7 +143,7 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, authIn
 /*
   QueryDevicesByFilterScroll searches for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
 */
-func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDevicesByFilterScrollOK, error) {
+func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams) (*QueryDevicesByFilterScrollOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDevicesByFilterScrollParams()
@@ -161,7 +158,6 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryDevicesByFilterScrollReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -180,7 +176,7 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 /*
   QueryHiddenDevices retrieves hidden hosts that match the provided filter criteria
 */
-func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryHiddenDevicesOK, error) {
+func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams) (*QueryHiddenDevicesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryHiddenDevicesParams()
@@ -195,7 +191,6 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryHiddenDevicesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
