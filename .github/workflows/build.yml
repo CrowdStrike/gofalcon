@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest]
         go-version: [1.14.x, 1.15.x]
 
     runs-on: ${{ matrix.os }}
@@ -30,7 +30,6 @@ jobs:
 
     - name: Build
       run: |
-        export PATH=~/go/bin:$PATH
         make build
 
     - name: Unit tests
