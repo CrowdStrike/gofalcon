@@ -27,23 +27,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateHostGroups(params *CreateHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateHostGroupsCreated, error)
+	CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGroupsCreated, error)
 
-	DeleteHostGroups(params *DeleteHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteHostGroupsOK, error)
+	DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGroupsOK, error)
 
-	GetHostGroups(params *GetHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetHostGroupsOK, error)
+	GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, error)
 
-	PerformGroupAction(params *PerformGroupActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformGroupActionOK, error)
+	PerformGroupAction(params *PerformGroupActionParams) (*PerformGroupActionOK, error)
 
-	QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedGroupMembersOK, error)
+	QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams) (*QueryCombinedGroupMembersOK, error)
 
-	QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedHostGroupsOK, error)
+	QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) (*QueryCombinedHostGroupsOK, error)
 
-	QueryGroupMembers(params *QueryGroupMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryGroupMembersOK, error)
+	QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroupMembersOK, error)
 
-	QueryHostGroups(params *QueryHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryHostGroupsOK, error)
+	QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroupsOK, error)
 
-	UpdateHostGroups(params *UpdateHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateHostGroupsOK, error)
+	UpdateHostGroups(params *UpdateHostGroupsParams) (*UpdateHostGroupsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 /*
   CreateHostGroups creates host groups by specifying details about the group to create
 */
-func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateHostGroupsCreated, error) {
+func (a *Client) CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGroupsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateHostGroupsParams()
@@ -66,7 +66,6 @@ func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -86,7 +85,7 @@ func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, authInfo runti
 /*
   DeleteHostGroups deletes a set of host groups by specifying their i ds
 */
-func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteHostGroupsOK, error) {
+func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteHostGroupsParams()
@@ -101,7 +100,6 @@ func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -120,7 +118,7 @@ func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, authInfo runti
 /*
   GetHostGroups retrieves a set of host groups by specifying their i ds
 */
-func (a *Client) GetHostGroups(params *GetHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetHostGroupsOK, error) {
+func (a *Client) GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHostGroupsParams()
@@ -135,7 +133,6 @@ func (a *Client) GetHostGroups(params *GetHostGroupsParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -154,7 +151,7 @@ func (a *Client) GetHostGroups(params *GetHostGroupsParams, authInfo runtime.Cli
 /*
   PerformGroupAction performs the specified action on the host groups specified in the request
 */
-func (a *Client) PerformGroupAction(params *PerformGroupActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformGroupActionOK, error) {
+func (a *Client) PerformGroupAction(params *PerformGroupActionParams) (*PerformGroupActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformGroupActionParams()
@@ -169,7 +166,6 @@ func (a *Client) PerformGroupAction(params *PerformGroupActionParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformGroupActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -188,7 +184,7 @@ func (a *Client) PerformGroupAction(params *PerformGroupActionParams, authInfo r
 /*
   QueryCombinedGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedGroupMembersOK, error) {
+func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams) (*QueryCombinedGroupMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedGroupMembersParams()
@@ -203,7 +199,6 @@ func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersPara
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedGroupMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -222,7 +217,7 @@ func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersPara
 /*
   QueryCombinedHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host groups which match the filter criteria
 */
-func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedHostGroupsOK, error) {
+func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) (*QueryCombinedHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedHostGroupsParams()
@@ -237,7 +232,6 @@ func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -256,7 +250,7 @@ func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, 
 /*
   QueryGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryGroupMembersOK, error) {
+func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroupMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryGroupMembersParams()
@@ -271,7 +265,6 @@ func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryGroupMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -290,7 +283,7 @@ func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, authInfo run
 /*
   QueryHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host group i ds which match the filter criteria
 */
-func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryHostGroupsOK, error) {
+func (a *Client) QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryHostGroupsParams()
@@ -305,7 +298,6 @@ func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -324,7 +316,7 @@ func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, authInfo runtime
 /*
   UpdateHostGroups updates host groups by specifying the ID of the group and details to update
 */
-func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateHostGroupsOK, error) {
+func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams) (*UpdateHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateHostGroupsParams()
@@ -339,7 +331,6 @@ func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateHostGroupsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

@@ -27,29 +27,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateUser(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserCreated, error)
+	CreateUser(params *CreateUserParams) (*CreateUserCreated, error)
 
-	DeleteUser(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserOK, error)
+	DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error)
 
-	GetAvailableRoleIds(params *GetAvailableRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailableRoleIdsOK, error)
+	GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAvailableRoleIdsOK, error)
 
-	GetRoles(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesOK, error)
+	GetRoles(params *GetRolesParams) (*GetRolesOK, error)
 
-	GetUserRoleIds(params *GetUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserRoleIdsOK, error)
+	GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK, error)
 
-	GrantUserRoleIds(params *GrantUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserRoleIdsOK, error)
+	GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRoleIdsOK, error)
 
-	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEmailsByCIDOK, error)
+	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*RetrieveEmailsByCIDOK, error)
 
-	RetrieveUser(params *RetrieveUserParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserOK, error)
+	RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, error)
 
-	RetrieveUserUUID(params *RetrieveUserUUIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserUUIDOK, error)
+	RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUserUUIDOK, error)
 
-	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserUUIDsByCIDOK, error)
+	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*RetrieveUserUUIDsByCIDOK, error)
 
-	RevokeUserRoleIds(params *RevokeUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserRoleIdsOK, error)
+	RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUserRoleIdsOK, error)
 
-	UpdateUser(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOK, error)
+	UpdateUser(params *UpdateUserParams) (*UpdateUserOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,7 +57,7 @@ type ClientService interface {
 /*
   CreateUser creates a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
 */
-func (a *Client) CreateUser(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserCreated, error) {
+func (a *Client) CreateUser(params *CreateUserParams) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserParams()
@@ -72,7 +72,6 @@ func (a *Client) CreateUser(params *CreateUserParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateUserReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -92,7 +91,7 @@ func (a *Client) CreateUser(params *CreateUserParams, authInfo runtime.ClientAut
 /*
   DeleteUser deletes a user permanently
 */
-func (a *Client) DeleteUser(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserOK, error) {
+func (a *Client) DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserParams()
@@ -107,7 +106,6 @@ func (a *Client) DeleteUser(params *DeleteUserParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteUserReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -126,7 +124,7 @@ func (a *Client) DeleteUser(params *DeleteUserParams, authInfo runtime.ClientAut
 /*
   GetAvailableRoleIds shows role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
 */
-func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailableRoleIdsOK, error) {
+func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAvailableRoleIdsParams()
@@ -141,7 +139,6 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetAvailableRoleIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -160,7 +157,7 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, authInfo
 /*
   GetRoles gets info about a role
 */
-func (a *Client) GetRoles(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesOK, error) {
+func (a *Client) GetRoles(params *GetRolesParams) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRolesParams()
@@ -175,7 +172,6 @@ func (a *Client) GetRoles(params *GetRolesParams, authInfo runtime.ClientAuthInf
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRolesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -194,7 +190,7 @@ func (a *Client) GetRoles(params *GetRolesParams, authInfo runtime.ClientAuthInf
 /*
   GetUserRoleIds shows role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
 */
-func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserRoleIdsOK, error) {
+func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserRoleIdsParams()
@@ -209,7 +205,6 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetUserRoleIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -228,7 +223,7 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, authInfo runtime.C
 /*
   GrantUserRoleIds assigns one or more roles to a user
 */
-func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserRoleIdsOK, error) {
+func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserRoleIdsParams()
@@ -243,7 +238,6 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GrantUserRoleIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -262,7 +256,7 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, authInfo runti
 /*
   RetrieveEmailsByCID lists the usernames usually an email address for all users in your customer account
 */
-func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEmailsByCIDOK, error) {
+func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveEmailsByCIDParams()
@@ -277,7 +271,6 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RetrieveEmailsByCIDReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -296,7 +289,7 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, authInfo
 /*
   RetrieveUser gets info about a user
 */
-func (a *Client) RetrieveUser(params *RetrieveUserParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserOK, error) {
+func (a *Client) RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserParams()
@@ -311,7 +304,6 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RetrieveUserReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -330,7 +322,7 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams, authInfo runtime.Clien
 /*
   RetrieveUserUUID gets a user s ID by providing a username usually an email address
 */
-func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserUUIDOK, error) {
+func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserUUIDParams()
@@ -345,7 +337,6 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RetrieveUserUUIDReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -364,7 +355,7 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, authInfo runti
 /*
   RetrieveUserUUIDsByCID lists user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
 */
-func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserUUIDsByCIDOK, error) {
+func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserUUIDsByCIDParams()
@@ -379,7 +370,6 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RetrieveUserUUIDsByCIDReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -398,7 +388,7 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, au
 /*
   RevokeUserRoleIds revokes one or more roles from a user
 */
-func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserRoleIdsOK, error) {
+func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserRoleIdsParams()
@@ -413,7 +403,6 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RevokeUserRoleIdsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -432,7 +421,7 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, authInfo run
 /*
   UpdateUser modifies an existing user s first or last name
 */
-func (a *Client) UpdateUser(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOK, error) {
+func (a *Client) UpdateUser(params *UpdateUserParams) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserParams()
@@ -447,7 +436,6 @@ func (a *Client) UpdateUser(params *UpdateUserParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateUserReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

@@ -25,9 +25,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetVulnerabilities(params *GetVulnerabilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetVulnerabilitiesOK, error)
+	GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulnerabilitiesOK, error)
 
-	QueryVulnerabilities(params *QueryVulnerabilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryVulnerabilitiesOK, error)
+	QueryVulnerabilities(params *QueryVulnerabilitiesParams) (*QueryVulnerabilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -35,7 +35,7 @@ type ClientService interface {
 /*
   GetVulnerabilities gets details on vulnerabilities by providing one or more i ds
 */
-func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetVulnerabilitiesOK, error) {
+func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetVulnerabilitiesParams()
@@ -50,7 +50,6 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetVulnerabilitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -69,7 +68,7 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, authInfo r
 /*
   QueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability i ds which match the filter criteria
 */
-func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryVulnerabilitiesOK, error) {
+func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams) (*QueryVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryVulnerabilitiesParams()
@@ -84,7 +83,6 @@ func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryVulnerabilitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

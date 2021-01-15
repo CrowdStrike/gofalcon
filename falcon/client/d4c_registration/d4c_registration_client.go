@@ -27,15 +27,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
+	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
 
-	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
+	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
 
-	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
+	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
 
-	GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error)
+	GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error)
 
-	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMGCPUserScriptsAttachmentOK, error)
+	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams) (*GetCSPMGCPUserScriptsAttachmentOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 /*
   CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
 */
-func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
+func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMGCPAccountParams()
@@ -58,7 +58,6 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateCSPMGCPAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -79,7 +78,7 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, authIn
 /*
   GetCSPMAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
 */
-func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
+func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureUserScriptsParams()
@@ -94,7 +93,6 @@ func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMAzureUserScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -115,7 +113,7 @@ func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, 
 /*
   GetCSPMCGPAccount returns information about the current status of an g c p account
 */
-func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
+func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMCGPAccountParams()
@@ -130,7 +128,6 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMCGPAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -151,7 +148,7 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, authInfo run
 /*
   GetCSPMGCPUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
 */
-func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
+func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMGCPUserScriptsParams()
@@ -166,7 +163,6 @@ func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMGCPUserScriptsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -187,7 +183,7 @@ func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, auth
 /*
   GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
 */
-func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, authInfo runtime.ClientAuthInfoWriter) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMGCPUserScriptsAttachmentParams()
@@ -202,7 +198,6 @@ func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAt
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCSPMGCPUserScriptsAttachmentReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

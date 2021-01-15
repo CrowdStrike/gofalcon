@@ -25,9 +25,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Params, authInfo runtime.ClientAuthInfoWriter) (*ListAvailableStreamsOAuth2OK, error)
+	ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Params) (*ListAvailableStreamsOAuth2OK, error)
 
-	RefreshActiveStreamSession(params *RefreshActiveStreamSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RefreshActiveStreamSessionOK, error)
+	RefreshActiveStreamSession(params *RefreshActiveStreamSessionParams) (*RefreshActiveStreamSessionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -35,7 +35,7 @@ type ClientService interface {
 /*
   ListAvailableStreamsOAuth2 discovers all event streams in your environment
 */
-func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Params, authInfo runtime.ClientAuthInfoWriter) (*ListAvailableStreamsOAuth2OK, error) {
+func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Params) (*ListAvailableStreamsOAuth2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListAvailableStreamsOAuth2Params()
@@ -50,7 +50,6 @@ func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Pa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListAvailableStreamsOAuth2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -69,7 +68,7 @@ func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Pa
 /*
   RefreshActiveStreamSession refreshes an active event stream use the URL shown in a g e t sensors entities datafeed v2 response
 */
-func (a *Client) RefreshActiveStreamSession(params *RefreshActiveStreamSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RefreshActiveStreamSessionOK, error) {
+func (a *Client) RefreshActiveStreamSession(params *RefreshActiveStreamSessionParams) (*RefreshActiveStreamSessionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRefreshActiveStreamSessionParams()
@@ -84,7 +83,6 @@ func (a *Client) RefreshActiveStreamSession(params *RefreshActiveStreamSessionPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RefreshActiveStreamSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

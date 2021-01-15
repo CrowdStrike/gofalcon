@@ -27,43 +27,43 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateRule(params *CreateRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleCreated, error)
+	CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error)
 
-	CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleGroupMixin0Created, error)
+	CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*CreateRuleGroupMixin0Created, error)
 
-	DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleGroupsMixin0OK, error)
+	DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*DeleteRuleGroupsMixin0OK, error)
 
-	DeleteRules(params *DeleteRulesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRulesOK, error)
+	DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error)
 
-	GetPatterns(params *GetPatternsParams, authInfo runtime.ClientAuthInfoWriter) (*GetPatternsOK, error)
+	GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error)
 
-	GetPlatformsMixin0(params *GetPlatformsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformsMixin0OK, error)
+	GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatformsMixin0OK, error)
 
-	GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetRuleGroupsMixin0OK, error)
+	GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRuleGroupsMixin0OK, error)
 
-	GetRuleTypes(params *GetRuleTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRuleTypesOK, error)
+	GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, error)
 
-	GetRulesGet(params *GetRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*GetRulesGetOK, error)
+	GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error)
 
-	GetRulesMixin0(params *GetRulesMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetRulesMixin0OK, error)
+	GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK, error)
 
-	QueryPatterns(params *QueryPatternsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPatternsOK, error)
+	QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, error)
 
-	QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryPlatformsMixin0OK, error)
+	QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*QueryPlatformsMixin0OK, error)
 
-	QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsFullOK, error)
+	QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryRuleGroupsFullOK, error)
 
-	QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsMixin0OK, error)
+	QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*QueryRuleGroupsMixin0OK, error)
 
-	QueryRuleTypes(params *QueryRuleTypesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleTypesOK, error)
+	QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK, error)
 
-	QueryRulesMixin0(params *QueryRulesMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryRulesMixin0OK, error)
+	QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMixin0OK, error)
 
-	UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleGroupMixin0OK, error)
+	UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*UpdateRuleGroupMixin0OK, error)
 
-	UpdateRules(params *UpdateRulesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRulesOK, error)
+	UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error)
 
-	Validate(params *ValidateParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateOK, error)
+	Validate(params *ValidateParams) (*ValidateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -71,7 +71,7 @@ type ClientService interface {
 /*
   CreateRule creates a rule within a rule group returns the rule
 */
-func (a *Client) CreateRule(params *CreateRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleCreated, error) {
+func (a *Client) CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleParams()
@@ -86,7 +86,6 @@ func (a *Client) CreateRule(params *CreateRuleParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateRuleReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -106,7 +105,7 @@ func (a *Client) CreateRule(params *CreateRuleParams, authInfo runtime.ClientAut
 /*
   CreateRuleGroupMixin0 creates a rule group for a platform with a name and an optional description returns the rule group
 */
-func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleGroupMixin0Created, error) {
+func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*CreateRuleGroupMixin0Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleGroupMixin0Params()
@@ -121,7 +120,6 @@ func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateRuleGroupMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -141,7 +139,7 @@ func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, auth
 /*
   DeleteRuleGroupsMixin0 deletes rule groups by ID
 */
-func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleGroupsMixin0OK, error) {
+func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*DeleteRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleGroupsMixin0Params()
@@ -156,7 +154,6 @@ func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteRuleGroupsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -175,7 +172,7 @@ func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, au
 /*
   DeleteRules deletes rules from a rule group by ID
 */
-func (a *Client) DeleteRules(params *DeleteRulesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRulesOK, error) {
+func (a *Client) DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRulesParams()
@@ -190,7 +187,6 @@ func (a *Client) DeleteRules(params *DeleteRulesParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -209,7 +205,7 @@ func (a *Client) DeleteRules(params *DeleteRulesParams, authInfo runtime.ClientA
 /*
   GetPatterns gets pattern severities by ID
 */
-func (a *Client) GetPatterns(params *GetPatternsParams, authInfo runtime.ClientAuthInfoWriter) (*GetPatternsOK, error) {
+func (a *Client) GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPatternsParams()
@@ -224,7 +220,6 @@ func (a *Client) GetPatterns(params *GetPatternsParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetPatternsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -243,7 +238,7 @@ func (a *Client) GetPatterns(params *GetPatternsParams, authInfo runtime.ClientA
 /*
   GetPlatformsMixin0 gets platforms by ID
 */
-func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformsMixin0OK, error) {
+func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformsMixin0Params()
@@ -258,7 +253,6 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetPlatformsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -277,7 +271,7 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, authInfo r
 /*
   GetRuleGroupsMixin0 gets rule groups by ID
 */
-func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetRuleGroupsMixin0OK, error) {
+func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleGroupsMixin0Params()
@@ -292,7 +286,6 @@ func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRuleGroupsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -311,7 +304,7 @@ func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, authInfo
 /*
   GetRuleTypes gets rule types by ID
 */
-func (a *Client) GetRuleTypes(params *GetRuleTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRuleTypesOK, error) {
+func (a *Client) GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleTypesParams()
@@ -326,7 +319,6 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRuleTypesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -345,7 +337,7 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams, authInfo runtime.Clien
 /*
   GetRulesGet gets rules by ID and optionally version in the following format ID version
 */
-func (a *Client) GetRulesGet(params *GetRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*GetRulesGetOK, error) {
+func (a *Client) GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesGetParams()
@@ -360,7 +352,6 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRulesGetReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -379,7 +370,7 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams, authInfo runtime.ClientA
 /*
   GetRulesMixin0 gets rules by ID and optionally version in the following format ID version the max number of i ds is constrained by URL size
 */
-func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*GetRulesMixin0OK, error) {
+func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesMixin0Params()
@@ -394,7 +385,6 @@ func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetRulesMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -413,7 +403,7 @@ func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, authInfo runtime.C
 /*
   QueryPatterns gets all pattern severity i ds
 */
-func (a *Client) QueryPatterns(params *QueryPatternsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPatternsOK, error) {
+func (a *Client) QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPatternsParams()
@@ -428,7 +418,6 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPatternsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -447,7 +436,7 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams, authInfo runtime.Cli
 /*
   QueryPlatformsMixin0 gets all platform i ds
 */
-func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryPlatformsMixin0OK, error) {
+func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*QueryPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPlatformsMixin0Params()
@@ -462,7 +451,6 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryPlatformsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -481,7 +469,7 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, authIn
 /*
   QueryRuleGroupsFull finds all rule groups matching the query with optional filter
 */
-func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsFullOK, error) {
+func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryRuleGroupsFullOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsFullParams()
@@ -496,7 +484,6 @@ func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRuleGroupsFullReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -515,7 +502,7 @@ func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, authInfo
 /*
   QueryRuleGroupsMixin0 finds all rule group i ds matching the query with optional filter
 */
-func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleGroupsMixin0OK, error) {
+func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*QueryRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsMixin0Params()
@@ -530,7 +517,6 @@ func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRuleGroupsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -549,7 +535,7 @@ func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, auth
 /*
   QueryRuleTypes gets all rule type i ds
 */
-func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRuleTypesOK, error) {
+func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleTypesParams()
@@ -564,7 +550,6 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRuleTypesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -583,7 +568,7 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, authInfo runtime.C
 /*
   QueryRulesMixin0 finds all rule i ds matching the query with optional filter
 */
-func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QueryRulesMixin0OK, error) {
+func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRulesMixin0Params()
@@ -598,7 +583,6 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryRulesMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -617,7 +601,7 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, authInfo runti
 /*
   UpdateRuleGroupMixin0 updates a rule group the following properties can be modified name description enabled
 */
-func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleGroupMixin0OK, error) {
+func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*UpdateRuleGroupMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRuleGroupMixin0Params()
@@ -632,7 +616,6 @@ func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateRuleGroupMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -651,7 +634,7 @@ func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, auth
 /*
   UpdateRules updates rules within a rule group return the updated rules
 */
-func (a *Client) UpdateRules(params *UpdateRulesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRulesOK, error) {
+func (a *Client) UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRulesParams()
@@ -666,7 +649,6 @@ func (a *Client) UpdateRules(params *UpdateRulesParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -685,7 +667,7 @@ func (a *Client) UpdateRules(params *UpdateRulesParams, authInfo runtime.ClientA
 /*
   Validate validates field values and checks for matches if a test string is provided
 */
-func (a *Client) Validate(params *ValidateParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateOK, error) {
+func (a *Client) Validate(params *ValidateParams) (*ValidateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidateParams()
@@ -700,7 +682,6 @@ func (a *Client) Validate(params *ValidateParams, authInfo runtime.ClientAuthInf
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ValidateReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

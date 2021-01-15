@@ -7,7 +7,6 @@ import (
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
-	httptransport "github.com/go-openapi/runtime/client"
 )
 
 func main() {
@@ -37,8 +36,7 @@ func main() {
 		panic(err)
 	}
 
-	apiKeyHeaderAuth := httptransport.APIKeyAuth("X-API-TOKEN", "header", "THIS-SHALL-BE-REMOVED")
-	res, err := apiclient.SensorDownload.GetCombinedSensorInstallersByQuery(&sensor_download.GetCombinedSensorInstallersByQueryParams{Context: context.Background()}, apiKeyHeaderAuth)
+	res, err := apiclient.SensorDownload.GetCombinedSensorInstallersByQuery(&sensor_download.GetCombinedSensorInstallersByQueryParams{Context: context.Background()})
 	if err != nil {
 		panic(err)
 	}

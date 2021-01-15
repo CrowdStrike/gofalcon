@@ -25,15 +25,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMLExclusionsV1OK, error)
+	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*CreateMLExclusionsV1OK, error)
 
-	DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMLExclusionsV1OK, error)
+	DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*DeleteMLExclusionsV1OK, error)
 
-	GetMLExclusionsV1(params *GetMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMLExclusionsV1OK, error)
+	GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclusionsV1OK, error)
 
-	QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMLExclusionsV1OK, error)
+	QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryMLExclusionsV1OK, error)
 
-	UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMLExclusionsV1OK, error)
+	UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params) (*UpdateMLExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
   CreateMLExclusionsV1 creates the m l exclusions
 */
-func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMLExclusionsV1OK, error) {
+func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*CreateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMLExclusionsV1Params()
@@ -56,7 +56,6 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateMLExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -75,7 +74,7 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, authIn
 /*
   DeleteMLExclusionsV1 deletes the m l exclusions by id
 */
-func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMLExclusionsV1OK, error) {
+func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*DeleteMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMLExclusionsV1Params()
@@ -90,7 +89,6 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteMLExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -109,7 +107,7 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, authIn
 /*
   GetMLExclusionsV1 gets a set of m l exclusions by specifying their i ds
 */
-func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMLExclusionsV1OK, error) {
+func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMLExclusionsV1Params()
@@ -124,7 +122,6 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMLExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -143,7 +140,7 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, authInfo run
 /*
   QueryMLExclusionsV1 searches for m l exclusions
 */
-func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMLExclusionsV1OK, error) {
+func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMLExclusionsV1Params()
@@ -158,7 +155,6 @@ func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryMLExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -177,7 +173,7 @@ func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, authInfo
 /*
   UpdateMLExclusionsV1 updates the m l exclusions
 */
-func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMLExclusionsV1OK, error) {
+func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params) (*UpdateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMLExclusionsV1Params()
@@ -192,7 +188,6 @@ func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateMLExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

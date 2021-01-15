@@ -27,25 +27,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeviceControlPoliciesCreated, error)
+	CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams) (*CreateDeviceControlPoliciesCreated, error)
 
-	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeviceControlPoliciesOK, error)
+	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams) (*DeleteDeviceControlPoliciesOK, error)
 
-	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeviceControlPoliciesOK, error)
+	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams) (*GetDeviceControlPoliciesOK, error)
 
-	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformDeviceControlPoliciesActionOK, error)
+	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams) (*PerformDeviceControlPoliciesActionOK, error)
 
-	QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedDeviceControlPoliciesOK, error)
+	QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams) (*QueryCombinedDeviceControlPoliciesOK, error)
 
-	QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedDeviceControlPolicyMembersOK, error)
+	QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams) (*QueryCombinedDeviceControlPolicyMembersOK, error)
 
-	QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDeviceControlPoliciesOK, error)
+	QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams) (*QueryDeviceControlPoliciesOK, error)
 
-	QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDeviceControlPolicyMembersOK, error)
+	QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams) (*QueryDeviceControlPolicyMembersOK, error)
 
-	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetDeviceControlPoliciesPrecedenceOK, error)
+	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams) (*SetDeviceControlPoliciesPrecedenceOK, error)
 
-	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeviceControlPoliciesOK, error)
+	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams) (*UpdateDeviceControlPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ type ClientService interface {
 /*
   CreateDeviceControlPolicies creates device control policies by specifying details about the policy to create
 */
-func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeviceControlPoliciesCreated, error) {
+func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams) (*CreateDeviceControlPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeviceControlPoliciesParams()
@@ -68,7 +68,6 @@ func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPolicies
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -88,7 +87,7 @@ func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPolicies
 /*
   DeleteDeviceControlPolicies deletes a set of device control policies by specifying their i ds
 */
-func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeviceControlPoliciesOK, error) {
+func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams) (*DeleteDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeviceControlPoliciesParams()
@@ -103,7 +102,6 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -122,7 +120,7 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 /*
   GetDeviceControlPolicies retrieves a set of device control policies by specifying their i ds
 */
-func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeviceControlPoliciesOK, error) {
+func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams) (*GetDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeviceControlPoliciesParams()
@@ -137,7 +135,6 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -156,7 +153,7 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 /*
   PerformDeviceControlPoliciesAction performs the specified action on the device control policies specified in the request
 */
-func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, authInfo runtime.ClientAuthInfoWriter) (*PerformDeviceControlPoliciesActionOK, error) {
+func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams) (*PerformDeviceControlPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformDeviceControlPoliciesActionParams()
@@ -171,7 +168,6 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformDeviceControlPoliciesActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -190,7 +186,7 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 /*
   QueryCombinedDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policies which match the filter criteria
 */
-func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedDeviceControlPoliciesOK, error) {
+func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams) (*QueryCombinedDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedDeviceControlPoliciesParams()
@@ -205,7 +201,6 @@ func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceC
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -224,7 +219,7 @@ func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceC
 /*
   QueryCombinedDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCombinedDeviceControlPolicyMembersOK, error) {
+func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams) (*QueryCombinedDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedDeviceControlPolicyMembersParams()
@@ -239,7 +234,6 @@ func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDe
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryCombinedDeviceControlPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -258,7 +252,7 @@ func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDe
 /*
   QueryDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policy i ds which match the filter criteria
 */
-func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDeviceControlPoliciesOK, error) {
+func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams) (*QueryDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDeviceControlPoliciesParams()
@@ -273,7 +267,6 @@ func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesPa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -292,7 +285,7 @@ func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesPa
 /*
   QueryDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDeviceControlPolicyMembersOK, error) {
+func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams) (*QueryDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDeviceControlPolicyMembersParams()
@@ -307,7 +300,6 @@ func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolic
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryDeviceControlPolicyMembersReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -326,7 +318,7 @@ func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolic
 /*
   SetDeviceControlPoliciesPrecedence sets the precedence of device control policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, authInfo runtime.ClientAuthInfoWriter) (*SetDeviceControlPoliciesPrecedenceOK, error) {
+func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams) (*SetDeviceControlPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetDeviceControlPoliciesPrecedenceParams()
@@ -341,7 +333,6 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SetDeviceControlPoliciesPrecedenceReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -360,7 +351,7 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 /*
   UpdateDeviceControlPolicies updates device control policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeviceControlPoliciesOK, error) {
+func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams) (*UpdateDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDeviceControlPoliciesParams()
@@ -375,7 +366,6 @@ func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPolicies
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateDeviceControlPoliciesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

@@ -27,21 +27,21 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuditEventsQuery(params *AuditEventsQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AuditEventsQueryOK, error)
+	AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQueryOK, error)
 
-	AuditEventsRead(params *AuditEventsReadParams, authInfo runtime.ClientAuthInfoWriter) (*AuditEventsReadOK, error)
+	AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsReadOK, error)
 
-	CustomerSettingsRead(params *CustomerSettingsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CustomerSettingsReadOK, error)
+	CustomerSettingsRead(params *CustomerSettingsReadParams) (*CustomerSettingsReadOK, error)
 
-	TokensCreate(params *TokensCreateParams, authInfo runtime.ClientAuthInfoWriter) (*TokensCreateCreated, error)
+	TokensCreate(params *TokensCreateParams) (*TokensCreateCreated, error)
 
-	TokensDelete(params *TokensDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*TokensDeleteOK, error)
+	TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, error)
 
-	TokensQuery(params *TokensQueryParams, authInfo runtime.ClientAuthInfoWriter) (*TokensQueryOK, error)
+	TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error)
 
-	TokensRead(params *TokensReadParams, authInfo runtime.ClientAuthInfoWriter) (*TokensReadOK, error)
+	TokensRead(params *TokensReadParams) (*TokensReadOK, error)
 
-	TokensUpdate(params *TokensUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*TokensUpdateOK, error)
+	TokensUpdate(params *TokensUpdateParams) (*TokensUpdateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ type ClientService interface {
 /*
   AuditEventsQuery searches for audit events by providing an f q l filter and paging details
 */
-func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AuditEventsQueryOK, error) {
+func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuditEventsQueryParams()
@@ -64,7 +64,6 @@ func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AuditEventsQueryReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -83,7 +82,7 @@ func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, authInfo runti
 /*
   AuditEventsRead gets the details of one or more audit events by id
 */
-func (a *Client) AuditEventsRead(params *AuditEventsReadParams, authInfo runtime.ClientAuthInfoWriter) (*AuditEventsReadOK, error) {
+func (a *Client) AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuditEventsReadParams()
@@ -98,7 +97,6 @@ func (a *Client) AuditEventsRead(params *AuditEventsReadParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AuditEventsReadReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -117,7 +115,7 @@ func (a *Client) AuditEventsRead(params *AuditEventsReadParams, authInfo runtime
 /*
   CustomerSettingsRead checks current installation token settings
 */
-func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CustomerSettingsReadOK, error) {
+func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams) (*CustomerSettingsReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCustomerSettingsReadParams()
@@ -132,7 +130,6 @@ func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CustomerSettingsReadReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -151,7 +148,7 @@ func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, authIn
 /*
   TokensCreate creates a token
 */
-func (a *Client) TokensCreate(params *TokensCreateParams, authInfo runtime.ClientAuthInfoWriter) (*TokensCreateCreated, error) {
+func (a *Client) TokensCreate(params *TokensCreateParams) (*TokensCreateCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensCreateParams()
@@ -166,7 +163,6 @@ func (a *Client) TokensCreate(params *TokensCreateParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TokensCreateReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -186,7 +182,7 @@ func (a *Client) TokensCreate(params *TokensCreateParams, authInfo runtime.Clien
 /*
   TokensDelete deletes a token immediately to revoke a token use p a t c h installation tokens entities tokens v1 instead
 */
-func (a *Client) TokensDelete(params *TokensDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*TokensDeleteOK, error) {
+func (a *Client) TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensDeleteParams()
@@ -201,7 +197,6 @@ func (a *Client) TokensDelete(params *TokensDeleteParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TokensDeleteReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -220,7 +215,7 @@ func (a *Client) TokensDelete(params *TokensDeleteParams, authInfo runtime.Clien
 /*
   TokensQuery searches for tokens by providing an f q l filter and paging details
 */
-func (a *Client) TokensQuery(params *TokensQueryParams, authInfo runtime.ClientAuthInfoWriter) (*TokensQueryOK, error) {
+func (a *Client) TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensQueryParams()
@@ -235,7 +230,6 @@ func (a *Client) TokensQuery(params *TokensQueryParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TokensQueryReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -254,7 +248,7 @@ func (a *Client) TokensQuery(params *TokensQueryParams, authInfo runtime.ClientA
 /*
   TokensRead gets the details of one or more tokens by id
 */
-func (a *Client) TokensRead(params *TokensReadParams, authInfo runtime.ClientAuthInfoWriter) (*TokensReadOK, error) {
+func (a *Client) TokensRead(params *TokensReadParams) (*TokensReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensReadParams()
@@ -269,7 +263,6 @@ func (a *Client) TokensRead(params *TokensReadParams, authInfo runtime.ClientAut
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TokensReadReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -288,7 +281,7 @@ func (a *Client) TokensRead(params *TokensReadParams, authInfo runtime.ClientAut
 /*
   TokensUpdate updates one or more tokens use this endpoint to edit labels change expiration revoke or restore
 */
-func (a *Client) TokensUpdate(params *TokensUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*TokensUpdateOK, error) {
+func (a *Client) TokensUpdate(params *TokensUpdateParams) (*TokensUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensUpdateParams()
@@ -303,7 +296,6 @@ func (a *Client) TokensUpdate(params *TokensUpdateParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TokensUpdateReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

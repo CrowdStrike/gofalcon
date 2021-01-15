@@ -27,47 +27,47 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchActiveResponderCmdCreated, error)
+	BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) (*BatchActiveResponderCmdCreated, error)
 
-	BatchCmd(params *BatchCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchCmdCreated, error)
+	BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error)
 
-	BatchGetCmd(params *BatchGetCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchGetCmdCreated, error)
+	BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, error)
 
-	BatchGetCmdStatus(params *BatchGetCmdStatusParams, authInfo runtime.ClientAuthInfoWriter) (*BatchGetCmdStatusOK, error)
+	BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCmdStatusOK, error)
 
-	BatchInitSessions(params *BatchInitSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BatchInitSessionsCreated, error)
+	BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitSessionsCreated, error)
 
-	BatchRefreshSessions(params *BatchRefreshSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BatchRefreshSessionsCreated, error)
+	BatchRefreshSessions(params *BatchRefreshSessionsParams) (*BatchRefreshSessionsCreated, error)
 
-	RTRAggregateSessions(params *RTRAggregateSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRAggregateSessionsOK, error)
+	RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRAggregateSessionsOK, error)
 
-	RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckActiveResponderCommandStatusOK, error)
+	RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams) (*RTRCheckActiveResponderCommandStatusOK, error)
 
-	RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckCommandStatusOK, error)
+	RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RTRCheckCommandStatusOK, error)
 
-	RTRDeleteFile(params *RTRDeleteFileParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteFileNoContent, error)
+	RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoContent, error)
 
-	RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteQueuedSessionNoContent, error)
+	RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*RTRDeleteQueuedSessionNoContent, error)
 
-	RTRDeleteSession(params *RTRDeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteSessionNoContent, error)
+	RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSessionNoContent, error)
 
-	RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteActiveResponderCommandCreated, error)
+	RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams) (*RTRExecuteActiveResponderCommandCreated, error)
 
-	RTRExecuteCommand(params *RTRExecuteCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteCommandCreated, error)
+	RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecuteCommandCreated, error)
 
-	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetExtractedFileContentsOK, error)
+	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams) (*RTRGetExtractedFileContentsOK, error)
 
-	RTRInitSession(params *RTRInitSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRInitSessionCreated, error)
+	RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCreated, error)
 
-	RTRListAllSessions(params *RTRListAllSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListAllSessionsOK, error)
+	RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListAllSessionsOK, error)
 
-	RTRListFiles(params *RTRListFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListFilesOK, error)
+	RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, error)
 
-	RTRListQueuedSessions(params *RTRListQueuedSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListQueuedSessionsOK, error)
+	RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RTRListQueuedSessionsOK, error)
 
-	RTRListSessions(params *RTRListSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListSessionsOK, error)
+	RTRListSessions(params *RTRListSessionsParams) (*RTRListSessionsOK, error)
 
-	RTRPulseSession(params *RTRPulseSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRPulseSessionCreated, error)
+	RTRPulseSession(params *RTRPulseSessionParams) (*RTRPulseSessionCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -75,7 +75,7 @@ type ClientService interface {
 /*
   BatchActiveResponderCmd batches executes a r t r active responder command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchActiveResponderCmdCreated, error) {
+func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) (*BatchActiveResponderCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchActiveResponderCmdParams()
@@ -90,7 +90,6 @@ func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, 
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchActiveResponderCmdReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -110,7 +109,7 @@ func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, 
 /*
   BatchCmd batches executes a r t r read only command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchCmd(params *BatchCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchCmdCreated, error) {
+func (a *Client) BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchCmdParams()
@@ -125,7 +124,6 @@ func (a *Client) BatchCmd(params *BatchCmdParams, authInfo runtime.ClientAuthInf
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchCmdReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -145,7 +143,7 @@ func (a *Client) BatchCmd(params *BatchCmdParams, authInfo runtime.ClientAuthInf
 /*
   BatchGetCmd batches executes get command across hosts to retrieve files after this call is made g e t real time response combined batch get command v1 is used to query for the results
 */
-func (a *Client) BatchGetCmd(params *BatchGetCmdParams, authInfo runtime.ClientAuthInfoWriter) (*BatchGetCmdCreated, error) {
+func (a *Client) BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchGetCmdParams()
@@ -160,7 +158,6 @@ func (a *Client) BatchGetCmd(params *BatchGetCmdParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchGetCmdReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -180,7 +177,7 @@ func (a *Client) BatchGetCmd(params *BatchGetCmdParams, authInfo runtime.ClientA
 /*
   BatchGetCmdStatus retrieves the status of the specified batch get command will return successful files when they are finished processing
 */
-func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, authInfo runtime.ClientAuthInfoWriter) (*BatchGetCmdStatusOK, error) {
+func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCmdStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchGetCmdStatusParams()
@@ -195,7 +192,6 @@ func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchGetCmdStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -214,7 +210,7 @@ func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, authInfo run
 /*
   BatchInitSessions batches initialize a r t r session on multiple hosts before any r t r commands can be used an active session is needed on the host
 */
-func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BatchInitSessionsCreated, error) {
+func (a *Client) BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitSessionsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchInitSessionsParams()
@@ -229,7 +225,6 @@ func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchInitSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -249,7 +244,7 @@ func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, authInfo run
 /*
   BatchRefreshSessions batches refresh a r t r session on multiple hosts r t r sessions will expire after 10 minutes unless refreshed
 */
-func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BatchRefreshSessionsCreated, error) {
+func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams) (*BatchRefreshSessionsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchRefreshSessionsParams()
@@ -264,7 +259,6 @@ func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchRefreshSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -284,7 +278,7 @@ func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, authIn
 /*
   RTRAggregateSessions gets aggregates on session data
 */
-func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRAggregateSessionsOK, error) {
+func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRAggregateSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRAggregateSessionsParams()
@@ -299,7 +293,6 @@ func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRAggregateSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -318,7 +311,7 @@ func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, authIn
 /*
   RTRCheckActiveResponderCommandStatus gets status of an executed active responder command on a single host
 */
-func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckActiveResponderCommandStatusOK, error) {
+func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams) (*RTRCheckActiveResponderCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckActiveResponderCommandStatusParams()
@@ -333,7 +326,6 @@ func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResp
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRCheckActiveResponderCommandStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -352,7 +344,7 @@ func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResp
 /*
   RTRCheckCommandStatus gets status of an executed command on a single host
 */
-func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, authInfo runtime.ClientAuthInfoWriter) (*RTRCheckCommandStatusOK, error) {
+func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RTRCheckCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckCommandStatusParams()
@@ -367,7 +359,6 @@ func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRCheckCommandStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -386,7 +377,7 @@ func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, auth
 /*
   RTRDeleteFile deletes a r t r session file
 */
-func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteFileNoContent, error) {
+func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteFileParams()
@@ -401,7 +392,6 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, authInfo runtime.Cli
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRDeleteFileReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -421,7 +411,7 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, authInfo runtime.Cli
 /*
   RTRDeleteQueuedSession deletes a queued session command
 */
-func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteQueuedSessionNoContent, error) {
+func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*RTRDeleteQueuedSessionNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteQueuedSessionParams()
@@ -436,7 +426,6 @@ func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRDeleteQueuedSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -456,7 +445,7 @@ func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, au
 /*
   RTRDeleteSession deletes a session
 */
-func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRDeleteSessionNoContent, error) {
+func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSessionNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteSessionParams()
@@ -471,7 +460,6 @@ func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, authInfo runti
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRDeleteSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -491,7 +479,7 @@ func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, authInfo runti
 /*
   RTRExecuteActiveResponderCommand executes an active responder command on a single host
 */
-func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteActiveResponderCommandCreated, error) {
+func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams) (*RTRExecuteActiveResponderCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteActiveResponderCommandParams()
@@ -506,7 +494,6 @@ func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveRespon
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRExecuteActiveResponderCommandReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -526,7 +513,7 @@ func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveRespon
 /*
   RTRExecuteCommand executes a command on a single host
 */
-func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, authInfo runtime.ClientAuthInfoWriter) (*RTRExecuteCommandCreated, error) {
+func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecuteCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteCommandParams()
@@ -541,7 +528,6 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, authInfo run
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRExecuteCommandReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -561,7 +547,7 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, authInfo run
 /*
   RTRGetExtractedFileContents gets r t r extracted file contents for specified session and sha256
 */
-func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRGetExtractedFileContentsOK, error) {
+func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams) (*RTRGetExtractedFileContentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetExtractedFileContentsParams()
@@ -576,7 +562,6 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRGetExtractedFileContentsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -595,7 +580,7 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 /*
   RTRInitSession initializes a new session with the r t r cloud
 */
-func (a *Client) RTRInitSession(params *RTRInitSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRInitSessionCreated, error) {
+func (a *Client) RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRInitSessionParams()
@@ -610,7 +595,6 @@ func (a *Client) RTRInitSession(params *RTRInitSessionParams, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRInitSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -630,7 +614,7 @@ func (a *Client) RTRInitSession(params *RTRInitSessionParams, authInfo runtime.C
 /*
   RTRListAllSessions gets a list of session ids
 */
-func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListAllSessionsOK, error) {
+func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListAllSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListAllSessionsParams()
@@ -645,7 +629,6 @@ func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListAllSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -664,7 +647,7 @@ func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, authInfo r
 /*
   RTRListFiles gets a list of files for the specified r t r session
 */
-func (a *Client) RTRListFiles(params *RTRListFilesParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListFilesOK, error) {
+func (a *Client) RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListFilesParams()
@@ -679,7 +662,6 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListFilesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -698,7 +680,7 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams, authInfo runtime.Clien
 /*
   RTRListQueuedSessions gets queued session metadata by session ID
 */
-func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListQueuedSessionsOK, error) {
+func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RTRListQueuedSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListQueuedSessionsParams()
@@ -713,7 +695,6 @@ func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListQueuedSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -732,7 +713,7 @@ func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, auth
 /*
   RTRListSessions gets session metadata by session id
 */
-func (a *Client) RTRListSessions(params *RTRListSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RTRListSessionsOK, error) {
+func (a *Client) RTRListSessions(params *RTRListSessionsParams) (*RTRListSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListSessionsParams()
@@ -747,7 +728,6 @@ func (a *Client) RTRListSessions(params *RTRListSessionsParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRListSessionsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -766,7 +746,7 @@ func (a *Client) RTRListSessions(params *RTRListSessionsParams, authInfo runtime
 /*
   RTRPulseSession refreshes a session timeout on a single host
 */
-func (a *Client) RTRPulseSession(params *RTRPulseSessionParams, authInfo runtime.ClientAuthInfoWriter) (*RTRPulseSessionCreated, error) {
+func (a *Client) RTRPulseSession(params *RTRPulseSessionParams) (*RTRPulseSessionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRPulseSessionParams()
@@ -781,7 +761,6 @@ func (a *Client) RTRPulseSession(params *RTRPulseSessionParams, authInfo runtime
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RTRPulseSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

@@ -25,23 +25,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryDownloadV1OK, error)
+	GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params) (*GetMalQueryDownloadV1OK, error)
 
-	GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSamplesFetchV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryEntitiesSamplesFetchV1OK, error)
+	GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSamplesFetchV1Params) (*GetMalQueryEntitiesSamplesFetchV1OK, error)
 
-	GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryMetadataV1OK, error)
+	GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params) (*GetMalQueryMetadataV1OK, error)
 
-	GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryQuotasV1OK, error)
+	GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params) (*GetMalQueryQuotasV1OK, error)
 
-	GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryRequestV1OK, error)
+	GetMalQueryRequestV1(params *GetMalQueryRequestV1Params) (*GetMalQueryRequestV1OK, error)
 
-	PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQueryEntitiesSamplesMultidownloadV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryEntitiesSamplesMultidownloadV1OK, error)
+	PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQueryEntitiesSamplesMultidownloadV1Params) (*PostMalQueryEntitiesSamplesMultidownloadV1OK, error)
 
-	PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryExactSearchV1OK, error)
+	PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Params) (*PostMalQueryExactSearchV1OK, error)
 
-	PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryFuzzySearchV1OK, error)
+	PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Params) (*PostMalQueryFuzzySearchV1OK, error)
 
-	PostMalQueryHuntV1(params *PostMalQueryHuntV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryHuntV1OK, error)
+	PostMalQueryHuntV1(params *PostMalQueryHuntV1Params) (*PostMalQueryHuntV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ type ClientService interface {
 /*
   GetMalQueryDownloadV1 downloads a file indexed by mal query specify the file using its s h a256 only one file is supported at this time
 */
-func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryDownloadV1OK, error) {
+func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params) (*GetMalQueryDownloadV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalQueryDownloadV1Params()
@@ -64,7 +64,6 @@ func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMalQueryDownloadV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -83,7 +82,7 @@ func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, auth
 /*
   GetMalQueryEntitiesSamplesFetchV1 fetches a zip archive with password infected containing the samples call this once the entities samples multidownload request has finished processing
 */
-func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSamplesFetchV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryEntitiesSamplesFetchV1OK, error) {
+func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSamplesFetchV1Params) (*GetMalQueryEntitiesSamplesFetchV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalQueryEntitiesSamplesFetchV1Params()
@@ -98,7 +97,6 @@ func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSa
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMalQueryEntitiesSamplesFetchV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -117,7 +115,7 @@ func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSa
 /*
   GetMalQueryMetadataV1 retrieves indexed files metadata by their hash
 */
-func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryMetadataV1OK, error) {
+func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params) (*GetMalQueryMetadataV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalQueryMetadataV1Params()
@@ -132,7 +130,6 @@ func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMalQueryMetadataV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -151,7 +148,7 @@ func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, auth
 /*
   GetMalQueryQuotasV1 gets information about search and download quotas in your environment
 */
-func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryQuotasV1OK, error) {
+func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params) (*GetMalQueryQuotasV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalQueryQuotasV1Params()
@@ -166,7 +163,6 @@ func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMalQueryQuotasV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -185,7 +181,7 @@ func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, authInfo
 /*
   GetMalQueryRequestV1 checks the status and results of an asynchronous request such as hunt or exact search supports a single request id at this time
 */
-func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMalQueryRequestV1OK, error) {
+func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params) (*GetMalQueryRequestV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMalQueryRequestV1Params()
@@ -200,7 +196,6 @@ func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetMalQueryRequestV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -219,7 +214,7 @@ func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, authIn
 /*
   PostMalQueryEntitiesSamplesMultidownloadV1 schedules samples for download use the result id with the request endpoint to check if the download is ready after which you can call the entities samples fetch to get the zip
 */
-func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQueryEntitiesSamplesMultidownloadV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryEntitiesSamplesMultidownloadV1OK, error) {
+func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQueryEntitiesSamplesMultidownloadV1Params) (*PostMalQueryEntitiesSamplesMultidownloadV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostMalQueryEntitiesSamplesMultidownloadV1Params()
@@ -234,7 +229,6 @@ func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQuery
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostMalQueryEntitiesSamplesMultidownloadV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -253,7 +247,7 @@ func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQuery
 /*
   PostMalQueryExactSearchV1 searches falcon mal query for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity you can filter results on criteria such as file type file size and first seen date returns a request id which can be used with the request endpoint
 */
-func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryExactSearchV1OK, error) {
+func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Params) (*PostMalQueryExactSearchV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostMalQueryExactSearchV1Params()
@@ -268,7 +262,6 @@ func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Para
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostMalQueryExactSearchV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -287,7 +280,7 @@ func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Para
 /*
   PostMalQueryFuzzySearchV1 searches falcon mal query quickly but with more potential for false positives search for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity
 */
-func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryFuzzySearchV1OK, error) {
+func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Params) (*PostMalQueryFuzzySearchV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostMalQueryFuzzySearchV1Params()
@@ -302,7 +295,6 @@ func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Para
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostMalQueryFuzzySearchV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -321,7 +313,7 @@ func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Para
 /*
   PostMalQueryHuntV1 schedules a y a r a based search for execution returns a request id which can be used with the request endpoint
 */
-func (a *Client) PostMalQueryHuntV1(params *PostMalQueryHuntV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostMalQueryHuntV1OK, error) {
+func (a *Client) PostMalQueryHuntV1(params *PostMalQueryHuntV1Params) (*PostMalQueryHuntV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostMalQueryHuntV1Params()
@@ -336,7 +328,6 @@ func (a *Client) PostMalQueryHuntV1(params *PostMalQueryHuntV1Params, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PostMalQueryHuntV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

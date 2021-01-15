@@ -25,11 +25,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteSampleV3(params *DeleteSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSampleV3OK, error)
+	DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK, error)
 
-	GetSampleV3(params *GetSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetSampleV3OK, error)
+	GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error)
 
-	UploadSampleV3(params *UploadSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*UploadSampleV3OK, error)
+	UploadSampleV3(params *UploadSampleV3Params) (*UploadSampleV3OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -37,7 +37,7 @@ type ClientService interface {
 /*
   DeleteSampleV3 removes a sample including file meta and submissions from the collection
 */
-func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSampleV3OK, error) {
+func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSampleV3Params()
@@ -52,7 +52,6 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteSampleV3Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -71,7 +70,7 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, authInfo runtime.C
 /*
   GetSampleV3 retrieves the file associated with the given ID s h a256
 */
-func (a *Client) GetSampleV3(params *GetSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetSampleV3OK, error) {
+func (a *Client) GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSampleV3Params()
@@ -86,7 +85,6 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetSampleV3Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -105,7 +103,7 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, authInfo runtime.ClientA
 /*
   UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
 */
-func (a *Client) UploadSampleV3(params *UploadSampleV3Params, authInfo runtime.ClientAuthInfoWriter) (*UploadSampleV3OK, error) {
+func (a *Client) UploadSampleV3(params *UploadSampleV3Params) (*UploadSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadSampleV3Params()
@@ -120,7 +118,6 @@ func (a *Client) UploadSampleV3(params *UploadSampleV3Params, authInfo runtime.C
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadSampleV3Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

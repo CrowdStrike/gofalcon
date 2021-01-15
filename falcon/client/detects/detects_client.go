@@ -25,13 +25,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAggregateDetects(params *GetAggregateDetectsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregateDetectsOK, error)
+	GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAggregateDetectsOK, error)
 
-	GetDetectSummaries(params *GetDetectSummariesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDetectSummariesOK, error)
+	GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetectSummariesOK, error)
 
-	QueryDetects(params *QueryDetectsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetectsOK, error)
+	QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, error)
 
-	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateDetectsByIdsV2OK, error)
+	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params) (*UpdateDetectsByIdsV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 /*
   GetAggregateDetects gets detect aggregates as specified via json in request body
 */
-func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregateDetectsOK, error) {
+func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAggregateDetectsParams()
@@ -54,7 +54,6 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, authInfo
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetAggregateDetectsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -73,7 +72,7 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, authInfo
 /*
   GetDetectSummaries views information about detections
 */
-func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDetectSummariesOK, error) {
+func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDetectSummariesParams()
@@ -88,7 +87,6 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetDetectSummariesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -107,7 +105,7 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, authInfo r
 /*
   QueryDetects searches for detection i ds that match a given query
 */
-func (a *Client) QueryDetects(params *QueryDetectsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetectsOK, error) {
+func (a *Client) QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetectsParams()
@@ -122,7 +120,6 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, authInfo runtime.Clien
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryDetectsReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -141,7 +138,7 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, authInfo runtime.Clien
 /*
   UpdateDetectsByIdsV2 modifies the state assignee and visibility of detections
 */
-func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateDetectsByIdsV2OK, error) {
+func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDetectsByIdsV2Params()
@@ -156,7 +153,6 @@ func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateDetectsByIdsV2Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

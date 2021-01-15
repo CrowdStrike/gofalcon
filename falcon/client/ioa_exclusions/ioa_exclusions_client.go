@@ -25,15 +25,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateIOAExclusionsV1OK, error)
+	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*CreateIOAExclusionsV1OK, error)
 
-	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteIOAExclusionsV1OK, error)
+	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*DeleteIOAExclusionsV1OK, error)
 
-	GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetIOAExclusionsV1OK, error)
+	GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAExclusionsV1OK, error)
 
-	QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryIOAExclusionsV1OK, error)
+	QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*QueryIOAExclusionsV1OK, error)
 
-	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateIOAExclusionsV1OK, error)
+	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params) (*UpdateIOAExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
   CreateIOAExclusionsV1 creates the i o a exclusions
 */
-func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateIOAExclusionsV1OK, error) {
+func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*CreateIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateIOAExclusionsV1Params()
@@ -56,7 +56,6 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CreateIOAExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -75,7 +74,7 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, auth
 /*
   DeleteIOAExclusionsV1 deletes the i o a exclusions by id
 */
-func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteIOAExclusionsV1OK, error) {
+func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*DeleteIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteIOAExclusionsV1Params()
@@ -90,7 +89,6 @@ func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeleteIOAExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -109,7 +107,7 @@ func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, auth
 /*
   GetIOAExclusionsV1 gets a set of i o a exclusions by specifying their i ds
 */
-func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetIOAExclusionsV1OK, error) {
+func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIOAExclusionsV1Params()
@@ -124,7 +122,6 @@ func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetIOAExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -143,7 +140,7 @@ func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, authInfo r
 /*
   QueryIOAExclusionsV1 searches for i o a exclusions
 */
-func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryIOAExclusionsV1OK, error) {
+func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*QueryIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIOAExclusionsV1Params()
@@ -158,7 +155,6 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, authIn
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryIOAExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -177,7 +173,7 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, authIn
 /*
   UpdateIOAExclusionsV1 updates the i o a exclusions
 */
-func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateIOAExclusionsV1OK, error) {
+func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params) (*UpdateIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateIOAExclusionsV1Params()
@@ -192,7 +188,6 @@ func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, auth
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpdateIOAExclusionsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

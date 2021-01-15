@@ -27,13 +27,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetScans(params *GetScansParams, authInfo runtime.ClientAuthInfoWriter) (*GetScansOK, error)
+	GetScans(params *GetScansParams) (*GetScansOK, error)
 
-	GetScansAggregates(params *GetScansAggregatesParams, authInfo runtime.ClientAuthInfoWriter) (*GetScansAggregatesOK, error)
+	GetScansAggregates(params *GetScansAggregatesParams) (*GetScansAggregatesOK, error)
 
-	QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySubmissionsMixin0OK, error)
+	QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*QuerySubmissionsMixin0OK, error)
 
-	ScanSamples(params *ScanSamplesParams, authInfo runtime.ClientAuthInfoWriter) (*ScanSamplesOK, error)
+	ScanSamples(params *ScanSamplesParams) (*ScanSamplesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
   GetScans checks the status of a volume scan time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
-func (a *Client) GetScans(params *GetScansParams, authInfo runtime.ClientAuthInfoWriter) (*GetScansOK, error) {
+func (a *Client) GetScans(params *GetScansParams) (*GetScansOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetScansParams()
@@ -56,7 +56,6 @@ func (a *Client) GetScans(params *GetScansParams, authInfo runtime.ClientAuthInf
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetScansReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -75,7 +74,7 @@ func (a *Client) GetScans(params *GetScansParams, authInfo runtime.ClientAuthInf
 /*
   GetScansAggregates gets scans aggregations as specified via json in request body
 */
-func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, authInfo runtime.ClientAuthInfoWriter) (*GetScansAggregatesOK, error) {
+func (a *Client) GetScansAggregates(params *GetScansAggregatesParams) (*GetScansAggregatesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetScansAggregatesParams()
@@ -90,7 +89,6 @@ func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, authInfo r
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetScansAggregatesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -110,7 +108,7 @@ func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, authInfo r
 /*
   QuerySubmissionsMixin0 finds i ds for submitted scans by providing an f q l filter and paging details returns a set of volume i ds that match your criteria
 */
-func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, authInfo runtime.ClientAuthInfoWriter) (*QuerySubmissionsMixin0OK, error) {
+func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*QuerySubmissionsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySubmissionsMixin0Params()
@@ -125,7 +123,6 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, au
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QuerySubmissionsMixin0Reader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -144,7 +141,7 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, au
 /*
   ScanSamples submits a volume of files for ml scanning time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
-func (a *Client) ScanSamples(params *ScanSamplesParams, authInfo runtime.ClientAuthInfoWriter) (*ScanSamplesOK, error) {
+func (a *Client) ScanSamples(params *ScanSamplesParams) (*ScanSamplesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewScanSamplesParams()
@@ -159,7 +156,6 @@ func (a *Client) ScanSamples(params *ScanSamplesParams, authInfo runtime.ClientA
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ScanSamplesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
