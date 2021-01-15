@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
+	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
 )
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 		}
 	}
 
-	apiclient, err := falcon.NewClient(&falcon.ApiConfig{
+	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId: falconClientId,
 		ClientSecret: falconClientSecret,
 		Context: context.Background(),
@@ -36,13 +36,15 @@ func main() {
 		panic(err)
 	}
 
-	res, err := apiclient.SensorDownload.GetCombinedSensorInstallersByQuery(&sensor_download.GetCombinedSensorInstallersByQueryParams{Context: context.Background()})
+	desc := "timestamp.desc"
+	res, err := client.Incidents.CrowdScore(&incidents.CrowdScoreParams{
+		Context: context.Background(),
+		Sort: &desc,
+	})
 	if err != nil {
 		panic(err)
 	}
 	payload := res.GetPayload()
-	for _, res := range payload.Resources {
-		fmt.Println(*res.Description)
-	}
-	fmt.Printf("Found %d sensors available for download.\n", len(payload.Resources))
+	fmt.Printf("As of %s your CrowdScore is %d.\n",
+		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }
