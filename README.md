@@ -1,5 +1,5 @@
 
-# gofalcon ![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg)
+# gofalcon ![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg) [![Go Reference](https://pkg.go.dev/badge/github.com/crowdstrike/gofalcon.svg)](https://pkg.go.dev/github.com/crowdstrike/gofalcon)
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
 Gofalcon is an open source project, not CrowdStrike product. As such it carries
