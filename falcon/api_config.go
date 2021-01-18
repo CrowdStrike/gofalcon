@@ -8,10 +8,10 @@ import (
 
 // TODO authenticate with token
 type ApiConfig struct {
-	ClientId string
-	ClientSecret string
-	Context context.Context
-	HostOverride string
+	ClientId         string
+	ClientSecret     string
+	Context          context.Context
+	HostOverride     string
 	BasePathOverride string
 }
 

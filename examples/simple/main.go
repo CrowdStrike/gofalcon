@@ -28,9 +28,9 @@ func main() {
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
-		ClientId: falconClientId,
+		ClientId:     falconClientId,
 		ClientSecret: falconClientSecret,
-		Context: context.Background(),
+		Context:      context.Background(),
 	})
 	if err != nil {
 		panic(err)
@@ -39,7 +39,7 @@ func main() {
 	desc := "timestamp.desc"
 	res, err := client.Incidents.CrowdScore(&incidents.CrowdScoreParams{
 		Context: context.Background(),
-		Sort: &desc,
+		Sort:    &desc,
 	})
 	if err != nil {
 		panic(err)
