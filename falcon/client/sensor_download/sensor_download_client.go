@@ -6,6 +6,8 @@ package sensor_download
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"io"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -25,7 +27,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams) (*DownloadSensorInstallerByIDOK, error)
+	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer) (*DownloadSensorInstallerByIDOK, error)
 
 	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams) (*GetCombinedSensorInstallersByQueryOK, error)
 
@@ -41,7 +43,7 @@ type ClientService interface {
 /*
   DownloadSensorInstallerByID downloads sensor installer by s h a256 ID
 */
-func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams) (*DownloadSensorInstallerByIDOK, error) {
+func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer) (*DownloadSensorInstallerByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadSensorInstallerByIDParams()
@@ -55,7 +57,7 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DownloadSensorInstallerByIDReader{formats: a.formats},
+		Reader:             &DownloadSensorInstallerByIDReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

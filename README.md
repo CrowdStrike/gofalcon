@@ -21,7 +21,7 @@ import (
 	"fmt"
 
 	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
+	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
 )
 
 func main() {

@@ -20,13 +20,14 @@ import (
 // DownloadSensorInstallerByIDReader is a Reader for the DownloadSensorInstallerByID structure.
 type DownloadSensorInstallerByIDReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *DownloadSensorInstallerByIDReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewDownloadSensorInstallerByIDOK()
+		result := NewDownloadSensorInstallerByIDOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -56,7 +57,7 @@ func (o *DownloadSensorInstallerByIDReader) ReadResponse(response runtime.Client
 		}
 		return nil, result
 	default:
-		result := NewDownloadSensorInstallerByIDDefault(response.Code())
+		result := NewDownloadSensorInstallerByIDDefault(response.Code(), o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -68,8 +69,10 @@ func (o *DownloadSensorInstallerByIDReader) ReadResponse(response runtime.Client
 }
 
 // NewDownloadSensorInstallerByIDOK creates a DownloadSensorInstallerByIDOK with default headers values
-func NewDownloadSensorInstallerByIDOK() *DownloadSensorInstallerByIDOK {
-	return &DownloadSensorInstallerByIDOK{}
+func NewDownloadSensorInstallerByIDOK(writer io.Writer) *DownloadSensorInstallerByIDOK {
+	return &DownloadSensorInstallerByIDOK{
+		Payload: writer,
+	}
 }
 
 /*DownloadSensorInstallerByIDOK handles this case with default header values.
@@ -84,14 +87,14 @@ type DownloadSensorInstallerByIDOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload models.DomainDownloadItem
+	Payload io.Writer
 }
 
 func (o *DownloadSensorInstallerByIDOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdOK  %+v", 200, o.Payload)
 }
 
-func (o *DownloadSensorInstallerByIDOK) GetPayload() models.DomainDownloadItem {
+func (o *DownloadSensorInstallerByIDOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
@@ -112,7 +115,7 @@ func (o *DownloadSensorInstallerByIDOK) readResponse(response runtime.ClientResp
 	o.XRateLimitRemaining = xRateLimitRemaining
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -346,9 +349,10 @@ func (o *DownloadSensorInstallerByIDTooManyRequests) readResponse(response runti
 }
 
 // NewDownloadSensorInstallerByIDDefault creates a DownloadSensorInstallerByIDDefault with default headers values
-func NewDownloadSensorInstallerByIDDefault(code int) *DownloadSensorInstallerByIDDefault {
+func NewDownloadSensorInstallerByIDDefault(code int, writer io.Writer) *DownloadSensorInstallerByIDDefault {
 	return &DownloadSensorInstallerByIDDefault{
 		_statusCode: code,
+		Payload:     writer,
 	}
 }
 
@@ -359,7 +363,7 @@ OK
 type DownloadSensorInstallerByIDDefault struct {
 	_statusCode int
 
-	Payload models.DomainDownloadItem
+	Payload io.Writer
 }
 
 // Code gets the status code for the download sensor installer by Id default response
@@ -371,14 +375,14 @@ func (o *DownloadSensorInstallerByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] DownloadSensorInstallerById default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *DownloadSensorInstallerByIDDefault) GetPayload() models.DomainDownloadItem {
+func (o *DownloadSensorInstallerByIDDefault) GetPayload() io.Writer {
 	return o.Payload
 }
 
 func (o *DownloadSensorInstallerByIDDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
