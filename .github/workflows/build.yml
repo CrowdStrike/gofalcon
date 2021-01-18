@@ -34,3 +34,8 @@ jobs:
 
     - name: Unit tests
       run: go test ./...
+    - name: Run golangci-lint
+      uses: golangci/golangci-lint-action@v2
+      with:
+        version: v1.29
+        args: --timeout=3m12s

@@ -9,9 +9,9 @@ import (
 
 func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	config := clientcredentials.Config{
-		ClientID: ac.ClientId,
+		ClientID:     ac.ClientId,
 		ClientSecret: ac.ClientSecret,
-		TokenURL: "https://" + ac.Host() + "/oauth2/token",
+		TokenURL:     "https://" + ac.Host() + "/oauth2/token",
 	}
 	authenticatedClient := config.Client(ac.Context)
 	customTransport := httptransport.NewWithClient(
