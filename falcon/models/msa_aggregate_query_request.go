@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -311,6 +312,82 @@ func (m *MsaAggregateQueryRequest) validateType(formats strfmt.Registry) error {
 
 	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this msa aggregate query request based on the context it is used
+func (m *MsaAggregateQueryRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateRanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubAggregates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) contextValidateDateRanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DateRanges); i++ {
+
+		if m.DateRanges[i] != nil {
+			if err := m.DateRanges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("date_ranges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) contextValidateRanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Ranges); i++ {
+
+		if m.Ranges[i] != nil {
+			if err := m.Ranges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ranges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) contextValidateSubAggregates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SubAggregates); i++ {
+
+		if m.SubAggregates[i] != nil {
+			if err := m.SubAggregates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -112,7 +113,6 @@ func (m *FalconxReportV1) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxReportV1) validateIntel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intel) { // not required
 		return nil
 	}
@@ -137,7 +137,6 @@ func (m *FalconxReportV1) validateIntel(formats strfmt.Registry) error {
 }
 
 func (m *FalconxReportV1) validateMalquery(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Malquery) { // not required
 		return nil
 	}
@@ -162,7 +161,6 @@ func (m *FalconxReportV1) validateMalquery(formats strfmt.Registry) error {
 }
 
 func (m *FalconxReportV1) validateSandbox(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sandbox) { // not required
 		return nil
 	}
@@ -187,13 +185,106 @@ func (m *FalconxReportV1) validateSandbox(formats strfmt.Registry) error {
 }
 
 func (m *FalconxReportV1) validateThreatGraph(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ThreatGraph) { // not required
 		return nil
 	}
 
 	if m.ThreatGraph != nil {
 		if err := m.ThreatGraph.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("threat_graph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx report v1 based on the context it is used
+func (m *FalconxReportV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIntel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMalquery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSandbox(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateThreatGraph(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxReportV1) contextValidateIntel(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intel); i++ {
+
+		if m.Intel[i] != nil {
+			if err := m.Intel[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intel" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxReportV1) contextValidateMalquery(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Malquery); i++ {
+
+		if m.Malquery[i] != nil {
+			if err := m.Malquery[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("malquery" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxReportV1) contextValidateSandbox(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sandbox); i++ {
+
+		if m.Sandbox[i] != nil {
+			if err := m.Sandbox[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxReportV1) contextValidateThreatGraph(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ThreatGraph != nil {
+		if err := m.ThreatGraph.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threat_graph")
 			}

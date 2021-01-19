@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetPlatformsMixin0Params creates a new GetPlatformsMixin0Params object
-// with the default values initialized.
+// NewGetPlatformsMixin0Params creates a new GetPlatformsMixin0Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetPlatformsMixin0Params() *GetPlatformsMixin0Params {
-	var ()
 	return &GetPlatformsMixin0Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetPlatformsMixin0ParamsWithTimeout creates a new GetPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetPlatformsMixin0ParamsWithTimeout(timeout time.Duration) *GetPlatformsMixin0Params {
-	var ()
 	return &GetPlatformsMixin0Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetPlatformsMixin0ParamsWithContext creates a new GetPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetPlatformsMixin0ParamsWithContext(ctx context.Context) *GetPlatformsMixin0Params {
-	var ()
 	return &GetPlatformsMixin0Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetPlatformsMixin0ParamsWithHTTPClient creates a new GetPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetPlatformsMixin0ParamsWithHTTPClient(client *http.Client) *GetPlatformsMixin0Params {
-	var ()
 	return &GetPlatformsMixin0Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetPlatformsMixin0Params contains all the parameters to send to the API endpoint
-for the get platforms mixin0 operation typically these are written to a http.Request
+/* GetPlatformsMixin0Params contains all the parameters to send to the API endpoint
+   for the get platforms mixin0 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetPlatformsMixin0Params struct {
 
-	/*Ids
-	  The IDs of the entities
+	/* Ids.
 
+	   The IDs of the entities
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get platforms mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPlatformsMixin0Params) WithDefaults() *GetPlatformsMixin0Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get platforms mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPlatformsMixin0Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get platforms mixin0 params
@@ -124,16 +138,36 @@ func (o *GetPlatformsMixin0Params) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetPlatformsMixin0 binds the parameter ids
+func (o *GetPlatformsMixin0Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

@@ -16,51 +16,51 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIOCParams creates a new GetIOCParams object
-// with the default values initialized.
+// NewGetIOCParams creates a new GetIOCParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIOCParams() *GetIOCParams {
-	var ()
 	return &GetIOCParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIOCParamsWithTimeout creates a new GetIOCParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIOCParamsWithTimeout(timeout time.Duration) *GetIOCParams {
-	var ()
 	return &GetIOCParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIOCParamsWithContext creates a new GetIOCParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIOCParamsWithContext(ctx context.Context) *GetIOCParams {
-	var ()
 	return &GetIOCParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIOCParamsWithHTTPClient creates a new GetIOCParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIOCParamsWithHTTPClient(client *http.Client) *GetIOCParams {
-	var ()
 	return &GetIOCParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIOCParams contains all the parameters to send to the API endpoint
-for the get i o c operation typically these are written to a http.Request
+/* GetIOCParams contains all the parameters to send to the API endpoint
+   for the get i o c operation.
+
+   Typically these are written to a http.Request.
 */
 type GetIOCParams struct {
 
-	/*Type
+	/* Type.
+
 
 	The type of the indicator. Valid types include:
 
@@ -74,18 +74,33 @@ type GetIOCParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Type string
-	/*Value
-	  The string representation of the indicator
 
+	/* Value.
+
+	   The string representation of the indicator
 	*/
 	Value string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIOCParams) WithDefaults() *GetIOCParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIOCParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get i o c params
@@ -155,6 +170,7 @@ func (o *GetIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regist
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -164,6 +180,7 @@ func (o *GetIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regist
 	qrValue := o.Value
 	qValue := qrValue
 	if qValue != "" {
+
 		if err := r.SetQueryParam("value", qValue); err != nil {
 			return err
 		}

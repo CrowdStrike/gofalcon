@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -380,6 +381,60 @@ func (m *DomainPublicIndicatorV3) validateVulnerabilities(formats strfmt.Registr
 
 	if err := validate.Required("vulnerabilities", "body", m.Vulnerabilities); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain public indicator v3 based on the context it is used
+func (m *DomainPublicIndicatorV3) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLabels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRelations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainPublicIndicatorV3) contextValidateLabels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Labels); i++ {
+
+		if m.Labels[i] != nil {
+			if err := m.Labels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("labels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainPublicIndicatorV3) contextValidateRelations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Relations); i++ {
+
+		if m.Relations[i] != nil {
+			if err := m.Relations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("relations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

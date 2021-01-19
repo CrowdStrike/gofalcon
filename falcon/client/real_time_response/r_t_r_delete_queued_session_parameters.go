@@ -16,64 +16,79 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRTRDeleteQueuedSessionParams creates a new RTRDeleteQueuedSessionParams object
-// with the default values initialized.
+// NewRTRDeleteQueuedSessionParams creates a new RTRDeleteQueuedSessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRDeleteQueuedSessionParams() *RTRDeleteQueuedSessionParams {
-	var ()
 	return &RTRDeleteQueuedSessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRDeleteQueuedSessionParamsWithTimeout creates a new RTRDeleteQueuedSessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRDeleteQueuedSessionParamsWithTimeout(timeout time.Duration) *RTRDeleteQueuedSessionParams {
-	var ()
 	return &RTRDeleteQueuedSessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRDeleteQueuedSessionParamsWithContext creates a new RTRDeleteQueuedSessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRDeleteQueuedSessionParamsWithContext(ctx context.Context) *RTRDeleteQueuedSessionParams {
-	var ()
 	return &RTRDeleteQueuedSessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRDeleteQueuedSessionParamsWithHTTPClient creates a new RTRDeleteQueuedSessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRDeleteQueuedSessionParamsWithHTTPClient(client *http.Client) *RTRDeleteQueuedSessionParams {
-	var ()
 	return &RTRDeleteQueuedSessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRDeleteQueuedSessionParams contains all the parameters to send to the API endpoint
-for the r t r delete queued session operation typically these are written to a http.Request
+/* RTRDeleteQueuedSessionParams contains all the parameters to send to the API endpoint
+   for the r t r delete queued session operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRDeleteQueuedSessionParams struct {
 
-	/*CloudRequestID
-	  Cloud Request ID of the executed command to query
+	/* CloudRequestID.
 
+	   Cloud Request ID of the executed command to query
 	*/
 	CloudRequestID string
-	/*SessionID
-	  RTR Session id
 
+	/* SessionID.
+
+	   RTR Session id
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r delete queued session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeleteQueuedSessionParams) WithDefaults() *RTRDeleteQueuedSessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r delete queued session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeleteQueuedSessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r delete queued session params
@@ -143,6 +158,7 @@ func (o *RTRDeleteQueuedSessionParams) WriteToRequest(r runtime.ClientRequest, r
 	qrCloudRequestID := o.CloudRequestID
 	qCloudRequestID := qrCloudRequestID
 	if qCloudRequestID != "" {
+
 		if err := r.SetQueryParam("cloud_request_id", qCloudRequestID); err != nil {
 			return err
 		}
@@ -152,6 +168,7 @@ func (o *RTRDeleteQueuedSessionParams) WriteToRequest(r runtime.ClientRequest, r
 	qrSessionID := o.SessionID
 	qSessionID := qrSessionID
 	if qSessionID != "" {
+
 		if err := r.SetQueryParam("session_id", qSessionID); err != nil {
 			return err
 		}

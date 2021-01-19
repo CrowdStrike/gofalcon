@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRetrieveUserUUIDsByCIDParams creates a new RetrieveUserUUIDsByCIDParams object
-// with the default values initialized.
+// NewRetrieveUserUUIDsByCIDParams creates a new RetrieveUserUUIDsByCIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRetrieveUserUUIDsByCIDParams() *RetrieveUserUUIDsByCIDParams {
-
 	return &RetrieveUserUUIDsByCIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRetrieveUserUUIDsByCIDParamsWithTimeout creates a new RetrieveUserUUIDsByCIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRetrieveUserUUIDsByCIDParamsWithTimeout(timeout time.Duration) *RetrieveUserUUIDsByCIDParams {
-
 	return &RetrieveUserUUIDsByCIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRetrieveUserUUIDsByCIDParamsWithContext creates a new RetrieveUserUUIDsByCIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRetrieveUserUUIDsByCIDParamsWithContext(ctx context.Context) *RetrieveUserUUIDsByCIDParams {
-
 	return &RetrieveUserUUIDsByCIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRetrieveUserUUIDsByCIDParamsWithHTTPClient creates a new RetrieveUserUUIDsByCIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRetrieveUserUUIDsByCIDParamsWithHTTPClient(client *http.Client) *RetrieveUserUUIDsByCIDParams {
-
 	return &RetrieveUserUUIDsByCIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*RetrieveUserUUIDsByCIDParams contains all the parameters to send to the API endpoint
-for the retrieve user u UI ds by c ID operation typically these are written to a http.Request
+/* RetrieveUserUUIDsByCIDParams contains all the parameters to send to the API endpoint
+   for the retrieve user u UI ds by c ID operation.
+
+   Typically these are written to a http.Request.
 */
 type RetrieveUserUUIDsByCIDParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the retrieve user u UI ds by c ID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserUUIDsByCIDParams) WithDefaults() *RetrieveUserUUIDsByCIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the retrieve user u UI ds by c ID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserUUIDsByCIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the retrieve user u UI ds by c ID params

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -36,6 +38,11 @@ type FalconxSuricataAlert struct {
 
 // Validate validates this falconx suricata alert
 func (m *FalconxSuricataAlert) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this falconx suricata alert based on context it is used
+func (m *FalconxSuricataAlert) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

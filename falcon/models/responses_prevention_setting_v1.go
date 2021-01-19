@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -129,10 +130,15 @@ func (m *ResponsesPreventionSettingV1) validateType(formats strfmt.Registry) err
 
 func (m *ResponsesPreventionSettingV1) validateValue(formats strfmt.Registry) error {
 
-	if err := validate.Required("value", "body", m.Value); err != nil {
-		return err
+	if m.Value == nil {
+		return errors.Required("value", "body", nil)
 	}
 
+	return nil
+}
+
+// ContextValidate validates this responses prevention setting v1 based on context it is used
+func (m *ResponsesPreventionSettingV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

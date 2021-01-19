@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryPreventionPoliciesParams creates a new QueryPreventionPoliciesParams object
-// with the default values initialized.
+// NewQueryPreventionPoliciesParams creates a new QueryPreventionPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryPreventionPoliciesParams() *QueryPreventionPoliciesParams {
-	var ()
 	return &QueryPreventionPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryPreventionPoliciesParamsWithTimeout creates a new QueryPreventionPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryPreventionPoliciesParamsWithTimeout(timeout time.Duration) *QueryPreventionPoliciesParams {
-	var ()
 	return &QueryPreventionPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryPreventionPoliciesParamsWithContext creates a new QueryPreventionPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryPreventionPoliciesParamsWithContext(ctx context.Context) *QueryPreventionPoliciesParams {
-	var ()
 	return &QueryPreventionPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryPreventionPoliciesParamsWithHTTPClient creates a new QueryPreventionPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryPreventionPoliciesParamsWithHTTPClient(client *http.Client) *QueryPreventionPoliciesParams {
-	var ()
 	return &QueryPreventionPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryPreventionPoliciesParams contains all the parameters to send to the API endpoint
-for the query prevention policies operation typically these are written to a http.Request
+/* QueryPreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the query prevention policies operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryPreventionPoliciesParams struct {
 
-	/*Filter
-	  The filter expression that should be used to limit the results
+	/* Filter.
 
+	   The filter expression that should be used to limit the results
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-5000]
 
+	/* Limit.
+
+	   The maximum records to return. [1-5000]
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from
 
+	/* Offset.
+
+	   The offset to start retrieving records from
 	*/
 	Offset *int64
-	/*Sort
-	  The property to sort by
 
+	/* Sort.
+
+	   The property to sort by
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPreventionPoliciesParams) WithDefaults() *QueryPreventionPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPreventionPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query prevention policies params
@@ -176,64 +193,68 @@ func (o *QueryPreventionPoliciesParams) WriteToRequest(r runtime.ClientRequest, 
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

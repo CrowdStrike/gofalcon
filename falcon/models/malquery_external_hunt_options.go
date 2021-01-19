@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -39,6 +41,11 @@ type MalqueryExternalHuntOptions struct {
 
 // Validate validates this malquery external hunt options
 func (m *MalqueryExternalHuntOptions) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this malquery external hunt options based on context it is used
+func (m *MalqueryExternalHuntOptions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

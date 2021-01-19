@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -79,7 +80,6 @@ func (m *FwmgrMsaAggregationResultItem) validateCount(formats strfmt.Registry) e
 }
 
 func (m *FwmgrMsaAggregationResultItem) validateSubAggregates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubAggregates) { // not required
 		return nil
 	}
@@ -91,6 +91,38 @@ func (m *FwmgrMsaAggregationResultItem) validateSubAggregates(formats strfmt.Reg
 
 		if m.SubAggregates[i] != nil {
 			if err := m.SubAggregates[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fwmgr msa aggregation result item based on the context it is used
+func (m *FwmgrMsaAggregationResultItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSubAggregates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FwmgrMsaAggregationResultItem) contextValidateSubAggregates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SubAggregates); i++ {
+
+		if m.SubAggregates[i] != nil {
+			if err := m.SubAggregates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
 				}

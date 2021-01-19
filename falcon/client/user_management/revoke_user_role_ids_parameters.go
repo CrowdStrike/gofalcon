@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRevokeUserRoleIdsParams creates a new RevokeUserRoleIdsParams object
-// with the default values initialized.
+// NewRevokeUserRoleIdsParams creates a new RevokeUserRoleIdsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRevokeUserRoleIdsParams() *RevokeUserRoleIdsParams {
-	var ()
 	return &RevokeUserRoleIdsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRevokeUserRoleIdsParamsWithTimeout creates a new RevokeUserRoleIdsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRevokeUserRoleIdsParamsWithTimeout(timeout time.Duration) *RevokeUserRoleIdsParams {
-	var ()
 	return &RevokeUserRoleIdsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRevokeUserRoleIdsParamsWithContext creates a new RevokeUserRoleIdsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRevokeUserRoleIdsParamsWithContext(ctx context.Context) *RevokeUserRoleIdsParams {
-	var ()
 	return &RevokeUserRoleIdsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRevokeUserRoleIdsParamsWithHTTPClient creates a new RevokeUserRoleIdsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRevokeUserRoleIdsParamsWithHTTPClient(client *http.Client) *RevokeUserRoleIdsParams {
-	var ()
 	return &RevokeUserRoleIdsParams{
 		HTTPClient: client,
 	}
 }
 
-/*RevokeUserRoleIdsParams contains all the parameters to send to the API endpoint
-for the revoke user role ids operation typically these are written to a http.Request
+/* RevokeUserRoleIdsParams contains all the parameters to send to the API endpoint
+   for the revoke user role ids operation.
+
+   Typically these are written to a http.Request.
 */
 type RevokeUserRoleIdsParams struct {
 
-	/*Ids
-	  One or more role IDs to revoke. Find a role's ID from `/users/queries/roles/v1`.
+	/* Ids.
 
+	   One or more role IDs to revoke. Find a role's ID from `/users/queries/roles/v1`.
 	*/
 	Ids []string
-	/*UserUUID
-	  ID of a user. Find a user's ID from `/users/entities/user/v1`.
 
+	/* UserUUID.
+
+	   ID of a user. Find a user's ID from `/users/entities/user/v1`.
 	*/
 	UserUUID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the revoke user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RevokeUserRoleIdsParams) WithDefaults() *RevokeUserRoleIdsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the revoke user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RevokeUserRoleIdsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the revoke user role ids params
@@ -140,18 +155,22 @@ func (o *RevokeUserRoleIdsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	// query param user_uuid
 	qrUserUUID := o.UserUUID
 	qUserUUID := qrUserUUID
 	if qUserUUID != "" {
+
 		if err := r.SetQueryParam("user_uuid", qUserUUID); err != nil {
 			return err
 		}
@@ -161,4 +180,21 @@ func (o *RevokeUserRoleIdsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamRevokeUserRoleIds binds the parameter ids
+func (o *RevokeUserRoleIdsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

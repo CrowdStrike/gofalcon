@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryHostGroupsParams creates a new QueryHostGroupsParams object
-// with the default values initialized.
+// NewQueryHostGroupsParams creates a new QueryHostGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryHostGroupsParams() *QueryHostGroupsParams {
-	var ()
 	return &QueryHostGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryHostGroupsParamsWithTimeout creates a new QueryHostGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryHostGroupsParamsWithTimeout(timeout time.Duration) *QueryHostGroupsParams {
-	var ()
 	return &QueryHostGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryHostGroupsParamsWithContext creates a new QueryHostGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryHostGroupsParamsWithContext(ctx context.Context) *QueryHostGroupsParams {
-	var ()
 	return &QueryHostGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryHostGroupsParamsWithHTTPClient creates a new QueryHostGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryHostGroupsParamsWithHTTPClient(client *http.Client) *QueryHostGroupsParams {
-	var ()
 	return &QueryHostGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryHostGroupsParams contains all the parameters to send to the API endpoint
-for the query host groups operation typically these are written to a http.Request
+/* QueryHostGroupsParams contains all the parameters to send to the API endpoint
+   for the query host groups operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryHostGroupsParams struct {
 
-	/*Filter
-	  The filter expression that should be used to limit the results
+	/* Filter.
 
+	   The filter expression that should be used to limit the results
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-5000]
 
+	/* Limit.
+
+	   The maximum records to return. [1-5000]
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from
 
+	/* Offset.
+
+	   The offset to start retrieving records from
 	*/
 	Offset *int64
-	/*Sort
-	  The property to sort by
 
+	/* Sort.
+
+	   The property to sort by
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryHostGroupsParams) WithDefaults() *QueryHostGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryHostGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query host groups params
@@ -176,64 +193,68 @@ func (o *QueryHostGroupsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

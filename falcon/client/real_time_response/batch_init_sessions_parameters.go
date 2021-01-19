@@ -19,90 +19,104 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewBatchInitSessionsParams creates a new BatchInitSessionsParams object
-// with the default values initialized.
+// NewBatchInitSessionsParams creates a new BatchInitSessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewBatchInitSessionsParams() *BatchInitSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchInitSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: cr.DefaultTimeout,
 	}
 }
 
 // NewBatchInitSessionsParamsWithTimeout creates a new BatchInitSessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewBatchInitSessionsParamsWithTimeout(timeout time.Duration) *BatchInitSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchInitSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: timeout,
 	}
 }
 
 // NewBatchInitSessionsParamsWithContext creates a new BatchInitSessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewBatchInitSessionsParamsWithContext(ctx context.Context) *BatchInitSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchInitSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewBatchInitSessionsParamsWithHTTPClient creates a new BatchInitSessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewBatchInitSessionsParamsWithHTTPClient(client *http.Client) *BatchInitSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchInitSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*BatchInitSessionsParams contains all the parameters to send to the API endpoint
-for the batch init sessions operation typically these are written to a http.Request
+/* BatchInitSessionsParams contains all the parameters to send to the API endpoint
+   for the batch init sessions operation.
+
+   Typically these are written to a http.Request.
 */
 type BatchInitSessionsParams struct {
 
-	/*Body
-	  **`host_ids`** List of host agent ID's to initialize a RTR session on
-	**`existing_batch_id`** Optional batch ID. Use an existing batch ID if you want to initialize new hosts and add them to the existing batch
+	/* Body.
 
+	     **`host_ids`** List of host agent ID's to initialize a RTR session on
+	**`existing_batch_id`** Optional batch ID. Use an existing batch ID if you want to initialize new hosts and add them to the existing batch
 	*/
 	Body *models.DomainBatchInitSessionRequest
-	/*Timeout
-	  Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
 
+	/* Timeout.
+
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+
+	   Default: 30
 	*/
 	Timeout *int64
-	/*TimeoutDuration
-	  Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
+	/* TimeoutDuration.
+
+	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+
+	   Default: "30s"
 	*/
 	TimeoutDuration *string
 
 	requestTimeout time.Duration
 	Context        context.Context
 	HTTPClient     *http.Client
+}
+
+// WithDefaults hydrates default values in the batch init sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchInitSessionsParams) WithDefaults() *BatchInitSessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the batch init sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchInitSessionsParams) SetDefaults() {
+	var (
+		timeoutDefault = int64(30)
+
+		timeoutDurationDefault = string("30s")
+	)
+
+	val := BatchInitSessionsParams{
+		Timeout:         &timeoutDefault,
+		TimeoutDuration: &timeoutDurationDefault,
+	}
+
+	val.requestTimeout = o.requestTimeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithRequestTimeout adds the timeout to the batch init sessions params
@@ -178,7 +192,6 @@ func (o *BatchInitSessionsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -189,32 +202,34 @@ func (o *BatchInitSessionsParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 		// query param timeout
 		var qrTimeout int64
+
 		if o.Timeout != nil {
 			qrTimeout = *o.Timeout
 		}
 		qTimeout := swag.FormatInt64(qrTimeout)
 		if qTimeout != "" {
+
 			if err := r.SetQueryParam("timeout", qTimeout); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TimeoutDuration != nil {
 
 		// query param timeout_duration
 		var qrTimeoutDuration string
+
 		if o.TimeoutDuration != nil {
 			qrTimeoutDuration = *o.TimeoutDuration
 		}
 		qTimeoutDuration := qrTimeoutDuration
 		if qTimeoutDuration != "" {
+
 			if err := r.SetQueryParam("timeout_duration", qTimeoutDuration); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

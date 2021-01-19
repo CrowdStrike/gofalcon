@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateCSPMAzureAccountParams creates a new CreateCSPMAzureAccountParams object
-// with the default values initialized.
+// NewCreateCSPMAzureAccountParams creates a new CreateCSPMAzureAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateCSPMAzureAccountParams() *CreateCSPMAzureAccountParams {
-	var ()
 	return &CreateCSPMAzureAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateCSPMAzureAccountParamsWithTimeout creates a new CreateCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateCSPMAzureAccountParamsWithTimeout(timeout time.Duration) *CreateCSPMAzureAccountParams {
-	var ()
 	return &CreateCSPMAzureAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateCSPMAzureAccountParamsWithContext creates a new CreateCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateCSPMAzureAccountParamsWithContext(ctx context.Context) *CreateCSPMAzureAccountParams {
-	var ()
 	return &CreateCSPMAzureAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateCSPMAzureAccountParamsWithHTTPClient creates a new CreateCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateCSPMAzureAccountParamsWithHTTPClient(client *http.Client) *CreateCSPMAzureAccountParams {
-	var ()
 	return &CreateCSPMAzureAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateCSPMAzureAccountParams contains all the parameters to send to the API endpoint
-for the create c s p m azure account operation typically these are written to a http.Request
+/* CreateCSPMAzureAccountParams contains all the parameters to send to the API endpoint
+   for the create c s p m azure account operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateCSPMAzureAccountParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RegistrationAzureAccountCreateRequestExternalV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMAzureAccountParams) WithDefaults() *CreateCSPMAzureAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMAzureAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create c s p m azure account params
@@ -121,7 +135,6 @@ func (o *CreateCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

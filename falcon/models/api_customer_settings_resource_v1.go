@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,6 +47,11 @@ func (m *APICustomerSettingsResourceV1) validateTokensRequired(formats strfmt.Re
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this api customer settings resource v1 based on context it is used
+func (m *APICustomerSettingsResourceV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

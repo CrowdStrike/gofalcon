@@ -19,72 +19,52 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewBatchCmdParams creates a new BatchCmdParams object
-// with the default values initialized.
+// NewBatchCmdParams creates a new BatchCmdParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewBatchCmdParams() *BatchCmdParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchCmdParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: cr.DefaultTimeout,
 	}
 }
 
 // NewBatchCmdParamsWithTimeout creates a new BatchCmdParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewBatchCmdParamsWithTimeout(timeout time.Duration) *BatchCmdParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchCmdParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: timeout,
 	}
 }
 
 // NewBatchCmdParamsWithContext creates a new BatchCmdParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewBatchCmdParamsWithContext(ctx context.Context) *BatchCmdParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchCmdParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewBatchCmdParamsWithHTTPClient creates a new BatchCmdParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewBatchCmdParamsWithHTTPClient(client *http.Client) *BatchCmdParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchCmdParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*BatchCmdParams contains all the parameters to send to the API endpoint
-for the batch cmd operation typically these are written to a http.Request
+/* BatchCmdParams contains all the parameters to send to the API endpoint
+   for the batch cmd operation.
+
+   Typically these are written to a http.Request.
 */
 type BatchCmdParams struct {
 
-	/*Body
-	  Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands):
+	/* Body.
+
+	     Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands):
 	- `cat`
 	- `cd`
 	- `clear`
@@ -105,23 +85,57 @@ type BatchCmdParams struct {
 	**`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`.
 	**`command_string`** Full command string for the command. For example  `cd C:\some_directory`
 	**`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
-
 	*/
 	Body *models.DomainBatchExecuteCommandRequest
-	/*Timeout
-	  Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
 
+	/* Timeout.
+
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+
+	   Default: 30
 	*/
 	Timeout *int64
-	/*TimeoutDuration
-	  Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
+	/* TimeoutDuration.
+
+	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+
+	   Default: "30s"
 	*/
 	TimeoutDuration *string
 
 	requestTimeout time.Duration
 	Context        context.Context
 	HTTPClient     *http.Client
+}
+
+// WithDefaults hydrates default values in the batch cmd params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchCmdParams) WithDefaults() *BatchCmdParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the batch cmd params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchCmdParams) SetDefaults() {
+	var (
+		timeoutDefault = int64(30)
+
+		timeoutDurationDefault = string("30s")
+	)
+
+	val := BatchCmdParams{
+		Timeout:         &timeoutDefault,
+		TimeoutDuration: &timeoutDurationDefault,
+	}
+
+	val.requestTimeout = o.requestTimeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithRequestTimeout adds the timeout to the batch cmd params
@@ -197,7 +211,6 @@ func (o *BatchCmdParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -208,32 +221,34 @@ func (o *BatchCmdParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 
 		// query param timeout
 		var qrTimeout int64
+
 		if o.Timeout != nil {
 			qrTimeout = *o.Timeout
 		}
 		qTimeout := swag.FormatInt64(qrTimeout)
 		if qTimeout != "" {
+
 			if err := r.SetQueryParam("timeout", qTimeout); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TimeoutDuration != nil {
 
 		// query param timeout_duration
 		var qrTimeoutDuration string
+
 		if o.TimeoutDuration != nil {
 			qrTimeoutDuration = *o.TimeoutDuration
 		}
 		qTimeoutDuration := qrTimeoutDuration
 		if qTimeoutDuration != "" {
+
 			if err := r.SetQueryParam("timeout_duration", qTimeoutDuration); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

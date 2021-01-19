@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -180,7 +181,6 @@ func (m *DomainAPIDetectionDocument) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainAPIDetectionDocument) validateBehaviors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Behaviors) { // not required
 		return nil
 	}
@@ -334,7 +334,6 @@ func (m *DomainAPIDetectionDocument) validateMaxSeverityDisplayname(formats strf
 }
 
 func (m *DomainAPIDetectionDocument) validateQuarantinedFiles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuarantinedFiles) { // not required
 		return nil
 	}
@@ -389,6 +388,96 @@ func (m *DomainAPIDetectionDocument) validateStatus(formats strfmt.Registry) err
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain API detection document based on the context it is used
+func (m *DomainAPIDetectionDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBehaviors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDevice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHostinfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuarantinedFiles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainAPIDetectionDocument) contextValidateBehaviors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Behaviors); i++ {
+
+		if m.Behaviors[i] != nil {
+			if err := m.Behaviors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("behaviors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainAPIDetectionDocument) contextValidateDevice(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Device != nil {
+		if err := m.Device.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainAPIDetectionDocument) contextValidateHostinfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Hostinfo != nil {
+		if err := m.Hostinfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("hostinfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainAPIDetectionDocument) contextValidateQuarantinedFiles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuarantinedFiles); i++ {
+
+		if m.QuarantinedFiles[i] != nil {
+			if err := m.QuarantinedFiles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -195,6 +197,11 @@ func (m *ResponsesDeviceControlPolicyExceptionV1) validateVendorName(formats str
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this responses device control policy exception v1 based on context it is used
+func (m *ResponsesDeviceControlPolicyExceptionV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

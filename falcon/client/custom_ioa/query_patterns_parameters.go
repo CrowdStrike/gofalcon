@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryPatternsParams creates a new QueryPatternsParams object
-// with the default values initialized.
+// NewQueryPatternsParams creates a new QueryPatternsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryPatternsParams() *QueryPatternsParams {
-	var ()
 	return &QueryPatternsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryPatternsParamsWithTimeout creates a new QueryPatternsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryPatternsParamsWithTimeout(timeout time.Duration) *QueryPatternsParams {
-	var ()
 	return &QueryPatternsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryPatternsParamsWithContext creates a new QueryPatternsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryPatternsParamsWithContext(ctx context.Context) *QueryPatternsParams {
-	var ()
 	return &QueryPatternsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryPatternsParamsWithHTTPClient creates a new QueryPatternsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryPatternsParamsWithHTTPClient(client *http.Client) *QueryPatternsParams {
-	var ()
 	return &QueryPatternsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryPatternsParams contains all the parameters to send to the API endpoint
-for the query patterns operation typically these are written to a http.Request
+/* QueryPatternsParams contains all the parameters to send to the API endpoint
+   for the query patterns operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryPatternsParams struct {
 
-	/*Limit
-	  Number of IDs to return
+	/* Limit.
 
+	   Number of IDs to return
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return IDs
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return IDs
 	*/
 	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query patterns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPatternsParams) WithDefaults() *QueryPatternsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query patterns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPatternsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query patterns params
@@ -144,32 +159,34 @@ func (o *QueryPatternsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

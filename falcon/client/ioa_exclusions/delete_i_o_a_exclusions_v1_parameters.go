@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteIOAExclusionsV1Params creates a new DeleteIOAExclusionsV1Params object
-// with the default values initialized.
+// NewDeleteIOAExclusionsV1Params creates a new DeleteIOAExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIOAExclusionsV1Params() *DeleteIOAExclusionsV1Params {
-	var ()
 	return &DeleteIOAExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIOAExclusionsV1ParamsWithTimeout creates a new DeleteIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIOAExclusionsV1ParamsWithTimeout(timeout time.Duration) *DeleteIOAExclusionsV1Params {
-	var ()
 	return &DeleteIOAExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIOAExclusionsV1ParamsWithContext creates a new DeleteIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIOAExclusionsV1ParamsWithContext(ctx context.Context) *DeleteIOAExclusionsV1Params {
-	var ()
 	return &DeleteIOAExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIOAExclusionsV1ParamsWithHTTPClient creates a new DeleteIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *DeleteIOAExclusionsV1Params {
-	var ()
 	return &DeleteIOAExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIOAExclusionsV1Params contains all the parameters to send to the API endpoint
-for the delete i o a exclusions v1 operation typically these are written to a http.Request
+/* DeleteIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the delete i o a exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteIOAExclusionsV1Params struct {
 
-	/*Comment
-	  Explains why this exclusions was deleted
+	/* Comment.
 
+	   Explains why this exclusions was deleted
 	*/
 	Comment *string
-	/*Ids
-	  The ids of the exclusions to delete
 
+	/* Ids.
+
+	   The ids of the exclusions to delete
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIOAExclusionsV1Params) WithDefaults() *DeleteIOAExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIOAExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete i o a exclusions v1 params
@@ -144,28 +159,49 @@ func (o *DeleteIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteIOAExclusionsV1 binds the parameter ids
+func (o *DeleteIOAExclusionsV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

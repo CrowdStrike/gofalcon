@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetCSPMScanScheduleParams creates a new GetCSPMScanScheduleParams object
-// with the default values initialized.
+// NewGetCSPMScanScheduleParams creates a new GetCSPMScanScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMScanScheduleParams() *GetCSPMScanScheduleParams {
-	var ()
 	return &GetCSPMScanScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMScanScheduleParamsWithTimeout creates a new GetCSPMScanScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMScanScheduleParamsWithTimeout(timeout time.Duration) *GetCSPMScanScheduleParams {
-	var ()
 	return &GetCSPMScanScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMScanScheduleParamsWithContext creates a new GetCSPMScanScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMScanScheduleParamsWithContext(ctx context.Context) *GetCSPMScanScheduleParams {
-	var ()
 	return &GetCSPMScanScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMScanScheduleParamsWithHTTPClient creates a new GetCSPMScanScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMScanScheduleParamsWithHTTPClient(client *http.Client) *GetCSPMScanScheduleParams {
-	var ()
 	return &GetCSPMScanScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMScanScheduleParams contains all the parameters to send to the API endpoint
-for the get c s p m scan schedule operation typically these are written to a http.Request
+/* GetCSPMScanScheduleParams contains all the parameters to send to the API endpoint
+   for the get c s p m scan schedule operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMScanScheduleParams struct {
 
-	/*CloudPlatform
-	  Cloud Platform
+	/* CloudPlatform.
 
+	   Cloud Platform
 	*/
 	CloudPlatform []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m scan schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMScanScheduleParams) WithDefaults() *GetCSPMScanScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m scan schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMScanScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m scan schedule params
@@ -124,16 +138,36 @@ func (o *GetCSPMScanScheduleParams) WriteToRequest(r runtime.ClientRequest, reg 
 	}
 	var res []error
 
-	valuesCloudPlatform := o.CloudPlatform
+	if o.CloudPlatform != nil {
 
-	joinedCloudPlatform := swag.JoinByFormat(valuesCloudPlatform, "multi")
-	// query array param cloud-platform
-	if err := r.SetQueryParam("cloud-platform", joinedCloudPlatform...); err != nil {
-		return err
+		// binding items for cloud-platform
+		joinedCloudPlatform := o.bindParamCloudPlatform(reg)
+
+		// query array param cloud-platform
+		if err := r.SetQueryParam("cloud-platform", joinedCloudPlatform...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMScanSchedule binds the parameter cloud-platform
+func (o *GetCSPMScanScheduleParams) bindParamCloudPlatform(formats strfmt.Registry) []string {
+	cloudPlatformIR := o.CloudPlatform
+
+	var cloudPlatformIC []string
+	for _, cloudPlatformIIR := range cloudPlatformIR { // explode []string
+
+		cloudPlatformIIV := cloudPlatformIIR // string as string
+		cloudPlatformIC = append(cloudPlatformIC, cloudPlatformIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	cloudPlatformIS := swag.JoinByFormat(cloudPlatformIC, "multi")
+
+	return cloudPlatformIS
 }

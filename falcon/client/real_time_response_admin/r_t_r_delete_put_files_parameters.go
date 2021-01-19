@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRTRDeletePutFilesParams creates a new RTRDeletePutFilesParams object
-// with the default values initialized.
+// NewRTRDeletePutFilesParams creates a new RTRDeletePutFilesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRDeletePutFilesParams() *RTRDeletePutFilesParams {
-	var ()
 	return &RTRDeletePutFilesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRDeletePutFilesParamsWithTimeout creates a new RTRDeletePutFilesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRDeletePutFilesParamsWithTimeout(timeout time.Duration) *RTRDeletePutFilesParams {
-	var ()
 	return &RTRDeletePutFilesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRDeletePutFilesParamsWithContext creates a new RTRDeletePutFilesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRDeletePutFilesParamsWithContext(ctx context.Context) *RTRDeletePutFilesParams {
-	var ()
 	return &RTRDeletePutFilesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRDeletePutFilesParamsWithHTTPClient creates a new RTRDeletePutFilesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRDeletePutFilesParamsWithHTTPClient(client *http.Client) *RTRDeletePutFilesParams {
-	var ()
 	return &RTRDeletePutFilesParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRDeletePutFilesParams contains all the parameters to send to the API endpoint
-for the r t r delete put files operation typically these are written to a http.Request
+/* RTRDeletePutFilesParams contains all the parameters to send to the API endpoint
+   for the r t r delete put files operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRDeletePutFilesParams struct {
 
-	/*Ids
-	  File id
+	/* Ids.
 
+	   File id
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r delete put files params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeletePutFilesParams) WithDefaults() *RTRDeletePutFilesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r delete put files params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeletePutFilesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r delete put files params
@@ -127,6 +141,7 @@ func (o *RTRDeletePutFilesParams) WriteToRequest(r runtime.ClientRequest, reg st
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

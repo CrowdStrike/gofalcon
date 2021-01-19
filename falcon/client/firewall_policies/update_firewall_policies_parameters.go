@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateFirewallPoliciesParams creates a new UpdateFirewallPoliciesParams object
-// with the default values initialized.
+// NewUpdateFirewallPoliciesParams creates a new UpdateFirewallPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateFirewallPoliciesParams() *UpdateFirewallPoliciesParams {
-	var ()
 	return &UpdateFirewallPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateFirewallPoliciesParamsWithTimeout creates a new UpdateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateFirewallPoliciesParamsWithTimeout(timeout time.Duration) *UpdateFirewallPoliciesParams {
-	var ()
 	return &UpdateFirewallPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateFirewallPoliciesParamsWithContext creates a new UpdateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateFirewallPoliciesParamsWithContext(ctx context.Context) *UpdateFirewallPoliciesParams {
-	var ()
 	return &UpdateFirewallPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateFirewallPoliciesParamsWithHTTPClient creates a new UpdateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateFirewallPoliciesParamsWithHTTPClient(client *http.Client) *UpdateFirewallPoliciesParams {
-	var ()
 	return &UpdateFirewallPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateFirewallPoliciesParams contains all the parameters to send to the API endpoint
-for the update firewall policies operation typically these are written to a http.Request
+/* UpdateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the update firewall policies operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateFirewallPoliciesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsUpdateFirewallPoliciesV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateFirewallPoliciesParams) WithDefaults() *UpdateFirewallPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateFirewallPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update firewall policies params
@@ -121,7 +135,6 @@ func (o *UpdateFirewallPoliciesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

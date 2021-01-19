@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateRuleGroupMixin0Params creates a new CreateRuleGroupMixin0Params object
-// with the default values initialized.
+// NewCreateRuleGroupMixin0Params creates a new CreateRuleGroupMixin0Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateRuleGroupMixin0Params() *CreateRuleGroupMixin0Params {
-	var ()
 	return &CreateRuleGroupMixin0Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateRuleGroupMixin0ParamsWithTimeout creates a new CreateRuleGroupMixin0Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateRuleGroupMixin0ParamsWithTimeout(timeout time.Duration) *CreateRuleGroupMixin0Params {
-	var ()
 	return &CreateRuleGroupMixin0Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateRuleGroupMixin0ParamsWithContext creates a new CreateRuleGroupMixin0Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateRuleGroupMixin0ParamsWithContext(ctx context.Context) *CreateRuleGroupMixin0Params {
-	var ()
 	return &CreateRuleGroupMixin0Params{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateRuleGroupMixin0ParamsWithHTTPClient creates a new CreateRuleGroupMixin0Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateRuleGroupMixin0ParamsWithHTTPClient(client *http.Client) *CreateRuleGroupMixin0Params {
-	var ()
 	return &CreateRuleGroupMixin0Params{
 		HTTPClient: client,
 	}
 }
 
-/*CreateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
-for the create rule group mixin0 operation typically these are written to a http.Request
+/* CreateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
+   for the create rule group mixin0 operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateRuleGroupMixin0Params struct {
 
-	/*XCSUSERNAME
-	  The user ID
+	/* XCSUSERNAME.
 
+	   The user ID
 	*/
 	XCSUSERNAME string
-	/*Body*/
+
+	// Body.
 	Body *models.APIRuleGroupCreateRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create rule group mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleGroupMixin0Params) WithDefaults() *CreateRuleGroupMixin0Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create rule group mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleGroupMixin0Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create rule group mixin0 params
@@ -142,7 +157,6 @@ func (o *CreateRuleGroupMixin0Params) WriteToRequest(r runtime.ClientRequest, re
 	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

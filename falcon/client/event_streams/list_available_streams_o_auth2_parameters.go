@@ -16,64 +16,79 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewListAvailableStreamsOAuth2Params creates a new ListAvailableStreamsOAuth2Params object
-// with the default values initialized.
+// NewListAvailableStreamsOAuth2Params creates a new ListAvailableStreamsOAuth2Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewListAvailableStreamsOAuth2Params() *ListAvailableStreamsOAuth2Params {
-	var ()
 	return &ListAvailableStreamsOAuth2Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewListAvailableStreamsOAuth2ParamsWithTimeout creates a new ListAvailableStreamsOAuth2Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewListAvailableStreamsOAuth2ParamsWithTimeout(timeout time.Duration) *ListAvailableStreamsOAuth2Params {
-	var ()
 	return &ListAvailableStreamsOAuth2Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewListAvailableStreamsOAuth2ParamsWithContext creates a new ListAvailableStreamsOAuth2Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewListAvailableStreamsOAuth2ParamsWithContext(ctx context.Context) *ListAvailableStreamsOAuth2Params {
-	var ()
 	return &ListAvailableStreamsOAuth2Params{
-
 		Context: ctx,
 	}
 }
 
 // NewListAvailableStreamsOAuth2ParamsWithHTTPClient creates a new ListAvailableStreamsOAuth2Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewListAvailableStreamsOAuth2ParamsWithHTTPClient(client *http.Client) *ListAvailableStreamsOAuth2Params {
-	var ()
 	return &ListAvailableStreamsOAuth2Params{
 		HTTPClient: client,
 	}
 }
 
-/*ListAvailableStreamsOAuth2Params contains all the parameters to send to the API endpoint
-for the list available streams o auth2 operation typically these are written to a http.Request
+/* ListAvailableStreamsOAuth2Params contains all the parameters to send to the API endpoint
+   for the list available streams o auth2 operation.
+
+   Typically these are written to a http.Request.
 */
 type ListAvailableStreamsOAuth2Params struct {
 
-	/*AppID
-	  Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
+	/* AppID.
 
+	   Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
 	*/
 	AppID string
-	/*Format
-	  Format for streaming events. Valid values: json, flatjson
 
+	/* Format.
+
+	   Format for streaming events. Valid values: json, flatjson
 	*/
 	Format *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the list available streams o auth2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ListAvailableStreamsOAuth2Params) WithDefaults() *ListAvailableStreamsOAuth2Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the list available streams o auth2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ListAvailableStreamsOAuth2Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the list available streams o auth2 params
@@ -143,6 +158,7 @@ func (o *ListAvailableStreamsOAuth2Params) WriteToRequest(r runtime.ClientReques
 	qrAppID := o.AppID
 	qAppID := qrAppID
 	if qAppID != "" {
+
 		if err := r.SetQueryParam("appId", qAppID); err != nil {
 			return err
 		}
@@ -152,16 +168,17 @@ func (o *ListAvailableStreamsOAuth2Params) WriteToRequest(r runtime.ClientReques
 
 		// query param format
 		var qrFormat string
+
 		if o.Format != nil {
 			qrFormat = *o.Format
 		}
 		qFormat := qrFormat
 		if qFormat != "" {
+
 			if err := r.SetQueryParam("format", qFormat); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

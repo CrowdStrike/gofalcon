@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRTRDeleteScriptsParams creates a new RTRDeleteScriptsParams object
-// with the default values initialized.
+// NewRTRDeleteScriptsParams creates a new RTRDeleteScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRDeleteScriptsParams() *RTRDeleteScriptsParams {
-	var ()
 	return &RTRDeleteScriptsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRDeleteScriptsParamsWithTimeout creates a new RTRDeleteScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRDeleteScriptsParamsWithTimeout(timeout time.Duration) *RTRDeleteScriptsParams {
-	var ()
 	return &RTRDeleteScriptsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRDeleteScriptsParamsWithContext creates a new RTRDeleteScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRDeleteScriptsParamsWithContext(ctx context.Context) *RTRDeleteScriptsParams {
-	var ()
 	return &RTRDeleteScriptsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRDeleteScriptsParamsWithHTTPClient creates a new RTRDeleteScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRDeleteScriptsParamsWithHTTPClient(client *http.Client) *RTRDeleteScriptsParams {
-	var ()
 	return &RTRDeleteScriptsParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRDeleteScriptsParams contains all the parameters to send to the API endpoint
-for the r t r delete scripts operation typically these are written to a http.Request
+/* RTRDeleteScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r delete scripts operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRDeleteScriptsParams struct {
 
-	/*Ids
-	  File id
+	/* Ids.
 
+	   File id
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r delete scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeleteScriptsParams) WithDefaults() *RTRDeleteScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r delete scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRDeleteScriptsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r delete scripts params
@@ -127,6 +141,7 @@ func (o *RTRDeleteScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

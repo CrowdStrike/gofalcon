@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRetrieveEmailsByCIDParams creates a new RetrieveEmailsByCIDParams object
-// with the default values initialized.
+// NewRetrieveEmailsByCIDParams creates a new RetrieveEmailsByCIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRetrieveEmailsByCIDParams() *RetrieveEmailsByCIDParams {
-
 	return &RetrieveEmailsByCIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRetrieveEmailsByCIDParamsWithTimeout creates a new RetrieveEmailsByCIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRetrieveEmailsByCIDParamsWithTimeout(timeout time.Duration) *RetrieveEmailsByCIDParams {
-
 	return &RetrieveEmailsByCIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRetrieveEmailsByCIDParamsWithContext creates a new RetrieveEmailsByCIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRetrieveEmailsByCIDParamsWithContext(ctx context.Context) *RetrieveEmailsByCIDParams {
-
 	return &RetrieveEmailsByCIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRetrieveEmailsByCIDParamsWithHTTPClient creates a new RetrieveEmailsByCIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRetrieveEmailsByCIDParamsWithHTTPClient(client *http.Client) *RetrieveEmailsByCIDParams {
-
 	return &RetrieveEmailsByCIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*RetrieveEmailsByCIDParams contains all the parameters to send to the API endpoint
-for the retrieve emails by c ID operation typically these are written to a http.Request
+/* RetrieveEmailsByCIDParams contains all the parameters to send to the API endpoint
+   for the retrieve emails by c ID operation.
+
+   Typically these are written to a http.Request.
 */
 type RetrieveEmailsByCIDParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the retrieve emails by c ID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveEmailsByCIDParams) WithDefaults() *RetrieveEmailsByCIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the retrieve emails by c ID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveEmailsByCIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the retrieve emails by c ID params

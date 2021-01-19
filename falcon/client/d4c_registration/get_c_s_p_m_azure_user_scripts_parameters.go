@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCSPMAzureUserScriptsParams creates a new GetCSPMAzureUserScriptsParams object
-// with the default values initialized.
+// NewGetCSPMAzureUserScriptsParams creates a new GetCSPMAzureUserScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMAzureUserScriptsParams() *GetCSPMAzureUserScriptsParams {
-
 	return &GetCSPMAzureUserScriptsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsParamsWithTimeout creates a new GetCSPMAzureUserScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMAzureUserScriptsParamsWithTimeout(timeout time.Duration) *GetCSPMAzureUserScriptsParams {
-
 	return &GetCSPMAzureUserScriptsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsParamsWithContext creates a new GetCSPMAzureUserScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMAzureUserScriptsParamsWithContext(ctx context.Context) *GetCSPMAzureUserScriptsParams {
-
 	return &GetCSPMAzureUserScriptsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsParamsWithHTTPClient creates a new GetCSPMAzureUserScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMAzureUserScriptsParamsWithHTTPClient(client *http.Client) *GetCSPMAzureUserScriptsParams {
-
 	return &GetCSPMAzureUserScriptsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMAzureUserScriptsParams contains all the parameters to send to the API endpoint
-for the get c s p m azure user scripts operation typically these are written to a http.Request
+/* GetCSPMAzureUserScriptsParams contains all the parameters to send to the API endpoint
+   for the get c s p m azure user scripts operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMAzureUserScriptsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m azure user scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureUserScriptsParams) WithDefaults() *GetCSPMAzureUserScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m azure user scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureUserScriptsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m azure user scripts params

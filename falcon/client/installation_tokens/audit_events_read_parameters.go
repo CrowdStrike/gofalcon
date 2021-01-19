@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewAuditEventsReadParams creates a new AuditEventsReadParams object
-// with the default values initialized.
+// NewAuditEventsReadParams creates a new AuditEventsReadParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuditEventsReadParams() *AuditEventsReadParams {
-	var ()
 	return &AuditEventsReadParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuditEventsReadParamsWithTimeout creates a new AuditEventsReadParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuditEventsReadParamsWithTimeout(timeout time.Duration) *AuditEventsReadParams {
-	var ()
 	return &AuditEventsReadParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuditEventsReadParamsWithContext creates a new AuditEventsReadParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuditEventsReadParamsWithContext(ctx context.Context) *AuditEventsReadParams {
-	var ()
 	return &AuditEventsReadParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuditEventsReadParamsWithHTTPClient creates a new AuditEventsReadParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuditEventsReadParamsWithHTTPClient(client *http.Client) *AuditEventsReadParams {
-	var ()
 	return &AuditEventsReadParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuditEventsReadParams contains all the parameters to send to the API endpoint
-for the audit events read operation typically these are written to a http.Request
+/* AuditEventsReadParams contains all the parameters to send to the API endpoint
+   for the audit events read operation.
+
+   Typically these are written to a http.Request.
 */
 type AuditEventsReadParams struct {
 
-	/*Ids
-	  IDs of audit events to retrieve details for
+	/* Ids.
 
+	   IDs of audit events to retrieve details for
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the audit events read params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuditEventsReadParams) WithDefaults() *AuditEventsReadParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the audit events read params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuditEventsReadParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the audit events read params
@@ -124,16 +138,36 @@ func (o *AuditEventsReadParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamAuditEventsRead binds the parameter ids
+func (o *AuditEventsReadParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

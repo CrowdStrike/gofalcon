@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSummaryReportsParams creates a new GetSummaryReportsParams object
-// with the default values initialized.
+// NewGetSummaryReportsParams creates a new GetSummaryReportsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSummaryReportsParams() *GetSummaryReportsParams {
-	var ()
 	return &GetSummaryReportsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSummaryReportsParamsWithTimeout creates a new GetSummaryReportsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSummaryReportsParamsWithTimeout(timeout time.Duration) *GetSummaryReportsParams {
-	var ()
 	return &GetSummaryReportsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSummaryReportsParamsWithContext creates a new GetSummaryReportsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSummaryReportsParamsWithContext(ctx context.Context) *GetSummaryReportsParams {
-	var ()
 	return &GetSummaryReportsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSummaryReportsParamsWithHTTPClient creates a new GetSummaryReportsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSummaryReportsParamsWithHTTPClient(client *http.Client) *GetSummaryReportsParams {
-	var ()
 	return &GetSummaryReportsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSummaryReportsParams contains all the parameters to send to the API endpoint
-for the get summary reports operation typically these are written to a http.Request
+/* GetSummaryReportsParams contains all the parameters to send to the API endpoint
+   for the get summary reports operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSummaryReportsParams struct {
 
-	/*Ids
-	  ID of a summary. Find a summary ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
+	/* Ids.
 
+	   ID of a summary. Find a summary ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get summary reports params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSummaryReportsParams) WithDefaults() *GetSummaryReportsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get summary reports params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSummaryReportsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get summary reports params
@@ -124,16 +138,36 @@ func (o *GetSummaryReportsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetSummaryReports binds the parameter ids
+func (o *GetSummaryReportsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -160,7 +161,6 @@ func (m *ResponsesHostGroupV1) validateGroupTypeEnum(path, location string, valu
 }
 
 func (m *ResponsesHostGroupV1) validateGroupType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupType) { // not required
 		return nil
 	}
@@ -210,6 +210,11 @@ func (m *ResponsesHostGroupV1) validateName(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this responses host group v1 based on context it is used
+func (m *ResponsesHostGroupV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

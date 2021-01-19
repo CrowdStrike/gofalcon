@@ -16,81 +16,96 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSampleV2Params creates a new GetSampleV2Params object
-// with the default values initialized.
+// NewGetSampleV2Params creates a new GetSampleV2Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSampleV2Params() *GetSampleV2Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV2Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSampleV2ParamsWithTimeout creates a new GetSampleV2Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSampleV2ParamsWithTimeout(timeout time.Duration) *GetSampleV2Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV2Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSampleV2ParamsWithContext creates a new GetSampleV2Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSampleV2ParamsWithContext(ctx context.Context) *GetSampleV2Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV2Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetSampleV2ParamsWithHTTPClient creates a new GetSampleV2Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSampleV2ParamsWithHTTPClient(client *http.Client) *GetSampleV2Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV2Params{
-		PasswordProtected: &passwordProtectedDefault,
-		HTTPClient:        client,
+		HTTPClient: client,
 	}
 }
 
-/*GetSampleV2Params contains all the parameters to send to the API endpoint
-for the get sample v2 operation typically these are written to a http.Request
+/* GetSampleV2Params contains all the parameters to send to the API endpoint
+   for the get sample v2 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSampleV2Params struct {
 
-	/*XCSUSERUUID
-	  User UUID
+	/* XCSUSERUUID.
 
+	   User UUID
 	*/
 	XCSUSERUUID *string
-	/*Ids
-	  The file SHA256.
 
+	/* Ids.
+
+	   The file SHA256.
 	*/
 	Ids string
-	/*PasswordProtected
-	  Flag whether the sample should be zipped and password protected with pass='infected'
 
+	/* PasswordProtected.
+
+	   Flag whether the sample should be zipped and password protected with pass='infected'
 	*/
 	PasswordProtected *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get sample v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSampleV2Params) WithDefaults() *GetSampleV2Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get sample v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSampleV2Params) SetDefaults() {
+	var (
+		passwordProtectedDefault = string("false")
+	)
+
+	val := GetSampleV2Params{
+		PasswordProtected: &passwordProtectedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get sample v2 params
@@ -173,13 +188,13 @@ func (o *GetSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
 			return err
 		}
-
 	}
 
 	// query param ids
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}
@@ -189,16 +204,17 @@ func (o *GetSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		// query param password_protected
 		var qrPasswordProtected string
+
 		if o.PasswordProtected != nil {
 			qrPasswordProtected = *o.PasswordProtected
 		}
 		qPasswordProtected := qrPasswordProtected
 		if qPasswordProtected != "" {
+
 			if err := r.SetQueryParam("password_protected", qPasswordProtected); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

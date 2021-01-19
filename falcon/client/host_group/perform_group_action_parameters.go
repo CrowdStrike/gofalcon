@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformGroupActionParams creates a new PerformGroupActionParams object
-// with the default values initialized.
+// NewPerformGroupActionParams creates a new PerformGroupActionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformGroupActionParams() *PerformGroupActionParams {
-	var ()
 	return &PerformGroupActionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformGroupActionParamsWithTimeout creates a new PerformGroupActionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformGroupActionParamsWithTimeout(timeout time.Duration) *PerformGroupActionParams {
-	var ()
 	return &PerformGroupActionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformGroupActionParamsWithContext creates a new PerformGroupActionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformGroupActionParamsWithContext(ctx context.Context) *PerformGroupActionParams {
-	var ()
 	return &PerformGroupActionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformGroupActionParamsWithHTTPClient creates a new PerformGroupActionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformGroupActionParamsWithHTTPClient(client *http.Client) *PerformGroupActionParams {
-	var ()
 	return &PerformGroupActionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PerformGroupActionParams contains all the parameters to send to the API endpoint
-for the perform group action operation typically these are written to a http.Request
+/* PerformGroupActionParams contains all the parameters to send to the API endpoint
+   for the perform group action operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformGroupActionParams struct {
 
-	/*ActionName
-	  The action to perform
+	/* ActionName.
 
+	   The action to perform
 	*/
 	ActionName string
-	/*Body*/
+
+	// Body.
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform group action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformGroupActionParams) WithDefaults() *PerformGroupActionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform group action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformGroupActionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform group action params
@@ -142,11 +157,11 @@ func (o *PerformGroupActionParams) WriteToRequest(r runtime.ClientRequest, reg s
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

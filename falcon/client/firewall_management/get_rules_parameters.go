@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRulesParams creates a new GetRulesParams object
-// with the default values initialized.
+// NewGetRulesParams creates a new GetRulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRulesParams() *GetRulesParams {
-	var ()
 	return &GetRulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRulesParamsWithTimeout creates a new GetRulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRulesParamsWithTimeout(timeout time.Duration) *GetRulesParams {
-	var ()
 	return &GetRulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRulesParamsWithContext creates a new GetRulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRulesParamsWithContext(ctx context.Context) *GetRulesParams {
-	var ()
 	return &GetRulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRulesParamsWithHTTPClient creates a new GetRulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRulesParamsWithHTTPClient(client *http.Client) *GetRulesParams {
-	var ()
 	return &GetRulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRulesParams contains all the parameters to send to the API endpoint
-for the get rules operation typically these are written to a http.Request
+/* GetRulesParams contains all the parameters to send to the API endpoint
+   for the get rules operation.
+
+   Typically these are written to a http.Request.
 */
 type GetRulesParams struct {
 
-	/*Ids
-	  The rules to retrieve, identified by ID
+	/* Ids.
 
+	   The rules to retrieve, identified by ID
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRulesParams) WithDefaults() *GetRulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get rules params
@@ -124,16 +138,36 @@ func (o *GetRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRules binds the parameter ids
+func (o *GetRulesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

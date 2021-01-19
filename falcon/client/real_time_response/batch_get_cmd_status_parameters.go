@@ -17,89 +17,103 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewBatchGetCmdStatusParams creates a new BatchGetCmdStatusParams object
-// with the default values initialized.
+// NewBatchGetCmdStatusParams creates a new BatchGetCmdStatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewBatchGetCmdStatusParams() *BatchGetCmdStatusParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchGetCmdStatusParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: cr.DefaultTimeout,
 	}
 }
 
 // NewBatchGetCmdStatusParamsWithTimeout creates a new BatchGetCmdStatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewBatchGetCmdStatusParamsWithTimeout(timeout time.Duration) *BatchGetCmdStatusParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchGetCmdStatusParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: timeout,
 	}
 }
 
 // NewBatchGetCmdStatusParamsWithContext creates a new BatchGetCmdStatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewBatchGetCmdStatusParamsWithContext(ctx context.Context) *BatchGetCmdStatusParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchGetCmdStatusParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewBatchGetCmdStatusParamsWithHTTPClient creates a new BatchGetCmdStatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewBatchGetCmdStatusParamsWithHTTPClient(client *http.Client) *BatchGetCmdStatusParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchGetCmdStatusParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*BatchGetCmdStatusParams contains all the parameters to send to the API endpoint
-for the batch get cmd status operation typically these are written to a http.Request
+/* BatchGetCmdStatusParams contains all the parameters to send to the API endpoint
+   for the batch get cmd status operation.
+
+   Typically these are written to a http.Request.
 */
 type BatchGetCmdStatusParams struct {
 
-	/*BatchGetCmdReqID
-	  Batch Get Command Request ID received from `/real-time-response/combined/get-command/v1`
+	/* BatchGetCmdReqID.
 
+	   Batch Get Command Request ID received from `/real-time-response/combined/get-command/v1`
 	*/
 	BatchGetCmdReqID string
-	/*Timeout
-	  Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
 
+	/* Timeout.
+
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+
+	   Default: 30
 	*/
 	Timeout *int64
-	/*TimeoutDuration
-	  Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
+	/* TimeoutDuration.
+
+	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+
+	   Default: "30s"
 	*/
 	TimeoutDuration *string
 
 	requestTimeout time.Duration
 	Context        context.Context
 	HTTPClient     *http.Client
+}
+
+// WithDefaults hydrates default values in the batch get cmd status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchGetCmdStatusParams) WithDefaults() *BatchGetCmdStatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the batch get cmd status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchGetCmdStatusParams) SetDefaults() {
+	var (
+		timeoutDefault = int64(30)
+
+		timeoutDurationDefault = string("30s")
+	)
+
+	val := BatchGetCmdStatusParams{
+		Timeout:         &timeoutDefault,
+		TimeoutDuration: &timeoutDurationDefault,
+	}
+
+	val.requestTimeout = o.requestTimeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithRequestTimeout adds the timeout to the batch get cmd status params
@@ -180,6 +194,7 @@ func (o *BatchGetCmdStatusParams) WriteToRequest(r runtime.ClientRequest, reg st
 	qrBatchGetCmdReqID := o.BatchGetCmdReqID
 	qBatchGetCmdReqID := qrBatchGetCmdReqID
 	if qBatchGetCmdReqID != "" {
+
 		if err := r.SetQueryParam("batch_get_cmd_req_id", qBatchGetCmdReqID); err != nil {
 			return err
 		}
@@ -189,32 +204,34 @@ func (o *BatchGetCmdStatusParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 		// query param timeout
 		var qrTimeout int64
+
 		if o.Timeout != nil {
 			qrTimeout = *o.Timeout
 		}
 		qTimeout := swag.FormatInt64(qrTimeout)
 		if qTimeout != "" {
+
 			if err := r.SetQueryParam("timeout", qTimeout); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TimeoutDuration != nil {
 
 		// query param timeout_duration
 		var qrTimeoutDuration string
+
 		if o.TimeoutDuration != nil {
 			qrTimeoutDuration = *o.TimeoutDuration
 		}
 		qTimeoutDuration := qrTimeoutDuration
 		if qTimeoutDuration != "" {
+
 			if err := r.SetQueryParam("timeout_duration", qTimeoutDuration); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

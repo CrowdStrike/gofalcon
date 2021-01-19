@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetUserRoleIdsParams creates a new GetUserRoleIdsParams object
-// with the default values initialized.
+// NewGetUserRoleIdsParams creates a new GetUserRoleIdsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserRoleIdsParams() *GetUserRoleIdsParams {
-	var ()
 	return &GetUserRoleIdsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserRoleIdsParamsWithTimeout creates a new GetUserRoleIdsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserRoleIdsParamsWithTimeout(timeout time.Duration) *GetUserRoleIdsParams {
-	var ()
 	return &GetUserRoleIdsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserRoleIdsParamsWithContext creates a new GetUserRoleIdsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserRoleIdsParamsWithContext(ctx context.Context) *GetUserRoleIdsParams {
-	var ()
 	return &GetUserRoleIdsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserRoleIdsParamsWithHTTPClient creates a new GetUserRoleIdsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserRoleIdsParamsWithHTTPClient(client *http.Client) *GetUserRoleIdsParams {
-	var ()
 	return &GetUserRoleIdsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUserRoleIdsParams contains all the parameters to send to the API endpoint
-for the get user role ids operation typically these are written to a http.Request
+/* GetUserRoleIdsParams contains all the parameters to send to the API endpoint
+   for the get user role ids operation.
+
+   Typically these are written to a http.Request.
 */
 type GetUserRoleIdsParams struct {
 
-	/*UserUUID
-	  ID of a user. Find a user's ID from `/users/entities/user/v1`.
+	/* UserUUID.
 
+	   ID of a user. Find a user's ID from `/users/entities/user/v1`.
 	*/
 	UserUUID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserRoleIdsParams) WithDefaults() *GetUserRoleIdsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserRoleIdsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get user role ids params
@@ -127,6 +141,7 @@ func (o *GetUserRoleIdsParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	qrUserUUID := o.UserUUID
 	qUserUUID := qrUserUUID
 	if qUserUUID != "" {
+
 		if err := r.SetQueryParam("user_uuid", qUserUUID); err != nil {
 			return err
 		}

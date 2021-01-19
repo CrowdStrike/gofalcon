@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryRuleTypesParams creates a new QueryRuleTypesParams object
-// with the default values initialized.
+// NewQueryRuleTypesParams creates a new QueryRuleTypesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryRuleTypesParams() *QueryRuleTypesParams {
-	var ()
 	return &QueryRuleTypesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryRuleTypesParamsWithTimeout creates a new QueryRuleTypesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryRuleTypesParamsWithTimeout(timeout time.Duration) *QueryRuleTypesParams {
-	var ()
 	return &QueryRuleTypesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryRuleTypesParamsWithContext creates a new QueryRuleTypesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryRuleTypesParamsWithContext(ctx context.Context) *QueryRuleTypesParams {
-	var ()
 	return &QueryRuleTypesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryRuleTypesParamsWithHTTPClient creates a new QueryRuleTypesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryRuleTypesParamsWithHTTPClient(client *http.Client) *QueryRuleTypesParams {
-	var ()
 	return &QueryRuleTypesParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryRuleTypesParams contains all the parameters to send to the API endpoint
-for the query rule types operation typically these are written to a http.Request
+/* QueryRuleTypesParams contains all the parameters to send to the API endpoint
+   for the query rule types operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryRuleTypesParams struct {
 
-	/*Limit
-	  Number of IDs to return
+	/* Limit.
 
+	   Number of IDs to return
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return IDs
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return IDs
 	*/
 	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query rule types params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRuleTypesParams) WithDefaults() *QueryRuleTypesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query rule types params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRuleTypesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query rule types params
@@ -144,32 +159,34 @@ func (o *QueryRuleTypesParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

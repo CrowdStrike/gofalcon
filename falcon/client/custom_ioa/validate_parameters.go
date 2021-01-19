@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewValidateParams creates a new ValidateParams object
-// with the default values initialized.
+// NewValidateParams creates a new ValidateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewValidateParams() *ValidateParams {
-	var ()
 	return &ValidateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewValidateParamsWithTimeout creates a new ValidateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewValidateParamsWithTimeout(timeout time.Duration) *ValidateParams {
-	var ()
 	return &ValidateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewValidateParamsWithContext creates a new ValidateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewValidateParamsWithContext(ctx context.Context) *ValidateParams {
-	var ()
 	return &ValidateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewValidateParamsWithHTTPClient creates a new ValidateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewValidateParamsWithHTTPClient(client *http.Client) *ValidateParams {
-	var ()
 	return &ValidateParams{
 		HTTPClient: client,
 	}
 }
 
-/*ValidateParams contains all the parameters to send to the API endpoint
-for the validate operation typically these are written to a http.Request
+/* ValidateParams contains all the parameters to send to the API endpoint
+   for the validate operation.
+
+   Typically these are written to a http.Request.
 */
 type ValidateParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.APIValidationRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ValidateParams) WithDefaults() *ValidateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ValidateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the validate params
@@ -121,7 +135,6 @@ func (o *ValidateParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

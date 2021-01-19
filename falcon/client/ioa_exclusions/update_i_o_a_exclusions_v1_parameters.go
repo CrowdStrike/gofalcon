@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateIOAExclusionsV1Params creates a new UpdateIOAExclusionsV1Params object
-// with the default values initialized.
+// NewUpdateIOAExclusionsV1Params creates a new UpdateIOAExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateIOAExclusionsV1Params() *UpdateIOAExclusionsV1Params {
-	var ()
 	return &UpdateIOAExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateIOAExclusionsV1ParamsWithTimeout creates a new UpdateIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateIOAExclusionsV1ParamsWithTimeout(timeout time.Duration) *UpdateIOAExclusionsV1Params {
-	var ()
 	return &UpdateIOAExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateIOAExclusionsV1ParamsWithContext creates a new UpdateIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateIOAExclusionsV1ParamsWithContext(ctx context.Context) *UpdateIOAExclusionsV1Params {
-	var ()
 	return &UpdateIOAExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateIOAExclusionsV1ParamsWithHTTPClient creates a new UpdateIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *UpdateIOAExclusionsV1Params {
-	var ()
 	return &UpdateIOAExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
-for the update i o a exclusions v1 operation typically these are written to a http.Request
+/* UpdateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the update i o a exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateIOAExclusionsV1Params struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsIoaExclusionUpdateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateIOAExclusionsV1Params) WithDefaults() *UpdateIOAExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateIOAExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update i o a exclusions v1 params
@@ -121,7 +135,6 @@ func (o *UpdateIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

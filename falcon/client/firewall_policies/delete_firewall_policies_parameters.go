@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteFirewallPoliciesParams creates a new DeleteFirewallPoliciesParams object
-// with the default values initialized.
+// NewDeleteFirewallPoliciesParams creates a new DeleteFirewallPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteFirewallPoliciesParams() *DeleteFirewallPoliciesParams {
-	var ()
 	return &DeleteFirewallPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteFirewallPoliciesParamsWithTimeout creates a new DeleteFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteFirewallPoliciesParamsWithTimeout(timeout time.Duration) *DeleteFirewallPoliciesParams {
-	var ()
 	return &DeleteFirewallPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteFirewallPoliciesParamsWithContext creates a new DeleteFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteFirewallPoliciesParamsWithContext(ctx context.Context) *DeleteFirewallPoliciesParams {
-	var ()
 	return &DeleteFirewallPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteFirewallPoliciesParamsWithHTTPClient creates a new DeleteFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteFirewallPoliciesParamsWithHTTPClient(client *http.Client) *DeleteFirewallPoliciesParams {
-	var ()
 	return &DeleteFirewallPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteFirewallPoliciesParams contains all the parameters to send to the API endpoint
-for the delete firewall policies operation typically these are written to a http.Request
+/* DeleteFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the delete firewall policies operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteFirewallPoliciesParams struct {
 
-	/*Ids
-	  The IDs of the Firewall Policies to delete
+	/* Ids.
 
+	   The IDs of the Firewall Policies to delete
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFirewallPoliciesParams) WithDefaults() *DeleteFirewallPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFirewallPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete firewall policies params
@@ -124,16 +138,36 @@ func (o *DeleteFirewallPoliciesParams) WriteToRequest(r runtime.ClientRequest, r
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteFirewallPolicies binds the parameter ids
+func (o *DeleteFirewallPoliciesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

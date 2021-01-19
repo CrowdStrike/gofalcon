@@ -17,69 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteRuleGroupsMixin0Params creates a new DeleteRuleGroupsMixin0Params object
-// with the default values initialized.
+// NewDeleteRuleGroupsMixin0Params creates a new DeleteRuleGroupsMixin0Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRuleGroupsMixin0Params() *DeleteRuleGroupsMixin0Params {
-	var ()
 	return &DeleteRuleGroupsMixin0Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRuleGroupsMixin0ParamsWithTimeout creates a new DeleteRuleGroupsMixin0Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRuleGroupsMixin0ParamsWithTimeout(timeout time.Duration) *DeleteRuleGroupsMixin0Params {
-	var ()
 	return &DeleteRuleGroupsMixin0Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRuleGroupsMixin0ParamsWithContext creates a new DeleteRuleGroupsMixin0Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRuleGroupsMixin0ParamsWithContext(ctx context.Context) *DeleteRuleGroupsMixin0Params {
-	var ()
 	return &DeleteRuleGroupsMixin0Params{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRuleGroupsMixin0ParamsWithHTTPClient creates a new DeleteRuleGroupsMixin0Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRuleGroupsMixin0ParamsWithHTTPClient(client *http.Client) *DeleteRuleGroupsMixin0Params {
-	var ()
 	return &DeleteRuleGroupsMixin0Params{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
-for the delete rule groups mixin0 operation typically these are written to a http.Request
+/* DeleteRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
+   for the delete rule groups mixin0 operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteRuleGroupsMixin0Params struct {
 
-	/*XCSUSERNAME
-	  The user ID
+	/* XCSUSERNAME.
 
+	   The user ID
 	*/
 	XCSUSERNAME string
-	/*Comment
-	  Explains why the entity is being deleted
 
+	/* Comment.
+
+	   Explains why the entity is being deleted
 	*/
 	Comment *string
-	/*Ids
-	  The IDs of the entities
 
+	/* Ids.
+
+	   The IDs of the entities
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete rule groups mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRuleGroupsMixin0Params) WithDefaults() *DeleteRuleGroupsMixin0Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete rule groups mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRuleGroupsMixin0Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete rule groups mixin0 params
@@ -165,28 +181,49 @@ func (o *DeleteRuleGroupsMixin0Params) WriteToRequest(r runtime.ClientRequest, r
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteRuleGroupsMixin0 binds the parameter ids
+func (o *DeleteRuleGroupsMixin0Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

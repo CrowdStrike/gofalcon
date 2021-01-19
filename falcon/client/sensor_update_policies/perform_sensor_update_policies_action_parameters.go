@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformSensorUpdatePoliciesActionParams creates a new PerformSensorUpdatePoliciesActionParams object
-// with the default values initialized.
+// NewPerformSensorUpdatePoliciesActionParams creates a new PerformSensorUpdatePoliciesActionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformSensorUpdatePoliciesActionParams() *PerformSensorUpdatePoliciesActionParams {
-	var ()
 	return &PerformSensorUpdatePoliciesActionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformSensorUpdatePoliciesActionParamsWithTimeout creates a new PerformSensorUpdatePoliciesActionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformSensorUpdatePoliciesActionParamsWithTimeout(timeout time.Duration) *PerformSensorUpdatePoliciesActionParams {
-	var ()
 	return &PerformSensorUpdatePoliciesActionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformSensorUpdatePoliciesActionParamsWithContext creates a new PerformSensorUpdatePoliciesActionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformSensorUpdatePoliciesActionParamsWithContext(ctx context.Context) *PerformSensorUpdatePoliciesActionParams {
-	var ()
 	return &PerformSensorUpdatePoliciesActionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformSensorUpdatePoliciesActionParamsWithHTTPClient creates a new PerformSensorUpdatePoliciesActionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformSensorUpdatePoliciesActionParamsWithHTTPClient(client *http.Client) *PerformSensorUpdatePoliciesActionParams {
-	var ()
 	return &PerformSensorUpdatePoliciesActionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PerformSensorUpdatePoliciesActionParams contains all the parameters to send to the API endpoint
-for the perform sensor update policies action operation typically these are written to a http.Request
+/* PerformSensorUpdatePoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform sensor update policies action operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformSensorUpdatePoliciesActionParams struct {
 
-	/*ActionName
-	  The action to perform
+	/* ActionName.
 
+	   The action to perform
 	*/
 	ActionName string
-	/*Body*/
+
+	// Body.
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform sensor update policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformSensorUpdatePoliciesActionParams) WithDefaults() *PerformSensorUpdatePoliciesActionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform sensor update policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformSensorUpdatePoliciesActionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform sensor update policies action params
@@ -142,11 +157,11 @@ func (o *PerformSensorUpdatePoliciesActionParams) WriteToRequest(r runtime.Clien
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

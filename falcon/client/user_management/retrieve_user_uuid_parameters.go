@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRetrieveUserUUIDParams creates a new RetrieveUserUUIDParams object
-// with the default values initialized.
+// NewRetrieveUserUUIDParams creates a new RetrieveUserUUIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRetrieveUserUUIDParams() *RetrieveUserUUIDParams {
-	var ()
 	return &RetrieveUserUUIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRetrieveUserUUIDParamsWithTimeout creates a new RetrieveUserUUIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRetrieveUserUUIDParamsWithTimeout(timeout time.Duration) *RetrieveUserUUIDParams {
-	var ()
 	return &RetrieveUserUUIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRetrieveUserUUIDParamsWithContext creates a new RetrieveUserUUIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRetrieveUserUUIDParamsWithContext(ctx context.Context) *RetrieveUserUUIDParams {
-	var ()
 	return &RetrieveUserUUIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRetrieveUserUUIDParamsWithHTTPClient creates a new RetrieveUserUUIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRetrieveUserUUIDParamsWithHTTPClient(client *http.Client) *RetrieveUserUUIDParams {
-	var ()
 	return &RetrieveUserUUIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*RetrieveUserUUIDParams contains all the parameters to send to the API endpoint
-for the retrieve user UUID operation typically these are written to a http.Request
+/* RetrieveUserUUIDParams contains all the parameters to send to the API endpoint
+   for the retrieve user UUID operation.
+
+   Typically these are written to a http.Request.
 */
 type RetrieveUserUUIDParams struct {
 
-	/*UID
-	  A username. This is usually the user's email address, but may vary based on your configuration.
+	/* UID.
 
+	   A username. This is usually the user's email address, but may vary based on your configuration.
 	*/
 	UID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the retrieve user UUID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserUUIDParams) WithDefaults() *RetrieveUserUUIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the retrieve user UUID params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserUUIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the retrieve user UUID params
@@ -124,16 +138,36 @@ func (o *RetrieveUserUUIDParams) WriteToRequest(r runtime.ClientRequest, reg str
 	}
 	var res []error
 
-	valuesUID := o.UID
+	if o.UID != nil {
 
-	joinedUID := swag.JoinByFormat(valuesUID, "multi")
-	// query array param uid
-	if err := r.SetQueryParam("uid", joinedUID...); err != nil {
-		return err
+		// binding items for uid
+		joinedUID := o.bindParamUID(reg)
+
+		// query array param uid
+		if err := r.SetQueryParam("uid", joinedUID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamRetrieveUserUUID binds the parameter uid
+func (o *RetrieveUserUUIDParams) bindParamUID(formats strfmt.Registry) []string {
+	uIDIR := o.UID
+
+	var uIDIC []string
+	for _, uIDIIR := range uIDIR { // explode []string
+
+		uIDIIV := uIDIIR // string as string
+		uIDIC = append(uIDIC, uIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	uIDIS := swag.JoinByFormat(uIDIC, "multi")
+
+	return uIDIS
 }

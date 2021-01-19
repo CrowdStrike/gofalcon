@@ -16,69 +16,85 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetArtifactsParams creates a new GetArtifactsParams object
-// with the default values initialized.
+// NewGetArtifactsParams creates a new GetArtifactsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArtifactsParams() *GetArtifactsParams {
-	var ()
 	return &GetArtifactsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArtifactsParamsWithTimeout creates a new GetArtifactsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArtifactsParamsWithTimeout(timeout time.Duration) *GetArtifactsParams {
-	var ()
 	return &GetArtifactsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArtifactsParamsWithContext creates a new GetArtifactsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArtifactsParamsWithContext(ctx context.Context) *GetArtifactsParams {
-	var ()
 	return &GetArtifactsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArtifactsParamsWithHTTPClient creates a new GetArtifactsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArtifactsParamsWithHTTPClient(client *http.Client) *GetArtifactsParams {
-	var ()
 	return &GetArtifactsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArtifactsParams contains all the parameters to send to the API endpoint
-for the get artifacts operation typically these are written to a http.Request
+/* GetArtifactsParams contains all the parameters to send to the API endpoint
+   for the get artifacts operation.
+
+   Typically these are written to a http.Request.
 */
 type GetArtifactsParams struct {
 
-	/*AcceptEncoding
-	  Format used to compress your downloaded file. Currently, you must provide the value `gzip`, the only valid format.
+	/* AcceptEncoding.
 
+	   Format used to compress your downloaded file. Currently, you must provide the value `gzip`, the only valid format.
 	*/
 	AcceptEncoding *string
-	/*ID
-	  ID of an artifact, such as an IOC pack, PCAP file, or actor image. Find an artifact ID in a report or summary.
 
+	/* ID.
+
+	   ID of an artifact, such as an IOC pack, PCAP file, or actor image. Find an artifact ID in a report or summary.
 	*/
 	ID string
-	/*Name
-	  The name given to your downloaded file.
 
+	/* Name.
+
+	   The name given to your downloaded file.
 	*/
 	Name *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get artifacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArtifactsParams) WithDefaults() *GetArtifactsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get artifacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArtifactsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get artifacts params
@@ -161,13 +177,13 @@ func (o *GetArtifactsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if err := r.SetHeaderParam("Accept-Encoding", *o.AcceptEncoding); err != nil {
 			return err
 		}
-
 	}
 
 	// query param id
 	qrID := o.ID
 	qID := qrID
 	if qID != "" {
+
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
 		}
@@ -177,16 +193,17 @@ func (o *GetArtifactsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

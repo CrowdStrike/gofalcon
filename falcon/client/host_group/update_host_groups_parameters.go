@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateHostGroupsParams creates a new UpdateHostGroupsParams object
-// with the default values initialized.
+// NewUpdateHostGroupsParams creates a new UpdateHostGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateHostGroupsParams() *UpdateHostGroupsParams {
-	var ()
 	return &UpdateHostGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateHostGroupsParamsWithTimeout creates a new UpdateHostGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateHostGroupsParamsWithTimeout(timeout time.Duration) *UpdateHostGroupsParams {
-	var ()
 	return &UpdateHostGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateHostGroupsParamsWithContext creates a new UpdateHostGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateHostGroupsParamsWithContext(ctx context.Context) *UpdateHostGroupsParams {
-	var ()
 	return &UpdateHostGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateHostGroupsParamsWithHTTPClient creates a new UpdateHostGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateHostGroupsParamsWithHTTPClient(client *http.Client) *UpdateHostGroupsParams {
-	var ()
 	return &UpdateHostGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateHostGroupsParams contains all the parameters to send to the API endpoint
-for the update host groups operation typically these are written to a http.Request
+/* UpdateHostGroupsParams contains all the parameters to send to the API endpoint
+   for the update host groups operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateHostGroupsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsUpdateGroupsV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateHostGroupsParams) WithDefaults() *UpdateHostGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateHostGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update host groups params
@@ -121,7 +135,6 @@ func (o *UpdateHostGroupsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

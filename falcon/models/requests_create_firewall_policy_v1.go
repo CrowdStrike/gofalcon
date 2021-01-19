@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -105,6 +106,11 @@ func (m *RequestsCreateFirewallPolicyV1) validatePlatformName(formats strfmt.Reg
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this requests create firewall policy v1 based on context it is used
+func (m *RequestsCreateFirewallPolicyV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

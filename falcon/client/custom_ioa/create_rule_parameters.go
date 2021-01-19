@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateRuleParams creates a new CreateRuleParams object
-// with the default values initialized.
+// NewCreateRuleParams creates a new CreateRuleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateRuleParams() *CreateRuleParams {
-	var ()
 	return &CreateRuleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateRuleParamsWithTimeout creates a new CreateRuleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateRuleParamsWithTimeout(timeout time.Duration) *CreateRuleParams {
-	var ()
 	return &CreateRuleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateRuleParamsWithContext creates a new CreateRuleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateRuleParamsWithContext(ctx context.Context) *CreateRuleParams {
-	var ()
 	return &CreateRuleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateRuleParamsWithHTTPClient creates a new CreateRuleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateRuleParamsWithHTTPClient(client *http.Client) *CreateRuleParams {
-	var ()
 	return &CreateRuleParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateRuleParams contains all the parameters to send to the API endpoint
-for the create rule operation typically these are written to a http.Request
+/* CreateRuleParams contains all the parameters to send to the API endpoint
+   for the create rule operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateRuleParams struct {
 
-	/*XCSUSERNAME
-	  The user ID
+	/* XCSUSERNAME.
 
+	   The user ID
 	*/
 	XCSUSERNAME string
-	/*Body*/
+
+	// Body.
 	Body *models.APIRuleCreateV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleParams) WithDefaults() *CreateRuleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create rule params
@@ -142,7 +157,6 @@ func (o *CreateRuleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

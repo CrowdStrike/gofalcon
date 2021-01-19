@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateFirewallPoliciesParams creates a new CreateFirewallPoliciesParams object
-// with the default values initialized.
+// NewCreateFirewallPoliciesParams creates a new CreateFirewallPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateFirewallPoliciesParams() *CreateFirewallPoliciesParams {
-	var ()
 	return &CreateFirewallPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateFirewallPoliciesParamsWithTimeout creates a new CreateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateFirewallPoliciesParamsWithTimeout(timeout time.Duration) *CreateFirewallPoliciesParams {
-	var ()
 	return &CreateFirewallPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateFirewallPoliciesParamsWithContext creates a new CreateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateFirewallPoliciesParamsWithContext(ctx context.Context) *CreateFirewallPoliciesParams {
-	var ()
 	return &CreateFirewallPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateFirewallPoliciesParamsWithHTTPClient creates a new CreateFirewallPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateFirewallPoliciesParamsWithHTTPClient(client *http.Client) *CreateFirewallPoliciesParams {
-	var ()
 	return &CreateFirewallPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateFirewallPoliciesParams contains all the parameters to send to the API endpoint
-for the create firewall policies operation typically these are written to a http.Request
+/* CreateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the create firewall policies operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateFirewallPoliciesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsCreateFirewallPoliciesV1
-	/*CloneID
-	  The policy ID to be cloned from
 
+	/* CloneID.
+
+	   The policy ID to be cloned from
 	*/
 	CloneID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateFirewallPoliciesParams) WithDefaults() *CreateFirewallPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create firewall policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateFirewallPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create firewall policies params
@@ -137,7 +152,6 @@ func (o *CreateFirewallPoliciesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -148,16 +162,17 @@ func (o *CreateFirewallPoliciesParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// query param clone_id
 		var qrCloneID string
+
 		if o.CloneID != nil {
 			qrCloneID = *o.CloneID
 		}
 		qCloneID := qrCloneID
 		if qCloneID != "" {
+
 			if err := r.SetQueryParam("clone_id", qCloneID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

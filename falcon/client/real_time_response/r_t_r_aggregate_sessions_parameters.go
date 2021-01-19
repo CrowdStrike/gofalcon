@@ -18,52 +18,52 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewRTRAggregateSessionsParams creates a new RTRAggregateSessionsParams object
-// with the default values initialized.
+// NewRTRAggregateSessionsParams creates a new RTRAggregateSessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRAggregateSessionsParams() *RTRAggregateSessionsParams {
-	var ()
 	return &RTRAggregateSessionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRAggregateSessionsParamsWithTimeout creates a new RTRAggregateSessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRAggregateSessionsParamsWithTimeout(timeout time.Duration) *RTRAggregateSessionsParams {
-	var ()
 	return &RTRAggregateSessionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRAggregateSessionsParamsWithContext creates a new RTRAggregateSessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRAggregateSessionsParamsWithContext(ctx context.Context) *RTRAggregateSessionsParams {
-	var ()
 	return &RTRAggregateSessionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRAggregateSessionsParamsWithHTTPClient creates a new RTRAggregateSessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRAggregateSessionsParamsWithHTTPClient(client *http.Client) *RTRAggregateSessionsParams {
-	var ()
 	return &RTRAggregateSessionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRAggregateSessionsParams contains all the parameters to send to the API endpoint
-for the r t r aggregate sessions operation typically these are written to a http.Request
+/* RTRAggregateSessionsParams contains all the parameters to send to the API endpoint
+   for the r t r aggregate sessions operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRAggregateSessionsParams struct {
 
-	/*Body
-	  Supported aggregations:
+	/* Body.
+
+	     Supported aggregations:
 	- `term`
 	- `date_range`
 
@@ -74,13 +74,27 @@ type RTRAggregateSessionsParams struct {
 	**`filter`** Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
 	**`name`** Name of the aggregation
 	**`size`** Size limit to apply to the queries.
-
 	*/
 	Body []*models.MsaAggregateQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r aggregate sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRAggregateSessionsParams) WithDefaults() *RTRAggregateSessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r aggregate sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRAggregateSessionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r aggregate sessions params
@@ -134,7 +148,6 @@ func (o *RTRAggregateSessionsParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

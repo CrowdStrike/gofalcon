@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -209,6 +210,38 @@ func (m *DomainQueuedSessionJob) validateUserUUID(formats strfmt.Registry) error
 
 	if err := validate.Required("user_uuid", "body", m.UserUUID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain queued session job based on the context it is used
+func (m *DomainQueuedSessionJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCommands(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainQueuedSessionJob) contextValidateCommands(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Commands); i++ {
+
+		if m.Commands[i] != nil {
+			if err := m.Commands[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Commands" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

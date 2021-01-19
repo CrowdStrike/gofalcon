@@ -17,88 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryIntelIndicatorEntitiesParams creates a new QueryIntelIndicatorEntitiesParams object
-// with the default values initialized.
+// NewQueryIntelIndicatorEntitiesParams creates a new QueryIntelIndicatorEntitiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryIntelIndicatorEntitiesParams() *QueryIntelIndicatorEntitiesParams {
-	var ()
 	return &QueryIntelIndicatorEntitiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryIntelIndicatorEntitiesParamsWithTimeout creates a new QueryIntelIndicatorEntitiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryIntelIndicatorEntitiesParamsWithTimeout(timeout time.Duration) *QueryIntelIndicatorEntitiesParams {
-	var ()
 	return &QueryIntelIndicatorEntitiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryIntelIndicatorEntitiesParamsWithContext creates a new QueryIntelIndicatorEntitiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryIntelIndicatorEntitiesParamsWithContext(ctx context.Context) *QueryIntelIndicatorEntitiesParams {
-	var ()
 	return &QueryIntelIndicatorEntitiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryIntelIndicatorEntitiesParamsWithHTTPClient creates a new QueryIntelIndicatorEntitiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryIntelIndicatorEntitiesParamsWithHTTPClient(client *http.Client) *QueryIntelIndicatorEntitiesParams {
-	var ()
 	return &QueryIntelIndicatorEntitiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
-for the query intel indicator entities operation typically these are written to a http.Request
+/* QueryIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
+   for the query intel indicator entities operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryIntelIndicatorEntitiesParams struct {
 
-	/*Filter
-	  Filter your query by specifying FQL filter parameters. Filter parameters include:
+	/* Filter.
+
+	     Filter your query by specifying FQL filter parameters. Filter parameters include:
 
 	_marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, targets, threat_types, type, vulnerabilities.
-
 	*/
 	Filter *string
-	/*IncludeDeleted
-	  If true, include both published and deleted indicators in the response. Defaults to false.
 
+	/* IncludeDeleted.
+
+	   If true, include both published and deleted indicators in the response. Defaults to false.
 	*/
 	IncludeDeleted *bool
-	/*Limit
-	  Set the number of indicators to return. The number must be between 1 and 50000
 
+	/* Limit.
+
+	   Set the number of indicators to return. The number must be between 1 and 50000
 	*/
 	Limit *int64
-	/*Offset
-	  Set the starting row number to return indicators from. Defaults to 0.
 
+	/* Offset.
+
+	   Set the starting row number to return indicators from. Defaults to 0.
 	*/
 	Offset *int64
-	/*Q
-	  Perform a generic substring search across all fields.
 
+	/* Q.
+
+	   Perform a generic substring search across all fields.
 	*/
 	Q *string
-	/*Sort
-	  Order fields in ascending or descending order.
+
+	/* Sort.
+
+	     Order fields in ascending or descending order.
 
 	Ex: published_date|asc.
-
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query intel indicator entities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIntelIndicatorEntitiesParams) WithDefaults() *QueryIntelIndicatorEntitiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query intel indicator entities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIntelIndicatorEntitiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query intel indicator entities params
@@ -212,96 +231,102 @@ func (o *QueryIntelIndicatorEntitiesParams) WriteToRequest(r runtime.ClientReque
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeDeleted != nil {
 
 		// query param include_deleted
 		var qrIncludeDeleted bool
+
 		if o.IncludeDeleted != nil {
 			qrIncludeDeleted = *o.IncludeDeleted
 		}
 		qIncludeDeleted := swag.FormatBool(qrIncludeDeleted)
 		if qIncludeDeleted != "" {
+
 			if err := r.SetQueryParam("include_deleted", qIncludeDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

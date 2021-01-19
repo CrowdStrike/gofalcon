@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetMalQueryEntitiesSamplesFetchV1Params creates a new GetMalQueryEntitiesSamplesFetchV1Params object
-// with the default values initialized.
+// NewGetMalQueryEntitiesSamplesFetchV1Params creates a new GetMalQueryEntitiesSamplesFetchV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetMalQueryEntitiesSamplesFetchV1Params() *GetMalQueryEntitiesSamplesFetchV1Params {
-	var ()
 	return &GetMalQueryEntitiesSamplesFetchV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetMalQueryEntitiesSamplesFetchV1ParamsWithTimeout creates a new GetMalQueryEntitiesSamplesFetchV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetMalQueryEntitiesSamplesFetchV1ParamsWithTimeout(timeout time.Duration) *GetMalQueryEntitiesSamplesFetchV1Params {
-	var ()
 	return &GetMalQueryEntitiesSamplesFetchV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetMalQueryEntitiesSamplesFetchV1ParamsWithContext creates a new GetMalQueryEntitiesSamplesFetchV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetMalQueryEntitiesSamplesFetchV1ParamsWithContext(ctx context.Context) *GetMalQueryEntitiesSamplesFetchV1Params {
-	var ()
 	return &GetMalQueryEntitiesSamplesFetchV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetMalQueryEntitiesSamplesFetchV1ParamsWithHTTPClient creates a new GetMalQueryEntitiesSamplesFetchV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetMalQueryEntitiesSamplesFetchV1ParamsWithHTTPClient(client *http.Client) *GetMalQueryEntitiesSamplesFetchV1Params {
-	var ()
 	return &GetMalQueryEntitiesSamplesFetchV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetMalQueryEntitiesSamplesFetchV1Params contains all the parameters to send to the API endpoint
-for the get mal query entities samples fetch v1 operation typically these are written to a http.Request
+/* GetMalQueryEntitiesSamplesFetchV1Params contains all the parameters to send to the API endpoint
+   for the get mal query entities samples fetch v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetMalQueryEntitiesSamplesFetchV1Params struct {
 
-	/*Ids
-	  Multidownload job id
+	/* Ids.
 
+	   Multidownload job id
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get mal query entities samples fetch v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMalQueryEntitiesSamplesFetchV1Params) WithDefaults() *GetMalQueryEntitiesSamplesFetchV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get mal query entities samples fetch v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMalQueryEntitiesSamplesFetchV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get mal query entities samples fetch v1 params
@@ -127,6 +141,7 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Params) WriteToRequest(r runtime.Clien
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateAWSAccountsParams creates a new UpdateAWSAccountsParams object
-// with the default values initialized.
+// NewUpdateAWSAccountsParams creates a new UpdateAWSAccountsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateAWSAccountsParams() *UpdateAWSAccountsParams {
-	var ()
 	return &UpdateAWSAccountsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateAWSAccountsParamsWithTimeout creates a new UpdateAWSAccountsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateAWSAccountsParamsWithTimeout(timeout time.Duration) *UpdateAWSAccountsParams {
-	var ()
 	return &UpdateAWSAccountsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateAWSAccountsParamsWithContext creates a new UpdateAWSAccountsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateAWSAccountsParamsWithContext(ctx context.Context) *UpdateAWSAccountsParams {
-	var ()
 	return &UpdateAWSAccountsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateAWSAccountsParamsWithHTTPClient creates a new UpdateAWSAccountsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateAWSAccountsParamsWithHTTPClient(client *http.Client) *UpdateAWSAccountsParams {
-	var ()
 	return &UpdateAWSAccountsParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateAWSAccountsParams contains all the parameters to send to the API endpoint
-for the update a w s accounts operation typically these are written to a http.Request
+/* UpdateAWSAccountsParams contains all the parameters to send to the API endpoint
+   for the update a w s accounts operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateAWSAccountsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ModelsUpdateAWSAccountsV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update a w s accounts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateAWSAccountsParams) WithDefaults() *UpdateAWSAccountsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update a w s accounts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateAWSAccountsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update a w s accounts params
@@ -121,7 +135,6 @@ func (o *UpdateAWSAccountsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

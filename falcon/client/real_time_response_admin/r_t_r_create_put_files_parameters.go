@@ -16,74 +16,91 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRTRCreatePutFilesParams creates a new RTRCreatePutFilesParams object
-// with the default values initialized.
+// NewRTRCreatePutFilesParams creates a new RTRCreatePutFilesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRCreatePutFilesParams() *RTRCreatePutFilesParams {
-	var ()
 	return &RTRCreatePutFilesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRCreatePutFilesParamsWithTimeout creates a new RTRCreatePutFilesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRCreatePutFilesParamsWithTimeout(timeout time.Duration) *RTRCreatePutFilesParams {
-	var ()
 	return &RTRCreatePutFilesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRCreatePutFilesParamsWithContext creates a new RTRCreatePutFilesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRCreatePutFilesParamsWithContext(ctx context.Context) *RTRCreatePutFilesParams {
-	var ()
 	return &RTRCreatePutFilesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRCreatePutFilesParamsWithHTTPClient creates a new RTRCreatePutFilesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRCreatePutFilesParamsWithHTTPClient(client *http.Client) *RTRCreatePutFilesParams {
-	var ()
 	return &RTRCreatePutFilesParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRCreatePutFilesParams contains all the parameters to send to the API endpoint
-for the r t r create put files operation typically these are written to a http.Request
+/* RTRCreatePutFilesParams contains all the parameters to send to the API endpoint
+   for the r t r create put files operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRCreatePutFilesParams struct {
 
-	/*CommentsForAuditLog
-	  The audit log comment
+	/* CommentsForAuditLog.
 
+	   The audit log comment
 	*/
 	CommentsForAuditLog *string
-	/*Description
-	  File description
 
+	/* Description.
+
+	   File description
 	*/
 	Description string
-	/*File
-	  put-file to upload
 
+	/* File.
+
+	   put-file to upload
 	*/
 	File runtime.NamedReadCloser
-	/*Name
-	  File name (if different than actual file name)
 
+	/* Name.
+
+	   File name (if different than actual file name)
 	*/
 	Name *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r create put files params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCreatePutFilesParams) WithDefaults() *RTRCreatePutFilesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r create put files params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCreatePutFilesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r create put files params
@@ -184,7 +201,6 @@ func (o *RTRCreatePutFilesParams) WriteToRequest(r runtime.ClientRequest, reg st
 				return err
 			}
 		}
-
 	}
 
 	// form param description
@@ -195,7 +211,6 @@ func (o *RTRCreatePutFilesParams) WriteToRequest(r runtime.ClientRequest, reg st
 			return err
 		}
 	}
-
 	// form file param file
 	if err := r.SetFileParam("file", o.File); err != nil {
 		return err
@@ -214,7 +229,6 @@ func (o *RTRCreatePutFilesParams) WriteToRequest(r runtime.ClientRequest, reg st
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

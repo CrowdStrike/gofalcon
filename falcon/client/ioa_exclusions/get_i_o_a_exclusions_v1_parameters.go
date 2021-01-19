@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIOAExclusionsV1Params creates a new GetIOAExclusionsV1Params object
-// with the default values initialized.
+// NewGetIOAExclusionsV1Params creates a new GetIOAExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIOAExclusionsV1Params() *GetIOAExclusionsV1Params {
-	var ()
 	return &GetIOAExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIOAExclusionsV1ParamsWithTimeout creates a new GetIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIOAExclusionsV1ParamsWithTimeout(timeout time.Duration) *GetIOAExclusionsV1Params {
-	var ()
 	return &GetIOAExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIOAExclusionsV1ParamsWithContext creates a new GetIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIOAExclusionsV1ParamsWithContext(ctx context.Context) *GetIOAExclusionsV1Params {
-	var ()
 	return &GetIOAExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIOAExclusionsV1ParamsWithHTTPClient creates a new GetIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *GetIOAExclusionsV1Params {
-	var ()
 	return &GetIOAExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetIOAExclusionsV1Params contains all the parameters to send to the API endpoint
-for the get i o a exclusions v1 operation typically these are written to a http.Request
+/* GetIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the get i o a exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetIOAExclusionsV1Params struct {
 
-	/*Ids
-	  The ids of the exclusions to retrieve
+	/* Ids.
 
+	   The ids of the exclusions to retrieve
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIOAExclusionsV1Params) WithDefaults() *GetIOAExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIOAExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get i o a exclusions v1 params
@@ -124,16 +138,36 @@ func (o *GetIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetIOAExclusionsV1 binds the parameter ids
+func (o *GetIOAExclusionsV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

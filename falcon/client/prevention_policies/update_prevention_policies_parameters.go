@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdatePreventionPoliciesParams creates a new UpdatePreventionPoliciesParams object
-// with the default values initialized.
+// NewUpdatePreventionPoliciesParams creates a new UpdatePreventionPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdatePreventionPoliciesParams() *UpdatePreventionPoliciesParams {
-	var ()
 	return &UpdatePreventionPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdatePreventionPoliciesParamsWithTimeout creates a new UpdatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdatePreventionPoliciesParamsWithTimeout(timeout time.Duration) *UpdatePreventionPoliciesParams {
-	var ()
 	return &UpdatePreventionPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdatePreventionPoliciesParamsWithContext creates a new UpdatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdatePreventionPoliciesParamsWithContext(ctx context.Context) *UpdatePreventionPoliciesParams {
-	var ()
 	return &UpdatePreventionPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdatePreventionPoliciesParamsWithHTTPClient creates a new UpdatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdatePreventionPoliciesParamsWithHTTPClient(client *http.Client) *UpdatePreventionPoliciesParams {
-	var ()
 	return &UpdatePreventionPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdatePreventionPoliciesParams contains all the parameters to send to the API endpoint
-for the update prevention policies operation typically these are written to a http.Request
+/* UpdatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the update prevention policies operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdatePreventionPoliciesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsUpdatePreventionPoliciesV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdatePreventionPoliciesParams) WithDefaults() *UpdatePreventionPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdatePreventionPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update prevention policies params
@@ -121,7 +135,6 @@ func (o *UpdatePreventionPoliciesParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

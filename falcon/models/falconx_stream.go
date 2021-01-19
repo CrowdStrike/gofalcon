@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -52,7 +53,6 @@ func (m *FalconxStream) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxStream) validateMatchedSignatures(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MatchedSignatures) { // not required
 		return nil
 	}
@@ -64,6 +64,38 @@ func (m *FalconxStream) validateMatchedSignatures(formats strfmt.Registry) error
 
 		if m.MatchedSignatures[i] != nil {
 			if err := m.MatchedSignatures[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx stream based on the context it is used
+func (m *FalconxStream) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMatchedSignatures(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxStream) contextValidateMatchedSignatures(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MatchedSignatures); i++ {
+
+		if m.MatchedSignatures[i] != nil {
+			if err := m.MatchedSignatures[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
 				}

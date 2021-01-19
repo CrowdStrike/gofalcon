@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -37,7 +38,6 @@ func (m *FalconxIntelSummaryReportV1) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxIntelSummaryReportV1) validateActors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Actors) { // not required
 		return nil
 	}
@@ -49,6 +49,38 @@ func (m *FalconxIntelSummaryReportV1) validateActors(formats strfmt.Registry) er
 
 		if m.Actors[i] != nil {
 			if err := m.Actors[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx intel summary report v1 based on the context it is used
+func (m *FalconxIntelSummaryReportV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxIntelSummaryReportV1) contextValidateActors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Actors); i++ {
+
+		if m.Actors[i] != nil {
+			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
 				}

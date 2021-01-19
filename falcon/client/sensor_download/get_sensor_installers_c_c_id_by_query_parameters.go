@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSensorInstallersCCIDByQueryParams creates a new GetSensorInstallersCCIDByQueryParams object
-// with the default values initialized.
+// NewGetSensorInstallersCCIDByQueryParams creates a new GetSensorInstallersCCIDByQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSensorInstallersCCIDByQueryParams() *GetSensorInstallersCCIDByQueryParams {
-
 	return &GetSensorInstallersCCIDByQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSensorInstallersCCIDByQueryParamsWithTimeout creates a new GetSensorInstallersCCIDByQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSensorInstallersCCIDByQueryParamsWithTimeout(timeout time.Duration) *GetSensorInstallersCCIDByQueryParams {
-
 	return &GetSensorInstallersCCIDByQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSensorInstallersCCIDByQueryParamsWithContext creates a new GetSensorInstallersCCIDByQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSensorInstallersCCIDByQueryParamsWithContext(ctx context.Context) *GetSensorInstallersCCIDByQueryParams {
-
 	return &GetSensorInstallersCCIDByQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSensorInstallersCCIDByQueryParamsWithHTTPClient creates a new GetSensorInstallersCCIDByQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSensorInstallersCCIDByQueryParamsWithHTTPClient(client *http.Client) *GetSensorInstallersCCIDByQueryParams {
-
 	return &GetSensorInstallersCCIDByQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSensorInstallersCCIDByQueryParams contains all the parameters to send to the API endpoint
-for the get sensor installers c c ID by query operation typically these are written to a http.Request
+/* GetSensorInstallersCCIDByQueryParams contains all the parameters to send to the API endpoint
+   for the get sensor installers c c ID by query operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSensorInstallersCCIDByQueryParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get sensor installers c c ID by query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSensorInstallersCCIDByQueryParams) WithDefaults() *GetSensorInstallersCCIDByQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get sensor installers c c ID by query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSensorInstallersCCIDByQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get sensor installers c c ID by query params

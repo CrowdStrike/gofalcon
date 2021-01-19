@@ -16,69 +16,85 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewOauth2AccessTokenParams creates a new Oauth2AccessTokenParams object
-// with the default values initialized.
+// NewOauth2AccessTokenParams creates a new Oauth2AccessTokenParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewOauth2AccessTokenParams() *Oauth2AccessTokenParams {
-	var ()
 	return &Oauth2AccessTokenParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewOauth2AccessTokenParamsWithTimeout creates a new Oauth2AccessTokenParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewOauth2AccessTokenParamsWithTimeout(timeout time.Duration) *Oauth2AccessTokenParams {
-	var ()
 	return &Oauth2AccessTokenParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewOauth2AccessTokenParamsWithContext creates a new Oauth2AccessTokenParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewOauth2AccessTokenParamsWithContext(ctx context.Context) *Oauth2AccessTokenParams {
-	var ()
 	return &Oauth2AccessTokenParams{
-
 		Context: ctx,
 	}
 }
 
 // NewOauth2AccessTokenParamsWithHTTPClient creates a new Oauth2AccessTokenParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewOauth2AccessTokenParamsWithHTTPClient(client *http.Client) *Oauth2AccessTokenParams {
-	var ()
 	return &Oauth2AccessTokenParams{
 		HTTPClient: client,
 	}
 }
 
-/*Oauth2AccessTokenParams contains all the parameters to send to the API endpoint
-for the oauth2 access token operation typically these are written to a http.Request
+/* Oauth2AccessTokenParams contains all the parameters to send to the API endpoint
+   for the oauth2 access token operation.
+
+   Typically these are written to a http.Request.
 */
 type Oauth2AccessTokenParams struct {
 
-	/*ClientID
-	  The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+	/* ClientID.
 
+	   The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
 	*/
 	ClientID string
-	/*ClientSecret
-	  The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
 
+	/* ClientSecret.
+
+	   The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
 	*/
 	ClientSecret string
-	/*MemberCid
-	  For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
 
+	/* MemberCid.
+
+	   For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
 	*/
 	MemberCid *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the oauth2 access token params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *Oauth2AccessTokenParams) WithDefaults() *Oauth2AccessTokenParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the oauth2 access token params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *Oauth2AccessTokenParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the oauth2 access token params
@@ -186,7 +202,6 @@ func (o *Oauth2AccessTokenParams) WriteToRequest(r runtime.ClientRequest, reg st
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -71,6 +73,11 @@ func (m *DomainAzureClientServicePrincipalV1) validateTenantID(formats strfmt.Re
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this domain azure client service principal v1 based on context it is used
+func (m *DomainAzureClientServicePrincipalV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

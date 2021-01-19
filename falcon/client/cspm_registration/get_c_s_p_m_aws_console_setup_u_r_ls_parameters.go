@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCSPMAwsConsoleSetupURLsParams creates a new GetCSPMAwsConsoleSetupURLsParams object
-// with the default values initialized.
+// NewGetCSPMAwsConsoleSetupURLsParams creates a new GetCSPMAwsConsoleSetupURLsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMAwsConsoleSetupURLsParams() *GetCSPMAwsConsoleSetupURLsParams {
-
 	return &GetCSPMAwsConsoleSetupURLsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMAwsConsoleSetupURLsParamsWithTimeout creates a new GetCSPMAwsConsoleSetupURLsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMAwsConsoleSetupURLsParamsWithTimeout(timeout time.Duration) *GetCSPMAwsConsoleSetupURLsParams {
-
 	return &GetCSPMAwsConsoleSetupURLsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMAwsConsoleSetupURLsParamsWithContext creates a new GetCSPMAwsConsoleSetupURLsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMAwsConsoleSetupURLsParamsWithContext(ctx context.Context) *GetCSPMAwsConsoleSetupURLsParams {
-
 	return &GetCSPMAwsConsoleSetupURLsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMAwsConsoleSetupURLsParamsWithHTTPClient creates a new GetCSPMAwsConsoleSetupURLsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMAwsConsoleSetupURLsParamsWithHTTPClient(client *http.Client) *GetCSPMAwsConsoleSetupURLsParams {
-
 	return &GetCSPMAwsConsoleSetupURLsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
-for the get c s p m aws console setup u r ls operation typically these are written to a http.Request
+/* GetCSPMAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
+   for the get c s p m aws console setup u r ls operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMAwsConsoleSetupURLsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m aws console setup u r ls params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithDefaults() *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m aws console setup u r ls params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m aws console setup u r ls params

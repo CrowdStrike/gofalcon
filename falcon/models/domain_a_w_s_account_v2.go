@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -143,6 +145,11 @@ func (m *DomainAWSAccountV2) validateIsMaster(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this domain a w s account v2 based on context it is used
+func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

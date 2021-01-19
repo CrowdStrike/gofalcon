@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -95,7 +96,6 @@ func (m *MalqueryRequestMetaInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MalqueryRequestMetaInfo) validateOptions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Options) { // not required
 		return nil
 	}
@@ -113,7 +113,6 @@ func (m *MalqueryRequestMetaInfo) validateOptions(formats strfmt.Registry) error
 }
 
 func (m *MalqueryRequestMetaInfo) validatePagination(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pagination) { // not required
 		return nil
 	}
@@ -131,7 +130,6 @@ func (m *MalqueryRequestMetaInfo) validatePagination(formats strfmt.Registry) er
 }
 
 func (m *MalqueryRequestMetaInfo) validatePatterns(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Patterns) { // not required
 		return nil
 	}
@@ -156,7 +154,6 @@ func (m *MalqueryRequestMetaInfo) validatePatterns(formats strfmt.Registry) erro
 }
 
 func (m *MalqueryRequestMetaInfo) validateStats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stats) { // not required
 		return nil
 	}
@@ -183,13 +180,116 @@ func (m *MalqueryRequestMetaInfo) validateTraceID(formats strfmt.Registry) error
 }
 
 func (m *MalqueryRequestMetaInfo) validateWrites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Writes) { // not required
 		return nil
 	}
 
 	if m.Writes != nil {
 		if err := m.Writes.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("writes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this malquery request meta info based on the context it is used
+func (m *MalqueryRequestMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePagination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatterns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MalqueryRequestMetaInfo) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Options != nil {
+		if err := m.Options.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("options")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryRequestMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pagination != nil {
+		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pagination")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryRequestMetaInfo) contextValidatePatterns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Patterns); i++ {
+
+		if m.Patterns[i] != nil {
+			if err := m.Patterns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MalqueryRequestMetaInfo) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Stats != nil {
+		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("stats")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryRequestMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Writes != nil {
+		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
 			}

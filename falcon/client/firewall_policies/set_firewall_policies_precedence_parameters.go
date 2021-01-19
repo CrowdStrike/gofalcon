@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewSetFirewallPoliciesPrecedenceParams creates a new SetFirewallPoliciesPrecedenceParams object
-// with the default values initialized.
+// NewSetFirewallPoliciesPrecedenceParams creates a new SetFirewallPoliciesPrecedenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewSetFirewallPoliciesPrecedenceParams() *SetFirewallPoliciesPrecedenceParams {
-	var ()
 	return &SetFirewallPoliciesPrecedenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewSetFirewallPoliciesPrecedenceParamsWithTimeout creates a new SetFirewallPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewSetFirewallPoliciesPrecedenceParamsWithTimeout(timeout time.Duration) *SetFirewallPoliciesPrecedenceParams {
-	var ()
 	return &SetFirewallPoliciesPrecedenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewSetFirewallPoliciesPrecedenceParamsWithContext creates a new SetFirewallPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewSetFirewallPoliciesPrecedenceParamsWithContext(ctx context.Context) *SetFirewallPoliciesPrecedenceParams {
-	var ()
 	return &SetFirewallPoliciesPrecedenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewSetFirewallPoliciesPrecedenceParamsWithHTTPClient creates a new SetFirewallPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewSetFirewallPoliciesPrecedenceParamsWithHTTPClient(client *http.Client) *SetFirewallPoliciesPrecedenceParams {
-	var ()
 	return &SetFirewallPoliciesPrecedenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*SetFirewallPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-for the set firewall policies precedence operation typically these are written to a http.Request
+/* SetFirewallPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
+   for the set firewall policies precedence operation.
+
+   Typically these are written to a http.Request.
 */
 type SetFirewallPoliciesPrecedenceParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the set firewall policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetFirewallPoliciesPrecedenceParams) WithDefaults() *SetFirewallPoliciesPrecedenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the set firewall policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetFirewallPoliciesPrecedenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the set firewall policies precedence params
@@ -121,7 +135,6 @@ func (o *SetFirewallPoliciesPrecedenceParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAWSSettingsParams creates a new GetAWSSettingsParams object
-// with the default values initialized.
+// NewGetAWSSettingsParams creates a new GetAWSSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAWSSettingsParams() *GetAWSSettingsParams {
-
 	return &GetAWSSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAWSSettingsParamsWithTimeout creates a new GetAWSSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAWSSettingsParamsWithTimeout(timeout time.Duration) *GetAWSSettingsParams {
-
 	return &GetAWSSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAWSSettingsParamsWithContext creates a new GetAWSSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAWSSettingsParamsWithContext(ctx context.Context) *GetAWSSettingsParams {
-
 	return &GetAWSSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAWSSettingsParamsWithHTTPClient creates a new GetAWSSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAWSSettingsParamsWithHTTPClient(client *http.Client) *GetAWSSettingsParams {
-
 	return &GetAWSSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAWSSettingsParams contains all the parameters to send to the API endpoint
-for the get a w s settings operation typically these are written to a http.Request
+/* GetAWSSettingsParams contains all the parameters to send to the API endpoint
+   for the get a w s settings operation.
+
+   Typically these are written to a http.Request.
 */
 type GetAWSSettingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get a w s settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAWSSettingsParams) WithDefaults() *GetAWSSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get a w s settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAWSSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get a w s settings params

@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformFirewallPoliciesActionParams creates a new PerformFirewallPoliciesActionParams object
-// with the default values initialized.
+// NewPerformFirewallPoliciesActionParams creates a new PerformFirewallPoliciesActionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformFirewallPoliciesActionParams() *PerformFirewallPoliciesActionParams {
-	var ()
 	return &PerformFirewallPoliciesActionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformFirewallPoliciesActionParamsWithTimeout creates a new PerformFirewallPoliciesActionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformFirewallPoliciesActionParamsWithTimeout(timeout time.Duration) *PerformFirewallPoliciesActionParams {
-	var ()
 	return &PerformFirewallPoliciesActionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformFirewallPoliciesActionParamsWithContext creates a new PerformFirewallPoliciesActionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformFirewallPoliciesActionParamsWithContext(ctx context.Context) *PerformFirewallPoliciesActionParams {
-	var ()
 	return &PerformFirewallPoliciesActionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformFirewallPoliciesActionParamsWithHTTPClient creates a new PerformFirewallPoliciesActionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformFirewallPoliciesActionParamsWithHTTPClient(client *http.Client) *PerformFirewallPoliciesActionParams {
-	var ()
 	return &PerformFirewallPoliciesActionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PerformFirewallPoliciesActionParams contains all the parameters to send to the API endpoint
-for the perform firewall policies action operation typically these are written to a http.Request
+/* PerformFirewallPoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform firewall policies action operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformFirewallPoliciesActionParams struct {
 
-	/*ActionName
-	  The action to perform
+	/* ActionName.
 
+	   The action to perform
 	*/
 	ActionName string
-	/*Body*/
+
+	// Body.
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform firewall policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformFirewallPoliciesActionParams) WithDefaults() *PerformFirewallPoliciesActionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform firewall policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformFirewallPoliciesActionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform firewall policies action params
@@ -142,11 +157,11 @@ func (o *PerformFirewallPoliciesActionParams) WriteToRequest(r runtime.ClientReq
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

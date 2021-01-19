@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateCSPMGCPAccountParams creates a new CreateCSPMGCPAccountParams object
-// with the default values initialized.
+// NewCreateCSPMGCPAccountParams creates a new CreateCSPMGCPAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateCSPMGCPAccountParams() *CreateCSPMGCPAccountParams {
-	var ()
 	return &CreateCSPMGCPAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateCSPMGCPAccountParamsWithTimeout creates a new CreateCSPMGCPAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateCSPMGCPAccountParamsWithTimeout(timeout time.Duration) *CreateCSPMGCPAccountParams {
-	var ()
 	return &CreateCSPMGCPAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateCSPMGCPAccountParamsWithContext creates a new CreateCSPMGCPAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateCSPMGCPAccountParamsWithContext(ctx context.Context) *CreateCSPMGCPAccountParams {
-	var ()
 	return &CreateCSPMGCPAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateCSPMGCPAccountParamsWithHTTPClient creates a new CreateCSPMGCPAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateCSPMGCPAccountParamsWithHTTPClient(client *http.Client) *CreateCSPMGCPAccountParams {
-	var ()
 	return &CreateCSPMGCPAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateCSPMGCPAccountParams contains all the parameters to send to the API endpoint
-for the create c s p m g c p account operation typically these are written to a http.Request
+/* CreateCSPMGCPAccountParams contains all the parameters to send to the API endpoint
+   for the create c s p m g c p account operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateCSPMGCPAccountParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RegistrationGCPAccountCreateRequestExtV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create c s p m g c p account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMGCPAccountParams) WithDefaults() *CreateCSPMGCPAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create c s p m g c p account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMGCPAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create c s p m g c p account params
@@ -121,7 +135,6 @@ func (o *CreateCSPMGCPAccountParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

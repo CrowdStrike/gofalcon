@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteRulesParams creates a new DeleteRulesParams object
-// with the default values initialized.
+// NewDeleteRulesParams creates a new DeleteRulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRulesParams() *DeleteRulesParams {
-	var ()
 	return &DeleteRulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRulesParamsWithTimeout creates a new DeleteRulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRulesParamsWithTimeout(timeout time.Duration) *DeleteRulesParams {
-	var ()
 	return &DeleteRulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRulesParamsWithContext creates a new DeleteRulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRulesParamsWithContext(ctx context.Context) *DeleteRulesParams {
-	var ()
 	return &DeleteRulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRulesParamsWithHTTPClient creates a new DeleteRulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRulesParamsWithHTTPClient(client *http.Client) *DeleteRulesParams {
-	var ()
 	return &DeleteRulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRulesParams contains all the parameters to send to the API endpoint
-for the delete rules operation typically these are written to a http.Request
+/* DeleteRulesParams contains all the parameters to send to the API endpoint
+   for the delete rules operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteRulesParams struct {
 
-	/*XCSUSERNAME
-	  The user ID
+	/* XCSUSERNAME.
 
+	   The user ID
 	*/
 	XCSUSERNAME string
-	/*Comment
-	  Explains why the entity is being deleted
 
+	/* Comment.
+
+	   Explains why the entity is being deleted
 	*/
 	Comment *string
-	/*Ids
-	  The IDs of the entities
 
+	/* Ids.
+
+	   The IDs of the entities
 	*/
 	Ids []string
-	/*RuleGroupID
-	  The parent rule group
 
+	/* RuleGroupID.
+
+	   The parent rule group
 	*/
 	RuleGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRulesParams) WithDefaults() *DeleteRulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete rules params
@@ -181,30 +198,35 @@ func (o *DeleteRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	// query param rule_group_id
 	qrRuleGroupID := o.RuleGroupID
 	qRuleGroupID := qrRuleGroupID
 	if qRuleGroupID != "" {
+
 		if err := r.SetQueryParam("rule_group_id", qRuleGroupID); err != nil {
 			return err
 		}
@@ -214,4 +236,21 @@ func (o *DeleteRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteRules binds the parameter ids
+func (o *DeleteRulesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

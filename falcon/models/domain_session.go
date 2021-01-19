@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -213,20 +214,14 @@ func (m *DomainSession) validateCloudRequestIds(formats strfmt.Registry) error {
 
 func (m *DomainSession) validateCommands(formats strfmt.Registry) error {
 
+	if err := validate.Required("commands", "body", m.Commands); err != nil {
+		return err
+	}
+
 	for k := range m.Commands {
 
 		if err := validate.Required("commands"+"."+k, "body", m.Commands[k]); err != nil {
 			return err
-		}
-
-		if err := validate.Required("commands"+"."+k, "body", m.Commands[k]); err != nil {
-			return err
-		}
-		if val, ok := m.Commands[k]; ok {
-			_ = val
-			//if err := val.Validate(formats); err != nil {
-			//return err
-			//}
 		}
 
 	}
@@ -419,6 +414,56 @@ func (m *DomainSession) validateUserUUID(formats strfmt.Registry) error {
 
 	if err := validate.Required("user_uuid", "body", m.UserUUID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain session based on the context it is used
+func (m *DomainSession) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDeviceDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainSession) contextValidateDeviceDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeviceDetails != nil {
+		if err := m.DeviceDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainSession) contextValidateLogs(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Logs); i++ {
+
+		if m.Logs[i] != nil {
+			if err := m.Logs[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

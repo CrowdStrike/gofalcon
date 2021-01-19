@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryPlatformsMixin0Params creates a new QueryPlatformsMixin0Params object
-// with the default values initialized.
+// NewQueryPlatformsMixin0Params creates a new QueryPlatformsMixin0Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryPlatformsMixin0Params() *QueryPlatformsMixin0Params {
-	var ()
 	return &QueryPlatformsMixin0Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryPlatformsMixin0ParamsWithTimeout creates a new QueryPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryPlatformsMixin0ParamsWithTimeout(timeout time.Duration) *QueryPlatformsMixin0Params {
-	var ()
 	return &QueryPlatformsMixin0Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryPlatformsMixin0ParamsWithContext creates a new QueryPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryPlatformsMixin0ParamsWithContext(ctx context.Context) *QueryPlatformsMixin0Params {
-	var ()
 	return &QueryPlatformsMixin0Params{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryPlatformsMixin0ParamsWithHTTPClient creates a new QueryPlatformsMixin0Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryPlatformsMixin0ParamsWithHTTPClient(client *http.Client) *QueryPlatformsMixin0Params {
-	var ()
 	return &QueryPlatformsMixin0Params{
 		HTTPClient: client,
 	}
 }
 
-/*QueryPlatformsMixin0Params contains all the parameters to send to the API endpoint
-for the query platforms mixin0 operation typically these are written to a http.Request
+/* QueryPlatformsMixin0Params contains all the parameters to send to the API endpoint
+   for the query platforms mixin0 operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryPlatformsMixin0Params struct {
 
-	/*Limit
-	  Number of IDs to return
+	/* Limit.
 
+	   Number of IDs to return
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return IDs
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return IDs
 	*/
 	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query platforms mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPlatformsMixin0Params) WithDefaults() *QueryPlatformsMixin0Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query platforms mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryPlatformsMixin0Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query platforms mixin0 params
@@ -144,32 +159,34 @@ func (o *QueryPlatformsMixin0Params) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -18,73 +18,89 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewProvisionAWSAccountsParams creates a new ProvisionAWSAccountsParams object
-// with the default values initialized.
+// NewProvisionAWSAccountsParams creates a new ProvisionAWSAccountsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewProvisionAWSAccountsParams() *ProvisionAWSAccountsParams {
-	var (
-		modeDefault = string("manual")
-	)
 	return &ProvisionAWSAccountsParams{
-		Mode: &modeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewProvisionAWSAccountsParamsWithTimeout creates a new ProvisionAWSAccountsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewProvisionAWSAccountsParamsWithTimeout(timeout time.Duration) *ProvisionAWSAccountsParams {
-	var (
-		modeDefault = string("manual")
-	)
 	return &ProvisionAWSAccountsParams{
-		Mode: &modeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewProvisionAWSAccountsParamsWithContext creates a new ProvisionAWSAccountsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewProvisionAWSAccountsParamsWithContext(ctx context.Context) *ProvisionAWSAccountsParams {
-	var (
-		modeDefault = string("manual")
-	)
 	return &ProvisionAWSAccountsParams{
-		Mode: &modeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewProvisionAWSAccountsParamsWithHTTPClient creates a new ProvisionAWSAccountsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewProvisionAWSAccountsParamsWithHTTPClient(client *http.Client) *ProvisionAWSAccountsParams {
-	var (
-		modeDefault = string("manual")
-	)
 	return &ProvisionAWSAccountsParams{
-		Mode:       &modeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*ProvisionAWSAccountsParams contains all the parameters to send to the API endpoint
-for the provision a w s accounts operation typically these are written to a http.Request
+/* ProvisionAWSAccountsParams contains all the parameters to send to the API endpoint
+   for the provision a w s accounts operation.
+
+   Typically these are written to a http.Request.
 */
 type ProvisionAWSAccountsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ModelsCreateAWSAccountsV1
-	/*Mode
-	  Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.
 
+	/* Mode.
+
+	   Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.
+
+	   Default: "manual"
 	*/
 	Mode *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the provision a w s accounts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ProvisionAWSAccountsParams) WithDefaults() *ProvisionAWSAccountsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the provision a w s accounts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ProvisionAWSAccountsParams) SetDefaults() {
+	var (
+		modeDefault = string("manual")
+	)
+
+	val := ProvisionAWSAccountsParams{
+		Mode: &modeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the provision a w s accounts params
@@ -149,7 +165,6 @@ func (o *ProvisionAWSAccountsParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -160,16 +175,17 @@ func (o *ProvisionAWSAccountsParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param mode
 		var qrMode string
+
 		if o.Mode != nil {
 			qrMode = *o.Mode
 		}
 		qMode := qrMode
 		if qMode != "" {
+
 			if err := r.SetQueryParam("mode", qMode); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,6 +40,10 @@ func (m *DomainMultiCommandExecuteResponse) Validate(formats strfmt.Registry) er
 
 func (m *DomainMultiCommandExecuteResponse) validateResources(formats strfmt.Registry) error {
 
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
 	for k := range m.Resources {
 
 		if err := validate.Required("resources"+"."+k, "body", m.Resources[k]); err != nil {
@@ -45,6 +51,39 @@ func (m *DomainMultiCommandExecuteResponse) validateResources(formats strfmt.Reg
 		}
 		if val, ok := m.Resources[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain multi command execute response based on the context it is used
+func (m *DomainMultiCommandExecuteResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainMultiCommandExecuteResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
+		return err
+	}
+
+	for k := range m.Resources {
+
+		if val, ok := m.Resources[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

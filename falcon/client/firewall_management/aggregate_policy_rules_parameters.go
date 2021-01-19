@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewAggregatePolicyRulesParams creates a new AggregatePolicyRulesParams object
-// with the default values initialized.
+// NewAggregatePolicyRulesParams creates a new AggregatePolicyRulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAggregatePolicyRulesParams() *AggregatePolicyRulesParams {
-	var ()
 	return &AggregatePolicyRulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAggregatePolicyRulesParamsWithTimeout creates a new AggregatePolicyRulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAggregatePolicyRulesParamsWithTimeout(timeout time.Duration) *AggregatePolicyRulesParams {
-	var ()
 	return &AggregatePolicyRulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAggregatePolicyRulesParamsWithContext creates a new AggregatePolicyRulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAggregatePolicyRulesParamsWithContext(ctx context.Context) *AggregatePolicyRulesParams {
-	var ()
 	return &AggregatePolicyRulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAggregatePolicyRulesParamsWithHTTPClient creates a new AggregatePolicyRulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAggregatePolicyRulesParamsWithHTTPClient(client *http.Client) *AggregatePolicyRulesParams {
-	var ()
 	return &AggregatePolicyRulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*AggregatePolicyRulesParams contains all the parameters to send to the API endpoint
-for the aggregate policy rules operation typically these are written to a http.Request
+/* AggregatePolicyRulesParams contains all the parameters to send to the API endpoint
+   for the aggregate policy rules operation.
+
+   Typically these are written to a http.Request.
 */
 type AggregatePolicyRulesParams struct {
 
-	/*Body
-	  Query criteria and settings
+	/* Body.
 
+	   Query criteria and settings
 	*/
 	Body []*models.FwmgrMsaAggregateQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the aggregate policy rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AggregatePolicyRulesParams) WithDefaults() *AggregatePolicyRulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the aggregate policy rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AggregatePolicyRulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the aggregate policy rules params
@@ -124,7 +138,6 @@ func (o *AggregatePolicyRulesParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetVulnerabilitiesParams creates a new GetVulnerabilitiesParams object
-// with the default values initialized.
+// NewGetVulnerabilitiesParams creates a new GetVulnerabilitiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetVulnerabilitiesParams() *GetVulnerabilitiesParams {
-	var ()
 	return &GetVulnerabilitiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetVulnerabilitiesParamsWithTimeout creates a new GetVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetVulnerabilitiesParamsWithTimeout(timeout time.Duration) *GetVulnerabilitiesParams {
-	var ()
 	return &GetVulnerabilitiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetVulnerabilitiesParamsWithContext creates a new GetVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetVulnerabilitiesParamsWithContext(ctx context.Context) *GetVulnerabilitiesParams {
-	var ()
 	return &GetVulnerabilitiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetVulnerabilitiesParamsWithHTTPClient creates a new GetVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetVulnerabilitiesParamsWithHTTPClient(client *http.Client) *GetVulnerabilitiesParams {
-	var ()
 	return &GetVulnerabilitiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetVulnerabilitiesParams contains all the parameters to send to the API endpoint
-for the get vulnerabilities operation typically these are written to a http.Request
+/* GetVulnerabilitiesParams contains all the parameters to send to the API endpoint
+   for the get vulnerabilities operation.
+
+   Typically these are written to a http.Request.
 */
 type GetVulnerabilitiesParams struct {
 
-	/*Ids
-	  One or more vulnerability IDs (max: 400). Find vulnerability IDs with GET /spotlight/queries/vulnerabilities/v1
+	/* Ids.
 
+	   One or more vulnerability IDs (max: 400). Find vulnerability IDs with GET /spotlight/queries/vulnerabilities/v1
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get vulnerabilities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVulnerabilitiesParams) WithDefaults() *GetVulnerabilitiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get vulnerabilities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVulnerabilitiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get vulnerabilities params
@@ -124,16 +138,36 @@ func (o *GetVulnerabilitiesParams) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetVulnerabilities binds the parameter ids
+func (o *GetVulnerabilitiesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -197,7 +198,6 @@ func (m *DomainIncident) validateEnd(formats strfmt.Registry) error {
 }
 
 func (m *DomainIncident) validateEventsHistogram(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventsHistogram) { // not required
 		return nil
 	}
@@ -240,7 +240,6 @@ func (m *DomainIncident) validateHostIds(formats strfmt.Registry) error {
 }
 
 func (m *DomainIncident) validateHosts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Hosts) { // not required
 		return nil
 	}
@@ -274,7 +273,6 @@ func (m *DomainIncident) validateIncidentID(formats strfmt.Registry) error {
 }
 
 func (m *DomainIncident) validateModifiedTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedTimestamp) { // not required
 		return nil
 	}
@@ -303,6 +301,60 @@ func (m *DomainIncident) validateState(formats strfmt.Registry) error {
 
 	if err := validate.Required("state", "body", m.State); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain incident based on the context it is used
+func (m *DomainIncident) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEventsHistogram(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHosts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainIncident) contextValidateEventsHistogram(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EventsHistogram); i++ {
+
+		if m.EventsHistogram[i] != nil {
+			if err := m.EventsHistogram[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("events_histogram" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainIncident) contextValidateHosts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Hosts); i++ {
+
+		if m.Hosts[i] != nil {
+			if err := m.Hosts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hosts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

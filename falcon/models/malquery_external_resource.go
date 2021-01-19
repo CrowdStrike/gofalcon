@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -96,6 +97,38 @@ func (m *MalqueryExternalResource) validateSamples(formats strfmt.Registry) erro
 
 		if m.Samples[i] != nil {
 			if err := m.Samples[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("samples" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this malquery external resource based on the context it is used
+func (m *MalqueryExternalResource) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSamples(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MalqueryExternalResource) contextValidateSamples(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Samples); i++ {
+
+		if m.Samples[i] != nil {
+			if err := m.Samples[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("samples" + "." + strconv.Itoa(i))
 				}

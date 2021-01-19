@@ -17,69 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryFirewallFieldsParams creates a new QueryFirewallFieldsParams object
-// with the default values initialized.
+// NewQueryFirewallFieldsParams creates a new QueryFirewallFieldsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryFirewallFieldsParams() *QueryFirewallFieldsParams {
-	var ()
 	return &QueryFirewallFieldsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryFirewallFieldsParamsWithTimeout creates a new QueryFirewallFieldsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryFirewallFieldsParamsWithTimeout(timeout time.Duration) *QueryFirewallFieldsParams {
-	var ()
 	return &QueryFirewallFieldsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryFirewallFieldsParamsWithContext creates a new QueryFirewallFieldsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryFirewallFieldsParamsWithContext(ctx context.Context) *QueryFirewallFieldsParams {
-	var ()
 	return &QueryFirewallFieldsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryFirewallFieldsParamsWithHTTPClient creates a new QueryFirewallFieldsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryFirewallFieldsParamsWithHTTPClient(client *http.Client) *QueryFirewallFieldsParams {
-	var ()
 	return &QueryFirewallFieldsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryFirewallFieldsParams contains all the parameters to send to the API endpoint
-for the query firewall fields operation typically these are written to a http.Request
+/* QueryFirewallFieldsParams contains all the parameters to send to the API endpoint
+   for the query firewall fields operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryFirewallFieldsParams struct {
 
-	/*Limit
-	  Number of ids to return.
+	/* Limit.
 
+	   Number of ids to return.
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return ids.
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return ids.
 	*/
 	Offset *string
-	/*PlatformID
-	  Get fields configuration for this platform
 
+	/* PlatformID.
+
+	   Get fields configuration for this platform
 	*/
 	PlatformID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query firewall fields params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryFirewallFieldsParams) WithDefaults() *QueryFirewallFieldsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query firewall fields params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryFirewallFieldsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query firewall fields params
@@ -160,48 +176,51 @@ func (o *QueryFirewallFieldsParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PlatformID != nil {
 
 		// query param platform_id
 		var qrPlatformID string
+
 		if o.PlatformID != nil {
 			qrPlatformID = *o.PlatformID
 		}
 		qPlatformID := qrPlatformID
 		if qPlatformID != "" {
+
 			if err := r.SetQueryParam("platform_id", qPlatformID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

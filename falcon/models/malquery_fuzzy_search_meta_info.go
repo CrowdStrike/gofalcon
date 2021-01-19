@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -70,7 +72,6 @@ func (m *MalqueryFuzzySearchMetaInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MalqueryFuzzySearchMetaInfo) validatePagination(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pagination) { // not required
 		return nil
 	}
@@ -88,7 +89,6 @@ func (m *MalqueryFuzzySearchMetaInfo) validatePagination(formats strfmt.Registry
 }
 
 func (m *MalqueryFuzzySearchMetaInfo) validateStats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stats) { // not required
 		return nil
 	}
@@ -115,13 +115,76 @@ func (m *MalqueryFuzzySearchMetaInfo) validateTraceID(formats strfmt.Registry) e
 }
 
 func (m *MalqueryFuzzySearchMetaInfo) validateWrites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Writes) { // not required
 		return nil
 	}
 
 	if m.Writes != nil {
 		if err := m.Writes.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("writes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this malquery fuzzy search meta info based on the context it is used
+func (m *MalqueryFuzzySearchMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePagination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MalqueryFuzzySearchMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pagination != nil {
+		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pagination")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryFuzzySearchMetaInfo) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Stats != nil {
+		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("stats")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryFuzzySearchMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Writes != nil {
+		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
 			}

@@ -17,109 +17,131 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRTRUpdateScriptsParams creates a new RTRUpdateScriptsParams object
-// with the default values initialized.
+// NewRTRUpdateScriptsParams creates a new RTRUpdateScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRUpdateScriptsParams() *RTRUpdateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRUpdateScriptsParams{
-		PermissionType: &permissionTypeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRUpdateScriptsParamsWithTimeout creates a new RTRUpdateScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRUpdateScriptsParamsWithTimeout(timeout time.Duration) *RTRUpdateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRUpdateScriptsParams{
-		PermissionType: &permissionTypeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRUpdateScriptsParamsWithContext creates a new RTRUpdateScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRUpdateScriptsParamsWithContext(ctx context.Context) *RTRUpdateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRUpdateScriptsParams{
-		PermissionType: &permissionTypeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewRTRUpdateScriptsParamsWithHTTPClient creates a new RTRUpdateScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRUpdateScriptsParamsWithHTTPClient(client *http.Client) *RTRUpdateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRUpdateScriptsParams{
-		PermissionType: &permissionTypeDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*RTRUpdateScriptsParams contains all the parameters to send to the API endpoint
-for the r t r update scripts operation typically these are written to a http.Request
+/* RTRUpdateScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r update scripts operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRUpdateScriptsParams struct {
 
-	/*CommentsForAuditLog
-	  The audit log comment
+	/* CommentsForAuditLog.
 
+	   The audit log comment
 	*/
 	CommentsForAuditLog *string
-	/*Content
-	  The script text that you want to use to upload
 
+	/* Content.
+
+	   The script text that you want to use to upload
 	*/
 	Content *string
-	/*Description
-	  File description
 
+	/* Description.
+
+	   File description
 	*/
 	Description *string
-	/*File
-	  custom-script file to upload.  These should be powershell scripts.
 
+	/* File.
+
+	   custom-script file to upload.  These should be powershell scripts.
 	*/
 	File runtime.NamedReadCloser
-	/*ID
-	  ID to update
 
+	/* ID.
+
+	   ID to update
 	*/
 	ID string
-	/*Name
-	  File name (if different than actual file name)
 
+	/* Name.
+
+	   File name (if different than actual file name)
 	*/
 	Name *string
-	/*PermissionType
-	 Permission for the custom-script. Valid permission values:
+
+	/* PermissionType.
+
+	    Permission for the custom-script. Valid permission values:
 	- `private`, usable by only the user who uploaded it
 	- `group`, usable by all RTR Admins
 	- `public`, usable by all active-responders and RTR admins
 
+	    Default: "none"
 	*/
 	PermissionType *string
-	/*Platform
-	  Platforms for the file. Currently supports: windows, mac,
 
+	/* Platform.
+
+	   Platforms for the file. Currently supports: windows, mac,
 	*/
 	Platform []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r update scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRUpdateScriptsParams) WithDefaults() *RTRUpdateScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r update scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRUpdateScriptsParams) SetDefaults() {
+	var (
+		permissionTypeDefault = string("none")
+	)
+
+	val := RTRUpdateScriptsParams{
+		PermissionType: &permissionTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the r t r update scripts params
@@ -264,7 +286,6 @@ func (o *RTRUpdateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	if o.Content != nil {
@@ -280,7 +301,6 @@ func (o *RTRUpdateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	if o.Description != nil {
@@ -296,20 +316,16 @@ func (o *RTRUpdateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	if o.File != nil {
 
 		if o.File != nil {
-
 			// form file param file
 			if err := r.SetFileParam("file", o.File); err != nil {
 				return err
 			}
-
 		}
-
 	}
 
 	// form param id
@@ -334,7 +350,6 @@ func (o *RTRUpdateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	if o.PermissionType != nil {
@@ -350,19 +365,38 @@ func (o *RTRUpdateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
-	valuesPlatform := o.Platform
+	if o.Platform != nil {
 
-	joinedPlatform := swag.JoinByFormat(valuesPlatform, "multi")
-	// form array param platform
-	if err := r.SetFormParam("platform", joinedPlatform...); err != nil {
-		return err
+		// binding items for platform
+		joinedPlatform := o.bindParamPlatform(reg)
+
+		// form array param platform
+		if err := r.SetFormParam("platform", joinedPlatform...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamRTRUpdateScripts binds the parameter platform
+func (o *RTRUpdateScriptsParams) bindParamPlatform(formats strfmt.Registry) []string {
+	platformIR := o.Platform
+
+	var platformIC []string
+	for _, platformIIR := range platformIR { // explode []string
+
+		platformIIV := platformIIR // string as string
+		platformIC = append(platformIC, platformIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	platformIS := swag.JoinByFormat(platformIC, "multi")
+
+	return platformIS
 }

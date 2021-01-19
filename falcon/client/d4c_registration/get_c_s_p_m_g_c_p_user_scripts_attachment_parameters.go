@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCSPMGCPUserScriptsAttachmentParams creates a new GetCSPMGCPUserScriptsAttachmentParams object
-// with the default values initialized.
+// NewGetCSPMGCPUserScriptsAttachmentParams creates a new GetCSPMGCPUserScriptsAttachmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMGCPUserScriptsAttachmentParams() *GetCSPMGCPUserScriptsAttachmentParams {
-
 	return &GetCSPMGCPUserScriptsAttachmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMGCPUserScriptsAttachmentParamsWithTimeout creates a new GetCSPMGCPUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMGCPUserScriptsAttachmentParamsWithTimeout(timeout time.Duration) *GetCSPMGCPUserScriptsAttachmentParams {
-
 	return &GetCSPMGCPUserScriptsAttachmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMGCPUserScriptsAttachmentParamsWithContext creates a new GetCSPMGCPUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMGCPUserScriptsAttachmentParamsWithContext(ctx context.Context) *GetCSPMGCPUserScriptsAttachmentParams {
-
 	return &GetCSPMGCPUserScriptsAttachmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMGCPUserScriptsAttachmentParamsWithHTTPClient creates a new GetCSPMGCPUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMGCPUserScriptsAttachmentParamsWithHTTPClient(client *http.Client) *GetCSPMGCPUserScriptsAttachmentParams {
-
 	return &GetCSPMGCPUserScriptsAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMGCPUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
-for the get c s p m g c p user scripts attachment operation typically these are written to a http.Request
+/* GetCSPMGCPUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
+   for the get c s p m g c p user scripts attachment operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMGCPUserScriptsAttachmentParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m g c p user scripts attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMGCPUserScriptsAttachmentParams) WithDefaults() *GetCSPMGCPUserScriptsAttachmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m g c p user scripts attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMGCPUserScriptsAttachmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m g c p user scripts attachment params

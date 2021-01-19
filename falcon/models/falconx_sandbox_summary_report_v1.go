@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -79,7 +80,6 @@ func (m *FalconxSandboxSummaryReportV1) Validate(formats strfmt.Registry) error 
 }
 
 func (m *FalconxSandboxSummaryReportV1) validateIncidents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Incidents) { // not required
 		return nil
 	}
@@ -91,6 +91,38 @@ func (m *FalconxSandboxSummaryReportV1) validateIncidents(formats strfmt.Registr
 
 		if m.Incidents[i] != nil {
 			if err := m.Incidents[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx sandbox summary report v1 based on the context it is used
+func (m *FalconxSandboxSummaryReportV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIncidents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxSandboxSummaryReportV1) contextValidateIncidents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Incidents); i++ {
+
+		if m.Incidents[i] != nil {
+			if err := m.Incidents[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
 				}

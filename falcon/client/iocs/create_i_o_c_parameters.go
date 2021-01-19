@@ -18,52 +18,52 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateIOCParams creates a new CreateIOCParams object
-// with the default values initialized.
+// NewCreateIOCParams creates a new CreateIOCParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateIOCParams() *CreateIOCParams {
-	var ()
 	return &CreateIOCParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateIOCParamsWithTimeout creates a new CreateIOCParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateIOCParamsWithTimeout(timeout time.Duration) *CreateIOCParams {
-	var ()
 	return &CreateIOCParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateIOCParamsWithContext creates a new CreateIOCParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateIOCParamsWithContext(ctx context.Context) *CreateIOCParams {
-	var ()
 	return &CreateIOCParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateIOCParamsWithHTTPClient creates a new CreateIOCParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateIOCParamsWithHTTPClient(client *http.Client) *CreateIOCParams {
-	var ()
 	return &CreateIOCParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateIOCParams contains all the parameters to send to the API endpoint
-for the create i o c operation typically these are written to a http.Request
+/* CreateIOCParams contains all the parameters to send to the API endpoint
+   for the create i o c operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateIOCParams struct {
 
-	/*Body
-	  Create a new IOC by providing a JSON object that includes these key/value pairs:
+	/* Body.
+
+	     Create a new IOC by providing a JSON object that includes these key/value pairs:
 
 	**type** (required): The type of the indicator. Valid values:
 
@@ -94,13 +94,27 @@ type CreateIOCParams struct {
 	**source** (optional): The source where this indicator originated. This can be used for tracking where this indicator was defined. Limit 200 characters.
 
 	**description** (optional): Descriptive label for this custom IOC
-
 	*/
 	Body []*models.APIIOCViewRecord
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateIOCParams) WithDefaults() *CreateIOCParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateIOCParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create i o c params
@@ -154,7 +168,6 @@ func (o *CreateIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

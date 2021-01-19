@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -593,6 +595,34 @@ func (m *FwmgrFirewallMatchEventResponse) validateTreeID(formats strfmt.Registry
 
 	if err := validate.Required("tree_id", "body", m.TreeID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fwmgr firewall match event response based on the context it is used
+func (m *FwmgrFirewallMatchEventResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FwmgrFirewallMatchEventResponse) contextValidateFlags(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flags != nil {
+		if err := m.Flags.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flags")
+			}
+			return err
+		}
 	}
 
 	return nil

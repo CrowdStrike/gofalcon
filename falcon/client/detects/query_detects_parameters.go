@@ -17,52 +17,52 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryDetectsParams creates a new QueryDetectsParams object
-// with the default values initialized.
+// NewQueryDetectsParams creates a new QueryDetectsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryDetectsParams() *QueryDetectsParams {
-	var ()
 	return &QueryDetectsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryDetectsParamsWithTimeout creates a new QueryDetectsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryDetectsParamsWithTimeout(timeout time.Duration) *QueryDetectsParams {
-	var ()
 	return &QueryDetectsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryDetectsParamsWithContext creates a new QueryDetectsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryDetectsParamsWithContext(ctx context.Context) *QueryDetectsParams {
-	var ()
 	return &QueryDetectsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryDetectsParamsWithHTTPClient creates a new QueryDetectsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryDetectsParamsWithHTTPClient(client *http.Client) *QueryDetectsParams {
-	var ()
 	return &QueryDetectsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryDetectsParams contains all the parameters to send to the API endpoint
-for the query detects operation typically these are written to a http.Request
+/* QueryDetectsParams contains all the parameters to send to the API endpoint
+   for the query detects operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryDetectsParams struct {
 
-	/*Filter
-	  Filter detections using a query in Falcon Query Language (FQL) An asterisk wildcard `*` includes all results.
+	/* Filter.
+
+	     Filter detections using a query in Falcon Query Language (FQL) An asterisk wildcard `*` includes all results.
 
 	Common filter options include:
 
@@ -71,26 +71,30 @@ type QueryDetectsParams struct {
 	- `max_severity`
 
 	The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/support/documentation/2/query-api-reference#detections_fql).
-
 	*/
 	Filter *string
-	/*Limit
-	  The maximum number of detections to return in this response (default: 9999; max: 9999). Use with the `offset` parameter to manage pagination of results.
 
+	/* Limit.
+
+	   The maximum number of detections to return in this response (default: 9999; max: 9999). Use with the `offset` parameter to manage pagination of results.
 	*/
 	Limit *int64
-	/*Offset
-	  The first detection to return, where `0` is the latest detection. Use with the `limit` parameter to manage pagination of results.
 
+	/* Offset.
+
+	   The first detection to return, where `0` is the latest detection. Use with the `limit` parameter to manage pagination of results.
 	*/
 	Offset *int64
-	/*Q
-	  Search all detection metadata for the provided string
 
+	/* Q.
+
+	   Search all detection metadata for the provided string
 	*/
 	Q *string
-	/*Sort
-	  Sort detections using these options:
+
+	/* Sort.
+
+	     Sort detections using these options:
 
 	- `first_behavior`: Timestamp of the first behavior associated with this detection
 	- `last_behavior`: Timestamp of the last behavior associated with this detection
@@ -100,13 +104,27 @@ type QueryDetectsParams struct {
 	- `devices.hostname`: Hostname of the host where this detection was detected
 
 	Sort either `asc` (ascending) or `desc` (descending). For example: `last_behavior|asc`
-
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query detects params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryDetectsParams) WithDefaults() *QueryDetectsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query detects params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryDetectsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query detects params
@@ -209,80 +227,85 @@ func (o *QueryDetectsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

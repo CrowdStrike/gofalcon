@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteSensorVisibilityExclusionsV1Params creates a new DeleteSensorVisibilityExclusionsV1Params object
-// with the default values initialized.
+// NewDeleteSensorVisibilityExclusionsV1Params creates a new DeleteSensorVisibilityExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteSensorVisibilityExclusionsV1Params() *DeleteSensorVisibilityExclusionsV1Params {
-	var ()
 	return &DeleteSensorVisibilityExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteSensorVisibilityExclusionsV1ParamsWithTimeout creates a new DeleteSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteSensorVisibilityExclusionsV1ParamsWithTimeout(timeout time.Duration) *DeleteSensorVisibilityExclusionsV1Params {
-	var ()
 	return &DeleteSensorVisibilityExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteSensorVisibilityExclusionsV1ParamsWithContext creates a new DeleteSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteSensorVisibilityExclusionsV1ParamsWithContext(ctx context.Context) *DeleteSensorVisibilityExclusionsV1Params {
-	var ()
 	return &DeleteSensorVisibilityExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteSensorVisibilityExclusionsV1ParamsWithHTTPClient creates a new DeleteSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteSensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Client) *DeleteSensorVisibilityExclusionsV1Params {
-	var ()
 	return &DeleteSensorVisibilityExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
-for the delete sensor visibility exclusions v1 operation typically these are written to a http.Request
+/* DeleteSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the delete sensor visibility exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteSensorVisibilityExclusionsV1Params struct {
 
-	/*Comment
-	  Explains why this exclusions was deleted
+	/* Comment.
 
+	   Explains why this exclusions was deleted
 	*/
 	Comment *string
-	/*Ids
-	  The ids of the exclusions to delete
 
+	/* Ids.
+
+	   The ids of the exclusions to delete
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete sensor visibility exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSensorVisibilityExclusionsV1Params) WithDefaults() *DeleteSensorVisibilityExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete sensor visibility exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSensorVisibilityExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete sensor visibility exclusions v1 params
@@ -144,28 +159,49 @@ func (o *DeleteSensorVisibilityExclusionsV1Params) WriteToRequest(r runtime.Clie
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteSensorVisibilityExclusionsV1 binds the parameter ids
+func (o *DeleteSensorVisibilityExclusionsV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewCrowdScoreParams creates a new CrowdScoreParams object
-// with the default values initialized.
+// NewCrowdScoreParams creates a new CrowdScoreParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCrowdScoreParams() *CrowdScoreParams {
-	var ()
 	return &CrowdScoreParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCrowdScoreParamsWithTimeout creates a new CrowdScoreParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCrowdScoreParamsWithTimeout(timeout time.Duration) *CrowdScoreParams {
-	var ()
 	return &CrowdScoreParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCrowdScoreParamsWithContext creates a new CrowdScoreParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCrowdScoreParamsWithContext(ctx context.Context) *CrowdScoreParams {
-	var ()
 	return &CrowdScoreParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCrowdScoreParamsWithHTTPClient creates a new CrowdScoreParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCrowdScoreParamsWithHTTPClient(client *http.Client) *CrowdScoreParams {
-	var ()
 	return &CrowdScoreParams{
 		HTTPClient: client,
 	}
 }
 
-/*CrowdScoreParams contains all the parameters to send to the API endpoint
-for the crowd score operation typically these are written to a http.Request
+/* CrowdScoreParams contains all the parameters to send to the API endpoint
+   for the crowd score operation.
+
+   Typically these are written to a http.Request.
 */
 type CrowdScoreParams struct {
 
-	/*Filter
-	  Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+	/* Filter.
 
+	   Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-2500]
 
+	/* Limit.
+
+	   The maximum records to return. [1-2500]
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return ids.
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return ids.
 	*/
 	Offset *string
-	/*Sort
-	  The property to sort on, followed by a dot (.), followed by the sort direction, either "asc" or "desc".
 
+	/* Sort.
+
+	   The property to sort on, followed by a dot (.), followed by the sort direction, either "asc" or "desc".
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the crowd score params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CrowdScoreParams) WithDefaults() *CrowdScoreParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the crowd score params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CrowdScoreParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the crowd score params
@@ -176,64 +193,68 @@ func (o *CrowdScoreParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

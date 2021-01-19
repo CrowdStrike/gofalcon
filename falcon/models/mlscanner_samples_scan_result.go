@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -112,6 +113,38 @@ func (m *MlscannerSamplesScanResult) validateStatus(formats strfmt.Registry) err
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this mlscanner samples scan result based on the context it is used
+func (m *MlscannerSamplesScanResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSamples(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MlscannerSamplesScanResult) contextValidateSamples(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Samples); i++ {
+
+		if m.Samples[i] != nil {
+			if err := m.Samples[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("samples" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

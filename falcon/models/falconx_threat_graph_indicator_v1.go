@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -30,6 +32,11 @@ type FalconxThreatGraphIndicatorV1 struct {
 
 // Validate validates this falconx threat graph indicator v1
 func (m *FalconxThreatGraphIndicatorV1) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this falconx threat graph indicator v1 based on context it is used
+func (m *FalconxThreatGraphIndicatorV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

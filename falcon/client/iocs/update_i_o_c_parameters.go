@@ -18,53 +18,54 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateIOCParams creates a new UpdateIOCParams object
-// with the default values initialized.
+// NewUpdateIOCParams creates a new UpdateIOCParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateIOCParams() *UpdateIOCParams {
-	var ()
 	return &UpdateIOCParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateIOCParamsWithTimeout creates a new UpdateIOCParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateIOCParamsWithTimeout(timeout time.Duration) *UpdateIOCParams {
-	var ()
 	return &UpdateIOCParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateIOCParamsWithContext creates a new UpdateIOCParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateIOCParamsWithContext(ctx context.Context) *UpdateIOCParams {
-	var ()
 	return &UpdateIOCParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateIOCParamsWithHTTPClient creates a new UpdateIOCParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateIOCParamsWithHTTPClient(client *http.Client) *UpdateIOCParams {
-	var ()
 	return &UpdateIOCParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateIOCParams contains all the parameters to send to the API endpoint
-for the update i o c operation typically these are written to a http.Request
+/* UpdateIOCParams contains all the parameters to send to the API endpoint
+   for the update i o c operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateIOCParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.APIIOCViewRecord
-	/*Type
+
+	/* Type.
+
 
 	The type of the indicator. Valid types include:
 
@@ -78,18 +79,33 @@ type UpdateIOCParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Type string
-	/*Value
-	  The string representation of the indicator
 
+	/* Value.
+
+	   The string representation of the indicator
 	*/
 	Value string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateIOCParams) WithDefaults() *UpdateIOCParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateIOCParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update i o c params
@@ -165,7 +181,6 @@ func (o *UpdateIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -176,6 +191,7 @@ func (o *UpdateIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -185,6 +201,7 @@ func (o *UpdateIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	qrValue := o.Value
 	qValue := qrValue
 	if qValue != "" {
+
 		if err := r.SetQueryParam("value", qValue); err != nil {
 			return err
 		}
