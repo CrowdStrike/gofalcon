@@ -72,15 +72,17 @@ func NewQueryCombinedDeviceControlPoliciesOK() *QueryCombinedDeviceControlPolici
 	return &QueryCombinedDeviceControlPoliciesOK{}
 }
 
-/*QueryCombinedDeviceControlPoliciesOK handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
 type QueryCombinedDeviceControlPoliciesOK struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -90,26 +92,33 @@ type QueryCombinedDeviceControlPoliciesOK struct {
 func (o *QueryCombinedDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesOK) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedDeviceControlPoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
 
@@ -126,15 +135,17 @@ func NewQueryCombinedDeviceControlPoliciesBadRequest() *QueryCombinedDeviceContr
 	return &QueryCombinedDeviceControlPoliciesBadRequest{}
 }
 
-/*QueryCombinedDeviceControlPoliciesBadRequest handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type QueryCombinedDeviceControlPoliciesBadRequest struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -144,26 +155,33 @@ type QueryCombinedDeviceControlPoliciesBadRequest struct {
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
 
@@ -180,15 +198,17 @@ func NewQueryCombinedDeviceControlPoliciesForbidden() *QueryCombinedDeviceContro
 	return &QueryCombinedDeviceControlPoliciesForbidden{}
 }
 
-/*QueryCombinedDeviceControlPoliciesForbidden handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type QueryCombinedDeviceControlPoliciesForbidden struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -198,26 +218,33 @@ type QueryCombinedDeviceControlPoliciesForbidden struct {
 func (o *QueryCombinedDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
 
 func (o *QueryCombinedDeviceControlPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaErrorsOnly)
 
@@ -234,18 +261,21 @@ func NewQueryCombinedDeviceControlPoliciesTooManyRequests() *QueryCombinedDevice
 	return &QueryCombinedDeviceControlPoliciesTooManyRequests{}
 }
 
-/*QueryCombinedDeviceControlPoliciesTooManyRequests handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type QueryCombinedDeviceControlPoliciesTooManyRequests struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-	/*Too many requests, retry after this time (as milliseconds since epoch)
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
 
@@ -255,33 +285,44 @@ type QueryCombinedDeviceControlPoliciesTooManyRequests struct {
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
 
-	// response header X-RateLimit-RetryAfter
-	xRateLimitRetryAfter, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-RetryAfter"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", response.GetHeader("X-RateLimit-RetryAfter"))
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-	o.XRateLimitRetryAfter = xRateLimitRetryAfter
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -298,15 +339,17 @@ func NewQueryCombinedDeviceControlPoliciesInternalServerError() *QueryCombinedDe
 	return &QueryCombinedDeviceControlPoliciesInternalServerError{}
 }
 
-/*QueryCombinedDeviceControlPoliciesInternalServerError handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type QueryCombinedDeviceControlPoliciesInternalServerError struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -316,26 +359,33 @@ type QueryCombinedDeviceControlPoliciesInternalServerError struct {
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
 
@@ -354,7 +404,7 @@ func NewQueryCombinedDeviceControlPoliciesDefault(code int) *QueryCombinedDevice
 	}
 }
 
-/*QueryCombinedDeviceControlPoliciesDefault handles this case with default header values.
+/* QueryCombinedDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */
@@ -372,7 +422,6 @@ func (o *QueryCombinedDeviceControlPoliciesDefault) Code() int {
 func (o *QueryCombinedDeviceControlPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *QueryCombinedDeviceControlPoliciesDefault) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }

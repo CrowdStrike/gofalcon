@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -480,6 +482,52 @@ func (m *DetectsindexBehavior) validateUserName(formats strfmt.Registry) error {
 
 	if err := validate.Required("user_name", "body", m.UserName); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this detectsindex behavior based on the context it is used
+func (m *DetectsindexBehavior) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParentDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatternDispositionDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectsindexBehavior) contextValidateParentDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ParentDetails != nil {
+		if err := m.ParentDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DetectsindexBehavior) contextValidatePatternDispositionDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PatternDispositionDetails != nil {
+		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern_disposition_details")
+			}
+			return err
+		}
 	}
 
 	return nil

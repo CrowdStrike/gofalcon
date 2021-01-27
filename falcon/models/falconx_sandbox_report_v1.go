@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -218,7 +219,6 @@ func (m *FalconxSandboxReportV1) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxSandboxReportV1) validateContactedHosts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactedHosts) { // not required
 		return nil
 	}
@@ -243,7 +243,6 @@ func (m *FalconxSandboxReportV1) validateContactedHosts(formats strfmt.Registry)
 }
 
 func (m *FalconxSandboxReportV1) validateDNSRequests(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DNSRequests) { // not required
 		return nil
 	}
@@ -268,7 +267,6 @@ func (m *FalconxSandboxReportV1) validateDNSRequests(formats strfmt.Registry) er
 }
 
 func (m *FalconxSandboxReportV1) validateExtractedFiles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExtractedFiles) { // not required
 		return nil
 	}
@@ -293,7 +291,6 @@ func (m *FalconxSandboxReportV1) validateExtractedFiles(formats strfmt.Registry)
 }
 
 func (m *FalconxSandboxReportV1) validateExtractedInterestingStrings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExtractedInterestingStrings) { // not required
 		return nil
 	}
@@ -318,7 +315,6 @@ func (m *FalconxSandboxReportV1) validateExtractedInterestingStrings(formats str
 }
 
 func (m *FalconxSandboxReportV1) validateFileImports(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileImports) { // not required
 		return nil
 	}
@@ -343,7 +339,6 @@ func (m *FalconxSandboxReportV1) validateFileImports(formats strfmt.Registry) er
 }
 
 func (m *FalconxSandboxReportV1) validateFileMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileMetadata) { // not required
 		return nil
 	}
@@ -361,7 +356,6 @@ func (m *FalconxSandboxReportV1) validateFileMetadata(formats strfmt.Registry) e
 }
 
 func (m *FalconxSandboxReportV1) validateHTTPRequests(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HTTPRequests) { // not required
 		return nil
 	}
@@ -386,7 +380,6 @@ func (m *FalconxSandboxReportV1) validateHTTPRequests(formats strfmt.Registry) e
 }
 
 func (m *FalconxSandboxReportV1) validateIncidents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Incidents) { // not required
 		return nil
 	}
@@ -411,7 +404,6 @@ func (m *FalconxSandboxReportV1) validateIncidents(formats strfmt.Registry) erro
 }
 
 func (m *FalconxSandboxReportV1) validateMemoryForensics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MemoryForensics) { // not required
 		return nil
 	}
@@ -436,7 +428,6 @@ func (m *FalconxSandboxReportV1) validateMemoryForensics(formats strfmt.Registry
 }
 
 func (m *FalconxSandboxReportV1) validateMitreAttacks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MitreAttacks) { // not required
 		return nil
 	}
@@ -461,7 +452,6 @@ func (m *FalconxSandboxReportV1) validateMitreAttacks(formats strfmt.Registry) e
 }
 
 func (m *FalconxSandboxReportV1) validateProcesses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Processes) { // not required
 		return nil
 	}
@@ -486,7 +476,6 @@ func (m *FalconxSandboxReportV1) validateProcesses(formats strfmt.Registry) erro
 }
 
 func (m *FalconxSandboxReportV1) validateSignatures(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Signatures) { // not required
 		return nil
 	}
@@ -511,7 +500,6 @@ func (m *FalconxSandboxReportV1) validateSignatures(formats strfmt.Registry) err
 }
 
 func (m *FalconxSandboxReportV1) validateSuricataAlerts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SuricataAlerts) { // not required
 		return nil
 	}
@@ -536,7 +524,6 @@ func (m *FalconxSandboxReportV1) validateSuricataAlerts(formats strfmt.Registry)
 }
 
 func (m *FalconxSandboxReportV1) validateVersionInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.VersionInfo) { // not required
 		return nil
 	}
@@ -548,6 +535,320 @@ func (m *FalconxSandboxReportV1) validateVersionInfo(formats strfmt.Registry) er
 
 		if m.VersionInfo[i] != nil {
 			if err := m.VersionInfo[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("version_info" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx sandbox report v1 based on the context it is used
+func (m *FalconxSandboxReportV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContactedHosts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDNSRequests(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExtractedFiles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExtractedInterestingStrings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFileImports(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFileMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHTTPRequests(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIncidents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemoryForensics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMitreAttacks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProcesses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSignatures(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuricataAlerts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersionInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateContactedHosts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ContactedHosts); i++ {
+
+		if m.ContactedHosts[i] != nil {
+			if err := m.ContactedHosts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contacted_hosts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateDNSRequests(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DNSRequests); i++ {
+
+		if m.DNSRequests[i] != nil {
+			if err := m.DNSRequests[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dns_requests" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateExtractedFiles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExtractedFiles); i++ {
+
+		if m.ExtractedFiles[i] != nil {
+			if err := m.ExtractedFiles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("extracted_files" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateExtractedInterestingStrings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExtractedInterestingStrings); i++ {
+
+		if m.ExtractedInterestingStrings[i] != nil {
+			if err := m.ExtractedInterestingStrings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("extracted_interesting_strings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateFileImports(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FileImports); i++ {
+
+		if m.FileImports[i] != nil {
+			if err := m.FileImports[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("file_imports" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateFileMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FileMetadata != nil {
+		if err := m.FileMetadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("file_metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateHTTPRequests(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HTTPRequests); i++ {
+
+		if m.HTTPRequests[i] != nil {
+			if err := m.HTTPRequests[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("http_requests" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateIncidents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Incidents); i++ {
+
+		if m.Incidents[i] != nil {
+			if err := m.Incidents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateMemoryForensics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MemoryForensics); i++ {
+
+		if m.MemoryForensics[i] != nil {
+			if err := m.MemoryForensics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memory_forensics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateMitreAttacks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MitreAttacks); i++ {
+
+		if m.MitreAttacks[i] != nil {
+			if err := m.MitreAttacks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateProcesses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Processes); i++ {
+
+		if m.Processes[i] != nil {
+			if err := m.Processes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("processes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateSignatures(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Signatures); i++ {
+
+		if m.Signatures[i] != nil {
+			if err := m.Signatures[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("signatures" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateSuricataAlerts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SuricataAlerts); i++ {
+
+		if m.SuricataAlerts[i] != nil {
+			if err := m.SuricataAlerts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("suricata_alerts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxSandboxReportV1) contextValidateVersionInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.VersionInfo); i++ {
+
+		if m.VersionInfo[i] != nil {
+			if err := m.VersionInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("version_info" + "." + strconv.Itoa(i))
 				}

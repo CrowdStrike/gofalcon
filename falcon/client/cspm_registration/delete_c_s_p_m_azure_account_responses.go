@@ -78,15 +78,17 @@ func NewDeleteCSPMAzureAccountOK() *DeleteCSPMAzureAccountOK {
 	return &DeleteCSPMAzureAccountOK{}
 }
 
-/*DeleteCSPMAzureAccountOK handles this case with default header values.
+/* DeleteCSPMAzureAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
 type DeleteCSPMAzureAccountOK struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -96,26 +98,33 @@ type DeleteCSPMAzureAccountOK struct {
 func (o *DeleteCSPMAzureAccountOK) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountOK) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationBaseResponseV1)
 
@@ -132,15 +141,17 @@ func NewDeleteCSPMAzureAccountMultiStatus() *DeleteCSPMAzureAccountMultiStatus {
 	return &DeleteCSPMAzureAccountMultiStatus{}
 }
 
-/*DeleteCSPMAzureAccountMultiStatus handles this case with default header values.
+/* DeleteCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
 type DeleteCSPMAzureAccountMultiStatus struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -150,26 +161,33 @@ type DeleteCSPMAzureAccountMultiStatus struct {
 func (o *DeleteCSPMAzureAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountMultiStatus) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationBaseResponseV1)
 
@@ -186,15 +204,17 @@ func NewDeleteCSPMAzureAccountBadRequest() *DeleteCSPMAzureAccountBadRequest {
 	return &DeleteCSPMAzureAccountBadRequest{}
 }
 
-/*DeleteCSPMAzureAccountBadRequest handles this case with default header values.
+/* DeleteCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type DeleteCSPMAzureAccountBadRequest struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -204,26 +224,33 @@ type DeleteCSPMAzureAccountBadRequest struct {
 func (o *DeleteCSPMAzureAccountBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountBadRequest) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationBaseResponseV1)
 
@@ -240,15 +267,17 @@ func NewDeleteCSPMAzureAccountForbidden() *DeleteCSPMAzureAccountForbidden {
 	return &DeleteCSPMAzureAccountForbidden{}
 }
 
-/*DeleteCSPMAzureAccountForbidden handles this case with default header values.
+/* DeleteCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type DeleteCSPMAzureAccountForbidden struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -258,26 +287,33 @@ type DeleteCSPMAzureAccountForbidden struct {
 func (o *DeleteCSPMAzureAccountForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden  %+v", 403, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -294,18 +330,21 @@ func NewDeleteCSPMAzureAccountTooManyRequests() *DeleteCSPMAzureAccountTooManyRe
 	return &DeleteCSPMAzureAccountTooManyRequests{}
 }
 
-/*DeleteCSPMAzureAccountTooManyRequests handles this case with default header values.
+/* DeleteCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type DeleteCSPMAzureAccountTooManyRequests struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-	/*Too many requests, retry after this time (as milliseconds since epoch)
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
 
@@ -315,33 +354,44 @@ type DeleteCSPMAzureAccountTooManyRequests struct {
 func (o *DeleteCSPMAzureAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests  %+v", 429, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
 
-	// response header X-RateLimit-RetryAfter
-	xRateLimitRetryAfter, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-RetryAfter"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", response.GetHeader("X-RateLimit-RetryAfter"))
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-	o.XRateLimitRetryAfter = xRateLimitRetryAfter
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -358,15 +408,17 @@ func NewDeleteCSPMAzureAccountInternalServerError() *DeleteCSPMAzureAccountInter
 	return &DeleteCSPMAzureAccountInternalServerError{}
 }
 
-/*DeleteCSPMAzureAccountInternalServerError handles this case with default header values.
+/* DeleteCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type DeleteCSPMAzureAccountInternalServerError struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -376,26 +428,33 @@ type DeleteCSPMAzureAccountInternalServerError struct {
 func (o *DeleteCSPMAzureAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationAzureAccountResponseV1)
 
@@ -414,7 +473,7 @@ func NewDeleteCSPMAzureAccountDefault(code int) *DeleteCSPMAzureAccountDefault {
 	}
 }
 
-/*DeleteCSPMAzureAccountDefault handles this case with default header values.
+/* DeleteCSPMAzureAccountDefault describes a response with status code -1, with default header values.
 
 OK
 */
@@ -432,7 +491,6 @@ func (o *DeleteCSPMAzureAccountDefault) Code() int {
 func (o *DeleteCSPMAzureAccountDefault) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] DeleteCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DeleteCSPMAzureAccountDefault) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }

@@ -72,18 +72,21 @@ func NewQueryIntelIndicatorIdsOK() *QueryIntelIndicatorIdsOK {
 	return &QueryIntelIndicatorIdsOK{}
 }
 
-/*QueryIntelIndicatorIdsOK handles this case with default header values.
+/* QueryIntelIndicatorIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
 type QueryIntelIndicatorIdsOK struct {
-	/*Provides next page pagination URL. Available only if sorting was done using using _marker field, which is the default one.
+
+	/* Provides next page pagination URL. Available only if sorting was done using using _marker field, which is the default one.
 	 */
 	NextPage string
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -93,29 +96,40 @@ type QueryIntelIndicatorIdsOK struct {
 func (o *QueryIntelIndicatorIdsOK) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsOK  %+v", 200, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header Next-Page
-	o.NextPage = response.GetHeader("Next-Page")
+	// hydrates response header Next-Page
+	hdrNextPage := response.GetHeader("Next-Page")
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
+	if hdrNextPage != "" {
+		o.NextPage = hdrNextPage
 	}
-	o.XRateLimitLimit = xRateLimitLimit
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaQueryResponse)
 
@@ -132,15 +146,17 @@ func NewQueryIntelIndicatorIdsBadRequest() *QueryIntelIndicatorIdsBadRequest {
 	return &QueryIntelIndicatorIdsBadRequest{}
 }
 
-/*QueryIntelIndicatorIdsBadRequest handles this case with default header values.
+/* QueryIntelIndicatorIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type QueryIntelIndicatorIdsBadRequest struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -150,26 +166,33 @@ type QueryIntelIndicatorIdsBadRequest struct {
 func (o *QueryIntelIndicatorIdsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaErrorsOnly)
 
@@ -186,15 +209,17 @@ func NewQueryIntelIndicatorIdsForbidden() *QueryIntelIndicatorIdsForbidden {
 	return &QueryIntelIndicatorIdsForbidden{}
 }
 
-/*QueryIntelIndicatorIdsForbidden handles this case with default header values.
+/* QueryIntelIndicatorIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type QueryIntelIndicatorIdsForbidden struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -204,26 +229,33 @@ type QueryIntelIndicatorIdsForbidden struct {
 func (o *QueryIntelIndicatorIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsForbidden  %+v", 403, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -240,18 +272,21 @@ func NewQueryIntelIndicatorIdsTooManyRequests() *QueryIntelIndicatorIdsTooManyRe
 	return &QueryIntelIndicatorIdsTooManyRequests{}
 }
 
-/*QueryIntelIndicatorIdsTooManyRequests handles this case with default header values.
+/* QueryIntelIndicatorIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type QueryIntelIndicatorIdsTooManyRequests struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-	/*Too many requests, retry after this time (as milliseconds since epoch)
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
 
@@ -261,33 +296,44 @@ type QueryIntelIndicatorIdsTooManyRequests struct {
 func (o *QueryIntelIndicatorIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsTooManyRequests  %+v", 429, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
 
-	// response header X-RateLimit-RetryAfter
-	xRateLimitRetryAfter, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-RetryAfter"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", response.GetHeader("X-RateLimit-RetryAfter"))
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-	o.XRateLimitRetryAfter = xRateLimitRetryAfter
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -304,15 +350,17 @@ func NewQueryIntelIndicatorIdsInternalServerError() *QueryIntelIndicatorIdsInter
 	return &QueryIntelIndicatorIdsInternalServerError{}
 }
 
-/*QueryIntelIndicatorIdsInternalServerError handles this case with default header values.
+/* QueryIntelIndicatorIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type QueryIntelIndicatorIdsInternalServerError struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -322,26 +370,33 @@ type QueryIntelIndicatorIdsInternalServerError struct {
 func (o *QueryIntelIndicatorIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaErrorsOnly)
 
@@ -360,14 +415,14 @@ func NewQueryIntelIndicatorIdsDefault(code int) *QueryIntelIndicatorIdsDefault {
 	}
 }
 
-/*QueryIntelIndicatorIdsDefault handles this case with default header values.
+/* QueryIntelIndicatorIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */
 type QueryIntelIndicatorIdsDefault struct {
 	_statusCode int
 
-	/*Provides next page pagination URL. Available only if sorting was done using using _marker field, which is the default one.
+	/* Provides next page pagination URL. Available only if sorting was done using using _marker field, which is the default one.
 	 */
 	NextPage string
 
@@ -382,15 +437,18 @@ func (o *QueryIntelIndicatorIdsDefault) Code() int {
 func (o *QueryIntelIndicatorIdsDefault) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] QueryIntelIndicatorIds default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *QueryIntelIndicatorIdsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryIntelIndicatorIdsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header Next-Page
-	o.NextPage = response.GetHeader("Next-Page")
+	// hydrates response header Next-Page
+	hdrNextPage := response.GetHeader("Next-Page")
+
+	if hdrNextPage != "" {
+		o.NextPage = hdrNextPage
+	}
 
 	o.Payload = new(models.MsaQueryResponse)
 

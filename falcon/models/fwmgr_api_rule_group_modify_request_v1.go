@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -143,6 +144,38 @@ func (m *FwmgrAPIRuleGroupModifyRequestV1) validateTracking(formats strfmt.Regis
 
 	if err := validate.Required("tracking", "body", m.Tracking); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fwmgr api rule group modify request v1 based on the context it is used
+func (m *FwmgrAPIRuleGroupModifyRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDiffOperations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FwmgrAPIRuleGroupModifyRequestV1) contextValidateDiffOperations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DiffOperations); i++ {
+
+		if m.DiffOperations[i] != nil {
+			if err := m.DiffOperations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("diff_operations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

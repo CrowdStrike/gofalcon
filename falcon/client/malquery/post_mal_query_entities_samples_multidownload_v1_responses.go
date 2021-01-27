@@ -84,15 +84,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1OK() *PostMalQueryEntitiesSamp
 	return &PostMalQueryEntitiesSamplesMultidownloadV1OK{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1OK handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1OK describes a response with status code 200, with default header values.
 
 OK
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1OK struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -102,26 +104,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1OK struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK  %+v", 200, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 
@@ -138,15 +147,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1BadRequest() *PostMalQueryEnti
 	return &PostMalQueryEntitiesSamplesMultidownloadV1BadRequest{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1BadRequest handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1BadRequest struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -156,26 +167,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1BadRequest struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest  %+v", 400, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 
@@ -192,15 +210,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1Unauthorized() *PostMalQueryEn
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -210,26 +230,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaErrorsOnly)
 
@@ -246,15 +273,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1Forbidden() *PostMalQueryEntit
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Forbidden{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1Forbidden handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Forbidden struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -264,26 +293,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Forbidden struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaErrorsOnly)
 
@@ -300,15 +336,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1NotFound() *PostMalQueryEntiti
 	return &PostMalQueryEntitiesSamplesMultidownloadV1NotFound{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1NotFound handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1NotFound struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -318,26 +356,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1NotFound struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound  %+v", 404, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 
@@ -354,18 +399,21 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests() *PostMalQuer
 	return &PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-	/*Too many requests, retry after this time (as milliseconds since epoch)
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
 
@@ -375,33 +423,44 @@ type PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests  %+v", 429, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
 
-	// response header X-RateLimit-RetryAfter
-	xRateLimitRetryAfter, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-RetryAfter"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", response.GetHeader("X-RateLimit-RetryAfter"))
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-	o.XRateLimitRetryAfter = xRateLimitRetryAfter
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 
@@ -418,15 +477,17 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1InternalServerError() *PostMal
 	return &PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError{}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -436,26 +497,33 @@ type PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError struct {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 
@@ -474,7 +542,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1Default(code int) *PostMalQuer
 	}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1Default handles this case with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1Default describes a response with status code -1, with default header values.
 
 OK
 */
@@ -492,7 +560,6 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Code() int {
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] PostMalQueryEntitiesSamplesMultidownloadV1 default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }

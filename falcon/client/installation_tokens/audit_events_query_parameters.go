@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewAuditEventsQueryParams creates a new AuditEventsQueryParams object
-// with the default values initialized.
+// NewAuditEventsQueryParams creates a new AuditEventsQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuditEventsQueryParams() *AuditEventsQueryParams {
-	var ()
 	return &AuditEventsQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuditEventsQueryParamsWithTimeout creates a new AuditEventsQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuditEventsQueryParamsWithTimeout(timeout time.Duration) *AuditEventsQueryParams {
-	var ()
 	return &AuditEventsQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuditEventsQueryParamsWithContext creates a new AuditEventsQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuditEventsQueryParamsWithContext(ctx context.Context) *AuditEventsQueryParams {
-	var ()
 	return &AuditEventsQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuditEventsQueryParamsWithHTTPClient creates a new AuditEventsQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuditEventsQueryParamsWithHTTPClient(client *http.Client) *AuditEventsQueryParams {
-	var ()
 	return &AuditEventsQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuditEventsQueryParams contains all the parameters to send to the API endpoint
-for the audit events query operation typically these are written to a http.Request
+/* AuditEventsQueryParams contains all the parameters to send to the API endpoint
+   for the audit events query operation.
+
+   Typically these are written to a http.Request.
 */
 type AuditEventsQueryParams struct {
 
-	/*Filter
-	  The filter expression that should be used to limit the results (e.g., `action:'token_create'`).
+	/* Filter.
 
+	   The filter expression that should be used to limit the results (e.g., `action:'token_create'`).
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-1000]. Defaults to 50.
 
+	/* Limit.
+
+	   The maximum records to return. [1-1000]. Defaults to 50.
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from.
 
+	/* Offset.
+
+	   The offset to start retrieving records from.
 	*/
 	Offset *int64
-	/*Sort
-	  The property to sort by (e.g. timestamp.desc).
 
+	/* Sort.
+
+	   The property to sort by (e.g. timestamp.desc).
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the audit events query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuditEventsQueryParams) WithDefaults() *AuditEventsQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the audit events query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuditEventsQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the audit events query params
@@ -176,64 +193,68 @@ func (o *AuditEventsQueryParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntelReportPDFParams creates a new GetIntelReportPDFParams object
-// with the default values initialized.
+// NewGetIntelReportPDFParams creates a new GetIntelReportPDFParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntelReportPDFParams() *GetIntelReportPDFParams {
-	var ()
 	return &GetIntelReportPDFParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntelReportPDFParamsWithTimeout creates a new GetIntelReportPDFParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntelReportPDFParamsWithTimeout(timeout time.Duration) *GetIntelReportPDFParams {
-	var ()
 	return &GetIntelReportPDFParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntelReportPDFParamsWithContext creates a new GetIntelReportPDFParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntelReportPDFParamsWithContext(ctx context.Context) *GetIntelReportPDFParams {
-	var ()
 	return &GetIntelReportPDFParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntelReportPDFParamsWithHTTPClient creates a new GetIntelReportPDFParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntelReportPDFParamsWithHTTPClient(client *http.Client) *GetIntelReportPDFParams {
-	var ()
 	return &GetIntelReportPDFParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntelReportPDFParams contains all the parameters to send to the API endpoint
-for the get intel report p d f operation typically these are written to a http.Request
+/* GetIntelReportPDFParams contains all the parameters to send to the API endpoint
+   for the get intel report p d f operation.
+
+   Typically these are written to a http.Request.
 */
 type GetIntelReportPDFParams struct {
 
-	/*ID
-	  The ID of the report you want to download as a PDF.
+	/* ID.
 
+	   The ID of the report you want to download as a PDF.
 	*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get intel report p d f params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelReportPDFParams) WithDefaults() *GetIntelReportPDFParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get intel report p d f params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelReportPDFParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get intel report p d f params
@@ -127,6 +141,7 @@ func (o *GetIntelReportPDFParams) WriteToRequest(r runtime.ClientRequest, reg st
 	qrID := o.ID
 	qID := qrID
 	if qID != "" {
+
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
 		}

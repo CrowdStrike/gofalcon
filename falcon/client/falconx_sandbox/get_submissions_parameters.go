@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSubmissionsParams creates a new GetSubmissionsParams object
-// with the default values initialized.
+// NewGetSubmissionsParams creates a new GetSubmissionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSubmissionsParams() *GetSubmissionsParams {
-	var ()
 	return &GetSubmissionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSubmissionsParamsWithTimeout creates a new GetSubmissionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSubmissionsParamsWithTimeout(timeout time.Duration) *GetSubmissionsParams {
-	var ()
 	return &GetSubmissionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSubmissionsParamsWithContext creates a new GetSubmissionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSubmissionsParamsWithContext(ctx context.Context) *GetSubmissionsParams {
-	var ()
 	return &GetSubmissionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSubmissionsParamsWithHTTPClient creates a new GetSubmissionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSubmissionsParamsWithHTTPClient(client *http.Client) *GetSubmissionsParams {
-	var ()
 	return &GetSubmissionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSubmissionsParams contains all the parameters to send to the API endpoint
-for the get submissions operation typically these are written to a http.Request
+/* GetSubmissionsParams contains all the parameters to send to the API endpoint
+   for the get submissions operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSubmissionsParams struct {
 
-	/*Ids
-	  ID of a submitted malware sample. Find a submission ID from the response when submitting a malware sample or search with `/falconx/queries/submissions/v1`.
+	/* Ids.
 
+	   ID of a submitted malware sample. Find a submission ID from the response when submitting a malware sample or search with `/falconx/queries/submissions/v1`.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get submissions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSubmissionsParams) WithDefaults() *GetSubmissionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get submissions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSubmissionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get submissions params
@@ -124,16 +138,36 @@ func (o *GetSubmissionsParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetSubmissions binds the parameter ids
+func (o *GetSubmissionsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

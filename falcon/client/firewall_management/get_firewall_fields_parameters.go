@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFirewallFieldsParams creates a new GetFirewallFieldsParams object
-// with the default values initialized.
+// NewGetFirewallFieldsParams creates a new GetFirewallFieldsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFirewallFieldsParams() *GetFirewallFieldsParams {
-	var ()
 	return &GetFirewallFieldsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFirewallFieldsParamsWithTimeout creates a new GetFirewallFieldsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFirewallFieldsParamsWithTimeout(timeout time.Duration) *GetFirewallFieldsParams {
-	var ()
 	return &GetFirewallFieldsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFirewallFieldsParamsWithContext creates a new GetFirewallFieldsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFirewallFieldsParamsWithContext(ctx context.Context) *GetFirewallFieldsParams {
-	var ()
 	return &GetFirewallFieldsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFirewallFieldsParamsWithHTTPClient creates a new GetFirewallFieldsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFirewallFieldsParamsWithHTTPClient(client *http.Client) *GetFirewallFieldsParams {
-	var ()
 	return &GetFirewallFieldsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFirewallFieldsParams contains all the parameters to send to the API endpoint
-for the get firewall fields operation typically these are written to a http.Request
+/* GetFirewallFieldsParams contains all the parameters to send to the API endpoint
+   for the get firewall fields operation.
+
+   Typically these are written to a http.Request.
 */
 type GetFirewallFieldsParams struct {
 
-	/*Ids
-	  The IDs of the rule types to retrieve
+	/* Ids.
 
+	   The IDs of the rule types to retrieve
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get firewall fields params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFirewallFieldsParams) WithDefaults() *GetFirewallFieldsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get firewall fields params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFirewallFieldsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get firewall fields params
@@ -124,16 +138,36 @@ func (o *GetFirewallFieldsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetFirewallFields binds the parameter ids
+func (o *GetFirewallFieldsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

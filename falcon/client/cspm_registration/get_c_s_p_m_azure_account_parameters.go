@@ -17,91 +17,110 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetCSPMAzureAccountParams creates a new GetCSPMAzureAccountParams object
-// with the default values initialized.
+// NewGetCSPMAzureAccountParams creates a new GetCSPMAzureAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMAzureAccountParams() *GetCSPMAzureAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAzureAccountParams{
-		Limit: &limitDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMAzureAccountParamsWithTimeout creates a new GetCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMAzureAccountParamsWithTimeout(timeout time.Duration) *GetCSPMAzureAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAzureAccountParams{
-		Limit: &limitDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMAzureAccountParamsWithContext creates a new GetCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMAzureAccountParamsWithContext(ctx context.Context) *GetCSPMAzureAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAzureAccountParams{
-		Limit: &limitDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMAzureAccountParamsWithHTTPClient creates a new GetCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMAzureAccountParamsWithHTTPClient(client *http.Client) *GetCSPMAzureAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAzureAccountParams{
-		Limit:      &limitDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMAzureAccountParams contains all the parameters to send to the API endpoint
-for the get c s p m azure account operation typically these are written to a http.Request
+/* GetCSPMAzureAccountParams contains all the parameters to send to the API endpoint
+   for the get c s p m azure account operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMAzureAccountParams struct {
 
-	/*Ids
-	  SubscriptionIDs of accounts to select for this status operation. If this is empty then all accounts are returned.
+	/* Ids.
 
+	   SubscriptionIDs of accounts to select for this status operation. If this is empty then all accounts are returned.
 	*/
 	Ids []string
-	/*Limit
-	  The maximum records to return. Defaults to 100.
 
+	/* Limit.
+
+	   The maximum records to return. Defaults to 100.
+
+	   Default: 100
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from
 
+	/* Offset.
+
+	   The offset to start retrieving records from
 	*/
 	Offset *int64
-	/*ScanType
-	  Type of scan, dry or full, to perform on selected accounts
 
+	/* ScanType.
+
+	   Type of scan, dry or full, to perform on selected accounts
 	*/
 	ScanType *string
-	/*Status
-	  Account status to filter results by.
 
+	/* Status.
+
+	   Account status to filter results by.
 	*/
 	Status *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureAccountParams) WithDefaults() *GetCSPMAzureAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureAccountParams) SetDefaults() {
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := GetCSPMAzureAccountParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get c s p m azure account params
@@ -200,80 +219,104 @@ func (o *GetCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, reg 
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ScanType != nil {
 
 		// query param scan-type
 		var qrScanType string
+
 		if o.ScanType != nil {
 			qrScanType = *o.ScanType
 		}
 		qScanType := qrScanType
 		if qScanType != "" {
+
 			if err := r.SetQueryParam("scan-type", qScanType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Status != nil {
 
 		// query param status
 		var qrStatus string
+
 		if o.Status != nil {
 			qrStatus = *o.Status
 		}
 		qStatus := qrStatus
 		if qStatus != "" {
+
 			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAzureAccount binds the parameter ids
+func (o *GetCSPMAzureAccountParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

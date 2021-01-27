@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRuleGroupsParams creates a new GetRuleGroupsParams object
-// with the default values initialized.
+// NewGetRuleGroupsParams creates a new GetRuleGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRuleGroupsParams() *GetRuleGroupsParams {
-	var ()
 	return &GetRuleGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRuleGroupsParamsWithTimeout creates a new GetRuleGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRuleGroupsParamsWithTimeout(timeout time.Duration) *GetRuleGroupsParams {
-	var ()
 	return &GetRuleGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRuleGroupsParamsWithContext creates a new GetRuleGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRuleGroupsParamsWithContext(ctx context.Context) *GetRuleGroupsParams {
-	var ()
 	return &GetRuleGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRuleGroupsParamsWithHTTPClient creates a new GetRuleGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRuleGroupsParamsWithHTTPClient(client *http.Client) *GetRuleGroupsParams {
-	var ()
 	return &GetRuleGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRuleGroupsParams contains all the parameters to send to the API endpoint
-for the get rule groups operation typically these are written to a http.Request
+/* GetRuleGroupsParams contains all the parameters to send to the API endpoint
+   for the get rule groups operation.
+
+   Typically these are written to a http.Request.
 */
 type GetRuleGroupsParams struct {
 
-	/*Ids
-	  The IDs of the rule groups to retrieve
+	/* Ids.
 
+	   The IDs of the rule groups to retrieve
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get rule groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRuleGroupsParams) WithDefaults() *GetRuleGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get rule groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRuleGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get rule groups params
@@ -124,16 +138,36 @@ func (o *GetRuleGroupsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRuleGroups binds the parameter ids
+func (o *GetRuleGroupsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

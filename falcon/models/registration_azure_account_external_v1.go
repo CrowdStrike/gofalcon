@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type RegistrationAzureAccountExternalV1 struct {
 
 // Validate validates this registration azure account external v1
 func (m *RegistrationAzureAccountExternalV1) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this registration azure account external v1 based on context it is used
+func (m *RegistrationAzureAccountExternalV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

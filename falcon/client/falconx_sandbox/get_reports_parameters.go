@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetReportsParams creates a new GetReportsParams object
-// with the default values initialized.
+// NewGetReportsParams creates a new GetReportsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetReportsParams() *GetReportsParams {
-	var ()
 	return &GetReportsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetReportsParamsWithTimeout creates a new GetReportsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetReportsParamsWithTimeout(timeout time.Duration) *GetReportsParams {
-	var ()
 	return &GetReportsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetReportsParamsWithContext creates a new GetReportsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetReportsParamsWithContext(ctx context.Context) *GetReportsParams {
-	var ()
 	return &GetReportsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetReportsParamsWithHTTPClient creates a new GetReportsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetReportsParamsWithHTTPClient(client *http.Client) *GetReportsParams {
-	var ()
 	return &GetReportsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetReportsParams contains all the parameters to send to the API endpoint
-for the get reports operation typically these are written to a http.Request
+/* GetReportsParams contains all the parameters to send to the API endpoint
+   for the get reports operation.
+
+   Typically these are written to a http.Request.
 */
 type GetReportsParams struct {
 
-	/*Ids
-	  ID of a report. Find a report ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
+	/* Ids.
 
+	   ID of a report. Find a report ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get reports params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetReportsParams) WithDefaults() *GetReportsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get reports params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetReportsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get reports params
@@ -124,16 +138,36 @@ func (o *GetReportsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetReports binds the parameter ids
+func (o *GetReportsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

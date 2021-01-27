@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateSVExclusionsV1Params creates a new CreateSVExclusionsV1Params object
-// with the default values initialized.
+// NewCreateSVExclusionsV1Params creates a new CreateSVExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateSVExclusionsV1Params() *CreateSVExclusionsV1Params {
-	var ()
 	return &CreateSVExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateSVExclusionsV1ParamsWithTimeout creates a new CreateSVExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateSVExclusionsV1ParamsWithTimeout(timeout time.Duration) *CreateSVExclusionsV1Params {
-	var ()
 	return &CreateSVExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateSVExclusionsV1ParamsWithContext creates a new CreateSVExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateSVExclusionsV1ParamsWithContext(ctx context.Context) *CreateSVExclusionsV1Params {
-	var ()
 	return &CreateSVExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateSVExclusionsV1ParamsWithHTTPClient creates a new CreateSVExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateSVExclusionsV1ParamsWithHTTPClient(client *http.Client) *CreateSVExclusionsV1Params {
-	var ()
 	return &CreateSVExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*CreateSVExclusionsV1Params contains all the parameters to send to the API endpoint
-for the create s v exclusions v1 operation typically these are written to a http.Request
+/* CreateSVExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the create s v exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateSVExclusionsV1Params struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsSvExclusionCreateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create s v exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateSVExclusionsV1Params) WithDefaults() *CreateSVExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create s v exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateSVExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create s v exclusions v1 params
@@ -121,7 +135,6 @@ func (o *CreateSVExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

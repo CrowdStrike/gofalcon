@@ -17,64 +17,79 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteCSPMAwsAccountParams creates a new DeleteCSPMAwsAccountParams object
-// with the default values initialized.
+// NewDeleteCSPMAwsAccountParams creates a new DeleteCSPMAwsAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteCSPMAwsAccountParams() *DeleteCSPMAwsAccountParams {
-	var ()
 	return &DeleteCSPMAwsAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteCSPMAwsAccountParamsWithTimeout creates a new DeleteCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteCSPMAwsAccountParamsWithTimeout(timeout time.Duration) *DeleteCSPMAwsAccountParams {
-	var ()
 	return &DeleteCSPMAwsAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteCSPMAwsAccountParamsWithContext creates a new DeleteCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteCSPMAwsAccountParamsWithContext(ctx context.Context) *DeleteCSPMAwsAccountParams {
-	var ()
 	return &DeleteCSPMAwsAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteCSPMAwsAccountParamsWithHTTPClient creates a new DeleteCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *DeleteCSPMAwsAccountParams {
-	var ()
 	return &DeleteCSPMAwsAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteCSPMAwsAccountParams contains all the parameters to send to the API endpoint
-for the delete c s p m aws account operation typically these are written to a http.Request
+/* DeleteCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the delete c s p m aws account operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteCSPMAwsAccountParams struct {
 
-	/*Ids
-	  AWS account IDs to remove
+	/* Ids.
 
+	   AWS account IDs to remove
 	*/
 	Ids []string
-	/*OrganizationIds
-	  AWS organization IDs to remove
 
+	/* OrganizationIds.
+
+	   AWS organization IDs to remove
 	*/
 	OrganizationIds []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCSPMAwsAccountParams) WithDefaults() *DeleteCSPMAwsAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCSPMAwsAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete c s p m aws account params
@@ -140,24 +155,64 @@ func (o *DeleteCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
-	valuesOrganizationIds := o.OrganizationIds
+	if o.OrganizationIds != nil {
 
-	joinedOrganizationIds := swag.JoinByFormat(valuesOrganizationIds, "multi")
-	// query array param organization-ids
-	if err := r.SetQueryParam("organization-ids", joinedOrganizationIds...); err != nil {
-		return err
+		// binding items for organization-ids
+		joinedOrganizationIds := o.bindParamOrganizationIds(reg)
+
+		// query array param organization-ids
+		if err := r.SetQueryParam("organization-ids", joinedOrganizationIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteCSPMAwsAccount binds the parameter ids
+func (o *DeleteCSPMAwsAccountParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
+}
+
+// bindParamDeleteCSPMAwsAccount binds the parameter organization-ids
+func (o *DeleteCSPMAwsAccountParams) bindParamOrganizationIds(formats strfmt.Registry) []string {
+	organizationIdsIR := o.OrganizationIds
+
+	var organizationIdsIC []string
+	for _, organizationIdsIIR := range organizationIdsIR { // explode []string
+
+		organizationIdsIIV := organizationIdsIIR // string as string
+		organizationIdsIC = append(organizationIdsIC, organizationIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	organizationIdsIS := swag.JoinByFormat(organizationIdsIC, "multi")
+
+	return organizationIdsIS
 }

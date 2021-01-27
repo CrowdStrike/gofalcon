@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateCSPMAwsAccountParams creates a new CreateCSPMAwsAccountParams object
-// with the default values initialized.
+// NewCreateCSPMAwsAccountParams creates a new CreateCSPMAwsAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateCSPMAwsAccountParams() *CreateCSPMAwsAccountParams {
-	var ()
 	return &CreateCSPMAwsAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateCSPMAwsAccountParamsWithTimeout creates a new CreateCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateCSPMAwsAccountParamsWithTimeout(timeout time.Duration) *CreateCSPMAwsAccountParams {
-	var ()
 	return &CreateCSPMAwsAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateCSPMAwsAccountParamsWithContext creates a new CreateCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateCSPMAwsAccountParamsWithContext(ctx context.Context) *CreateCSPMAwsAccountParams {
-	var ()
 	return &CreateCSPMAwsAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateCSPMAwsAccountParamsWithHTTPClient creates a new CreateCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *CreateCSPMAwsAccountParams {
-	var ()
 	return &CreateCSPMAwsAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateCSPMAwsAccountParams contains all the parameters to send to the API endpoint
-for the create c s p m aws account operation typically these are written to a http.Request
+/* CreateCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the create c s p m aws account operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateCSPMAwsAccountParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RegistrationAWSAccountCreateRequestExtV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMAwsAccountParams) WithDefaults() *CreateCSPMAwsAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateCSPMAwsAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create c s p m aws account params
@@ -121,7 +135,6 @@ func (o *CreateCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

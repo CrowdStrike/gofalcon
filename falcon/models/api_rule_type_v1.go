@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -193,6 +194,60 @@ func (m *APIRuleTypeV1) validateReleased(formats strfmt.Registry) error {
 
 	if err := validate.Required("released", "body", m.Released); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api rule type v1 based on the context it is used
+func (m *APIRuleTypeV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDispositionMap(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIRuleTypeV1) contextValidateDispositionMap(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DispositionMap); i++ {
+
+		if m.DispositionMap[i] != nil {
+			if err := m.DispositionMap[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disposition_map" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *APIRuleTypeV1) contextValidateFields(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Fields); i++ {
+
+		if m.Fields[i] != nil {
+			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

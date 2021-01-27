@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewGetBehaviorsParams creates a new GetBehaviorsParams object
-// with the default values initialized.
+// NewGetBehaviorsParams creates a new GetBehaviorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetBehaviorsParams() *GetBehaviorsParams {
-	var ()
 	return &GetBehaviorsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetBehaviorsParamsWithTimeout creates a new GetBehaviorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetBehaviorsParamsWithTimeout(timeout time.Duration) *GetBehaviorsParams {
-	var ()
 	return &GetBehaviorsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetBehaviorsParamsWithContext creates a new GetBehaviorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetBehaviorsParamsWithContext(ctx context.Context) *GetBehaviorsParams {
-	var ()
 	return &GetBehaviorsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetBehaviorsParamsWithHTTPClient creates a new GetBehaviorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetBehaviorsParamsWithHTTPClient(client *http.Client) *GetBehaviorsParams {
-	var ()
 	return &GetBehaviorsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetBehaviorsParams contains all the parameters to send to the API endpoint
-for the get behaviors operation typically these are written to a http.Request
+/* GetBehaviorsParams contains all the parameters to send to the API endpoint
+   for the get behaviors operation.
+
+   Typically these are written to a http.Request.
 */
 type GetBehaviorsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.MsaIdsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get behaviors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetBehaviorsParams) WithDefaults() *GetBehaviorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get behaviors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetBehaviorsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get behaviors params
@@ -121,7 +135,6 @@ func (o *GetBehaviorsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

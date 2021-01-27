@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -52,7 +53,6 @@ func (m *FalconxContactedHost) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxContactedHost) validateAssociatedRuntime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssociatedRuntime) { // not required
 		return nil
 	}
@@ -64,6 +64,38 @@ func (m *FalconxContactedHost) validateAssociatedRuntime(formats strfmt.Registry
 
 		if m.AssociatedRuntime[i] != nil {
 			if err := m.AssociatedRuntime[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx contacted host based on the context it is used
+func (m *FalconxContactedHost) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssociatedRuntime(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxContactedHost) contextValidateAssociatedRuntime(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssociatedRuntime); i++ {
+
+		if m.AssociatedRuntime[i] != nil {
+			if err := m.AssociatedRuntime[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
 				}

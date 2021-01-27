@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -99,7 +100,6 @@ func (m *FalconxProcess) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateFileAccesses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileAccesses) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *FalconxProcess) validateFileAccesses(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateHandles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Handles) { // not required
 		return nil
 	}
@@ -149,7 +148,6 @@ func (m *FalconxProcess) validateHandles(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateProcessFlags(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProcessFlags) { // not required
 		return nil
 	}
@@ -174,7 +172,6 @@ func (m *FalconxProcess) validateProcessFlags(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateRegistry(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Registry) { // not required
 		return nil
 	}
@@ -199,7 +196,6 @@ func (m *FalconxProcess) validateRegistry(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateScriptCalls(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScriptCalls) { // not required
 		return nil
 	}
@@ -224,7 +220,6 @@ func (m *FalconxProcess) validateScriptCalls(formats strfmt.Registry) error {
 }
 
 func (m *FalconxProcess) validateStreams(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Streams) { // not required
 		return nil
 	}
@@ -236,6 +231,148 @@ func (m *FalconxProcess) validateStreams(formats strfmt.Registry) error {
 
 		if m.Streams[i] != nil {
 			if err := m.Streams[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("streams" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx process based on the context it is used
+func (m *FalconxProcess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFileAccesses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHandles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProcessFlags(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRegistry(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScriptCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStreams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateFileAccesses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FileAccesses); i++ {
+
+		if m.FileAccesses[i] != nil {
+			if err := m.FileAccesses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("file_accesses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateHandles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Handles); i++ {
+
+		if m.Handles[i] != nil {
+			if err := m.Handles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("handles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateProcessFlags(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProcessFlags); i++ {
+
+		if m.ProcessFlags[i] != nil {
+			if err := m.ProcessFlags[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("process_flags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateRegistry(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Registry); i++ {
+
+		if m.Registry[i] != nil {
+			if err := m.Registry[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("registry" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateScriptCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScriptCalls); i++ {
+
+		if m.ScriptCalls[i] != nil {
+			if err := m.ScriptCalls[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("script_calls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) contextValidateStreams(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Streams); i++ {
+
+		if m.Streams[i] != nil {
+			if err := m.Streams[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("streams" + "." + strconv.Itoa(i))
 				}

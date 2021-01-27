@@ -19,90 +19,104 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewBatchRefreshSessionsParams creates a new BatchRefreshSessionsParams object
-// with the default values initialized.
+// NewBatchRefreshSessionsParams creates a new BatchRefreshSessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewBatchRefreshSessionsParams() *BatchRefreshSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchRefreshSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: cr.DefaultTimeout,
 	}
 }
 
 // NewBatchRefreshSessionsParamsWithTimeout creates a new BatchRefreshSessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewBatchRefreshSessionsParamsWithTimeout(timeout time.Duration) *BatchRefreshSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchRefreshSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		requestTimeout: timeout,
 	}
 }
 
 // NewBatchRefreshSessionsParamsWithContext creates a new BatchRefreshSessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewBatchRefreshSessionsParamsWithContext(ctx context.Context) *BatchRefreshSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchRefreshSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewBatchRefreshSessionsParamsWithHTTPClient creates a new BatchRefreshSessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewBatchRefreshSessionsParamsWithHTTPClient(client *http.Client) *BatchRefreshSessionsParams {
-	var (
-		timeoutDefault         = int64(30)
-		timeoutDurationDefault = string("30s")
-	)
 	return &BatchRefreshSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*BatchRefreshSessionsParams contains all the parameters to send to the API endpoint
-for the batch refresh sessions operation typically these are written to a http.Request
+/* BatchRefreshSessionsParams contains all the parameters to send to the API endpoint
+   for the batch refresh sessions operation.
+
+   Typically these are written to a http.Request.
 */
 type BatchRefreshSessionsParams struct {
 
-	/*Body
-	  **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`.
-	**`hosts_to_remove`** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire.
+	/* Body.
 
+	     **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`.
+	**`hosts_to_remove`** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire.
 	*/
 	Body *models.DomainBatchRefreshSessionRequest
-	/*Timeout
-	  Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
 
+	/* Timeout.
+
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+
+	   Default: 30
 	*/
 	Timeout *int64
-	/*TimeoutDuration
-	  Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
+	/* TimeoutDuration.
+
+	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+
+	   Default: "30s"
 	*/
 	TimeoutDuration *string
 
 	requestTimeout time.Duration
 	Context        context.Context
 	HTTPClient     *http.Client
+}
+
+// WithDefaults hydrates default values in the batch refresh sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchRefreshSessionsParams) WithDefaults() *BatchRefreshSessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the batch refresh sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *BatchRefreshSessionsParams) SetDefaults() {
+	var (
+		timeoutDefault = int64(30)
+
+		timeoutDurationDefault = string("30s")
+	)
+
+	val := BatchRefreshSessionsParams{
+		Timeout:         &timeoutDefault,
+		TimeoutDuration: &timeoutDurationDefault,
+	}
+
+	val.requestTimeout = o.requestTimeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithRequestTimeout adds the timeout to the batch refresh sessions params
@@ -178,7 +192,6 @@ func (o *BatchRefreshSessionsParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -189,32 +202,34 @@ func (o *BatchRefreshSessionsParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param timeout
 		var qrTimeout int64
+
 		if o.Timeout != nil {
 			qrTimeout = *o.Timeout
 		}
 		qTimeout := swag.FormatInt64(qrTimeout)
 		if qTimeout != "" {
+
 			if err := r.SetQueryParam("timeout", qTimeout); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TimeoutDuration != nil {
 
 		// query param timeout_duration
 		var qrTimeoutDuration string
+
 		if o.TimeoutDuration != nil {
 			qrTimeoutDuration = *o.TimeoutDuration
 		}
 		qTimeoutDuration := qrTimeoutDuration
 		if qTimeoutDuration != "" {
+
 			if err := r.SetQueryParam("timeout_duration", qTimeoutDuration); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

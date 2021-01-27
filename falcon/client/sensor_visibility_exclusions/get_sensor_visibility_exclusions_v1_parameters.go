@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSensorVisibilityExclusionsV1Params creates a new GetSensorVisibilityExclusionsV1Params object
-// with the default values initialized.
+// NewGetSensorVisibilityExclusionsV1Params creates a new GetSensorVisibilityExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSensorVisibilityExclusionsV1Params() *GetSensorVisibilityExclusionsV1Params {
-	var ()
 	return &GetSensorVisibilityExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSensorVisibilityExclusionsV1ParamsWithTimeout creates a new GetSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSensorVisibilityExclusionsV1ParamsWithTimeout(timeout time.Duration) *GetSensorVisibilityExclusionsV1Params {
-	var ()
 	return &GetSensorVisibilityExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSensorVisibilityExclusionsV1ParamsWithContext creates a new GetSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSensorVisibilityExclusionsV1ParamsWithContext(ctx context.Context) *GetSensorVisibilityExclusionsV1Params {
-	var ()
 	return &GetSensorVisibilityExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSensorVisibilityExclusionsV1ParamsWithHTTPClient creates a new GetSensorVisibilityExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Client) *GetSensorVisibilityExclusionsV1Params {
-	var ()
 	return &GetSensorVisibilityExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
-for the get sensor visibility exclusions v1 operation typically these are written to a http.Request
+/* GetSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the get sensor visibility exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSensorVisibilityExclusionsV1Params struct {
 
-	/*Ids
-	  The ids of the exclusions to retrieve
+	/* Ids.
 
+	   The ids of the exclusions to retrieve
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get sensor visibility exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSensorVisibilityExclusionsV1Params) WithDefaults() *GetSensorVisibilityExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get sensor visibility exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSensorVisibilityExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get sensor visibility exclusions v1 params
@@ -124,16 +138,36 @@ func (o *GetSensorVisibilityExclusionsV1Params) WriteToRequest(r runtime.ClientR
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetSensorVisibilityExclusionsV1 binds the parameter ids
+func (o *GetSensorVisibilityExclusionsV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

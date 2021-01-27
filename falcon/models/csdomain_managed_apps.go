@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -49,7 +51,6 @@ func (m *CsdomainManagedApps) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainManagedApps) validateAirlock(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Airlock) { // not required
 		return nil
 	}
@@ -67,7 +68,6 @@ func (m *CsdomainManagedApps) validateAirlock(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainManagedApps) validateAutomox(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Automox) { // not required
 		return nil
 	}
@@ -85,13 +85,76 @@ func (m *CsdomainManagedApps) validateAutomox(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainManagedApps) validateNetskope(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Netskope) { // not required
 		return nil
 	}
 
 	if m.Netskope != nil {
 		if err := m.Netskope.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("netskope")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this csdomain managed apps based on the context it is used
+func (m *CsdomainManagedApps) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAirlock(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAutomox(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNetskope(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CsdomainManagedApps) contextValidateAirlock(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Airlock != nil {
+		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("airlock")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainManagedApps) contextValidateAutomox(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Automox != nil {
+		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("automox")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainManagedApps) contextValidateNetskope(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Netskope != nil {
+		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
 			}

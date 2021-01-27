@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -169,6 +170,60 @@ func (m *DomainScriptHelp) validateSubCommands(formats strfmt.Registry) error {
 
 		if m.SubCommands[i] != nil {
 			if err := m.SubCommands[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sub_commands" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain script help based on the context it is used
+func (m *DomainScriptHelp) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArgs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubCommands(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainScriptHelp) contextValidateArgs(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Args); i++ {
+
+		if m.Args[i] != nil {
+			if err := m.Args[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("args" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainScriptHelp) contextValidateSubCommands(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SubCommands); i++ {
+
+		if m.SubCommands[i] != nil {
+			if err := m.SubCommands[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_commands" + "." + strconv.Itoa(i))
 				}

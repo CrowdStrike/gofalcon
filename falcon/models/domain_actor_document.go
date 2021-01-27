@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -228,7 +229,6 @@ func (m *DomainActorDocument) validateActive(formats strfmt.Registry) error {
 }
 
 func (m *DomainActorDocument) validateCapability(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Capability) { // not required
 		return nil
 	}
@@ -255,7 +255,6 @@ func (m *DomainActorDocument) validateCreatedDate(formats strfmt.Registry) error
 }
 
 func (m *DomainActorDocument) validateEcrimeKillChain(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EcrimeKillChain) { // not required
 		return nil
 	}
@@ -273,7 +272,6 @@ func (m *DomainActorDocument) validateEcrimeKillChain(formats strfmt.Registry) e
 }
 
 func (m *DomainActorDocument) validateEntitlements(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entitlements) { // not required
 		return nil
 	}
@@ -307,7 +305,6 @@ func (m *DomainActorDocument) validateFirstActivityDate(formats strfmt.Registry)
 }
 
 func (m *DomainActorDocument) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -334,7 +331,6 @@ func (m *DomainActorDocument) validateID(formats strfmt.Registry) error {
 }
 
 func (m *DomainActorDocument) validateImage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Image) { // not required
 		return nil
 	}
@@ -352,7 +348,6 @@ func (m *DomainActorDocument) validateImage(formats strfmt.Registry) error {
 }
 
 func (m *DomainActorDocument) validateKillChain(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KillChain) { // not required
 		return nil
 	}
@@ -465,7 +460,6 @@ func (m *DomainActorDocument) validateOrigins(formats strfmt.Registry) error {
 }
 
 func (m *DomainActorDocument) validateRegion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Region) { // not required
 		return nil
 	}
@@ -551,13 +545,258 @@ func (m *DomainActorDocument) validateTargetIndustries(formats strfmt.Registry) 
 }
 
 func (m *DomainActorDocument) validateThumbnail(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Thumbnail) { // not required
 		return nil
 	}
 
 	if m.Thumbnail != nil {
 		if err := m.Thumbnail.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("thumbnail")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain actor document based on the context it is used
+func (m *DomainActorDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCapability(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEcrimeKillChain(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntitlements(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKillChain(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMotivations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrigins(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRegion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetCountries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetIndustries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateThumbnail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateCapability(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Capability != nil {
+		if err := m.Capability.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("capability")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateEcrimeKillChain(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EcrimeKillChain != nil {
+		if err := m.EcrimeKillChain.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ecrime_kill_chain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateEntitlements(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entitlements); i++ {
+
+		if m.Entitlements[i] != nil {
+			if err := m.Entitlements[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entitlements" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Group != nil {
+		if err := m.Group.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("group")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Image != nil {
+		if err := m.Image.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("image")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateKillChain(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KillChain != nil {
+		if err := m.KillChain.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("kill_chain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateMotivations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Motivations); i++ {
+
+		if m.Motivations[i] != nil {
+			if err := m.Motivations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("motivations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateOrigins(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Origins); i++ {
+
+		if m.Origins[i] != nil {
+			if err := m.Origins[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("origins" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateRegion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Region != nil {
+		if err := m.Region.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("region")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateTargetCountries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TargetCountries); i++ {
+
+		if m.TargetCountries[i] != nil {
+			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateTargetIndustries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TargetIndustries); i++ {
+
+		if m.TargetIndustries[i] != nil {
+			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainActorDocument) contextValidateThumbnail(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Thumbnail != nil {
+		if err := m.Thumbnail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
 			}

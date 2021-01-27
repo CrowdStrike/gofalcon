@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -240,7 +241,6 @@ func (m *CsdomainDevice) validateDeviceID(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainDevice) validateDevicePolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DevicePolicies) { // not required
 		return nil
 	}
@@ -258,7 +258,6 @@ func (m *CsdomainDevice) validateDevicePolicies(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainDevice) validateManagedApps(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagedApps) { // not required
 		return nil
 	}
@@ -276,7 +275,6 @@ func (m *CsdomainDevice) validateManagedApps(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainDevice) validateMeta(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Meta) { // not required
 		return nil
 	}
@@ -294,7 +292,6 @@ func (m *CsdomainDevice) validateMeta(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainDevice) validatePolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Policies) { // not required
 		return nil
 	}
@@ -306,6 +303,92 @@ func (m *CsdomainDevice) validatePolicies(formats strfmt.Registry) error {
 
 		if m.Policies[i] != nil {
 			if err := m.Policies[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this csdomain device based on the context it is used
+func (m *CsdomainDevice) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDevicePolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagedApps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CsdomainDevice) contextValidateDevicePolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DevicePolicies != nil {
+		if err := m.DevicePolicies.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device_policies")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainDevice) contextValidateManagedApps(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagedApps != nil {
+		if err := m.ManagedApps.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managed_apps")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainDevice) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainDevice) contextValidatePolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Policies); i++ {
+
+		if m.Policies[i] != nil {
+			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
 				}

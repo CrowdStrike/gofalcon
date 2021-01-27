@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -63,7 +65,6 @@ func (m *MalqueryQueryMetaInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MalqueryQueryMetaInfo) validatePagination(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pagination) { // not required
 		return nil
 	}
@@ -90,13 +91,58 @@ func (m *MalqueryQueryMetaInfo) validateTraceID(formats strfmt.Registry) error {
 }
 
 func (m *MalqueryQueryMetaInfo) validateWrites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Writes) { // not required
 		return nil
 	}
 
 	if m.Writes != nil {
 		if err := m.Writes.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("writes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this malquery query meta info based on the context it is used
+func (m *MalqueryQueryMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePagination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MalqueryQueryMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pagination != nil {
+		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pagination")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MalqueryQueryMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Writes != nil {
+		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
 			}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -515,6 +516,180 @@ func (m *FwmgrFirewallRuleV1) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fwmgr firewall rule v1 based on the context it is used
+func (m *FwmgrFirewallRuleV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIcmp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocalAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocalPort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMonitor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemoteAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemotePort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateFields(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Fields); i++ {
+
+		if m.Fields[i] != nil {
+			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateIcmp(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Icmp != nil {
+		if err := m.Icmp.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("icmp")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateLocalAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.LocalAddress); i++ {
+
+		if m.LocalAddress[i] != nil {
+			if err := m.LocalAddress[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("local_address" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateLocalPort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.LocalPort); i++ {
+
+		if m.LocalPort[i] != nil {
+			if err := m.LocalPort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("local_port" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateMonitor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Monitor != nil {
+		if err := m.Monitor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("monitor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateRemoteAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RemoteAddress); i++ {
+
+		if m.RemoteAddress[i] != nil {
+			if err := m.RemoteAddress[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("remote_address" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateRemotePort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RemotePort); i++ {
+
+		if m.RemotePort[i] != nil {
+			if err := m.RemotePort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("remote_port" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleV1) contextValidateRuleGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RuleGroup != nil {
+		if err := m.RuleGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("rule_group")
+			}
+			return err
+		}
 	}
 
 	return nil

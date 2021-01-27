@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -69,7 +71,6 @@ func (m *MlscannerMetaInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MlscannerMetaInfo) validatePagination(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pagination) { // not required
 		return nil
 	}
@@ -96,7 +97,6 @@ func (m *MlscannerMetaInfo) validateQueryTime(formats strfmt.Registry) error {
 }
 
 func (m *MlscannerMetaInfo) validateQuota(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Quota) { // not required
 		return nil
 	}
@@ -123,13 +123,76 @@ func (m *MlscannerMetaInfo) validateTraceID(formats strfmt.Registry) error {
 }
 
 func (m *MlscannerMetaInfo) validateWrites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Writes) { // not required
 		return nil
 	}
 
 	if m.Writes != nil {
 		if err := m.Writes.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("writes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this mlscanner meta info based on the context it is used
+func (m *MlscannerMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePagination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuota(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MlscannerMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pagination != nil {
+		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pagination")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MlscannerMetaInfo) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Quota != nil {
+		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MlscannerMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Writes != nil {
+		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
 			}

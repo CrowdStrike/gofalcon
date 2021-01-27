@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateSensorUpdatePoliciesV2Params creates a new UpdateSensorUpdatePoliciesV2Params object
-// with the default values initialized.
+// NewUpdateSensorUpdatePoliciesV2Params creates a new UpdateSensorUpdatePoliciesV2Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateSensorUpdatePoliciesV2Params() *UpdateSensorUpdatePoliciesV2Params {
-	var ()
 	return &UpdateSensorUpdatePoliciesV2Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateSensorUpdatePoliciesV2ParamsWithTimeout creates a new UpdateSensorUpdatePoliciesV2Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateSensorUpdatePoliciesV2ParamsWithTimeout(timeout time.Duration) *UpdateSensorUpdatePoliciesV2Params {
-	var ()
 	return &UpdateSensorUpdatePoliciesV2Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateSensorUpdatePoliciesV2ParamsWithContext creates a new UpdateSensorUpdatePoliciesV2Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateSensorUpdatePoliciesV2ParamsWithContext(ctx context.Context) *UpdateSensorUpdatePoliciesV2Params {
-	var ()
 	return &UpdateSensorUpdatePoliciesV2Params{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateSensorUpdatePoliciesV2ParamsWithHTTPClient creates a new UpdateSensorUpdatePoliciesV2Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateSensorUpdatePoliciesV2ParamsWithHTTPClient(client *http.Client) *UpdateSensorUpdatePoliciesV2Params {
-	var ()
 	return &UpdateSensorUpdatePoliciesV2Params{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
-for the update sensor update policies v2 operation typically these are written to a http.Request
+/* UpdateSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
+   for the update sensor update policies v2 operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateSensorUpdatePoliciesV2Params struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsUpdateSensorUpdatePoliciesV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update sensor update policies v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateSensorUpdatePoliciesV2Params) WithDefaults() *UpdateSensorUpdatePoliciesV2Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update sensor update policies v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateSensorUpdatePoliciesV2Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update sensor update policies v2 params
@@ -121,7 +135,6 @@ func (o *UpdateSensorUpdatePoliciesV2Params) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

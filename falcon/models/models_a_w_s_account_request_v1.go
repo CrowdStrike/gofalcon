@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -39,6 +41,11 @@ type ModelsAWSAccountRequestV1 struct {
 
 // Validate validates this models a w s account request v1
 func (m *ModelsAWSAccountRequestV1) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this models a w s account request v1 based on context it is used
+func (m *ModelsAWSAccountRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

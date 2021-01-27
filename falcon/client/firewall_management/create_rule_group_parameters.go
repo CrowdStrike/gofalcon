@@ -18,76 +18,94 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateRuleGroupParams creates a new CreateRuleGroupParams object
-// with the default values initialized.
+// NewCreateRuleGroupParams creates a new CreateRuleGroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateRuleGroupParams() *CreateRuleGroupParams {
-	var ()
 	return &CreateRuleGroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateRuleGroupParamsWithTimeout creates a new CreateRuleGroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateRuleGroupParamsWithTimeout(timeout time.Duration) *CreateRuleGroupParams {
-	var ()
 	return &CreateRuleGroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateRuleGroupParamsWithContext creates a new CreateRuleGroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateRuleGroupParamsWithContext(ctx context.Context) *CreateRuleGroupParams {
-	var ()
 	return &CreateRuleGroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateRuleGroupParamsWithHTTPClient creates a new CreateRuleGroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateRuleGroupParamsWithHTTPClient(client *http.Client) *CreateRuleGroupParams {
-	var ()
 	return &CreateRuleGroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateRuleGroupParams contains all the parameters to send to the API endpoint
-for the create rule group operation typically these are written to a http.Request
+/* CreateRuleGroupParams contains all the parameters to send to the API endpoint
+   for the create rule group operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateRuleGroupParams struct {
 
-	/*XCSUSERNAME
-	  The user id
+	/* XCSUSERNAME.
 
+	   The user id
 	*/
 	XCSUSERNAME string
-	/*Body*/
-	Body *models.FwmgrAPIRuleGroupCreateRequestV1
-	/*CloneID
-	  A rule group ID from which to copy rules. If this is provided then the 'rules' property of the body is ignored.
 
+	// Body.
+	Body *models.FwmgrAPIRuleGroupCreateRequestV1
+
+	/* CloneID.
+
+	   A rule group ID from which to copy rules. If this is provided then the 'rules' property of the body is ignored.
 	*/
 	CloneID *string
-	/*Comment
-	  Audit log comment for this action
 
+	/* Comment.
+
+	   Audit log comment for this action
 	*/
 	Comment *string
-	/*Library
-	  If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library.
 
+	/* Library.
+
+	   If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library.
 	*/
 	Library *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create rule group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleGroupParams) WithDefaults() *CreateRuleGroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create rule group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateRuleGroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create rule group params
@@ -190,7 +208,6 @@ func (o *CreateRuleGroupParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -201,48 +218,51 @@ func (o *CreateRuleGroupParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param clone_id
 		var qrCloneID string
+
 		if o.CloneID != nil {
 			qrCloneID = *o.CloneID
 		}
 		qCloneID := qrCloneID
 		if qCloneID != "" {
+
 			if err := r.SetQueryParam("clone_id", qCloneID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Comment != nil {
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Library != nil {
 
 		// query param library
 		var qrLibrary string
+
 		if o.Library != nil {
 			qrLibrary = *o.Library
 		}
 		qLibrary := qrLibrary
 		if qLibrary != "" {
+
 			if err := r.SetQueryParam("library", qLibrary); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

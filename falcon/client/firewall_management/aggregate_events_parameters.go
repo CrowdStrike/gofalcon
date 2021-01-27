@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewAggregateEventsParams creates a new AggregateEventsParams object
-// with the default values initialized.
+// NewAggregateEventsParams creates a new AggregateEventsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAggregateEventsParams() *AggregateEventsParams {
-	var ()
 	return &AggregateEventsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAggregateEventsParamsWithTimeout creates a new AggregateEventsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAggregateEventsParamsWithTimeout(timeout time.Duration) *AggregateEventsParams {
-	var ()
 	return &AggregateEventsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAggregateEventsParamsWithContext creates a new AggregateEventsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAggregateEventsParamsWithContext(ctx context.Context) *AggregateEventsParams {
-	var ()
 	return &AggregateEventsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAggregateEventsParamsWithHTTPClient creates a new AggregateEventsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAggregateEventsParamsWithHTTPClient(client *http.Client) *AggregateEventsParams {
-	var ()
 	return &AggregateEventsParams{
 		HTTPClient: client,
 	}
 }
 
-/*AggregateEventsParams contains all the parameters to send to the API endpoint
-for the aggregate events operation typically these are written to a http.Request
+/* AggregateEventsParams contains all the parameters to send to the API endpoint
+   for the aggregate events operation.
+
+   Typically these are written to a http.Request.
 */
 type AggregateEventsParams struct {
 
-	/*Body
-	  Query criteria and settings
+	/* Body.
 
+	   Query criteria and settings
 	*/
 	Body []*models.FwmgrMsaAggregateQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the aggregate events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AggregateEventsParams) WithDefaults() *AggregateEventsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the aggregate events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AggregateEventsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the aggregate events params
@@ -124,7 +138,6 @@ func (o *AggregateEventsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

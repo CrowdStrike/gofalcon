@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryDevicesByFilterScrollParams creates a new QueryDevicesByFilterScrollParams object
-// with the default values initialized.
+// NewQueryDevicesByFilterScrollParams creates a new QueryDevicesByFilterScrollParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryDevicesByFilterScrollParams() *QueryDevicesByFilterScrollParams {
-	var ()
 	return &QueryDevicesByFilterScrollParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryDevicesByFilterScrollParamsWithTimeout creates a new QueryDevicesByFilterScrollParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryDevicesByFilterScrollParamsWithTimeout(timeout time.Duration) *QueryDevicesByFilterScrollParams {
-	var ()
 	return &QueryDevicesByFilterScrollParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryDevicesByFilterScrollParamsWithContext creates a new QueryDevicesByFilterScrollParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryDevicesByFilterScrollParamsWithContext(ctx context.Context) *QueryDevicesByFilterScrollParams {
-	var ()
 	return &QueryDevicesByFilterScrollParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryDevicesByFilterScrollParamsWithHTTPClient creates a new QueryDevicesByFilterScrollParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryDevicesByFilterScrollParamsWithHTTPClient(client *http.Client) *QueryDevicesByFilterScrollParams {
-	var ()
 	return &QueryDevicesByFilterScrollParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryDevicesByFilterScrollParams contains all the parameters to send to the API endpoint
-for the query devices by filter scroll operation typically these are written to a http.Request
+/* QueryDevicesByFilterScrollParams contains all the parameters to send to the API endpoint
+   for the query devices by filter scroll operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryDevicesByFilterScrollParams struct {
 
-	/*Filter
-	  The filter expression that should be used to limit the results
+	/* Filter.
 
+	   The filter expression that should be used to limit the results
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-5000]
 
+	/* Limit.
+
+	   The maximum records to return. [1-5000]
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to page from, for the next result set
 
+	/* Offset.
+
+	   The offset to page from, for the next result set
 	*/
 	Offset *string
-	/*Sort
-	  The property to sort by (e.g. status.desc or hostname.asc)
 
+	/* Sort.
+
+	   The property to sort by (e.g. status.desc or hostname.asc)
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query devices by filter scroll params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryDevicesByFilterScrollParams) WithDefaults() *QueryDevicesByFilterScrollParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query devices by filter scroll params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryDevicesByFilterScrollParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query devices by filter scroll params
@@ -176,64 +193,68 @@ func (o *QueryDevicesByFilterScrollParams) WriteToRequest(r runtime.ClientReques
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

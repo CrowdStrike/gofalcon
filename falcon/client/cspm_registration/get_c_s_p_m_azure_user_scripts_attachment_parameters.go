@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCSPMAzureUserScriptsAttachmentParams creates a new GetCSPMAzureUserScriptsAttachmentParams object
-// with the default values initialized.
+// NewGetCSPMAzureUserScriptsAttachmentParams creates a new GetCSPMAzureUserScriptsAttachmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMAzureUserScriptsAttachmentParams() *GetCSPMAzureUserScriptsAttachmentParams {
-	var ()
 	return &GetCSPMAzureUserScriptsAttachmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsAttachmentParamsWithTimeout creates a new GetCSPMAzureUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMAzureUserScriptsAttachmentParamsWithTimeout(timeout time.Duration) *GetCSPMAzureUserScriptsAttachmentParams {
-	var ()
 	return &GetCSPMAzureUserScriptsAttachmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsAttachmentParamsWithContext creates a new GetCSPMAzureUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMAzureUserScriptsAttachmentParamsWithContext(ctx context.Context) *GetCSPMAzureUserScriptsAttachmentParams {
-	var ()
 	return &GetCSPMAzureUserScriptsAttachmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMAzureUserScriptsAttachmentParamsWithHTTPClient creates a new GetCSPMAzureUserScriptsAttachmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMAzureUserScriptsAttachmentParamsWithHTTPClient(client *http.Client) *GetCSPMAzureUserScriptsAttachmentParams {
-	var ()
 	return &GetCSPMAzureUserScriptsAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMAzureUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
-for the get c s p m azure user scripts attachment operation typically these are written to a http.Request
+/* GetCSPMAzureUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
+   for the get c s p m azure user scripts attachment operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMAzureUserScriptsAttachmentParams struct {
 
-	/*TenantID
-	  Tenant ID to generate script for. Defaults to most recently registered tenant.
+	/* TenantID.
 
+	   Tenant ID to generate script for. Defaults to most recently registered tenant.
 	*/
 	TenantID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m azure user scripts attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureUserScriptsAttachmentParams) WithDefaults() *GetCSPMAzureUserScriptsAttachmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m azure user scripts attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAzureUserScriptsAttachmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m azure user scripts attachment params
@@ -127,16 +141,17 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 
 		// query param tenant-id
 		var qrTenantID string
+
 		if o.TenantID != nil {
 			qrTenantID = *o.TenantID
 		}
 		qTenantID := qrTenantID
 		if qTenantID != "" {
+
 			if err := r.SetQueryParam("tenant-id", qTenantID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

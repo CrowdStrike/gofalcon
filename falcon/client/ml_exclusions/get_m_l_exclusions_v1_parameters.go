@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetMLExclusionsV1Params creates a new GetMLExclusionsV1Params object
-// with the default values initialized.
+// NewGetMLExclusionsV1Params creates a new GetMLExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetMLExclusionsV1Params() *GetMLExclusionsV1Params {
-	var ()
 	return &GetMLExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetMLExclusionsV1ParamsWithTimeout creates a new GetMLExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetMLExclusionsV1ParamsWithTimeout(timeout time.Duration) *GetMLExclusionsV1Params {
-	var ()
 	return &GetMLExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetMLExclusionsV1ParamsWithContext creates a new GetMLExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetMLExclusionsV1ParamsWithContext(ctx context.Context) *GetMLExclusionsV1Params {
-	var ()
 	return &GetMLExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetMLExclusionsV1ParamsWithHTTPClient creates a new GetMLExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *GetMLExclusionsV1Params {
-	var ()
 	return &GetMLExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetMLExclusionsV1Params contains all the parameters to send to the API endpoint
-for the get m l exclusions v1 operation typically these are written to a http.Request
+/* GetMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the get m l exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetMLExclusionsV1Params struct {
 
-	/*Ids
-	  The ids of the exclusions to retrieve
+	/* Ids.
 
+	   The ids of the exclusions to retrieve
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get m l exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMLExclusionsV1Params) WithDefaults() *GetMLExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get m l exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMLExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get m l exclusions v1 params
@@ -124,16 +138,36 @@ func (o *GetMLExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetMLExclusionsV1 binds the parameter ids
+func (o *GetMLExclusionsV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

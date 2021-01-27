@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -86,13 +88,40 @@ func (m *ModelsAWSAccountV1) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ModelsAWSAccountV1) validateAccessHealth(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AccessHealth) { // not required
 		return nil
 	}
 
 	if m.AccessHealth != nil {
 		if err := m.AccessHealth.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("access_health")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this models a w s account v1 based on the context it is used
+func (m *ModelsAWSAccountV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAccessHealth(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelsAWSAccountV1) contextValidateAccessHealth(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AccessHealth != nil {
+		if err := m.AccessHealth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access_health")
 			}

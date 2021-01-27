@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRolesParams creates a new GetRolesParams object
-// with the default values initialized.
+// NewGetRolesParams creates a new GetRolesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRolesParams() *GetRolesParams {
-	var ()
 	return &GetRolesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRolesParamsWithTimeout creates a new GetRolesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRolesParamsWithTimeout(timeout time.Duration) *GetRolesParams {
-	var ()
 	return &GetRolesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRolesParamsWithContext creates a new GetRolesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRolesParamsWithContext(ctx context.Context) *GetRolesParams {
-	var ()
 	return &GetRolesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRolesParamsWithHTTPClient creates a new GetRolesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRolesParamsWithHTTPClient(client *http.Client) *GetRolesParams {
-	var ()
 	return &GetRolesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRolesParams contains all the parameters to send to the API endpoint
-for the get roles operation typically these are written to a http.Request
+/* GetRolesParams contains all the parameters to send to the API endpoint
+   for the get roles operation.
+
+   Typically these are written to a http.Request.
 */
 type GetRolesParams struct {
 
-	/*Ids
-	  ID of a role. Find a role ID from `/customer/queries/roles/v1` or `/users/queries/roles/v1`.
+	/* Ids.
 
+	   ID of a role. Find a role ID from `/customer/queries/roles/v1` or `/users/queries/roles/v1`.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRolesParams) WithDefaults() *GetRolesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRolesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get roles params
@@ -124,16 +138,36 @@ func (o *GetRolesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoles binds the parameter ids
+func (o *GetRolesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

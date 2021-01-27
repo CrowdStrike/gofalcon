@@ -16,62 +16,64 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLatestIntelRuleFileParams creates a new GetLatestIntelRuleFileParams object
-// with the default values initialized.
+// NewGetLatestIntelRuleFileParams creates a new GetLatestIntelRuleFileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLatestIntelRuleFileParams() *GetLatestIntelRuleFileParams {
-	var ()
 	return &GetLatestIntelRuleFileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLatestIntelRuleFileParamsWithTimeout creates a new GetLatestIntelRuleFileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLatestIntelRuleFileParamsWithTimeout(timeout time.Duration) *GetLatestIntelRuleFileParams {
-	var ()
 	return &GetLatestIntelRuleFileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLatestIntelRuleFileParamsWithContext creates a new GetLatestIntelRuleFileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLatestIntelRuleFileParamsWithContext(ctx context.Context) *GetLatestIntelRuleFileParams {
-	var ()
 	return &GetLatestIntelRuleFileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLatestIntelRuleFileParamsWithHTTPClient creates a new GetLatestIntelRuleFileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLatestIntelRuleFileParamsWithHTTPClient(client *http.Client) *GetLatestIntelRuleFileParams {
-	var ()
 	return &GetLatestIntelRuleFileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLatestIntelRuleFileParams contains all the parameters to send to the API endpoint
-for the get latest intel rule file operation typically these are written to a http.Request
+/* GetLatestIntelRuleFileParams contains all the parameters to send to the API endpoint
+   for the get latest intel rule file operation.
+
+   Typically these are written to a http.Request.
 */
 type GetLatestIntelRuleFileParams struct {
 
-	/*Accept
-	  Choose the format you want the rule set in.
+	/* Accept.
 
+	   Choose the format you want the rule set in.
 	*/
 	Accept *string
-	/*Format
-	  Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
 
+	/* Format.
+
+	   Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
 	*/
 	Format *string
-	/*Type
-	  The rule news report type. Accepted values:
+
+	/* Type.
+
+	     The rule news report type. Accepted values:
 
 	snort-suricata-master
 
@@ -88,13 +90,27 @@ type GetLatestIntelRuleFileParams struct {
 	common-event-format
 
 	netwitness
-
 	*/
 	Type string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get latest intel rule file params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLatestIntelRuleFileParams) WithDefaults() *GetLatestIntelRuleFileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get latest intel rule file params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLatestIntelRuleFileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get latest intel rule file params
@@ -177,29 +193,30 @@ func (o *GetLatestIntelRuleFileParams) WriteToRequest(r runtime.ClientRequest, r
 		if err := r.SetHeaderParam("Accept", *o.Accept); err != nil {
 			return err
 		}
-
 	}
 
 	if o.Format != nil {
 
 		// query param format
 		var qrFormat string
+
 		if o.Format != nil {
 			qrFormat = *o.Format
 		}
 		qFormat := qrFormat
 		if qFormat != "" {
+
 			if err := r.SetQueryParam("format", qFormat); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param type
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}

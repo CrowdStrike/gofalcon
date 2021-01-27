@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type FalconxFileImport struct {
 
 // Validate validates this falconx file import
 func (m *FalconxFileImport) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this falconx file import based on context it is used
+func (m *FalconxFileImport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -109,6 +110,38 @@ func (m *APIRuleUpdatesRequestV1) validateRulegroupVersion(formats strfmt.Regist
 
 	if err := validate.Required("rulegroup_version", "body", m.RulegroupVersion); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api rule updates request v1 based on the context it is used
+func (m *APIRuleUpdatesRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRuleUpdates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIRuleUpdatesRequestV1) contextValidateRuleUpdates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RuleUpdates); i++ {
+
+		if m.RuleUpdates[i] != nil {
+			if err := m.RuleUpdates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rule_updates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewGetDetectSummariesParams creates a new GetDetectSummariesParams object
-// with the default values initialized.
+// NewGetDetectSummariesParams creates a new GetDetectSummariesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDetectSummariesParams() *GetDetectSummariesParams {
-	var ()
 	return &GetDetectSummariesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDetectSummariesParamsWithTimeout creates a new GetDetectSummariesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDetectSummariesParamsWithTimeout(timeout time.Duration) *GetDetectSummariesParams {
-	var ()
 	return &GetDetectSummariesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDetectSummariesParamsWithContext creates a new GetDetectSummariesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDetectSummariesParamsWithContext(ctx context.Context) *GetDetectSummariesParams {
-	var ()
 	return &GetDetectSummariesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDetectSummariesParamsWithHTTPClient creates a new GetDetectSummariesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDetectSummariesParamsWithHTTPClient(client *http.Client) *GetDetectSummariesParams {
-	var ()
 	return &GetDetectSummariesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDetectSummariesParams contains all the parameters to send to the API endpoint
-for the get detect summaries operation typically these are written to a http.Request
+/* GetDetectSummariesParams contains all the parameters to send to the API endpoint
+   for the get detect summaries operation.
+
+   Typically these are written to a http.Request.
 */
 type GetDetectSummariesParams struct {
 
-	/*Body
-	  View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/support/documentation/2/query-api-reference#patterndispositionvalue), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the `/detects/queries/detects/v1` endpoint, the Falcon console, or the Streaming API.
+	/* Body.
 
+	   View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/support/documentation/2/query-api-reference#patterndispositionvalue), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the `/detects/queries/detects/v1` endpoint, the Falcon console, or the Streaming API.
 	*/
 	Body *models.MsaIdsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get detect summaries params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDetectSummariesParams) WithDefaults() *GetDetectSummariesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get detect summaries params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDetectSummariesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get detect summaries params
@@ -124,7 +138,6 @@ func (o *GetDetectSummariesParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

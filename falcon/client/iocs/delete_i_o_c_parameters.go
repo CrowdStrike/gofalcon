@@ -16,51 +16,51 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteIOCParams creates a new DeleteIOCParams object
-// with the default values initialized.
+// NewDeleteIOCParams creates a new DeleteIOCParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIOCParams() *DeleteIOCParams {
-	var ()
 	return &DeleteIOCParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIOCParamsWithTimeout creates a new DeleteIOCParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIOCParamsWithTimeout(timeout time.Duration) *DeleteIOCParams {
-	var ()
 	return &DeleteIOCParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIOCParamsWithContext creates a new DeleteIOCParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIOCParamsWithContext(ctx context.Context) *DeleteIOCParams {
-	var ()
 	return &DeleteIOCParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIOCParamsWithHTTPClient creates a new DeleteIOCParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIOCParamsWithHTTPClient(client *http.Client) *DeleteIOCParams {
-	var ()
 	return &DeleteIOCParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIOCParams contains all the parameters to send to the API endpoint
-for the delete i o c operation typically these are written to a http.Request
+/* DeleteIOCParams contains all the parameters to send to the API endpoint
+   for the delete i o c operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteIOCParams struct {
 
-	/*Type
+	/* Type.
+
 
 	The type of the indicator. Valid types include:
 
@@ -74,18 +74,33 @@ type DeleteIOCParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Type string
-	/*Value
-	  The string representation of the indicator
 
+	/* Value.
+
+	   The string representation of the indicator
 	*/
 	Value string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIOCParams) WithDefaults() *DeleteIOCParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete i o c params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIOCParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete i o c params
@@ -155,6 +170,7 @@ func (o *DeleteIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -164,6 +180,7 @@ func (o *DeleteIOCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	qrValue := o.Value
 	qValue := qrValue
 	if qValue != "" {
+
 		if err := r.SetQueryParam("value", qValue); err != nil {
 			return err
 		}

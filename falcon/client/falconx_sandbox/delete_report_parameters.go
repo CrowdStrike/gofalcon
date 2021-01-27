@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteReportParams creates a new DeleteReportParams object
-// with the default values initialized.
+// NewDeleteReportParams creates a new DeleteReportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteReportParams() *DeleteReportParams {
-	var ()
 	return &DeleteReportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteReportParamsWithTimeout creates a new DeleteReportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteReportParamsWithTimeout(timeout time.Duration) *DeleteReportParams {
-	var ()
 	return &DeleteReportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteReportParamsWithContext creates a new DeleteReportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteReportParamsWithContext(ctx context.Context) *DeleteReportParams {
-	var ()
 	return &DeleteReportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteReportParamsWithHTTPClient creates a new DeleteReportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteReportParamsWithHTTPClient(client *http.Client) *DeleteReportParams {
-	var ()
 	return &DeleteReportParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteReportParams contains all the parameters to send to the API endpoint
-for the delete report operation typically these are written to a http.Request
+/* DeleteReportParams contains all the parameters to send to the API endpoint
+   for the delete report operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteReportParams struct {
 
-	/*Ids
-	  ID of a report.
+	/* Ids.
 
+	   ID of a report.
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete report params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteReportParams) WithDefaults() *DeleteReportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete report params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteReportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete report params
@@ -127,6 +141,7 @@ func (o *DeleteReportParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

@@ -19,61 +19,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewTokensUpdateParams creates a new TokensUpdateParams object
-// with the default values initialized.
+// NewTokensUpdateParams creates a new TokensUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewTokensUpdateParams() *TokensUpdateParams {
-	var ()
 	return &TokensUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewTokensUpdateParamsWithTimeout creates a new TokensUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewTokensUpdateParamsWithTimeout(timeout time.Duration) *TokensUpdateParams {
-	var ()
 	return &TokensUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewTokensUpdateParamsWithContext creates a new TokensUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewTokensUpdateParamsWithContext(ctx context.Context) *TokensUpdateParams {
-	var ()
 	return &TokensUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewTokensUpdateParamsWithHTTPClient creates a new TokensUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewTokensUpdateParamsWithHTTPClient(client *http.Client) *TokensUpdateParams {
-	var ()
 	return &TokensUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*TokensUpdateParams contains all the parameters to send to the API endpoint
-for the tokens update operation typically these are written to a http.Request
+/* TokensUpdateParams contains all the parameters to send to the API endpoint
+   for the tokens update operation.
+
+   Typically these are written to a http.Request.
 */
 type TokensUpdateParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.APITokenPatchRequestV1
-	/*Ids
-	  The token ids to update.
 
+	/* Ids.
+
+	   The token ids to update.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the tokens update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *TokensUpdateParams) WithDefaults() *TokensUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the tokens update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *TokensUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the tokens update params
@@ -138,23 +153,42 @@ func (o *TokensUpdateParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamTokensUpdate binds the parameter ids
+func (o *TokensUpdateParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

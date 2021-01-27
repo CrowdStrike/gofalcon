@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateHostGroupsParams creates a new CreateHostGroupsParams object
-// with the default values initialized.
+// NewCreateHostGroupsParams creates a new CreateHostGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateHostGroupsParams() *CreateHostGroupsParams {
-	var ()
 	return &CreateHostGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateHostGroupsParamsWithTimeout creates a new CreateHostGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateHostGroupsParamsWithTimeout(timeout time.Duration) *CreateHostGroupsParams {
-	var ()
 	return &CreateHostGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateHostGroupsParamsWithContext creates a new CreateHostGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateHostGroupsParamsWithContext(ctx context.Context) *CreateHostGroupsParams {
-	var ()
 	return &CreateHostGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateHostGroupsParamsWithHTTPClient creates a new CreateHostGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateHostGroupsParamsWithHTTPClient(client *http.Client) *CreateHostGroupsParams {
-	var ()
 	return &CreateHostGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateHostGroupsParams contains all the parameters to send to the API endpoint
-for the create host groups operation typically these are written to a http.Request
+/* CreateHostGroupsParams contains all the parameters to send to the API endpoint
+   for the create host groups operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateHostGroupsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsCreateGroupsV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateHostGroupsParams) WithDefaults() *CreateHostGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create host groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateHostGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create host groups params
@@ -121,7 +135,6 @@ func (o *CreateHostGroupsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

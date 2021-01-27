@@ -18,73 +18,88 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformActionV2Params creates a new PerformActionV2Params object
-// with the default values initialized.
+// NewPerformActionV2Params creates a new PerformActionV2Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformActionV2Params() *PerformActionV2Params {
-	var ()
 	return &PerformActionV2Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformActionV2ParamsWithTimeout creates a new PerformActionV2Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformActionV2ParamsWithTimeout(timeout time.Duration) *PerformActionV2Params {
-	var ()
 	return &PerformActionV2Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformActionV2ParamsWithContext creates a new PerformActionV2Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformActionV2ParamsWithContext(ctx context.Context) *PerformActionV2Params {
-	var ()
 	return &PerformActionV2Params{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformActionV2ParamsWithHTTPClient creates a new PerformActionV2Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformActionV2ParamsWithHTTPClient(client *http.Client) *PerformActionV2Params {
-	var ()
 	return &PerformActionV2Params{
 		HTTPClient: client,
 	}
 }
 
-/*PerformActionV2Params contains all the parameters to send to the API endpoint
-for the perform action v2 operation typically these are written to a http.Request
+/* PerformActionV2Params contains all the parameters to send to the API endpoint
+   for the perform action v2 operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformActionV2Params struct {
 
-	/*ActionName
-	  Specify one of these actions:
+	/* ActionName.
+
+	     Specify one of these actions:
 
 	- `contain` - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy)
 	- `lift_containment`: This action lifts containment on the host, which returns its network communications to normal
 	- `hide_host`: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs
 	- `unhide_host`: This action will restore a host. Detection reporting will resume after the host is restored
-
 	*/
 	ActionName string
-	/*Body
-	  The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.
+
+	/* Body.
+
+	     The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.
 
 	Provide the ID in JSON format with the key `ids` and the value in square brackets, such as:
 
 	`"ids": ["123456789"]`
-
 	*/
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform action v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformActionV2Params) WithDefaults() *PerformActionV2Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform action v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformActionV2Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform action v2 params
@@ -154,11 +169,11 @@ func (o *PerformActionV2Params) WriteToRequest(r runtime.ClientRequest, reg strf
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

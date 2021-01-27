@@ -16,69 +16,85 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewRTRGetExtractedFileContentsParams creates a new RTRGetExtractedFileContentsParams object
-// with the default values initialized.
+// NewRTRGetExtractedFileContentsParams creates a new RTRGetExtractedFileContentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRGetExtractedFileContentsParams() *RTRGetExtractedFileContentsParams {
-	var ()
 	return &RTRGetExtractedFileContentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRGetExtractedFileContentsParamsWithTimeout creates a new RTRGetExtractedFileContentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRGetExtractedFileContentsParamsWithTimeout(timeout time.Duration) *RTRGetExtractedFileContentsParams {
-	var ()
 	return &RTRGetExtractedFileContentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRGetExtractedFileContentsParamsWithContext creates a new RTRGetExtractedFileContentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRGetExtractedFileContentsParamsWithContext(ctx context.Context) *RTRGetExtractedFileContentsParams {
-	var ()
 	return &RTRGetExtractedFileContentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRGetExtractedFileContentsParamsWithHTTPClient creates a new RTRGetExtractedFileContentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRGetExtractedFileContentsParamsWithHTTPClient(client *http.Client) *RTRGetExtractedFileContentsParams {
-	var ()
 	return &RTRGetExtractedFileContentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRGetExtractedFileContentsParams contains all the parameters to send to the API endpoint
-for the r t r get extracted file contents operation typically these are written to a http.Request
+/* RTRGetExtractedFileContentsParams contains all the parameters to send to the API endpoint
+   for the r t r get extracted file contents operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRGetExtractedFileContentsParams struct {
 
-	/*Filename
-	  Filename to use for the archive name and the file within the archive.
+	/* Filename.
 
+	   Filename to use for the archive name and the file within the archive.
 	*/
 	Filename *string
-	/*SessionID
-	  RTR Session id
 
+	/* SessionID.
+
+	   RTR Session id
 	*/
 	SessionID string
-	/*Sha256
-	  Extracted SHA256 (e.g. 'efa256a96af3b556cd3fc9d8b1cf587d72807d7805ced441e8149fc279db422b')
 
+	/* Sha256.
+
+	   Extracted SHA256 (e.g. 'efa256a96af3b556cd3fc9d8b1cf587d72807d7805ced441e8149fc279db422b')
 	*/
 	Sha256 string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r get extracted file contents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRGetExtractedFileContentsParams) WithDefaults() *RTRGetExtractedFileContentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r get extracted file contents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRGetExtractedFileContentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r get extracted file contents params
@@ -159,22 +175,24 @@ func (o *RTRGetExtractedFileContentsParams) WriteToRequest(r runtime.ClientReque
 
 		// query param filename
 		var qrFilename string
+
 		if o.Filename != nil {
 			qrFilename = *o.Filename
 		}
 		qFilename := qrFilename
 		if qFilename != "" {
+
 			if err := r.SetQueryParam("filename", qFilename); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param session_id
 	qrSessionID := o.SessionID
 	qSessionID := qrSessionID
 	if qSessionID != "" {
+
 		if err := r.SetQueryParam("session_id", qSessionID); err != nil {
 			return err
 		}
@@ -184,6 +202,7 @@ func (o *RTRGetExtractedFileContentsParams) WriteToRequest(r runtime.ClientReque
 	qrSha256 := o.Sha256
 	qSha256 := qrSha256
 	if qSha256 != "" {
+
 		if err := r.SetQueryParam("sha256", qSha256); err != nil {
 			return err
 		}

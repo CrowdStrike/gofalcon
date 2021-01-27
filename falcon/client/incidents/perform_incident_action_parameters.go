@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformIncidentActionParams creates a new PerformIncidentActionParams object
-// with the default values initialized.
+// NewPerformIncidentActionParams creates a new PerformIncidentActionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformIncidentActionParams() *PerformIncidentActionParams {
-	var ()
 	return &PerformIncidentActionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformIncidentActionParamsWithTimeout creates a new PerformIncidentActionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformIncidentActionParamsWithTimeout(timeout time.Duration) *PerformIncidentActionParams {
-	var ()
 	return &PerformIncidentActionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformIncidentActionParamsWithContext creates a new PerformIncidentActionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformIncidentActionParamsWithContext(ctx context.Context) *PerformIncidentActionParams {
-	var ()
 	return &PerformIncidentActionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformIncidentActionParamsWithHTTPClient creates a new PerformIncidentActionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformIncidentActionParamsWithHTTPClient(client *http.Client) *PerformIncidentActionParams {
-	var ()
 	return &PerformIncidentActionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PerformIncidentActionParams contains all the parameters to send to the API endpoint
-for the perform incident action operation typically these are written to a http.Request
+/* PerformIncidentActionParams contains all the parameters to send to the API endpoint
+   for the perform incident action operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformIncidentActionParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform incident action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformIncidentActionParams) WithDefaults() *PerformIncidentActionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform incident action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformIncidentActionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform incident action params
@@ -121,7 +135,6 @@ func (o *PerformIncidentActionParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

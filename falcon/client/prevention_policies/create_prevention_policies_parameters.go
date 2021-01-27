@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreatePreventionPoliciesParams creates a new CreatePreventionPoliciesParams object
-// with the default values initialized.
+// NewCreatePreventionPoliciesParams creates a new CreatePreventionPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreatePreventionPoliciesParams() *CreatePreventionPoliciesParams {
-	var ()
 	return &CreatePreventionPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreatePreventionPoliciesParamsWithTimeout creates a new CreatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreatePreventionPoliciesParamsWithTimeout(timeout time.Duration) *CreatePreventionPoliciesParams {
-	var ()
 	return &CreatePreventionPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreatePreventionPoliciesParamsWithContext creates a new CreatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreatePreventionPoliciesParamsWithContext(ctx context.Context) *CreatePreventionPoliciesParams {
-	var ()
 	return &CreatePreventionPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreatePreventionPoliciesParamsWithHTTPClient creates a new CreatePreventionPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreatePreventionPoliciesParamsWithHTTPClient(client *http.Client) *CreatePreventionPoliciesParams {
-	var ()
 	return &CreatePreventionPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreatePreventionPoliciesParams contains all the parameters to send to the API endpoint
-for the create prevention policies operation typically these are written to a http.Request
+/* CreatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the create prevention policies operation.
+
+   Typically these are written to a http.Request.
 */
 type CreatePreventionPoliciesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsCreatePreventionPoliciesV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreatePreventionPoliciesParams) WithDefaults() *CreatePreventionPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create prevention policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreatePreventionPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create prevention policies params
@@ -121,7 +135,6 @@ func (o *CreatePreventionPoliciesParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

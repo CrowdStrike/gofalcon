@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -111,6 +112,56 @@ func (m *FwmgrAPIFirewallFieldsV1) validatePlatformFields(formats strfmt.Registr
 
 		if m.PlatformFields[i] != nil {
 			if err := m.PlatformFields[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("platform_fields" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fwmgr api firewall fields v1 based on the context it is used
+func (m *FwmgrAPIFirewallFieldsV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDefaultMonitor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePlatformFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FwmgrAPIFirewallFieldsV1) contextValidateDefaultMonitor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultMonitor != nil {
+		if err := m.DefaultMonitor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("default_monitor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FwmgrAPIFirewallFieldsV1) contextValidatePlatformFields(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PlatformFields); i++ {
+
+		if m.PlatformFields[i] != nil {
+			if err := m.PlatformFields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platform_fields" + "." + strconv.Itoa(i))
 				}

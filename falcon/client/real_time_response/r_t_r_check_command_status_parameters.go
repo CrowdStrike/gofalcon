@@ -17,76 +17,90 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRTRCheckCommandStatusParams creates a new RTRCheckCommandStatusParams object
-// with the default values initialized.
+// NewRTRCheckCommandStatusParams creates a new RTRCheckCommandStatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRCheckCommandStatusParams() *RTRCheckCommandStatusParams {
-	var (
-		sequenceIDDefault = int64(0)
-	)
 	return &RTRCheckCommandStatusParams{
-		SequenceID: sequenceIDDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRCheckCommandStatusParamsWithTimeout creates a new RTRCheckCommandStatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRCheckCommandStatusParamsWithTimeout(timeout time.Duration) *RTRCheckCommandStatusParams {
-	var (
-		sequenceIDDefault = int64(0)
-	)
 	return &RTRCheckCommandStatusParams{
-		SequenceID: sequenceIDDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRCheckCommandStatusParamsWithContext creates a new RTRCheckCommandStatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRCheckCommandStatusParamsWithContext(ctx context.Context) *RTRCheckCommandStatusParams {
-	var (
-		sequenceIdDefault = int64(0)
-	)
 	return &RTRCheckCommandStatusParams{
-		SequenceID: sequenceIdDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewRTRCheckCommandStatusParamsWithHTTPClient creates a new RTRCheckCommandStatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRCheckCommandStatusParamsWithHTTPClient(client *http.Client) *RTRCheckCommandStatusParams {
-	var (
-		sequenceIdDefault = int64(0)
-	)
 	return &RTRCheckCommandStatusParams{
-		SequenceID: sequenceIdDefault,
 		HTTPClient: client,
 	}
 }
 
-/*RTRCheckCommandStatusParams contains all the parameters to send to the API endpoint
-for the r t r check command status operation typically these are written to a http.Request
+/* RTRCheckCommandStatusParams contains all the parameters to send to the API endpoint
+   for the r t r check command status operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRCheckCommandStatusParams struct {
 
-	/*CloudRequestID
-	  Cloud Request ID of the executed command to query
+	/* CloudRequestID.
 
+	   Cloud Request ID of the executed command to query
 	*/
 	CloudRequestID string
-	/*SequenceID
-	  Sequence ID that we want to retrieve. Command responses are chunked across sequences
 
+	/* SequenceID.
+
+	   Sequence ID that we want to retrieve. Command responses are chunked across sequences
 	*/
 	SequenceID int64
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r check command status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCheckCommandStatusParams) WithDefaults() *RTRCheckCommandStatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r check command status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCheckCommandStatusParams) SetDefaults() {
+	var (
+		sequenceIDDefault = int64(0)
+	)
+
+	val := RTRCheckCommandStatusParams{
+		SequenceID: sequenceIDDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the r t r check command status params
@@ -156,6 +170,7 @@ func (o *RTRCheckCommandStatusParams) WriteToRequest(r runtime.ClientRequest, re
 	qrCloudRequestID := o.CloudRequestID
 	qCloudRequestID := qrCloudRequestID
 	if qCloudRequestID != "" {
+
 		if err := r.SetQueryParam("cloud_request_id", qCloudRequestID); err != nil {
 			return err
 		}
@@ -165,6 +180,7 @@ func (o *RTRCheckCommandStatusParams) WriteToRequest(r runtime.ClientRequest, re
 	qrSequenceID := o.SequenceID
 	qSequenceID := swag.FormatInt64(qrSequenceID)
 	if qSequenceID != "" {
+
 		if err := r.SetQueryParam("sequence_id", qSequenceID); err != nil {
 			return err
 		}

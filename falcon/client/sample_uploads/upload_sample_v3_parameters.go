@@ -17,69 +17,58 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewUploadSampleV3Params creates a new UploadSampleV3Params object
-// with the default values initialized.
+// NewUploadSampleV3Params creates a new UploadSampleV3Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUploadSampleV3Params() *UploadSampleV3Params {
-	var (
-		isConfidentialDefault = bool(true)
-	)
 	return &UploadSampleV3Params{
-		IsConfidential: &isConfidentialDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUploadSampleV3ParamsWithTimeout creates a new UploadSampleV3Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUploadSampleV3ParamsWithTimeout(timeout time.Duration) *UploadSampleV3Params {
-	var (
-		isConfidentialDefault = bool(true)
-	)
 	return &UploadSampleV3Params{
-		IsConfidential: &isConfidentialDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewUploadSampleV3ParamsWithContext creates a new UploadSampleV3Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUploadSampleV3ParamsWithContext(ctx context.Context) *UploadSampleV3Params {
-	var (
-		isConfidentialDefault = bool(true)
-	)
 	return &UploadSampleV3Params{
-		IsConfidential: &isConfidentialDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewUploadSampleV3ParamsWithHTTPClient creates a new UploadSampleV3Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUploadSampleV3ParamsWithHTTPClient(client *http.Client) *UploadSampleV3Params {
-	var (
-		isConfidentialDefault = bool(true)
-	)
 	return &UploadSampleV3Params{
-		IsConfidential: &isConfidentialDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*UploadSampleV3Params contains all the parameters to send to the API endpoint
-for the upload sample v3 operation typically these are written to a http.Request
+/* UploadSampleV3Params contains all the parameters to send to the API endpoint
+   for the upload sample v3 operation.
+
+   Typically these are written to a http.Request.
 */
 type UploadSampleV3Params struct {
 
-	/*XCSUSERUUID
-	  User UUID
+	/* XCSUSERUUID.
 
+	   User UUID
 	*/
 	XCSUSERUUID *string
-	/*Body
-	  Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 100 MB.
+
+	/* Body.
+
+	     Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 100 MB.
 
 	Accepted file formats:
 
@@ -102,38 +91,69 @@ type UploadSampleV3Params struct {
 	- Python: `.py`
 	- Linux ELF executables
 	- Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
-
 	*/
 	Body []int64
-	/*Comment
-	  A descriptive comment to identify the file for other users.
 
+	/* Comment.
+
+	   A descriptive comment to identify the file for other users.
 	*/
 	Comment *string
-	/*FileName
-	  Name of the file.
 
+	/* FileName.
+
+	   Name of the file.
 	*/
 	FileName string
-	/*IsConfidential
-	  Defines visibility of this file in Falcon MalQuery, either via the API or the Falcon console.
+
+	/* IsConfidential.
+
+	     Defines visibility of this file in Falcon MalQuery, either via the API or the Falcon console.
 
 	- `true`: File is only shown to users within your customer account
 	- `false`: File can be seen by other CrowdStrike customers
 
 	Default: `true`.
 
+	     Default: true
 	*/
 	IsConfidential *bool
-	/*Upfile
-	  The binary file.
 
+	/* Upfile.
+
+	   The binary file.
 	*/
 	Upfile runtime.NamedReadCloser
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the upload sample v3 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UploadSampleV3Params) WithDefaults() *UploadSampleV3Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the upload sample v3 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UploadSampleV3Params) SetDefaults() {
+	var (
+		isConfidentialDefault = bool(true)
+	)
+
+	val := UploadSampleV3Params{
+		IsConfidential: &isConfidentialDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the upload sample v3 params
@@ -249,9 +269,7 @@ func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
 			return err
 		}
-
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -262,22 +280,24 @@ func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param file_name
 	qrFileName := o.FileName
 	qFileName := qrFileName
 	if qFileName != "" {
+
 		if err := r.SetQueryParam("file_name", qFileName); err != nil {
 			return err
 		}
@@ -287,18 +307,18 @@ func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param is_confidential
 		var qrIsConfidential bool
+
 		if o.IsConfidential != nil {
 			qrIsConfidential = *o.IsConfidential
 		}
 		qIsConfidential := swag.FormatBool(qrIsConfidential)
 		if qIsConfidential != "" {
+
 			if err := r.SetQueryParam("is_confidential", qIsConfidential); err != nil {
 				return err
 			}
 		}
-
 	}
-
 	// form file param upfile
 	if err := r.SetFileParam("upfile", o.Upfile); err != nil {
 		return err

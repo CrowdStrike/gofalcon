@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -78,7 +80,6 @@ func (m *DomainCIDPolicyAssignments) validateEnabled(formats strfmt.Registry) er
 }
 
 func (m *DomainCIDPolicyAssignments) validatePolicyTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PolicyTimestamp) { // not required
 		return nil
 	}
@@ -87,6 +88,11 @@ func (m *DomainCIDPolicyAssignments) validatePolicyTimestamp(formats strfmt.Regi
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this domain c ID policy assignments based on context it is used
+func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

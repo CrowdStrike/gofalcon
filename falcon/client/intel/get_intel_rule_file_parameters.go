@@ -17,69 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntelRuleFileParams creates a new GetIntelRuleFileParams object
-// with the default values initialized.
+// NewGetIntelRuleFileParams creates a new GetIntelRuleFileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntelRuleFileParams() *GetIntelRuleFileParams {
-	var ()
 	return &GetIntelRuleFileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntelRuleFileParamsWithTimeout creates a new GetIntelRuleFileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntelRuleFileParamsWithTimeout(timeout time.Duration) *GetIntelRuleFileParams {
-	var ()
 	return &GetIntelRuleFileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntelRuleFileParamsWithContext creates a new GetIntelRuleFileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntelRuleFileParamsWithContext(ctx context.Context) *GetIntelRuleFileParams {
-	var ()
 	return &GetIntelRuleFileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntelRuleFileParamsWithHTTPClient creates a new GetIntelRuleFileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntelRuleFileParamsWithHTTPClient(client *http.Client) *GetIntelRuleFileParams {
-	var ()
 	return &GetIntelRuleFileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntelRuleFileParams contains all the parameters to send to the API endpoint
-for the get intel rule file operation typically these are written to a http.Request
+/* GetIntelRuleFileParams contains all the parameters to send to the API endpoint
+   for the get intel rule file operation.
+
+   Typically these are written to a http.Request.
 */
 type GetIntelRuleFileParams struct {
 
-	/*Accept
-	  Choose the format you want the rule set in.
+	/* Accept.
 
+	   Choose the format you want the rule set in.
 	*/
 	Accept *string
-	/*Format
-	  Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
 
+	/* Format.
+
+	   Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
 	*/
 	Format *string
-	/*ID
-	  The ID of the rule set.
 
+	/* ID.
+
+	   The ID of the rule set.
 	*/
 	ID int64
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get intel rule file params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelRuleFileParams) WithDefaults() *GetIntelRuleFileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get intel rule file params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelRuleFileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get intel rule file params
@@ -162,29 +178,30 @@ func (o *GetIntelRuleFileParams) WriteToRequest(r runtime.ClientRequest, reg str
 		if err := r.SetHeaderParam("Accept", *o.Accept); err != nil {
 			return err
 		}
-
 	}
 
 	if o.Format != nil {
 
 		// query param format
 		var qrFormat string
+
 		if o.Format != nil {
 			qrFormat = *o.Format
 		}
 		qFormat := qrFormat
 		if qFormat != "" {
+
 			if err := r.SetQueryParam("format", qFormat); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param id
 	qrID := o.ID
 	qID := swag.FormatInt64(qrID)
 	if qID != "" {
+
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
 		}

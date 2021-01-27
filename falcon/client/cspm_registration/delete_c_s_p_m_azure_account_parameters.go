@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteCSPMAzureAccountParams creates a new DeleteCSPMAzureAccountParams object
-// with the default values initialized.
+// NewDeleteCSPMAzureAccountParams creates a new DeleteCSPMAzureAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteCSPMAzureAccountParams() *DeleteCSPMAzureAccountParams {
-	var ()
 	return &DeleteCSPMAzureAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteCSPMAzureAccountParamsWithTimeout creates a new DeleteCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteCSPMAzureAccountParamsWithTimeout(timeout time.Duration) *DeleteCSPMAzureAccountParams {
-	var ()
 	return &DeleteCSPMAzureAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteCSPMAzureAccountParamsWithContext creates a new DeleteCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteCSPMAzureAccountParamsWithContext(ctx context.Context) *DeleteCSPMAzureAccountParams {
-	var ()
 	return &DeleteCSPMAzureAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteCSPMAzureAccountParamsWithHTTPClient creates a new DeleteCSPMAzureAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteCSPMAzureAccountParamsWithHTTPClient(client *http.Client) *DeleteCSPMAzureAccountParams {
-	var ()
 	return &DeleteCSPMAzureAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteCSPMAzureAccountParams contains all the parameters to send to the API endpoint
-for the delete c s p m azure account operation typically these are written to a http.Request
+/* DeleteCSPMAzureAccountParams contains all the parameters to send to the API endpoint
+   for the delete c s p m azure account operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteCSPMAzureAccountParams struct {
 
-	/*Ids
-	  Azure subscription IDs to remove
+	/* Ids.
 
+	   Azure subscription IDs to remove
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCSPMAzureAccountParams) WithDefaults() *DeleteCSPMAzureAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete c s p m azure account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCSPMAzureAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete c s p m azure account params
@@ -124,16 +138,36 @@ func (o *DeleteCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, r
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteCSPMAzureAccount binds the parameter ids
+func (o *DeleteCSPMAzureAccountParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

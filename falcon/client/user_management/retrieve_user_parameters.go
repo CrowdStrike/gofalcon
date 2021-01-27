@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRetrieveUserParams creates a new RetrieveUserParams object
-// with the default values initialized.
+// NewRetrieveUserParams creates a new RetrieveUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRetrieveUserParams() *RetrieveUserParams {
-	var ()
 	return &RetrieveUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRetrieveUserParamsWithTimeout creates a new RetrieveUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRetrieveUserParamsWithTimeout(timeout time.Duration) *RetrieveUserParams {
-	var ()
 	return &RetrieveUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRetrieveUserParamsWithContext creates a new RetrieveUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRetrieveUserParamsWithContext(ctx context.Context) *RetrieveUserParams {
-	var ()
 	return &RetrieveUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRetrieveUserParamsWithHTTPClient creates a new RetrieveUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRetrieveUserParamsWithHTTPClient(client *http.Client) *RetrieveUserParams {
-	var ()
 	return &RetrieveUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*RetrieveUserParams contains all the parameters to send to the API endpoint
-for the retrieve user operation typically these are written to a http.Request
+/* RetrieveUserParams contains all the parameters to send to the API endpoint
+   for the retrieve user operation.
+
+   Typically these are written to a http.Request.
 */
 type RetrieveUserParams struct {
 
-	/*Ids
-	  ID of a user. Find a user's ID from `/users/entities/user/v1`.
+	/* Ids.
 
+	   ID of a user. Find a user's ID from `/users/entities/user/v1`.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the retrieve user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserParams) WithDefaults() *RetrieveUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the retrieve user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RetrieveUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the retrieve user params
@@ -124,16 +138,36 @@ func (o *RetrieveUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamRetrieveUser binds the parameter ids
+func (o *RetrieveUserParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

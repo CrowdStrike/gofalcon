@@ -17,69 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRefreshActiveStreamSessionParams creates a new RefreshActiveStreamSessionParams object
-// with the default values initialized.
+// NewRefreshActiveStreamSessionParams creates a new RefreshActiveStreamSessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRefreshActiveStreamSessionParams() *RefreshActiveStreamSessionParams {
-	var ()
 	return &RefreshActiveStreamSessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRefreshActiveStreamSessionParamsWithTimeout creates a new RefreshActiveStreamSessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRefreshActiveStreamSessionParamsWithTimeout(timeout time.Duration) *RefreshActiveStreamSessionParams {
-	var ()
 	return &RefreshActiveStreamSessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRefreshActiveStreamSessionParamsWithContext creates a new RefreshActiveStreamSessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRefreshActiveStreamSessionParamsWithContext(ctx context.Context) *RefreshActiveStreamSessionParams {
-	var ()
 	return &RefreshActiveStreamSessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRefreshActiveStreamSessionParamsWithHTTPClient creates a new RefreshActiveStreamSessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRefreshActiveStreamSessionParamsWithHTTPClient(client *http.Client) *RefreshActiveStreamSessionParams {
-	var ()
 	return &RefreshActiveStreamSessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*RefreshActiveStreamSessionParams contains all the parameters to send to the API endpoint
-for the refresh active stream session operation typically these are written to a http.Request
+/* RefreshActiveStreamSessionParams contains all the parameters to send to the API endpoint
+   for the refresh active stream session operation.
+
+   Typically these are written to a http.Request.
 */
 type RefreshActiveStreamSessionParams struct {
 
-	/*ActionName
-	  Action name. Allowed value is refresh_active_stream_session.
+	/* ActionName.
 
+	   Action name. Allowed value is refresh_active_stream_session.
 	*/
 	ActionName string
-	/*AppID
-	  Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
 
+	/* AppID.
+
+	   Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
 	*/
 	AppID string
-	/*Partition
-	  Partition to request data for.
 
+	/* Partition.
+
+	   Partition to request data for.
 	*/
 	Partition int64
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the refresh active stream session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RefreshActiveStreamSessionParams) WithDefaults() *RefreshActiveStreamSessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the refresh active stream session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RefreshActiveStreamSessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the refresh active stream session params
@@ -160,6 +176,7 @@ func (o *RefreshActiveStreamSessionParams) WriteToRequest(r runtime.ClientReques
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
@@ -169,6 +186,7 @@ func (o *RefreshActiveStreamSessionParams) WriteToRequest(r runtime.ClientReques
 	qrAppID := o.AppID
 	qAppID := qrAppID
 	if qAppID != "" {
+
 		if err := r.SetQueryParam("appId", qAppID); err != nil {
 			return err
 		}

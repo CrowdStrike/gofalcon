@@ -16,96 +16,104 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewQueryIOCsParams creates a new QueryIOCsParams object
-// with the default values initialized.
+// NewQueryIOCsParams creates a new QueryIOCsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryIOCsParams() *QueryIOCsParams {
-	var ()
 	return &QueryIOCsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryIOCsParamsWithTimeout creates a new QueryIOCsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryIOCsParamsWithTimeout(timeout time.Duration) *QueryIOCsParams {
-	var ()
 	return &QueryIOCsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryIOCsParamsWithContext creates a new QueryIOCsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryIOCsParamsWithContext(ctx context.Context) *QueryIOCsParams {
-	var ()
 	return &QueryIOCsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryIOCsParamsWithHTTPClient creates a new QueryIOCsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryIOCsParamsWithHTTPClient(client *http.Client) *QueryIOCsParams {
-	var ()
 	return &QueryIOCsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryIOCsParams contains all the parameters to send to the API endpoint
-for the query i o cs operation typically these are written to a http.Request
+/* QueryIOCsParams contains all the parameters to send to the API endpoint
+   for the query i o cs operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryIOCsParams struct {
 
-	/*CreatedBy
-	  created_by
+	/* CreatedBy.
 
+	   created_by
 	*/
 	CreatedBy *string
-	/*DeletedBy
-	  The user or API client who deleted the custom IOC
 
+	/* DeletedBy.
+
+	   The user or API client who deleted the custom IOC
 	*/
 	DeletedBy *string
-	/*FromExpirationTimestamp
-	  Find custom IOCs created after this time (RFC-3339 timestamp)
 
+	/* FromExpirationTimestamp.
+
+	   Find custom IOCs created after this time (RFC-3339 timestamp)
 	*/
 	FromExpirationTimestamp *string
-	/*IncludeDeleted
+
+	/* IncludeDeleted.
+
 
 	true: Include deleted IOCs
 
 	false: Don't include deleted IOCs (default)
 
-
 	*/
 	IncludeDeleted *string
-	/*Policies
-	  \ndetect: Find custom IOCs that produce notifications\n\nnone: Find custom IOCs the particular indicator has been detected on a host. This is equivalent to turning the indicator off.
 
+	/* Policies.
+
+	   \ndetect: Find custom IOCs that produce notifications\n\nnone: Find custom IOCs the particular indicator has been detected on a host. This is equivalent to turning the indicator off.
 
 	*/
 	Policies *string
-	/*ShareLevels
-	  The level at which the indicator will be shared. Currently only red share level (not shared) is supported, indicating that the IOC isn't shared with other FH customers.
 
+	/* ShareLevels.
+
+	   The level at which the indicator will be shared. Currently only red share level (not shared) is supported, indicating that the IOC isn't shared with other FH customers.
 	*/
 	ShareLevels *string
-	/*Sources
-	  The source where this indicator originated. This can be used for tracking where this indicator was defined. Limit 200 characters.
 
+	/* Sources.
+
+	   The source where this indicator originated. This can be used for tracking where this indicator was defined. Limit 200 characters.
 	*/
 	Sources *string
-	/*ToExpirationTimestamp
-	  Find custom IOCs created before this time (RFC-3339 timestamp)
 
+	/* ToExpirationTimestamp.
+
+	   Find custom IOCs created before this time (RFC-3339 timestamp)
 	*/
 	ToExpirationTimestamp *string
-	/*Types
+
+	/* Types.
+
 
 	The type of the indicator. Valid types include:
 
@@ -119,18 +127,33 @@ type QueryIOCsParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Types *string
-	/*Values
-	  The string representation of the indicator
 
+	/* Values.
+
+	   The string representation of the indicator
 	*/
 	Values *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query i o cs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIOCsParams) WithDefaults() *QueryIOCsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query i o cs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIOCsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query i o cs params
@@ -288,160 +311,170 @@ func (o *QueryIOCsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 
 		// query param created_by
 		var qrCreatedBy string
+
 		if o.CreatedBy != nil {
 			qrCreatedBy = *o.CreatedBy
 		}
 		qCreatedBy := qrCreatedBy
 		if qCreatedBy != "" {
+
 			if err := r.SetQueryParam("created_by", qCreatedBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.DeletedBy != nil {
 
 		// query param deleted_by
 		var qrDeletedBy string
+
 		if o.DeletedBy != nil {
 			qrDeletedBy = *o.DeletedBy
 		}
 		qDeletedBy := qrDeletedBy
 		if qDeletedBy != "" {
+
 			if err := r.SetQueryParam("deleted_by", qDeletedBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FromExpirationTimestamp != nil {
 
 		// query param from.expiration_timestamp
 		var qrFromExpirationTimestamp string
+
 		if o.FromExpirationTimestamp != nil {
 			qrFromExpirationTimestamp = *o.FromExpirationTimestamp
 		}
 		qFromExpirationTimestamp := qrFromExpirationTimestamp
 		if qFromExpirationTimestamp != "" {
+
 			if err := r.SetQueryParam("from.expiration_timestamp", qFromExpirationTimestamp); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeDeleted != nil {
 
 		// query param include_deleted
 		var qrIncludeDeleted string
+
 		if o.IncludeDeleted != nil {
 			qrIncludeDeleted = *o.IncludeDeleted
 		}
 		qIncludeDeleted := qrIncludeDeleted
 		if qIncludeDeleted != "" {
+
 			if err := r.SetQueryParam("include_deleted", qIncludeDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Policies != nil {
 
 		// query param policies
 		var qrPolicies string
+
 		if o.Policies != nil {
 			qrPolicies = *o.Policies
 		}
 		qPolicies := qrPolicies
 		if qPolicies != "" {
+
 			if err := r.SetQueryParam("policies", qPolicies); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ShareLevels != nil {
 
 		// query param share_levels
 		var qrShareLevels string
+
 		if o.ShareLevels != nil {
 			qrShareLevels = *o.ShareLevels
 		}
 		qShareLevels := qrShareLevels
 		if qShareLevels != "" {
+
 			if err := r.SetQueryParam("share_levels", qShareLevels); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sources != nil {
 
 		// query param sources
 		var qrSources string
+
 		if o.Sources != nil {
 			qrSources = *o.Sources
 		}
 		qSources := qrSources
 		if qSources != "" {
+
 			if err := r.SetQueryParam("sources", qSources); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ToExpirationTimestamp != nil {
 
 		// query param to.expiration_timestamp
 		var qrToExpirationTimestamp string
+
 		if o.ToExpirationTimestamp != nil {
 			qrToExpirationTimestamp = *o.ToExpirationTimestamp
 		}
 		qToExpirationTimestamp := qrToExpirationTimestamp
 		if qToExpirationTimestamp != "" {
+
 			if err := r.SetQueryParam("to.expiration_timestamp", qToExpirationTimestamp); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Types != nil {
 
 		// query param types
 		var qrTypes string
+
 		if o.Types != nil {
 			qrTypes = *o.Types
 		}
 		qTypes := qrTypes
 		if qTypes != "" {
+
 			if err := r.SetQueryParam("types", qTypes); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Values != nil {
 
 		// query param values
 		var qrValues string
+
 		if o.Values != nil {
 			qrValues = *o.Values
 		}
 		qValues := qrValues
 		if qValues != "" {
+
 			if err := r.SetQueryParam("values", qValues); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

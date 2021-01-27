@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *FalconxActor) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FalconxActor) validateOrigins(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Origins) { // not required
 		return nil
 	}
@@ -109,7 +109,6 @@ func (m *FalconxActor) validateOrigins(formats strfmt.Registry) error {
 }
 
 func (m *FalconxActor) validateTargetCountries(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TargetCountries) { // not required
 		return nil
 	}
@@ -134,7 +133,6 @@ func (m *FalconxActor) validateTargetCountries(formats strfmt.Registry) error {
 }
 
 func (m *FalconxActor) validateTargetIndustries(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TargetIndustries) { // not required
 		return nil
 	}
@@ -146,6 +144,82 @@ func (m *FalconxActor) validateTargetIndustries(formats strfmt.Registry) error {
 
 		if m.TargetIndustries[i] != nil {
 			if err := m.TargetIndustries[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx actor based on the context it is used
+func (m *FalconxActor) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOrigins(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetCountries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetIndustries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxActor) contextValidateOrigins(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Origins); i++ {
+
+		if m.Origins[i] != nil {
+			if err := m.Origins[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("origins" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxActor) contextValidateTargetCountries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TargetCountries); i++ {
+
+		if m.TargetCountries[i] != nil {
+			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxActor) contextValidateTargetIndustries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TargetIndustries); i++ {
+
+		if m.TargetIndustries[i] != nil {
+			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
 				}

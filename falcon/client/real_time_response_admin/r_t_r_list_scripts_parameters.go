@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRTRListScriptsParams creates a new RTRListScriptsParams object
-// with the default values initialized.
+// NewRTRListScriptsParams creates a new RTRListScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRListScriptsParams() *RTRListScriptsParams {
-	var ()
 	return &RTRListScriptsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRListScriptsParamsWithTimeout creates a new RTRListScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRListScriptsParamsWithTimeout(timeout time.Duration) *RTRListScriptsParams {
-	var ()
 	return &RTRListScriptsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRListScriptsParamsWithContext creates a new RTRListScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRListScriptsParamsWithContext(ctx context.Context) *RTRListScriptsParams {
-	var ()
 	return &RTRListScriptsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRListScriptsParamsWithHTTPClient creates a new RTRListScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRListScriptsParamsWithHTTPClient(client *http.Client) *RTRListScriptsParams {
-	var ()
 	return &RTRListScriptsParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRListScriptsParams contains all the parameters to send to the API endpoint
-for the r t r list scripts operation typically these are written to a http.Request
+/* RTRListScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r list scripts operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRListScriptsParams struct {
 
-	/*Filter
-	  Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+	/* Filter.
 
+	   Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
 	*/
 	Filter *string
-	/*Limit
-	  Number of ids to return.
 
+	/* Limit.
+
+	   Number of ids to return.
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return ids.
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return ids.
 	*/
 	Offset *string
-	/*Sort
-	  Sort by spec. Ex: 'created_at|asc'.
 
+	/* Sort.
+
+	   Sort by spec. Ex: 'created_at|asc'.
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r list scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRListScriptsParams) WithDefaults() *RTRListScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r list scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRListScriptsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r list scripts params
@@ -176,64 +193,68 @@ func (o *RTRListScriptsParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

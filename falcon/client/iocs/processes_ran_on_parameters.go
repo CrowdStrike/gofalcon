@@ -16,66 +16,69 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewProcessesRanOnParams creates a new ProcessesRanOnParams object
-// with the default values initialized.
+// NewProcessesRanOnParams creates a new ProcessesRanOnParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewProcessesRanOnParams() *ProcessesRanOnParams {
-	var ()
 	return &ProcessesRanOnParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewProcessesRanOnParamsWithTimeout creates a new ProcessesRanOnParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewProcessesRanOnParamsWithTimeout(timeout time.Duration) *ProcessesRanOnParams {
-	var ()
 	return &ProcessesRanOnParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewProcessesRanOnParamsWithContext creates a new ProcessesRanOnParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewProcessesRanOnParamsWithContext(ctx context.Context) *ProcessesRanOnParams {
-	var ()
 	return &ProcessesRanOnParams{
-
 		Context: ctx,
 	}
 }
 
 // NewProcessesRanOnParamsWithHTTPClient creates a new ProcessesRanOnParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewProcessesRanOnParamsWithHTTPClient(client *http.Client) *ProcessesRanOnParams {
-	var ()
 	return &ProcessesRanOnParams{
 		HTTPClient: client,
 	}
 }
 
-/*ProcessesRanOnParams contains all the parameters to send to the API endpoint
-for the processes ran on operation typically these are written to a http.Request
+/* ProcessesRanOnParams contains all the parameters to send to the API endpoint
+   for the processes ran on operation.
+
+   Typically these are written to a http.Request.
 */
 type ProcessesRanOnParams struct {
 
-	/*DeviceID
-	  Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+	/* DeviceID.
 
+	   Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
 	*/
 	DeviceID string
-	/*Limit
-	  The first process to return, where 0 is the latest offset. Use with the offset parameter to manage pagination of results.
 
+	/* Limit.
+
+	   The first process to return, where 0 is the latest offset. Use with the offset parameter to manage pagination of results.
 	*/
 	Limit *string
-	/*Offset
-	  The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
 
+	/* Offset.
+
+	   The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
 	*/
 	Offset *string
-	/*Type
+
+	/* Type.
+
 
 	The type of the indicator. Valid types include:
 
@@ -89,18 +92,33 @@ type ProcessesRanOnParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Type string
-	/*Value
-	  The string representation of the indicator
 
+	/* Value.
+
+	   The string representation of the indicator
 	*/
 	Value string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the processes ran on params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ProcessesRanOnParams) WithDefaults() *ProcessesRanOnParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the processes ran on params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ProcessesRanOnParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the processes ran on params
@@ -203,6 +221,7 @@ func (o *ProcessesRanOnParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	qrDeviceID := o.DeviceID
 	qDeviceID := qrDeviceID
 	if qDeviceID != "" {
+
 		if err := r.SetQueryParam("device_id", qDeviceID); err != nil {
 			return err
 		}
@@ -212,38 +231,41 @@ func (o *ProcessesRanOnParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param type
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -253,6 +275,7 @@ func (o *ProcessesRanOnParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	qrValue := o.Value
 	qValue := qrValue
 	if qValue != "" {
+
 		if err := r.SetQueryParam("value", qValue); err != nil {
 			return err
 		}

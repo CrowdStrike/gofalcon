@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewGetScansAggregatesParams creates a new GetScansAggregatesParams object
-// with the default values initialized.
+// NewGetScansAggregatesParams creates a new GetScansAggregatesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScansAggregatesParams() *GetScansAggregatesParams {
-	var ()
 	return &GetScansAggregatesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScansAggregatesParamsWithTimeout creates a new GetScansAggregatesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScansAggregatesParamsWithTimeout(timeout time.Duration) *GetScansAggregatesParams {
-	var ()
 	return &GetScansAggregatesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScansAggregatesParamsWithContext creates a new GetScansAggregatesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScansAggregatesParamsWithContext(ctx context.Context) *GetScansAggregatesParams {
-	var ()
 	return &GetScansAggregatesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScansAggregatesParamsWithHTTPClient creates a new GetScansAggregatesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScansAggregatesParamsWithHTTPClient(client *http.Client) *GetScansAggregatesParams {
-	var ()
 	return &GetScansAggregatesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScansAggregatesParams contains all the parameters to send to the API endpoint
-for the get scans aggregates operation typically these are written to a http.Request
+/* GetScansAggregatesParams contains all the parameters to send to the API endpoint
+   for the get scans aggregates operation.
+
+   Typically these are written to a http.Request.
 */
 type GetScansAggregatesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.MsaAggregateQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scans aggregates params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScansAggregatesParams) WithDefaults() *GetScansAggregatesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scans aggregates params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScansAggregatesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scans aggregates params
@@ -121,7 +135,6 @@ func (o *GetScansAggregatesParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetDeviceControlPoliciesParams creates a new GetDeviceControlPoliciesParams object
-// with the default values initialized.
+// NewGetDeviceControlPoliciesParams creates a new GetDeviceControlPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDeviceControlPoliciesParams() *GetDeviceControlPoliciesParams {
-	var ()
 	return &GetDeviceControlPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDeviceControlPoliciesParamsWithTimeout creates a new GetDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDeviceControlPoliciesParamsWithTimeout(timeout time.Duration) *GetDeviceControlPoliciesParams {
-	var ()
 	return &GetDeviceControlPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDeviceControlPoliciesParamsWithContext creates a new GetDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDeviceControlPoliciesParamsWithContext(ctx context.Context) *GetDeviceControlPoliciesParams {
-	var ()
 	return &GetDeviceControlPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDeviceControlPoliciesParamsWithHTTPClient creates a new GetDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDeviceControlPoliciesParamsWithHTTPClient(client *http.Client) *GetDeviceControlPoliciesParams {
-	var ()
 	return &GetDeviceControlPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
-for the get device control policies operation typically these are written to a http.Request
+/* GetDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the get device control policies operation.
+
+   Typically these are written to a http.Request.
 */
 type GetDeviceControlPoliciesParams struct {
 
-	/*Ids
-	  The IDs of the Device Control Policies to return
+	/* Ids.
 
+	   The IDs of the Device Control Policies to return
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get device control policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDeviceControlPoliciesParams) WithDefaults() *GetDeviceControlPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get device control policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDeviceControlPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get device control policies params
@@ -124,16 +138,36 @@ func (o *GetDeviceControlPoliciesParams) WriteToRequest(r runtime.ClientRequest,
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetDeviceControlPolicies binds the parameter ids
+func (o *GetDeviceControlPoliciesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

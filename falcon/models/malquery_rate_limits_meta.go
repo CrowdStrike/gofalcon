@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -127,7 +128,6 @@ func (m *MalqueryRateLimitsMeta) validateDownloadCount(formats strfmt.Registry) 
 }
 
 func (m *MalqueryRateLimitsMeta) validateDownloadCounts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadCounts) { // not required
 		return nil
 	}
@@ -170,7 +170,6 @@ func (m *MalqueryRateLimitsMeta) validateHuntCount(formats strfmt.Registry) erro
 }
 
 func (m *MalqueryRateLimitsMeta) validateHuntCounts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HuntCounts) { // not required
 		return nil
 	}
@@ -225,6 +224,60 @@ func (m *MalqueryRateLimitsMeta) validateRefreshTime(formats strfmt.Registry) er
 
 	if err := validate.Required("refresh_time", "body", m.RefreshTime); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this malquery rate limits meta based on the context it is used
+func (m *MalqueryRateLimitsMeta) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDownloadCounts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHuntCounts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MalqueryRateLimitsMeta) contextValidateDownloadCounts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DownloadCounts); i++ {
+
+		if m.DownloadCounts[i] != nil {
+			if err := m.DownloadCounts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("download_counts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MalqueryRateLimitsMeta) contextValidateHuntCounts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HuntCounts); i++ {
+
+		if m.HuntCounts[i] != nil {
+			if err := m.HuntCounts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hunt_counts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

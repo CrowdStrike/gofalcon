@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -177,6 +178,38 @@ func (m *APIRuleCreateV1) validateRuletypeID(formats strfmt.Registry) error {
 
 	if err := validate.Required("ruletype_id", "body", m.RuletypeID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api rule create v1 based on the context it is used
+func (m *APIRuleCreateV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFieldValues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIRuleCreateV1) contextValidateFieldValues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FieldValues); i++ {
+
+		if m.FieldValues[i] != nil {
+			if err := m.FieldValues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("field_values" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

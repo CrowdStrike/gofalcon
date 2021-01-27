@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -99,6 +100,11 @@ func (m *RequestsSetPolicyPrecedenceReqV1) validatePlatformName(formats strfmt.R
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this requests set policy precedence req v1 based on context it is used
+func (m *RequestsSetPolicyPrecedenceReqV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

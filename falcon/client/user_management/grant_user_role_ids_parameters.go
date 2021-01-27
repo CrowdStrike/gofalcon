@@ -18,64 +18,79 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewGrantUserRoleIdsParams creates a new GrantUserRoleIdsParams object
-// with the default values initialized.
+// NewGrantUserRoleIdsParams creates a new GrantUserRoleIdsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGrantUserRoleIdsParams() *GrantUserRoleIdsParams {
-	var ()
 	return &GrantUserRoleIdsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGrantUserRoleIdsParamsWithTimeout creates a new GrantUserRoleIdsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGrantUserRoleIdsParamsWithTimeout(timeout time.Duration) *GrantUserRoleIdsParams {
-	var ()
 	return &GrantUserRoleIdsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGrantUserRoleIdsParamsWithContext creates a new GrantUserRoleIdsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGrantUserRoleIdsParamsWithContext(ctx context.Context) *GrantUserRoleIdsParams {
-	var ()
 	return &GrantUserRoleIdsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGrantUserRoleIdsParamsWithHTTPClient creates a new GrantUserRoleIdsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGrantUserRoleIdsParamsWithHTTPClient(client *http.Client) *GrantUserRoleIdsParams {
-	var ()
 	return &GrantUserRoleIdsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GrantUserRoleIdsParams contains all the parameters to send to the API endpoint
-for the grant user role ids operation typically these are written to a http.Request
+/* GrantUserRoleIdsParams contains all the parameters to send to the API endpoint
+   for the grant user role ids operation.
+
+   Typically these are written to a http.Request.
 */
 type GrantUserRoleIdsParams struct {
 
-	/*Body
-	  Role ID(s) of the role you want to assign
+	/* Body.
 
+	   Role ID(s) of the role you want to assign
 	*/
 	Body *models.DomainRoleIDs
-	/*UserUUID
-	  ID of a user. Find a user's ID from `/users/entities/user/v1`.
 
+	/* UserUUID.
+
+	   ID of a user. Find a user's ID from `/users/entities/user/v1`.
 	*/
 	UserUUID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the grant user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GrantUserRoleIdsParams) WithDefaults() *GrantUserRoleIdsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the grant user role ids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GrantUserRoleIdsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the grant user role ids params
@@ -140,7 +155,6 @@ func (o *GrantUserRoleIdsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -151,6 +165,7 @@ func (o *GrantUserRoleIdsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	qrUserUUID := o.UserUUID
 	qUserUUID := qrUserUUID
 	if qUserUUID != "" {
+
 		if err := r.SetQueryParam("user_uuid", qUserUUID); err != nil {
 			return err
 		}

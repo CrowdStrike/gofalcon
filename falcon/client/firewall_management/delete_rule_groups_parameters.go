@@ -17,69 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteRuleGroupsParams creates a new DeleteRuleGroupsParams object
-// with the default values initialized.
+// NewDeleteRuleGroupsParams creates a new DeleteRuleGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRuleGroupsParams() *DeleteRuleGroupsParams {
-	var ()
 	return &DeleteRuleGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRuleGroupsParamsWithTimeout creates a new DeleteRuleGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRuleGroupsParamsWithTimeout(timeout time.Duration) *DeleteRuleGroupsParams {
-	var ()
 	return &DeleteRuleGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRuleGroupsParamsWithContext creates a new DeleteRuleGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRuleGroupsParamsWithContext(ctx context.Context) *DeleteRuleGroupsParams {
-	var ()
 	return &DeleteRuleGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRuleGroupsParamsWithHTTPClient creates a new DeleteRuleGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRuleGroupsParamsWithHTTPClient(client *http.Client) *DeleteRuleGroupsParams {
-	var ()
 	return &DeleteRuleGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRuleGroupsParams contains all the parameters to send to the API endpoint
-for the delete rule groups operation typically these are written to a http.Request
+/* DeleteRuleGroupsParams contains all the parameters to send to the API endpoint
+   for the delete rule groups operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteRuleGroupsParams struct {
 
-	/*XCSUSERNAME
-	  The user id
+	/* XCSUSERNAME.
 
+	   The user id
 	*/
 	XCSUSERNAME string
-	/*Comment
-	  Audit log comment for this action
 
+	/* Comment.
+
+	   Audit log comment for this action
 	*/
 	Comment *string
-	/*Ids
-	  The IDs of the rule groups to be deleted
 
+	/* Ids.
+
+	   The IDs of the rule groups to be deleted
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete rule groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRuleGroupsParams) WithDefaults() *DeleteRuleGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete rule groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRuleGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete rule groups params
@@ -165,28 +181,49 @@ func (o *DeleteRuleGroupsParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param comment
 		var qrComment string
+
 		if o.Comment != nil {
 			qrComment = *o.Comment
 		}
 		qComment := qrComment
 		if qComment != "" {
+
 			if err := r.SetQueryParam("comment", qComment); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteRuleGroups binds the parameter ids
+func (o *DeleteRuleGroupsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetEventsParams creates a new GetEventsParams object
-// with the default values initialized.
+// NewGetEventsParams creates a new GetEventsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetEventsParams() *GetEventsParams {
-	var ()
 	return &GetEventsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetEventsParamsWithTimeout creates a new GetEventsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetEventsParamsWithTimeout(timeout time.Duration) *GetEventsParams {
-	var ()
 	return &GetEventsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetEventsParamsWithContext creates a new GetEventsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetEventsParamsWithContext(ctx context.Context) *GetEventsParams {
-	var ()
 	return &GetEventsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetEventsParamsWithHTTPClient creates a new GetEventsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetEventsParamsWithHTTPClient(client *http.Client) *GetEventsParams {
-	var ()
 	return &GetEventsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetEventsParams contains all the parameters to send to the API endpoint
-for the get events operation typically these are written to a http.Request
+/* GetEventsParams contains all the parameters to send to the API endpoint
+   for the get events operation.
+
+   Typically these are written to a http.Request.
 */
 type GetEventsParams struct {
 
-	/*Ids
-	  The events to retrieve, identified by ID
+	/* Ids.
 
+	   The events to retrieve, identified by ID
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetEventsParams) WithDefaults() *GetEventsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetEventsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get events params
@@ -124,16 +138,36 @@ func (o *GetEventsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetEvents binds the parameter ids
+func (o *GetEventsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

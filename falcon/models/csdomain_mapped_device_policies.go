@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -91,7 +93,6 @@ func (m *CsdomainMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainMappedDevicePolicies) validateAirlock(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Airlock) { // not required
 		return nil
 	}
@@ -109,7 +110,6 @@ func (m *CsdomainMappedDevicePolicies) validateAirlock(formats strfmt.Registry) 
 }
 
 func (m *CsdomainMappedDevicePolicies) validateAutomox(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Automox) { // not required
 		return nil
 	}
@@ -127,7 +127,6 @@ func (m *CsdomainMappedDevicePolicies) validateAutomox(formats strfmt.Registry) 
 }
 
 func (m *CsdomainMappedDevicePolicies) validateDeviceControl(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeviceControl) { // not required
 		return nil
 	}
@@ -145,7 +144,6 @@ func (m *CsdomainMappedDevicePolicies) validateDeviceControl(formats strfmt.Regi
 }
 
 func (m *CsdomainMappedDevicePolicies) validateFirewall(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Firewall) { // not required
 		return nil
 	}
@@ -163,7 +161,6 @@ func (m *CsdomainMappedDevicePolicies) validateFirewall(formats strfmt.Registry)
 }
 
 func (m *CsdomainMappedDevicePolicies) validateGlobalConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GlobalConfig) { // not required
 		return nil
 	}
@@ -181,7 +178,6 @@ func (m *CsdomainMappedDevicePolicies) validateGlobalConfig(formats strfmt.Regis
 }
 
 func (m *CsdomainMappedDevicePolicies) validateNetskope(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Netskope) { // not required
 		return nil
 	}
@@ -199,7 +195,6 @@ func (m *CsdomainMappedDevicePolicies) validateNetskope(formats strfmt.Registry)
 }
 
 func (m *CsdomainMappedDevicePolicies) validatePrevention(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Prevention) { // not required
 		return nil
 	}
@@ -217,7 +212,6 @@ func (m *CsdomainMappedDevicePolicies) validatePrevention(formats strfmt.Registr
 }
 
 func (m *CsdomainMappedDevicePolicies) validateRemoteResponse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RemoteResponse) { // not required
 		return nil
 	}
@@ -235,13 +229,184 @@ func (m *CsdomainMappedDevicePolicies) validateRemoteResponse(formats strfmt.Reg
 }
 
 func (m *CsdomainMappedDevicePolicies) validateSensorUpdate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SensorUpdate) { // not required
 		return nil
 	}
 
 	if m.SensorUpdate != nil {
 		if err := m.SensorUpdate.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sensor_update")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this csdomain mapped device policies based on the context it is used
+func (m *CsdomainMappedDevicePolicies) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAirlock(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAutomox(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeviceControl(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFirewall(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGlobalConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNetskope(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrevention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemoteResponse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSensorUpdate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateAirlock(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Airlock != nil {
+		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("airlock")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateAutomox(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Automox != nil {
+		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("automox")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateDeviceControl(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeviceControl != nil {
+		if err := m.DeviceControl.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device_control")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateFirewall(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Firewall != nil {
+		if err := m.Firewall.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("firewall")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateGlobalConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GlobalConfig != nil {
+		if err := m.GlobalConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("global_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateNetskope(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Netskope != nil {
+		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("netskope")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidatePrevention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Prevention != nil {
+		if err := m.Prevention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("prevention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateRemoteResponse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RemoteResponse != nil {
+		if err := m.RemoteResponse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("remote_response")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CsdomainMappedDevicePolicies) contextValidateSensorUpdate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SensorUpdate != nil {
+		if err := m.SensorUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sensor_update")
 			}

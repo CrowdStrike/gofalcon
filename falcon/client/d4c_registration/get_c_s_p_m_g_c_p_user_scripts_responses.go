@@ -78,15 +78,17 @@ func NewGetCSPMGCPUserScriptsOK() *GetCSPMGCPUserScriptsOK {
 	return &GetCSPMGCPUserScriptsOK{}
 }
 
-/*GetCSPMGCPUserScriptsOK handles this case with default header values.
+/* GetCSPMGCPUserScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
 type GetCSPMGCPUserScriptsOK struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -96,26 +98,33 @@ type GetCSPMGCPUserScriptsOK struct {
 func (o *GetCSPMGCPUserScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsOK  %+v", 200, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsOK) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationGCPProvisionGetUserScriptResponseV1)
 
@@ -132,15 +141,17 @@ func NewGetCSPMGCPUserScriptsMultiStatus() *GetCSPMGCPUserScriptsMultiStatus {
 	return &GetCSPMGCPUserScriptsMultiStatus{}
 }
 
-/*GetCSPMGCPUserScriptsMultiStatus handles this case with default header values.
+/* GetCSPMGCPUserScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
 type GetCSPMGCPUserScriptsMultiStatus struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -150,26 +161,33 @@ type GetCSPMGCPUserScriptsMultiStatus struct {
 func (o *GetCSPMGCPUserScriptsMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsMultiStatus  %+v", 207, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsMultiStatus) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationGCPProvisionGetUserScriptResponseV1)
 
@@ -186,15 +204,17 @@ func NewGetCSPMGCPUserScriptsBadRequest() *GetCSPMGCPUserScriptsBadRequest {
 	return &GetCSPMGCPUserScriptsBadRequest{}
 }
 
-/*GetCSPMGCPUserScriptsBadRequest handles this case with default header values.
+/* GetCSPMGCPUserScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type GetCSPMGCPUserScriptsBadRequest struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -204,26 +224,33 @@ type GetCSPMGCPUserScriptsBadRequest struct {
 func (o *GetCSPMGCPUserScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsBadRequest) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationGCPProvisionGetUserScriptResponseV1)
 
@@ -240,15 +267,17 @@ func NewGetCSPMGCPUserScriptsForbidden() *GetCSPMGCPUserScriptsForbidden {
 	return &GetCSPMGCPUserScriptsForbidden{}
 }
 
-/*GetCSPMGCPUserScriptsForbidden handles this case with default header values.
+/* GetCSPMGCPUserScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type GetCSPMGCPUserScriptsForbidden struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -258,26 +287,33 @@ type GetCSPMGCPUserScriptsForbidden struct {
 func (o *GetCSPMGCPUserScriptsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsForbidden  %+v", 403, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -294,18 +330,21 @@ func NewGetCSPMGCPUserScriptsTooManyRequests() *GetCSPMGCPUserScriptsTooManyRequ
 	return &GetCSPMGCPUserScriptsTooManyRequests{}
 }
 
-/*GetCSPMGCPUserScriptsTooManyRequests handles this case with default header values.
+/* GetCSPMGCPUserScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type GetCSPMGCPUserScriptsTooManyRequests struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
-	/*Too many requests, retry after this time (as milliseconds since epoch)
+
+	/* Too many requests, retry after this time (as milliseconds since epoch)
 	 */
 	XRateLimitRetryAfter int64
 
@@ -315,33 +354,44 @@ type GetCSPMGCPUserScriptsTooManyRequests struct {
 func (o *GetCSPMGCPUserScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsTooManyRequests  %+v", 429, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
 
-	// response header X-RateLimit-RetryAfter
-	xRateLimitRetryAfter, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-RetryAfter"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", response.GetHeader("X-RateLimit-RetryAfter"))
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-	o.XRateLimitRetryAfter = xRateLimitRetryAfter
+
+	// hydrates response header X-RateLimit-RetryAfter
+	hdrXRateLimitRetryAfter := response.GetHeader("X-RateLimit-RetryAfter")
+
+	if hdrXRateLimitRetryAfter != "" {
+		valxRateLimitRetryAfter, err := swag.ConvertInt64(hdrXRateLimitRetryAfter)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-RetryAfter", "header", "int64", hdrXRateLimitRetryAfter)
+		}
+		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
+	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 
@@ -358,15 +408,17 @@ func NewGetCSPMGCPUserScriptsInternalServerError() *GetCSPMGCPUserScriptsInterna
 	return &GetCSPMGCPUserScriptsInternalServerError{}
 }
 
-/*GetCSPMGCPUserScriptsInternalServerError handles this case with default header values.
+/* GetCSPMGCPUserScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type GetCSPMGCPUserScriptsInternalServerError struct {
-	/*Request limit per minute.
+
+	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
-	/*The number of requests remaining for the sliding one minute window.
+
+	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
 
@@ -376,26 +428,33 @@ type GetCSPMGCPUserScriptsInternalServerError struct {
 func (o *GetCSPMGCPUserScriptsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsInternalServerError) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
 
 func (o *GetCSPMGCPUserScriptsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	// response header X-RateLimit-Limit
-	xRateLimitLimit, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Limit"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Limit", "header", "int64", response.GetHeader("X-RateLimit-Limit"))
-	}
-	o.XRateLimitLimit = xRateLimitLimit
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
-	// response header X-RateLimit-Remaining
-	xRateLimitRemaining, err := swag.ConvertInt64(response.GetHeader("X-RateLimit-Remaining"))
-	if err != nil {
-		return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", response.GetHeader("X-RateLimit-Remaining"))
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
 	}
-	o.XRateLimitRemaining = xRateLimitRemaining
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
 
 	o.Payload = new(models.RegistrationGCPProvisionGetUserScriptResponseV1)
 
@@ -414,7 +473,7 @@ func NewGetCSPMGCPUserScriptsDefault(code int) *GetCSPMGCPUserScriptsDefault {
 	}
 }
 
-/*GetCSPMGCPUserScriptsDefault handles this case with default header values.
+/* GetCSPMGCPUserScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */
@@ -432,7 +491,6 @@ func (o *GetCSPMGCPUserScriptsDefault) Code() int {
 func (o *GetCSPMGCPUserScriptsDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] GetCSPMGCPUserScripts default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *GetCSPMGCPUserScriptsDefault) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }

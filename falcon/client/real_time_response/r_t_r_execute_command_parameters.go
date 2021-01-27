@@ -18,52 +18,52 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewRTRExecuteCommandParams creates a new RTRExecuteCommandParams object
-// with the default values initialized.
+// NewRTRExecuteCommandParams creates a new RTRExecuteCommandParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRExecuteCommandParams() *RTRExecuteCommandParams {
-	var ()
 	return &RTRExecuteCommandParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRExecuteCommandParamsWithTimeout creates a new RTRExecuteCommandParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRExecuteCommandParamsWithTimeout(timeout time.Duration) *RTRExecuteCommandParams {
-	var ()
 	return &RTRExecuteCommandParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRExecuteCommandParamsWithContext creates a new RTRExecuteCommandParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRExecuteCommandParamsWithContext(ctx context.Context) *RTRExecuteCommandParams {
-	var ()
 	return &RTRExecuteCommandParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRExecuteCommandParamsWithHTTPClient creates a new RTRExecuteCommandParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRExecuteCommandParamsWithHTTPClient(client *http.Client) *RTRExecuteCommandParams {
-	var ()
 	return &RTRExecuteCommandParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRExecuteCommandParams contains all the parameters to send to the API endpoint
-for the r t r execute command operation typically these are written to a http.Request
+/* RTRExecuteCommandParams contains all the parameters to send to the API endpoint
+   for the r t r execute command operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRExecuteCommandParams struct {
 
-	/*Body
-	  Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands):
+	/* Body.
+
+	     Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands):
 	- `cat`
 	- `cd`
 	- `clear`
@@ -84,13 +84,27 @@ type RTRExecuteCommandParams struct {
 	**`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands.
 	**`command_string`** Full command string for the command. For example  `cd C:\some_directory`
 	**`session_id`** RTR session ID to run the command on
-
 	*/
 	Body *models.DomainCommandExecuteRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r execute command params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRExecuteCommandParams) WithDefaults() *RTRExecuteCommandParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r execute command params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRExecuteCommandParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r execute command params
@@ -144,7 +158,6 @@ func (o *RTRExecuteCommandParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

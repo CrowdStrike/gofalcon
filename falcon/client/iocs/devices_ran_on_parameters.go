@@ -16,61 +16,63 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDevicesRanOnParams creates a new DevicesRanOnParams object
-// with the default values initialized.
+// NewDevicesRanOnParams creates a new DevicesRanOnParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDevicesRanOnParams() *DevicesRanOnParams {
-	var ()
 	return &DevicesRanOnParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDevicesRanOnParamsWithTimeout creates a new DevicesRanOnParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDevicesRanOnParamsWithTimeout(timeout time.Duration) *DevicesRanOnParams {
-	var ()
 	return &DevicesRanOnParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDevicesRanOnParamsWithContext creates a new DevicesRanOnParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDevicesRanOnParamsWithContext(ctx context.Context) *DevicesRanOnParams {
-	var ()
 	return &DevicesRanOnParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDevicesRanOnParamsWithHTTPClient creates a new DevicesRanOnParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDevicesRanOnParamsWithHTTPClient(client *http.Client) *DevicesRanOnParams {
-	var ()
 	return &DevicesRanOnParams{
 		HTTPClient: client,
 	}
 }
 
-/*DevicesRanOnParams contains all the parameters to send to the API endpoint
-for the devices ran on operation typically these are written to a http.Request
+/* DevicesRanOnParams contains all the parameters to send to the API endpoint
+   for the devices ran on operation.
+
+   Typically these are written to a http.Request.
 */
 type DevicesRanOnParams struct {
 
-	/*Limit
-	  The first process to return, where 0 is the latest offset. Use with the offset parameter to manage pagination of results.
+	/* Limit.
 
+	   The first process to return, where 0 is the latest offset. Use with the offset parameter to manage pagination of results.
 	*/
 	Limit *string
-	/*Offset
-	  The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
 
+	/* Offset.
+
+	   The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
 	*/
 	Offset *string
-	/*Type
+
+	/* Type.
+
 
 	The type of the indicator. Valid types include:
 
@@ -84,18 +86,33 @@ type DevicesRanOnParams struct {
 
 	ipv6: An IPv6 address. Must be a valid IP address.
 
-
 	*/
 	Type string
-	/*Value
-	  The string representation of the indicator
 
+	/* Value.
+
+	   The string representation of the indicator
 	*/
 	Value string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the devices ran on params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DevicesRanOnParams) WithDefaults() *DevicesRanOnParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the devices ran on params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DevicesRanOnParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the devices ran on params
@@ -187,38 +204,41 @@ func (o *DevicesRanOnParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param type
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -228,6 +248,7 @@ func (o *DevicesRanOnParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	qrValue := o.Value
 	qValue := qrValue
 	if qValue != "" {
+
 		if err := r.SetQueryParam("value", qValue); err != nil {
 			return err
 		}

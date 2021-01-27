@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewScanSamplesParams creates a new ScanSamplesParams object
-// with the default values initialized.
+// NewScanSamplesParams creates a new ScanSamplesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewScanSamplesParams() *ScanSamplesParams {
-	var ()
 	return &ScanSamplesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewScanSamplesParamsWithTimeout creates a new ScanSamplesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewScanSamplesParamsWithTimeout(timeout time.Duration) *ScanSamplesParams {
-	var ()
 	return &ScanSamplesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewScanSamplesParamsWithContext creates a new ScanSamplesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewScanSamplesParamsWithContext(ctx context.Context) *ScanSamplesParams {
-	var ()
 	return &ScanSamplesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewScanSamplesParamsWithHTTPClient creates a new ScanSamplesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewScanSamplesParamsWithHTTPClient(client *http.Client) *ScanSamplesParams {
-	var ()
 	return &ScanSamplesParams{
 		HTTPClient: client,
 	}
 }
 
-/*ScanSamplesParams contains all the parameters to send to the API endpoint
-for the scan samples operation typically these are written to a http.Request
+/* ScanSamplesParams contains all the parameters to send to the API endpoint
+   for the scan samples operation.
+
+   Typically these are written to a http.Request.
 */
 type ScanSamplesParams struct {
 
-	/*Body
-	  Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through `/samples/entities/samples/v3`
+	/* Body.
 
+	   Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through `/samples/entities/samples/v3`
 	*/
 	Body *models.MlscannerSamplesScanParameters
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the scan samples params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ScanSamplesParams) WithDefaults() *ScanSamplesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the scan samples params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *ScanSamplesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the scan samples params
@@ -124,7 +138,6 @@ func (o *ScanSamplesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

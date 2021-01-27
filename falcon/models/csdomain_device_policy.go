@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -76,7 +78,6 @@ func (m *CsdomainDevicePolicy) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CsdomainDevicePolicy) validateAppliedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AppliedDate) { // not required
 		return nil
 	}
@@ -89,7 +90,6 @@ func (m *CsdomainDevicePolicy) validateAppliedDate(formats strfmt.Registry) erro
 }
 
 func (m *CsdomainDevicePolicy) validateAssignedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignedDate) { // not required
 		return nil
 	}
@@ -116,6 +116,11 @@ func (m *CsdomainDevicePolicy) validatePolicyType(formats strfmt.Registry) error
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this csdomain device policy based on context it is used
+func (m *CsdomainDevicePolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

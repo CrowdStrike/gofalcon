@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewGetRulesGetParams creates a new GetRulesGetParams object
-// with the default values initialized.
+// NewGetRulesGetParams creates a new GetRulesGetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRulesGetParams() *GetRulesGetParams {
-	var ()
 	return &GetRulesGetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRulesGetParamsWithTimeout creates a new GetRulesGetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRulesGetParamsWithTimeout(timeout time.Duration) *GetRulesGetParams {
-	var ()
 	return &GetRulesGetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRulesGetParamsWithContext creates a new GetRulesGetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRulesGetParamsWithContext(ctx context.Context) *GetRulesGetParams {
-	var ()
 	return &GetRulesGetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRulesGetParamsWithHTTPClient creates a new GetRulesGetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRulesGetParamsWithHTTPClient(client *http.Client) *GetRulesGetParams {
-	var ()
 	return &GetRulesGetParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRulesGetParams contains all the parameters to send to the API endpoint
-for the get rules get operation typically these are written to a http.Request
+/* GetRulesGetParams contains all the parameters to send to the API endpoint
+   for the get rules get operation.
+
+   Typically these are written to a http.Request.
 */
 type GetRulesGetParams struct {
 
-	/*Body
-	  The "ids" field contains a list of the rules to retrieve.
+	/* Body.
 
+	   The "ids" field contains a list of the rules to retrieve.
 	*/
 	Body *models.APIRulesGetRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get rules get params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRulesGetParams) WithDefaults() *GetRulesGetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get rules get params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRulesGetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get rules get params
@@ -124,7 +138,6 @@ func (o *GetRulesGetParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

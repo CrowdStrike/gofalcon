@@ -18,52 +18,52 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewSubmitParams creates a new SubmitParams object
-// with the default values initialized.
+// NewSubmitParams creates a new SubmitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewSubmitParams() *SubmitParams {
-	var ()
 	return &SubmitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewSubmitParamsWithTimeout creates a new SubmitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewSubmitParamsWithTimeout(timeout time.Duration) *SubmitParams {
-	var ()
 	return &SubmitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewSubmitParamsWithContext creates a new SubmitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewSubmitParamsWithContext(ctx context.Context) *SubmitParams {
-	var ()
 	return &SubmitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewSubmitParamsWithHTTPClient creates a new SubmitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewSubmitParamsWithHTTPClient(client *http.Client) *SubmitParams {
-	var ()
 	return &SubmitParams{
 		HTTPClient: client,
 	}
 }
 
-/*SubmitParams contains all the parameters to send to the API endpoint
-for the submit operation typically these are written to a http.Request
+/* SubmitParams contains all the parameters to send to the API endpoint
+   for the submit operation.
+
+   Typically these are written to a http.Request.
 */
 type SubmitParams struct {
 
-	/*Body
-	  Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.
+	/* Body.
+
+	     Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.
 
 	**`environment_id`**: Specifies the sandbox environment used for analysis. Values:
 
@@ -96,13 +96,27 @@ type SubmitParams struct {
 	**`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment
 
 	**`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment.
-
 	*/
 	Body *models.FalconxSubmissionParametersV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the submit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SubmitParams) WithDefaults() *SubmitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the submit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SubmitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the submit params
@@ -156,7 +170,6 @@ func (o *SubmitParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regist
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

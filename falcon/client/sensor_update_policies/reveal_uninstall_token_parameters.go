@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewRevealUninstallTokenParams creates a new RevealUninstallTokenParams object
-// with the default values initialized.
+// NewRevealUninstallTokenParams creates a new RevealUninstallTokenParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRevealUninstallTokenParams() *RevealUninstallTokenParams {
-	var ()
 	return &RevealUninstallTokenParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRevealUninstallTokenParamsWithTimeout creates a new RevealUninstallTokenParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRevealUninstallTokenParamsWithTimeout(timeout time.Duration) *RevealUninstallTokenParams {
-	var ()
 	return &RevealUninstallTokenParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRevealUninstallTokenParamsWithContext creates a new RevealUninstallTokenParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRevealUninstallTokenParamsWithContext(ctx context.Context) *RevealUninstallTokenParams {
-	var ()
 	return &RevealUninstallTokenParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRevealUninstallTokenParamsWithHTTPClient creates a new RevealUninstallTokenParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRevealUninstallTokenParamsWithHTTPClient(client *http.Client) *RevealUninstallTokenParams {
-	var ()
 	return &RevealUninstallTokenParams{
 		HTTPClient: client,
 	}
 }
 
-/*RevealUninstallTokenParams contains all the parameters to send to the API endpoint
-for the reveal uninstall token operation typically these are written to a http.Request
+/* RevealUninstallTokenParams contains all the parameters to send to the API endpoint
+   for the reveal uninstall token operation.
+
+   Typically these are written to a http.Request.
 */
 type RevealUninstallTokenParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsRevealUninstallTokenV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the reveal uninstall token params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RevealUninstallTokenParams) WithDefaults() *RevealUninstallTokenParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the reveal uninstall token params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RevealUninstallTokenParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the reveal uninstall token params
@@ -121,7 +135,6 @@ func (o *RevealUninstallTokenParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

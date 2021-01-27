@@ -17,70 +17,85 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntelReportEntitiesParams creates a new GetIntelReportEntitiesParams object
-// with the default values initialized.
+// NewGetIntelReportEntitiesParams creates a new GetIntelReportEntitiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntelReportEntitiesParams() *GetIntelReportEntitiesParams {
-	var ()
 	return &GetIntelReportEntitiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntelReportEntitiesParamsWithTimeout creates a new GetIntelReportEntitiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntelReportEntitiesParamsWithTimeout(timeout time.Duration) *GetIntelReportEntitiesParams {
-	var ()
 	return &GetIntelReportEntitiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntelReportEntitiesParamsWithContext creates a new GetIntelReportEntitiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntelReportEntitiesParamsWithContext(ctx context.Context) *GetIntelReportEntitiesParams {
-	var ()
 	return &GetIntelReportEntitiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntelReportEntitiesParamsWithHTTPClient creates a new GetIntelReportEntitiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntelReportEntitiesParamsWithHTTPClient(client *http.Client) *GetIntelReportEntitiesParams {
-	var ()
 	return &GetIntelReportEntitiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntelReportEntitiesParams contains all the parameters to send to the API endpoint
-for the get intel report entities operation typically these are written to a http.Request
+/* GetIntelReportEntitiesParams contains all the parameters to send to the API endpoint
+   for the get intel report entities operation.
+
+   Typically these are written to a http.Request.
 */
 type GetIntelReportEntitiesParams struct {
 
-	/*Fields
-	  The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:
+	/* Fields.
+
+	     The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:
 
 	\_\_\<collection\>\_\_.
 
 	Ex: slug \_\_full\_\_.
 
 	Defaults to \_\_basic\_\_.
-
 	*/
 	Fields []string
-	/*Ids
-	  The IDs of the reports you want to retrieve.
 
+	/* Ids.
+
+	   The IDs of the reports you want to retrieve.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get intel report entities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelReportEntitiesParams) WithDefaults() *GetIntelReportEntitiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get intel report entities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntelReportEntitiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get intel report entities params
@@ -146,24 +161,64 @@ func (o *GetIntelReportEntitiesParams) WriteToRequest(r runtime.ClientRequest, r
 	}
 	var res []error
 
-	valuesFields := o.Fields
+	if o.Fields != nil {
 
-	joinedFields := swag.JoinByFormat(valuesFields, "multi")
-	// query array param fields
-	if err := r.SetQueryParam("fields", joinedFields...); err != nil {
-		return err
+		// binding items for fields
+		joinedFields := o.bindParamFields(reg)
+
+		// query array param fields
+		if err := r.SetQueryParam("fields", joinedFields...); err != nil {
+			return err
+		}
 	}
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetIntelReportEntities binds the parameter fields
+func (o *GetIntelReportEntitiesParams) bindParamFields(formats strfmt.Registry) []string {
+	fieldsIR := o.Fields
+
+	var fieldsIC []string
+	for _, fieldsIIR := range fieldsIR { // explode []string
+
+		fieldsIIV := fieldsIIR // string as string
+		fieldsIC = append(fieldsIC, fieldsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	fieldsIS := swag.JoinByFormat(fieldsIC, "multi")
+
+	return fieldsIS
+}
+
+// bindParamGetIntelReportEntities binds the parameter ids
+func (o *GetIntelReportEntitiesParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

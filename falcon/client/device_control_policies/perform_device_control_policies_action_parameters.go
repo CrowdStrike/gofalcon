@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPerformDeviceControlPoliciesActionParams creates a new PerformDeviceControlPoliciesActionParams object
-// with the default values initialized.
+// NewPerformDeviceControlPoliciesActionParams creates a new PerformDeviceControlPoliciesActionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPerformDeviceControlPoliciesActionParams() *PerformDeviceControlPoliciesActionParams {
-	var ()
 	return &PerformDeviceControlPoliciesActionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPerformDeviceControlPoliciesActionParamsWithTimeout creates a new PerformDeviceControlPoliciesActionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPerformDeviceControlPoliciesActionParamsWithTimeout(timeout time.Duration) *PerformDeviceControlPoliciesActionParams {
-	var ()
 	return &PerformDeviceControlPoliciesActionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPerformDeviceControlPoliciesActionParamsWithContext creates a new PerformDeviceControlPoliciesActionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPerformDeviceControlPoliciesActionParamsWithContext(ctx context.Context) *PerformDeviceControlPoliciesActionParams {
-	var ()
 	return &PerformDeviceControlPoliciesActionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPerformDeviceControlPoliciesActionParamsWithHTTPClient creates a new PerformDeviceControlPoliciesActionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPerformDeviceControlPoliciesActionParamsWithHTTPClient(client *http.Client) *PerformDeviceControlPoliciesActionParams {
-	var ()
 	return &PerformDeviceControlPoliciesActionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PerformDeviceControlPoliciesActionParams contains all the parameters to send to the API endpoint
-for the perform device control policies action operation typically these are written to a http.Request
+/* PerformDeviceControlPoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform device control policies action operation.
+
+   Typically these are written to a http.Request.
 */
 type PerformDeviceControlPoliciesActionParams struct {
 
-	/*ActionName
-	  The action to perform
+	/* ActionName.
 
+	   The action to perform
 	*/
 	ActionName string
-	/*Body*/
+
+	// Body.
 	Body *models.MsaEntityActionRequestV2
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the perform device control policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformDeviceControlPoliciesActionParams) WithDefaults() *PerformDeviceControlPoliciesActionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the perform device control policies action params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PerformDeviceControlPoliciesActionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the perform device control policies action params
@@ -142,11 +157,11 @@ func (o *PerformDeviceControlPoliciesActionParams) WriteToRequest(r runtime.Clie
 	qrActionName := o.ActionName
 	qActionName := qrActionName
 	if qActionName != "" {
+
 		if err := r.SetQueryParam("action_name", qActionName); err != nil {
 			return err
 		}
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

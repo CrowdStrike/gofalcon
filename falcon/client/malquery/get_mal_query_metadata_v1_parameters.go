@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetMalQueryMetadataV1Params creates a new GetMalQueryMetadataV1Params object
-// with the default values initialized.
+// NewGetMalQueryMetadataV1Params creates a new GetMalQueryMetadataV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetMalQueryMetadataV1Params() *GetMalQueryMetadataV1Params {
-	var ()
 	return &GetMalQueryMetadataV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetMalQueryMetadataV1ParamsWithTimeout creates a new GetMalQueryMetadataV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetMalQueryMetadataV1ParamsWithTimeout(timeout time.Duration) *GetMalQueryMetadataV1Params {
-	var ()
 	return &GetMalQueryMetadataV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetMalQueryMetadataV1ParamsWithContext creates a new GetMalQueryMetadataV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetMalQueryMetadataV1ParamsWithContext(ctx context.Context) *GetMalQueryMetadataV1Params {
-	var ()
 	return &GetMalQueryMetadataV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewGetMalQueryMetadataV1ParamsWithHTTPClient creates a new GetMalQueryMetadataV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetMalQueryMetadataV1ParamsWithHTTPClient(client *http.Client) *GetMalQueryMetadataV1Params {
-	var ()
 	return &GetMalQueryMetadataV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*GetMalQueryMetadataV1Params contains all the parameters to send to the API endpoint
-for the get mal query metadata v1 operation typically these are written to a http.Request
+/* GetMalQueryMetadataV1Params contains all the parameters to send to the API endpoint
+   for the get mal query metadata v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetMalQueryMetadataV1Params struct {
 
-	/*Ids
-	  The file SHA256.
+	/* Ids.
 
+	   The file SHA256.
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get mal query metadata v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMalQueryMetadataV1Params) WithDefaults() *GetMalQueryMetadataV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get mal query metadata v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMalQueryMetadataV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get mal query metadata v1 params
@@ -124,16 +138,36 @@ func (o *GetMalQueryMetadataV1Params) WriteToRequest(r runtime.ClientRequest, re
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetMalQueryMetadataV1 binds the parameter ids
+func (o *GetMalQueryMetadataV1Params) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	idsIS := swag.JoinByFormat(idsIC, "csv")
+
+	return idsIS
 }

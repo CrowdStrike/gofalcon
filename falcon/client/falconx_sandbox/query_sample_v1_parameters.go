@@ -18,64 +18,79 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewQuerySampleV1Params creates a new QuerySampleV1Params object
-// with the default values initialized.
+// NewQuerySampleV1Params creates a new QuerySampleV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQuerySampleV1Params() *QuerySampleV1Params {
-	var ()
 	return &QuerySampleV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQuerySampleV1ParamsWithTimeout creates a new QuerySampleV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQuerySampleV1ParamsWithTimeout(timeout time.Duration) *QuerySampleV1Params {
-	var ()
 	return &QuerySampleV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewQuerySampleV1ParamsWithContext creates a new QuerySampleV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQuerySampleV1ParamsWithContext(ctx context.Context) *QuerySampleV1Params {
-	var ()
 	return &QuerySampleV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewQuerySampleV1ParamsWithHTTPClient creates a new QuerySampleV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQuerySampleV1ParamsWithHTTPClient(client *http.Client) *QuerySampleV1Params {
-	var ()
 	return &QuerySampleV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*QuerySampleV1Params contains all the parameters to send to the API endpoint
-for the query sample v1 operation typically these are written to a http.Request
+/* QuerySampleV1Params contains all the parameters to send to the API endpoint
+   for the query sample v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type QuerySampleV1Params struct {
 
-	/*XCSUSERUUID
-	  User UUID
+	/* XCSUSERUUID.
 
+	   User UUID
 	*/
 	XCSUSERUUID *string
-	/*Body
-	  Pass a list of sha256s to check if the exist. It will be returned the list of existing hashes.
 
+	/* Body.
+
+	   Pass a list of sha256s to check if the exist. It will be returned the list of existing hashes.
 	*/
 	Body *models.SamplestoreQuerySamplesRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query sample v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QuerySampleV1Params) WithDefaults() *QuerySampleV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query sample v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QuerySampleV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query sample v1 params
@@ -147,9 +162,7 @@ func (o *QuerySampleV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
 			return err
 		}
-
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

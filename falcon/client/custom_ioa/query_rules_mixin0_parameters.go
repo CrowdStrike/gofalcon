@@ -17,79 +17,97 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryRulesMixin0Params creates a new QueryRulesMixin0Params object
-// with the default values initialized.
+// NewQueryRulesMixin0Params creates a new QueryRulesMixin0Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryRulesMixin0Params() *QueryRulesMixin0Params {
-	var ()
 	return &QueryRulesMixin0Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryRulesMixin0ParamsWithTimeout creates a new QueryRulesMixin0Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryRulesMixin0ParamsWithTimeout(timeout time.Duration) *QueryRulesMixin0Params {
-	var ()
 	return &QueryRulesMixin0Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryRulesMixin0ParamsWithContext creates a new QueryRulesMixin0Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryRulesMixin0ParamsWithContext(ctx context.Context) *QueryRulesMixin0Params {
-	var ()
 	return &QueryRulesMixin0Params{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryRulesMixin0ParamsWithHTTPClient creates a new QueryRulesMixin0Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryRulesMixin0ParamsWithHTTPClient(client *http.Client) *QueryRulesMixin0Params {
-	var ()
 	return &QueryRulesMixin0Params{
 		HTTPClient: client,
 	}
 }
 
-/*QueryRulesMixin0Params contains all the parameters to send to the API endpoint
-for the query rules mixin0 operation typically these are written to a http.Request
+/* QueryRulesMixin0Params contains all the parameters to send to the API endpoint
+   for the query rules mixin0 operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryRulesMixin0Params struct {
 
-	/*Filter
-	  FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
+	/* Filter.
 
+	   FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
 	*/
 	Filter *string
-	/*Limit
-	  Number of IDs to return
 
+	/* Limit.
+
+	   Number of IDs to return
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return IDs
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return IDs
 	*/
 	Offset *string
-	/*Q
-	  Match query criteria, which includes all the filter string fields
 
+	/* Q.
+
+	   Match query criteria, which includes all the filter string fields
 	*/
 	Q *string
-	/*Sort
-	  Possible order by fields: {rules.ruletype_name, rules.enabled, rules.created_by, rules.current_version.name, rules.current_version.modified_by, rules.created_on, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on}
 
+	/* Sort.
+
+	   Possible order by fields: {rules.ruletype_name, rules.enabled, rules.created_by, rules.current_version.name, rules.current_version.modified_by, rules.created_on, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on}
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query rules mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRulesMixin0Params) WithDefaults() *QueryRulesMixin0Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query rules mixin0 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRulesMixin0Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query rules mixin0 params
@@ -192,80 +210,85 @@ func (o *QueryRulesMixin0Params) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

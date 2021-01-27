@@ -17,84 +17,103 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryRulesParams creates a new QueryRulesParams object
-// with the default values initialized.
+// NewQueryRulesParams creates a new QueryRulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryRulesParams() *QueryRulesParams {
-	var ()
 	return &QueryRulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryRulesParamsWithTimeout creates a new QueryRulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryRulesParamsWithTimeout(timeout time.Duration) *QueryRulesParams {
-	var ()
 	return &QueryRulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryRulesParamsWithContext creates a new QueryRulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryRulesParamsWithContext(ctx context.Context) *QueryRulesParams {
-	var ()
 	return &QueryRulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryRulesParamsWithHTTPClient creates a new QueryRulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryRulesParamsWithHTTPClient(client *http.Client) *QueryRulesParams {
-	var ()
 	return &QueryRulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryRulesParams contains all the parameters to send to the API endpoint
-for the query rules operation typically these are written to a http.Request
+/* QueryRulesParams contains all the parameters to send to the API endpoint
+   for the query rules operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryRulesParams struct {
 
-	/*After
-	  A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
+	/* After.
 
+	   A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
 	*/
 	After *string
-	/*Filter
-	  FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
 
+	/* Filter.
+
+	   FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
 	*/
 	Filter *string
-	/*Limit
-	  Number of ids to return.
 
+	/* Limit.
+
+	   Number of ids to return.
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return ids.
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return ids.
 	*/
 	Offset *string
-	/*Q
-	  Match query criteria, which includes all the filter string fields, plus TODO
 
+	/* Q.
+
+	   Match query criteria, which includes all the filter string fields, plus TODO
 	*/
 	Q *string
-	/*Sort
-	  Possible order by fields:
 
+	/* Sort.
+
+	   Possible order by fields:
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRulesParams) WithDefaults() *QueryRulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query rules params
@@ -208,96 +227,102 @@ func (o *QueryRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Filter != nil {
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

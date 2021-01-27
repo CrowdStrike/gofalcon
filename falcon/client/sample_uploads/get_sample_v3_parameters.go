@@ -16,81 +16,96 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSampleV3Params creates a new GetSampleV3Params object
-// with the default values initialized.
+// NewGetSampleV3Params creates a new GetSampleV3Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSampleV3Params() *GetSampleV3Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV3Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSampleV3ParamsWithTimeout creates a new GetSampleV3Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSampleV3ParamsWithTimeout(timeout time.Duration) *GetSampleV3Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV3Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSampleV3ParamsWithContext creates a new GetSampleV3Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSampleV3ParamsWithContext(ctx context.Context) *GetSampleV3Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV3Params{
-		PasswordProtected: &passwordProtectedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetSampleV3ParamsWithHTTPClient creates a new GetSampleV3Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSampleV3ParamsWithHTTPClient(client *http.Client) *GetSampleV3Params {
-	var (
-		passwordProtectedDefault = string("false")
-	)
 	return &GetSampleV3Params{
-		PasswordProtected: &passwordProtectedDefault,
-		HTTPClient:        client,
+		HTTPClient: client,
 	}
 }
 
-/*GetSampleV3Params contains all the parameters to send to the API endpoint
-for the get sample v3 operation typically these are written to a http.Request
+/* GetSampleV3Params contains all the parameters to send to the API endpoint
+   for the get sample v3 operation.
+
+   Typically these are written to a http.Request.
 */
 type GetSampleV3Params struct {
 
-	/*XCSUSERUUID
-	  User UUID
+	/* XCSUSERUUID.
 
+	   User UUID
 	*/
 	XCSUSERUUID *string
-	/*Ids
-	  The file SHA256.
 
+	/* Ids.
+
+	   The file SHA256.
 	*/
 	Ids string
-	/*PasswordProtected
-	  Flag whether the sample should be zipped and password protected with pass='infected'
 
+	/* PasswordProtected.
+
+	   Flag whether the sample should be zipped and password protected with pass='infected'
 	*/
 	PasswordProtected *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get sample v3 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSampleV3Params) WithDefaults() *GetSampleV3Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get sample v3 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSampleV3Params) SetDefaults() {
+	var (
+		passwordProtectedDefault = string("false")
+	)
+
+	val := GetSampleV3Params{
+		PasswordProtected: &passwordProtectedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get sample v3 params
@@ -173,13 +188,13 @@ func (o *GetSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
 			return err
 		}
-
 	}
 
 	// query param ids
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}
@@ -189,16 +204,17 @@ func (o *GetSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		// query param password_protected
 		var qrPasswordProtected string
+
 		if o.PasswordProtected != nil {
 			qrPasswordProtected = *o.PasswordProtected
 		}
 		qPasswordProtected := qrPasswordProtected
 		if qPasswordProtected != "" {
+
 			if err := r.SetQueryParam("password_protected", qPasswordProtected); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

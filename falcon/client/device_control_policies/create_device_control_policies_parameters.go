@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewCreateDeviceControlPoliciesParams creates a new CreateDeviceControlPoliciesParams object
-// with the default values initialized.
+// NewCreateDeviceControlPoliciesParams creates a new CreateDeviceControlPoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewCreateDeviceControlPoliciesParams() *CreateDeviceControlPoliciesParams {
-	var ()
 	return &CreateDeviceControlPoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateDeviceControlPoliciesParamsWithTimeout creates a new CreateDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewCreateDeviceControlPoliciesParamsWithTimeout(timeout time.Duration) *CreateDeviceControlPoliciesParams {
-	var ()
 	return &CreateDeviceControlPoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewCreateDeviceControlPoliciesParamsWithContext creates a new CreateDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewCreateDeviceControlPoliciesParamsWithContext(ctx context.Context) *CreateDeviceControlPoliciesParams {
-	var ()
 	return &CreateDeviceControlPoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewCreateDeviceControlPoliciesParamsWithHTTPClient creates a new CreateDeviceControlPoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewCreateDeviceControlPoliciesParamsWithHTTPClient(client *http.Client) *CreateDeviceControlPoliciesParams {
-	var ()
 	return &CreateDeviceControlPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*CreateDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
-for the create device control policies operation typically these are written to a http.Request
+/* CreateDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the create device control policies operation.
+
+   Typically these are written to a http.Request.
 */
 type CreateDeviceControlPoliciesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsCreateDeviceControlPoliciesV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the create device control policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateDeviceControlPoliciesParams) WithDefaults() *CreateDeviceControlPoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the create device control policies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *CreateDeviceControlPoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create device control policies params
@@ -121,7 +135,6 @@ func (o *CreateDeviceControlPoliciesParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

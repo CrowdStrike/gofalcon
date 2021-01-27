@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewQueryCombinedSensorUpdateBuildsParams creates a new QueryCombinedSensorUpdateBuildsParams object
-// with the default values initialized.
+// NewQueryCombinedSensorUpdateBuildsParams creates a new QueryCombinedSensorUpdateBuildsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryCombinedSensorUpdateBuildsParams() *QueryCombinedSensorUpdateBuildsParams {
-	var ()
 	return &QueryCombinedSensorUpdateBuildsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryCombinedSensorUpdateBuildsParamsWithTimeout creates a new QueryCombinedSensorUpdateBuildsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryCombinedSensorUpdateBuildsParamsWithTimeout(timeout time.Duration) *QueryCombinedSensorUpdateBuildsParams {
-	var ()
 	return &QueryCombinedSensorUpdateBuildsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryCombinedSensorUpdateBuildsParamsWithContext creates a new QueryCombinedSensorUpdateBuildsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryCombinedSensorUpdateBuildsParamsWithContext(ctx context.Context) *QueryCombinedSensorUpdateBuildsParams {
-	var ()
 	return &QueryCombinedSensorUpdateBuildsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryCombinedSensorUpdateBuildsParamsWithHTTPClient creates a new QueryCombinedSensorUpdateBuildsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryCombinedSensorUpdateBuildsParamsWithHTTPClient(client *http.Client) *QueryCombinedSensorUpdateBuildsParams {
-	var ()
 	return &QueryCombinedSensorUpdateBuildsParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryCombinedSensorUpdateBuildsParams contains all the parameters to send to the API endpoint
-for the query combined sensor update builds operation typically these are written to a http.Request
+/* QueryCombinedSensorUpdateBuildsParams contains all the parameters to send to the API endpoint
+   for the query combined sensor update builds operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryCombinedSensorUpdateBuildsParams struct {
 
-	/*Platform
-	  The platform to return builds for
+	/* Platform.
 
+	   The platform to return builds for
 	*/
 	Platform *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query combined sensor update builds params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryCombinedSensorUpdateBuildsParams) WithDefaults() *QueryCombinedSensorUpdateBuildsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query combined sensor update builds params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryCombinedSensorUpdateBuildsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query combined sensor update builds params
@@ -127,16 +141,17 @@ func (o *QueryCombinedSensorUpdateBuildsParams) WriteToRequest(r runtime.ClientR
 
 		// query param platform
 		var qrPlatform string
+
 		if o.Platform != nil {
 			qrPlatform = *o.Platform
 		}
 		qPlatform := qrPlatform
 		if qPlatform != "" {
+
 			if err := r.SetQueryParam("platform", qPlatform); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

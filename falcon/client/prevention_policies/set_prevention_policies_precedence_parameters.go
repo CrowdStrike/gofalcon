@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewSetPreventionPoliciesPrecedenceParams creates a new SetPreventionPoliciesPrecedenceParams object
-// with the default values initialized.
+// NewSetPreventionPoliciesPrecedenceParams creates a new SetPreventionPoliciesPrecedenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewSetPreventionPoliciesPrecedenceParams() *SetPreventionPoliciesPrecedenceParams {
-	var ()
 	return &SetPreventionPoliciesPrecedenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewSetPreventionPoliciesPrecedenceParamsWithTimeout creates a new SetPreventionPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewSetPreventionPoliciesPrecedenceParamsWithTimeout(timeout time.Duration) *SetPreventionPoliciesPrecedenceParams {
-	var ()
 	return &SetPreventionPoliciesPrecedenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewSetPreventionPoliciesPrecedenceParamsWithContext creates a new SetPreventionPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewSetPreventionPoliciesPrecedenceParamsWithContext(ctx context.Context) *SetPreventionPoliciesPrecedenceParams {
-	var ()
 	return &SetPreventionPoliciesPrecedenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewSetPreventionPoliciesPrecedenceParamsWithHTTPClient creates a new SetPreventionPoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewSetPreventionPoliciesPrecedenceParamsWithHTTPClient(client *http.Client) *SetPreventionPoliciesPrecedenceParams {
-	var ()
 	return &SetPreventionPoliciesPrecedenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*SetPreventionPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-for the set prevention policies precedence operation typically these are written to a http.Request
+/* SetPreventionPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
+   for the set prevention policies precedence operation.
+
+   Typically these are written to a http.Request.
 */
 type SetPreventionPoliciesPrecedenceParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the set prevention policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetPreventionPoliciesPrecedenceParams) WithDefaults() *SetPreventionPoliciesPrecedenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the set prevention policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetPreventionPoliciesPrecedenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the set prevention policies precedence params
@@ -121,7 +135,6 @@ func (o *SetPreventionPoliciesPrecedenceParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

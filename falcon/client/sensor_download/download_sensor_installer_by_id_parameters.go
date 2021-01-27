@@ -16,59 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDownloadSensorInstallerByIDParams creates a new DownloadSensorInstallerByIDParams object
-// with the default values initialized.
+// NewDownloadSensorInstallerByIDParams creates a new DownloadSensorInstallerByIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDownloadSensorInstallerByIDParams() *DownloadSensorInstallerByIDParams {
-	var ()
 	return &DownloadSensorInstallerByIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDownloadSensorInstallerByIDParamsWithTimeout creates a new DownloadSensorInstallerByIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDownloadSensorInstallerByIDParamsWithTimeout(timeout time.Duration) *DownloadSensorInstallerByIDParams {
-	var ()
 	return &DownloadSensorInstallerByIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDownloadSensorInstallerByIDParamsWithContext creates a new DownloadSensorInstallerByIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDownloadSensorInstallerByIDParamsWithContext(ctx context.Context) *DownloadSensorInstallerByIDParams {
-	var ()
 	return &DownloadSensorInstallerByIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDownloadSensorInstallerByIDParamsWithHTTPClient creates a new DownloadSensorInstallerByIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDownloadSensorInstallerByIDParamsWithHTTPClient(client *http.Client) *DownloadSensorInstallerByIDParams {
-	var ()
 	return &DownloadSensorInstallerByIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*DownloadSensorInstallerByIDParams contains all the parameters to send to the API endpoint
-for the download sensor installer by Id operation typically these are written to a http.Request
+/* DownloadSensorInstallerByIDParams contains all the parameters to send to the API endpoint
+   for the download sensor installer by Id operation.
+
+   Typically these are written to a http.Request.
 */
 type DownloadSensorInstallerByIDParams struct {
 
-	/*ID
-	  SHA256 of the installer to download
+	/* ID.
 
+	   SHA256 of the installer to download
 	*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the download sensor installer by Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DownloadSensorInstallerByIDParams) WithDefaults() *DownloadSensorInstallerByIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the download sensor installer by Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DownloadSensorInstallerByIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the download sensor installer by Id params
@@ -127,6 +141,7 @@ func (o *DownloadSensorInstallerByIDParams) WriteToRequest(r runtime.ClientReque
 	qrID := o.ID
 	qID := qrID
 	if qID != "" {
+
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
 		}

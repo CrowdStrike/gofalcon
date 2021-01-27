@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewPostMalQueryEntitiesSamplesMultidownloadV1Params creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object
-// with the default values initialized.
+// NewPostMalQueryEntitiesSamplesMultidownloadV1Params creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostMalQueryEntitiesSamplesMultidownloadV1Params() *PostMalQueryEntitiesSamplesMultidownloadV1Params {
-	var ()
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithTimeout creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithTimeout(timeout time.Duration) *PostMalQueryEntitiesSamplesMultidownloadV1Params {
-	var ()
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithContext creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithContext(ctx context.Context) *PostMalQueryEntitiesSamplesMultidownloadV1Params {
-	var ()
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithHTTPClient creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithHTTPClient(client *http.Client) *PostMalQueryEntitiesSamplesMultidownloadV1Params {
-	var ()
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*PostMalQueryEntitiesSamplesMultidownloadV1Params contains all the parameters to send to the API endpoint
-for the post mal query entities samples multidownload v1 operation typically these are written to a http.Request
+/* PostMalQueryEntitiesSamplesMultidownloadV1Params contains all the parameters to send to the API endpoint
+   for the post mal query entities samples multidownload v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Params struct {
 
-	/*Body
-	  Download request. See model for more details.
+	/* Body.
 
+	   Download request. See model for more details.
 	*/
 	Body *models.MalqueryMultiDownloadRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post mal query entities samples multidownload v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Params) WithDefaults() *PostMalQueryEntitiesSamplesMultidownloadV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post mal query entities samples multidownload v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post mal query entities samples multidownload v1 params
@@ -124,7 +138,6 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Params) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

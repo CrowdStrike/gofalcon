@@ -16,64 +16,79 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCSPMPolicySettingsParams creates a new GetCSPMPolicySettingsParams object
-// with the default values initialized.
+// NewGetCSPMPolicySettingsParams creates a new GetCSPMPolicySettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMPolicySettingsParams() *GetCSPMPolicySettingsParams {
-	var ()
 	return &GetCSPMPolicySettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMPolicySettingsParamsWithTimeout creates a new GetCSPMPolicySettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMPolicySettingsParamsWithTimeout(timeout time.Duration) *GetCSPMPolicySettingsParams {
-	var ()
 	return &GetCSPMPolicySettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMPolicySettingsParamsWithContext creates a new GetCSPMPolicySettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMPolicySettingsParamsWithContext(ctx context.Context) *GetCSPMPolicySettingsParams {
-	var ()
 	return &GetCSPMPolicySettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMPolicySettingsParamsWithHTTPClient creates a new GetCSPMPolicySettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMPolicySettingsParamsWithHTTPClient(client *http.Client) *GetCSPMPolicySettingsParams {
-	var ()
 	return &GetCSPMPolicySettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMPolicySettingsParams contains all the parameters to send to the API endpoint
-for the get c s p m policy settings operation typically these are written to a http.Request
+/* GetCSPMPolicySettingsParams contains all the parameters to send to the API endpoint
+   for the get c s p m policy settings operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMPolicySettingsParams struct {
 
-	/*PolicyID
-	  Policy ID
+	/* PolicyID.
 
+	   Policy ID
 	*/
 	PolicyID *string
-	/*Service
-	  Service type to filter policy settings by.
 
+	/* Service.
+
+	   Service type to filter policy settings by.
 	*/
 	Service string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m policy settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMPolicySettingsParams) WithDefaults() *GetCSPMPolicySettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m policy settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMPolicySettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get c s p m policy settings params
@@ -143,22 +158,24 @@ func (o *GetCSPMPolicySettingsParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param policy-id
 		var qrPolicyID string
+
 		if o.PolicyID != nil {
 			qrPolicyID = *o.PolicyID
 		}
 		qPolicyID := qrPolicyID
 		if qPolicyID != "" {
+
 			if err := r.SetQueryParam("policy-id", qPolicyID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param service
 	qrService := o.Service
 	qService := qrService
 	if qService != "" {
+
 		if err := r.SetQueryParam("service", qService); err != nil {
 			return err
 		}

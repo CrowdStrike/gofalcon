@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewRTRInitSessionParams creates a new RTRInitSessionParams object
-// with the default values initialized.
+// NewRTRInitSessionParams creates a new RTRInitSessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRInitSessionParams() *RTRInitSessionParams {
-	var ()
 	return &RTRInitSessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRInitSessionParamsWithTimeout creates a new RTRInitSessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRInitSessionParamsWithTimeout(timeout time.Duration) *RTRInitSessionParams {
-	var ()
 	return &RTRInitSessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRInitSessionParamsWithContext creates a new RTRInitSessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRInitSessionParamsWithContext(ctx context.Context) *RTRInitSessionParams {
-	var ()
 	return &RTRInitSessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRInitSessionParamsWithHTTPClient creates a new RTRInitSessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRInitSessionParamsWithHTTPClient(client *http.Client) *RTRInitSessionParams {
-	var ()
 	return &RTRInitSessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRInitSessionParams contains all the parameters to send to the API endpoint
-for the r t r init session operation typically these are written to a http.Request
+/* RTRInitSessionParams contains all the parameters to send to the API endpoint
+   for the r t r init session operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRInitSessionParams struct {
 
-	/*Body
-	 **`device_id`** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host
+	/* Body.
 
+	 **`device_id`** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host
 	 */
 	Body *models.DomainInitRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r init session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRInitSessionParams) WithDefaults() *RTRInitSessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r init session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRInitSessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r init session params
@@ -124,7 +138,6 @@ func (o *RTRInitSessionParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

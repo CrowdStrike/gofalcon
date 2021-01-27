@@ -17,104 +17,125 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewRTRCreateScriptsParams creates a new RTRCreateScriptsParams object
-// with the default values initialized.
+// NewRTRCreateScriptsParams creates a new RTRCreateScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRCreateScriptsParams() *RTRCreateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRCreateScriptsParams{
-		PermissionType: permissionTypeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRCreateScriptsParamsWithTimeout creates a new RTRCreateScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRCreateScriptsParamsWithTimeout(timeout time.Duration) *RTRCreateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRCreateScriptsParams{
-		PermissionType: permissionTypeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRCreateScriptsParamsWithContext creates a new RTRCreateScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRCreateScriptsParamsWithContext(ctx context.Context) *RTRCreateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRCreateScriptsParams{
-		PermissionType: permissionTypeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewRTRCreateScriptsParamsWithHTTPClient creates a new RTRCreateScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRCreateScriptsParamsWithHTTPClient(client *http.Client) *RTRCreateScriptsParams {
-	var (
-		permissionTypeDefault = string("none")
-	)
 	return &RTRCreateScriptsParams{
-		PermissionType: permissionTypeDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*RTRCreateScriptsParams contains all the parameters to send to the API endpoint
-for the r t r create scripts operation typically these are written to a http.Request
+/* RTRCreateScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r create scripts operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRCreateScriptsParams struct {
 
-	/*CommentsForAuditLog
-	  The audit log comment
+	/* CommentsForAuditLog.
 
+	   The audit log comment
 	*/
 	CommentsForAuditLog *string
-	/*Content
-	  The script text that you want to use to upload
 
+	/* Content.
+
+	   The script text that you want to use to upload
 	*/
 	Content *string
-	/*Description
-	  File description
 
+	/* Description.
+
+	   File description
 	*/
 	Description string
-	/*File
-	  custom-script file to upload.  These should be powershell scripts.
 
+	/* File.
+
+	   custom-script file to upload.  These should be powershell scripts.
 	*/
 	File runtime.NamedReadCloser
-	/*Name
-	  File name (if different than actual file name)
 
+	/* Name.
+
+	   File name (if different than actual file name)
 	*/
 	Name *string
-	/*PermissionType
-	 Permission for the custom-script. Valid permission values:
+
+	/* PermissionType.
+
+	    Permission for the custom-script. Valid permission values:
 	- `private`, usable by only the user who uploaded it
 	- `group`, usable by all RTR Admins
 	- `public`, usable by all active-responders and RTR admins
 
+	    Default: "none"
 	*/
 	PermissionType string
-	/*Platform
-	  Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to 'windows'
 
+	/* Platform.
+
+	   Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to 'windows'
 	*/
 	Platform []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r create scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCreateScriptsParams) WithDefaults() *RTRCreateScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r create scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRCreateScriptsParams) SetDefaults() {
+	var (
+		permissionTypeDefault = string("none")
+	)
+
+	val := RTRCreateScriptsParams{
+		PermissionType: permissionTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the r t r create scripts params
@@ -248,7 +269,6 @@ func (o *RTRCreateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	if o.Content != nil {
@@ -264,7 +284,6 @@ func (o *RTRCreateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	// form param description
@@ -279,14 +298,11 @@ func (o *RTRCreateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	if o.File != nil {
 
 		if o.File != nil {
-
 			// form file param file
 			if err := r.SetFileParam("file", o.File); err != nil {
 				return err
 			}
-
 		}
-
 	}
 
 	if o.Name != nil {
@@ -302,7 +318,6 @@ func (o *RTRCreateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 				return err
 			}
 		}
-
 	}
 
 	// form param permission_type
@@ -314,16 +329,36 @@ func (o *RTRCreateScriptsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		}
 	}
 
-	valuesPlatform := o.Platform
+	if o.Platform != nil {
 
-	joinedPlatform := swag.JoinByFormat(valuesPlatform, "multi")
-	// form array param platform
-	if err := r.SetFormParam("platform", joinedPlatform...); err != nil {
-		return err
+		// binding items for platform
+		joinedPlatform := o.bindParamPlatform(reg)
+
+		// form array param platform
+		if err := r.SetFormParam("platform", joinedPlatform...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamRTRCreateScripts binds the parameter platform
+func (o *RTRCreateScriptsParams) bindParamPlatform(formats strfmt.Registry) []string {
+	platformIR := o.Platform
+
+	var platformIC []string
+	for _, platformIIR := range platformIR { // explode []string
+
+		platformIIV := platformIIR // string as string
+		platformIC = append(platformIC, platformIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	platformIS := swag.JoinByFormat(platformIC, "multi")
+
+	return platformIS
 }

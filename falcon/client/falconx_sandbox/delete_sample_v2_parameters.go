@@ -16,64 +16,79 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteSampleV2Params creates a new DeleteSampleV2Params object
-// with the default values initialized.
+// NewDeleteSampleV2Params creates a new DeleteSampleV2Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteSampleV2Params() *DeleteSampleV2Params {
-	var ()
 	return &DeleteSampleV2Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteSampleV2ParamsWithTimeout creates a new DeleteSampleV2Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteSampleV2ParamsWithTimeout(timeout time.Duration) *DeleteSampleV2Params {
-	var ()
 	return &DeleteSampleV2Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteSampleV2ParamsWithContext creates a new DeleteSampleV2Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteSampleV2ParamsWithContext(ctx context.Context) *DeleteSampleV2Params {
-	var ()
 	return &DeleteSampleV2Params{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteSampleV2ParamsWithHTTPClient creates a new DeleteSampleV2Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteSampleV2ParamsWithHTTPClient(client *http.Client) *DeleteSampleV2Params {
-	var ()
 	return &DeleteSampleV2Params{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteSampleV2Params contains all the parameters to send to the API endpoint
-for the delete sample v2 operation typically these are written to a http.Request
+/* DeleteSampleV2Params contains all the parameters to send to the API endpoint
+   for the delete sample v2 operation.
+
+   Typically these are written to a http.Request.
 */
 type DeleteSampleV2Params struct {
 
-	/*XCSUSERUUID
-	  User UUID
+	/* XCSUSERUUID.
 
+	   User UUID
 	*/
 	XCSUSERUUID *string
-	/*Ids
-	  The file SHA256.
 
+	/* Ids.
+
+	   The file SHA256.
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete sample v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSampleV2Params) WithDefaults() *DeleteSampleV2Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete sample v2 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSampleV2Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete sample v2 params
@@ -145,13 +160,13 @@ func (o *DeleteSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
 			return err
 		}
-
 	}
 
 	// query param ids
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

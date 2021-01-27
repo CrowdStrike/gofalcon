@@ -17,80 +17,97 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryVulnerabilitiesParams creates a new QueryVulnerabilitiesParams object
-// with the default values initialized.
+// NewQueryVulnerabilitiesParams creates a new QueryVulnerabilitiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryVulnerabilitiesParams() *QueryVulnerabilitiesParams {
-	var ()
 	return &QueryVulnerabilitiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryVulnerabilitiesParamsWithTimeout creates a new QueryVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryVulnerabilitiesParamsWithTimeout(timeout time.Duration) *QueryVulnerabilitiesParams {
-	var ()
 	return &QueryVulnerabilitiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryVulnerabilitiesParamsWithContext creates a new QueryVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryVulnerabilitiesParamsWithContext(ctx context.Context) *QueryVulnerabilitiesParams {
-	var ()
 	return &QueryVulnerabilitiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryVulnerabilitiesParamsWithHTTPClient creates a new QueryVulnerabilitiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryVulnerabilitiesParamsWithHTTPClient(client *http.Client) *QueryVulnerabilitiesParams {
-	var ()
 	return &QueryVulnerabilitiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryVulnerabilitiesParams contains all the parameters to send to the API endpoint
-for the query vulnerabilities operation typically these are written to a http.Request
+/* QueryVulnerabilitiesParams contains all the parameters to send to the API endpoint
+   for the query vulnerabilities operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryVulnerabilitiesParams struct {
 
-	/*After
-	  A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
+	/* After.
 
+	   A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
 	*/
 	After *string
-	/*Filter
-	  Filter items using a query in Falcon Query Language (FQL). Wildcards * are unsupported.
+
+	/* Filter.
+
+	     Filter items using a query in Falcon Query Language (FQL). Wildcards * are unsupported.
 
 	Common filter options include:
 
 	<ul><li>created_timestamp:>'2019-11-25T22:36:12Z'</li><li>closed_timestamp:>'2019-11-25T22:36:12Z'</li><li>aid:'8e7656b27d8c49a34a1af416424d6231'</li></ul>
-
 	*/
 	Filter string
-	/*Limit
-	  The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
 
+	/* Limit.
+
+	   The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
 	*/
 	Limit *int64
-	/*Sort
-	  Sort vulnerabilities by their properties. Common sort options include:
+
+	/* Sort.
+
+	     Sort vulnerabilities by their properties. Common sort options include:
 
 	<ul><li>created_timestamp|desc</li><li>closed_timestamp|asc</li></ul>
-
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query vulnerabilities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryVulnerabilitiesParams) WithDefaults() *QueryVulnerabilitiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query vulnerabilities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryVulnerabilitiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query vulnerabilities params
@@ -182,22 +199,24 @@ func (o *QueryVulnerabilitiesParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param filter
 	qrFilter := o.Filter
 	qFilter := qrFilter
 	if qFilter != "" {
+
 		if err := r.SetQueryParam("filter", qFilter); err != nil {
 			return err
 		}
@@ -207,32 +226,34 @@ func (o *QueryVulnerabilitiesParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

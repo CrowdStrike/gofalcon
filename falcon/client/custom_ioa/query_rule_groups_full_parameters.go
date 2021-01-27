@@ -17,79 +17,97 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryRuleGroupsFullParams creates a new QueryRuleGroupsFullParams object
-// with the default values initialized.
+// NewQueryRuleGroupsFullParams creates a new QueryRuleGroupsFullParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryRuleGroupsFullParams() *QueryRuleGroupsFullParams {
-	var ()
 	return &QueryRuleGroupsFullParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryRuleGroupsFullParamsWithTimeout creates a new QueryRuleGroupsFullParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryRuleGroupsFullParamsWithTimeout(timeout time.Duration) *QueryRuleGroupsFullParams {
-	var ()
 	return &QueryRuleGroupsFullParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryRuleGroupsFullParamsWithContext creates a new QueryRuleGroupsFullParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryRuleGroupsFullParamsWithContext(ctx context.Context) *QueryRuleGroupsFullParams {
-	var ()
 	return &QueryRuleGroupsFullParams{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryRuleGroupsFullParamsWithHTTPClient creates a new QueryRuleGroupsFullParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryRuleGroupsFullParamsWithHTTPClient(client *http.Client) *QueryRuleGroupsFullParams {
-	var ()
 	return &QueryRuleGroupsFullParams{
 		HTTPClient: client,
 	}
 }
 
-/*QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
-for the query rule groups full operation typically these are written to a http.Request
+/* QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
+   for the query rule groups full operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryRuleGroupsFullParams struct {
 
-	/*Filter
-	  FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
+	/* Filter.
 
+	   FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
 	*/
 	Filter *string
-	/*Limit
-	  Number of IDs to return
 
+	/* Limit.
+
+	   Number of IDs to return
 	*/
 	Limit *int64
-	/*Offset
-	  Starting index of overall result set from which to return IDs
 
+	/* Offset.
+
+	   Starting index of overall result set from which to return IDs
 	*/
 	Offset *string
-	/*Q
-	  Match query criteria, which includes all the filter string fields
 
+	/* Q.
+
+	   Match query criteria, which includes all the filter string fields
 	*/
 	Q *string
-	/*Sort
-	  Possible order by fields: {created_by, created_on, modified_by, modified_on, enabled, name, description}
 
+	/* Sort.
+
+	   Possible order by fields: {created_by, created_on, modified_by, modified_on, enabled, name, description}
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query rule groups full params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRuleGroupsFullParams) WithDefaults() *QueryRuleGroupsFullParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query rule groups full params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryRuleGroupsFullParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query rule groups full params
@@ -192,80 +210,85 @@ func (o *QueryRuleGroupsFullParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

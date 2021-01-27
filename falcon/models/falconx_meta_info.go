@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -62,13 +64,58 @@ func (m *FalconxMetaInfo) validateMsaMetaInfo(formats strfmt.Registry) error {
 }
 
 func (m *FalconxMetaInfo) validateQuota(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Quota) { // not required
 		return nil
 	}
 
 	if m.Quota != nil {
 		if err := m.Quota.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this falconx meta info based on the context it is used
+func (m *FalconxMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMsaMetaInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuota(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FalconxMetaInfo) contextValidateMsaMetaInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MsaMetaInfo != nil {
+		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("MsaMetaInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FalconxMetaInfo) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Quota != nil {
+		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
 			}

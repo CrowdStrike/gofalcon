@@ -18,56 +18,70 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewSetSensorUpdatePoliciesPrecedenceParams creates a new SetSensorUpdatePoliciesPrecedenceParams object
-// with the default values initialized.
+// NewSetSensorUpdatePoliciesPrecedenceParams creates a new SetSensorUpdatePoliciesPrecedenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewSetSensorUpdatePoliciesPrecedenceParams() *SetSensorUpdatePoliciesPrecedenceParams {
-	var ()
 	return &SetSensorUpdatePoliciesPrecedenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewSetSensorUpdatePoliciesPrecedenceParamsWithTimeout creates a new SetSensorUpdatePoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewSetSensorUpdatePoliciesPrecedenceParamsWithTimeout(timeout time.Duration) *SetSensorUpdatePoliciesPrecedenceParams {
-	var ()
 	return &SetSensorUpdatePoliciesPrecedenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewSetSensorUpdatePoliciesPrecedenceParamsWithContext creates a new SetSensorUpdatePoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewSetSensorUpdatePoliciesPrecedenceParamsWithContext(ctx context.Context) *SetSensorUpdatePoliciesPrecedenceParams {
-	var ()
 	return &SetSensorUpdatePoliciesPrecedenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewSetSensorUpdatePoliciesPrecedenceParamsWithHTTPClient creates a new SetSensorUpdatePoliciesPrecedenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewSetSensorUpdatePoliciesPrecedenceParamsWithHTTPClient(client *http.Client) *SetSensorUpdatePoliciesPrecedenceParams {
-	var ()
 	return &SetSensorUpdatePoliciesPrecedenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*SetSensorUpdatePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-for the set sensor update policies precedence operation typically these are written to a http.Request
+/* SetSensorUpdatePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
+   for the set sensor update policies precedence operation.
+
+   Typically these are written to a http.Request.
 */
 type SetSensorUpdatePoliciesPrecedenceParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.RequestsSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the set sensor update policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetSensorUpdatePoliciesPrecedenceParams) WithDefaults() *SetSensorUpdatePoliciesPrecedenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the set sensor update policies precedence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *SetSensorUpdatePoliciesPrecedenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the set sensor update policies precedence params
@@ -121,7 +135,6 @@ func (o *SetSensorUpdatePoliciesPrecedenceParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

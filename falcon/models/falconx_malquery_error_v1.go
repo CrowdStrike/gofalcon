@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type FalconxMalqueryErrorV1 struct {
 
 // Validate validates this falconx malquery error v1
 func (m *FalconxMalqueryErrorV1) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this falconx malquery error v1 based on context it is used
+func (m *FalconxMalqueryErrorV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -18,59 +18,73 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewRTRPulseSessionParams creates a new RTRPulseSessionParams object
-// with the default values initialized.
+// NewRTRPulseSessionParams creates a new RTRPulseSessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRPulseSessionParams() *RTRPulseSessionParams {
-	var ()
 	return &RTRPulseSessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewRTRPulseSessionParamsWithTimeout creates a new RTRPulseSessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewRTRPulseSessionParamsWithTimeout(timeout time.Duration) *RTRPulseSessionParams {
-	var ()
 	return &RTRPulseSessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewRTRPulseSessionParamsWithContext creates a new RTRPulseSessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewRTRPulseSessionParamsWithContext(ctx context.Context) *RTRPulseSessionParams {
-	var ()
 	return &RTRPulseSessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewRTRPulseSessionParamsWithHTTPClient creates a new RTRPulseSessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewRTRPulseSessionParamsWithHTTPClient(client *http.Client) *RTRPulseSessionParams {
-	var ()
 	return &RTRPulseSessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*RTRPulseSessionParams contains all the parameters to send to the API endpoint
-for the r t r pulse session operation typically these are written to a http.Request
+/* RTRPulseSessionParams contains all the parameters to send to the API endpoint
+   for the r t r pulse session operation.
+
+   Typically these are written to a http.Request.
 */
 type RTRPulseSessionParams struct {
 
-	/*Body
-	 **`device_id`** The host agent ID to refresh the RTR session on.  RTR will retrieve an existing session for the calling user on this host
+	/* Body.
 
+	 **`device_id`** The host agent ID to refresh the RTR session on.  RTR will retrieve an existing session for the calling user on this host
 	 */
 	Body *models.DomainInitRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the r t r pulse session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRPulseSessionParams) WithDefaults() *RTRPulseSessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the r t r pulse session params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *RTRPulseSessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the r t r pulse session params
@@ -124,7 +138,6 @@ func (o *RTRPulseSessionParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

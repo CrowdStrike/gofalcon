@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -178,6 +180,11 @@ func (m *FwmgrFirewallRuleGroupSummaryV1) validatePolicyIds(formats strfmt.Regis
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this fwmgr firewall rule group summary v1 based on context it is used
+func (m *FwmgrFirewallRuleGroupSummaryV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

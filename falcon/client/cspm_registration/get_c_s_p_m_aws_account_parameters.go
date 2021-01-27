@@ -17,96 +17,116 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetCSPMAwsAccountParams creates a new GetCSPMAwsAccountParams object
-// with the default values initialized.
+// NewGetCSPMAwsAccountParams creates a new GetCSPMAwsAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCSPMAwsAccountParams() *GetCSPMAwsAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAwsAccountParams{
-		Limit: &limitDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCSPMAwsAccountParamsWithTimeout creates a new GetCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCSPMAwsAccountParamsWithTimeout(timeout time.Duration) *GetCSPMAwsAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAwsAccountParams{
-		Limit: &limitDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCSPMAwsAccountParamsWithContext creates a new GetCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCSPMAwsAccountParamsWithContext(ctx context.Context) *GetCSPMAwsAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAwsAccountParams{
-		Limit: &limitDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetCSPMAwsAccountParamsWithHTTPClient creates a new GetCSPMAwsAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *GetCSPMAwsAccountParams {
-	var (
-		limitDefault = int64(100)
-	)
 	return &GetCSPMAwsAccountParams{
-		Limit:      &limitDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetCSPMAwsAccountParams contains all the parameters to send to the API endpoint
-for the get c s p m aws account operation typically these are written to a http.Request
+/* GetCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the get c s p m aws account operation.
+
+   Typically these are written to a http.Request.
 */
 type GetCSPMAwsAccountParams struct {
 
-	/*Ids
-	  AWS account IDs
+	/* Ids.
 
+	   AWS account IDs
 	*/
 	Ids []string
-	/*Limit
-	  The maximum records to return. Defaults to 100.
 
+	/* Limit.
+
+	   The maximum records to return. Defaults to 100.
+
+	   Default: 100
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from
 
+	/* Offset.
+
+	   The offset to start retrieving records from
 	*/
 	Offset *int64
-	/*OrganizationIds
-	  AWS organization IDs
 
+	/* OrganizationIds.
+
+	   AWS organization IDs
 	*/
 	OrganizationIds []string
-	/*ScanType
-	  Type of scan, dry or full, to perform on selected accounts
 
+	/* ScanType.
+
+	   Type of scan, dry or full, to perform on selected accounts
 	*/
 	ScanType *string
-	/*Status
-	  Account status to filter results by.
 
+	/* Status.
+
+	   Account status to filter results by.
 	*/
 	Status *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAwsAccountParams) WithDefaults() *GetCSPMAwsAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get c s p m aws account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCSPMAwsAccountParams) SetDefaults() {
+	var (
+		limitDefault = int64(100)
+	)
+
+	val := GetCSPMAwsAccountParams{
+		Limit: &limitDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get c s p m aws account params
@@ -216,88 +236,132 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesOrganizationIds := o.OrganizationIds
+	if o.OrganizationIds != nil {
 
-	joinedOrganizationIds := swag.JoinByFormat(valuesOrganizationIds, "multi")
-	// query array param organization-ids
-	if err := r.SetQueryParam("organization-ids", joinedOrganizationIds...); err != nil {
-		return err
+		// binding items for organization-ids
+		joinedOrganizationIds := o.bindParamOrganizationIds(reg)
+
+		// query array param organization-ids
+		if err := r.SetQueryParam("organization-ids", joinedOrganizationIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.ScanType != nil {
 
 		// query param scan-type
 		var qrScanType string
+
 		if o.ScanType != nil {
 			qrScanType = *o.ScanType
 		}
 		qScanType := qrScanType
 		if qScanType != "" {
+
 			if err := r.SetQueryParam("scan-type", qScanType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Status != nil {
 
 		// query param status
 		var qrStatus string
+
 		if o.Status != nil {
 			qrStatus = *o.Status
 		}
 		qStatus := qrStatus
 		if qStatus != "" {
+
 			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAwsAccount binds the parameter ids
+func (o *GetCSPMAwsAccountParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
+}
+
+// bindParamGetCSPMAwsAccount binds the parameter organization-ids
+func (o *GetCSPMAwsAccountParams) bindParamOrganizationIds(formats strfmt.Registry) []string {
+	organizationIdsIR := o.OrganizationIds
+
+	var organizationIdsIC []string
+	for _, organizationIdsIIR := range organizationIdsIR { // explode []string
+
+		organizationIdsIIV := organizationIdsIIR // string as string
+		organizationIdsIC = append(organizationIdsIC, organizationIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	organizationIdsIS := swag.JoinByFormat(organizationIdsIC, "multi")
+
+	return organizationIdsIS
 }

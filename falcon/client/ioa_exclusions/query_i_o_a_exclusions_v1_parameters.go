@@ -17,74 +17,91 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewQueryIOAExclusionsV1Params creates a new QueryIOAExclusionsV1Params object
-// with the default values initialized.
+// NewQueryIOAExclusionsV1Params creates a new QueryIOAExclusionsV1Params object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewQueryIOAExclusionsV1Params() *QueryIOAExclusionsV1Params {
-	var ()
 	return &QueryIOAExclusionsV1Params{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewQueryIOAExclusionsV1ParamsWithTimeout creates a new QueryIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewQueryIOAExclusionsV1ParamsWithTimeout(timeout time.Duration) *QueryIOAExclusionsV1Params {
-	var ()
 	return &QueryIOAExclusionsV1Params{
-
 		timeout: timeout,
 	}
 }
 
 // NewQueryIOAExclusionsV1ParamsWithContext creates a new QueryIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewQueryIOAExclusionsV1ParamsWithContext(ctx context.Context) *QueryIOAExclusionsV1Params {
-	var ()
 	return &QueryIOAExclusionsV1Params{
-
 		Context: ctx,
 	}
 }
 
 // NewQueryIOAExclusionsV1ParamsWithHTTPClient creates a new QueryIOAExclusionsV1Params object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewQueryIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *QueryIOAExclusionsV1Params {
-	var ()
 	return &QueryIOAExclusionsV1Params{
 		HTTPClient: client,
 	}
 }
 
-/*QueryIOAExclusionsV1Params contains all the parameters to send to the API endpoint
-for the query i o a exclusions v1 operation typically these are written to a http.Request
+/* QueryIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the query i o a exclusions v1 operation.
+
+   Typically these are written to a http.Request.
 */
 type QueryIOAExclusionsV1Params struct {
 
-	/*Filter
-	  The filter expression that should be used to limit the results.
+	/* Filter.
 
+	   The filter expression that should be used to limit the results.
 	*/
 	Filter *string
-	/*Limit
-	  The maximum records to return. [1-500]
 
+	/* Limit.
+
+	   The maximum records to return. [1-500]
 	*/
 	Limit *int64
-	/*Offset
-	  The offset to start retrieving records from
 
+	/* Offset.
+
+	   The offset to start retrieving records from
 	*/
 	Offset *int64
-	/*Sort
-	  The sort expression that should be used to sort the results.
 
+	/* Sort.
+
+	   The sort expression that should be used to sort the results.
 	*/
 	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the query i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIOAExclusionsV1Params) WithDefaults() *QueryIOAExclusionsV1Params {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the query i o a exclusions v1 params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *QueryIOAExclusionsV1Params) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the query i o a exclusions v1 params
@@ -176,64 +193,68 @@ func (o *QueryIOAExclusionsV1Params) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int64
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt64(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset int64
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Sort != nil {
 
 		// query param sort
 		var qrSort string
+
 		if o.Sort != nil {
 			qrSort = *o.Sort
 		}
 		qSort := qrSort
 		if qSort != "" {
+
 			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

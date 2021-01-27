@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetDeviceDetailsParams creates a new GetDeviceDetailsParams object
-// with the default values initialized.
+// NewGetDeviceDetailsParams creates a new GetDeviceDetailsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDeviceDetailsParams() *GetDeviceDetailsParams {
-	var ()
 	return &GetDeviceDetailsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDeviceDetailsParamsWithTimeout creates a new GetDeviceDetailsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDeviceDetailsParamsWithTimeout(timeout time.Duration) *GetDeviceDetailsParams {
-	var ()
 	return &GetDeviceDetailsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDeviceDetailsParamsWithContext creates a new GetDeviceDetailsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDeviceDetailsParamsWithContext(ctx context.Context) *GetDeviceDetailsParams {
-	var ()
 	return &GetDeviceDetailsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDeviceDetailsParamsWithHTTPClient creates a new GetDeviceDetailsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDeviceDetailsParamsWithHTTPClient(client *http.Client) *GetDeviceDetailsParams {
-	var ()
 	return &GetDeviceDetailsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDeviceDetailsParams contains all the parameters to send to the API endpoint
-for the get device details operation typically these are written to a http.Request
+/* GetDeviceDetailsParams contains all the parameters to send to the API endpoint
+   for the get device details operation.
+
+   Typically these are written to a http.Request.
 */
 type GetDeviceDetailsParams struct {
 
-	/*Ids
-	  The host agentIDs used to get details on
+	/* Ids.
 
+	   The host agentIDs used to get details on
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get device details params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDeviceDetailsParams) WithDefaults() *GetDeviceDetailsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get device details params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDeviceDetailsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get device details params
@@ -124,16 +138,36 @@ func (o *GetDeviceDetailsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetDeviceDetails binds the parameter ids
+func (o *GetDeviceDetailsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

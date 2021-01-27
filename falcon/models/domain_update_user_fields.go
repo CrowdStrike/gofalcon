@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type DomainUpdateUserFields struct {
 
 // Validate validates this domain update user fields
 func (m *DomainUpdateUserFields) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this domain update user fields based on context it is used
+func (m *DomainUpdateUserFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

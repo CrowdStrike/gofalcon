@@ -18,61 +18,76 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// NewUpdateRulesParams creates a new UpdateRulesParams object
-// with the default values initialized.
+// NewUpdateRulesParams creates a new UpdateRulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewUpdateRulesParams() *UpdateRulesParams {
-	var ()
 	return &UpdateRulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewUpdateRulesParamsWithTimeout creates a new UpdateRulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewUpdateRulesParamsWithTimeout(timeout time.Duration) *UpdateRulesParams {
-	var ()
 	return &UpdateRulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewUpdateRulesParamsWithContext creates a new UpdateRulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewUpdateRulesParamsWithContext(ctx context.Context) *UpdateRulesParams {
-	var ()
 	return &UpdateRulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewUpdateRulesParamsWithHTTPClient creates a new UpdateRulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewUpdateRulesParamsWithHTTPClient(client *http.Client) *UpdateRulesParams {
-	var ()
 	return &UpdateRulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*UpdateRulesParams contains all the parameters to send to the API endpoint
-for the update rules operation typically these are written to a http.Request
+/* UpdateRulesParams contains all the parameters to send to the API endpoint
+   for the update rules operation.
+
+   Typically these are written to a http.Request.
 */
 type UpdateRulesParams struct {
 
-	/*XCSUSERNAME
-	  The user ID
+	/* XCSUSERNAME.
 
+	   The user ID
 	*/
 	XCSUSERNAME string
-	/*Body*/
+
+	// Body.
 	Body *models.APIRuleUpdatesRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the update rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateRulesParams) WithDefaults() *UpdateRulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the update rules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *UpdateRulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update rules params
@@ -142,7 +157,6 @@ func (o *UpdateRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

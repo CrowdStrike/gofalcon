@@ -17,59 +17,73 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetPatternsParams creates a new GetPatternsParams object
-// with the default values initialized.
+// NewGetPatternsParams creates a new GetPatternsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetPatternsParams() *GetPatternsParams {
-	var ()
 	return &GetPatternsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetPatternsParamsWithTimeout creates a new GetPatternsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetPatternsParamsWithTimeout(timeout time.Duration) *GetPatternsParams {
-	var ()
 	return &GetPatternsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetPatternsParamsWithContext creates a new GetPatternsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetPatternsParamsWithContext(ctx context.Context) *GetPatternsParams {
-	var ()
 	return &GetPatternsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetPatternsParamsWithHTTPClient creates a new GetPatternsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetPatternsParamsWithHTTPClient(client *http.Client) *GetPatternsParams {
-	var ()
 	return &GetPatternsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetPatternsParams contains all the parameters to send to the API endpoint
-for the get patterns operation typically these are written to a http.Request
+/* GetPatternsParams contains all the parameters to send to the API endpoint
+   for the get patterns operation.
+
+   Typically these are written to a http.Request.
 */
 type GetPatternsParams struct {
 
-	/*Ids
-	  The IDs of the entities
+	/* Ids.
 
+	   The IDs of the entities
 	*/
 	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get patterns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPatternsParams) WithDefaults() *GetPatternsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get patterns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPatternsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get patterns params
@@ -124,16 +138,36 @@ func (o *GetPatternsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetPatterns binds the parameter ids
+func (o *GetPatternsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }
