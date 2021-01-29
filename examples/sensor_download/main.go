@@ -41,7 +41,7 @@ func main() {
 
 	if *osName == "" {
 		validOsNames := getValidOsNames(client)
-		fmt.Printf("Missing --os-name command-line option. Valid names are: [%s]\n", strings.Join(validOsNames, ","))
+		fmt.Printf("Missing --os-name command-line option. Available OS names are: [%s]\n", strings.Join(validOsNames, ", "))
 		*osName = promptUser("Selected OS Name")
 	}
 
@@ -55,7 +55,7 @@ func main() {
 			// No version distinction, single package suits all
 			*osVersion = ""
 		} else {
-			fmt.Printf("Missing --os-version command-line option. Valid version are: %s\n", validOsVersions)
+			fmt.Printf("Missing --os-version command-line option. Available version are: [%s]\n", strings.Join(validOsVersions, ", "))
 			*osVersion = promptUser("Selected OS Version")
 		}
 	}
