@@ -62,11 +62,16 @@ func main() {
 			fmt.Fprintf(os.Stderr, "No sensors available for os: %s\n", *osName)
 			os.Exit(1)
 		}
-		fmt.Printf("Missing --os-version command-line option. Valid version are: %s\n", validOsVersions)
-		fmt.Printf("Selected OS Version: ")
-		_, err := fmt.Scanln(osVersion)
-		if err != nil {
-			panic(err)
+		if len(validOsVersions) == 1 && validOsVersions[0] == "" {
+			// No version distinction, single package suits all
+			*osVersion = ""
+		} else {
+			fmt.Printf("Missing --os-version command-line option. Valid version are: %s\n", validOsVersions)
+			fmt.Printf("Selected OS Version: ")
+			_, err := fmt.Scanln(osVersion)
+			if err != nil {
+				panic(err)
+			}
 		}
 	}
 	sensor := querySuitableSensor(client, *osName, *osVersion)
