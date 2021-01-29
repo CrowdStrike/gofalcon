@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"flag"
 	"fmt"
@@ -151,11 +152,11 @@ func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName strin
 }
 
 func promptUser(prompt string) string {
-	var s string
 	fmt.Printf("%s: ", prompt)
-	_, err := fmt.Scanln(&s)
+	reader := bufio.NewReader(os.Stdin)
+	s, err := reader.ReadString('\n')
 	if err != nil {
 		panic(err)
 	}
-	return s
+	return strings.TrimSpace(s)
 }
