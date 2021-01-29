@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"flag"
 	"fmt"
@@ -23,18 +24,10 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
-		fmt.Printf("Please provide your Falcon Client ID: ")
-		_, err := fmt.Scanln(clientId)
-		if err != nil {
-			panic(err)
-		}
+		*clientId = promptUser("Please provide your Falcon Client ID")
 	}
 	if *clientSecret == "" {
-		fmt.Printf("Please provide your Falcon Client Secret: ")
-		_, err := fmt.Scanln(clientSecret)
-		if err != nil {
-			panic(err)
-		}
+		*clientSecret = promptUser("Please provide your Falcon Client Secret")
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -48,12 +41,8 @@ func main() {
 
 	if *osName == "" {
 		validOsNames := getValidOsNames(client)
-		fmt.Printf("Missing --os-name command-line option. Valid names are: [%s]\n", strings.Join(validOsNames, ","))
-		fmt.Printf("Selected OS Name: ")
-		_, err := fmt.Scanln(osName)
-		if err != nil {
-			panic(err)
-		}
+		fmt.Printf("Missing --os-name command-line option. Available OS names are: [%s]\n", strings.Join(validOsNames, ", "))
+		*osName = promptUser("Selected OS Name")
 	}
 
 	if *osVersion == "" {
@@ -62,11 +51,12 @@ func main() {
 			fmt.Fprintf(os.Stderr, "No sensors available for os: %s\n", *osName)
 			os.Exit(1)
 		}
-		fmt.Printf("Missing --os-version command-line option. Valid version are: %s\n", validOsVersions)
-		fmt.Printf("Selected OS Version: ")
-		_, err := fmt.Scanln(osVersion)
-		if err != nil {
-			panic(err)
+		if len(validOsVersions) == 1 && validOsVersions[0] == "" {
+			// No version distinction, single package suits all
+			*osVersion = ""
+		} else {
+			fmt.Printf("Missing --os-version command-line option. Available version are: [%s]\n", strings.Join(validOsVersions, ", "))
+			*osVersion = promptUser("Selected OS Version")
 		}
 	}
 	sensor := querySuitableSensor(client, *osName, *osVersion)
@@ -159,4 +149,14 @@ func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName strin
 	}
 	sort.Strings(list)
 	return list
+}
+
+func promptUser(prompt string) string {
+	fmt.Printf("%s: ", prompt)
+	reader := bufio.NewReader(os.Stdin)
+	s, err := reader.ReadString('\n')
+	if err != nil {
+		panic(err)
+	}
+	return strings.TrimSpace(s)
 }
