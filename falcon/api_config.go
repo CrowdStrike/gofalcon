@@ -13,6 +13,8 @@ type ApiConfig struct {
 	Context          context.Context
 	HostOverride     string
 	BasePathOverride string
+	// Debug all http traffic going through the API Runtime
+	Debug bool
 }
 
 func (ac *ApiConfig) Host() string {
