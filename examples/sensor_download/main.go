@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 
@@ -20,6 +21,7 @@ func main() {
 	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	osName := flag.String("os-name", "", "Name of the operating system")
 	osVersion := flag.String("os-version", "", "Versin of the operating system")
+	all := flag.Bool("all", false, "Download all sensors")
 
 	flag.Parse()
 
@@ -39,33 +41,37 @@ func main() {
 		panic(err)
 	}
 
-	if *osName == "" {
-		validOsNames := getValidOsNames(client)
-		fmt.Printf("Missing --os-name command-line option. Available OS names are: [%s]\n", strings.Join(validOsNames, ", "))
-		*osName = promptUser("Selected OS Name")
-	}
+	if *all == true {
+		downloadAllSensors(client)
+	} else {
+		if *osName == "" {
+			validOsNames := getValidOsNames(client)
+			fmt.Printf("Missing --os-name command-line option. Available OS names are: [%s]\n", strings.Join(validOsNames, ", "))
+			*osName = promptUser("Selected OS Name")
+		}
 
-	if *osVersion == "" {
-		validOsVersions := getValidOsVersions(client, *osName)
-		if len(validOsVersions) == 0 {
-			fmt.Fprintf(os.Stderr, "No sensors available for os: %s\n", *osName)
+		if *osVersion == "" {
+			validOsVersions := getValidOsVersions(client, *osName)
+			if len(validOsVersions) == 0 {
+				fmt.Fprintf(os.Stderr, "No sensors available for os: %s\n", *osName)
+				os.Exit(1)
+			}
+			if len(validOsVersions) == 1 && validOsVersions[0] == "" {
+				// No version distinction, single package suits all
+				*osVersion = ""
+			} else {
+				fmt.Printf("Missing --os-version command-line option. Available version are: [%s]\n", strings.Join(validOsVersions, ", "))
+				*osVersion = promptUser("Selected OS Version")
+			}
+		}
+		sensor := querySuitableSensor(client, *osName, *osVersion)
+		if sensor == nil {
+			fmt.Fprintf(os.Stderr, "Could not find relevant sensor for '%s' version '%s'\n", *osName, *osVersion)
 			os.Exit(1)
 		}
-		if len(validOsVersions) == 1 && validOsVersions[0] == "" {
-			// No version distinction, single package suits all
-			*osVersion = ""
-		} else {
-			fmt.Printf("Missing --os-version command-line option. Available version are: [%s]\n", strings.Join(validOsVersions, ", "))
-			*osVersion = promptUser("Selected OS Version")
-		}
-	}
-	sensor := querySuitableSensor(client, *osName, *osVersion)
-	if sensor == nil {
-		fmt.Fprintf(os.Stderr, "Could not find relevant sensor for '%s' version '%s'\n", *osName, *osVersion)
-		os.Exit(1)
-	}
 
-	download(client, sensor, *sensor.Name)
+		download(client, sensor, *sensor.Name)
+	}
 }
 
 func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, filename string) {
@@ -149,6 +155,51 @@ func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName strin
 	return list
 }
 
+func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
+	for sensor := range oneSensorPerOsVersion(client) {
+		dir := filepath.Join(strings.ReplaceAll(*sensor.Os, "/", "-"), *sensor.OsVersion)
+		err := os.MkdirAll(dir, os.ModePerm)
+		if err != nil {
+			panic(fmt.Sprintf("Could not create directory %s: %v", dir, err))
+		}
+		filename := filepath.Join(dir, *sensor.Name)
+		download(client, sensor, filename)
+	}
+}
+
+func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *models.DomainSensorInstallerV1 {
+	out := make(chan *models.DomainSensorInstallerV1)
+
+	sensors, err := client.SensorDownload.GetCombinedSensorInstallersByQuery(
+		&sensor_download.GetCombinedSensorInstallersByQueryParams{
+			Context: context.Background(),
+		},
+	)
+	if err != nil {
+		panic(falcon.ErrorExplain(err))
+	}
+	go func() {
+		uniq := map[string]map[string]void{}
+		for _, s := range sensors.GetPayload().Resources {
+			if s.Os == nil || s.OsVersion == nil {
+				fmt.Fprintf(os.Stderr, "Unexpected nil field for %#v", s)
+				continue
+			}
+			if _, ok := uniq[*s.Os]; !ok {
+				uniq[*s.Os] = map[string]void{}
+			}
+			versions := uniq[*s.Os]
+
+			if _, ok := versions[*s.OsVersion]; !ok {
+				versions[*s.OsVersion] = void{}
+				out <- s
+			}
+		}
+		close(out)
+	}()
+	return out
+}
+
 func promptUser(prompt string) string {
 	fmt.Printf("%s: ", prompt)
 	reader := bufio.NewReader(os.Stdin)
@@ -158,3 +209,5 @@ func promptUser(prompt string) string {
 	}
 	return strings.TrimSpace(s)
 }
+
+type void struct{}

@@ -2,7 +2,7 @@
 
 Minimalist example to show download of CrowdStrike Falcon sensor through API. This example can be run interactively or in script when all information is passed in through command-line.
 
-Example run:
+Example run to download single sensor package
 ```
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" \
         go run github.com/crowdstrike/gofalcon/examples/sensor_download
@@ -14,4 +14,10 @@ Downloaded Falcon Kernel Sensor for SLES 15 to falcon-sensor-6.14.0-11110.suse15
 
 $ ls falcon-sensor-6.14.0-11110.suse15.x86_64.rpm
 falcon-sensor-6.14.0-11110.suse15.x86_64.rpm
+```
+
+Example run to download the latest build of sensor, one package per OS Version
+```
+$ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" \
+        go run github.com/crowdstrike/gofalcon/examples/sensor_download --all
 ```
