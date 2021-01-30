@@ -16,6 +16,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	authenticatedClient := config.Client(ac.Context)
 	customTransport := httptransport.NewWithClient(
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
+	customTransport.Debug = ac.Debug
 
 	return client.New(customTransport, strfmt.Default), nil
 }
