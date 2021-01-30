@@ -65,8 +65,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Downloading %s to %s\n", *sensor.Description, *sensor.Name)
-
 	download(client, sensor)
 }
 
@@ -85,8 +83,7 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
-	fmt.Println("OK")
-
+	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, *sensor.Name)
 }
 
 func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osVersion string) *models.DomainSensorInstallerV1 {
