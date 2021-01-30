@@ -83,7 +83,7 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 			ID:      *sensor.Sha256,
 		}, file)
 	if err != nil {
-		falcon.ErrorExplain(err)
+		panic(falcon.ErrorExplain(err))
 	}
 	fmt.Println("OK")
 
