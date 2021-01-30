@@ -75,6 +75,7 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(err)
 	}
+	defer file.Close()
 
 	_, err = client.SensorDownload.DownloadSensorInstallerByID(
 		&sensor_download.DownloadSensorInstallerByIDParams{
