@@ -65,11 +65,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	download(client, sensor)
+	download(client, sensor, *sensor.Name)
 }
 
-func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1) {
-	file, err := os.OpenFile(*sensor.Name, os.O_CREATE|os.O_WRONLY, 0644)
+func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, filename string) {
+	file, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
@@ -83,7 +83,7 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
-	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, *sensor.Name)
+	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, filename)
 }
 
 func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osVersion string) *models.DomainSensorInstallerV1 {
