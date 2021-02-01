@@ -1,7 +1,9 @@
 APIs
+CrowdScore
 CrowdStrike
 CrowdStrike's
 Golang
+initialisation
 SDK
 gofalcon
 pre
