@@ -16,6 +16,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/devicecount_collections"
+	"github.com/crowdstrike/gofalcon/falcon/client/devices"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
@@ -27,9 +29,11 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
+	"github.com/crowdstrike/gofalcon/falcon/client/jira"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
+	"github.com/crowdstrike/gofalcon/falcon/client/overwatch"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
@@ -90,6 +94,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
+	cli.DevicecountCollections = devicecount_collections.New(transport, formats)
+	cli.Devices = devices.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
@@ -101,9 +107,11 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Intel = intel.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
+	cli.Jira = jira.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
+	cli.Overwatch = overwatch.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
@@ -170,6 +178,10 @@ type CrowdStrikeAPISpecification struct {
 
 	DeviceControlPolicies device_control_policies.ClientService
 
+	DevicecountCollections devicecount_collections.ClientService
+
+	Devices devices.ClientService
+
 	EventStreams event_streams.ClientService
 
 	FalconxSandbox falconx_sandbox.ClientService
@@ -192,11 +204,15 @@ type CrowdStrikeAPISpecification struct {
 
 	Iocs iocs.ClientService
 
+	Jira jira.ClientService
+
 	Malquery malquery.ClientService
 
 	MlExclusions ml_exclusions.ClientService
 
 	Oauth2 oauth2.ClientService
+
+	Overwatch overwatch.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
 
@@ -230,6 +246,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.D4cRegistration.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
+	c.DevicecountCollections.SetTransport(transport)
+	c.Devices.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
 	c.FalconxSandbox.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
@@ -241,9 +259,11 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Intel.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
+	c.Jira.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
+	c.Overwatch.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
