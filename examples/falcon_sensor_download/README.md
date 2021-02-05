@@ -27,3 +27,9 @@ Download the latest build of sensor, one package per OS Version
 ```
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" falcon_sensor_download --all
 ```
+
+Download Falcon Container Sensor
+```
+$ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" falcon_sensor_download --os-name=Container
+Downloaded Falcon Usermode Container Sensor to falcon-sensor-6.18.0-106.container.x86_64.tar.bz2
+```
