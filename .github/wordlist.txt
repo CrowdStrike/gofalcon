@@ -4,6 +4,9 @@ CrowdStrike
 CrowdStrike's
 Golang
 initialisation
+NewClient
 SDK
 gofalcon
+oauth
+OAuth
 pre
