@@ -23,17 +23,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*CreateIOAExclusionsV1OK, error)
+	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error)
 
-	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*DeleteIOAExclusionsV1OK, error)
+	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, opts ...ClientOption) (*DeleteIOAExclusionsV1OK, error)
 
-	GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAExclusionsV1OK, error)
+	GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, opts ...ClientOption) (*GetIOAExclusionsV1OK, error)
 
-	QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*QueryIOAExclusionsV1OK, error)
+	QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, opts ...ClientOption) (*QueryIOAExclusionsV1OK, error)
 
-	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params) (*UpdateIOAExclusionsV1OK, error)
+	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, opts ...ClientOption) (*UpdateIOAExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,13 +44,12 @@ type ClientService interface {
 /*
   CreateIOAExclusionsV1 creates the i o a exclusions
 */
-func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*CreateIOAExclusionsV1OK, error) {
+func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateIOAExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createIOAExclusionsV1",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/ioa-exclusions/v1",
@@ -58,7 +60,12 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*Cr
 		Reader:             &CreateIOAExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -74,13 +81,12 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params) (*Cr
 /*
   DeleteIOAExclusionsV1 deletes the i o a exclusions by id
 */
-func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*DeleteIOAExclusionsV1OK, error) {
+func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, opts ...ClientOption) (*DeleteIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteIOAExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteIOAExclusionsV1",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/ioa-exclusions/v1",
@@ -91,7 +97,12 @@ func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*De
 		Reader:             &DeleteIOAExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -107,13 +118,12 @@ func (a *Client) DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params) (*De
 /*
   GetIOAExclusionsV1 gets a set of i o a exclusions by specifying their i ds
 */
-func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAExclusionsV1OK, error) {
+func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, opts ...ClientOption) (*GetIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIOAExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getIOAExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/ioa-exclusions/v1",
@@ -124,7 +134,12 @@ func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAEx
 		Reader:             &GetIOAExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -140,13 +155,12 @@ func (a *Client) GetIOAExclusionsV1(params *GetIOAExclusionsV1Params) (*GetIOAEx
 /*
   QueryIOAExclusionsV1 searches for i o a exclusions
 */
-func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*QueryIOAExclusionsV1OK, error) {
+func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, opts ...ClientOption) (*QueryIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIOAExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryIOAExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/ioa-exclusions/v1",
@@ -157,7 +171,12 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*Quer
 		Reader:             &QueryIOAExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -173,13 +192,12 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params) (*Quer
 /*
   UpdateIOAExclusionsV1 updates the i o a exclusions
 */
-func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params) (*UpdateIOAExclusionsV1OK, error) {
+func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, opts ...ClientOption) (*UpdateIOAExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateIOAExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateIOAExclusionsV1",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/ioa-exclusions/v1",
@@ -190,7 +208,12 @@ func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params) (*Up
 		Reader:             &UpdateIOAExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

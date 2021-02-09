@@ -23,35 +23,38 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*GetIntelActorEntitiesOK, error)
+	GetIntelActorEntities(params *GetIntelActorEntitiesParams, opts ...ClientOption) (*GetIntelActorEntitiesOK, error)
 
-	GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams) (*GetIntelIndicatorEntitiesOK, error)
+	GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams, opts ...ClientOption) (*GetIntelIndicatorEntitiesOK, error)
 
-	GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*GetIntelReportEntitiesOK, error)
+	GetIntelReportEntities(params *GetIntelReportEntitiesParams, opts ...ClientOption) (*GetIntelReportEntitiesOK, error)
 
-	GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelReportPDFOK, error)
+	GetIntelReportPDF(params *GetIntelReportPDFParams, opts ...ClientOption) (*GetIntelReportPDFOK, error)
 
-	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetIntelRuleEntitiesOK, error)
+	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts ...ClientOption) (*GetIntelRuleEntitiesOK, error)
 
-	GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRuleFileOK, error)
+	GetIntelRuleFile(params *GetIntelRuleFileParams, opts ...ClientOption) (*GetIntelRuleFileOK, error)
 
-	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*GetLatestIntelRuleFileOK, error)
+	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error)
 
-	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) (*QueryIntelActorEntitiesOK, error)
+	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error)
 
-	QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryIntelActorIdsOK, error)
+	QueryIntelActorIds(params *QueryIntelActorIdsParams, opts ...ClientOption) (*QueryIntelActorIdsOK, error)
 
-	QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams) (*QueryIntelIndicatorEntitiesOK, error)
+	QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams, opts ...ClientOption) (*QueryIntelIndicatorEntitiesOK, error)
 
-	QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*QueryIntelIndicatorIdsOK, error)
+	QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, opts ...ClientOption) (*QueryIntelIndicatorIdsOK, error)
 
-	QueryIntelReportEntities(params *QueryIntelReportEntitiesParams) (*QueryIntelReportEntitiesOK, error)
+	QueryIntelReportEntities(params *QueryIntelReportEntitiesParams, opts ...ClientOption) (*QueryIntelReportEntitiesOK, error)
 
-	QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryIntelReportIdsOK, error)
+	QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...ClientOption) (*QueryIntelReportIdsOK, error)
 
-	QueryIntelRuleIds(params *QueryIntelRuleIdsParams) (*QueryIntelRuleIdsOK, error)
+	QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -59,13 +62,12 @@ type ClientService interface {
 /*
   GetIntelActorEntities retrieves specific actors using their actor i ds
 */
-func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*GetIntelActorEntitiesOK, error) {
+func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, opts ...ClientOption) (*GetIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelActorEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelActorEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/actors/v1",
@@ -76,7 +78,12 @@ func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*Ge
 		Reader:             &GetIntelActorEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -92,13 +99,12 @@ func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams) (*Ge
 /*
   GetIntelIndicatorEntities retrieves specific indicators using their indicator i ds
 */
-func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams) (*GetIntelIndicatorEntitiesOK, error) {
+func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams, opts ...ClientOption) (*GetIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelIndicatorEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelIndicatorEntities",
 		Method:             "POST",
 		PathPattern:        "/intel/entities/indicators/GET/v1",
@@ -109,7 +115,12 @@ func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesPara
 		Reader:             &GetIntelIndicatorEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -125,13 +136,12 @@ func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesPara
 /*
   GetIntelReportEntities retrieves specific reports using their report i ds
 */
-func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*GetIntelReportEntitiesOK, error) {
+func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, opts ...ClientOption) (*GetIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelReportEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelReportEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/reports/v1",
@@ -142,7 +152,12 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*
 		Reader:             &GetIntelReportEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -158,13 +173,12 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams) (*
 /*
   GetIntelReportPDF returns a report p d f attachment
 */
-func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelReportPDFOK, error) {
+func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, opts ...ClientOption) (*GetIntelReportPDFOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelReportPDFParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelReportPDF",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/report-files/v1",
@@ -175,7 +189,12 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelRe
 		Reader:             &GetIntelReportPDFReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -191,13 +210,12 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams) (*GetIntelRe
 /*
   GetIntelRuleEntities retrieves details for rule sets for the specified ids
 */
-func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetIntelRuleEntitiesOK, error) {
+func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts ...ClientOption) (*GetIntelRuleEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelRuleEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelRuleEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/rules/v1",
@@ -208,7 +226,12 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetI
 		Reader:             &GetIntelRuleEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -224,13 +247,12 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams) (*GetI
 /*
   GetIntelRuleFile downloads earlier rule sets
 */
-func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRuleFileOK, error) {
+func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, opts ...ClientOption) (*GetIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelRuleFileParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIntelRuleFile",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/rules-files/v1",
@@ -241,7 +263,12 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRule
 		Reader:             &GetIntelRuleFileReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +284,12 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams) (*GetIntelRule
 /*
   GetLatestIntelRuleFile downloads the latest rule set
 */
-func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*GetLatestIntelRuleFileOK, error) {
+func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLatestIntelRuleFileParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetLatestIntelRuleFile",
 		Method:             "GET",
 		PathPattern:        "/intel/entities/rules-latest-files/v1",
@@ -274,7 +300,12 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*
 		Reader:             &GetLatestIntelRuleFileReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -290,13 +321,12 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams) (*
 /*
   QueryIntelActorEntities gets info about actors that match provided f q l filters
 */
-func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) (*QueryIntelActorEntitiesOK, error) {
+func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelActorEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelActorEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/combined/actors/v1",
@@ -307,7 +337,12 @@ func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) 
 		Reader:             &QueryIntelActorEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -323,13 +358,12 @@ func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams) 
 /*
   QueryIntelActorIds gets actor i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryIntelActorIdsOK, error) {
+func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, opts ...ClientOption) (*QueryIntelActorIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelActorIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelActorIds",
 		Method:             "GET",
 		PathPattern:        "/intel/queries/actors/v1",
@@ -340,7 +374,12 @@ func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryInt
 		Reader:             &QueryIntelActorIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -356,13 +395,12 @@ func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams) (*QueryInt
 /*
   QueryIntelIndicatorEntities gets info about indicators that match provided f q l filters
 */
-func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams) (*QueryIntelIndicatorEntitiesOK, error) {
+func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams, opts ...ClientOption) (*QueryIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelIndicatorEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelIndicatorEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/combined/indicators/v1",
@@ -373,7 +411,12 @@ func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntities
 		Reader:             &QueryIntelIndicatorEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -389,13 +432,12 @@ func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntities
 /*
   QueryIntelIndicatorIds gets indicators i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*QueryIntelIndicatorIdsOK, error) {
+func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, opts ...ClientOption) (*QueryIntelIndicatorIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelIndicatorIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelIndicatorIds",
 		Method:             "GET",
 		PathPattern:        "/intel/queries/indicators/v1",
@@ -406,7 +448,12 @@ func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*
 		Reader:             &QueryIntelIndicatorIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -422,13 +469,12 @@ func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams) (*
 /*
   QueryIntelReportEntities gets info about reports that match provided f q l filters
 */
-func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams) (*QueryIntelReportEntitiesOK, error) {
+func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams, opts ...ClientOption) (*QueryIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelReportEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelReportEntities",
 		Method:             "GET",
 		PathPattern:        "/intel/combined/reports/v1",
@@ -439,7 +485,12 @@ func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams
 		Reader:             &QueryIntelReportEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -455,13 +506,12 @@ func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams
 /*
   QueryIntelReportIds gets report i ds that match provided f q l filters
 */
-func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryIntelReportIdsOK, error) {
+func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...ClientOption) (*QueryIntelReportIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelReportIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelReportIds",
 		Method:             "GET",
 		PathPattern:        "/intel/queries/reports/v1",
@@ -472,7 +522,12 @@ func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryI
 		Reader:             &QueryIntelReportIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -488,13 +543,12 @@ func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams) (*QueryI
 /*
   QueryIntelRuleIds searches for rule i ds that match provided filter criteria
 */
-func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams) (*QueryIntelRuleIdsOK, error) {
+func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIntelRuleIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIntelRuleIds",
 		Method:             "GET",
 		PathPattern:        "/intel/queries/rules/v1",
@@ -505,7 +559,12 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams) (*QueryIntel
 		Reader:             &QueryIntelRuleIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

@@ -25,15 +25,18 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetScans(params *GetScansParams) (*GetScansOK, error)
+	GetScans(params *GetScansParams, opts ...ClientOption) (*GetScansOK, error)
 
-	GetScansAggregates(params *GetScansAggregatesParams) (*GetScansAggregatesOK, error)
+	GetScansAggregates(params *GetScansAggregatesParams, opts ...ClientOption) (*GetScansAggregatesOK, error)
 
-	QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*QuerySubmissionsMixin0OK, error)
+	QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, opts ...ClientOption) (*QuerySubmissionsMixin0OK, error)
 
-	ScanSamples(params *ScanSamplesParams) (*ScanSamplesOK, error)
+	ScanSamples(params *ScanSamplesParams, opts ...ClientOption) (*ScanSamplesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,13 +44,12 @@ type ClientService interface {
 /*
   GetScans checks the status of a volume scan time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
-func (a *Client) GetScans(params *GetScansParams) (*GetScansOK, error) {
+func (a *Client) GetScans(params *GetScansParams, opts ...ClientOption) (*GetScansOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetScansParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetScans",
 		Method:             "GET",
 		PathPattern:        "/scanner/entities/scans/v1",
@@ -58,7 +60,12 @@ func (a *Client) GetScans(params *GetScansParams) (*GetScansOK, error) {
 		Reader:             &GetScansReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -74,13 +81,12 @@ func (a *Client) GetScans(params *GetScansParams) (*GetScansOK, error) {
 /*
   GetScansAggregates gets scans aggregations as specified via json in request body
 */
-func (a *Client) GetScansAggregates(params *GetScansAggregatesParams) (*GetScansAggregatesOK, error) {
+func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, opts ...ClientOption) (*GetScansAggregatesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetScansAggregatesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetScansAggregates",
 		Method:             "POST",
 		PathPattern:        "/scanner/aggregates/scans/GET/v1",
@@ -91,7 +97,12 @@ func (a *Client) GetScansAggregates(params *GetScansAggregatesParams) (*GetScans
 		Reader:             &GetScansAggregatesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -108,13 +119,12 @@ func (a *Client) GetScansAggregates(params *GetScansAggregatesParams) (*GetScans
 /*
   QuerySubmissionsMixin0 finds i ds for submitted scans by providing an f q l filter and paging details returns a set of volume i ds that match your criteria
 */
-func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*QuerySubmissionsMixin0OK, error) {
+func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, opts ...ClientOption) (*QuerySubmissionsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySubmissionsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QuerySubmissionsMixin0",
 		Method:             "GET",
 		PathPattern:        "/scanner/queries/scans/v1",
@@ -125,7 +135,12 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*
 		Reader:             &QuerySubmissionsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -141,13 +156,12 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params) (*
 /*
   ScanSamples submits a volume of files for ml scanning time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
-func (a *Client) ScanSamples(params *ScanSamplesParams) (*ScanSamplesOK, error) {
+func (a *Client) ScanSamples(params *ScanSamplesParams, opts ...ClientOption) (*ScanSamplesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewScanSamplesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "ScanSamples",
 		Method:             "POST",
 		PathPattern:        "/scanner/entities/scans/v1",
@@ -158,7 +172,12 @@ func (a *Client) ScanSamples(params *ScanSamplesParams) (*ScanSamplesOK, error) 
 		Reader:             &ScanSamplesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

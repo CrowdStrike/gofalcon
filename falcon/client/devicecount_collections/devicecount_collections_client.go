@@ -23,11 +23,14 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams) (*AggregateDeviceCountCollectionOK, error)
+	AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams, opts ...ClientOption) (*AggregateDeviceCountCollectionOK, error)
 
-	GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountCollectionQueriesByFilterParams) (*GetDeviceCountCollectionQueriesByFilterOK, error)
+	GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountCollectionQueriesByFilterParams, opts ...ClientOption) (*GetDeviceCountCollectionQueriesByFilterOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -35,13 +38,12 @@ type ClientService interface {
 /*
   AggregateDeviceCountCollection retrieves aggregate host devices count based on the matched filter
 */
-func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams) (*AggregateDeviceCountCollectionOK, error) {
+func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams, opts ...ClientOption) (*AggregateDeviceCountCollectionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateDeviceCountCollectionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateDeviceCountCollection",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1",
@@ -52,7 +54,12 @@ func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountColl
 		Reader:             &AggregateDeviceCountCollectionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -68,13 +75,12 @@ func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountColl
 /*
   GetDeviceCountCollectionQueriesByFilter retrieves device count collection ids that match the provided f q l filter criteria with scrolling enabled
 */
-func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountCollectionQueriesByFilterParams) (*GetDeviceCountCollectionQueriesByFilterOK, error) {
+func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountCollectionQueriesByFilterParams, opts ...ClientOption) (*GetDeviceCountCollectionQueriesByFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeviceCountCollectionQueriesByFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetDeviceCountCollectionQueriesByFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/devicecount-collections/v1",
@@ -85,7 +91,12 @@ func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountC
 		Reader:             &GetDeviceCountCollectionQueriesByFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

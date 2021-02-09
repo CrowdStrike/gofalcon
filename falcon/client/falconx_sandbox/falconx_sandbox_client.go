@@ -25,31 +25,34 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted, error)
+	DeleteReport(params *DeleteReportParams, opts ...ClientOption) (*DeleteReportAccepted, error)
 
-	DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK, error)
+	DeleteSampleV2(params *DeleteSampleV2Params, opts ...ClientOption) (*DeleteSampleV2OK, error)
 
-	GetArtifacts(params *GetArtifactsParams) error
+	GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) error
 
-	GetReports(params *GetReportsParams) (*GetReportsOK, error)
+	GetReports(params *GetReportsParams, opts ...ClientOption) (*GetReportsOK, error)
 
-	GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error)
+	GetSampleV2(params *GetSampleV2Params, opts ...ClientOption) (*GetSampleV2OK, error)
 
-	GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK, error)
+	GetSubmissions(params *GetSubmissionsParams, opts ...ClientOption) (*GetSubmissionsOK, error)
 
-	GetSummaryReports(params *GetSummaryReportsParams) (*GetSummaryReportsOK, error)
+	GetSummaryReports(params *GetSummaryReportsParams, opts ...ClientOption) (*GetSummaryReportsOK, error)
 
-	QueryReports(params *QueryReportsParams) (*QueryReportsOK, error)
+	QueryReports(params *QueryReportsParams, opts ...ClientOption) (*QueryReportsOK, error)
 
-	QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, error)
+	QuerySampleV1(params *QuerySampleV1Params, opts ...ClientOption) (*QuerySampleV1OK, error)
 
-	QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmissionsOK, error)
+	QuerySubmissions(params *QuerySubmissionsParams, opts ...ClientOption) (*QuerySubmissionsOK, error)
 
-	Submit(params *SubmitParams) (*SubmitOK, error)
+	Submit(params *SubmitParams, opts ...ClientOption) (*SubmitOK, error)
 
-	UploadSampleV2(params *UploadSampleV2Params) (*UploadSampleV2OK, error)
+	UploadSampleV2(params *UploadSampleV2Params, opts ...ClientOption) (*UploadSampleV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,13 +60,12 @@ type ClientService interface {
 /*
   DeleteReport deletes report based on the report ID operation can be checked for success by polling for the report ID on the report summaries endpoint
 */
-func (a *Client) DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted, error) {
+func (a *Client) DeleteReport(params *DeleteReportParams, opts ...ClientOption) (*DeleteReportAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteReportParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteReport",
 		Method:             "DELETE",
 		PathPattern:        "/falconx/entities/reports/v1",
@@ -74,7 +76,12 @@ func (a *Client) DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted
 		Reader:             &DeleteReportReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -91,13 +98,12 @@ func (a *Client) DeleteReport(params *DeleteReportParams) (*DeleteReportAccepted
 /*
   DeleteSampleV2 removes a sample including file meta and submissions from the collection
 */
-func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK, error) {
+func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, opts ...ClientOption) (*DeleteSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSampleV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteSampleV2",
 		Method:             "DELETE",
 		PathPattern:        "/samples/entities/samples/v2",
@@ -108,7 +114,12 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK
 		Reader:             &DeleteSampleV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -124,13 +135,12 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params) (*DeleteSampleV2OK
 /*
   GetArtifacts downloads i o c packs p c a p files and other analysis artifacts
 */
-func (a *Client) GetArtifacts(params *GetArtifactsParams) error {
+func (a *Client) GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetArtifactsParams()
 	}
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetArtifacts",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/artifacts/v1",
@@ -141,7 +151,12 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams) error {
 		Reader:             &GetArtifactsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	_, err := a.transport.Submit(op)
 	if err != nil {
 		return err
 	}
@@ -151,13 +166,12 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams) error {
 /*
   GetReports gets a full sandbox report
 */
-func (a *Client) GetReports(params *GetReportsParams) (*GetReportsOK, error) {
+func (a *Client) GetReports(params *GetReportsParams, opts ...ClientOption) (*GetReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetReportsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetReports",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/reports/v1",
@@ -168,7 +182,12 @@ func (a *Client) GetReports(params *GetReportsParams) (*GetReportsOK, error) {
 		Reader:             &GetReportsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -184,13 +203,12 @@ func (a *Client) GetReports(params *GetReportsParams) (*GetReportsOK, error) {
 /*
   GetSampleV2 retrieves the file associated with the given ID s h a256
 */
-func (a *Client) GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error) {
+func (a *Client) GetSampleV2(params *GetSampleV2Params, opts ...ClientOption) (*GetSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSampleV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSampleV2",
 		Method:             "GET",
 		PathPattern:        "/samples/entities/samples/v2",
@@ -201,7 +219,12 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error) 
 		Reader:             &GetSampleV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -217,13 +240,12 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params) (*GetSampleV2OK, error) 
 /*
   GetSubmissions checks the status of a sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
-func (a *Client) GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK, error) {
+func (a *Client) GetSubmissions(params *GetSubmissionsParams, opts ...ClientOption) (*GetSubmissionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSubmissionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSubmissions",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/submissions/v1",
@@ -234,7 +256,12 @@ func (a *Client) GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK
 		Reader:             &GetSubmissionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +277,12 @@ func (a *Client) GetSubmissions(params *GetSubmissionsParams) (*GetSubmissionsOK
 /*
   GetSummaryReports gets a short summary version of a sandbox report
 */
-func (a *Client) GetSummaryReports(params *GetSummaryReportsParams) (*GetSummaryReportsOK, error) {
+func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, opts ...ClientOption) (*GetSummaryReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSummaryReportsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSummaryReports",
 		Method:             "GET",
 		PathPattern:        "/falconx/entities/report-summaries/v1",
@@ -267,7 +293,12 @@ func (a *Client) GetSummaryReports(params *GetSummaryReportsParams) (*GetSummary
 		Reader:             &GetSummaryReportsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -283,13 +314,12 @@ func (a *Client) GetSummaryReports(params *GetSummaryReportsParams) (*GetSummary
 /*
   QueryReports finds sandbox reports by providing an f q l filter and paging details returns a set of report i ds that match your criteria
 */
-func (a *Client) QueryReports(params *QueryReportsParams) (*QueryReportsOK, error) {
+func (a *Client) QueryReports(params *QueryReportsParams, opts ...ClientOption) (*QueryReportsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryReportsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryReports",
 		Method:             "GET",
 		PathPattern:        "/falconx/queries/reports/v1",
@@ -300,7 +330,12 @@ func (a *Client) QueryReports(params *QueryReportsParams) (*QueryReportsOK, erro
 		Reader:             &QueryReportsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -316,13 +351,12 @@ func (a *Client) QueryReports(params *QueryReportsParams) (*QueryReportsOK, erro
 /*
   QuerySampleV1 retrieves a list with sha256 of samples that exist and customer has rights to access them maximum number of accepted items is 200
 */
-func (a *Client) QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, error) {
+func (a *Client) QuerySampleV1(params *QuerySampleV1Params, opts ...ClientOption) (*QuerySampleV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySampleV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QuerySampleV1",
 		Method:             "POST",
 		PathPattern:        "/samples/queries/samples/GET/v1",
@@ -333,7 +367,12 @@ func (a *Client) QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, e
 		Reader:             &QuerySampleV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -349,13 +388,12 @@ func (a *Client) QuerySampleV1(params *QuerySampleV1Params) (*QuerySampleV1OK, e
 /*
   QuerySubmissions finds submission i ds for uploaded files by providing an f q l filter and paging details returns a set of submission i ds that match your criteria
 */
-func (a *Client) QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmissionsOK, error) {
+func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, opts ...ClientOption) (*QuerySubmissionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySubmissionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QuerySubmissions",
 		Method:             "GET",
 		PathPattern:        "/falconx/queries/submissions/v1",
@@ -366,7 +404,12 @@ func (a *Client) QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmiss
 		Reader:             &QuerySubmissionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -382,13 +425,12 @@ func (a *Client) QuerySubmissions(params *QuerySubmissionsParams) (*QuerySubmiss
 /*
   Submit submits an uploaded file or a URL for sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
-func (a *Client) Submit(params *SubmitParams) (*SubmitOK, error) {
+func (a *Client) Submit(params *SubmitParams, opts ...ClientOption) (*SubmitOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubmitParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "Submit",
 		Method:             "POST",
 		PathPattern:        "/falconx/entities/submissions/v1",
@@ -399,7 +441,12 @@ func (a *Client) Submit(params *SubmitParams) (*SubmitOK, error) {
 		Reader:             &SubmitReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -415,13 +462,12 @@ func (a *Client) Submit(params *SubmitParams) (*SubmitOK, error) {
 /*
   UploadSampleV2 uploads a file for sandbox analysis after uploading use falconx entities submissions v1 to start analyzing the file
 */
-func (a *Client) UploadSampleV2(params *UploadSampleV2Params) (*UploadSampleV2OK, error) {
+func (a *Client) UploadSampleV2(params *UploadSampleV2Params, opts ...ClientOption) (*UploadSampleV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadSampleV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UploadSampleV2",
 		Method:             "POST",
 		PathPattern:        "/samples/entities/samples/v2",
@@ -432,7 +478,12 @@ func (a *Client) UploadSampleV2(params *UploadSampleV2Params) (*UploadSampleV2OK
 		Reader:             &UploadSampleV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

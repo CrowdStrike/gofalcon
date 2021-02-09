@@ -25,17 +25,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
+	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
 
-	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
+	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
 
-	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
+	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
 
-	GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error)
+	GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error)
 
-	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams) (*GetCSPMGCPUserScriptsAttachmentOK, error)
+	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,13 +46,12 @@ type ClientService interface {
 /*
   CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
 */
-func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
+func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMGCPAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateCSPMGCPAccount",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
@@ -60,7 +62,12 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*Crea
 		Reader:             &CreateCSPMGCPAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -78,13 +85,12 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams) (*Crea
 /*
   GetCSPMAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
 */
-func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
+func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureUserScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAzureUserScripts",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-azure/entities/user-scripts/v1",
@@ -95,7 +101,12 @@ func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) 
 		Reader:             &GetCSPMAzureUserScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -113,13 +124,12 @@ func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams) 
 /*
   GetCSPMCGPAccount returns information about the current status of an g c p account
 */
-func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
+func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMCGPAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMCGPAccount",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
@@ -130,7 +140,12 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGP
 		Reader:             &GetCSPMCGPAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -148,13 +163,12 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams) (*GetCSPMCGP
 /*
   GetCSPMGCPUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
 */
-func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
+func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMGCPUserScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMGCPUserScripts",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-gcp/entities/user-scripts/v1",
@@ -165,7 +179,12 @@ func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*Ge
 		Reader:             &GetCSPMGCPUserScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -183,13 +202,12 @@ func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams) (*Ge
 /*
   GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
 */
-func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMGCPUserScriptsAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMGCPUserScriptsAttachment",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-gcp/entities/user-scripts-download/v1",
@@ -200,7 +218,12 @@ func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAt
 		Reader:             &GetCSPMGCPUserScriptsAttachmentReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

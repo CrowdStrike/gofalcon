@@ -23,23 +23,26 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateFCIncidents(params *AggregateFCIncidentsParams) (*AggregateFCIncidentsOK, error)
+	AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error)
 
-	CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error)
+	CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*CrowdScoreOK, error)
 
-	GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, error)
+	GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) (*GetBehaviorsOK, error)
 
-	GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, error)
+	GetIncidents(params *GetIncidentsParams, opts ...ClientOption) (*GetIncidentsOK, error)
 
-	PerformIncidentAction(params *PerformIncidentActionParams) (*PerformIncidentActionOK, error)
+	PerformIncidentAction(params *PerformIncidentActionParams, opts ...ClientOption) (*PerformIncidentActionOK, error)
 
-	QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK, error)
+	QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOption) (*QueryBehaviorsOK, error)
 
-	QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams) (*QueryIncidentIdsByFilterOK, error)
+	QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error)
 
-	QueryIncidents(params *QueryIncidentsParams) (*QueryIncidentsOK, error)
+	QueryIncidents(params *QueryIncidentsParams, opts ...ClientOption) (*QueryIncidentsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,13 +50,12 @@ type ClientService interface {
 /*
   AggregateFCIncidents retrieves aggregate incident values based on the matched filter
 */
-func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams) (*AggregateFCIncidentsOK, error) {
+func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateFCIncidentsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateFCIncidents",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/incidents/GET/v1",
@@ -64,7 +66,12 @@ func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams) (*Aggr
 		Reader:             &AggregateFCIncidentsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -80,13 +87,12 @@ func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams) (*Aggr
 /*
   CrowdScore queries environment wide crowd score and return the entity data
 */
-func (a *Client) CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error) {
+func (a *Client) CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*CrowdScoreOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCrowdScoreParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CrowdScore",
 		Method:             "GET",
 		PathPattern:        "/incidents/combined/crowdscores/v1",
@@ -97,7 +103,12 @@ func (a *Client) CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error) {
 		Reader:             &CrowdScoreReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -113,13 +124,12 @@ func (a *Client) CrowdScore(params *CrowdScoreParams) (*CrowdScoreOK, error) {
 /*
   GetBehaviors gets details on behaviors by providing behavior i ds
 */
-func (a *Client) GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, error) {
+func (a *Client) GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) (*GetBehaviorsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBehaviorsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetBehaviors",
 		Method:             "POST",
 		PathPattern:        "/incidents/entities/behaviors/GET/v1",
@@ -130,7 +140,12 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, erro
 		Reader:             &GetBehaviorsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -146,13 +161,12 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams) (*GetBehaviorsOK, erro
 /*
   GetIncidents gets details on incidents by providing incident i ds
 */
-func (a *Client) GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, error) {
+func (a *Client) GetIncidents(params *GetIncidentsParams, opts ...ClientOption) (*GetIncidentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIncidentsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIncidents",
 		Method:             "POST",
 		PathPattern:        "/incidents/entities/incidents/GET/v1",
@@ -163,7 +177,12 @@ func (a *Client) GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, erro
 		Reader:             &GetIncidentsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -179,13 +198,12 @@ func (a *Client) GetIncidents(params *GetIncidentsParams) (*GetIncidentsOK, erro
 /*
   PerformIncidentAction performs a set of actions on one or more incidents such as adding tags or comments or updating the incident name or description
 */
-func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams) (*PerformIncidentActionOK, error) {
+func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, opts ...ClientOption) (*PerformIncidentActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformIncidentActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PerformIncidentAction",
 		Method:             "POST",
 		PathPattern:        "/incidents/entities/incident-actions/v1",
@@ -196,7 +214,12 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams) (*Pe
 		Reader:             &PerformIncidentActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -212,13 +235,12 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams) (*Pe
 /*
   QueryBehaviors searches for behaviors by providing an f q l filter sorting and paging details
 */
-func (a *Client) QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK, error) {
+func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOption) (*QueryBehaviorsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryBehaviorsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryBehaviors",
 		Method:             "GET",
 		PathPattern:        "/incidents/queries/behaviors/v1",
@@ -229,7 +251,12 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK
 		Reader:             &QueryBehaviorsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -245,13 +272,12 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams) (*QueryBehaviorsOK
 /*
   QueryIncidentIdsByFilter retrieves incidents that match the provided filter criteria with scrolling enabled
 */
-func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams) (*QueryIncidentIdsByFilterOK, error) {
+func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIncidentIdsByFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIncidentIdsByFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/incidents/v1",
@@ -262,7 +288,12 @@ func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams
 		Reader:             &QueryIncidentIdsByFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -278,13 +309,12 @@ func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams
 /*
   QueryIncidents searches for incidents by providing an f q l filter sorting and paging details
 */
-func (a *Client) QueryIncidents(params *QueryIncidentsParams) (*QueryIncidentsOK, error) {
+func (a *Client) QueryIncidents(params *QueryIncidentsParams, opts ...ClientOption) (*QueryIncidentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIncidentsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIncidents",
 		Method:             "GET",
 		PathPattern:        "/incidents/queries/incidents/v1",
@@ -295,7 +325,12 @@ func (a *Client) QueryIncidents(params *QueryIncidentsParams) (*QueryIncidentsOK
 		Reader:             &QueryIncidentsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

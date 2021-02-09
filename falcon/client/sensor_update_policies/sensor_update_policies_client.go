@@ -25,39 +25,42 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams) (*CreateSensorUpdatePoliciesCreated, error)
+	CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams, opts ...ClientOption) (*CreateSensorUpdatePoliciesCreated, error)
 
-	CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params) (*CreateSensorUpdatePoliciesV2Created, error)
+	CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*CreateSensorUpdatePoliciesV2Created, error)
 
-	DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams) (*DeleteSensorUpdatePoliciesOK, error)
+	DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams, opts ...ClientOption) (*DeleteSensorUpdatePoliciesOK, error)
 
-	GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) (*GetSensorUpdatePoliciesOK, error)
+	GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, opts ...ClientOption) (*GetSensorUpdatePoliciesOK, error)
 
-	GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params) (*GetSensorUpdatePoliciesV2OK, error)
+	GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params, opts ...ClientOption) (*GetSensorUpdatePoliciesV2OK, error)
 
-	PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams) (*PerformSensorUpdatePoliciesActionOK, error)
+	PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams, opts ...ClientOption) (*PerformSensorUpdatePoliciesActionOK, error)
 
-	QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams) (*QueryCombinedSensorUpdateBuildsOK, error)
+	QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateBuildsOK, error)
 
-	QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams) (*QueryCombinedSensorUpdatePoliciesOK, error)
+	QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesOK, error)
 
-	QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params) (*QueryCombinedSensorUpdatePoliciesV2OK, error)
+	QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesV2OK, error)
 
-	QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams) (*QueryCombinedSensorUpdatePolicyMembersOK, error)
+	QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePolicyMembersOK, error)
 
-	QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams) (*QuerySensorUpdatePoliciesOK, error)
+	QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, opts ...ClientOption) (*QuerySensorUpdatePoliciesOK, error)
 
-	QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams) (*QuerySensorUpdatePolicyMembersOK, error)
+	QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams, opts ...ClientOption) (*QuerySensorUpdatePolicyMembersOK, error)
 
-	RevealUninstallToken(params *RevealUninstallTokenParams) (*RevealUninstallTokenOK, error)
+	RevealUninstallToken(params *RevealUninstallTokenParams, opts ...ClientOption) (*RevealUninstallTokenOK, error)
 
-	SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams) (*SetSensorUpdatePoliciesPrecedenceOK, error)
+	SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*SetSensorUpdatePoliciesPrecedenceOK, error)
 
-	UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams) (*UpdateSensorUpdatePoliciesOK, error)
+	UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams, opts ...ClientOption) (*UpdateSensorUpdatePoliciesOK, error)
 
-	UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params) (*UpdateSensorUpdatePoliciesV2OK, error)
+	UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*UpdateSensorUpdatePoliciesV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -65,13 +68,12 @@ type ClientService interface {
 /*
   CreateSensorUpdatePolicies creates sensor update policies by specifying details about the policy to create
 */
-func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams) (*CreateSensorUpdatePoliciesCreated, error) {
+func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams, opts ...ClientOption) (*CreateSensorUpdatePoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createSensorUpdatePolicies",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/sensor-update/v1",
@@ -82,7 +84,12 @@ func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesPa
 		Reader:             &CreateSensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -99,13 +106,12 @@ func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesPa
 /*
   CreateSensorUpdatePoliciesV2 creates sensor update policies by specifying details about the policy to create with additional support for uninstall protection
 */
-func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params) (*CreateSensorUpdatePoliciesV2Created, error) {
+func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*CreateSensorUpdatePoliciesV2Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSensorUpdatePoliciesV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createSensorUpdatePoliciesV2",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/sensor-update/v2",
@@ -116,7 +122,12 @@ func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePolicies
 		Reader:             &CreateSensorUpdatePoliciesV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -133,13 +144,12 @@ func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePolicies
 /*
   DeleteSensorUpdatePolicies deletes a set of sensor update policies by specifying their i ds
 */
-func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams) (*DeleteSensorUpdatePoliciesOK, error) {
+func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams, opts ...ClientOption) (*DeleteSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteSensorUpdatePolicies",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/sensor-update/v1",
@@ -150,7 +160,12 @@ func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesPa
 		Reader:             &DeleteSensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -166,13 +181,12 @@ func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesPa
 /*
   GetSensorUpdatePolicies retrieves a set of sensor update policies by specifying their i ds
 */
-func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) (*GetSensorUpdatePoliciesOK, error) {
+func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, opts ...ClientOption) (*GetSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getSensorUpdatePolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/sensor-update/v1",
@@ -183,7 +197,12 @@ func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) 
 		Reader:             &GetSensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -199,13 +218,12 @@ func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams) 
 /*
   GetSensorUpdatePoliciesV2 retrieves a set of sensor update policies with additional support for uninstall protection by specifying their i ds
 */
-func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params) (*GetSensorUpdatePoliciesV2OK, error) {
+func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params, opts ...ClientOption) (*GetSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorUpdatePoliciesV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getSensorUpdatePoliciesV2",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/sensor-update/v2",
@@ -216,7 +234,12 @@ func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Para
 		Reader:             &GetSensorUpdatePoliciesV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -232,13 +255,12 @@ func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Para
 /*
   PerformSensorUpdatePoliciesAction performs the specified action on the sensor update policies specified in the request
 */
-func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams) (*PerformSensorUpdatePoliciesActionOK, error) {
+func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams, opts ...ClientOption) (*PerformSensorUpdatePoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformSensorUpdatePoliciesActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "performSensorUpdatePoliciesAction",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/sensor-update-actions/v1",
@@ -249,7 +271,12 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 		Reader:             &PerformSensorUpdatePoliciesActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -265,13 +292,12 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 /*
   QueryCombinedSensorUpdateBuilds retrieves available builds for use with sensor update policies
 */
-func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams) (*QueryCombinedSensorUpdateBuildsOK, error) {
+func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateBuildsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdateBuildsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedSensorUpdateBuilds",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/sensor-update-builds/v1",
@@ -282,7 +308,12 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 		Reader:             &QueryCombinedSensorUpdateBuildsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -298,13 +329,12 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 /*
   QueryCombinedSensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams) (*QueryCombinedSensorUpdatePoliciesOK, error) {
+func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedSensorUpdatePolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/sensor-update/v1",
@@ -315,7 +345,12 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 		Reader:             &QueryCombinedSensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -331,13 +366,12 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 /*
   QueryCombinedSensorUpdatePoliciesV2 searches for sensor update policies with additional support for uninstall protection in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params) (*QueryCombinedSensorUpdatePoliciesV2OK, error) {
+func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePoliciesV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedSensorUpdatePoliciesV2",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/sensor-update/v2",
@@ -348,7 +382,12 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 		Reader:             &QueryCombinedSensorUpdatePoliciesV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -364,13 +403,12 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 /*
   QueryCombinedSensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams) (*QueryCombinedSensorUpdatePolicyMembersOK, error) {
+func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedSensorUpdatePolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedSensorUpdatePolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/sensor-update-members/v1",
@@ -381,7 +419,12 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 		Reader:             &QueryCombinedSensorUpdatePolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -397,13 +440,12 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 /*
   QuerySensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policy i ds which match the filter criteria
 */
-func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams) (*QuerySensorUpdatePoliciesOK, error) {
+func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, opts ...ClientOption) (*QuerySensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "querySensorUpdatePolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/sensor-update/v1",
@@ -414,7 +456,12 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 		Reader:             &QuerySensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -430,13 +477,12 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 /*
   QuerySensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams) (*QuerySensorUpdatePolicyMembersOK, error) {
+func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams, opts ...ClientOption) (*QuerySensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorUpdatePolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "querySensorUpdatePolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/sensor-update-members/v1",
@@ -447,7 +493,12 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 		Reader:             &QuerySensorUpdatePolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -463,13 +514,12 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 /*
   RevealUninstallToken reveals an uninstall token for a specific device to retrieve the bulk maintenance token pass the value m a i n t e n a n c e as the value for device id
 */
-func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams) (*RevealUninstallTokenOK, error) {
+func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, opts ...ClientOption) (*RevealUninstallTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevealUninstallTokenParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "revealUninstallToken",
 		Method:             "POST",
 		PathPattern:        "/policy/combined/reveal-uninstall-token/v1",
@@ -480,7 +530,12 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams) (*Reve
 		Reader:             &RevealUninstallTokenReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -496,13 +551,12 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams) (*Reve
 /*
   SetSensorUpdatePoliciesPrecedence sets the precedence of sensor update policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams) (*SetSensorUpdatePoliciesPrecedenceOK, error) {
+func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*SetSensorUpdatePoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetSensorUpdatePoliciesPrecedenceParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "setSensorUpdatePoliciesPrecedence",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/sensor-update-precedence/v1",
@@ -513,7 +567,12 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 		Reader:             &SetSensorUpdatePoliciesPrecedenceReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -529,13 +588,12 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 /*
   UpdateSensorUpdatePolicies updates sensor update policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams) (*UpdateSensorUpdatePoliciesOK, error) {
+func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams, opts ...ClientOption) (*UpdateSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorUpdatePoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateSensorUpdatePolicies",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/sensor-update/v1",
@@ -546,7 +604,12 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 		Reader:             &UpdateSensorUpdatePoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -562,13 +625,12 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 /*
   UpdateSensorUpdatePoliciesV2 updates sensor update policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 */
-func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params) (*UpdateSensorUpdatePoliciesV2OK, error) {
+func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*UpdateSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorUpdatePoliciesV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateSensorUpdatePoliciesV2",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/sensor-update/v2",
@@ -579,7 +641,12 @@ func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePolicies
 		Reader:             &UpdateSensorUpdatePoliciesV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

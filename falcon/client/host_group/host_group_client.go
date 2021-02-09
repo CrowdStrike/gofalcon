@@ -25,25 +25,28 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGroupsCreated, error)
+	CreateHostGroups(params *CreateHostGroupsParams, opts ...ClientOption) (*CreateHostGroupsCreated, error)
 
-	DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGroupsOK, error)
+	DeleteHostGroups(params *DeleteHostGroupsParams, opts ...ClientOption) (*DeleteHostGroupsOK, error)
 
-	GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, error)
+	GetHostGroups(params *GetHostGroupsParams, opts ...ClientOption) (*GetHostGroupsOK, error)
 
-	PerformGroupAction(params *PerformGroupActionParams) (*PerformGroupActionOK, error)
+	PerformGroupAction(params *PerformGroupActionParams, opts ...ClientOption) (*PerformGroupActionOK, error)
 
-	QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams) (*QueryCombinedGroupMembersOK, error)
+	QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams, opts ...ClientOption) (*QueryCombinedGroupMembersOK, error)
 
-	QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) (*QueryCombinedHostGroupsOK, error)
+	QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, opts ...ClientOption) (*QueryCombinedHostGroupsOK, error)
 
-	QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroupMembersOK, error)
+	QueryGroupMembers(params *QueryGroupMembersParams, opts ...ClientOption) (*QueryGroupMembersOK, error)
 
-	QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroupsOK, error)
+	QueryHostGroups(params *QueryHostGroupsParams, opts ...ClientOption) (*QueryHostGroupsOK, error)
 
-	UpdateHostGroups(params *UpdateHostGroupsParams) (*UpdateHostGroupsOK, error)
+	UpdateHostGroups(params *UpdateHostGroupsParams, opts ...ClientOption) (*UpdateHostGroupsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,13 +54,12 @@ type ClientService interface {
 /*
   CreateHostGroups creates host groups by specifying details about the group to create
 */
-func (a *Client) CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGroupsCreated, error) {
+func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, opts ...ClientOption) (*CreateHostGroupsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createHostGroups",
 		Method:             "POST",
 		PathPattern:        "/devices/entities/host-groups/v1",
@@ -68,7 +70,12 @@ func (a *Client) CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGr
 		Reader:             &CreateHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -85,13 +92,12 @@ func (a *Client) CreateHostGroups(params *CreateHostGroupsParams) (*CreateHostGr
 /*
   DeleteHostGroups deletes a set of host groups by specifying their i ds
 */
-func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGroupsOK, error) {
+func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, opts ...ClientOption) (*DeleteHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteHostGroups",
 		Method:             "DELETE",
 		PathPattern:        "/devices/entities/host-groups/v1",
@@ -102,7 +108,12 @@ func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGr
 		Reader:             &DeleteHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -118,13 +129,12 @@ func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams) (*DeleteHostGr
 /*
   GetHostGroups retrieves a set of host groups by specifying their i ds
 */
-func (a *Client) GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, error) {
+func (a *Client) GetHostGroups(params *GetHostGroupsParams, opts ...ClientOption) (*GetHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getHostGroups",
 		Method:             "GET",
 		PathPattern:        "/devices/entities/host-groups/v1",
@@ -135,7 +145,12 @@ func (a *Client) GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, e
 		Reader:             &GetHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -151,13 +166,12 @@ func (a *Client) GetHostGroups(params *GetHostGroupsParams) (*GetHostGroupsOK, e
 /*
   PerformGroupAction performs the specified action on the host groups specified in the request
 */
-func (a *Client) PerformGroupAction(params *PerformGroupActionParams) (*PerformGroupActionOK, error) {
+func (a *Client) PerformGroupAction(params *PerformGroupActionParams, opts ...ClientOption) (*PerformGroupActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformGroupActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "performGroupAction",
 		Method:             "POST",
 		PathPattern:        "/devices/entities/host-group-actions/v1",
@@ -168,7 +182,12 @@ func (a *Client) PerformGroupAction(params *PerformGroupActionParams) (*PerformG
 		Reader:             &PerformGroupActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -184,13 +203,12 @@ func (a *Client) PerformGroupAction(params *PerformGroupActionParams) (*PerformG
 /*
   QueryCombinedGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams) (*QueryCombinedGroupMembersOK, error) {
+func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams, opts ...ClientOption) (*QueryCombinedGroupMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedGroupMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedGroupMembers",
 		Method:             "GET",
 		PathPattern:        "/devices/combined/host-group-members/v1",
@@ -201,7 +219,12 @@ func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersPara
 		Reader:             &QueryCombinedGroupMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -217,13 +240,12 @@ func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersPara
 /*
   QueryCombinedHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host groups which match the filter criteria
 */
-func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) (*QueryCombinedHostGroupsOK, error) {
+func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, opts ...ClientOption) (*QueryCombinedHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedHostGroups",
 		Method:             "GET",
 		PathPattern:        "/devices/combined/host-groups/v1",
@@ -234,7 +256,12 @@ func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) 
 		Reader:             &QueryCombinedHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +277,12 @@ func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams) 
 /*
   QueryGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroupMembersOK, error) {
+func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, opts ...ClientOption) (*QueryGroupMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryGroupMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryGroupMembers",
 		Method:             "GET",
 		PathPattern:        "/devices/queries/host-group-members/v1",
@@ -267,7 +293,12 @@ func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroup
 		Reader:             &QueryGroupMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -283,13 +314,12 @@ func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams) (*QueryGroup
 /*
   QueryHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host group i ds which match the filter criteria
 */
-func (a *Client) QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroupsOK, error) {
+func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, opts ...ClientOption) (*QueryHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryHostGroups",
 		Method:             "GET",
 		PathPattern:        "/devices/queries/host-groups/v1",
@@ -300,7 +330,12 @@ func (a *Client) QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroup
 		Reader:             &QueryHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -316,13 +351,12 @@ func (a *Client) QueryHostGroups(params *QueryHostGroupsParams) (*QueryHostGroup
 /*
   UpdateHostGroups updates host groups by specifying the ID of the group and details to update
 */
-func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams) (*UpdateHostGroupsOK, error) {
+func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams, opts ...ClientOption) (*UpdateHostGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateHostGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateHostGroups",
 		Method:             "PATCH",
 		PathPattern:        "/devices/entities/host-groups/v1",
@@ -333,7 +367,12 @@ func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams) (*UpdateHostGr
 		Reader:             &UpdateHostGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
