@@ -25,47 +25,50 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateEvents(params *AggregateEventsParams) (*AggregateEventsOK, error)
+	AggregateEvents(params *AggregateEventsParams, opts ...ClientOption) (*AggregateEventsOK, error)
 
-	AggregatePolicyRules(params *AggregatePolicyRulesParams) (*AggregatePolicyRulesOK, error)
+	AggregatePolicyRules(params *AggregatePolicyRulesParams, opts ...ClientOption) (*AggregatePolicyRulesOK, error)
 
-	AggregateRuleGroups(params *AggregateRuleGroupsParams) (*AggregateRuleGroupsOK, error)
+	AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...ClientOption) (*AggregateRuleGroupsOK, error)
 
-	AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK, error)
+	AggregateRules(params *AggregateRulesParams, opts ...ClientOption) (*AggregateRulesOK, error)
 
-	CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGroupCreated, error)
+	CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error)
 
-	DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGroupsOK, error)
+	DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error)
 
-	GetEvents(params *GetEventsParams) (*GetEventsOK, error)
+	GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error)
 
-	GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewallFieldsOK, error)
+	GetFirewallFields(params *GetFirewallFieldsParams, opts ...ClientOption) (*GetFirewallFieldsOK, error)
 
-	GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, error)
+	GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) (*GetPlatformsOK, error)
 
-	GetPolicyContainers(params *GetPolicyContainersParams) (*GetPolicyContainersOK, error)
+	GetPolicyContainers(params *GetPolicyContainersParams, opts ...ClientOption) (*GetPolicyContainersOK, error)
 
-	GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, error)
+	GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error)
 
-	GetRules(params *GetRulesParams) (*GetRulesOK, error)
+	GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error)
 
-	QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error)
+	QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*QueryEventsOK, error)
 
-	QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryFirewallFieldsOK, error)
+	QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...ClientOption) (*QueryFirewallFieldsOK, error)
 
-	QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK, error)
+	QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error)
 
-	QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyRulesOK, error)
+	QueryPolicyRules(params *QueryPolicyRulesParams, opts ...ClientOption) (*QueryPolicyRulesOK, error)
 
-	QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroupsOK, error)
+	QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error)
 
-	QueryRules(params *QueryRulesParams) (*QueryRulesOK, error)
+	QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error)
 
-	UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
+	UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
 
-	UpdateRuleGroup(params *UpdateRuleGroupParams) (*UpdateRuleGroupOK, error)
+	UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -73,13 +76,12 @@ type ClientService interface {
 /*
   AggregateEvents aggregates events for customer
 */
-func (a *Client) AggregateEvents(params *AggregateEventsParams) (*AggregateEventsOK, error) {
+func (a *Client) AggregateEvents(params *AggregateEventsParams, opts ...ClientOption) (*AggregateEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateEventsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "aggregate-events",
 		Method:             "POST",
 		PathPattern:        "/fwmgr/aggregates/events/GET/v1",
@@ -90,7 +92,12 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams) (*AggregateEvent
 		Reader:             &AggregateEventsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -106,13 +113,12 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams) (*AggregateEvent
 /*
   AggregatePolicyRules aggregates rules within a policy for customer
 */
-func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams) (*AggregatePolicyRulesOK, error) {
+func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, opts ...ClientOption) (*AggregatePolicyRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatePolicyRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "aggregate-policy-rules",
 		Method:             "POST",
 		PathPattern:        "/fwmgr/aggregates/policy-rules/GET/v1",
@@ -123,7 +129,12 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams) (*Aggr
 		Reader:             &AggregatePolicyRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -139,13 +150,12 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams) (*Aggr
 /*
   AggregateRuleGroups aggregates rule groups for customer
 */
-func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams) (*AggregateRuleGroupsOK, error) {
+func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...ClientOption) (*AggregateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateRuleGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "aggregate-rule-groups",
 		Method:             "POST",
 		PathPattern:        "/fwmgr/aggregates/rule-groups/GET/v1",
@@ -156,7 +166,12 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams) (*Aggreg
 		Reader:             &AggregateRuleGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -172,13 +187,12 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams) (*Aggreg
 /*
   AggregateRules aggregates rules for customer
 */
-func (a *Client) AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK, error) {
+func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOption) (*AggregateRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "aggregate-rules",
 		Method:             "POST",
 		PathPattern:        "/fwmgr/aggregates/rules/GET/v1",
@@ -189,7 +203,12 @@ func (a *Client) AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK
 		Reader:             &AggregateRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -205,13 +224,12 @@ func (a *Client) AggregateRules(params *AggregateRulesParams) (*AggregateRulesOK
 /*
   CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
 */
-func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGroupCreated, error) {
+func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleGroupParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "create-rule-group",
 		Method:             "POST",
 		PathPattern:        "/fwmgr/entities/rule-groups/v1",
@@ -222,7 +240,12 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGrou
 		Reader:             &CreateRuleGroupReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -239,13 +262,12 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams) (*CreateRuleGrou
 /*
   DeleteRuleGroups deletes rule group entities by ID
 */
-func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGroupsOK, error) {
+func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "delete-rule-groups",
 		Method:             "DELETE",
 		PathPattern:        "/fwmgr/entities/rule-groups/v1",
@@ -256,7 +278,12 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGr
 		Reader:             &DeleteRuleGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -272,13 +299,12 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams) (*DeleteRuleGr
 /*
   GetEvents gets events entities by ID and optionally version
 */
-func (a *Client) GetEvents(params *GetEventsParams) (*GetEventsOK, error) {
+func (a *Client) GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEventsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-events",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/events/v1",
@@ -289,7 +315,12 @@ func (a *Client) GetEvents(params *GetEventsParams) (*GetEventsOK, error) {
 		Reader:             &GetEventsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -305,13 +336,12 @@ func (a *Client) GetEvents(params *GetEventsParams) (*GetEventsOK, error) {
 /*
   GetFirewallFields gets the firewall field specifications by ID
 */
-func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewallFieldsOK, error) {
+func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...ClientOption) (*GetFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFirewallFieldsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-firewall-fields",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/firewall-fields/v1",
@@ -322,7 +352,12 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewal
 		Reader:             &GetFirewallFieldsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -338,13 +373,12 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams) (*GetFirewal
 /*
   GetPlatforms gets platforms by ID e g windows or mac or droid
 */
-func (a *Client) GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, error) {
+func (a *Client) GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) (*GetPlatformsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-platforms",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/platforms/v1",
@@ -355,7 +389,12 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, erro
 		Reader:             &GetPlatformsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -371,13 +410,12 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams) (*GetPlatformsOK, erro
 /*
   GetPolicyContainers gets policy container entities by policy ID
 */
-func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams) (*GetPolicyContainersOK, error) {
+func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, opts ...ClientOption) (*GetPolicyContainersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPolicyContainersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-policy-containers",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/policies/v1",
@@ -388,7 +426,12 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams) (*GetPol
 		Reader:             &GetPolicyContainersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -404,13 +447,12 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams) (*GetPol
 /*
   GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
 */
-func (a *Client) GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, error) {
+func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rule-groups",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/rule-groups/v1",
@@ -421,7 +463,12 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, e
 		Reader:             &GetRuleGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -437,13 +484,12 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams) (*GetRuleGroupsOK, e
 /*
   GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
 */
-func (a *Client) GetRules(params *GetRulesParams) (*GetRulesOK, error) {
+func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rules",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/entities/rules/v1",
@@ -454,7 +500,12 @@ func (a *Client) GetRules(params *GetRulesParams) (*GetRulesOK, error) {
 		Reader:             &GetRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -470,13 +521,12 @@ func (a *Client) GetRules(params *GetRulesParams) (*GetRulesOK, error) {
 /*
   QueryEvents finds all event i ds matching the query with filter
 */
-func (a *Client) QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error) {
+func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*QueryEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryEventsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-events",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/events/v1",
@@ -487,7 +537,12 @@ func (a *Client) QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error) 
 		Reader:             &QueryEventsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -503,13 +558,12 @@ func (a *Client) QueryEvents(params *QueryEventsParams) (*QueryEventsOK, error) 
 /*
   QueryFirewallFields gets the firewall field specification i ds for the provided platform
 */
-func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryFirewallFieldsOK, error) {
+func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...ClientOption) (*QueryFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallFieldsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-firewall-fields",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/firewall-fields/v1",
@@ -520,7 +574,12 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryF
 		Reader:             &QueryFirewallFieldsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -536,13 +595,12 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams) (*QueryF
 /*
   QueryPlatforms gets the list of platform names
 */
-func (a *Client) QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK, error) {
+func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPlatformsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-platforms",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/platforms/v1",
@@ -553,7 +611,12 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK
 		Reader:             &QueryPlatformsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -569,13 +632,12 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams) (*QueryPlatformsOK
 /*
   QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
 */
-func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyRulesOK, error) {
+func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, opts ...ClientOption) (*QueryPolicyRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPolicyRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-policy-rules",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/policy-rules/v1",
@@ -586,7 +648,12 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyR
 		Reader:             &QueryPolicyRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -602,13 +669,12 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams) (*QueryPolicyR
 /*
   QueryRuleGroups finds all rule group i ds matching the query with filter
 */
-func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroupsOK, error) {
+func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rule-groups",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/rule-groups/v1",
@@ -619,7 +685,12 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroup
 		Reader:             &QueryRuleGroupsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -635,13 +706,12 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams) (*QueryRuleGroup
 /*
   QueryRules finds all rule i ds matching the query with filter
 */
-func (a *Client) QueryRules(params *QueryRulesParams) (*QueryRulesOK, error) {
+func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rules",
 		Method:             "GET",
 		PathPattern:        "/fwmgr/queries/rules/v1",
@@ -652,7 +722,12 @@ func (a *Client) QueryRules(params *QueryRulesParams) (*QueryRulesOK, error) {
 		Reader:             &QueryRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -668,13 +743,12 @@ func (a *Client) QueryRules(params *QueryRulesParams) (*QueryRulesOK, error) {
 /*
   UpdatePolicyContainer updates an identified policy container
 */
-func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
+func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePolicyContainerParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "update-policy-container",
 		Method:             "PUT",
 		PathPattern:        "/fwmgr/entities/policies/v1",
@@ -685,7 +759,12 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*Up
 		Reader:             &UpdatePolicyContainerReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -703,13 +782,12 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams) (*Up
 /*
   UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
 */
-func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams) (*UpdateRuleGroupOK, error) {
+func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRuleGroupParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "update-rule-group",
 		Method:             "PATCH",
 		PathPattern:        "/fwmgr/entities/rule-groups/v1",
@@ -720,7 +798,12 @@ func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams) (*UpdateRuleGrou
 		Reader:             &UpdateRuleGroupReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

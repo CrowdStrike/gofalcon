@@ -23,11 +23,14 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulnerabilitiesOK, error)
+	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
 
-	QueryVulnerabilities(params *QueryVulnerabilitiesParams) (*QueryVulnerabilitiesOK, error)
+	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -35,13 +38,12 @@ type ClientService interface {
 /*
   GetVulnerabilities gets details on vulnerabilities by providing one or more i ds
 */
-func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulnerabilitiesOK, error) {
+func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetVulnerabilitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getVulnerabilities",
 		Method:             "GET",
 		PathPattern:        "/spotlight/entities/vulnerabilities/v2",
@@ -52,7 +54,12 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulne
 		Reader:             &GetVulnerabilitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -68,13 +75,12 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams) (*GetVulne
 /*
   QueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability i ds which match the filter criteria
 */
-func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams) (*QueryVulnerabilitiesOK, error) {
+func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryVulnerabilitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryVulnerabilities",
 		Method:             "GET",
 		PathPattern:        "/spotlight/queries/vulnerabilities/v1",
@@ -85,7 +91,12 @@ func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams) (*Quer
 		Reader:             &QueryVulnerabilitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

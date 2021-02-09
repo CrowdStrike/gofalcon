@@ -25,25 +25,28 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams) (*CreateOrUpdateAWSSettingsCreated, error)
+	CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams, opts ...ClientOption) (*CreateOrUpdateAWSSettingsCreated, error)
 
-	DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSAccountsOK, error)
+	DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...ClientOption) (*DeleteAWSAccountsOK, error)
 
-	GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK, error)
+	GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOption) (*GetAWSAccountsOK, error)
 
-	GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK, error)
+	GetAWSSettings(params *GetAWSSettingsParams, opts ...ClientOption) (*GetAWSSettingsOK, error)
 
-	ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*ProvisionAWSAccountsCreated, error)
+	ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, opts ...ClientOption) (*ProvisionAWSAccountsCreated, error)
 
-	QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAccountsOK, error)
+	QueryAWSAccounts(params *QueryAWSAccountsParams, opts ...ClientOption) (*QueryAWSAccountsOK, error)
 
-	QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*QueryAWSAccountsForIDsOK, error)
+	QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, opts ...ClientOption) (*QueryAWSAccountsForIDsOK, error)
 
-	UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSAccountsOK, error)
+	UpdateAWSAccounts(params *UpdateAWSAccountsParams, opts ...ClientOption) (*UpdateAWSAccountsOK, error)
 
-	VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams) (*VerifyAWSAccountAccessOK, error)
+	VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, opts ...ClientOption) (*VerifyAWSAccountAccessOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,13 +54,12 @@ type ClientService interface {
 /*
   CreateOrUpdateAWSSettings creates or update global settings which are applicable to all provisioned a w s accounts
 */
-func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams) (*CreateOrUpdateAWSSettingsCreated, error) {
+func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams, opts ...ClientOption) (*CreateOrUpdateAWSSettingsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateOrUpdateAWSSettingsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateOrUpdateAWSSettings",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-aws/entities/settings/v1",
@@ -68,7 +70,12 @@ func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsPara
 		Reader:             &CreateOrUpdateAWSSettingsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -85,13 +92,12 @@ func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsPara
 /*
   DeleteAWSAccounts deletes a set of a w s accounts by specifying their i ds
 */
-func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSAccountsOK, error) {
+func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...ClientOption) (*DeleteAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAWSAccountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteAWSAccounts",
 		Method:             "DELETE",
 		PathPattern:        "/cloud-connect-aws/entities/accounts/v1",
@@ -102,7 +108,12 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSA
 		Reader:             &DeleteAWSAccountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -118,13 +129,12 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams) (*DeleteAWSA
 /*
   GetAWSAccounts retrieves a set of a w s accounts by specifying their i ds
 */
-func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK, error) {
+func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOption) (*GetAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAWSAccountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetAWSAccounts",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-aws/entities/accounts/v1",
@@ -135,7 +145,12 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK
 		Reader:             &GetAWSAccountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -151,13 +166,12 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams) (*GetAWSAccountsOK
 /*
   GetAWSSettings retrieves a set of global settings which are applicable to all provisioned a w s accounts
 */
-func (a *Client) GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK, error) {
+func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, opts ...ClientOption) (*GetAWSSettingsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAWSSettingsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetAWSSettings",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-aws/combined/settings/v1",
@@ -168,7 +182,12 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK
 		Reader:             &GetAWSSettingsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -184,13 +203,12 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams) (*GetAWSSettingsOK
 /*
   ProvisionAWSAccounts provisions a w s accounts by specifying details about the accounts to provision
 */
-func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*ProvisionAWSAccountsCreated, error) {
+func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, opts ...ClientOption) (*ProvisionAWSAccountsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProvisionAWSAccountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "ProvisionAWSAccounts",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-aws/entities/accounts/v1",
@@ -201,7 +219,12 @@ func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*Prov
 		Reader:             &ProvisionAWSAccountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -218,13 +241,12 @@ func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams) (*Prov
 /*
   QueryAWSAccounts searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s accounts which match the filter criteria
 */
-func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAccountsOK, error) {
+func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, opts ...ClientOption) (*QueryAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAWSAccountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryAWSAccounts",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-aws/combined/accounts/v1",
@@ -235,7 +257,12 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAcco
 		Reader:             &QueryAWSAccountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -251,13 +278,12 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams) (*QueryAWSAcco
 /*
   QueryAWSAccountsForIDs searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s account i ds which match the filter criteria
 */
-func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*QueryAWSAccountsForIDsOK, error) {
+func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, opts ...ClientOption) (*QueryAWSAccountsForIDsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAWSAccountsForIDsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryAWSAccountsForIDs",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-aws/queries/accounts/v1",
@@ -268,7 +294,12 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*
 		Reader:             &QueryAWSAccountsForIDsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -284,13 +315,12 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams) (*
 /*
   UpdateAWSAccounts updates a w s accounts by specifying the ID of the account and details to update
 */
-func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSAccountsOK, error) {
+func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, opts ...ClientOption) (*UpdateAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAWSAccountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateAWSAccounts",
 		Method:             "PATCH",
 		PathPattern:        "/cloud-connect-aws/entities/accounts/v1",
@@ -301,7 +331,12 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSA
 		Reader:             &UpdateAWSAccountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -317,13 +352,12 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams) (*UpdateAWSA
 /*
   VerifyAWSAccountAccess performs an access verification check on the specified a w s account i ds
 */
-func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams) (*VerifyAWSAccountAccessOK, error) {
+func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, opts ...ClientOption) (*VerifyAWSAccountAccessOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerifyAWSAccountAccessParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "VerifyAWSAccountAccess",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-aws/entities/verify-account-access/v1",
@@ -334,7 +368,12 @@ func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams) (*
 		Reader:             &VerifyAWSAccountAccessReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

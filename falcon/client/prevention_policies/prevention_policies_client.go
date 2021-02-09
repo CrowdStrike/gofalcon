@@ -25,27 +25,30 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreatePreventionPolicies(params *CreatePreventionPoliciesParams) (*CreatePreventionPoliciesCreated, error)
+	CreatePreventionPolicies(params *CreatePreventionPoliciesParams, opts ...ClientOption) (*CreatePreventionPoliciesCreated, error)
 
-	DeletePreventionPolicies(params *DeletePreventionPoliciesParams) (*DeletePreventionPoliciesOK, error)
+	DeletePreventionPolicies(params *DeletePreventionPoliciesParams, opts ...ClientOption) (*DeletePreventionPoliciesOK, error)
 
-	GetPreventionPolicies(params *GetPreventionPoliciesParams) (*GetPreventionPoliciesOK, error)
+	GetPreventionPolicies(params *GetPreventionPoliciesParams, opts ...ClientOption) (*GetPreventionPoliciesOK, error)
 
-	PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams) (*PerformPreventionPoliciesActionOK, error)
+	PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams, opts ...ClientOption) (*PerformPreventionPoliciesActionOK, error)
 
-	QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams) (*QueryCombinedPreventionPoliciesOK, error)
+	QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams, opts ...ClientOption) (*QueryCombinedPreventionPoliciesOK, error)
 
-	QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams) (*QueryCombinedPreventionPolicyMembersOK, error)
+	QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams, opts ...ClientOption) (*QueryCombinedPreventionPolicyMembersOK, error)
 
-	QueryPreventionPolicies(params *QueryPreventionPoliciesParams) (*QueryPreventionPoliciesOK, error)
+	QueryPreventionPolicies(params *QueryPreventionPoliciesParams, opts ...ClientOption) (*QueryPreventionPoliciesOK, error)
 
-	QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams) (*QueryPreventionPolicyMembersOK, error)
+	QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams, opts ...ClientOption) (*QueryPreventionPolicyMembersOK, error)
 
-	SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams) (*SetPreventionPoliciesPrecedenceOK, error)
+	SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams, opts ...ClientOption) (*SetPreventionPoliciesPrecedenceOK, error)
 
-	UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams) (*UpdatePreventionPoliciesOK, error)
+	UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams, opts ...ClientOption) (*UpdatePreventionPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,13 +56,12 @@ type ClientService interface {
 /*
   CreatePreventionPolicies creates prevention policies by specifying details about the policy to create
 */
-func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams) (*CreatePreventionPoliciesCreated, error) {
+func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams, opts ...ClientOption) (*CreatePreventionPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createPreventionPolicies",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/prevention/v1",
@@ -70,7 +72,12 @@ func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams
 		Reader:             &CreatePreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -87,13 +94,12 @@ func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams
 /*
   DeletePreventionPolicies deletes a set of prevention policies by specifying their i ds
 */
-func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams) (*DeletePreventionPoliciesOK, error) {
+func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams, opts ...ClientOption) (*DeletePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deletePreventionPolicies",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/prevention/v1",
@@ -104,7 +110,12 @@ func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams
 		Reader:             &DeletePreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -120,13 +131,12 @@ func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams
 /*
   GetPreventionPolicies retrieves a set of prevention policies by specifying their i ds
 */
-func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams) (*GetPreventionPoliciesOK, error) {
+func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, opts ...ClientOption) (*GetPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getPreventionPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/prevention/v1",
@@ -137,7 +147,12 @@ func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams) (*Ge
 		Reader:             &GetPreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -153,13 +168,12 @@ func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams) (*Ge
 /*
   PerformPreventionPoliciesAction performs the specified action on the prevention policies specified in the request
 */
-func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams) (*PerformPreventionPoliciesActionOK, error) {
+func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams, opts ...ClientOption) (*PerformPreventionPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformPreventionPoliciesActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "performPreventionPoliciesAction",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/prevention-actions/v1",
@@ -170,7 +184,12 @@ func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPolici
 		Reader:             &PerformPreventionPoliciesActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -186,13 +205,12 @@ func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPolici
 /*
   QueryCombinedPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policies which match the filter criteria
 */
-func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams) (*QueryCombinedPreventionPoliciesOK, error) {
+func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams, opts ...ClientOption) (*QueryCombinedPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedPreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedPreventionPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/prevention/v1",
@@ -203,7 +221,12 @@ func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPrevention
 		Reader:             &QueryCombinedPreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -219,13 +242,12 @@ func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPrevention
 /*
   QueryCombinedPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams) (*QueryCombinedPreventionPolicyMembersOK, error) {
+func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams, opts ...ClientOption) (*QueryCombinedPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedPreventionPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedPreventionPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/prevention-members/v1",
@@ -236,7 +258,12 @@ func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreve
 		Reader:             &QueryCombinedPreventionPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -252,13 +279,12 @@ func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreve
 /*
   QueryPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policy i ds which match the filter criteria
 */
-func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams) (*QueryPreventionPoliciesOK, error) {
+func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, opts ...ClientOption) (*QueryPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryPreventionPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/prevention/v1",
@@ -269,7 +295,12 @@ func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams) 
 		Reader:             &QueryPreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -285,13 +316,12 @@ func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams) 
 /*
   QueryPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams) (*QueryPreventionPolicyMembersOK, error) {
+func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams, opts ...ClientOption) (*QueryPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPreventionPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryPreventionPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/prevention-members/v1",
@@ -302,7 +332,12 @@ func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembe
 		Reader:             &QueryPreventionPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -318,13 +353,12 @@ func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembe
 /*
   SetPreventionPoliciesPrecedence sets the precedence of prevention policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams) (*SetPreventionPoliciesPrecedenceOK, error) {
+func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams, opts ...ClientOption) (*SetPreventionPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetPreventionPoliciesPrecedenceParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "setPreventionPoliciesPrecedence",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/prevention-precedence/v1",
@@ -335,7 +369,12 @@ func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPr
 		Reader:             &SetPreventionPoliciesPrecedenceReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +390,12 @@ func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPr
 /*
   UpdatePreventionPolicies updates prevention policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams) (*UpdatePreventionPoliciesOK, error) {
+func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams, opts ...ClientOption) (*UpdatePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePreventionPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updatePreventionPolicies",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/prevention/v1",
@@ -368,7 +406,12 @@ func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams
 		Reader:             &UpdatePreventionPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

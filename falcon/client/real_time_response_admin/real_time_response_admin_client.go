@@ -25,31 +25,34 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreated, error)
+	BatchAdminCmd(params *BatchAdminCmdParams, opts ...ClientOption) (*BatchAdminCmdCreated, error)
 
-	RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams) (*RTRCheckAdminCommandStatusOK, error)
+	RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams, opts ...ClientOption) (*RTRCheckAdminCommandStatusOK, error)
 
-	RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreatePutFilesOK, error)
+	RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...ClientOption) (*RTRCreatePutFilesOK, error)
 
-	RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScriptsOK, error)
+	RTRCreateScripts(params *RTRCreateScriptsParams, opts ...ClientOption) (*RTRCreateScriptsOK, error)
 
-	RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeletePutFilesOK, error)
+	RTRDeletePutFiles(params *RTRDeletePutFilesParams, opts ...ClientOption) (*RTRDeletePutFilesOK, error)
 
-	RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScriptsOK, error)
+	RTRDeleteScripts(params *RTRDeleteScriptsParams, opts ...ClientOption) (*RTRDeleteScriptsOK, error)
 
-	RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*RTRExecuteAdminCommandCreated, error)
+	RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, opts ...ClientOption) (*RTRExecuteAdminCommandCreated, error)
 
-	RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK, error)
+	RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error)
 
-	RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, error)
+	RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error)
 
-	RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFilesOK, error)
+	RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOption) (*RTRListPutFilesOK, error)
 
-	RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK, error)
+	RTRListScripts(params *RTRListScriptsParams, opts ...ClientOption) (*RTRListScriptsOK, error)
 
-	RTRUpdateScripts(params *RTRUpdateScriptsParams) (*RTRUpdateScriptsOK, error)
+	RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,13 +60,12 @@ type ClientService interface {
 /*
   BatchAdminCmd batches executes a r t r administrator command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreated, error) {
+func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, opts ...ClientOption) (*BatchAdminCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchAdminCmdParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchAdminCmd",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-admin-command/v1",
@@ -74,7 +76,12 @@ func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreat
 		Reader:             &BatchAdminCmdReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -91,13 +98,12 @@ func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams) (*BatchAdminCmdCreat
 /*
   RTRCheckAdminCommandStatus gets status of an executed r t r administrator command on a single host
 */
-func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams) (*RTRCheckAdminCommandStatusOK, error) {
+func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams, opts ...ClientOption) (*RTRCheckAdminCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckAdminCommandStatusParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-CheckAdminCommandStatus",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/admin-command/v1",
@@ -108,7 +114,12 @@ func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusPa
 		Reader:             &RTRCheckAdminCommandStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -124,13 +135,12 @@ func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusPa
 /*
   RTRCreatePutFiles uploads a new put file to use for the r t r put command
 */
-func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreatePutFilesOK, error) {
+func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...ClientOption) (*RTRCreatePutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCreatePutFilesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-CreatePut-Files",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/put-files/v1",
@@ -141,7 +151,12 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreateP
 		Reader:             &RTRCreatePutFilesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -157,13 +172,12 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams) (*RTRCreateP
 /*
   RTRCreateScripts uploads a new custom script to use for the r t r runscript command
 */
-func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScriptsOK, error) {
+func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, opts ...ClientOption) (*RTRCreateScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCreateScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-CreateScripts",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/scripts/v1",
@@ -174,7 +188,12 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScr
 		Reader:             &RTRCreateScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -190,13 +209,12 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams) (*RTRCreateScr
 /*
   RTRDeletePutFiles deletes a put file based on the ID given can only delete one file at a time
 */
-func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeletePutFilesOK, error) {
+func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, opts ...ClientOption) (*RTRDeletePutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeletePutFilesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-DeletePut-Files",
 		Method:             "DELETE",
 		PathPattern:        "/real-time-response/entities/put-files/v1",
@@ -207,7 +225,12 @@ func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeleteP
 		Reader:             &RTRDeletePutFilesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -223,13 +246,12 @@ func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams) (*RTRDeleteP
 /*
   RTRDeleteScripts deletes a custom script based on the ID given can only delete one script at a time
 */
-func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScriptsOK, error) {
+func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, opts ...ClientOption) (*RTRDeleteScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-DeleteScripts",
 		Method:             "DELETE",
 		PathPattern:        "/real-time-response/entities/scripts/v1",
@@ -240,7 +262,12 @@ func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScr
 		Reader:             &RTRDeleteScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -256,13 +283,12 @@ func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams) (*RTRDeleteScr
 /*
   RTRExecuteAdminCommand executes a r t r administrator command on a single host
 */
-func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*RTRExecuteAdminCommandCreated, error) {
+func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, opts ...ClientOption) (*RTRExecuteAdminCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteAdminCommandParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ExecuteAdminCommand",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/admin-command/v1",
@@ -273,7 +299,12 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*
 		Reader:             &RTRExecuteAdminCommandReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -290,13 +321,12 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams) (*
 /*
   RTRGetPutFiles gets put files based on the ID s given these are used for the r t r put command
 */
-func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK, error) {
+func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetPutFilesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-GetPut-Files",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/put-files/v1",
@@ -307,7 +337,12 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK
 		Reader:             &RTRGetPutFilesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -323,13 +358,12 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams) (*RTRGetPutFilesOK
 /*
   RTRGetScripts gets custom scripts based on the ID s given these are used for the r t r runscript command
 */
-func (a *Client) RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, error) {
+func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-GetScripts",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/scripts/v1",
@@ -340,7 +374,12 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, e
 		Reader:             &RTRGetScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -356,13 +395,12 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams) (*RTRGetScriptsOK, e
 /*
   RTRListPutFiles gets a list of put file ID s that are available to the user for the put command
 */
-func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFilesOK, error) {
+func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOption) (*RTRListPutFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListPutFilesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListPut-Files",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/queries/put-files/v1",
@@ -373,7 +411,12 @@ func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFile
 		Reader:             &RTRListPutFilesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -389,13 +432,12 @@ func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams) (*RTRListPutFile
 /*
   RTRListScripts gets a list of custom script ID s that are available to the user for the runscript command
 */
-func (a *Client) RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK, error) {
+func (a *Client) RTRListScripts(params *RTRListScriptsParams, opts ...ClientOption) (*RTRListScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListScripts",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/queries/scripts/v1",
@@ -406,7 +448,12 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK
 		Reader:             &RTRListScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -422,13 +469,12 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams) (*RTRListScriptsOK
 /*
   RTRUpdateScripts uploads a new scripts to replace an existing one
 */
-func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams) (*RTRUpdateScriptsOK, error) {
+func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRUpdateScriptsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-UpdateScripts",
 		Method:             "PATCH",
 		PathPattern:        "/real-time-response/entities/scripts/v1",
@@ -439,7 +485,12 @@ func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams) (*RTRUpdateScr
 		Reader:             &RTRUpdateScriptsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

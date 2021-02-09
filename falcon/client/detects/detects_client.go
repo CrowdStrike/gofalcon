@@ -23,19 +23,22 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateDetections(params *AggregateDetectionsParams) (*AggregateDetectionsOK, error)
+	AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error)
 
-	GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAggregateDetectsOK, error)
+	GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error)
 
-	GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetectSummariesOK, error)
+	GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error)
 
-	QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams) (*QueryDetectionIdsByFilterOK, error)
+	QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error)
 
-	QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, error)
+	QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error)
 
-	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params) (*UpdateDetectsByIdsV2OK, error)
+	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,13 +46,12 @@ type ClientService interface {
 /*
   AggregateDetections retrieves aggregate detection values based on the matched filter
 */
-func (a *Client) AggregateDetections(params *AggregateDetectionsParams) (*AggregateDetectionsOK, error) {
+func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateDetectionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateDetections",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/detects/GET/v1",
@@ -60,7 +62,12 @@ func (a *Client) AggregateDetections(params *AggregateDetectionsParams) (*Aggreg
 		Reader:             &AggregateDetectionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -76,13 +83,12 @@ func (a *Client) AggregateDetections(params *AggregateDetectionsParams) (*Aggreg
 /*
   GetAggregateDetects gets detect aggregates as specified via json in request body
 */
-func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAggregateDetectsOK, error) {
+func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAggregateDetectsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetAggregateDetects",
 		Method:             "POST",
 		PathPattern:        "/detects/aggregates/detects/GET/v1",
@@ -93,7 +99,12 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAgg
 		Reader:             &GetAggregateDetectsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -109,13 +120,12 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams) (*GetAgg
 /*
   GetDetectSummaries views information about detections
 */
-func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetectSummariesOK, error) {
+func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDetectSummariesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetDetectSummaries",
 		Method:             "POST",
 		PathPattern:        "/detects/entities/summaries/GET/v1",
@@ -126,7 +136,12 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetec
 		Reader:             &GetDetectSummariesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -142,13 +157,12 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams) (*GetDetec
 /*
   QueryDetectionIdsByFilter retrieves detections ids that match the provided f q l filter criteria with scrolling enabled
 */
-func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams) (*QueryDetectionIdsByFilterOK, error) {
+func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetectionIdsByFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryDetectionIdsByFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/detects/v1",
@@ -159,7 +173,12 @@ func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterPara
 		Reader:             &QueryDetectionIdsByFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -175,13 +194,12 @@ func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterPara
 /*
   QueryDetects searches for detection i ds that match a given query
 */
-func (a *Client) QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, error) {
+func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetectsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryDetects",
 		Method:             "GET",
 		PathPattern:        "/detects/queries/detects/v1",
@@ -192,7 +210,12 @@ func (a *Client) QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, erro
 		Reader:             &QueryDetectsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -208,13 +231,12 @@ func (a *Client) QueryDetects(params *QueryDetectsParams) (*QueryDetectsOK, erro
 /*
   UpdateDetectsByIdsV2 modifies the state assignee and visibility of detections
 */
-func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params) (*UpdateDetectsByIdsV2OK, error) {
+func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDetectsByIdsV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateDetectsByIdsV2",
 		Method:             "PATCH",
 		PathPattern:        "/detects/entities/detects/v2",
@@ -225,7 +247,12 @@ func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params) (*Upda
 		Reader:             &UpdateDetectsByIdsV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

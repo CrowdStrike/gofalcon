@@ -25,17 +25,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer) (*DownloadSensorInstallerByIDOK, error)
+	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDOK, error)
 
-	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams) (*GetCombinedSensorInstallersByQueryOK, error)
+	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryOK, error)
 
-	GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams) (*GetSensorInstallersByQueryOK, error)
+	GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, opts ...ClientOption) (*GetSensorInstallersByQueryOK, error)
 
-	GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams) (*GetSensorInstallersCCIDByQueryOK, error)
+	GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, opts ...ClientOption) (*GetSensorInstallersCCIDByQueryOK, error)
 
-	GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error)
+	GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, opts ...ClientOption) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,13 +46,12 @@ type ClientService interface {
 /*
   DownloadSensorInstallerByID downloads sensor installer by s h a256 ID
 */
-func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer) (*DownloadSensorInstallerByIDOK, error) {
+func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadSensorInstallerByIDParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DownloadSensorInstallerById",
 		Method:             "GET",
 		PathPattern:        "/sensors/entities/download-installer/v1",
@@ -60,7 +62,12 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 		Reader:             &DownloadSensorInstallerByIDReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -76,13 +83,12 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 /*
   GetCombinedSensorInstallersByQuery gets sensor installer details by provided query
 */
-func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams) (*GetCombinedSensorInstallersByQueryOK, error) {
+func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCombinedSensorInstallersByQueryParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCombinedSensorInstallersByQuery",
 		Method:             "GET",
 		PathPattern:        "/sensors/combined/installers/v1",
@@ -93,7 +99,12 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 		Reader:             &GetCombinedSensorInstallersByQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -109,13 +120,12 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 /*
   GetSensorInstallersByQuery gets sensor installer i ds by provided query
 */
-func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams) (*GetSensorInstallersByQueryOK, error) {
+func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, opts ...ClientOption) (*GetSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersByQueryParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSensorInstallersByQuery",
 		Method:             "GET",
 		PathPattern:        "/sensors/queries/installers/v1",
@@ -126,7 +136,12 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 		Reader:             &GetSensorInstallersByQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -142,13 +157,12 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 /*
   GetSensorInstallersCCIDByQuery gets c c ID to use with sensor installers
 */
-func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams) (*GetSensorInstallersCCIDByQueryOK, error) {
+func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, opts ...ClientOption) (*GetSensorInstallersCCIDByQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersCCIDByQueryParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSensorInstallersCCIDByQuery",
 		Method:             "GET",
 		PathPattern:        "/sensors/queries/installers/ccid/v1",
@@ -159,7 +173,12 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 		Reader:             &GetSensorInstallersCCIDByQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -175,13 +194,12 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 /*
   GetSensorInstallersEntities gets sensor installer details by provided s h a256 i ds
 */
-func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error) {
+func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, opts ...ClientOption) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorInstallersEntitiesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSensorInstallersEntities",
 		Method:             "GET",
 		PathPattern:        "/sensors/entities/installers/v1",
@@ -192,7 +210,12 @@ func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntities
 		Reader:             &GetSensorInstallersEntitiesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}

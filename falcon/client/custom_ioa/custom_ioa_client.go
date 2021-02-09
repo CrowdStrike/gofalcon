@@ -25,45 +25,48 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error)
+	CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleCreated, error)
 
-	CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*CreateRuleGroupMixin0Created, error)
+	CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, opts ...ClientOption) (*CreateRuleGroupMixin0Created, error)
 
-	DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*DeleteRuleGroupsMixin0OK, error)
+	DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, opts ...ClientOption) (*DeleteRuleGroupsMixin0OK, error)
 
-	DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error)
+	DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error)
 
-	GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error)
+	GetPatterns(params *GetPatternsParams, opts ...ClientOption) (*GetPatternsOK, error)
 
-	GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatformsMixin0OK, error)
+	GetPlatformsMixin0(params *GetPlatformsMixin0Params, opts ...ClientOption) (*GetPlatformsMixin0OK, error)
 
-	GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRuleGroupsMixin0OK, error)
+	GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, opts ...ClientOption) (*GetRuleGroupsMixin0OK, error)
 
-	GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, error)
+	GetRuleTypes(params *GetRuleTypesParams, opts ...ClientOption) (*GetRuleTypesOK, error)
 
-	GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error)
+	GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*GetRulesGetOK, error)
 
-	GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK, error)
+	GetRulesMixin0(params *GetRulesMixin0Params, opts ...ClientOption) (*GetRulesMixin0OK, error)
 
-	QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, error)
+	QueryPatterns(params *QueryPatternsParams, opts ...ClientOption) (*QueryPatternsOK, error)
 
-	QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*QueryPlatformsMixin0OK, error)
+	QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, opts ...ClientOption) (*QueryPlatformsMixin0OK, error)
 
-	QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryRuleGroupsFullOK, error)
+	QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, opts ...ClientOption) (*QueryRuleGroupsFullOK, error)
 
-	QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*QueryRuleGroupsMixin0OK, error)
+	QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, opts ...ClientOption) (*QueryRuleGroupsMixin0OK, error)
 
-	QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK, error)
+	QueryRuleTypes(params *QueryRuleTypesParams, opts ...ClientOption) (*QueryRuleTypesOK, error)
 
-	QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMixin0OK, error)
+	QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...ClientOption) (*QueryRulesMixin0OK, error)
 
-	UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*UpdateRuleGroupMixin0OK, error)
+	UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, opts ...ClientOption) (*UpdateRuleGroupMixin0OK, error)
 
-	UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error)
+	UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error)
 
-	Validate(params *ValidateParams) (*ValidateOK, error)
+	Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -71,13 +74,12 @@ type ClientService interface {
 /*
   CreateRule creates a rule within a rule group returns the rule
 */
-func (a *Client) CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error) {
+func (a *Client) CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "create-rule",
 		Method:             "POST",
 		PathPattern:        "/ioarules/entities/rules/v1",
@@ -88,7 +90,12 @@ func (a *Client) CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error
 		Reader:             &CreateRuleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -105,13 +112,12 @@ func (a *Client) CreateRule(params *CreateRuleParams) (*CreateRuleCreated, error
 /*
   CreateRuleGroupMixin0 creates a rule group for a platform with a name and an optional description returns the rule group
 */
-func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*CreateRuleGroupMixin0Created, error) {
+func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, opts ...ClientOption) (*CreateRuleGroupMixin0Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleGroupMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "create-rule-groupMixin0",
 		Method:             "POST",
 		PathPattern:        "/ioarules/entities/rule-groups/v1",
@@ -122,7 +128,12 @@ func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*Cr
 		Reader:             &CreateRuleGroupMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -139,13 +150,12 @@ func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params) (*Cr
 /*
   DeleteRuleGroupsMixin0 deletes rule groups by ID
 */
-func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*DeleteRuleGroupsMixin0OK, error) {
+func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, opts ...ClientOption) (*DeleteRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleGroupsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "delete-rule-groupsMixin0",
 		Method:             "DELETE",
 		PathPattern:        "/ioarules/entities/rule-groups/v1",
@@ -156,7 +166,12 @@ func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*
 		Reader:             &DeleteRuleGroupsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -172,13 +187,12 @@ func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params) (*
 /*
   DeleteRules deletes rules from a rule group by ID
 */
-func (a *Client) DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error) {
+func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "delete-rules",
 		Method:             "DELETE",
 		PathPattern:        "/ioarules/entities/rules/v1",
@@ -189,7 +203,12 @@ func (a *Client) DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error) 
 		Reader:             &DeleteRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -205,13 +224,12 @@ func (a *Client) DeleteRules(params *DeleteRulesParams) (*DeleteRulesOK, error) 
 /*
   GetPatterns gets pattern severities by ID
 */
-func (a *Client) GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error) {
+func (a *Client) GetPatterns(params *GetPatternsParams, opts ...ClientOption) (*GetPatternsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPatternsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-patterns",
 		Method:             "GET",
 		PathPattern:        "/ioarules/entities/pattern-severities/v1",
@@ -222,7 +240,12 @@ func (a *Client) GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error) 
 		Reader:             &GetPatternsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -238,13 +261,12 @@ func (a *Client) GetPatterns(params *GetPatternsParams) (*GetPatternsOK, error) 
 /*
   GetPlatformsMixin0 gets platforms by ID
 */
-func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatformsMixin0OK, error) {
+func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, opts ...ClientOption) (*GetPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-platformsMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/entities/platforms/v1",
@@ -255,7 +277,12 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatf
 		Reader:             &GetPlatformsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -271,13 +298,12 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params) (*GetPlatf
 /*
   GetRuleGroupsMixin0 gets rule groups by ID
 */
-func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRuleGroupsMixin0OK, error) {
+func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, opts ...ClientOption) (*GetRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleGroupsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rule-groupsMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/entities/rule-groups/v1",
@@ -288,7 +314,12 @@ func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRul
 		Reader:             &GetRuleGroupsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -304,13 +335,12 @@ func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params) (*GetRul
 /*
   GetRuleTypes gets rule types by ID
 */
-func (a *Client) GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, error) {
+func (a *Client) GetRuleTypes(params *GetRuleTypesParams, opts ...ClientOption) (*GetRuleTypesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRuleTypesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rule-types",
 		Method:             "GET",
 		PathPattern:        "/ioarules/entities/rule-types/v1",
@@ -321,7 +351,12 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, erro
 		Reader:             &GetRuleTypesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +372,12 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams) (*GetRuleTypesOK, erro
 /*
   GetRulesGet gets rules by ID and optionally version in the following format ID version
 */
-func (a *Client) GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error) {
+func (a *Client) GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*GetRulesGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesGetParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rules-get",
 		Method:             "POST",
 		PathPattern:        "/ioarules/entities/rules/GET/v1",
@@ -354,7 +388,12 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error) 
 		Reader:             &GetRulesGetReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -370,13 +409,12 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams) (*GetRulesGetOK, error) 
 /*
   GetRulesMixin0 gets rules by ID and optionally version in the following format ID version the max number of i ds is constrained by URL size
 */
-func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK, error) {
+func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, opts ...ClientOption) (*GetRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRulesMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "get-rulesMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/entities/rules/v1",
@@ -387,7 +425,12 @@ func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK
 		Reader:             &GetRulesMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -403,13 +446,12 @@ func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params) (*GetRulesMixin0OK
 /*
   QueryPatterns gets all pattern severity i ds
 */
-func (a *Client) QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, error) {
+func (a *Client) QueryPatterns(params *QueryPatternsParams, opts ...ClientOption) (*QueryPatternsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPatternsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-patterns",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/pattern-severities/v1",
@@ -420,7 +462,12 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, e
 		Reader:             &QueryPatternsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -436,13 +483,12 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams) (*QueryPatternsOK, e
 /*
   QueryPlatformsMixin0 gets all platform i ds
 */
-func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*QueryPlatformsMixin0OK, error) {
+func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, opts ...ClientOption) (*QueryPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPlatformsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-platformsMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/platforms/v1",
@@ -453,7 +499,12 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*Quer
 		Reader:             &QueryPlatformsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -469,13 +520,12 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params) (*Quer
 /*
   QueryRuleGroupsFull finds all rule groups matching the query with optional filter
 */
-func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryRuleGroupsFullOK, error) {
+func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, opts ...ClientOption) (*QueryRuleGroupsFullOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsFullParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rule-groups-full",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/rule-groups-full/v1",
@@ -486,7 +536,12 @@ func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryR
 		Reader:             &QueryRuleGroupsFullReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -502,13 +557,12 @@ func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams) (*QueryR
 /*
   QueryRuleGroupsMixin0 finds all rule group i ds matching the query with optional filter
 */
-func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*QueryRuleGroupsMixin0OK, error) {
+func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, opts ...ClientOption) (*QueryRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleGroupsMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rule-groupsMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/rule-groups/v1",
@@ -519,7 +573,12 @@ func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*Qu
 		Reader:             &QueryRuleGroupsMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -535,13 +594,12 @@ func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params) (*Qu
 /*
   QueryRuleTypes gets all rule type i ds
 */
-func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK, error) {
+func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, opts ...ClientOption) (*QueryRuleTypesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRuleTypesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rule-types",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/rule-types/v1",
@@ -552,7 +610,12 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK
 		Reader:             &QueryRuleTypesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -568,13 +631,12 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams) (*QueryRuleTypesOK
 /*
   QueryRulesMixin0 finds all rule i ds matching the query with optional filter
 */
-func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMixin0OK, error) {
+func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...ClientOption) (*QueryRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRulesMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "query-rulesMixin0",
 		Method:             "GET",
 		PathPattern:        "/ioarules/queries/rules/v1",
@@ -585,7 +647,12 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMi
 		Reader:             &QueryRulesMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -601,13 +668,12 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params) (*QueryRulesMi
 /*
   UpdateRuleGroupMixin0 updates a rule group the following properties can be modified name description enabled
 */
-func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*UpdateRuleGroupMixin0OK, error) {
+func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, opts ...ClientOption) (*UpdateRuleGroupMixin0OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRuleGroupMixin0Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "update-rule-groupMixin0",
 		Method:             "PATCH",
 		PathPattern:        "/ioarules/entities/rule-groups/v1",
@@ -618,7 +684,12 @@ func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*Up
 		Reader:             &UpdateRuleGroupMixin0Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -634,13 +705,12 @@ func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params) (*Up
 /*
   UpdateRules updates rules within a rule group return the updated rules
 */
-func (a *Client) UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error) {
+func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRulesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "update-rules",
 		Method:             "PATCH",
 		PathPattern:        "/ioarules/entities/rules/v1",
@@ -651,7 +721,12 @@ func (a *Client) UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error) 
 		Reader:             &UpdateRulesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -667,13 +742,12 @@ func (a *Client) UpdateRules(params *UpdateRulesParams) (*UpdateRulesOK, error) 
 /*
   Validate validates field values and checks for matches if a test string is provided
 */
-func (a *Client) Validate(params *ValidateParams) (*ValidateOK, error) {
+func (a *Client) Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidateParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "validate",
 		Method:             "POST",
 		PathPattern:        "/ioarules/entities/rules/validate/v1",
@@ -684,7 +758,12 @@ func (a *Client) Validate(params *ValidateParams) (*ValidateOK, error) {
 		Reader:             &ValidateReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

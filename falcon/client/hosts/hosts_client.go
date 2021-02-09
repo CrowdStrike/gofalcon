@@ -25,17 +25,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDetailsOK, error)
+	GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error)
 
-	PerformActionV2(params *PerformActionV2Params) (*PerformActionV2Accepted, error)
+	PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error)
 
-	QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*QueryDevicesByFilterOK, error)
+	QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error)
 
-	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams) (*QueryDevicesByFilterScrollOK, error)
+	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error)
 
-	QueryHiddenDevices(params *QueryHiddenDevicesParams) (*QueryHiddenDevicesOK, error)
+	QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,13 +46,12 @@ type ClientService interface {
 /*
   GetDeviceDetails gets details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
 */
-func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDetailsOK, error) {
+func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeviceDetailsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetDeviceDetails",
 		Method:             "GET",
 		PathPattern:        "/devices/entities/devices/v1",
@@ -60,7 +62,12 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDet
 		Reader:             &GetDeviceDetailsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -76,13 +83,12 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams) (*GetDeviceDet
 /*
   PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host delete or restore a host
 */
-func (a *Client) PerformActionV2(params *PerformActionV2Params) (*PerformActionV2Accepted, error) {
+func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformActionV2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PerformActionV2",
 		Method:             "POST",
 		PathPattern:        "/devices/entities/devices-actions/v2",
@@ -93,7 +99,12 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params) (*PerformActionV
 		Reader:             &PerformActionV2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -110,13 +121,12 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params) (*PerformActionV
 /*
   QueryDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria
 */
-func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*QueryDevicesByFilterOK, error) {
+func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDevicesByFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryDevicesByFilter",
 		Method:             "GET",
 		PathPattern:        "/devices/queries/devices/v1",
@@ -127,7 +137,12 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*Quer
 		Reader:             &QueryDevicesByFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -143,13 +158,12 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams) (*Quer
 /*
   QueryDevicesByFilterScroll searches for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
 */
-func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams) (*QueryDevicesByFilterScrollOK, error) {
+func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDevicesByFilterScrollParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryDevicesByFilterScroll",
 		Method:             "GET",
 		PathPattern:        "/devices/queries/devices-scroll/v1",
@@ -160,7 +174,12 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 		Reader:             &QueryDevicesByFilterScrollReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -176,13 +195,12 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 /*
   QueryHiddenDevices retrieves hidden hosts that match the provided filter criteria
 */
-func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams) (*QueryHiddenDevicesOK, error) {
+func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryHiddenDevicesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryHiddenDevices",
 		Method:             "GET",
 		PathPattern:        "/devices/queries/devices-hidden/v1",
@@ -193,7 +211,12 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams) (*QueryHid
 		Reader:             &QueryHiddenDevicesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

@@ -23,13 +23,16 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK, error)
+	DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error)
 
-	GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error)
+	GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*GetSampleV3OK, error)
 
-	UploadSampleV3(params *UploadSampleV3Params) (*UploadSampleV3OK, error)
+	UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOption) (*UploadSampleV3OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -37,13 +40,12 @@ type ClientService interface {
 /*
   DeleteSampleV3 removes a sample including file meta and submissions from the collection
 */
-func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK, error) {
+func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSampleV3Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteSampleV3",
 		Method:             "DELETE",
 		PathPattern:        "/samples/entities/samples/v3",
@@ -54,7 +56,12 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK
 		Reader:             &DeleteSampleV3Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -70,13 +77,12 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params) (*DeleteSampleV3OK
 /*
   GetSampleV3 retrieves the file associated with the given ID s h a256
 */
-func (a *Client) GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error) {
+func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*GetSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSampleV3Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetSampleV3",
 		Method:             "GET",
 		PathPattern:        "/samples/entities/samples/v3",
@@ -87,7 +93,12 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error) 
 		Reader:             &GetSampleV3Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -103,13 +114,12 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params) (*GetSampleV3OK, error) 
 /*
   UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
 */
-func (a *Client) UploadSampleV3(params *UploadSampleV3Params) (*UploadSampleV3OK, error) {
+func (a *Client) UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOption) (*UploadSampleV3OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadSampleV3Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UploadSampleV3",
 		Method:             "POST",
 		PathPattern:        "/samples/entities/samples/v3",
@@ -120,7 +130,12 @@ func (a *Client) UploadSampleV3(params *UploadSampleV3Params) (*UploadSampleV3OK
 		Reader:             &UploadSampleV3Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

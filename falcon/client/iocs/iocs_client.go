@@ -23,25 +23,28 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error)
+	CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*CreateIOCOK, error)
 
-	DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error)
+	DeleteIOC(params *DeleteIOCParams, opts ...ClientOption) (*DeleteIOCOK, error)
 
-	DevicesCount(params *DevicesCountParams) (*DevicesCountOK, error)
+	DevicesCount(params *DevicesCountParams, opts ...ClientOption) (*DevicesCountOK, error)
 
-	DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, error)
+	DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) (*DevicesRanOnOK, error)
 
-	GetIOC(params *GetIOCParams) (*GetIOCOK, error)
+	GetIOC(params *GetIOCParams, opts ...ClientOption) (*GetIOCOK, error)
 
-	ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK, error)
+	ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOption) (*ProcessesRanOnOK, error)
 
-	QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error)
+	QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*QueryIOCsOK, error)
 
-	UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error)
+	UpdateIOC(params *UpdateIOCParams, opts ...ClientOption) (*UpdateIOCOK, error)
 
-	EntitiesProcesses(params *EntitiesProcessesParams) (*EntitiesProcessesOK, error)
+	EntitiesProcesses(params *EntitiesProcessesParams, opts ...ClientOption) (*EntitiesProcessesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,13 +52,12 @@ type ClientService interface {
 /*
   CreateIOC creates a new i o c
 */
-func (a *Client) CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error) {
+func (a *Client) CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*CreateIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateIOCParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateIOC",
 		Method:             "POST",
 		PathPattern:        "/indicators/entities/iocs/v1",
@@ -66,7 +68,12 @@ func (a *Client) CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error) {
 		Reader:             &CreateIOCReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -82,13 +89,12 @@ func (a *Client) CreateIOC(params *CreateIOCParams) (*CreateIOCOK, error) {
 /*
   DeleteIOC deletes an i o c by providing a type and value
 */
-func (a *Client) DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error) {
+func (a *Client) DeleteIOC(params *DeleteIOCParams, opts ...ClientOption) (*DeleteIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteIOCParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteIOC",
 		Method:             "DELETE",
 		PathPattern:        "/indicators/entities/iocs/v1",
@@ -99,7 +105,12 @@ func (a *Client) DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error) {
 		Reader:             &DeleteIOCReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -115,13 +126,12 @@ func (a *Client) DeleteIOC(params *DeleteIOCParams) (*DeleteIOCOK, error) {
 /*
   DevicesCount numbers of hosts in your customer account that have observed a given custom i o c
 */
-func (a *Client) DevicesCount(params *DevicesCountParams) (*DevicesCountOK, error) {
+func (a *Client) DevicesCount(params *DevicesCountParams, opts ...ClientOption) (*DevicesCountOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevicesCountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DevicesCount",
 		Method:             "GET",
 		PathPattern:        "/indicators/aggregates/devices-count/v1",
@@ -132,7 +142,12 @@ func (a *Client) DevicesCount(params *DevicesCountParams) (*DevicesCountOK, erro
 		Reader:             &DevicesCountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -148,13 +163,12 @@ func (a *Client) DevicesCount(params *DevicesCountParams) (*DevicesCountOK, erro
 /*
   DevicesRanOn finds hosts that have observed a given custom i o c for details about those hosts use g e t devices entities devices v1
 */
-func (a *Client) DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, error) {
+func (a *Client) DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) (*DevicesRanOnOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevicesRanOnParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DevicesRanOn",
 		Method:             "GET",
 		PathPattern:        "/indicators/queries/devices/v1",
@@ -165,7 +179,12 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, erro
 		Reader:             &DevicesRanOnReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -181,13 +200,12 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams) (*DevicesRanOnOK, erro
 /*
   GetIOC gets an i o c by providing a type and value
 */
-func (a *Client) GetIOC(params *GetIOCParams) (*GetIOCOK, error) {
+func (a *Client) GetIOC(params *GetIOCParams, opts ...ClientOption) (*GetIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIOCParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetIOC",
 		Method:             "GET",
 		PathPattern:        "/indicators/entities/iocs/v1",
@@ -198,7 +216,12 @@ func (a *Client) GetIOC(params *GetIOCParams) (*GetIOCOK, error) {
 		Reader:             &GetIOCReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -214,13 +237,12 @@ func (a *Client) GetIOC(params *GetIOCParams) (*GetIOCOK, error) {
 /*
   ProcessesRanOn searches for processes associated with a custom i o c
 */
-func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK, error) {
+func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOption) (*ProcessesRanOnOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProcessesRanOnParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "ProcessesRanOn",
 		Method:             "GET",
 		PathPattern:        "/indicators/queries/processes/v1",
@@ -231,7 +253,12 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK
 		Reader:             &ProcessesRanOnReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -247,13 +274,12 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams) (*ProcessesRanOnOK
 /*
   QueryIOCs searches the custom i o cs in your customer account
 */
-func (a *Client) QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error) {
+func (a *Client) QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*QueryIOCsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIOCsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryIOCs",
 		Method:             "GET",
 		PathPattern:        "/indicators/queries/iocs/v1",
@@ -264,7 +290,12 @@ func (a *Client) QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error) {
 		Reader:             &QueryIOCsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -280,13 +311,12 @@ func (a *Client) QueryIOCs(params *QueryIOCsParams) (*QueryIOCsOK, error) {
 /*
   UpdateIOC updates an i o c by providing a type and value
 */
-func (a *Client) UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error) {
+func (a *Client) UpdateIOC(params *UpdateIOCParams, opts ...ClientOption) (*UpdateIOCOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateIOCParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateIOC",
 		Method:             "PATCH",
 		PathPattern:        "/indicators/entities/iocs/v1",
@@ -297,7 +327,12 @@ func (a *Client) UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error) {
 		Reader:             &UpdateIOCReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -313,13 +348,12 @@ func (a *Client) UpdateIOC(params *UpdateIOCParams) (*UpdateIOCOK, error) {
 /*
   EntitiesProcesses fors the provided process ID retrieve the process details
 */
-func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams) (*EntitiesProcessesOK, error) {
+func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams, opts ...ClientOption) (*EntitiesProcessesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEntitiesProcessesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "entities.processes",
 		Method:             "GET",
 		PathPattern:        "/processes/entities/processes/v1",
@@ -330,7 +364,12 @@ func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams) (*EntitiesPr
 		Reader:             &EntitiesProcessesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

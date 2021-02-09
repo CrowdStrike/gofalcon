@@ -25,49 +25,52 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) (*BatchActiveResponderCmdCreated, error)
+	BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, opts ...ClientOption) (*BatchActiveResponderCmdCreated, error)
 
-	BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error)
+	BatchCmd(params *BatchCmdParams, opts ...ClientOption) (*BatchCmdCreated, error)
 
-	BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, error)
+	BatchGetCmd(params *BatchGetCmdParams, opts ...ClientOption) (*BatchGetCmdCreated, error)
 
-	BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCmdStatusOK, error)
+	BatchGetCmdStatus(params *BatchGetCmdStatusParams, opts ...ClientOption) (*BatchGetCmdStatusOK, error)
 
-	BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitSessionsCreated, error)
+	BatchInitSessions(params *BatchInitSessionsParams, opts ...ClientOption) (*BatchInitSessionsCreated, error)
 
-	BatchRefreshSessions(params *BatchRefreshSessionsParams) (*BatchRefreshSessionsCreated, error)
+	BatchRefreshSessions(params *BatchRefreshSessionsParams, opts ...ClientOption) (*BatchRefreshSessionsCreated, error)
 
-	RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRAggregateSessionsOK, error)
+	RTRAggregateSessions(params *RTRAggregateSessionsParams, opts ...ClientOption) (*RTRAggregateSessionsOK, error)
 
-	RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams) (*RTRCheckActiveResponderCommandStatusOK, error)
+	RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams, opts ...ClientOption) (*RTRCheckActiveResponderCommandStatusOK, error)
 
-	RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RTRCheckCommandStatusOK, error)
+	RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, opts ...ClientOption) (*RTRCheckCommandStatusOK, error)
 
-	RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoContent, error)
+	RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption) (*RTRDeleteFileNoContent, error)
 
-	RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*RTRDeleteQueuedSessionNoContent, error)
+	RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, opts ...ClientOption) (*RTRDeleteQueuedSessionNoContent, error)
 
-	RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSessionNoContent, error)
+	RTRDeleteSession(params *RTRDeleteSessionParams, opts ...ClientOption) (*RTRDeleteSessionNoContent, error)
 
-	RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams) (*RTRExecuteActiveResponderCommandCreated, error)
+	RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams, opts ...ClientOption) (*RTRExecuteActiveResponderCommandCreated, error)
 
-	RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecuteCommandCreated, error)
+	RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...ClientOption) (*RTRExecuteCommandCreated, error)
 
-	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams) (*RTRGetExtractedFileContentsOK, error)
+	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error)
 
-	RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCreated, error)
+	RTRInitSession(params *RTRInitSessionParams, opts ...ClientOption) (*RTRInitSessionCreated, error)
 
-	RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListAllSessionsOK, error)
+	RTRListAllSessions(params *RTRListAllSessionsParams, opts ...ClientOption) (*RTRListAllSessionsOK, error)
 
-	RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, error)
+	RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) (*RTRListFilesOK, error)
 
-	RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RTRListQueuedSessionsOK, error)
+	RTRListQueuedSessions(params *RTRListQueuedSessionsParams, opts ...ClientOption) (*RTRListQueuedSessionsOK, error)
 
-	RTRListSessions(params *RTRListSessionsParams) (*RTRListSessionsOK, error)
+	RTRListSessions(params *RTRListSessionsParams, opts ...ClientOption) (*RTRListSessionsOK, error)
 
-	RTRPulseSession(params *RTRPulseSessionParams) (*RTRPulseSessionCreated, error)
+	RTRPulseSession(params *RTRPulseSessionParams, opts ...ClientOption) (*RTRPulseSessionCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -75,13 +78,12 @@ type ClientService interface {
 /*
   BatchActiveResponderCmd batches executes a r t r active responder command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) (*BatchActiveResponderCmdCreated, error) {
+func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, opts ...ClientOption) (*BatchActiveResponderCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchActiveResponderCmdParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchActiveResponderCmd",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-active-responder-command/v1",
@@ -92,7 +94,12 @@ func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) 
 		Reader:             &BatchActiveResponderCmdReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -109,13 +116,12 @@ func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams) 
 /*
   BatchCmd batches executes a r t r read only command across the hosts mapped to the given batch ID
 */
-func (a *Client) BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error) {
+func (a *Client) BatchCmd(params *BatchCmdParams, opts ...ClientOption) (*BatchCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchCmdParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchCmd",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-command/v1",
@@ -126,7 +132,12 @@ func (a *Client) BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error) {
 		Reader:             &BatchCmdReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -143,13 +154,12 @@ func (a *Client) BatchCmd(params *BatchCmdParams) (*BatchCmdCreated, error) {
 /*
   BatchGetCmd batches executes get command across hosts to retrieve files after this call is made g e t real time response combined batch get command v1 is used to query for the results
 */
-func (a *Client) BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, error) {
+func (a *Client) BatchGetCmd(params *BatchGetCmdParams, opts ...ClientOption) (*BatchGetCmdCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchGetCmdParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchGetCmd",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-get-command/v1",
@@ -160,7 +170,12 @@ func (a *Client) BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, er
 		Reader:             &BatchGetCmdReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +192,12 @@ func (a *Client) BatchGetCmd(params *BatchGetCmdParams) (*BatchGetCmdCreated, er
 /*
   BatchGetCmdStatus retrieves the status of the specified batch get command will return successful files when they are finished processing
 */
-func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCmdStatusOK, error) {
+func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, opts ...ClientOption) (*BatchGetCmdStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchGetCmdStatusParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchGetCmdStatus",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/combined/batch-get-command/v1",
@@ -194,7 +208,12 @@ func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCm
 		Reader:             &BatchGetCmdStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -210,13 +229,12 @@ func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams) (*BatchGetCm
 /*
   BatchInitSessions batches initialize a r t r session on multiple hosts before any r t r commands can be used an active session is needed on the host
 */
-func (a *Client) BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitSessionsCreated, error) {
+func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, opts ...ClientOption) (*BatchInitSessionsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchInitSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchInitSessions",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-init-session/v1",
@@ -227,7 +245,12 @@ func (a *Client) BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitS
 		Reader:             &BatchInitSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -244,13 +267,12 @@ func (a *Client) BatchInitSessions(params *BatchInitSessionsParams) (*BatchInitS
 /*
   BatchRefreshSessions batches refresh a r t r session on multiple hosts r t r sessions will expire after 10 minutes unless refreshed
 */
-func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams) (*BatchRefreshSessionsCreated, error) {
+func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, opts ...ClientOption) (*BatchRefreshSessionsCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchRefreshSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "BatchRefreshSessions",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/combined/batch-refresh-session/v1",
@@ -261,7 +283,12 @@ func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams) (*Batc
 		Reader:             &BatchRefreshSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -278,13 +305,12 @@ func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams) (*Batc
 /*
   RTRAggregateSessions gets aggregates on session data
 */
-func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRAggregateSessionsOK, error) {
+func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, opts ...ClientOption) (*RTRAggregateSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRAggregateSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-AggregateSessions",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/aggregates/sessions/GET/v1",
@@ -295,7 +321,12 @@ func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRA
 		Reader:             &RTRAggregateSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -311,13 +342,12 @@ func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams) (*RTRA
 /*
   RTRCheckActiveResponderCommandStatus gets status of an executed active responder command on a single host
 */
-func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams) (*RTRCheckActiveResponderCommandStatusOK, error) {
+func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams, opts ...ClientOption) (*RTRCheckActiveResponderCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckActiveResponderCommandStatusParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-CheckActiveResponderCommandStatus",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/active-responder-command/v1",
@@ -328,7 +358,12 @@ func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResp
 		Reader:             &RTRCheckActiveResponderCommandStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +379,12 @@ func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResp
 /*
   RTRCheckCommandStatus gets status of an executed command on a single host
 */
-func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RTRCheckCommandStatusOK, error) {
+func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, opts ...ClientOption) (*RTRCheckCommandStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRCheckCommandStatusParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-CheckCommandStatus",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/command/v1",
@@ -361,7 +395,12 @@ func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RT
 		Reader:             &RTRCheckCommandStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -377,13 +416,12 @@ func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams) (*RT
 /*
   RTRDeleteFile deletes a r t r session file
 */
-func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoContent, error) {
+func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption) (*RTRDeleteFileNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteFileParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-DeleteFile",
 		Method:             "DELETE",
 		PathPattern:        "/real-time-response/entities/file/v1",
@@ -394,7 +432,12 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoCon
 		Reader:             &RTRDeleteFileReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -411,13 +454,12 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams) (*RTRDeleteFileNoCon
 /*
   RTRDeleteQueuedSession deletes a queued session command
 */
-func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*RTRDeleteQueuedSessionNoContent, error) {
+func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, opts ...ClientOption) (*RTRDeleteQueuedSessionNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteQueuedSessionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-DeleteQueuedSession",
 		Method:             "DELETE",
 		PathPattern:        "/real-time-response/entities/queued-sessions/command/v1",
@@ -428,7 +470,12 @@ func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*
 		Reader:             &RTRDeleteQueuedSessionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -445,13 +492,12 @@ func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams) (*
 /*
   RTRDeleteSession deletes a session
 */
-func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSessionNoContent, error) {
+func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, opts ...ClientOption) (*RTRDeleteSessionNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRDeleteSessionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-DeleteSession",
 		Method:             "DELETE",
 		PathPattern:        "/real-time-response/entities/sessions/v1",
@@ -462,7 +508,12 @@ func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSes
 		Reader:             &RTRDeleteSessionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -479,13 +530,12 @@ func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams) (*RTRDeleteSes
 /*
   RTRExecuteActiveResponderCommand executes an active responder command on a single host
 */
-func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams) (*RTRExecuteActiveResponderCommandCreated, error) {
+func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams, opts ...ClientOption) (*RTRExecuteActiveResponderCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteActiveResponderCommandParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ExecuteActiveResponderCommand",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/active-responder-command/v1",
@@ -496,7 +546,12 @@ func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveRespon
 		Reader:             &RTRExecuteActiveResponderCommandReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -513,13 +568,12 @@ func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveRespon
 /*
   RTRExecuteCommand executes a command on a single host
 */
-func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecuteCommandCreated, error) {
+func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...ClientOption) (*RTRExecuteCommandCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRExecuteCommandParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ExecuteCommand",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/command/v1",
@@ -530,7 +584,12 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecute
 		Reader:             &RTRExecuteCommandReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -547,13 +606,12 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams) (*RTRExecute
 /*
   RTRGetExtractedFileContents gets r t r extracted file contents for specified session and sha256
 */
-func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams) (*RTRGetExtractedFileContentsOK, error) {
+func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetExtractedFileContentsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-GetExtractedFileContents",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/extracted-file-contents/v1",
@@ -564,7 +622,12 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 		Reader:             &RTRGetExtractedFileContentsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -580,13 +643,12 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 /*
   RTRInitSession initializes a new session with the r t r cloud
 */
-func (a *Client) RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCreated, error) {
+func (a *Client) RTRInitSession(params *RTRInitSessionParams, opts ...ClientOption) (*RTRInitSessionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRInitSessionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-InitSession",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/sessions/v1",
@@ -597,7 +659,12 @@ func (a *Client) RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCr
 		Reader:             &RTRInitSessionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -614,13 +681,12 @@ func (a *Client) RTRInitSession(params *RTRInitSessionParams) (*RTRInitSessionCr
 /*
   RTRListAllSessions gets a list of session ids
 */
-func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListAllSessionsOK, error) {
+func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, opts ...ClientOption) (*RTRListAllSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListAllSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListAllSessions",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/queries/sessions/v1",
@@ -631,7 +697,12 @@ func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListA
 		Reader:             &RTRListAllSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -647,13 +718,12 @@ func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams) (*RTRListA
 /*
   RTRListFiles gets a list of files for the specified r t r session
 */
-func (a *Client) RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, error) {
+func (a *Client) RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) (*RTRListFilesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListFilesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListFiles",
 		Method:             "GET",
 		PathPattern:        "/real-time-response/entities/file/v1",
@@ -664,7 +734,12 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, erro
 		Reader:             &RTRListFilesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -680,13 +755,12 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams) (*RTRListFilesOK, erro
 /*
   RTRListQueuedSessions gets queued session metadata by session ID
 */
-func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RTRListQueuedSessionsOK, error) {
+func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, opts ...ClientOption) (*RTRListQueuedSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListQueuedSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListQueuedSessions",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/queued-sessions/GET/v1",
@@ -697,7 +771,12 @@ func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RT
 		Reader:             &RTRListQueuedSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -713,13 +792,12 @@ func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams) (*RT
 /*
   RTRListSessions gets session metadata by session id
 */
-func (a *Client) RTRListSessions(params *RTRListSessionsParams) (*RTRListSessionsOK, error) {
+func (a *Client) RTRListSessions(params *RTRListSessionsParams, opts ...ClientOption) (*RTRListSessionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRListSessionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-ListSessions",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/sessions/GET/v1",
@@ -730,7 +808,12 @@ func (a *Client) RTRListSessions(params *RTRListSessionsParams) (*RTRListSession
 		Reader:             &RTRListSessionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -746,13 +829,12 @@ func (a *Client) RTRListSessions(params *RTRListSessionsParams) (*RTRListSession
 /*
   RTRPulseSession refreshes a session timeout on a single host
 */
-func (a *Client) RTRPulseSession(params *RTRPulseSessionParams) (*RTRPulseSessionCreated, error) {
+func (a *Client) RTRPulseSession(params *RTRPulseSessionParams, opts ...ClientOption) (*RTRPulseSessionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRPulseSessionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RTR-PulseSession",
 		Method:             "POST",
 		PathPattern:        "/real-time-response/entities/refresh-session/v1",
@@ -763,7 +845,12 @@ func (a *Client) RTRPulseSession(params *RTRPulseSessionParams) (*RTRPulseSessio
 		Reader:             &RTRPulseSessionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

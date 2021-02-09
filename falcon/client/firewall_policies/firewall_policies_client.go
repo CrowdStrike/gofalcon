@@ -25,27 +25,30 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*CreateFirewallPoliciesCreated, error)
+	CreateFirewallPolicies(params *CreateFirewallPoliciesParams, opts ...ClientOption) (*CreateFirewallPoliciesCreated, error)
 
-	DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*DeleteFirewallPoliciesOK, error)
+	DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, opts ...ClientOption) (*DeleteFirewallPoliciesOK, error)
 
-	GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFirewallPoliciesOK, error)
+	GetFirewallPolicies(params *GetFirewallPoliciesParams, opts ...ClientOption) (*GetFirewallPoliciesOK, error)
 
-	PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams) (*PerformFirewallPoliciesActionOK, error)
+	PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams, opts ...ClientOption) (*PerformFirewallPoliciesActionOK, error)
 
-	QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams) (*QueryCombinedFirewallPoliciesOK, error)
+	QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams, opts ...ClientOption) (*QueryCombinedFirewallPoliciesOK, error)
 
-	QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams) (*QueryCombinedFirewallPolicyMembersOK, error)
+	QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams, opts ...ClientOption) (*QueryCombinedFirewallPolicyMembersOK, error)
 
-	QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*QueryFirewallPoliciesOK, error)
+	QueryFirewallPolicies(params *QueryFirewallPoliciesParams, opts ...ClientOption) (*QueryFirewallPoliciesOK, error)
 
-	QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams) (*QueryFirewallPolicyMembersOK, error)
+	QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams, opts ...ClientOption) (*QueryFirewallPolicyMembersOK, error)
 
-	SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams) (*SetFirewallPoliciesPrecedenceOK, error)
+	SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams, opts ...ClientOption) (*SetFirewallPoliciesPrecedenceOK, error)
 
-	UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams) (*UpdateFirewallPoliciesOK, error)
+	UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, opts ...ClientOption) (*UpdateFirewallPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,13 +56,12 @@ type ClientService interface {
 /*
   CreateFirewallPolicies creates firewall policies by specifying details about the policy to create
 */
-func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*CreateFirewallPoliciesCreated, error) {
+func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, opts ...ClientOption) (*CreateFirewallPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createFirewallPolicies",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/firewall/v1",
@@ -70,7 +72,12 @@ func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*
 		Reader:             &CreateFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -87,13 +94,12 @@ func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams) (*
 /*
   DeleteFirewallPolicies deletes a set of firewall policies by specifying their i ds
 */
-func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*DeleteFirewallPoliciesOK, error) {
+func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, opts ...ClientOption) (*DeleteFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteFirewallPolicies",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/firewall/v1",
@@ -104,7 +110,12 @@ func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*
 		Reader:             &DeleteFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -120,13 +131,12 @@ func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams) (*
 /*
   GetFirewallPolicies retrieves a set of firewall policies by specifying their i ds
 */
-func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFirewallPoliciesOK, error) {
+func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, opts ...ClientOption) (*GetFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getFirewallPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/firewall/v1",
@@ -137,7 +147,12 @@ func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFir
 		Reader:             &GetFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -153,13 +168,12 @@ func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams) (*GetFir
 /*
   PerformFirewallPoliciesAction performs the specified action on the firewall policies specified in the request
 */
-func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams) (*PerformFirewallPoliciesActionOK, error) {
+func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams, opts ...ClientOption) (*PerformFirewallPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformFirewallPoliciesActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "performFirewallPoliciesAction",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/firewall-actions/v1",
@@ -170,7 +184,12 @@ func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesAc
 		Reader:             &PerformFirewallPoliciesActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -186,13 +205,12 @@ func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesAc
 /*
   QueryCombinedFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policies which match the filter criteria
 */
-func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams) (*QueryCombinedFirewallPoliciesOK, error) {
+func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams, opts ...ClientOption) (*QueryCombinedFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedFirewallPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/firewall/v1",
@@ -203,7 +221,12 @@ func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoli
 		Reader:             &QueryCombinedFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -219,13 +242,12 @@ func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoli
 /*
   QueryCombinedFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams) (*QueryCombinedFirewallPolicyMembersOK, error) {
+func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams, opts ...ClientOption) (*QueryCombinedFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedFirewallPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedFirewallPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/firewall-members/v1",
@@ -236,7 +258,12 @@ func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewal
 		Reader:             &QueryCombinedFirewallPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -252,13 +279,12 @@ func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewal
 /*
   QueryFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policy i ds which match the filter criteria
 */
-func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*QueryFirewallPoliciesOK, error) {
+func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, opts ...ClientOption) (*QueryFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryFirewallPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/firewall/v1",
@@ -269,7 +295,12 @@ func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*Qu
 		Reader:             &QueryFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -285,13 +316,12 @@ func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams) (*Qu
 /*
   QueryFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams) (*QueryFirewallPolicyMembersOK, error) {
+func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams, opts ...ClientOption) (*QueryFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFirewallPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryFirewallPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/firewall-members/v1",
@@ -302,7 +332,12 @@ func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersPa
 		Reader:             &QueryFirewallPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -318,13 +353,12 @@ func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersPa
 /*
   SetFirewallPoliciesPrecedence sets the precedence of firewall policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams) (*SetFirewallPoliciesPrecedenceOK, error) {
+func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams, opts ...ClientOption) (*SetFirewallPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetFirewallPoliciesPrecedenceParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "setFirewallPoliciesPrecedence",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/firewall-precedence/v1",
@@ -335,7 +369,12 @@ func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPreced
 		Reader:             &SetFirewallPoliciesPrecedenceReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +390,12 @@ func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPreced
 /*
   UpdateFirewallPolicies updates firewall policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams) (*UpdateFirewallPoliciesOK, error) {
+func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, opts ...ClientOption) (*UpdateFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateFirewallPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateFirewallPolicies",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/firewall/v1",
@@ -368,7 +406,12 @@ func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams) (*
 		Reader:             &UpdateFirewallPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

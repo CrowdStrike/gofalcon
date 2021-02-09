@@ -23,17 +23,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*CreateSVExclusionsV1OK, error)
+	CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1OK, error)
 
-	DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params) (*DeleteSensorVisibilityExclusionsV1OK, error)
+	DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*DeleteSensorVisibilityExclusionsV1OK, error)
 
-	GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params) (*GetSensorVisibilityExclusionsV1OK, error)
+	GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*GetSensorVisibilityExclusionsV1OK, error)
 
-	QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params) (*QuerySensorVisibilityExclusionsV1OK, error)
+	QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params, opts ...ClientOption) (*QuerySensorVisibilityExclusionsV1OK, error)
 
-	UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params) (*UpdateSensorVisibilityExclusionsV1OK, error)
+	UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*UpdateSensorVisibilityExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,13 +44,12 @@ type ClientService interface {
 /*
   CreateSVExclusionsV1 creates the sensor visibility exclusions
 */
-func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*CreateSVExclusionsV1OK, error) {
+func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSVExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createSVExclusionsV1",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/sv-exclusions/v1",
@@ -58,7 +60,12 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*Crea
 		Reader:             &CreateSVExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -74,13 +81,12 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params) (*Crea
 /*
   DeleteSensorVisibilityExclusionsV1 deletes the sensor visibility exclusions by id
 */
-func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params) (*DeleteSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*DeleteSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSensorVisibilityExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteSensorVisibilityExclusionsV1",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/sv-exclusions/v1",
@@ -91,7 +97,12 @@ func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibili
 		Reader:             &DeleteSensorVisibilityExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -107,13 +118,12 @@ func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibili
 /*
   GetSensorVisibilityExclusionsV1 gets a set of sensor visibility exclusions by specifying their i ds
 */
-func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params) (*GetSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*GetSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSensorVisibilityExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getSensorVisibilityExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/sv-exclusions/v1",
@@ -124,7 +134,12 @@ func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExcl
 		Reader:             &GetSensorVisibilityExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -140,13 +155,12 @@ func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExcl
 /*
   QuerySensorVisibilityExclusionsV1 searches for sensor visibility exclusions
 */
-func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params) (*QuerySensorVisibilityExclusionsV1OK, error) {
+func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params, opts ...ClientOption) (*QuerySensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySensorVisibilityExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "querySensorVisibilityExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/sv-exclusions/v1",
@@ -157,7 +171,12 @@ func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibility
 		Reader:             &QuerySensorVisibilityExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -173,13 +192,12 @@ func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibility
 /*
   UpdateSensorVisibilityExclusionsV1 updates the sensor visibility exclusions
 */
-func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params) (*UpdateSensorVisibilityExclusionsV1OK, error) {
+func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*UpdateSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSensorVisibilityExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateSensorVisibilityExclusionsV1",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/sv-exclusions/v1",
@@ -190,7 +208,12 @@ func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibili
 		Reader:             &UpdateSensorVisibilityExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

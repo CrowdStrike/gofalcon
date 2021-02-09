@@ -25,11 +25,14 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2AccessTokenCreated, error)
+	Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...ClientOption) (*Oauth2AccessTokenCreated, error)
 
-	Oauth2RevokeToken(params *Oauth2RevokeTokenParams) (*Oauth2RevokeTokenOK, error)
+	Oauth2RevokeToken(params *Oauth2RevokeTokenParams, opts ...ClientOption) (*Oauth2RevokeTokenOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -37,13 +40,12 @@ type ClientService interface {
 /*
   Oauth2AccessToken generates an o auth2 access token
 */
-func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2AccessTokenCreated, error) {
+func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...ClientOption) (*Oauth2AccessTokenCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewOauth2AccessTokenParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "oauth2AccessToken",
 		Method:             "POST",
 		PathPattern:        "/oauth2/token",
@@ -54,7 +56,12 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2Acce
 		Reader:             &Oauth2AccessTokenReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -71,13 +78,12 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams) (*Oauth2Acce
 /*
   Oauth2RevokeToken revokes a previously issued o auth2 access token before the end of its standard 30 minute lifespan
 */
-func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams) (*Oauth2RevokeTokenOK, error) {
+func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams, opts ...ClientOption) (*Oauth2RevokeTokenOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewOauth2RevokeTokenParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "oauth2RevokeToken",
 		Method:             "POST",
 		PathPattern:        "/oauth2/revoke",
@@ -88,7 +94,12 @@ func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams) (*Oauth2Revo
 		Reader:             &Oauth2RevokeTokenReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

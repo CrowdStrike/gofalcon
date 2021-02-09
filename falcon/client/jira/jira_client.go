@@ -23,23 +23,26 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateJiraAllowList(params *AggregateJiraAllowListParams) (*AggregateJiraAllowListOK, error)
+	AggregateJiraAllowList(params *AggregateJiraAllowListParams, opts ...ClientOption) (*AggregateJiraAllowListOK, error)
 
-	AggregateJiraBlockList(params *AggregateJiraBlockListParams) (*AggregateJiraBlockListOK, error)
+	AggregateJiraBlockList(params *AggregateJiraBlockListParams, opts ...ClientOption) (*AggregateJiraBlockListOK, error)
 
-	AggregateJiraEscalations(params *AggregateJiraEscalationsParams) (*AggregateJiraEscalationsOK, error)
+	AggregateJiraEscalations(params *AggregateJiraEscalationsParams, opts ...ClientOption) (*AggregateJiraEscalationsOK, error)
 
-	AggregateJiraRemediations(params *AggregateJiraRemediationsParams) (*AggregateJiraRemediationsOK, error)
+	AggregateJiraRemediations(params *AggregateJiraRemediationsParams, opts ...ClientOption) (*AggregateJiraRemediationsOK, error)
 
-	QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams) (*QueryJiraAllowListFilterOK, error)
+	QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams, opts ...ClientOption) (*QueryJiraAllowListFilterOK, error)
 
-	QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams) (*QueryJiraBlockListFilterOK, error)
+	QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams, opts ...ClientOption) (*QueryJiraBlockListFilterOK, error)
 
-	QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterParams) (*QueryJiraEscalationsFilterOK, error)
+	QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterParams, opts ...ClientOption) (*QueryJiraEscalationsFilterOK, error)
 
-	QueryJiraRemediationsFilter(params *QueryJiraRemediationsFilterParams) (*QueryJiraRemediationsFilterOK, error)
+	QueryJiraRemediationsFilter(params *QueryJiraRemediationsFilterParams, opts ...ClientOption) (*QueryJiraRemediationsFilterOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,13 +50,12 @@ type ClientService interface {
 /*
   AggregateJiraAllowList retrieves aggregate jira allow list ticket values based on the matched filter
 */
-func (a *Client) AggregateJiraAllowList(params *AggregateJiraAllowListParams) (*AggregateJiraAllowListOK, error) {
+func (a *Client) AggregateJiraAllowList(params *AggregateJiraAllowListParams, opts ...ClientOption) (*AggregateJiraAllowListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateJiraAllowListParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateJiraAllowList",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/jira-allowlist/GET/v1",
@@ -64,7 +66,12 @@ func (a *Client) AggregateJiraAllowList(params *AggregateJiraAllowListParams) (*
 		Reader:             &AggregateJiraAllowListReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -80,13 +87,12 @@ func (a *Client) AggregateJiraAllowList(params *AggregateJiraAllowListParams) (*
 /*
   AggregateJiraBlockList retrieves aggregate jira block list ticket values based on the matched filter
 */
-func (a *Client) AggregateJiraBlockList(params *AggregateJiraBlockListParams) (*AggregateJiraBlockListOK, error) {
+func (a *Client) AggregateJiraBlockList(params *AggregateJiraBlockListParams, opts ...ClientOption) (*AggregateJiraBlockListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateJiraBlockListParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateJiraBlockList",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/jira-blocklist/GET/v1",
@@ -97,7 +103,12 @@ func (a *Client) AggregateJiraBlockList(params *AggregateJiraBlockListParams) (*
 		Reader:             &AggregateJiraBlockListReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -113,13 +124,12 @@ func (a *Client) AggregateJiraBlockList(params *AggregateJiraBlockListParams) (*
 /*
   AggregateJiraEscalations retrieves aggregate jira escalation ticket values based on the matched filter
 */
-func (a *Client) AggregateJiraEscalations(params *AggregateJiraEscalationsParams) (*AggregateJiraEscalationsOK, error) {
+func (a *Client) AggregateJiraEscalations(params *AggregateJiraEscalationsParams, opts ...ClientOption) (*AggregateJiraEscalationsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateJiraEscalationsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateJiraEscalations",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/jira-escalations/GET/v1",
@@ -130,7 +140,12 @@ func (a *Client) AggregateJiraEscalations(params *AggregateJiraEscalationsParams
 		Reader:             &AggregateJiraEscalationsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -146,13 +161,12 @@ func (a *Client) AggregateJiraEscalations(params *AggregateJiraEscalationsParams
 /*
   AggregateJiraRemediations retrieves aggregate jira remediation ticket values based on the matched filter
 */
-func (a *Client) AggregateJiraRemediations(params *AggregateJiraRemediationsParams) (*AggregateJiraRemediationsOK, error) {
+func (a *Client) AggregateJiraRemediations(params *AggregateJiraRemediationsParams, opts ...ClientOption) (*AggregateJiraRemediationsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregateJiraRemediationsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregateJiraRemediations",
 		Method:             "POST",
 		PathPattern:        "/falcon-complete-dashboards/aggregates/jira-remediations/GET/v1",
@@ -163,7 +177,12 @@ func (a *Client) AggregateJiraRemediations(params *AggregateJiraRemediationsPara
 		Reader:             &AggregateJiraRemediationsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -179,13 +198,12 @@ func (a *Client) AggregateJiraRemediations(params *AggregateJiraRemediationsPara
 /*
   QueryJiraAllowListFilter retrieves jira allow list tickets that match the provided filter criteria with scrolling enabled
 */
-func (a *Client) QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams) (*QueryJiraAllowListFilterOK, error) {
+func (a *Client) QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams, opts ...ClientOption) (*QueryJiraAllowListFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryJiraAllowListFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryJiraAllowListFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/jira-allowlist/v1",
@@ -196,7 +214,12 @@ func (a *Client) QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams
 		Reader:             &QueryJiraAllowListFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -212,13 +235,12 @@ func (a *Client) QueryJiraAllowListFilter(params *QueryJiraAllowListFilterParams
 /*
   QueryJiraBlockListFilter retrieves jira block list tickets that match the provided filter criteria with scrolling enabled
 */
-func (a *Client) QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams) (*QueryJiraBlockListFilterOK, error) {
+func (a *Client) QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams, opts ...ClientOption) (*QueryJiraBlockListFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryJiraBlockListFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryJiraBlockListFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/jira-blocklist/v1",
@@ -229,7 +251,12 @@ func (a *Client) QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams
 		Reader:             &QueryJiraBlockListFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -245,13 +272,12 @@ func (a *Client) QueryJiraBlockListFilter(params *QueryJiraBlockListFilterParams
 /*
   QueryJiraEscalationsFilter retrieves jira escalation tickets that match the provided filter criteria with scrolling enabled
 */
-func (a *Client) QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterParams) (*QueryJiraEscalationsFilterOK, error) {
+func (a *Client) QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterParams, opts ...ClientOption) (*QueryJiraEscalationsFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryJiraEscalationsFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryJiraEscalationsFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/jira-escalations/v1",
@@ -262,7 +288,12 @@ func (a *Client) QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterPa
 		Reader:             &QueryJiraEscalationsFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -278,13 +309,12 @@ func (a *Client) QueryJiraEscalationsFilter(params *QueryJiraEscalationsFilterPa
 /*
   QueryJiraRemediationsFilter retrieves jira remediation tickets that match the provided filter criteria with scrolling enabled
 */
-func (a *Client) QueryJiraRemediationsFilter(params *QueryJiraRemediationsFilterParams) (*QueryJiraRemediationsFilterOK, error) {
+func (a *Client) QueryJiraRemediationsFilter(params *QueryJiraRemediationsFilterParams, opts ...ClientOption) (*QueryJiraRemediationsFilterOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryJiraRemediationsFilterParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "QueryJiraRemediationsFilter",
 		Method:             "GET",
 		PathPattern:        "/falcon-complete-dashboards/queries/jira-remediations/v1",
@@ -295,7 +325,12 @@ func (a *Client) QueryJiraRemediationsFilter(params *QueryJiraRemediationsFilter
 		Reader:             &QueryJiraRemediationsFilterReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

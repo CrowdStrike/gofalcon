@@ -25,27 +25,30 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams) (*CreateDeviceControlPoliciesCreated, error)
+	CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, opts ...ClientOption) (*CreateDeviceControlPoliciesCreated, error)
 
-	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams) (*DeleteDeviceControlPoliciesOK, error)
+	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, opts ...ClientOption) (*DeleteDeviceControlPoliciesOK, error)
 
-	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams) (*GetDeviceControlPoliciesOK, error)
+	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error)
 
-	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams) (*PerformDeviceControlPoliciesActionOK, error)
+	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, opts ...ClientOption) (*PerformDeviceControlPoliciesActionOK, error)
 
-	QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams) (*QueryCombinedDeviceControlPoliciesOK, error)
+	QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, opts ...ClientOption) (*QueryCombinedDeviceControlPoliciesOK, error)
 
-	QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams) (*QueryCombinedDeviceControlPolicyMembersOK, error)
+	QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryCombinedDeviceControlPolicyMembersOK, error)
 
-	QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams) (*QueryDeviceControlPoliciesOK, error)
+	QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams, opts ...ClientOption) (*QueryDeviceControlPoliciesOK, error)
 
-	QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams) (*QueryDeviceControlPolicyMembersOK, error)
+	QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryDeviceControlPolicyMembersOK, error)
 
-	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams) (*SetDeviceControlPoliciesPrecedenceOK, error)
+	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, opts ...ClientOption) (*SetDeviceControlPoliciesPrecedenceOK, error)
 
-	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams) (*UpdateDeviceControlPoliciesOK, error)
+	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,13 +56,12 @@ type ClientService interface {
 /*
   CreateDeviceControlPolicies creates device control policies by specifying details about the policy to create
 */
-func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams) (*CreateDeviceControlPoliciesCreated, error) {
+func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, opts ...ClientOption) (*CreateDeviceControlPoliciesCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createDeviceControlPolicies",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/device-control/v1",
@@ -70,7 +72,12 @@ func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPolicies
 		Reader:             &CreateDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -87,13 +94,12 @@ func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPolicies
 /*
   DeleteDeviceControlPolicies deletes a set of device control policies by specifying their i ds
 */
-func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams) (*DeleteDeviceControlPoliciesOK, error) {
+func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, opts ...ClientOption) (*DeleteDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteDeviceControlPolicies",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/device-control/v1",
@@ -104,7 +110,12 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 		Reader:             &DeleteDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -120,13 +131,12 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 /*
   GetDeviceControlPolicies retrieves a set of device control policies by specifying their i ds
 */
-func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams) (*GetDeviceControlPoliciesOK, error) {
+func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getDeviceControlPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/device-control/v1",
@@ -137,7 +147,12 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 		Reader:             &GetDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -153,13 +168,12 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 /*
   PerformDeviceControlPoliciesAction performs the specified action on the device control policies specified in the request
 */
-func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams) (*PerformDeviceControlPoliciesActionOK, error) {
+func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, opts ...ClientOption) (*PerformDeviceControlPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPerformDeviceControlPoliciesActionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "performDeviceControlPoliciesAction",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/device-control-actions/v1",
@@ -170,7 +184,12 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 		Reader:             &PerformDeviceControlPoliciesActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -186,13 +205,12 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 /*
   QueryCombinedDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policies which match the filter criteria
 */
-func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams) (*QueryCombinedDeviceControlPoliciesOK, error) {
+func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, opts ...ClientOption) (*QueryCombinedDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedDeviceControlPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/device-control/v1",
@@ -203,7 +221,12 @@ func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceC
 		Reader:             &QueryCombinedDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -219,13 +242,12 @@ func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceC
 /*
   QueryCombinedDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
-func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams) (*QueryCombinedDeviceControlPolicyMembersOK, error) {
+func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryCombinedDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCombinedDeviceControlPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryCombinedDeviceControlPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/combined/device-control-members/v1",
@@ -236,7 +258,12 @@ func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDe
 		Reader:             &QueryCombinedDeviceControlPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -252,13 +279,12 @@ func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDe
 /*
   QueryDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policy i ds which match the filter criteria
 */
-func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams) (*QueryDeviceControlPoliciesOK, error) {
+func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams, opts ...ClientOption) (*QueryDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryDeviceControlPolicies",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/device-control/v1",
@@ -269,7 +295,12 @@ func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesPa
 		Reader:             &QueryDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -285,13 +316,12 @@ func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesPa
 /*
   QueryDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
-func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams) (*QueryDeviceControlPolicyMembersOK, error) {
+func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDeviceControlPolicyMembersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryDeviceControlPolicyMembers",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/device-control-members/v1",
@@ -302,7 +332,12 @@ func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolic
 		Reader:             &QueryDeviceControlPolicyMembersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -318,13 +353,12 @@ func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolic
 /*
   SetDeviceControlPoliciesPrecedence sets the precedence of device control policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
-func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams) (*SetDeviceControlPoliciesPrecedenceOK, error) {
+func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, opts ...ClientOption) (*SetDeviceControlPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetDeviceControlPoliciesPrecedenceParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "setDeviceControlPoliciesPrecedence",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/device-control-precedence/v1",
@@ -335,7 +369,12 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 		Reader:             &SetDeviceControlPoliciesPrecedenceReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +390,12 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 /*
   UpdateDeviceControlPolicies updates device control policies by specifying the ID of the policy and details to update
 */
-func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams) (*UpdateDeviceControlPoliciesOK, error) {
+func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDeviceControlPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateDeviceControlPolicies",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/device-control/v1",
@@ -368,7 +406,12 @@ func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPolicies
 		Reader:             &UpdateDeviceControlPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

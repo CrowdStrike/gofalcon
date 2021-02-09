@@ -23,17 +23,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGlobalCountsParams) (*AggregatesDetectionsGlobalCountsOK, error)
+	AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGlobalCountsParams, opts ...ClientOption) (*AggregatesDetectionsGlobalCountsOK, error)
 
-	AggregatesEvents(params *AggregatesEventsParams) (*AggregatesEventsOK, error)
+	AggregatesEvents(params *AggregatesEventsParams, opts ...ClientOption) (*AggregatesEventsOK, error)
 
-	AggregatesEventsCollections(params *AggregatesEventsCollectionsParams) (*AggregatesEventsCollectionsOK, error)
+	AggregatesEventsCollections(params *AggregatesEventsCollectionsParams, opts ...ClientOption) (*AggregatesEventsCollectionsOK, error)
 
-	AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlobalCountsParams) (*AggregatesIncidentsGlobalCountsOK, error)
+	AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlobalCountsParams, opts ...ClientOption) (*AggregatesIncidentsGlobalCountsOK, error)
 
-	AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobalCountsParams) (*AggregatesOWEventsGlobalCountsOK, error)
+	AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobalCountsParams, opts ...ClientOption) (*AggregatesOWEventsGlobalCountsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,13 +44,12 @@ type ClientService interface {
 /*
   AggregatesDetectionsGlobalCounts gets the total number of detections pushed across all customers
 */
-func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGlobalCountsParams) (*AggregatesDetectionsGlobalCountsOK, error) {
+func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGlobalCountsParams, opts ...ClientOption) (*AggregatesDetectionsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatesDetectionsGlobalCountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregatesDetectionsGlobalCounts",
 		Method:             "GET",
 		PathPattern:        "/overwatch-dashboards/aggregates/detections-global-counts/v1",
@@ -58,7 +60,12 @@ func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGl
 		Reader:             &AggregatesDetectionsGlobalCountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -74,13 +81,12 @@ func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGl
 /*
   AggregatesEvents gets aggregate over watch detection event info by providing an aggregate query
 */
-func (a *Client) AggregatesEvents(params *AggregatesEventsParams) (*AggregatesEventsOK, error) {
+func (a *Client) AggregatesEvents(params *AggregatesEventsParams, opts ...ClientOption) (*AggregatesEventsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatesEventsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregatesEvents",
 		Method:             "POST",
 		PathPattern:        "/overwatch-dashboards/aggregates/events/GET/v1",
@@ -91,7 +97,12 @@ func (a *Client) AggregatesEvents(params *AggregatesEventsParams) (*AggregatesEv
 		Reader:             &AggregatesEventsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -107,13 +118,12 @@ func (a *Client) AggregatesEvents(params *AggregatesEventsParams) (*AggregatesEv
 /*
   AggregatesEventsCollections gets over watch detection event collection info by providing an aggregate query
 */
-func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollectionsParams) (*AggregatesEventsCollectionsOK, error) {
+func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollectionsParams, opts ...ClientOption) (*AggregatesEventsCollectionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatesEventsCollectionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregatesEventsCollections",
 		Method:             "POST",
 		PathPattern:        "/overwatch-dashboards/aggregates/events-collections/GET/v1",
@@ -124,7 +134,12 @@ func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollections
 		Reader:             &AggregatesEventsCollectionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -140,13 +155,12 @@ func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollections
 /*
   AggregatesIncidentsGlobalCounts gets the total number of incidents pushed across all customers
 */
-func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlobalCountsParams) (*AggregatesIncidentsGlobalCountsOK, error) {
+func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlobalCountsParams, opts ...ClientOption) (*AggregatesIncidentsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatesIncidentsGlobalCountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregatesIncidentsGlobalCounts",
 		Method:             "GET",
 		PathPattern:        "/overwatch-dashboards/aggregates/incidents-global-counts/v1",
@@ -157,7 +171,12 @@ func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlob
 		Reader:             &AggregatesIncidentsGlobalCountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -173,13 +192,12 @@ func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlob
 /*
   AggregatesOWEventsGlobalCounts gets the total number of over watch events across all customers
 */
-func (a *Client) AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobalCountsParams) (*AggregatesOWEventsGlobalCountsOK, error) {
+func (a *Client) AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobalCountsParams, opts ...ClientOption) (*AggregatesOWEventsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAggregatesOWEventsGlobalCountsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AggregatesOWEventsGlobalCounts",
 		Method:             "GET",
 		PathPattern:        "/overwatch-dashboards/aggregates/ow-events-global-counts/v1",
@@ -190,7 +208,12 @@ func (a *Client) AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobal
 		Reader:             &AggregatesOWEventsGlobalCountsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

@@ -25,23 +25,26 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQueryOK, error)
+	AuditEventsQuery(params *AuditEventsQueryParams, opts ...ClientOption) (*AuditEventsQueryOK, error)
 
-	AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsReadOK, error)
+	AuditEventsRead(params *AuditEventsReadParams, opts ...ClientOption) (*AuditEventsReadOK, error)
 
-	CustomerSettingsRead(params *CustomerSettingsReadParams) (*CustomerSettingsReadOK, error)
+	CustomerSettingsRead(params *CustomerSettingsReadParams, opts ...ClientOption) (*CustomerSettingsReadOK, error)
 
-	TokensCreate(params *TokensCreateParams) (*TokensCreateCreated, error)
+	TokensCreate(params *TokensCreateParams, opts ...ClientOption) (*TokensCreateCreated, error)
 
-	TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, error)
+	TokensDelete(params *TokensDeleteParams, opts ...ClientOption) (*TokensDeleteOK, error)
 
-	TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error)
+	TokensQuery(params *TokensQueryParams, opts ...ClientOption) (*TokensQueryOK, error)
 
-	TokensRead(params *TokensReadParams) (*TokensReadOK, error)
+	TokensRead(params *TokensReadParams, opts ...ClientOption) (*TokensReadOK, error)
 
-	TokensUpdate(params *TokensUpdateParams) (*TokensUpdateOK, error)
+	TokensUpdate(params *TokensUpdateParams, opts ...ClientOption) (*TokensUpdateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,13 +52,12 @@ type ClientService interface {
 /*
   AuditEventsQuery searches for audit events by providing an f q l filter and paging details
 */
-func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQueryOK, error) {
+func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, opts ...ClientOption) (*AuditEventsQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuditEventsQueryParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "audit-events-query",
 		Method:             "GET",
 		PathPattern:        "/installation-tokens/queries/audit-events/v1",
@@ -66,7 +68,12 @@ func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQ
 		Reader:             &AuditEventsQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -82,13 +89,12 @@ func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams) (*AuditEventsQ
 /*
   AuditEventsRead gets the details of one or more audit events by id
 */
-func (a *Client) AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsReadOK, error) {
+func (a *Client) AuditEventsRead(params *AuditEventsReadParams, opts ...ClientOption) (*AuditEventsReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuditEventsReadParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "audit-events-read",
 		Method:             "GET",
 		PathPattern:        "/installation-tokens/entities/audit-events/v1",
@@ -99,7 +105,12 @@ func (a *Client) AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsRea
 		Reader:             &AuditEventsReadReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -115,13 +126,12 @@ func (a *Client) AuditEventsRead(params *AuditEventsReadParams) (*AuditEventsRea
 /*
   CustomerSettingsRead checks current installation token settings
 */
-func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams) (*CustomerSettingsReadOK, error) {
+func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, opts ...ClientOption) (*CustomerSettingsReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCustomerSettingsReadParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "customer-settings-read",
 		Method:             "GET",
 		PathPattern:        "/installation-tokens/entities/customer-settings/v1",
@@ -132,7 +142,12 @@ func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams) (*Cust
 		Reader:             &CustomerSettingsReadReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -148,13 +163,12 @@ func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams) (*Cust
 /*
   TokensCreate creates a token
 */
-func (a *Client) TokensCreate(params *TokensCreateParams) (*TokensCreateCreated, error) {
+func (a *Client) TokensCreate(params *TokensCreateParams, opts ...ClientOption) (*TokensCreateCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensCreateParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "tokens-create",
 		Method:             "POST",
 		PathPattern:        "/installation-tokens/entities/tokens/v1",
@@ -165,7 +179,12 @@ func (a *Client) TokensCreate(params *TokensCreateParams) (*TokensCreateCreated,
 		Reader:             &TokensCreateReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -182,13 +201,12 @@ func (a *Client) TokensCreate(params *TokensCreateParams) (*TokensCreateCreated,
 /*
   TokensDelete deletes a token immediately to revoke a token use p a t c h installation tokens entities tokens v1 instead
 */
-func (a *Client) TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, error) {
+func (a *Client) TokensDelete(params *TokensDeleteParams, opts ...ClientOption) (*TokensDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensDeleteParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "tokens-delete",
 		Method:             "DELETE",
 		PathPattern:        "/installation-tokens/entities/tokens/v1",
@@ -199,7 +217,12 @@ func (a *Client) TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, erro
 		Reader:             &TokensDeleteReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -215,13 +238,12 @@ func (a *Client) TokensDelete(params *TokensDeleteParams) (*TokensDeleteOK, erro
 /*
   TokensQuery searches for tokens by providing an f q l filter and paging details
 */
-func (a *Client) TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error) {
+func (a *Client) TokensQuery(params *TokensQueryParams, opts ...ClientOption) (*TokensQueryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensQueryParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "tokens-query",
 		Method:             "GET",
 		PathPattern:        "/installation-tokens/queries/tokens/v1",
@@ -232,7 +254,12 @@ func (a *Client) TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error) 
 		Reader:             &TokensQueryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -248,13 +275,12 @@ func (a *Client) TokensQuery(params *TokensQueryParams) (*TokensQueryOK, error) 
 /*
   TokensRead gets the details of one or more tokens by id
 */
-func (a *Client) TokensRead(params *TokensReadParams) (*TokensReadOK, error) {
+func (a *Client) TokensRead(params *TokensReadParams, opts ...ClientOption) (*TokensReadOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensReadParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "tokens-read",
 		Method:             "GET",
 		PathPattern:        "/installation-tokens/entities/tokens/v1",
@@ -265,7 +291,12 @@ func (a *Client) TokensRead(params *TokensReadParams) (*TokensReadOK, error) {
 		Reader:             &TokensReadReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -281,13 +312,12 @@ func (a *Client) TokensRead(params *TokensReadParams) (*TokensReadOK, error) {
 /*
   TokensUpdate updates one or more tokens use this endpoint to edit labels change expiration revoke or restore
 */
-func (a *Client) TokensUpdate(params *TokensUpdateParams) (*TokensUpdateOK, error) {
+func (a *Client) TokensUpdate(params *TokensUpdateParams, opts ...ClientOption) (*TokensUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokensUpdateParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "tokens-update",
 		Method:             "PATCH",
 		PathPattern:        "/installation-tokens/entities/tokens/v1",
@@ -298,7 +328,12 @@ func (a *Client) TokensUpdate(params *TokensUpdateParams) (*TokensUpdateOK, erro
 		Reader:             &TokensUpdateReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

@@ -25,37 +25,40 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
+	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
 
-	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
+	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
 
-	DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error)
+	DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts ...ClientOption) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error)
 
-	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
+	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
 
-	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
+	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
 
-	GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams) (*GetCSPMAwsAccountScriptsAttachmentOK, error)
+	GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAwsAccountScriptsAttachmentOK, error)
 
-	GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error)
+	GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error)
 
-	GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error)
+	GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...ClientOption) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error)
 
-	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams) (*GetCSPMAzureUserScriptsAttachmentOK, error)
+	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error)
 
-	GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error)
+	GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error)
 
-	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
+	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts ...ClientOption) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
 
-	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSPMScanScheduleOK, error)
+	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error)
 
-	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams) (*UpdateCSPMAzureAccountClientIDCreated, error)
+	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error)
 
-	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
+	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
 
-	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams) (*UpdateCSPMScanScheduleOK, error)
+	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,13 +66,12 @@ type ClientService interface {
 /*
   CreateCSPMAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
 */
-func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
+func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMAwsAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateCSPMAwsAccount",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-cspm-aws/entities/account/v1",
@@ -80,7 +82,12 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*Crea
 		Reader:             &CreateCSPMAwsAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -98,13 +105,12 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams) (*Crea
 /*
   CreateCSPMAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
 */
-func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
+func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCSPMAzureAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateCSPMAzureAccount",
 		Method:             "POST",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/account/v1",
@@ -115,7 +121,12 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*
 		Reader:             &CreateCSPMAzureAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -133,13 +144,12 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams) (*
 /*
   DeleteCSPMAwsAccount deletes an existing a w s account or organization in our system
 */
-func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
+func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts ...ClientOption) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCSPMAwsAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteCSPMAwsAccount",
 		Method:             "DELETE",
 		PathPattern:        "/cloud-connect-cspm-aws/entities/account/v1",
@@ -150,7 +160,12 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*Dele
 		Reader:             &DeleteCSPMAwsAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -168,13 +183,12 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams) (*Dele
 /*
   DeleteCSPMAzureAccount deletes an azure subscription from the system
 */
-func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
+func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCSPMAzureAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteCSPMAzureAccount",
 		Method:             "DELETE",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/account/v1",
@@ -185,7 +199,12 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*
 		Reader:             &DeleteCSPMAzureAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -203,13 +222,12 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams) (*
 /*
   GetCSPMAwsAccount returns information about the current status of an a w s account
 */
-func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
+func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAwsAccount",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-aws/entities/account/v1",
@@ -220,7 +238,12 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAws
 		Reader:             &GetCSPMAwsAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -238,13 +261,12 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams) (*GetCSPMAws
 /*
   GetCSPMAwsAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
 */
-func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams) (*GetCSPMAwsAccountScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAwsAccountScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsAccountScriptsAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAwsAccountScriptsAttachment",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-aws/entities/user-scripts-download/v1",
@@ -255,7 +277,12 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 		Reader:             &GetCSPMAwsAccountScriptsAttachmentReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -271,13 +298,12 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 /*
   GetCSPMAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
 */
-func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
+func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAwsConsoleSetupURLsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAwsConsoleSetupURLs",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-aws/entities/console-setup-urls/v1",
@@ -288,7 +314,12 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 		Reader:             &GetCSPMAwsConsoleSetupURLsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -306,13 +337,12 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 /*
   GetCSPMAzureAccount returns information about azure account registration
 */
-func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
+func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...ClientOption) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAzureAccount",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/account/v1",
@@ -323,7 +353,12 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSP
 		Reader:             &GetCSPMAzureAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -341,13 +376,12 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams) (*GetCSP
 /*
   GetCSPMAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
 */
-func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
+func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMAzureUserScriptsAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMAzureUserScriptsAttachment",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/user-scripts-download/v1",
@@ -358,7 +392,12 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 		Reader:             &GetCSPMAzureUserScriptsAttachmentReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -374,13 +413,12 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 /*
   GetCSPMPolicy givens a policy ID returns detailed policy information
 */
-func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error) {
+func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMPolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMPolicy",
 		Method:             "GET",
 		PathPattern:        "/settings/entities/policy-details/v1",
@@ -391,7 +429,12 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *
 		Reader:             &GetCSPMPolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -409,13 +452,12 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams) (*GetCSPMPolicyOK, *
 /*
   GetCSPMPolicySettings returns information about current policy settings
 */
-func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error) {
+func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts ...ClientOption) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMPolicySettingsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMPolicySettings",
 		Method:             "GET",
 		PathPattern:        "/settings/entities/policy/v1",
@@ -426,7 +468,12 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*Ge
 		Reader:             &GetCSPMPolicySettingsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -444,13 +491,12 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams) (*Ge
 /*
   GetCSPMScanSchedule returns scan schedule configuration for one or more cloud platforms
 */
-func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSPMScanScheduleOK, error) {
+func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCSPMScanScheduleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetCSPMScanSchedule",
 		Method:             "GET",
 		PathPattern:        "/settings/scan-schedule/v1",
@@ -461,7 +507,12 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSP
 		Reader:             &GetCSPMScanScheduleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -477,13 +528,12 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams) (*GetCSP
 /*
   UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
 */
-func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams) (*UpdateCSPMAzureAccountClientIDCreated, error) {
+func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMAzureAccountClientIDParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateCSPMAzureAccountClientID",
 		Method:             "PATCH",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/client-id/v1",
@@ -494,7 +544,12 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 		Reader:             &UpdateCSPMAzureAccountClientIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +566,12 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 /*
   UpdateCSPMPolicySettings updates a policy setting can be used to override policy severity or to disable a policy entirely
 */
-func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error) {
+func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMPolicySettingsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateCSPMPolicySettings",
 		Method:             "PATCH",
 		PathPattern:        "/settings/entities/policy/v1",
@@ -528,7 +582,12 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 		Reader:             &UpdateCSPMPolicySettingsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -546,13 +605,12 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 /*
   UpdateCSPMScanSchedule updates scan schedule configuration for one or more cloud platforms
 */
-func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams) (*UpdateCSPMScanScheduleOK, error) {
+func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMScanScheduleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateCSPMScanSchedule",
 		Method:             "POST",
 		PathPattern:        "/settings/scan-schedule/v1",
@@ -563,7 +621,12 @@ func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams) (*
 		Reader:             &UpdateCSPMScanScheduleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

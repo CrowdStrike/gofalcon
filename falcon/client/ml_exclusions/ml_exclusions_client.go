@@ -23,17 +23,20 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*CreateMLExclusionsV1OK, error)
+	CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1OK, error)
 
-	DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*DeleteMLExclusionsV1OK, error)
+	DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts ...ClientOption) (*DeleteMLExclusionsV1OK, error)
 
-	GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclusionsV1OK, error)
+	GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...ClientOption) (*GetMLExclusionsV1OK, error)
 
-	QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryMLExclusionsV1OK, error)
+	QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, opts ...ClientOption) (*QueryMLExclusionsV1OK, error)
 
-	UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params) (*UpdateMLExclusionsV1OK, error)
+	UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, opts ...ClientOption) (*UpdateMLExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,13 +44,12 @@ type ClientService interface {
 /*
   CreateMLExclusionsV1 creates the m l exclusions
 */
-func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*CreateMLExclusionsV1OK, error) {
+func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMLExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "createMLExclusionsV1",
 		Method:             "POST",
 		PathPattern:        "/policy/entities/ml-exclusions/v1",
@@ -58,7 +60,12 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*Crea
 		Reader:             &CreateMLExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -74,13 +81,12 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params) (*Crea
 /*
   DeleteMLExclusionsV1 deletes the m l exclusions by id
 */
-func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*DeleteMLExclusionsV1OK, error) {
+func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts ...ClientOption) (*DeleteMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMLExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "deleteMLExclusionsV1",
 		Method:             "DELETE",
 		PathPattern:        "/policy/entities/ml-exclusions/v1",
@@ -91,7 +97,12 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*Dele
 		Reader:             &DeleteMLExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -107,13 +118,12 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params) (*Dele
 /*
   GetMLExclusionsV1 gets a set of m l exclusions by specifying their i ds
 */
-func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclusionsV1OK, error) {
+func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...ClientOption) (*GetMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMLExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getMLExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/entities/ml-exclusions/v1",
@@ -124,7 +134,12 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclu
 		Reader:             &GetMLExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -140,13 +155,12 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params) (*GetMLExclu
 /*
   QueryMLExclusionsV1 searches for m l exclusions
 */
-func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryMLExclusionsV1OK, error) {
+func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, opts ...ClientOption) (*QueryMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMLExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "queryMLExclusionsV1",
 		Method:             "GET",
 		PathPattern:        "/policy/queries/ml-exclusions/v1",
@@ -157,7 +171,12 @@ func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryM
 		Reader:             &QueryMLExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -173,13 +192,12 @@ func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params) (*QueryM
 /*
   UpdateMLExclusionsV1 updates the m l exclusions
 */
-func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params) (*UpdateMLExclusionsV1OK, error) {
+func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, opts ...ClientOption) (*UpdateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMLExclusionsV1Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "updateMLExclusionsV1",
 		Method:             "PATCH",
 		PathPattern:        "/policy/entities/ml-exclusions/v1",
@@ -190,7 +208,12 @@ func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params) (*Upda
 		Reader:             &UpdateMLExclusionsV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

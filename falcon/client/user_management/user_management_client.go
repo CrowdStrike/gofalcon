@@ -25,31 +25,34 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateUser(params *CreateUserParams) (*CreateUserCreated, error)
+	CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error)
 
-	DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error)
+	DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error)
 
-	GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAvailableRoleIdsOK, error)
+	GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error)
 
-	GetRoles(params *GetRolesParams) (*GetRolesOK, error)
+	GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error)
 
-	GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK, error)
+	GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error)
 
-	GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRoleIdsOK, error)
+	GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error)
 
-	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*RetrieveEmailsByCIDOK, error)
+	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error)
 
-	RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, error)
+	RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error)
 
-	RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUserUUIDOK, error)
+	RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error)
 
-	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*RetrieveUserUUIDsByCIDOK, error)
+	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error)
 
-	RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUserRoleIdsOK, error)
+	RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error)
 
-	UpdateUser(params *UpdateUserParams) (*UpdateUserOK, error)
+	UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,13 +60,12 @@ type ClientService interface {
 /*
   CreateUser creates a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
 */
-func (a *Client) CreateUser(params *CreateUserParams) (*CreateUserCreated, error) {
+func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "CreateUser",
 		Method:             "POST",
 		PathPattern:        "/users/entities/users/v1",
@@ -74,7 +76,12 @@ func (a *Client) CreateUser(params *CreateUserParams) (*CreateUserCreated, error
 		Reader:             &CreateUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -91,13 +98,12 @@ func (a *Client) CreateUser(params *CreateUserParams) (*CreateUserCreated, error
 /*
   DeleteUser deletes a user permanently
 */
-func (a *Client) DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error) {
+func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DeleteUser",
 		Method:             "DELETE",
 		PathPattern:        "/users/entities/users/v1",
@@ -108,7 +114,12 @@ func (a *Client) DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error) {
 		Reader:             &DeleteUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -124,13 +135,12 @@ func (a *Client) DeleteUser(params *DeleteUserParams) (*DeleteUserOK, error) {
 /*
   GetAvailableRoleIds shows role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
 */
-func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAvailableRoleIdsOK, error) {
+func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAvailableRoleIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetAvailableRoleIds",
 		Method:             "GET",
 		PathPattern:        "/user-roles/queries/user-role-ids-by-cid/v1",
@@ -141,7 +151,12 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAva
 		Reader:             &GetAvailableRoleIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -157,13 +172,12 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams) (*GetAva
 /*
   GetRoles gets info about a role
 */
-func (a *Client) GetRoles(params *GetRolesParams) (*GetRolesOK, error) {
+func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRolesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetRoles",
 		Method:             "GET",
 		PathPattern:        "/user-roles/entities/user-roles/v1",
@@ -174,7 +188,12 @@ func (a *Client) GetRoles(params *GetRolesParams) (*GetRolesOK, error) {
 		Reader:             &GetRolesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -190,13 +209,12 @@ func (a *Client) GetRoles(params *GetRolesParams) (*GetRolesOK, error) {
 /*
   GetUserRoleIds shows role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
 */
-func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK, error) {
+func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserRoleIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GetUserRoleIds",
 		Method:             "GET",
 		PathPattern:        "/user-roles/queries/user-role-ids-by-user-uuid/v1",
@@ -207,7 +225,12 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK
 		Reader:             &GetUserRoleIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -223,13 +246,12 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams) (*GetUserRoleIdsOK
 /*
   GrantUserRoleIds assigns one or more roles to a user
 */
-func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRoleIdsOK, error) {
+func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserRoleIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "GrantUserRoleIds",
 		Method:             "POST",
 		PathPattern:        "/user-roles/entities/user-roles/v1",
@@ -240,7 +262,12 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRol
 		Reader:             &GrantUserRoleIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -256,13 +283,12 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams) (*GrantUserRol
 /*
   RetrieveEmailsByCID lists the usernames usually an email address for all users in your customer account
 */
-func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*RetrieveEmailsByCIDOK, error) {
+func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveEmailsByCIDParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RetrieveEmailsByCID",
 		Method:             "GET",
 		PathPattern:        "/users/queries/emails-by-cid/v1",
@@ -273,7 +299,12 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*Retrie
 		Reader:             &RetrieveEmailsByCIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -289,13 +320,12 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams) (*Retrie
 /*
   RetrieveUser gets info about a user
 */
-func (a *Client) RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, error) {
+func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RetrieveUser",
 		Method:             "GET",
 		PathPattern:        "/users/entities/users/v1",
@@ -306,7 +336,12 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, erro
 		Reader:             &RetrieveUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -322,13 +357,12 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams) (*RetrieveUserOK, erro
 /*
   RetrieveUserUUID gets a user s ID by providing a username usually an email address
 */
-func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUserUUIDOK, error) {
+func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserUUIDParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RetrieveUserUUID",
 		Method:             "GET",
 		PathPattern:        "/users/queries/user-uuids-by-email/v1",
@@ -339,7 +373,12 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUser
 		Reader:             &RetrieveUserUUIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -355,13 +394,12 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams) (*RetrieveUser
 /*
   RetrieveUserUUIDsByCID lists user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
 */
-func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*RetrieveUserUUIDsByCIDOK, error) {
+func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserUUIDsByCIDParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RetrieveUserUUIDsByCID",
 		Method:             "GET",
 		PathPattern:        "/users/queries/user-uuids-by-cid/v1",
@@ -372,7 +410,12 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*
 		Reader:             &RetrieveUserUUIDsByCIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -388,13 +431,12 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams) (*
 /*
   RevokeUserRoleIds revokes one or more roles from a user
 */
-func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUserRoleIdsOK, error) {
+func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserRoleIdsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "RevokeUserRoleIds",
 		Method:             "DELETE",
 		PathPattern:        "/user-roles/entities/user-roles/v1",
@@ -405,7 +447,12 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUser
 		Reader:             &RevokeUserRoleIdsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -421,13 +468,12 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams) (*RevokeUser
 /*
   UpdateUser modifies an existing user s first or last name
 */
-func (a *Client) UpdateUser(params *UpdateUserParams) (*UpdateUserOK, error) {
+func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "UpdateUser",
 		Method:             "PATCH",
 		PathPattern:        "/users/entities/users/v1",
@@ -438,7 +484,12 @@ func (a *Client) UpdateUser(params *UpdateUserParams) (*UpdateUserOK, error) {
 		Reader:             &UpdateUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
