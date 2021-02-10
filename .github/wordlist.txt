@@ -2,6 +2,7 @@ APIs
 CrowdScore
 CrowdStrike
 CrowdStrike's
+detections
 Golang
 initialisation
 NewClient
