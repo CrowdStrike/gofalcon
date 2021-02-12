@@ -28,6 +28,9 @@ func ErrorExtractPayload(apiError error) CommonPayload {
 	}
 	errorStruct := errorValue.Elem()
 	payloadValue := errorStruct.FieldByName("Payload")
+	if !payloadValue.IsValid() {
+		return nil
+	}
 	if !payloadValue.CanInterface() {
 		// This error struct does not have 'Payload' member
 		return nil
