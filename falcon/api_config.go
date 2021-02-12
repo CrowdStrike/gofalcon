@@ -6,14 +6,19 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client"
 )
 
-// TODO authenticate with token
+// ApiConfig object is used to initialise and configure API Client. Together with NewClient function, ApiConfig provides preferred way to initiate API communication.
 type ApiConfig struct {
+	// Client ID used for authentication with CrowdStrike Falcon platform. *required*
 	ClientId         string
+	// Client Secret used for authentication with CrowdStrike Falcon platform. *required*
 	ClientSecret     string
+	// This Context object will be used only when authenticating with the OAuth interface.
 	Context          context.Context
+	// HostOverride allows to override default host (default: api.crowdstrike.com)
 	HostOverride     string
+	// BasePathOverride allows to override default base path (default: /)
 	BasePathOverride string
-	// Debug all http traffic going through the API Runtime
+	// Debug forces print out of all http traffic going through the API Runtime
 	Debug bool
 }
 

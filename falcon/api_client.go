@@ -9,6 +9,8 @@ import (
 	"golang.org/x/oauth2/clientcredentials"
 )
 
+// NewClient return newly configured API Client based on configuration supplied by user.
+// NewClient function is preferred entry-point to gofalcon SDK.
 func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	config := clientcredentials.Config{
 		ClientID:     ac.ClientId,
