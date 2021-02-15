@@ -26,10 +26,12 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
-		*clientId = promptUser("Please provide your Falcon Client ID")
+		*clientId = promptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client ID`)
 	}
 	if *clientSecret == "" {
-		*clientSecret = promptUser("Please provide your Falcon Client Secret")
+		*clientSecret = promptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client Secret`)
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
