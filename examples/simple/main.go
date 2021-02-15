@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
@@ -13,18 +15,12 @@ func main() {
 	falconClientId := os.Getenv("FALCON_CLIENT_ID")
 	falconClientSecret := os.Getenv("FALCON_CLIENT_SECRET")
 	if falconClientId == "" {
-		fmt.Printf("Please provide your Falcon Client ID: ")
-		_, err := fmt.Scanln(&falconClientId)
-		if err != nil {
-			panic(err)
-		}
+		falconClientId = promptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client ID`)
 	}
 	if falconClientSecret == "" {
-		fmt.Printf("Please provide your Falcon Client Secret: ")
-		_, err := fmt.Scanln(&falconClientSecret)
-		if err != nil {
-			panic(err)
-		}
+		falconClientSecret = promptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client Secret`)
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -48,3 +44,15 @@ func main() {
 	fmt.Printf("As of %s your CrowdScore is %d.\n",
 		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }
+
+func promptUser(prompt string) string {
+	fmt.Printf("%s: ", prompt)
+	reader := bufio.NewReader(os.Stdin)
+	s, err := reader.ReadString('\n')
+	if err != nil {
+		panic(err)
+	}
+	return strings.TrimSpace(s)
+}
+
+type void struct{}
