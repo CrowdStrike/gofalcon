@@ -14,6 +14,7 @@ import (
 func main() {
 	falconClientId := os.Getenv("FALCON_CLIENT_ID")
 	falconClientSecret := os.Getenv("FALCON_CLIENT_SECRET")
+	clientCloud := os.Getenv("FALCON_CLOUD")
 	if falconClientId == "" {
 		falconClientId = promptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client ID`)
@@ -26,6 +27,7 @@ Falcon Client Secret`)
 	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId:     falconClientId,
 		ClientSecret: falconClientSecret,
+		Cloud:        falcon.Cloud(clientCloud),
 		Context:      context.Background(),
 	})
 	if err != nil {
