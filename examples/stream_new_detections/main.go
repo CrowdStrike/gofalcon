@@ -56,6 +56,7 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 	ticker := time.NewTicker(90 * time.Second)
 
 	go func() {
+		defer ticker.Stop()
 		seen := map[string]void{}
 		latestFirst := "last_behavior|desc"
 
