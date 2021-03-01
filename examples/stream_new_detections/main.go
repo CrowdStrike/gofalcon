@@ -60,7 +60,7 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 		seen := map[string]void{}
 		latestFirst := "last_behavior|desc"
 
-		for range ticker.C {
+		for ; true; <-ticker.C {
 			response, err := c.Detects.QueryDetects(&detects.QueryDetectsParams{
 				Sort:    &latestFirst,
 				Context: context.Background(),
