@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 	"time"
 
@@ -56,10 +57,11 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 	ticker := time.NewTicker(90 * time.Second)
 
 	go func() {
+		defer ticker.Stop()
 		seen := map[string]void{}
 		latestFirst := "last_behavior|desc"
 
-		for range ticker.C {
+		for ; true; <-ticker.C {
 			response, err := c.Detects.QueryDetects(&detects.QueryDetectsParams{
 				Sort:    &latestFirst,
 				Context: context.Background(),
@@ -89,7 +91,14 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 				for _, e := range response.Payload.Errors {
 					fmt.Println(e)
 				}
-				for _, d := range response.Payload.Resources {
+				res := response.Payload.Resources
+
+				sort.SliceStable(res, func(i, j int) bool {
+					return time.Time(*res[i].CreatedTimestamp).Before(
+						time.Time(*res[j].CreatedTimestamp))
+				})
+
+				for _, d := range res {
 					seen[*d.DetectionID] = void{}
 					out <- d
 				}
