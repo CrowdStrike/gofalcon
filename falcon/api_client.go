@@ -39,7 +39,7 @@ func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	req.Header.Add("User-Agent", userAgent)
 
 	if rt.LastRateLimitDigits == 1 || rt.LastRateLimitDigits == 2 {
-		log.Debug("Chances are relatively high of next API call to be rejected by X-Ratelimit. Waiting 500 milisecond.")
+		log.Debug("Approaching API rate limits. Waiting 500 milisecond.")
 		time.Sleep(500 * time.Millisecond)
 	}
 	response, err := rt.T.RoundTrip(req)
