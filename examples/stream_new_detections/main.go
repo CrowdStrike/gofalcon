@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 	"time"
 
@@ -90,7 +91,14 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 				for _, e := range response.Payload.Errors {
 					fmt.Println(e)
 				}
-				for _, d := range response.Payload.Resources {
+				res := response.Payload.Resources
+
+				sort.SliceStable(res, func(i, j int) bool {
+					return time.Time(*res[i].CreatedTimestamp).Before(
+						time.Time(*res[j].CreatedTimestamp))
+				})
+
+				for _, d := range res {
 					seen[*d.DetectionID] = void{}
 					out <- d
 				}
