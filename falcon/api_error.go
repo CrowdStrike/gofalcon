@@ -21,7 +21,7 @@ func ErrorExplain(apiError error) string {
 	if explained != "" {
 		return explained
 	}
-	return fmt.Sprintf("%#v", apiError)
+	return fmt.Sprintf("%v", apiError)
 }
 
 // Common interface for *Payload structures in the gofalcon/falcon/client library.
