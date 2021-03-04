@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"net/http"
@@ -43,7 +44,7 @@ Falcon Client Secret`)
 	}
 
 	json := "json"
-	appId := "gofalcon_example_falcon_event_stream"
+	appId := "falcon_event_stream"
 	// Step 1: Discover Available Streams
 	response, err := client.EventStreams.ListAvailableStreamsOAuth2(&event_streams.ListAvailableStreamsOAuth2Params{
 		AppID:   appId,
@@ -93,6 +94,7 @@ func openDataFeed(stream *models.MainAvailableStreamV2) {
 	if err != nil {
 		panic(err)
 	}
+	req.Header.Set("Accept", "application/json")
 	req.Header.Add("Authorization", "Token "+*stream.SessionToken.Token)
 	req.Header.Add("Connection", "Keep-Alive")
 	req.Header.Add("Date", time.Now().Format(time.RFC1123Z))
@@ -104,14 +106,22 @@ func openDataFeed(stream *models.MainAvailableStreamV2) {
 	}
 
 	go func() {
-		reader := bufio.NewReader(resp.Body)
-		for {
-			line, err := reader.ReadBytes('\n')
+		defer resp.Body.Close()
+
+		dec := json.NewDecoder(resp.Body)
+		for dec.More() {
+			var detection Detection
+			dec.DisallowUnknownFields()
+			err := dec.Decode(&detection)
 			if err != nil {
 				panic(err)
 			}
+			pretty, err := falcon_util.PrettyJson(detection)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println(pretty)
 
-			fmt.Println(string(line))
 		}
 	}()
 
