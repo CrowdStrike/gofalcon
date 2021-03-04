@@ -1,4 +1,4 @@
-package main
+package streaming_models
 
 // Detection - The structure for a detection
 type Detection struct {

@@ -14,6 +14,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/crowdstrike/gofalcon/falcon/models/streaming_models"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
@@ -110,7 +111,7 @@ func openDataFeed(stream *models.MainAvailableStreamV2) {
 
 		dec := json.NewDecoder(resp.Body)
 		for dec.More() {
-			var detection Detection
+			var detection streaming_models.Detection
 			dec.DisallowUnknownFields()
 			err := dec.Decode(&detection)
 			if err != nil {
