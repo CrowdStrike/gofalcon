@@ -2,9 +2,7 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"context"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -16,6 +14,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
 func main() {
@@ -45,7 +44,7 @@ Falcon Client Secret`)
 	}
 
 	for d := range streamDetections(client) {
-		json, err := prettyJson(d)
+		json, err := falcon_util.PrettyJson(d)
 		if err != nil {
 			panic(err)
 		}
@@ -110,16 +109,6 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 	}()
 
 	return out
-}
-
-func prettyJson(obj interface{}) (string, error) {
-	var out bytes.Buffer
-	enc := json.NewEncoder(&out)
-	enc.SetIndent("", "    ")
-	if err := enc.Encode(obj); err != nil {
-		return "", err
-	}
-	return out.String(), nil
 }
 
 func promptUser(prompt string) string {
