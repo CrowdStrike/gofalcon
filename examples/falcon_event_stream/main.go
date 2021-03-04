@@ -62,8 +62,13 @@ Falcon Client Secret`)
 	availableStreams := response.Payload.Resources
 	for _, stream := range availableStreams {
 		// Step 2: Open the stream
-		openDataFeed(stream)
-		time.Sleep(time.Hour)
+		for event := range streamEvents(stream) {
+			pretty, err := falcon_util.PrettyJson(event)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println(pretty)
+		}
 
 		// Step 3: refresh the token
 		_, err := client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
@@ -89,7 +94,9 @@ func promptUser(prompt string) string {
 	return strings.TrimSpace(s)
 }
 
-func openDataFeed(stream *models.MainAvailableStreamV2) {
+func streamEvents(stream *models.MainAvailableStreamV2) <-chan *streaming_models.EventItem {
+	out := make(chan *streaming_models.EventItem)
+
 	// TODO: NewRequestWithContext
 	req, err := http.NewRequest("GET", *stream.DataFeedURL, nil)
 	if err != nil {
@@ -112,19 +119,15 @@ func openDataFeed(stream *models.MainAvailableStreamV2) {
 		dec := json.NewDecoder(resp.Body)
 		for dec.More() {
 			var detection streaming_models.EventItem
-			dec.DisallowUnknownFields()
+			//dec.DisallowUnknownFields()
 			err := dec.Decode(&detection)
 			if err != nil {
 				panic(err)
 			}
-			pretty, err := falcon_util.PrettyJson(detection)
-			if err != nil {
-				panic(err)
-			}
-			fmt.Println(pretty)
-
+			out <- &detection
 		}
+		close(out)
 	}()
 
-	return
+	return out
 }
