@@ -1,7 +1,7 @@
 package streaming_models
 
-// Detection - The structure for a detection
-type Detection struct {
+// EventItem - The structure for parent model
+type EventItem struct {
 	Event    Event    `json:"event" validate:"dive"`
 	MetaData MetaData `json:"metadata"`
 }

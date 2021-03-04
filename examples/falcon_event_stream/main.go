@@ -111,7 +111,7 @@ func openDataFeed(stream *models.MainAvailableStreamV2) {
 
 		dec := json.NewDecoder(resp.Body)
 		for dec.More() {
-			var detection streaming_models.Detection
+			var detection streaming_models.EventItem
 			dec.DisallowUnknownFields()
 			err := dec.Decode(&detection)
 			if err != nil {
