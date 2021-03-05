@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon"
+	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/models"
 	"github.com/crowdstrike/gofalcon/falcon/models/streaming_models"
@@ -61,25 +62,18 @@ Falcon Client Secret`)
 
 	availableStreams := response.Payload.Resources
 	for _, stream := range availableStreams {
-		// Step 2: Open the stream
-		for event := range streamEvents(stream) {
+		ctx := context.Background()
+
+		// Step 2: set-up side goroutine to maintain the token validity
+		maintainStreamSession(ctx, client, appId, *stream.RefreshActiveSessionInterval)
+
+		// Step 3: Open the stream
+		for event := range streamEvents(ctx, stream) {
 			pretty, err := falcon_util.PrettyJson(event)
 			if err != nil {
 				panic(err)
 			}
 			fmt.Println(pretty)
-		}
-
-		// Step 3: refresh the token
-		_, err := client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
-			AppID:      appId,
-			ActionName: "refresh_active_stream_session",
-			Partition:  0,
-			Context:    context.Background(),
-		})
-
-		if err != nil {
-			panic(falcon.ErrorExplain(err))
 		}
 	}
 }
@@ -94,11 +88,34 @@ func promptUser(prompt string) string {
 	return strings.TrimSpace(s)
 }
 
-func streamEvents(stream *models.MainAvailableStreamV2) <-chan *streaming_models.EventItem {
+func maintainStreamSession(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, refreshActiveSessionInterval int64) {
+	ticker := time.NewTicker(time.Duration(refreshActiveSessionInterval*9/10) * time.Second)
+	go func() {
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				_, err := client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
+					AppID:      appId,
+					ActionName: "refresh_active_stream_session",
+					Partition:  0,
+					Context:    ctx,
+				})
+
+				if err != nil {
+					panic(falcon.ErrorExplain(err))
+				}
+			}
+		}
+	}()
+}
+
+func streamEvents(ctx context.Context, stream *models.MainAvailableStreamV2) <-chan *streaming_models.EventItem {
 	out := make(chan *streaming_models.EventItem)
 
-	// TODO: NewRequestWithContext
-	req, err := http.NewRequest("GET", *stream.DataFeedURL, nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", *stream.DataFeedURL, nil)
 	if err != nil {
 		panic(err)
 	}
