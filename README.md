@@ -13,6 +13,9 @@ go get github.com/CrowdStrike/gofalcon/falcon
 ```
 
 ## Usage Example
+
+Various real-life examples can be found in the [examples/](examples/) directory. The bare minimum example follows.
+
 ```
 package main
 
@@ -47,5 +50,3 @@ func main() {
 		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }
 ```
-
-More examples can be found in the [examples/](https://github.com/CrowdStrike/gofalcon/tree/main/examples) directory.
