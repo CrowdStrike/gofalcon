@@ -62,13 +62,18 @@ Falcon Client Secret`)
 
 	availableStreams := response.Payload.Resources
 	for _, stream := range availableStreams {
-		ctx := context.Background()
+		handle := StreamingHandle{
+			Ctx:    context.Background(),
+			Client: client,
+			AppId:  appId,
+			Stream: stream,
+		}
 
 		// Step 2: set-up side goroutine to maintain the token validity
-		maintainStreamSession(ctx, client, appId, *stream.RefreshActiveSessionInterval)
+		handle.MaintainSession()
 
 		// Step 3: Open the stream
-		for event := range streamEvents(ctx, stream) {
+		for event := range handle.Events() {
 			pretty, err := falcon_util.PrettyJson(event)
 			if err != nil {
 				panic(err)
@@ -88,20 +93,27 @@ func promptUser(prompt string) string {
 	return strings.TrimSpace(s)
 }
 
-func maintainStreamSession(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, refreshActiveSessionInterval int64) {
-	ticker := time.NewTicker(time.Duration(refreshActiveSessionInterval*9/10) * time.Second)
+type StreamingHandle struct {
+	Ctx    context.Context
+	Client *client.CrowdStrikeAPISpecification
+	AppId  string
+	Stream *models.MainAvailableStreamV2
+}
+
+func (sh *StreamingHandle) MaintainSession() {
+	ticker := time.NewTicker(time.Duration(*sh.Stream.RefreshActiveSessionInterval*9/10) * time.Second)
 	go func() {
 		defer ticker.Stop()
 		for {
 			select {
-			case <-ctx.Done():
+			case <-sh.Ctx.Done():
 				return
 			case <-ticker.C:
-				_, err := client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
-					AppID:      appId,
+				_, err := sh.Client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
+					AppID:      sh.AppId,
 					ActionName: "refresh_active_stream_session",
 					Partition:  0,
-					Context:    ctx,
+					Context:    sh.Ctx,
 				})
 
 				if err != nil {
@@ -112,15 +124,15 @@ func maintainStreamSession(ctx context.Context, client *client.CrowdStrikeAPISpe
 	}()
 }
 
-func streamEvents(ctx context.Context, stream *models.MainAvailableStreamV2) <-chan *streaming_models.EventItem {
+func (sh *StreamingHandle) Events() <-chan *streaming_models.EventItem {
 	out := make(chan *streaming_models.EventItem)
 
-	req, err := http.NewRequestWithContext(ctx, "GET", *stream.DataFeedURL, nil)
+	req, err := http.NewRequestWithContext(sh.Ctx, "GET", *sh.Stream.DataFeedURL, nil)
 	if err != nil {
 		panic(err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Add("Authorization", "Token "+*stream.SessionToken.Token)
+	req.Header.Add("Authorization", "Token "+*sh.Stream.SessionToken.Token)
 	req.Header.Add("Connection", "Keep-Alive")
 	req.Header.Add("Date", time.Now().Format(time.RFC1123Z))
 
