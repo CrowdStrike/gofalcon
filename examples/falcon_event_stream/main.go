@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"net/http"
@@ -61,20 +62,31 @@ Falcon Client Secret`)
 	}
 
 	availableStreams := response.Payload.Resources
-	for _, stream := range availableStreams {
-		handle := NewStream(context.Background(), client, appId, stream)
-
-		// Step 2: set-up side goroutine to maintain the token validity
-		handle.MaintainSession()
-
-		// Step 3: Open the stream
-		for event := range handle.Events() {
-			pretty, err := falcon_util.PrettyJson(event)
-			if err != nil {
-				panic(err)
-			}
-			fmt.Println(pretty)
+	for _, availableStream := range availableStreams {
+		stream, err := NewStream(context.Background(), client, appId, availableStream)
+		if err != nil {
+			panic(err)
 		}
+		defer stream.Close()
+
+		var fatal error
+		for fatal == nil {
+			select {
+			case err := <-stream.Errors:
+				if err.Fatal {
+					fatal = err.Err
+				} else {
+					fmt.Fprintln(os.Stderr, err)
+				}
+			case event := <-stream.Events:
+				pretty, err := falcon_util.PrettyJson(event)
+				if err != nil {
+					panic(err)
+				}
+				fmt.Println(pretty)
+			}
+		}
+		panic(fatal)
 	}
 }
 
@@ -93,18 +105,43 @@ type StreamingHandle struct {
 	client *client.CrowdStrikeAPISpecification
 	appId  string
 	stream *models.MainAvailableStreamV2
+	Events chan *streaming_models.EventItem
+	Errors chan StreamingError
 }
 
-func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) *StreamingHandle {
-	return &StreamingHandle{
+func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) (*StreamingHandle, error) {
+	sh := &StreamingHandle{
 		ctx:    ctx,
 		client: client,
 		appId:  appId,
 		stream: stream,
+		Events: make(chan *streaming_models.EventItem),
+		Errors: make(chan StreamingError),
 	}
+	sh.maintainSession()
+	err := sh.open()
+	if err != nil {
+		sh.Close()
+		return nil, err
+	}
+	return sh, nil
 }
 
-func (sh *StreamingHandle) MaintainSession() {
+func (sh *StreamingHandle) Close() {
+	close(sh.Errors)
+	sh.Errors = nil
+}
+
+type StreamingError struct {
+	Fatal bool
+	Err   error
+}
+
+func (e StreamingError) Error() string {
+	return e.Err.Error()
+}
+
+func (sh *StreamingHandle) maintainSession() {
 	ticker := time.NewTicker(time.Duration(*sh.stream.RefreshActiveSessionInterval*9/10) * time.Second)
 	go func() {
 		defer ticker.Stop()
@@ -121,19 +158,22 @@ func (sh *StreamingHandle) MaintainSession() {
 				})
 
 				if err != nil {
-					panic(falcon.ErrorExplain(err))
+					sh.Errors <- StreamingError{
+						Fatal: true,
+						Err:   err,
+					}
+					return
 				}
 			}
 		}
 	}()
 }
 
-func (sh *StreamingHandle) Events() <-chan *streaming_models.EventItem {
-	out := make(chan *streaming_models.EventItem)
+func (sh *StreamingHandle) open() error {
 
 	req, err := http.NewRequestWithContext(sh.ctx, "GET", *sh.stream.DataFeedURL, nil)
 	if err != nil {
-		panic(err)
+		return err
 	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Add("Authorization", "Token "+*sh.stream.SessionToken.Token)
@@ -143,9 +183,10 @@ func (sh *StreamingHandle) Events() <-chan *streaming_models.EventItem {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		return err
 	}
 
+	sh.Events = make(chan *streaming_models.EventItem)
 	go func() {
 		defer resp.Body.Close()
 
@@ -155,12 +196,16 @@ func (sh *StreamingHandle) Events() <-chan *streaming_models.EventItem {
 			//dec.DisallowUnknownFields()
 			err := dec.Decode(&detection)
 			if err != nil {
-				panic(err)
+				sh.Errors <- StreamingError{Fatal: false, Err: err}
 			}
-			out <- &detection
+			sh.Events <- &detection
 		}
-		close(out)
+		sh.Errors <- StreamingError{
+			Fatal: true,
+			Err:   errors.New("Streaming connection closed"),
+		}
+		close(sh.Events)
 	}()
 
-	return out
+	return nil
 }
