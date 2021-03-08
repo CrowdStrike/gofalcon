@@ -62,12 +62,7 @@ Falcon Client Secret`)
 
 	availableStreams := response.Payload.Resources
 	for _, stream := range availableStreams {
-		handle := StreamingHandle{
-			Ctx:    context.Background(),
-			Client: client,
-			AppId:  appId,
-			Stream: stream,
-		}
+		handle := NewStream(context.Background(), client, appId, stream)
 
 		// Step 2: set-up side goroutine to maintain the token validity
 		handle.MaintainSession()
@@ -98,6 +93,15 @@ type StreamingHandle struct {
 	Client *client.CrowdStrikeAPISpecification
 	AppId  string
 	Stream *models.MainAvailableStreamV2
+}
+
+func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) *StreamingHandle {
+	return &StreamingHandle{
+		Ctx:    ctx,
+		Client: client,
+		AppId:  appId,
+		Stream: stream,
+	}
 }
 
 func (sh *StreamingHandle) MaintainSession() {
