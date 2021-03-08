@@ -89,35 +89,35 @@ func promptUser(prompt string) string {
 }
 
 type StreamingHandle struct {
-	Ctx    context.Context
-	Client *client.CrowdStrikeAPISpecification
-	AppId  string
-	Stream *models.MainAvailableStreamV2
+	ctx    context.Context
+	client *client.CrowdStrikeAPISpecification
+	appId  string
+	stream *models.MainAvailableStreamV2
 }
 
 func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) *StreamingHandle {
 	return &StreamingHandle{
-		Ctx:    ctx,
-		Client: client,
-		AppId:  appId,
-		Stream: stream,
+		ctx:    ctx,
+		client: client,
+		appId:  appId,
+		stream: stream,
 	}
 }
 
 func (sh *StreamingHandle) MaintainSession() {
-	ticker := time.NewTicker(time.Duration(*sh.Stream.RefreshActiveSessionInterval*9/10) * time.Second)
+	ticker := time.NewTicker(time.Duration(*sh.stream.RefreshActiveSessionInterval*9/10) * time.Second)
 	go func() {
 		defer ticker.Stop()
 		for {
 			select {
-			case <-sh.Ctx.Done():
+			case <-sh.ctx.Done():
 				return
 			case <-ticker.C:
-				_, err := sh.Client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
-					AppID:      sh.AppId,
+				_, err := sh.client.EventStreams.RefreshActiveStreamSession(&event_streams.RefreshActiveStreamSessionParams{
+					AppID:      sh.appId,
 					ActionName: "refresh_active_stream_session",
 					Partition:  0,
-					Context:    sh.Ctx,
+					Context:    sh.ctx,
 				})
 
 				if err != nil {
@@ -131,12 +131,12 @@ func (sh *StreamingHandle) MaintainSession() {
 func (sh *StreamingHandle) Events() <-chan *streaming_models.EventItem {
 	out := make(chan *streaming_models.EventItem)
 
-	req, err := http.NewRequestWithContext(sh.Ctx, "GET", *sh.Stream.DataFeedURL, nil)
+	req, err := http.NewRequestWithContext(sh.ctx, "GET", *sh.stream.DataFeedURL, nil)
 	if err != nil {
 		panic(err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Add("Authorization", "Token "+*sh.Stream.SessionToken.Token)
+	req.Header.Add("Authorization", "Token "+*sh.stream.SessionToken.Token)
 	req.Header.Add("Connection", "Keep-Alive")
 	req.Header.Add("Date", time.Now().Format(time.RFC1123Z))
 
