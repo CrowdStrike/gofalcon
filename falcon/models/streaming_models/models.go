@@ -3,11 +3,11 @@ package streaming_models
 // EventItem - The structure for parent model
 type EventItem struct {
 	Event    Event    `json:"event" validate:"dive"`
-	MetaData MetaData `json:"metadata"`
+	Metadata Metadata `json:"metadata"`
 }
 
-// MetaData - The metadata for this detection
-type MetaData struct {
+// Metadata - The metadata for this detection
+type Metadata struct {
 	CID               string `json:"customerIDString"`
 	Offset            uint64 `json:"offset"`
 	Version           string `json:"version"`
