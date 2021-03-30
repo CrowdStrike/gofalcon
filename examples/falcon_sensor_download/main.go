@@ -131,7 +131,6 @@ func getSensors(client *client.CrowdStrikeAPISpecification, osName string) []*mo
 
 func getValidOsNames(client *client.CrowdStrikeAPISpecification) []string {
 	sensors := getSensors(client, "")
-	type void struct{}
 	osNames := make(map[string]void)
 	for _, sensor := range sensors {
 		osNames[*sensor.Os] = void{}
@@ -146,7 +145,6 @@ func getValidOsNames(client *client.CrowdStrikeAPISpecification) []string {
 
 func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName string) []string {
 	sensors := getSensors(client, osName)
-	type void struct{}
 	osVersions := make(map[string]void)
 	for _, sensor := range sensors {
 		osVersions[*sensor.OsVersion] = void{}
