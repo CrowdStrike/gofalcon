@@ -64,7 +64,7 @@ Falcon Client Secret`)
 				// No version distinction, single package suits all
 				*osVersion = ""
 			} else {
-				fmt.Printf("Missing --os-version command-line option. Available version are: [%s]\n", strings.Join(validOsVersions, ", "))
+				fmt.Printf("Missing --os-version command-line option. Available OS versions are: [%s]\n", strings.Join(validOsVersions, ", "))
 				*osVersion = promptUser("Selected OS Version")
 			}
 		}
