@@ -33,3 +33,10 @@ Download Falcon Container Sensor
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" falcon_sensor_download --os-name=Container
 Downloaded Falcon Usermode Container Sensor to falcon-sensor-6.18.0-106.container.x86_64.tar.bz2
 ```
+
+Download specified version of Falcon Sensor
+```
+$ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" falcon_sensor_download --os-name Ubuntu --os-version '14/16/18/20' --sensor-version=5.43.10807
+Downloaded Falcon Kernel Sensor for Ubuntu 14.04LTS, 16.04LTS, 18.04LTS, and 20.04LTS to falcon-sensor_5.43.0-10807_amd64.deb
+```
+

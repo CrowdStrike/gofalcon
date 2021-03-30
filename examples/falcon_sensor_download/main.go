@@ -22,6 +22,8 @@ func main() {
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 	osName := flag.String("os-name", "", "Name of the operating system")
 	osVersion := flag.String("os-version", "", "Versin of the operating system")
+	sensorVersion := flag.String("sensor-version", "latest", "Version of the Falcon Sensor. Use: 'latest' to get the latest or '' to get prompted interactively")
+
 	all := flag.Bool("all", false, "Download all sensors")
 
 	flag.Parse()
@@ -68,7 +70,17 @@ Falcon Client Secret`)
 				*osVersion = promptUser("Selected OS Version")
 			}
 		}
-		sensor := querySuitableSensor(client, *osName, *osVersion)
+		if *sensorVersion == "" {
+			validSensorVersions := getValidSensorVersions(client, *osName, *osVersion)
+			if len(validSensorVersions) == 0 {
+				fmt.Fprintf(os.Stderr, "No sensors available for specified os/version tuple: %s/%s\n", *osName, *osVersion)
+				os.Exit(1)
+			}
+			fmt.Printf("Missing --sensor-version=latest command-line option. Available sensor versions are: [%s]\n", strings.Join(validSensorVersions, ", "))
+			*sensorVersion = promptUser("Selected Sensor Version")
+		}
+
+		sensor := querySuitableSensor(client, *osName, *osVersion, *sensorVersion)
 		if sensor == nil {
 			fmt.Fprintf(os.Stderr, "Could not find relevant sensor for '%s' version '%s'\n", *osName, *osVersion)
 			os.Exit(1)
@@ -96,10 +108,12 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, filename)
 }
 
-func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osVersion string) *models.DomainSensorInstallerV1 {
+func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osVersion, sensorVersion string) *models.DomainSensorInstallerV1 {
 	for _, sensor := range getSensors(client, osName) {
 		if osVersion == *sensor.OsVersion {
-			return sensor
+			if *sensor.Version == sensorVersion || sensorVersion == "latest" {
+				return sensor
+			}
 		}
 	}
 	return nil
@@ -151,6 +165,22 @@ func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName strin
 	}
 	list := []string{}
 	for k := range osVersions {
+		list = append(list, k)
+	}
+	sort.Strings(list)
+	return list
+}
+
+func getValidSensorVersions(client *client.CrowdStrikeAPISpecification, osName, osVersion string) []string {
+	sensors := getSensors(client, osName)
+	sensorVersions := make(map[string]void)
+	for _, sensor := range sensors {
+		if *sensor.OsVersion == osVersion {
+			sensorVersions[*sensor.Version] = void{}
+		}
+	}
+	list := []string{}
+	for k := range sensorVersions {
 		list = append(list, k)
 	}
 	sort.Strings(list)
