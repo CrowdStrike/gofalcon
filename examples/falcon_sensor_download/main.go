@@ -82,7 +82,7 @@ Falcon Client Secret`)
 
 		sensor := querySuitableSensor(client, *osName, *osVersion, *sensorVersion)
 		if sensor == nil {
-			fmt.Fprintf(os.Stderr, "Could not find relevant sensor for '%s' version '%s'\n", *osName, *osVersion)
+			fmt.Fprintf(os.Stderr, "Could not find sensor version '%s' for '%s' '%s'\n", *sensorVersion, *osName, *osVersion)
 			os.Exit(1)
 		}
 
