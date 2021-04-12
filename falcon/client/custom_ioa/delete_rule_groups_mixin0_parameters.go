@@ -60,12 +60,6 @@ func NewDeleteRuleGroupsMixin0ParamsWithHTTPClient(client *http.Client) *DeleteR
 */
 type DeleteRuleGroupsMixin0Params struct {
 
-	/* XCSUSERNAME.
-
-	   The user ID
-	*/
-	XCSUSERNAME string
-
 	/* Comment.
 
 	   Explains why the entity is being deleted
@@ -131,17 +125,6 @@ func (o *DeleteRuleGroupsMixin0Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the delete rule groups mixin0 params
-func (o *DeleteRuleGroupsMixin0Params) WithXCSUSERNAME(xCSUSERNAME string) *DeleteRuleGroupsMixin0Params {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the delete rule groups mixin0 params
-func (o *DeleteRuleGroupsMixin0Params) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithComment adds the comment to the delete rule groups mixin0 params
 func (o *DeleteRuleGroupsMixin0Params) WithComment(comment *string) *DeleteRuleGroupsMixin0Params {
 	o.SetComment(comment)
@@ -171,11 +154,6 @@ func (o *DeleteRuleGroupsMixin0Params) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 
 	if o.Comment != nil {
 

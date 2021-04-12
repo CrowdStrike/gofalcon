@@ -28,56 +28,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error)
-
 	GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error)
 
 	GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error)
-
-	QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error)
 
 	QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error)
 
 	UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-  AggregateDetections retrieves aggregate detection values based on the matched filter
-*/
-func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregateDetectionsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregateDetections",
-		Method:             "POST",
-		PathPattern:        "/falcon-complete-dashboards/aggregates/detects/GET/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AggregateDetectionsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregateDetectionsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*AggregateDetectionsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -151,43 +110,6 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetDetectSummariesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  QueryDetectionIdsByFilter retrieves detections ids that match the provided f q l filter criteria with scrolling enabled
-*/
-func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryDetectionIdsByFilterParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QueryDetectionIdsByFilter",
-		Method:             "GET",
-		PathPattern:        "/falcon-complete-dashboards/queries/detects/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QueryDetectionIdsByFilterReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QueryDetectionIdsByFilterOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*QueryDetectionIdsByFilterDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

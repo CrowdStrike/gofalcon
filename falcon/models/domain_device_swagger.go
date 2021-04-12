@@ -51,6 +51,9 @@ type DomainDeviceSwagger struct {
 	// config id platform
 	ConfigIDPlatform string `json:"config_id_platform,omitempty"`
 
+	// cpu signature
+	CPUSignature string `json:"cpu_signature,omitempty"`
+
 	// detection suppression status
 	DetectionSuppressionStatus string `json:"detection_suppression_status,omitempty"`
 
@@ -59,7 +62,7 @@ type DomainDeviceSwagger struct {
 	DeviceID *string `json:"device_id"`
 
 	// device policies
-	DevicePolicies *CsdomainMappedDevicePolicies `json:"device_policies,omitempty"`
+	DevicePolicies *DeviceMappedDevicePolicies `json:"device_policies,omitempty"`
 
 	// email
 	Email string `json:"email,omitempty"`
@@ -107,10 +110,10 @@ type DomainDeviceSwagger struct {
 	MajorVersion string `json:"major_version,omitempty"`
 
 	// managed apps
-	ManagedApps *CsdomainManagedApps `json:"managed_apps,omitempty"`
+	ManagedApps *DeviceManagedApps `json:"managed_apps,omitempty"`
 
 	// meta
-	Meta *CsdomainDeviceMeta `json:"meta,omitempty"`
+	Meta *DeviceDeviceMeta `json:"meta,omitempty"`
 
 	// minor version
 	MinorVersion string `json:"minor_version,omitempty"`
@@ -133,11 +136,44 @@ type DomainDeviceSwagger struct {
 	// platform name
 	PlatformName string `json:"platform_name,omitempty"`
 
+	// pod annotations
+	PodAnnotations []string `json:"pod_annotations"`
+
+	// pod host ip4
+	PodHostIp4 string `json:"pod_host_ip4,omitempty"`
+
+	// pod host ip6
+	PodHostIp6 string `json:"pod_host_ip6,omitempty"`
+
+	// pod hostname
+	PodHostname string `json:"pod_hostname,omitempty"`
+
+	// pod id
+	PodID string `json:"pod_id,omitempty"`
+
+	// pod ip4
+	PodIp4 string `json:"pod_ip4,omitempty"`
+
+	// pod ip6
+	PodIp6 string `json:"pod_ip6,omitempty"`
+
+	// pod labels
+	PodLabels []string `json:"pod_labels"`
+
+	// pod name
+	PodName string `json:"pod_name,omitempty"`
+
+	// pod namespace
+	PodNamespace string `json:"pod_namespace,omitempty"`
+
+	// pod service account name
+	PodServiceAccountName string `json:"pod_service_account_name,omitempty"`
+
 	// pointer size
 	PointerSize string `json:"pointer_size,omitempty"`
 
 	// policies
-	Policies []*CsdomainDevicePolicy `json:"policies"`
+	Policies []*DeviceDevicePolicy `json:"policies"`
 
 	// product type
 	ProductType string `json:"product_type,omitempty"`
@@ -148,8 +184,14 @@ type DomainDeviceSwagger struct {
 	// provision status
 	ProvisionStatus string `json:"provision_status,omitempty"`
 
+	// reduced functionality mode
+	ReducedFunctionalityMode string `json:"reduced_functionality_mode,omitempty"`
+
 	// release group
 	ReleaseGroup string `json:"release_group,omitempty"`
+
+	// serial number
+	SerialNumber string `json:"serial_number,omitempty"`
 
 	// service pack major
 	ServicePackMajor string `json:"service_pack_major,omitempty"`
@@ -180,6 +222,9 @@ type DomainDeviceSwagger struct {
 
 	// tags
 	Tags []string `json:"tags"`
+
+	// zone group
+	ZoneGroup string `json:"zone_group,omitempty"`
 }
 
 // Validate validates this domain device swagger

@@ -40,6 +40,8 @@ type ClientService interface {
 
 	QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error)
 
+	UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -226,6 +228,43 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...Cl
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryHiddenDevicesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts
+*/
+func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDeviceTagsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateDeviceTags",
+		Method:             "PATCH",
+		PathPattern:        "/devices/entities/devices/tags/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateDeviceTagsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDeviceTagsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UpdateDeviceTagsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

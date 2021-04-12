@@ -28,8 +28,6 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error)
-
 	CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*CrowdScoreOK, error)
 
 	GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) (*GetBehaviorsOK, error)
@@ -40,48 +38,9 @@ type ClientService interface {
 
 	QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOption) (*QueryBehaviorsOK, error)
 
-	QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error)
-
 	QueryIncidents(params *QueryIncidentsParams, opts ...ClientOption) (*QueryIncidentsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-  AggregateFCIncidents retrieves aggregate incident values based on the matched filter
-*/
-func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAggregateFCIncidentsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "AggregateFCIncidents",
-		Method:             "POST",
-		PathPattern:        "/falcon-complete-dashboards/aggregates/incidents/GET/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AggregateFCIncidentsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*AggregateFCIncidentsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*AggregateFCIncidentsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -266,43 +225,6 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOpti
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryBehaviorsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  QueryIncidentIdsByFilter retrieves incidents that match the provided filter criteria with scrolling enabled
-*/
-func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryIncidentIdsByFilterParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QueryIncidentIdsByFilter",
-		Method:             "GET",
-		PathPattern:        "/falcon-complete-dashboards/queries/incidents/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QueryIncidentIdsByFilterReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QueryIncidentIdsByFilterOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*QueryIncidentIdsByFilterDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

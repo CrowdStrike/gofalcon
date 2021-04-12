@@ -16,9 +16,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
-	"github.com/crowdstrike/gofalcon/falcon/client/devicecount_collections"
-	"github.com/crowdstrike/gofalcon/falcon/client/devices"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
+	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
@@ -29,11 +28,11 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
-	"github.com/crowdstrike/gofalcon/falcon/client/jira"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
-	"github.com/crowdstrike/gofalcon/falcon/client/overwatch"
+	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
@@ -44,6 +43,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
+	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
 
 // Default crowd strike API specification HTTP client.
@@ -94,9 +94,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
-	cli.DevicecountCollections = devicecount_collections.New(transport, formats)
-	cli.Devices = devices.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
+	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
@@ -107,11 +106,11 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Intel = intel.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
-	cli.Jira = jira.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
+	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
-	cli.Overwatch = overwatch.New(transport, formats)
+	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
@@ -122,6 +121,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
+	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
 	return cli
 }
 
@@ -178,11 +178,9 @@ type CrowdStrikeAPISpecification struct {
 
 	DeviceControlPolicies device_control_policies.ClientService
 
-	DevicecountCollections devicecount_collections.ClientService
-
-	Devices devices.ClientService
-
 	EventStreams event_streams.ClientService
+
+	FalconCompleteDashboard falcon_complete_dashboard.ClientService
 
 	FalconxSandbox falconx_sandbox.ClientService
 
@@ -204,15 +202,15 @@ type CrowdStrikeAPISpecification struct {
 
 	Iocs iocs.ClientService
 
-	Jira jira.ClientService
-
 	Malquery malquery.ClientService
 
 	MlExclusions ml_exclusions.ClientService
 
+	Mssp mssp.ClientService
+
 	Oauth2 oauth2.ClientService
 
-	Overwatch overwatch.ClientService
+	OverwatchDashboard overwatch_dashboard.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
 
@@ -234,6 +232,8 @@ type CrowdStrikeAPISpecification struct {
 
 	UserManagement user_management.ClientService
 
+	ZeroTrustAssessment zero_trust_assessment.ClientService
+
 	Transport runtime.ClientTransport
 }
 
@@ -246,9 +246,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.D4cRegistration.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
-	c.DevicecountCollections.SetTransport(transport)
-	c.Devices.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
+	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconxSandbox.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
@@ -259,11 +258,11 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Intel.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
-	c.Jira.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
+	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
-	c.Overwatch.SetTransport(transport)
+	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
@@ -274,4 +273,5 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
+	c.ZeroTrustAssessment.SetTransport(transport)
 }

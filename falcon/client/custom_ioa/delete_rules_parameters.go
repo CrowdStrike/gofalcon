@@ -60,12 +60,6 @@ func NewDeleteRulesParamsWithHTTPClient(client *http.Client) *DeleteRulesParams 
 */
 type DeleteRulesParams struct {
 
-	/* XCSUSERNAME.
-
-	   The user ID
-	*/
-	XCSUSERNAME string
-
 	/* Comment.
 
 	   Explains why the entity is being deleted
@@ -137,17 +131,6 @@ func (o *DeleteRulesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the delete rules params
-func (o *DeleteRulesParams) WithXCSUSERNAME(xCSUSERNAME string) *DeleteRulesParams {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the delete rules params
-func (o *DeleteRulesParams) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithComment adds the comment to the delete rules params
 func (o *DeleteRulesParams) WithComment(comment *string) *DeleteRulesParams {
 	o.SetComment(comment)
@@ -188,11 +171,6 @@ func (o *DeleteRulesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 
 	if o.Comment != nil {
 

@@ -69,6 +69,9 @@ type DetectsDeviceDetailIndexed struct {
 	// hostname
 	Hostname string `json:"hostname,omitempty"`
 
+	// instance id
+	InstanceID string `json:"instance_id,omitempty"`
+
 	// last login timestamp
 	LastLoginTimestamp string `json:"last_login_timestamp,omitempty"`
 
@@ -111,6 +114,21 @@ type DetectsDeviceDetailIndexed struct {
 	// platform name
 	PlatformName string `json:"platform_name,omitempty"`
 
+	// pod id
+	PodID string `json:"pod_id,omitempty"`
+
+	// pod labels
+	PodLabels []string `json:"pod_labels"`
+
+	// pod name
+	PodName string `json:"pod_name,omitempty"`
+
+	// pod namespace
+	PodNamespace string `json:"pod_namespace,omitempty"`
+
+	// pod service account name
+	PodServiceAccountName string `json:"pod_service_account_name,omitempty"`
+
 	// product type
 	ProductType string `json:"product_type,omitempty"`
 
@@ -119,6 +137,12 @@ type DetectsDeviceDetailIndexed struct {
 
 	// release group
 	ReleaseGroup string `json:"release_group,omitempty"`
+
+	// service provider
+	ServiceProvider string `json:"service_provider,omitempty"`
+
+	// service provider account id
+	ServiceProviderAccountID string `json:"service_provider_account_id,omitempty"`
 
 	// site name
 	SiteName string `json:"site_name,omitempty"`
