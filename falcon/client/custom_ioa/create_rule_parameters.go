@@ -61,12 +61,6 @@ func NewCreateRuleParamsWithHTTPClient(client *http.Client) *CreateRuleParams {
 */
 type CreateRuleParams struct {
 
-	/* XCSUSERNAME.
-
-	   The user ID
-	*/
-	XCSUSERNAME string
-
 	// Body.
 	Body *models.APIRuleCreateV1
 
@@ -123,17 +117,6 @@ func (o *CreateRuleParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the create rule params
-func (o *CreateRuleParams) WithXCSUSERNAME(xCSUSERNAME string) *CreateRuleParams {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the create rule params
-func (o *CreateRuleParams) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithBody adds the body to the create rule params
 func (o *CreateRuleParams) WithBody(body *models.APIRuleCreateV1) *CreateRuleParams {
 	o.SetBody(body)
@@ -152,11 +135,6 @@ func (o *CreateRuleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

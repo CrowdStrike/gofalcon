@@ -30,7 +30,11 @@ type DomainAPIDetectionDocument struct {
 	AssignedToUID string `json:"assigned_to_uid,omitempty"`
 
 	// behaviors
-	Behaviors []*DetectsindexBehavior `json:"behaviors"`
+	Behaviors []*DetectsBehavior `json:"behaviors"`
+
+	// behaviors processed
+	// Required: true
+	BehaviorsProcessed []string `json:"behaviors_processed"`
 
 	// cid
 	// Required: true
@@ -47,7 +51,7 @@ type DomainAPIDetectionDocument struct {
 
 	// device
 	// Required: true
-	Device *DetectsindexDeviceDetailIndexed `json:"device"`
+	Device *DetectsDeviceDetailIndexed `json:"device"`
 
 	// email sent
 	// Required: true
@@ -60,7 +64,7 @@ type DomainAPIDetectionDocument struct {
 
 	// hostinfo
 	// Required: true
-	Hostinfo *DetectsindexHostInfo `json:"hostinfo"`
+	Hostinfo *DetectsHostInfo `json:"hostinfo"`
 
 	// last behavior
 	// Required: true
@@ -83,7 +87,7 @@ type DomainAPIDetectionDocument struct {
 	OverwatchNotes string `json:"overwatch_notes,omitempty"`
 
 	// quarantined files
-	QuarantinedFiles []*DetectsindexQuarantinedFile `json:"quarantined_files"`
+	QuarantinedFiles []*DetectsQuarantinedFile `json:"quarantined_files"`
 
 	// seconds to resolved
 	// Required: true
@@ -107,6 +111,10 @@ func (m *DomainAPIDetectionDocument) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBehaviors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBehaviorsProcessed(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,6 +207,15 @@ func (m *DomainAPIDetectionDocument) validateBehaviors(formats strfmt.Registry) 
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainAPIDetectionDocument) validateBehaviorsProcessed(formats strfmt.Registry) error {
+
+	if err := validate.Required("behaviors_processed", "body", m.BehaviorsProcessed); err != nil {
+		return err
 	}
 
 	return nil

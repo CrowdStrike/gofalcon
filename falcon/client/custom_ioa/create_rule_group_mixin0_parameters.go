@@ -61,12 +61,6 @@ func NewCreateRuleGroupMixin0ParamsWithHTTPClient(client *http.Client) *CreateRu
 */
 type CreateRuleGroupMixin0Params struct {
 
-	/* XCSUSERNAME.
-
-	   The user ID
-	*/
-	XCSUSERNAME string
-
 	// Body.
 	Body *models.APIRuleGroupCreateRequestV1
 
@@ -123,17 +117,6 @@ func (o *CreateRuleGroupMixin0Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the create rule group mixin0 params
-func (o *CreateRuleGroupMixin0Params) WithXCSUSERNAME(xCSUSERNAME string) *CreateRuleGroupMixin0Params {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the create rule group mixin0 params
-func (o *CreateRuleGroupMixin0Params) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithBody adds the body to the create rule group mixin0 params
 func (o *CreateRuleGroupMixin0Params) WithBody(body *models.APIRuleGroupCreateRequestV1) *CreateRuleGroupMixin0Params {
 	o.SetBody(body)
@@ -152,11 +135,6 @@ func (o *CreateRuleGroupMixin0Params) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
