@@ -140,7 +140,15 @@ func getSensors(client *client.CrowdStrikeAPISpecification, osName string) []*mo
 		panic("Errors from the server")
 
 	}
-	return payload.Resources
+	k := 0
+	for _, sensor := range payload.Resources {
+		if strings.Contains(*sensor.Description, "Falcon SIEM Connector") {
+			continue
+		}
+		payload.Resources[k] = sensor
+		k++
+	}
+	return payload.Resources[:k]
 }
 
 func getValidOsNames(client *client.CrowdStrikeAPISpecification) []string {
