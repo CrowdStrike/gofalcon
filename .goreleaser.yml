@@ -1,0 +1,55 @@
+builds:
+  - binary: falcon_sensor_download
+    main: ./examples/falcon_sensor_download/
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+
+archives:
+- replacements:
+    darwin: macOS
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+
+nfpms:
+  - id: falcon_sensor_download
+
+    file_name_template: "{{ .ProjectName }}-{{ .Version }}-{{ .Release }}.{{ .Arch }}"
+    replacements:
+      386: i686
+      amd64: x86_64
+      arm: aarch32
+      arm64: aarch64
+
+    formats:
+      - deb
+      - rpm
+
+    bindir: /usr/bin
+
+    homepage: github.com/crowdstrike/gofalcon
+    license: MIT
+    description: Golang-based SDK to CrowdStrike's APIs
+    release: 1
