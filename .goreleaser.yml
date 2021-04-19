@@ -1,6 +1,49 @@
 builds:
-  - binary: falcon_sensor_download
+  - id: falcon_sensor_download
+    binary: falcon_sensor_download
     main: ./examples/falcon_sensor_download/
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+  - id: falcon_cleanup_pods
+    binary: falcon_cleanup_pods
+    main: ./examples/falcon_cleanup_pods
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+  - id: falcon_event_stream
+    binary: falcon_event_stream
+    main: ./examples/falcon_event_stream
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+  - id: falcon_iocs
+    binary: falcon_iocs
+    main: ./examples/falcon_iocs
     env:
       - CGO_ENABLED=0
     goos:
@@ -35,6 +78,7 @@ changelog:
 
 nfpms:
   - id: falcon_sensor_download
+    package_name: gofalcon-utils
 
     file_name_template: "{{ .ProjectName }}-{{ .Version }}-{{ .Release }}.{{ .Arch }}"
     replacements:
@@ -46,8 +90,16 @@ nfpms:
     formats:
       - deb
       - rpm
-
     bindir: /usr/bin
+    contents:
+      - src: examples/falcon_sensor_download
+        dst: /usr/share/doc/gofalcon/falcon_sensor_download.md
+      - src: examples/falcon_cleanup_pods
+        dst: /usr/share/doc/gofalcon/falcon_cleanup_pods
+      - src: examples/falcon_event_stream
+        dst: /usr/share/doc/gofalcon/falcon_event_stream
+      - src: examples/falcon_iocs
+        dst: /usr/share/doc/gofalcon/falcon_iocs
 
     homepage: github.com/crowdstrike/gofalcon
     license: MIT
