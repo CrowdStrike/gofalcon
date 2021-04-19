@@ -2,6 +2,7 @@ APIs
 CrowdScore
 CrowdStrike
 CrowdStrike's
+Kubernetes
 detections
 Golang
 initialisation
