@@ -6,7 +6,9 @@ all: build
 build:
 	$(GOBUILD) ./...
 
-generate: specs/swagger-download-patch.json remove-generated
+clean-generate: remove-generated generate
+
+generate: specs/swagger-download-patch.json
 	$(GO) run github.com/go-swagger/go-swagger/cmd/swagger generate client --skip-validation -f $^ -t falcon
 
 .PHONY: build generate remove-generated
