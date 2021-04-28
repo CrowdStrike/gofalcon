@@ -21,7 +21,7 @@ import (
 type MsaEntityActionRequestV2 struct {
 
 	// action parameters
-	ActionParameters []*CsdomainActionParameter `json:"action_parameters"`
+	ActionParameters []*MsaActionParameter `json:"action_parameters"`
 
 	// ids
 	// Required: true
