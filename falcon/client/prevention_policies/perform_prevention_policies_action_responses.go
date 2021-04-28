@@ -84,6 +84,10 @@ OK
 */
 type PerformPreventionPoliciesActionOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -103,6 +107,13 @@ func (o *PerformPreventionPoliciesActionOK) GetPayload() *models.ResponsesPreven
 }
 
 func (o *PerformPreventionPoliciesActionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -147,6 +158,10 @@ Bad Request
 */
 type PerformPreventionPoliciesActionBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -166,6 +181,13 @@ func (o *PerformPreventionPoliciesActionBadRequest) GetPayload() *models.Respons
 }
 
 func (o *PerformPreventionPoliciesActionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -210,6 +232,10 @@ Forbidden
 */
 type PerformPreventionPoliciesActionForbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -229,6 +255,13 @@ func (o *PerformPreventionPoliciesActionForbidden) GetPayload() *models.MsaError
 }
 
 func (o *PerformPreventionPoliciesActionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -273,6 +306,10 @@ Not Found
 */
 type PerformPreventionPoliciesActionNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -292,6 +329,13 @@ func (o *PerformPreventionPoliciesActionNotFound) GetPayload() *models.Responses
 }
 
 func (o *PerformPreventionPoliciesActionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -336,6 +380,10 @@ Too Many Requests
 */
 type PerformPreventionPoliciesActionTooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -359,6 +407,13 @@ func (o *PerformPreventionPoliciesActionTooManyRequests) GetPayload() *models.Ms
 }
 
 func (o *PerformPreventionPoliciesActionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -414,6 +469,10 @@ Internal Server Error
 */
 type PerformPreventionPoliciesActionInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -433,6 +492,13 @@ func (o *PerformPreventionPoliciesActionInternalServerError) GetPayload() *model
 }
 
 func (o *PerformPreventionPoliciesActionInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
