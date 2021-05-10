@@ -15,26 +15,26 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ResponsesPolicyMembersRespV1 responses policy members resp v1
+// DomainNotificationIDResponse domain notification ID response
 //
-// swagger:model responses.PolicyMembersRespV1
-type ResponsesPolicyMembersRespV1 struct {
+// swagger:model domain.NotificationIDResponse
+type DomainNotificationIDResponse struct {
 
-	// A collection of any errors which occurred during execution of the request
+	// errors
 	// Required: true
-	Errors []*MsaAPIError `json:"errors"`
+	Errors []*DomainReconAPIError `json:"errors"`
 
-	// Additional metadata about the request
+	// meta
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
-	// A collection of device details
+	// resources
 	// Required: true
-	Resources []*DeviceDevice `json:"resources"`
+	Resources []string `json:"resources"`
 }
 
-// Validate validates this responses policy members resp v1
-func (m *ResponsesPolicyMembersRespV1) Validate(formats strfmt.Registry) error {
+// Validate validates this domain notification ID response
+func (m *DomainNotificationIDResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *ResponsesPolicyMembersRespV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) validateErrors(formats strfmt.Registry) error {
+func (m *DomainNotificationIDResponse) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -80,7 +80,7 @@ func (m *ResponsesPolicyMembersRespV1) validateErrors(formats strfmt.Registry) e
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) validateMeta(formats strfmt.Registry) error {
+func (m *DomainNotificationIDResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -98,33 +98,17 @@ func (m *ResponsesPolicyMembersRespV1) validateMeta(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) validateResources(formats strfmt.Registry) error {
+func (m *DomainNotificationIDResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
-// ContextValidate validate this responses policy members resp v1 based on the context it is used
-func (m *ResponsesPolicyMembersRespV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this domain notification ID response based on the context it is used
+func (m *DomainNotificationIDResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -135,17 +119,13 @@ func (m *ResponsesPolicyMembersRespV1) ContextValidate(ctx context.Context, form
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateResources(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainNotificationIDResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -163,7 +143,7 @@ func (m *ResponsesPolicyMembersRespV1) contextValidateErrors(ctx context.Context
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainNotificationIDResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -177,26 +157,8 @@ func (m *ResponsesPolicyMembersRespV1) contextValidateMeta(ctx context.Context, 
 	return nil
 }
 
-func (m *ResponsesPolicyMembersRespV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
 // MarshalBinary interface implementation
-func (m *ResponsesPolicyMembersRespV1) MarshalBinary() ([]byte, error) {
+func (m *DomainNotificationIDResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -204,8 +166,8 @@ func (m *ResponsesPolicyMembersRespV1) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *ResponsesPolicyMembersRespV1) UnmarshalBinary(b []byte) error {
-	var res ResponsesPolicyMembersRespV1
+func (m *DomainNotificationIDResponse) UnmarshalBinary(b []byte) error {
+	var res DomainNotificationIDResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
