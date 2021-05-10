@@ -27,6 +27,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
@@ -37,6 +38,8 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
+	"github.com/crowdstrike/gofalcon/falcon/client/recon"
+	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
@@ -105,6 +108,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
+	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
@@ -115,6 +119,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
+	cli.Recon = recon.New(transport, formats)
+	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
@@ -200,6 +206,8 @@ type CrowdStrikeAPISpecification struct {
 
 	IoaExclusions ioa_exclusions.ClientService
 
+	Ioc ioc.ClientService
+
 	Iocs iocs.ClientService
 
 	Malquery malquery.ClientService
@@ -219,6 +227,10 @@ type CrowdStrikeAPISpecification struct {
 	RealTimeResponse real_time_response.ClientService
 
 	RealTimeResponseAdmin real_time_response_admin.ClientService
+
+	Recon recon.ClientService
+
+	ResponsePolicies response_policies.ClientService
 
 	SampleUploads sample_uploads.ClientService
 
@@ -257,6 +269,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.InstallationTokens.SetTransport(transport)
 	c.Intel.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
+	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
@@ -267,6 +280,8 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
 	c.RealTimeResponseAdmin.SetTransport(transport)
+	c.Recon.SetTransport(transport)
+	c.ResponsePolicies.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)
 	c.SensorUpdatePolicies.SetTransport(transport)
