@@ -19,6 +19,7 @@ import (
 func main() {
 	clientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
 	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
+	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 	osName := flag.String("os-name", "", "Name of the operating system")
 	osVersion := flag.String("os-version", "", "Versin of the operating system")
@@ -40,6 +41,7 @@ Falcon Client Secret`)
 	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId:     *clientId,
 		ClientSecret: *clientSecret,
+		MemberCID:    *memberCID,
 		Cloud:        falcon.Cloud(*clientCloud),
 		Context:      context.Background(),
 	})
