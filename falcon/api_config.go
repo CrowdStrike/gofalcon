@@ -12,6 +12,8 @@ type ApiConfig struct {
 	ClientId string
 	// Client Secret used for authentication with CrowdStrike Falcon platform. *required*
 	ClientSecret string
+	// Optional: CID selector for cases when the ClientID/ClientSecret has access to multiple CIDs
+	MemberCID string
 	// This Context object will be used only when authenticating with the OAuth interface.
 	Context context.Context
 	// Cloud allows us to select Falcon Cloud to connect
