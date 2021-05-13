@@ -2,6 +2,7 @@ package falcon
 
 import (
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -18,6 +19,12 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		ClientID:     ac.ClientId,
 		ClientSecret: ac.ClientSecret,
 		TokenURL:     "https://" + ac.Host() + "/oauth2/token",
+	}
+
+	if ac.MemberCID != "" {
+		config.EndpointParams = url.Values{
+			"member_cid": []string{ac.MemberCID},
+		}
 	}
 	authenticatedClient := config.Client(ac.Context)
 	authenticatedClient.Transport = &roundTripper{
