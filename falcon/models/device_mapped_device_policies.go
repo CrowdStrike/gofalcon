@@ -33,6 +33,9 @@ type DeviceMappedDevicePolicies struct {
 	// global config
 	GlobalConfig *DeviceDevicePolicy `json:"global_config,omitempty"`
 
+	// identity protection
+	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
+
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
 
@@ -70,6 +73,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGlobalConfig(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIdentityProtection(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,6 +183,23 @@ func (m *DeviceMappedDevicePolicies) validateGlobalConfig(formats strfmt.Registr
 		if err := m.GlobalConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("global_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateIdentityProtection(formats strfmt.Registry) error {
+	if swag.IsZero(m.IdentityProtection) { // not required
+		return nil
+	}
+
+	if m.IdentityProtection != nil {
+		if err := m.IdentityProtection.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-protection")
 			}
 			return err
 		}
@@ -293,6 +317,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMobile(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -381,6 +409,20 @@ func (m *DeviceMappedDevicePolicies) contextValidateGlobalConfig(ctx context.Con
 		if err := m.GlobalConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("global_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateIdentityProtection(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IdentityProtection != nil {
+		if err := m.IdentityProtection.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-protection")
 			}
 			return err
 		}
