@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...ClientOption) (*IndicatorCombinedV1OK, error)
+
 	IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...ClientOption) (*IndicatorCreateV1Created, error)
 
 	IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...ClientOption) (*IndicatorDeleteV1OK, error)
@@ -41,6 +43,43 @@ type ClientService interface {
 	IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...ClientOption) (*IndicatorUpdateV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  IndicatorCombinedV1 gets combined for indicators
+*/
+func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...ClientOption) (*IndicatorCombinedV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorCombinedV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.combined.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/combined/indicator/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IndicatorCombinedV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorCombinedV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*IndicatorCombinedV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*

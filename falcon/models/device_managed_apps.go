@@ -24,6 +24,9 @@ type DeviceManagedApps struct {
 	// automox
 	Automox *DeviceManagedApp `json:"automox,omitempty"`
 
+	// identity protection
+	IdentityProtection *DeviceManagedApp `json:"identity-protection,omitempty"`
+
 	// netskope
 	Netskope *DeviceManagedApp `json:"netskope,omitempty"`
 }
@@ -37,6 +40,10 @@ func (m *DeviceManagedApps) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAutomox(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIdentityProtection(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,6 +91,23 @@ func (m *DeviceManagedApps) validateAutomox(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DeviceManagedApps) validateIdentityProtection(formats strfmt.Registry) error {
+	if swag.IsZero(m.IdentityProtection) { // not required
+		return nil
+	}
+
+	if m.IdentityProtection != nil {
+		if err := m.IdentityProtection.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceManagedApps) validateNetskope(formats strfmt.Registry) error {
 	if swag.IsZero(m.Netskope) { // not required
 		return nil
@@ -110,6 +134,10 @@ func (m *DeviceManagedApps) ContextValidate(ctx context.Context, formats strfmt.
 	}
 
 	if err := m.contextValidateAutomox(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -143,6 +171,20 @@ func (m *DeviceManagedApps) contextValidateAutomox(ctx context.Context, formats 
 		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceManagedApps) contextValidateIdentityProtection(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IdentityProtection != nil {
+		if err := m.IdentityProtection.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identity-protection")
 			}
 			return err
 		}

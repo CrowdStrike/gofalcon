@@ -17,34 +17,34 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// IndicatorSearchV1Reader is a Reader for the IndicatorSearchV1 structure.
-type IndicatorSearchV1Reader struct {
+// IndicatorCombinedV1Reader is a Reader for the IndicatorCombinedV1 structure.
+type IndicatorCombinedV1Reader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *IndicatorSearchV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *IndicatorCombinedV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewIndicatorSearchV1OK()
+		result := NewIndicatorCombinedV1OK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 403:
-		result := NewIndicatorSearchV1Forbidden()
+		result := NewIndicatorCombinedV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewIndicatorSearchV1TooManyRequests()
+		result := NewIndicatorCombinedV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	default:
-		result := NewIndicatorSearchV1Default(response.Code())
+		result := NewIndicatorCombinedV1Default(response.Code())
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -55,16 +55,16 @@ func (o *IndicatorSearchV1Reader) ReadResponse(response runtime.ClientResponse, 
 	}
 }
 
-// NewIndicatorSearchV1OK creates a IndicatorSearchV1OK with default headers values
-func NewIndicatorSearchV1OK() *IndicatorSearchV1OK {
-	return &IndicatorSearchV1OK{}
+// NewIndicatorCombinedV1OK creates a IndicatorCombinedV1OK with default headers values
+func NewIndicatorCombinedV1OK() *IndicatorCombinedV1OK {
+	return &IndicatorCombinedV1OK{}
 }
 
-/* IndicatorSearchV1OK describes a response with status code 200, with default header values.
+/* IndicatorCombinedV1OK describes a response with status code 200, with default header values.
 
 OK
 */
-type IndicatorSearchV1OK struct {
+type IndicatorCombinedV1OK struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -78,17 +78,17 @@ type IndicatorSearchV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIndicatorQueryRespV1
+	Payload *models.APIIndicatorRespV1
 }
 
-func (o *IndicatorSearchV1OK) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicatorSearchV1OK  %+v", 200, o.Payload)
+func (o *IndicatorCombinedV1OK) Error() string {
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1OK  %+v", 200, o.Payload)
 }
-func (o *IndicatorSearchV1OK) GetPayload() *models.APIIndicatorQueryRespV1 {
+func (o *IndicatorCombinedV1OK) GetPayload() *models.APIIndicatorRespV1 {
 	return o.Payload
 }
 
-func (o *IndicatorSearchV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *IndicatorCombinedV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -119,7 +119,7 @@ func (o *IndicatorSearchV1OK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIndicatorQueryRespV1)
+	o.Payload = new(models.APIIndicatorRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -129,16 +129,16 @@ func (o *IndicatorSearchV1OK) readResponse(response runtime.ClientResponse, cons
 	return nil
 }
 
-// NewIndicatorSearchV1Forbidden creates a IndicatorSearchV1Forbidden with default headers values
-func NewIndicatorSearchV1Forbidden() *IndicatorSearchV1Forbidden {
-	return &IndicatorSearchV1Forbidden{}
+// NewIndicatorCombinedV1Forbidden creates a IndicatorCombinedV1Forbidden with default headers values
+func NewIndicatorCombinedV1Forbidden() *IndicatorCombinedV1Forbidden {
+	return &IndicatorCombinedV1Forbidden{}
 }
 
-/* IndicatorSearchV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorCombinedV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type IndicatorSearchV1Forbidden struct {
+type IndicatorCombinedV1Forbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -155,14 +155,14 @@ type IndicatorSearchV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-func (o *IndicatorSearchV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicatorSearchV1Forbidden  %+v", 403, o.Payload)
+func (o *IndicatorCombinedV1Forbidden) Error() string {
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1Forbidden  %+v", 403, o.Payload)
 }
-func (o *IndicatorSearchV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *IndicatorCombinedV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *IndicatorSearchV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *IndicatorCombinedV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -203,16 +203,16 @@ func (o *IndicatorSearchV1Forbidden) readResponse(response runtime.ClientRespons
 	return nil
 }
 
-// NewIndicatorSearchV1TooManyRequests creates a IndicatorSearchV1TooManyRequests with default headers values
-func NewIndicatorSearchV1TooManyRequests() *IndicatorSearchV1TooManyRequests {
-	return &IndicatorSearchV1TooManyRequests{}
+// NewIndicatorCombinedV1TooManyRequests creates a IndicatorCombinedV1TooManyRequests with default headers values
+func NewIndicatorCombinedV1TooManyRequests() *IndicatorCombinedV1TooManyRequests {
+	return &IndicatorCombinedV1TooManyRequests{}
 }
 
-/* IndicatorSearchV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorCombinedV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type IndicatorSearchV1TooManyRequests struct {
+type IndicatorCombinedV1TooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -233,14 +233,14 @@ type IndicatorSearchV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-func (o *IndicatorSearchV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicatorSearchV1TooManyRequests  %+v", 429, o.Payload)
+func (o *IndicatorCombinedV1TooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicatorCombinedV1TooManyRequests  %+v", 429, o.Payload)
 }
-func (o *IndicatorSearchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *IndicatorCombinedV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *IndicatorSearchV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *IndicatorCombinedV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -292,38 +292,38 @@ func (o *IndicatorSearchV1TooManyRequests) readResponse(response runtime.ClientR
 	return nil
 }
 
-// NewIndicatorSearchV1Default creates a IndicatorSearchV1Default with default headers values
-func NewIndicatorSearchV1Default(code int) *IndicatorSearchV1Default {
-	return &IndicatorSearchV1Default{
+// NewIndicatorCombinedV1Default creates a IndicatorCombinedV1Default with default headers values
+func NewIndicatorCombinedV1Default(code int) *IndicatorCombinedV1Default {
+	return &IndicatorCombinedV1Default{
 		_statusCode: code,
 	}
 }
 
-/* IndicatorSearchV1Default describes a response with status code -1, with default header values.
+/* IndicatorCombinedV1Default describes a response with status code -1, with default header values.
 
 OK
 */
-type IndicatorSearchV1Default struct {
+type IndicatorCombinedV1Default struct {
 	_statusCode int
 
-	Payload *models.APIIndicatorQueryRespV1
+	Payload *models.APIIndicatorRespV1
 }
 
-// Code gets the status code for the indicator search v1 default response
-func (o *IndicatorSearchV1Default) Code() int {
+// Code gets the status code for the indicator combined v1 default response
+func (o *IndicatorCombinedV1Default) Code() int {
 	return o._statusCode
 }
 
-func (o *IndicatorSearchV1Default) Error() string {
-	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicator.search.v1 default  %+v", o._statusCode, o.Payload)
+func (o *IndicatorCombinedV1Default) Error() string {
+	return fmt.Sprintf("[GET /iocs/combined/indicator/v1][%d] indicator.combined.v1 default  %+v", o._statusCode, o.Payload)
 }
-func (o *IndicatorSearchV1Default) GetPayload() *models.APIIndicatorQueryRespV1 {
+func (o *IndicatorCombinedV1Default) GetPayload() *models.APIIndicatorRespV1 {
 	return o.Payload
 }
 
-func (o *IndicatorSearchV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *IndicatorCombinedV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.APIIndicatorQueryRespV1)
+	o.Payload = new(models.APIIndicatorRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
