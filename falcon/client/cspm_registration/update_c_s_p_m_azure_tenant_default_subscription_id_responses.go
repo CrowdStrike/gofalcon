@@ -17,46 +17,40 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
-// CreateCSPMAwsAccountReader is a Reader for the CreateCSPMAwsAccount structure.
-type CreateCSPMAwsAccountReader struct {
+// UpdateCSPMAzureTenantDefaultSubscriptionIDReader is a Reader for the UpdateCSPMAzureTenantDefaultSubscriptionID structure.
+type UpdateCSPMAzureTenantDefaultSubscriptionIDReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateCSPMAwsAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 201:
-		result := NewCreateCSPMAwsAccountCreated()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case 207:
-		result := NewCreateCSPMAwsAccountMultiStatus()
+		result := NewUpdateCSPMAzureTenantDefaultSubscriptionIDCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 400:
-		result := NewCreateCSPMAwsAccountBadRequest()
+		result := NewUpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 403:
-		result := NewCreateCSPMAwsAccountForbidden()
+		result := NewUpdateCSPMAzureTenantDefaultSubscriptionIDForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 429:
-		result := NewCreateCSPMAwsAccountTooManyRequests()
+		result := NewUpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 500:
-		result := NewCreateCSPMAwsAccountInternalServerError()
+		result := NewUpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -66,16 +60,16 @@ func (o *CreateCSPMAwsAccountReader) ReadResponse(response runtime.ClientRespons
 	}
 }
 
-// NewCreateCSPMAwsAccountCreated creates a CreateCSPMAwsAccountCreated with default headers values
-func NewCreateCSPMAwsAccountCreated() *CreateCSPMAwsAccountCreated {
-	return &CreateCSPMAwsAccountCreated{}
+// NewUpdateCSPMAzureTenantDefaultSubscriptionIDCreated creates a UpdateCSPMAzureTenantDefaultSubscriptionIDCreated with default headers values
+func NewUpdateCSPMAzureTenantDefaultSubscriptionIDCreated() *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated {
+	return &UpdateCSPMAzureTenantDefaultSubscriptionIDCreated{}
 }
 
-/* CreateCSPMAwsAccountCreated describes a response with status code 201, with default header values.
+/* UpdateCSPMAzureTenantDefaultSubscriptionIDCreated describes a response with status code 201, with default header values.
 
 Created
 */
-type CreateCSPMAwsAccountCreated struct {
+type UpdateCSPMAzureTenantDefaultSubscriptionIDCreated struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -89,17 +83,17 @@ type CreateCSPMAwsAccountCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
-func (o *CreateCSPMAwsAccountCreated) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
 }
-func (o *CreateCSPMAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }
 
-func (o *CreateCSPMAwsAccountCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -130,7 +124,7 @@ func (o *CreateCSPMAwsAccountCreated) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -140,90 +134,16 @@ func (o *CreateCSPMAwsAccountCreated) readResponse(response runtime.ClientRespon
 	return nil
 }
 
-// NewCreateCSPMAwsAccountMultiStatus creates a CreateCSPMAwsAccountMultiStatus with default headers values
-func NewCreateCSPMAwsAccountMultiStatus() *CreateCSPMAwsAccountMultiStatus {
-	return &CreateCSPMAwsAccountMultiStatus{}
+// NewUpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest creates a UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest with default headers values
+func NewUpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest() *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest {
+	return &UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest{}
 }
 
-/* CreateCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
-
-Multi-Status
-*/
-type CreateCSPMAwsAccountMultiStatus struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.RegistrationAWSAccountResponseV2
-}
-
-func (o *CreateCSPMAwsAccountMultiStatus) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
-}
-func (o *CreateCSPMAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
-	return o.Payload
-}
-
-func (o *CreateCSPMAwsAccountMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewCreateCSPMAwsAccountBadRequest creates a CreateCSPMAwsAccountBadRequest with default headers values
-func NewCreateCSPMAwsAccountBadRequest() *CreateCSPMAwsAccountBadRequest {
-	return &CreateCSPMAwsAccountBadRequest{}
-}
-
-/* CreateCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+/* UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
-type CreateCSPMAwsAccountBadRequest struct {
+type UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -237,17 +157,17 @@ type CreateCSPMAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
-func (o *CreateCSPMAwsAccountBadRequest) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
 }
-func (o *CreateCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }
 
-func (o *CreateCSPMAwsAccountBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -278,7 +198,7 @@ func (o *CreateCSPMAwsAccountBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -288,16 +208,16 @@ func (o *CreateCSPMAwsAccountBadRequest) readResponse(response runtime.ClientRes
 	return nil
 }
 
-// NewCreateCSPMAwsAccountForbidden creates a CreateCSPMAwsAccountForbidden with default headers values
-func NewCreateCSPMAwsAccountForbidden() *CreateCSPMAwsAccountForbidden {
-	return &CreateCSPMAwsAccountForbidden{}
+// NewUpdateCSPMAzureTenantDefaultSubscriptionIDForbidden creates a UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden with default headers values
+func NewUpdateCSPMAzureTenantDefaultSubscriptionIDForbidden() *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden {
+	return &UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden{}
 }
 
-/* CreateCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+/* UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
-type CreateCSPMAwsAccountForbidden struct {
+type UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -314,14 +234,14 @@ type CreateCSPMAwsAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-func (o *CreateCSPMAwsAccountForbidden) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden  %+v", 403, o.Payload)
 }
-func (o *CreateCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *CreateCSPMAwsAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -362,16 +282,16 @@ func (o *CreateCSPMAwsAccountForbidden) readResponse(response runtime.ClientResp
 	return nil
 }
 
-// NewCreateCSPMAwsAccountTooManyRequests creates a CreateCSPMAwsAccountTooManyRequests with default headers values
-func NewCreateCSPMAwsAccountTooManyRequests() *CreateCSPMAwsAccountTooManyRequests {
-	return &CreateCSPMAwsAccountTooManyRequests{}
+// NewUpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests creates a UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests with default headers values
+func NewUpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests() *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests {
+	return &UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests{}
 }
 
-/* CreateCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
-type CreateCSPMAwsAccountTooManyRequests struct {
+type UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -392,14 +312,14 @@ type CreateCSPMAwsAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-func (o *CreateCSPMAwsAccountTooManyRequests) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests  %+v", 429, o.Payload)
 }
-func (o *CreateCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *CreateCSPMAwsAccountTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -451,16 +371,16 @@ func (o *CreateCSPMAwsAccountTooManyRequests) readResponse(response runtime.Clie
 	return nil
 }
 
-// NewCreateCSPMAwsAccountInternalServerError creates a CreateCSPMAwsAccountInternalServerError with default headers values
-func NewCreateCSPMAwsAccountInternalServerError() *CreateCSPMAwsAccountInternalServerError {
-	return &CreateCSPMAwsAccountInternalServerError{}
+// NewUpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError creates a UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError with default headers values
+func NewUpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError() *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError {
+	return &UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError{}
 }
 
-/* CreateCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+/* UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
-type CreateCSPMAwsAccountInternalServerError struct {
+type UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -474,17 +394,17 @@ type CreateCSPMAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSAccountResponseV2
+	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
-func (o *CreateCSPMAwsAccountInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError  %+v", 500, o.Payload)
 }
-func (o *CreateCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }
 
-func (o *CreateCSPMAwsAccountInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -515,7 +435,7 @@ func (o *CreateCSPMAwsAccountInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
+	o.Payload = new(models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

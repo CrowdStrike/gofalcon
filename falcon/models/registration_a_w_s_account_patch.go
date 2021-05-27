@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RegistrationAWSAccountExtV2 registration a w s account ext v2
+// RegistrationAWSAccountPatch registration a w s account patch
 //
-// swagger:model registration.AWSAccountExtV2
-type RegistrationAWSAccountExtV2 struct {
+// swagger:model registration.AWSAccountPatch
+type RegistrationAWSAccountPatch struct {
 
 	// account id
 	// Required: true
@@ -26,14 +26,10 @@ type RegistrationAWSAccountExtV2 struct {
 	// cloudtrail region
 	// Required: true
 	CloudtrailRegion *string `json:"cloudtrail_region"`
-
-	// organization id
-	// Required: true
-	OrganizationID *string `json:"organization_id"`
 }
 
-// Validate validates this registration a w s account ext v2
-func (m *RegistrationAWSAccountExtV2) Validate(formats strfmt.Registry) error {
+// Validate validates this registration a w s account patch
+func (m *RegistrationAWSAccountPatch) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAccountID(formats); err != nil {
@@ -44,17 +40,13 @@ func (m *RegistrationAWSAccountExtV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateOrganizationID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *RegistrationAWSAccountExtV2) validateAccountID(formats strfmt.Registry) error {
+func (m *RegistrationAWSAccountPatch) validateAccountID(formats strfmt.Registry) error {
 
 	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
 		return err
@@ -63,7 +55,7 @@ func (m *RegistrationAWSAccountExtV2) validateAccountID(formats strfmt.Registry)
 	return nil
 }
 
-func (m *RegistrationAWSAccountExtV2) validateCloudtrailRegion(formats strfmt.Registry) error {
+func (m *RegistrationAWSAccountPatch) validateCloudtrailRegion(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloudtrail_region", "body", m.CloudtrailRegion); err != nil {
 		return err
@@ -72,22 +64,13 @@ func (m *RegistrationAWSAccountExtV2) validateCloudtrailRegion(formats strfmt.Re
 	return nil
 }
 
-func (m *RegistrationAWSAccountExtV2) validateOrganizationID(formats strfmt.Registry) error {
-
-	if err := validate.Required("organization_id", "body", m.OrganizationID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// ContextValidate validates this registration a w s account ext v2 based on context it is used
-func (m *RegistrationAWSAccountExtV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this registration a w s account patch based on context it is used
+func (m *RegistrationAWSAccountPatch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *RegistrationAWSAccountExtV2) MarshalBinary() ([]byte, error) {
+func (m *RegistrationAWSAccountPatch) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -95,8 +78,8 @@ func (m *RegistrationAWSAccountExtV2) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RegistrationAWSAccountExtV2) UnmarshalBinary(b []byte) error {
-	var res RegistrationAWSAccountExtV2
+func (m *RegistrationAWSAccountPatch) UnmarshalBinary(b []byte) error {
+	var res RegistrationAWSAccountPatch
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

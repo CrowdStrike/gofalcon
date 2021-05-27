@@ -54,7 +54,15 @@ type ClientService interface {
 
 	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error)
 
+	GetIOAEvents(params *GetIOAEventsParams, opts ...ClientOption) (*GetIOAEventsOK, error)
+
+	GetIOAUsers(params *GetIOAUsersParams, opts ...ClientOption) (*GetIOAUsersOK, error)
+
+	PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error)
+
 	UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error)
+
+	UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error)
 
 	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
 
@@ -526,6 +534,119 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...
 }
 
 /*
+  GetIOAEvents fors c s p m i o a events gets list of i o a events
+*/
+func (a *Client) GetIOAEvents(params *GetIOAEventsParams, opts ...ClientOption) (*GetIOAEventsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetIOAEventsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetIOAEvents",
+		Method:             "GET",
+		PathPattern:        "/ioa/entities/events/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIOAEventsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetIOAEventsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetIOAEventsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetIOAUsers fors c s p m i o a users gets list of i o a users
+*/
+func (a *Client) GetIOAUsers(params *GetIOAUsersParams, opts ...ClientOption) (*GetIOAUsersOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetIOAUsersParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetIOAUsers",
+		Method:             "GET",
+		PathPattern:        "/ioa/entities/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIOAUsersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetIOAUsersOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetIOAUsersDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  PatchCSPMAwsAccount patches a existing account in our system for a customer
+*/
+func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchCSPMAwsAccountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PatchCSPMAwsAccount",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-connect-cspm-aws/entities/account/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchCSPMAwsAccountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchCSPMAwsAccountCreated:
+		return value, nil, nil
+	case *PatchCSPMAwsAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
   UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
 */
 func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error) {
@@ -560,6 +681,44 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateCSPMAzureAccountClientID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  UpdateCSPMAzureTenantDefaultSubscriptionID updates an azure default subscription id in our system for given tenant id
+*/
+func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateCSPMAzureTenantDefaultSubscriptionIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateCSPMAzureTenantDefaultSubscriptionID",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-connect-cspm-azure/entities/default-subscription-id/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateCSPMAzureTenantDefaultSubscriptionIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateCSPMAzureTenantDefaultSubscriptionID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

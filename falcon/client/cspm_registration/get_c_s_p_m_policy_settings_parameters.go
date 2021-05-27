@@ -59,6 +59,12 @@ func NewGetCSPMPolicySettingsParamsWithHTTPClient(client *http.Client) *GetCSPMP
 */
 type GetCSPMPolicySettingsParams struct {
 
+	/* CloudPlatform.
+
+	   Cloud Platform (e.g.: aws|azure|gcp)
+	*/
+	CloudPlatform *string
+
 	/* PolicyID.
 
 	   Policy ID
@@ -69,7 +75,7 @@ type GetCSPMPolicySettingsParams struct {
 
 	   Service type to filter policy settings by.
 	*/
-	Service string
+	Service *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -124,6 +130,17 @@ func (o *GetCSPMPolicySettingsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCloudPlatform adds the cloudPlatform to the get c s p m policy settings params
+func (o *GetCSPMPolicySettingsParams) WithCloudPlatform(cloudPlatform *string) *GetCSPMPolicySettingsParams {
+	o.SetCloudPlatform(cloudPlatform)
+	return o
+}
+
+// SetCloudPlatform adds the cloudPlatform to the get c s p m policy settings params
+func (o *GetCSPMPolicySettingsParams) SetCloudPlatform(cloudPlatform *string) {
+	o.CloudPlatform = cloudPlatform
+}
+
 // WithPolicyID adds the policyID to the get c s p m policy settings params
 func (o *GetCSPMPolicySettingsParams) WithPolicyID(policyID *string) *GetCSPMPolicySettingsParams {
 	o.SetPolicyID(policyID)
@@ -136,13 +153,13 @@ func (o *GetCSPMPolicySettingsParams) SetPolicyID(policyID *string) {
 }
 
 // WithService adds the service to the get c s p m policy settings params
-func (o *GetCSPMPolicySettingsParams) WithService(service string) *GetCSPMPolicySettingsParams {
+func (o *GetCSPMPolicySettingsParams) WithService(service *string) *GetCSPMPolicySettingsParams {
 	o.SetService(service)
 	return o
 }
 
 // SetService adds the service to the get c s p m policy settings params
-func (o *GetCSPMPolicySettingsParams) SetService(service string) {
+func (o *GetCSPMPolicySettingsParams) SetService(service *string) {
 	o.Service = service
 }
 
@@ -153,6 +170,23 @@ func (o *GetCSPMPolicySettingsParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
+	if o.CloudPlatform != nil {
+
+		// query param cloud-platform
+		var qrCloudPlatform string
+
+		if o.CloudPlatform != nil {
+			qrCloudPlatform = *o.CloudPlatform
+		}
+		qCloudPlatform := qrCloudPlatform
+		if qCloudPlatform != "" {
+
+			if err := r.SetQueryParam("cloud-platform", qCloudPlatform); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.PolicyID != nil {
 
@@ -171,13 +205,20 @@ func (o *GetCSPMPolicySettingsParams) WriteToRequest(r runtime.ClientRequest, re
 		}
 	}
 
-	// query param service
-	qrService := o.Service
-	qService := qrService
-	if qService != "" {
+	if o.Service != nil {
 
-		if err := r.SetQueryParam("service", qService); err != nil {
-			return err
+		// query param service
+		var qrService string
+
+		if o.Service != nil {
+			qrService = *o.Service
+		}
+		qService := qrService
+		if qService != "" {
+
+			if err := r.SetQueryParam("service", qService); err != nil {
+				return err
+			}
 		}
 	}
 

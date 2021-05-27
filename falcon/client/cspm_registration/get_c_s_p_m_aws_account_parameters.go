@@ -60,6 +60,12 @@ func NewGetCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *GetCSPMAwsAc
 */
 type GetCSPMAwsAccountParams struct {
 
+	/* GroupBy.
+
+	   Field to group by.
+	*/
+	GroupBy *string
+
 	/* Ids.
 
 	   AWS account IDs
@@ -162,6 +168,17 @@ func (o *GetCSPMAwsAccountParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithGroupBy adds the groupBy to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) WithGroupBy(groupBy *string) *GetCSPMAwsAccountParams {
+	o.SetGroupBy(groupBy)
+	return o
+}
+
+// SetGroupBy adds the groupBy to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) SetGroupBy(groupBy *string) {
+	o.GroupBy = groupBy
+}
+
 // WithIds adds the ids to the get c s p m aws account params
 func (o *GetCSPMAwsAccountParams) WithIds(ids []string) *GetCSPMAwsAccountParams {
 	o.SetIds(ids)
@@ -235,6 +252,23 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.GroupBy != nil {
+
+		// query param group_by
+		var qrGroupBy string
+
+		if o.GroupBy != nil {
+			qrGroupBy = *o.GroupBy
+		}
+		qGroupBy := qrGroupBy
+		if qGroupBy != "" {
+
+			if err := r.SetQueryParam("group_by", qGroupBy); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Ids != nil {
 
