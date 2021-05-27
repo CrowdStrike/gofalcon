@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -22,6 +23,9 @@ type DomainCIDPolicyAssignments struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
+	// cis benchmark
+	CisBenchmark []*DomainCIDPolicyAssignmentsCisBenchmark `json:"cis_benchmark"`
+
 	// cloud service
 	CloudService string `json:"cloud_service,omitempty"`
 
@@ -31,32 +35,46 @@ type DomainCIDPolicyAssignments struct {
 	// default severity
 	DefaultSeverity string `json:"default_severity,omitempty"`
 
-	// enabled
-	// Required: true
-	Enabled *bool `json:"enabled"`
-
 	// name
 	Name string `json:"name,omitempty"`
+
+	// nist benchmark
+	NistBenchmark []*DomainCIDPolicyAssignmentsNistBenchmark `json:"nist_benchmark"`
+
+	// pci benchmark
+	PciBenchmark []*DomainCIDPolicyAssignmentsPciBenchmark `json:"pci_benchmark"`
 
 	// policy id
 	PolicyID int32 `json:"policy_id,omitempty"`
 
-	// policy severity
-	PolicySeverity int32 `json:"policy_severity,omitempty"`
+	// policy settings
+	PolicySettings []*DomainPolicySettingByAccountAndRegion `json:"policy_settings"`
 
 	// policy timestamp
 	// Format: date-time
 	PolicyTimestamp strfmt.DateTime `json:"policy_timestamp,omitempty"`
 
-	// severity
-	Severity string `json:"severity,omitempty"`
+	// policy type
+	PolicyType string `json:"policy_type,omitempty"`
 }
 
 // Validate validates this domain c ID policy assignments
 func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateEnabled(formats); err != nil {
+	if err := m.validateCisBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNistBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePciBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePolicySettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -70,10 +88,97 @@ func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainCIDPolicyAssignments) validateEnabled(formats strfmt.Registry) error {
+func (m *DomainCIDPolicyAssignments) validateCisBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.CisBenchmark) { // not required
+		return nil
+	}
 
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
-		return err
+	for i := 0; i < len(m.CisBenchmark); i++ {
+		if swag.IsZero(m.CisBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.CisBenchmark[i] != nil {
+			if err := m.CisBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validateNistBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.NistBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.NistBenchmark); i++ {
+		if swag.IsZero(m.NistBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.NistBenchmark[i] != nil {
+			if err := m.NistBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validatePciBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.PciBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.PciBenchmark); i++ {
+		if swag.IsZero(m.PciBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.PciBenchmark[i] != nil {
+			if err := m.PciBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validatePolicySettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.PolicySettings) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.PolicySettings); i++ {
+		if swag.IsZero(m.PolicySettings[i]) { // not required
+			continue
+		}
+
+		if m.PolicySettings[i] != nil {
+			if err := m.PolicySettings[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("policy_settings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -91,8 +196,101 @@ func (m *DomainCIDPolicyAssignments) validatePolicyTimestamp(formats strfmt.Regi
 	return nil
 }
 
-// ContextValidate validates this domain c ID policy assignments based on context it is used
+// ContextValidate validate this domain c ID policy assignments based on the context it is used
 func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCisBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNistBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePciBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePolicySettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateCisBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CisBenchmark); i++ {
+
+		if m.CisBenchmark[i] != nil {
+			if err := m.CisBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateNistBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.NistBenchmark); i++ {
+
+		if m.NistBenchmark[i] != nil {
+			if err := m.NistBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidatePciBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PciBenchmark); i++ {
+
+		if m.PciBenchmark[i] != nil {
+			if err := m.PciBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidatePolicySettings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PolicySettings); i++ {
+
+		if m.PolicySettings[i] != nil {
+			if err := m.PolicySettings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("policy_settings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

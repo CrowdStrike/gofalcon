@@ -23,6 +23,10 @@ type RegistrationAWSAccountExtV2 struct {
 	// Required: true
 	AccountID *string `json:"account_id"`
 
+	// cloudtrail region
+	// Required: true
+	CloudtrailRegion *string `json:"cloudtrail_region"`
+
 	// organization id
 	// Required: true
 	OrganizationID *string `json:"organization_id"`
@@ -33,6 +37,10 @@ func (m *RegistrationAWSAccountExtV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAccountID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudtrailRegion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -49,6 +57,15 @@ func (m *RegistrationAWSAccountExtV2) Validate(formats strfmt.Registry) error {
 func (m *RegistrationAWSAccountExtV2) validateAccountID(formats strfmt.Registry) error {
 
 	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountExtV2) validateCloudtrailRegion(formats strfmt.Registry) error {
+
+	if err := validate.Required("cloudtrail_region", "body", m.CloudtrailRegion); err != nil {
 		return err
 	}
 

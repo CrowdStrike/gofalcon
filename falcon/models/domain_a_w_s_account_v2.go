@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -41,14 +42,33 @@ type DomainAWSAccountV2 struct {
 	// 12 digit AWS provided unique identifier for the account.
 	AccountID string `json:"account_id,omitempty"`
 
+	// AWS CloudTrail bucket name to store logs.
+	AwsCloudtrailBucketName string `json:"aws_cloudtrail_bucket_name,omitempty"`
+
+	// AWS CloudTrail region.
+	AwsCloudtrailRegion string `json:"aws_cloudtrail_region,omitempty"`
+
+	// Permissions status returned via API.
+	// Required: true
+	AwsPermissionsStatus []*DomainPermission `json:"aws_permissions_status"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
+
+	// cloudformation url
+	CloudformationURL string `json:"cloudformation_url,omitempty"`
+
+	// eventbus name
+	EventbusName string `json:"eventbus_name,omitempty"`
 
 	// ID assigned for use with cross account IAM role access.
 	ExternalID string `json:"external_id,omitempty"`
 
 	// The full arn of the IAM role created in this account to control access.
 	IamRoleArn string `json:"iam_role_arn,omitempty"`
+
+	// intermediate role arn
+	IntermediateRoleArn string `json:"intermediate_role_arn,omitempty"`
 
 	// is master
 	// Required: true
@@ -78,6 +98,10 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAwsPermissionsStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -139,6 +163,31 @@ func (m *DomainAWSAccountV2) validateUpdatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainAWSAccountV2) validateAwsPermissionsStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("aws_permissions_status", "body", m.AwsPermissionsStatus); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.AwsPermissionsStatus); i++ {
+		if swag.IsZero(m.AwsPermissionsStatus[i]) { // not required
+			continue
+		}
+
+		if m.AwsPermissionsStatus[i] != nil {
+			if err := m.AwsPermissionsStatus[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAWSAccountV2) validateIsMaster(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_master", "body", m.IsMaster); err != nil {
@@ -148,8 +197,35 @@ func (m *DomainAWSAccountV2) validateIsMaster(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain a w s account v2 based on context it is used
+// ContextValidate validate this domain a w s account v2 based on the context it is used
 func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAwsPermissionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainAWSAccountV2) contextValidateAwsPermissionsStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AwsPermissionsStatus); i++ {
+
+		if m.AwsPermissionsStatus[i] != nil {
+			if err := m.AwsPermissionsStatus[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
