@@ -6,7 +6,7 @@ gofalcon is periodically refreshed to reflect newest additions to the CrowdStrik
  * [falcon_sensor_download](examples/falcon_sensor_download) - stand-alone tool that can be used to download CrowdStrike Falcon Sensor
  * [falcon_event_stream](examples/falcon_event_stream) - stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console
  * [falcon_cleanup_pods](examples/falcon_cleanup_pods) - stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console
- * [falcon_iocs](examples/falcon_iocs) - stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdsStrike Falcon Console
+ * [falcon_iocs](examples/falcon_iocs) - stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdStrike Falcon Console
 
 
 Gofalcon is an open source project, not CrowdStrike product. As such it carries
