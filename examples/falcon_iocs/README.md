@@ -1,4 +1,4 @@
-This is a working standalone example of a program to manage Crowdstrike IOCs from the CLI
+This is a working standalone example of a program to manage CrowdStrike IOCs from the CLI
 
 ## Build
 ```
