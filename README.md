@@ -8,7 +8,6 @@ gofalcon is periodically refreshed to reflect newest additions to the CrowdStrik
  * [falcon_cleanup_pods](examples/falcon_cleanup_pods) - stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console
  * [falcon_iocs](examples/falcon_iocs) - stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdStrike Falcon Console
 
-
 Gofalcon is an open source project, not CrowdStrike product. As such it carries
 no formal support, expressed or implied.
 
