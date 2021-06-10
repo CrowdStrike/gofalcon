@@ -19,16 +19,29 @@ import (
 
 // getCrowdstrikeIOCs returns a list of all the Custom IOC values in the system
 func getCrowdstrikeIOCs(client *client.CrowdStrikeAPISpecification) ([]string, error) {
-	params := ioc.NewIndicatorCombinedV1Params().WithDefaults()
-	res2, err := client.Ioc.IndicatorCombinedV1(params)
-	if err != nil {
-		// fmt.Println(res.Error())
-		return []string{}, err
-	}
 	iocs := []string{}
-	for _, ioc := range res2.GetPayload().Resources {
-		iocs = append(iocs, ioc.Value)
+	var limit, offset, total int64
+	limit = 2000
+	offset = 0
+	total = 0
+
+	for offset >= total {
+		params := ioc.NewIndicatorCombinedV1Params().WithDefaults()
+		params.SetOffset(&offset)
+		params.SetLimit(&limit)
+		res, err := client.Ioc.IndicatorCombinedV1(params)
+		if err != nil {
+			// fmt.Println(res.Error())
+			return []string{}, err
+		}
+		for _, ioc := range res.GetPayload().Resources {
+			iocs = append(iocs, ioc.Value)
+		}
+
+		total = *res.GetPayload().Meta.Pagination.Total
+		offset += limit
 	}
+
 	return iocs, nil
 }
 
