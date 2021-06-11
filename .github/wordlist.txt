@@ -5,13 +5,16 @@ CrowdStrike
 CrowdStrike's
 Golang
 IOCs
+JSON
 Kubernetes
 NewClient
 OAuth
 SDK
 detections
 gofalcon
+hostnames
 initialisation
 iocs
 oauth
 pre
+stdout
