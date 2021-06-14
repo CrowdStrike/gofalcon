@@ -2,7 +2,7 @@
 # gofalcon ![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg) [![Go Reference](https://pkg.go.dev/badge/github.com/crowdstrike/gofalcon.svg)](https://pkg.go.dev/github.com/crowdstrike/gofalcon)
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
-Detailed API documentaion is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult set of [examples](examples) built on top of the SDK. What follows is a sub-set of these examples that can be found useful as stand-alone programs.
+Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult set of [examples](examples) built on top of the SDK. What follows is a sub-set of these examples that can be found useful as stand-alone programs.
 
  * [falcon_sensor_download](examples/falcon_sensor_download) - stand-alone tool that can be used to download CrowdStrike Falcon Sensor
  * [falcon_event_stream](examples/falcon_event_stream) - stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console
