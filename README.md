@@ -2,7 +2,8 @@
 # gofalcon ![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg) [![Go Reference](https://pkg.go.dev/badge/github.com/crowdstrike/gofalcon.svg)](https://pkg.go.dev/github.com/crowdstrike/gofalcon)
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
-gofalcon is periodically refreshed to reflect newest additions to the CrowdStrike API. Ready-made [examples](examples) are included to show-case usage of the API. The following examples are useful as stand-alone programs.
+Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult set of [examples](examples) built on top of the SDK. What follows is a sub-set of these examples that can be found useful as stand-alone programs.
+
  * [falcon_sensor_download](examples/falcon_sensor_download) - stand-alone tool that can be used to download CrowdStrike Falcon Sensor
  * [falcon_event_stream](examples/falcon_event_stream) - stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console
  * [falcon_cleanup_pods](examples/falcon_cleanup_pods) - stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console
@@ -10,6 +11,8 @@ gofalcon is periodically refreshed to reflect newest additions to the CrowdStrik
 
 Gofalcon is an open source project, not CrowdStrike product. As such it carries
 no formal support, expressed or implied.
+
+gofalcon is periodically refreshed to reflect newest additions to the CrowdStrike API. Users of the SDK are advised to track the latest releases rather closely to ensure proper function; should the unlikely event of incompatible change to CrowdStrike API occur.
 
 ## Installation
 ```
