@@ -50,7 +50,7 @@ type ClientService interface {
 }
 
 /*
-  CreateIOC creates a new i o c
+  CreateIOC creates a new i o c deprecated use the new i o c management endpoint p o s t iocs entities indicators v1
 */
 func (a *Client) CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*CreateIOCOK, error) {
 	// TODO: Validate the params before sending
@@ -87,7 +87,7 @@ func (a *Client) CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*Crea
 }
 
 /*
-  DeleteIOC deletes an i o c by providing a type and value
+  DeleteIOC deletes an i o c by providing a type and value deprecated use the new i o c management endpoint d e l e t e iocs entities indicators v1
 */
 func (a *Client) DeleteIOC(params *DeleteIOCParams, opts ...ClientOption) (*DeleteIOCOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) 
 }
 
 /*
-  GetIOC gets an i o c by providing a type and value
+  GetIOC gets an i o c by providing a type and value deprecated use the new i o c management endpoint g e t iocs entities indicators v1
 */
 func (a *Client) GetIOC(params *GetIOCParams, opts ...ClientOption) (*GetIOCOK, error) {
 	// TODO: Validate the params before sending
@@ -272,7 +272,7 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOpti
 }
 
 /*
-  QueryIOCs searches the custom i o cs in your customer account
+  QueryIOCs searches the custom i o cs in your customer account deprecated use the new i o c management endpoint g e t iocs queries indicators v1
 */
 func (a *Client) QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*QueryIOCsOK, error) {
 	// TODO: Validate the params before sending
@@ -309,7 +309,7 @@ func (a *Client) QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*Quer
 }
 
 /*
-  UpdateIOC updates an i o c by providing a type and value
+  UpdateIOC updates an i o c by providing a type and value deprecated use the new i o c management endpoint p a t c h iocs entities indicators v1
 */
 func (a *Client) UpdateIOC(params *UpdateIOCParams, opts ...ClientOption) (*UpdateIOCOK, error) {
 	// TODO: Validate the params before sending
