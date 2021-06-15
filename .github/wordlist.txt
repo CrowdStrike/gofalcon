@@ -10,6 +10,7 @@ NewClient
 OAuth
 SDK
 detections
+dev
 gofalcon
 initialisation
 iocs
