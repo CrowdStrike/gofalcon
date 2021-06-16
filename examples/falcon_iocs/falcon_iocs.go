@@ -15,6 +15,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
 // getCrowdstrikeIOCs returns a list of all the Custom IOC values in the system
@@ -178,6 +179,28 @@ func deleteCrowdStrikeIOC(iocStr string, client *client.CrowdStrikeAPISpecificat
 	return deleteCrowdStrikeIOCs([]string{iocStr}, client)
 }
 
+func showCrowdStrikeIOC(iocStr string, client *client.CrowdStrikeAPISpecification) error {
+	id, err := _getCrowdStrikeIOCID(iocStr, client)
+	if err != nil {
+		return err
+	}
+	res, err := client.Ioc.IndicatorGetV1(
+		ioc.NewIndicatorGetV1Params().WithIds([]string{id}),
+	)
+	if err != nil {
+		return err
+	}
+
+	if res.GetPayload() != nil && len(res.GetPayload().Resources) != 0 {
+		json, err := falcon_util.PrettyJson(res.GetPayload().Resources[0])
+		if err != nil {
+			return err
+		}
+		fmt.Println(json)
+	}
+	return nil
+}
+
 func main() {
 
 	falconClientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
@@ -189,10 +212,11 @@ func main() {
 	add := flag.String("add", "", "block an IOC (valid types: md5, sha256, domain, ipv4, ipv6)")
 	description := flag.String("description", "", "add a IOC description for blocking")
 	delete := flag.String("delete", "", "unblock an IOC, if present in the IOC management panel")
+	show := flag.String("show", "", "show details of given IOC")
 
 	flag.Parse()
 
-	if !*list && *add == "" && *delete == "" {
+	if !*list && *add == "" && *delete == "" && *show == "" {
 		flag.Usage()
 		return
 	}
@@ -237,4 +261,10 @@ func main() {
 		}
 	}
 
+	if *show != "" {
+		err := showCrowdStrikeIOC(*show, client)
+		if err != nil {
+			panic(falcon.ErrorExplain(err))
+		}
+	}
 }

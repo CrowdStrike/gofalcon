@@ -19,4 +19,5 @@ export FALCON_CLOUD="us-1, us-2, eu-1, us-gov-1, etc"
 ./falcon_ioc --add "blockexample.com"
 ./falcon_ioc --delete "blockexample.com"
 ./falcon_ioc --list
+./falcon_ioc --show "123.123.132.231"
 ```
