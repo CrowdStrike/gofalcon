@@ -55,6 +55,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_host_details
+    binary: falcon_host_details
+    main: ./examples/falcon_host_details
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
 
 archives:
 - replacements:
@@ -100,6 +114,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_event_stream
       - src: examples/falcon_iocs
         dst: /usr/share/doc/gofalcon/falcon_iocs
+      - src: examples/falcon_host_details
+        dst: /usr/share/doc/gofalcon/falcon_host_details
 
     homepage: github.com/crowdstrike/gofalcon
     license: MIT

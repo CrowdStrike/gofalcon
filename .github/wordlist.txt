@@ -5,6 +5,7 @@ CrowdStrike
 CrowdStrike's
 Golang
 IOCs
+JSON
 Kubernetes
 NewClient
 OAuth
@@ -12,7 +13,9 @@ SDK
 detections
 dev
 gofalcon
+hostnames
 initialisation
 iocs
 oauth
 pre
+stdout
