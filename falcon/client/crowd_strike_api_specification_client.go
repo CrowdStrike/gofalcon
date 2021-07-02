@@ -23,7 +23,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
-	"github.com/crowdstrike/gofalcon/falcon/client/identity_detections"
+	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
@@ -106,7 +106,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
-	cli.IdentityDetections = identity_detections.New(transport, formats)
+	cli.IdentityProtection = identity_protection.New(transport, formats)
 	cli.Incidents = incidents.New(transport, formats)
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
@@ -202,7 +202,7 @@ type CrowdStrikeAPISpecification struct {
 
 	Hosts hosts.ClientService
 
-	IdentityDetections identity_detections.ClientService
+	IdentityProtection identity_protection.ClientService
 
 	Incidents incidents.ClientService
 
@@ -273,7 +273,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FirewallPolicies.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
-	c.IdentityDetections.SetTransport(transport)
+	c.IdentityProtection.SetTransport(transport)
 	c.Incidents.SetTransport(transport)
 	c.InstallationTokens.SetTransport(transport)
 	c.Intel.SetTransport(transport)
