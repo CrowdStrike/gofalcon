@@ -66,34 +66,6 @@ type UploadSampleV2Params struct {
 	*/
 	XCSUSERUUID *string
 
-	/* Body.
-
-	     Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 100 MB.
-
-	Accepted file formats:
-
-	- Portable executables: `.exe`, `.scr`, `.pif`, `.dll`, `.com`, `.cpl`, etc.
-	- Office documents: `.doc`, `.docx`, `.ppt`, `.pps`, `.pptx`, `.ppsx`, `.xls`, `.xlsx`, `.rtf`, `.pub`
-	- PDF
-	- APK
-	- Executable JAR
-	- Windows script component: `.sct`
-	- Windows shortcut: `.lnk`
-	- Windows help: `.chm`
-	- HTML application: `.hta`
-	- Windows script file: `.wsf`
-	- Javascript: `.js`
-	- Visual Basic: `.vbs`,  `.vbe`
-	- Shockwave Flash: `.swf`
-	- Perl: `.pl`
-	- Powershell: `.ps1`, `.psd1`, `.psm1`
-	- Scalable vector graphics: `.svg`
-	- Python: `.py`
-	- Linux ELF executables
-	- Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
-	*/
-	Body []int64
-
 	/* Comment.
 
 	   A descriptive comment to identify the file for other users.
@@ -119,11 +91,39 @@ type UploadSampleV2Params struct {
 	*/
 	IsConfidential *bool
 
-	/* Upfile.
+	/* Sample.
 
-	   The binary file.
+	     Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 256 MB.
+
+	Accepted file formats:
+
+	- Portable executables: `.exe`, `.scr`, `.pif`, `.dll`, `.com`, `.cpl`, etc.
+	- Office documents: `.doc`, `.docx`, `.ppt`, `.pps`, `.pptx`, `.ppsx`, `.xls`, `.xlsx`, `.rtf`, `.pub`
+	- PDF
+	- APK
+	- Executable JAR
+	- Windows script component: `.sct`
+	- Windows shortcut: `.lnk`
+	- Windows help: `.chm`
+	- HTML application: `.hta`
+	- Windows script file: `.wsf`
+	- Javascript: `.js`
+	- Visual Basic: `.vbs`,  `.vbe`
+	- Shockwave Flash: `.swf`
+	- Perl: `.pl`
+	- Powershell: `.ps1`, `.psd1`, `.psm1`
+	- Scalable vector graphics: `.svg`
+	- Python: `.py`
+	- Linux ELF executables
+	- Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
 	*/
-	Upfile runtime.NamedReadCloser
+	Sample runtime.NamedReadCloser
+
+	/* Source.
+
+	   Source for the file (feed or service name).
+	*/
+	Source string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -200,17 +200,6 @@ func (o *UploadSampleV2Params) SetXCSUSERUUID(xCSUSERUUID *string) {
 	o.XCSUSERUUID = xCSUSERUUID
 }
 
-// WithBody adds the body to the upload sample v2 params
-func (o *UploadSampleV2Params) WithBody(body []int64) *UploadSampleV2Params {
-	o.SetBody(body)
-	return o
-}
-
-// SetBody adds the body to the upload sample v2 params
-func (o *UploadSampleV2Params) SetBody(body []int64) {
-	o.Body = body
-}
-
 // WithComment adds the comment to the upload sample v2 params
 func (o *UploadSampleV2Params) WithComment(comment *string) *UploadSampleV2Params {
 	o.SetComment(comment)
@@ -244,15 +233,26 @@ func (o *UploadSampleV2Params) SetIsConfidential(isConfidential *bool) {
 	o.IsConfidential = isConfidential
 }
 
-// WithUpfile adds the upfile to the upload sample v2 params
-func (o *UploadSampleV2Params) WithUpfile(upfile runtime.NamedReadCloser) *UploadSampleV2Params {
-	o.SetUpfile(upfile)
+// WithSample adds the sample to the upload sample v2 params
+func (o *UploadSampleV2Params) WithSample(sample runtime.NamedReadCloser) *UploadSampleV2Params {
+	o.SetSample(sample)
 	return o
 }
 
-// SetUpfile adds the upfile to the upload sample v2 params
-func (o *UploadSampleV2Params) SetUpfile(upfile runtime.NamedReadCloser) {
-	o.Upfile = upfile
+// SetSample adds the sample to the upload sample v2 params
+func (o *UploadSampleV2Params) SetSample(sample runtime.NamedReadCloser) {
+	o.Sample = sample
+}
+
+// WithSource adds the source to the upload sample v2 params
+func (o *UploadSampleV2Params) WithSource(source string) *UploadSampleV2Params {
+	o.SetSource(source)
+	return o
+}
+
+// SetSource adds the source to the upload sample v2 params
+func (o *UploadSampleV2Params) SetSource(source string) {
+	o.Source = source
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -270,58 +270,57 @@ func (o *UploadSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 			return err
 		}
 	}
-	if o.Body != nil {
-		if err := r.SetBodyParam(o.Body); err != nil {
-			return err
-		}
-	}
 
 	if o.Comment != nil {
 
-		// query param comment
-		var qrComment string
-
+		// form param comment
+		var frComment string
 		if o.Comment != nil {
-			qrComment = *o.Comment
+			frComment = *o.Comment
 		}
-		qComment := qrComment
-		if qComment != "" {
-
-			if err := r.SetQueryParam("comment", qComment); err != nil {
+		fComment := frComment
+		if fComment != "" {
+			if err := r.SetFormParam("comment", fComment); err != nil {
 				return err
 			}
 		}
 	}
 
-	// query param file_name
-	qrFileName := o.FileName
-	qFileName := qrFileName
-	if qFileName != "" {
-
-		if err := r.SetQueryParam("file_name", qFileName); err != nil {
+	// form param file_name
+	frFileName := o.FileName
+	fFileName := frFileName
+	if fFileName != "" {
+		if err := r.SetFormParam("file_name", fFileName); err != nil {
 			return err
 		}
 	}
 
 	if o.IsConfidential != nil {
 
-		// query param is_confidential
-		var qrIsConfidential bool
-
+		// form param is_confidential
+		var frIsConfidential bool
 		if o.IsConfidential != nil {
-			qrIsConfidential = *o.IsConfidential
+			frIsConfidential = *o.IsConfidential
 		}
-		qIsConfidential := swag.FormatBool(qrIsConfidential)
-		if qIsConfidential != "" {
-
-			if err := r.SetQueryParam("is_confidential", qIsConfidential); err != nil {
+		fIsConfidential := swag.FormatBool(frIsConfidential)
+		if fIsConfidential != "" {
+			if err := r.SetFormParam("is_confidential", fIsConfidential); err != nil {
 				return err
 			}
 		}
 	}
-	// form file param upfile
-	if err := r.SetFileParam("upfile", o.Upfile); err != nil {
+	// form file param sample
+	if err := r.SetFileParam("sample", o.Sample); err != nil {
 		return err
+	}
+
+	// form param source
+	frSource := o.Source
+	fSource := frSource
+	if fSource != "" {
+		if err := r.SetFormParam("source", fSource); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

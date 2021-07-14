@@ -78,6 +78,10 @@ OK
 */
 type UploadSampleV2OK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -86,17 +90,24 @@ type UploadSampleV2OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.SamplestoreSampleMetadataResponseV2
+	Payload *models.ClientSampleMetadataResponseV2
 }
 
 func (o *UploadSampleV2OK) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] uploadSampleV2OK  %+v", 200, o.Payload)
 }
-func (o *UploadSampleV2OK) GetPayload() *models.SamplestoreSampleMetadataResponseV2 {
+func (o *UploadSampleV2OK) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
 
 func (o *UploadSampleV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -120,7 +131,7 @@ func (o *UploadSampleV2OK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.SamplestoreSampleMetadataResponseV2)
+	o.Payload = new(models.ClientSampleMetadataResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -141,6 +152,10 @@ Bad Request
 */
 type UploadSampleV2BadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -149,17 +164,24 @@ type UploadSampleV2BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.SamplestoreSampleMetadataResponseV2
+	Payload *models.ClientSampleMetadataResponseV2
 }
 
 func (o *UploadSampleV2BadRequest) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] uploadSampleV2BadRequest  %+v", 400, o.Payload)
 }
-func (o *UploadSampleV2BadRequest) GetPayload() *models.SamplestoreSampleMetadataResponseV2 {
+func (o *UploadSampleV2BadRequest) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
 
 func (o *UploadSampleV2BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -183,7 +205,7 @@ func (o *UploadSampleV2BadRequest) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.SamplestoreSampleMetadataResponseV2)
+	o.Payload = new(models.ClientSampleMetadataResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -204,6 +226,10 @@ Forbidden
 */
 type UploadSampleV2Forbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -223,6 +249,13 @@ func (o *UploadSampleV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *UploadSampleV2Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -267,6 +300,10 @@ Too Many Requests
 */
 type UploadSampleV2TooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -290,6 +327,13 @@ func (o *UploadSampleV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *UploadSampleV2TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -345,6 +389,10 @@ Internal Server Error
 */
 type UploadSampleV2InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -353,17 +401,24 @@ type UploadSampleV2InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.SamplestoreSampleMetadataResponseV2
+	Payload *models.ClientSampleMetadataResponseV2
 }
 
 func (o *UploadSampleV2InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] uploadSampleV2InternalServerError  %+v", 500, o.Payload)
 }
-func (o *UploadSampleV2InternalServerError) GetPayload() *models.SamplestoreSampleMetadataResponseV2 {
+func (o *UploadSampleV2InternalServerError) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
 
 func (o *UploadSampleV2InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -387,7 +442,7 @@ func (o *UploadSampleV2InternalServerError) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.SamplestoreSampleMetadataResponseV2)
+	o.Payload = new(models.ClientSampleMetadataResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -411,7 +466,7 @@ OK
 type UploadSampleV2Default struct {
 	_statusCode int
 
-	Payload *models.SamplestoreSampleMetadataResponseV2
+	Payload *models.ClientSampleMetadataResponseV2
 }
 
 // Code gets the status code for the upload sample v2 default response
@@ -422,13 +477,13 @@ func (o *UploadSampleV2Default) Code() int {
 func (o *UploadSampleV2Default) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] UploadSampleV2 default  %+v", o._statusCode, o.Payload)
 }
-func (o *UploadSampleV2Default) GetPayload() *models.SamplestoreSampleMetadataResponseV2 {
+func (o *UploadSampleV2Default) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
 
 func (o *UploadSampleV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.SamplestoreSampleMetadataResponseV2)
+	o.Payload = new(models.ClientSampleMetadataResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
