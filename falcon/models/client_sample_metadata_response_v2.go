@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SamplestoreSampleMetadataResponseV2 samplestore sample metadata response v2
+// ClientSampleMetadataResponseV2 client sample metadata response v2
 //
-// swagger:model samplestore.SampleMetadataResponseV2
-type SamplestoreSampleMetadataResponseV2 struct {
+// swagger:model client.SampleMetadataResponseV2
+type ClientSampleMetadataResponseV2 struct {
 
 	// errors
 	// Required: true
@@ -30,11 +30,11 @@ type SamplestoreSampleMetadataResponseV2 struct {
 
 	// resources
 	// Required: true
-	Resources []*SamplestoreSampleMetadataV2 `json:"resources"`
+	Resources []*ClientSampleMetadataV2 `json:"resources"`
 }
 
-// Validate validates this samplestore sample metadata response v2
-func (m *SamplestoreSampleMetadataResponseV2) Validate(formats strfmt.Registry) error {
+// Validate validates this client sample metadata response v2
+func (m *ClientSampleMetadataResponseV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *SamplestoreSampleMetadataResponseV2) Validate(formats strfmt.Registry) 
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) validateErrors(formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -80,7 +80,7 @@ func (m *SamplestoreSampleMetadataResponseV2) validateErrors(formats strfmt.Regi
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) validateMeta(formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -98,7 +98,7 @@ func (m *SamplestoreSampleMetadataResponseV2) validateMeta(formats strfmt.Regist
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) validateResources(formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -123,8 +123,8 @@ func (m *SamplestoreSampleMetadataResponseV2) validateResources(formats strfmt.R
 	return nil
 }
 
-// ContextValidate validate this samplestore sample metadata response v2 based on the context it is used
-func (m *SamplestoreSampleMetadataResponseV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this client sample metadata response v2 based on the context it is used
+func (m *ClientSampleMetadataResponseV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -145,7 +145,7 @@ func (m *SamplestoreSampleMetadataResponseV2) ContextValidate(ctx context.Contex
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -163,7 +163,7 @@ func (m *SamplestoreSampleMetadataResponseV2) contextValidateErrors(ctx context.
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -177,7 +177,7 @@ func (m *SamplestoreSampleMetadataResponseV2) contextValidateMeta(ctx context.Co
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataResponseV2) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *ClientSampleMetadataResponseV2) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -196,7 +196,7 @@ func (m *SamplestoreSampleMetadataResponseV2) contextValidateResources(ctx conte
 }
 
 // MarshalBinary interface implementation
-func (m *SamplestoreSampleMetadataResponseV2) MarshalBinary() ([]byte, error) {
+func (m *ClientSampleMetadataResponseV2) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -204,8 +204,8 @@ func (m *SamplestoreSampleMetadataResponseV2) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *SamplestoreSampleMetadataResponseV2) UnmarshalBinary(b []byte) error {
-	var res SamplestoreSampleMetadataResponseV2
+func (m *ClientSampleMetadataResponseV2) UnmarshalBinary(b []byte) error {
+	var res ClientSampleMetadataResponseV2
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

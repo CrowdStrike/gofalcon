@@ -28,6 +28,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error)
+
 	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, opts ...ClientOption) (*DeleteIOAExclusionsV1OK, error)
 
 	GetIOAExclusionsV1(params *GetIOAExclusionsV1Params, opts ...ClientOption) (*GetIOAExclusionsV1OK, error)
@@ -37,6 +39,43 @@ type ClientService interface {
 	UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, opts ...ClientOption) (*UpdateIOAExclusionsV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CreateIOAExclusionsV1 creates the i o a exclusions
+*/
+func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateIOAExclusionsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createIOAExclusionsV1",
+		Method:             "POST",
+		PathPattern:        "/policy/entities/ioa-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateIOAExclusionsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateIOAExclusionsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateIOAExclusionsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*

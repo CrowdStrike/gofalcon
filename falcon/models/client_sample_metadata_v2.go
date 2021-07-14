@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// SamplestoreSampleMetadataV2 samplestore sample metadata v2
+// ClientSampleMetadataV2 client sample metadata v2
 //
-// swagger:model samplestore.SampleMetadataV2
-type SamplestoreSampleMetadataV2 struct {
+// swagger:model client.SampleMetadataV2
+type ClientSampleMetadataV2 struct {
 
 	// file name
 	FileName string `json:"file_name,omitempty"`
@@ -27,8 +27,8 @@ type SamplestoreSampleMetadataV2 struct {
 	Sha256 *string `json:"sha256"`
 }
 
-// Validate validates this samplestore sample metadata v2
-func (m *SamplestoreSampleMetadataV2) Validate(formats strfmt.Registry) error {
+// Validate validates this client sample metadata v2
+func (m *ClientSampleMetadataV2) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateSha256(formats); err != nil {
@@ -41,7 +41,7 @@ func (m *SamplestoreSampleMetadataV2) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *SamplestoreSampleMetadataV2) validateSha256(formats strfmt.Registry) error {
+func (m *ClientSampleMetadataV2) validateSha256(formats strfmt.Registry) error {
 
 	if err := validate.Required("sha256", "body", m.Sha256); err != nil {
 		return err
@@ -50,13 +50,13 @@ func (m *SamplestoreSampleMetadataV2) validateSha256(formats strfmt.Registry) er
 	return nil
 }
 
-// ContextValidate validates this samplestore sample metadata v2 based on context it is used
-func (m *SamplestoreSampleMetadataV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this client sample metadata v2 based on context it is used
+func (m *ClientSampleMetadataV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *SamplestoreSampleMetadataV2) MarshalBinary() ([]byte, error) {
+func (m *ClientSampleMetadataV2) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -64,8 +64,8 @@ func (m *SamplestoreSampleMetadataV2) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *SamplestoreSampleMetadataV2) UnmarshalBinary(b []byte) error {
-	var res SamplestoreSampleMetadataV2
+func (m *ClientSampleMetadataV2) UnmarshalBinary(b []byte) error {
+	var res ClientSampleMetadataV2
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

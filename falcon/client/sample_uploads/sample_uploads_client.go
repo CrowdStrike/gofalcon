@@ -124,7 +124,7 @@ func (a *Client) UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOpti
 		Method:             "POST",
 		PathPattern:        "/samples/entities/samples/v3",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/octet-stream", "multipart/form-data"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UploadSampleV3Reader{formats: a.formats},
