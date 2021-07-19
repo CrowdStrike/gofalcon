@@ -84,6 +84,10 @@ OK
 */
 type GetSampleV3OK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -103,6 +107,13 @@ func (o *GetSampleV3OK) GetPayload() string {
 }
 
 func (o *GetSampleV3OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -145,6 +156,10 @@ Bad Request
 */
 type GetSampleV3BadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -164,6 +179,13 @@ func (o *GetSampleV3BadRequest) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetSampleV3BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -208,6 +230,10 @@ Forbidden
 */
 type GetSampleV3Forbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -227,6 +253,13 @@ func (o *GetSampleV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetSampleV3Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -271,6 +304,10 @@ Not Found
 */
 type GetSampleV3NotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -290,6 +327,13 @@ func (o *GetSampleV3NotFound) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetSampleV3NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -334,6 +378,10 @@ Too Many Requests
 */
 type GetSampleV3TooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -357,6 +405,13 @@ func (o *GetSampleV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetSampleV3TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -412,6 +467,10 @@ Internal Server Error
 */
 type GetSampleV3InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -431,6 +490,13 @@ func (o *GetSampleV3InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetSampleV3InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
