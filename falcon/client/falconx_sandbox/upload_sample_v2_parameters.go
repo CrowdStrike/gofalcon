@@ -60,11 +60,11 @@ func NewUploadSampleV2ParamsWithHTTPClient(client *http.Client) *UploadSampleV2P
 */
 type UploadSampleV2Params struct {
 
-	/* XCSUSERUUID.
+	/* XCSORIGIN.
 
-	   User UUID
+	   Source for the file (feed or service name).
 	*/
-	XCSUSERUUID *string
+	XCSORIGIN string
 
 	/* Comment.
 
@@ -118,12 +118,6 @@ type UploadSampleV2Params struct {
 	- Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
 	*/
 	Sample runtime.NamedReadCloser
-
-	/* Source.
-
-	   Source for the file (feed or service name).
-	*/
-	Source string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -189,15 +183,15 @@ func (o *UploadSampleV2Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the upload sample v2 params
-func (o *UploadSampleV2Params) WithXCSUSERUUID(xCSUSERUUID *string) *UploadSampleV2Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
+// WithXCSORIGIN adds the xCSORIGIN to the upload sample v2 params
+func (o *UploadSampleV2Params) WithXCSORIGIN(xCSORIGIN string) *UploadSampleV2Params {
+	o.SetXCSORIGIN(xCSORIGIN)
 	return o
 }
 
-// SetXCSUSERUUID adds the xCSUSERUuid to the upload sample v2 params
-func (o *UploadSampleV2Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
+// SetXCSORIGIN adds the xCSORIGIN to the upload sample v2 params
+func (o *UploadSampleV2Params) SetXCSORIGIN(xCSORIGIN string) {
+	o.XCSORIGIN = xCSORIGIN
 }
 
 // WithComment adds the comment to the upload sample v2 params
@@ -244,17 +238,6 @@ func (o *UploadSampleV2Params) SetSample(sample runtime.NamedReadCloser) {
 	o.Sample = sample
 }
 
-// WithSource adds the source to the upload sample v2 params
-func (o *UploadSampleV2Params) WithSource(source string) *UploadSampleV2Params {
-	o.SetSource(source)
-	return o
-}
-
-// SetSource adds the source to the upload sample v2 params
-func (o *UploadSampleV2Params) SetSource(source string) {
-	o.Source = source
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *UploadSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -263,12 +246,9 @@ func (o *UploadSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 	}
 	var res []error
 
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
+	// header param X-CS-ORIGIN
+	if err := r.SetHeaderParam("X-CS-ORIGIN", o.XCSORIGIN); err != nil {
+		return err
 	}
 
 	if o.Comment != nil {
@@ -312,15 +292,6 @@ func (o *UploadSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// form file param sample
 	if err := r.SetFileParam("sample", o.Sample); err != nil {
 		return err
-	}
-
-	// form param source
-	frSource := o.Source
-	fSource := frSource
-	if fSource != "" {
-		if err := r.SetFormParam("source", fSource); err != nil {
-			return err
-		}
 	}
 
 	if len(res) > 0 {

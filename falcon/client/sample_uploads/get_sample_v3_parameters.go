@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetSampleV3Params creates a new GetSampleV3Params object,
@@ -75,7 +76,7 @@ type GetSampleV3Params struct {
 
 	   Flag whether the sample should be zipped and password protected with pass='infected'
 	*/
-	PasswordProtected *string
+	PasswordProtected *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -95,7 +96,7 @@ func (o *GetSampleV3Params) WithDefaults() *GetSampleV3Params {
 // All values with no default are reset to their zero value.
 func (o *GetSampleV3Params) SetDefaults() {
 	var (
-		passwordProtectedDefault = string("false")
+		passwordProtectedDefault = bool(false)
 	)
 
 	val := GetSampleV3Params{
@@ -164,13 +165,13 @@ func (o *GetSampleV3Params) SetIds(ids string) {
 }
 
 // WithPasswordProtected adds the passwordProtected to the get sample v3 params
-func (o *GetSampleV3Params) WithPasswordProtected(passwordProtected *string) *GetSampleV3Params {
+func (o *GetSampleV3Params) WithPasswordProtected(passwordProtected *bool) *GetSampleV3Params {
 	o.SetPasswordProtected(passwordProtected)
 	return o
 }
 
 // SetPasswordProtected adds the passwordProtected to the get sample v3 params
-func (o *GetSampleV3Params) SetPasswordProtected(passwordProtected *string) {
+func (o *GetSampleV3Params) SetPasswordProtected(passwordProtected *bool) {
 	o.PasswordProtected = passwordProtected
 }
 
@@ -203,12 +204,12 @@ func (o *GetSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	if o.PasswordProtected != nil {
 
 		// query param password_protected
-		var qrPasswordProtected string
+		var qrPasswordProtected bool
 
 		if o.PasswordProtected != nil {
 			qrPasswordProtected = *o.PasswordProtected
 		}
-		qPasswordProtected := qrPasswordProtected
+		qPasswordProtected := swag.FormatBool(qrPasswordProtected)
 		if qPasswordProtected != "" {
 
 			if err := r.SetQueryParam("password_protected", qPasswordProtected); err != nil {
