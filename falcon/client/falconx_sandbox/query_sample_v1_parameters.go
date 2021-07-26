@@ -61,17 +61,11 @@ func NewQuerySampleV1ParamsWithHTTPClient(client *http.Client) *QuerySampleV1Par
 */
 type QuerySampleV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Body.
 
 	   Pass a list of sha256s to check if the exist. It will be returned the list of existing hashes.
 	*/
-	Body *models.SamplestoreQuerySamplesRequest
+	Body *models.ClientQuerySamplesRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -126,25 +120,14 @@ func (o *QuerySampleV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the query sample v1 params
-func (o *QuerySampleV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *QuerySampleV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the query sample v1 params
-func (o *QuerySampleV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the query sample v1 params
-func (o *QuerySampleV1Params) WithBody(body *models.SamplestoreQuerySamplesRequest) *QuerySampleV1Params {
+func (o *QuerySampleV1Params) WithBody(body *models.ClientQuerySamplesRequest) *QuerySampleV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the query sample v1 params
-func (o *QuerySampleV1Params) SetBody(body *models.SamplestoreQuerySamplesRequest) {
+func (o *QuerySampleV1Params) SetBody(body *models.ClientQuerySamplesRequest) {
 	o.Body = body
 }
 
@@ -155,14 +138,6 @@ func (o *QuerySampleV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

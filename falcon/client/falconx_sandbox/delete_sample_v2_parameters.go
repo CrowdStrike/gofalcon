@@ -59,12 +59,6 @@ func NewDeleteSampleV2ParamsWithHTTPClient(client *http.Client) *DeleteSampleV2P
 */
 type DeleteSampleV2Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   The file SHA256.
@@ -124,17 +118,6 @@ func (o *DeleteSampleV2Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the delete sample v2 params
-func (o *DeleteSampleV2Params) WithXCSUSERUUID(xCSUSERUUID *string) *DeleteSampleV2Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the delete sample v2 params
-func (o *DeleteSampleV2Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the delete sample v2 params
 func (o *DeleteSampleV2Params) WithIds(ids string) *DeleteSampleV2Params {
 	o.SetIds(ids)
@@ -153,14 +136,6 @@ func (o *DeleteSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	// query param ids
 	qrIds := o.Ids

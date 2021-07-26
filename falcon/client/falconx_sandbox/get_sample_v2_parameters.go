@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetSampleV2Params creates a new GetSampleV2Params object,
@@ -59,12 +60,6 @@ func NewGetSampleV2ParamsWithHTTPClient(client *http.Client) *GetSampleV2Params 
 */
 type GetSampleV2Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   The file SHA256.
@@ -75,7 +70,7 @@ type GetSampleV2Params struct {
 
 	   Flag whether the sample should be zipped and password protected with pass='infected'
 	*/
-	PasswordProtected *string
+	PasswordProtected *bool
 
 	timeout    time.Duration
 	Context    context.Context
@@ -95,7 +90,7 @@ func (o *GetSampleV2Params) WithDefaults() *GetSampleV2Params {
 // All values with no default are reset to their zero value.
 func (o *GetSampleV2Params) SetDefaults() {
 	var (
-		passwordProtectedDefault = string("false")
+		passwordProtectedDefault = bool(false)
 	)
 
 	val := GetSampleV2Params{
@@ -141,17 +136,6 @@ func (o *GetSampleV2Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the get sample v2 params
-func (o *GetSampleV2Params) WithXCSUSERUUID(xCSUSERUUID *string) *GetSampleV2Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the get sample v2 params
-func (o *GetSampleV2Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the get sample v2 params
 func (o *GetSampleV2Params) WithIds(ids string) *GetSampleV2Params {
 	o.SetIds(ids)
@@ -164,13 +148,13 @@ func (o *GetSampleV2Params) SetIds(ids string) {
 }
 
 // WithPasswordProtected adds the passwordProtected to the get sample v2 params
-func (o *GetSampleV2Params) WithPasswordProtected(passwordProtected *string) *GetSampleV2Params {
+func (o *GetSampleV2Params) WithPasswordProtected(passwordProtected *bool) *GetSampleV2Params {
 	o.SetPasswordProtected(passwordProtected)
 	return o
 }
 
 // SetPasswordProtected adds the passwordProtected to the get sample v2 params
-func (o *GetSampleV2Params) SetPasswordProtected(passwordProtected *string) {
+func (o *GetSampleV2Params) SetPasswordProtected(passwordProtected *bool) {
 	o.PasswordProtected = passwordProtected
 }
 
@@ -181,14 +165,6 @@ func (o *GetSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	// query param ids
 	qrIds := o.Ids
@@ -203,12 +179,12 @@ func (o *GetSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	if o.PasswordProtected != nil {
 
 		// query param password_protected
-		var qrPasswordProtected string
+		var qrPasswordProtected bool
 
 		if o.PasswordProtected != nil {
 			qrPasswordProtected = *o.PasswordProtected
 		}
-		qPasswordProtected := qrPasswordProtected
+		qPasswordProtected := swag.FormatBool(qrPasswordProtected)
 		if qPasswordProtected != "" {
 
 			if err := r.SetQueryParam("password_protected", qPasswordProtected); err != nil {

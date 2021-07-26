@@ -41,8 +41,10 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/client/recon"
+	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
+	"github.com/crowdstrike/gofalcon/falcon/client/scheduled_reports"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
@@ -124,8 +126,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
 	cli.Recon = recon.New(transport, formats)
+	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
+	cli.ScheduledReports = scheduled_reports.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
@@ -238,9 +242,13 @@ type CrowdStrikeAPISpecification struct {
 
 	Recon recon.ClientService
 
+	ReportExecutions report_executions.ClientService
+
 	ResponsePolicies response_policies.ClientService
 
 	SampleUploads sample_uploads.ClientService
+
+	ScheduledReports scheduled_reports.ClientService
 
 	SensorDownload sensor_download.ClientService
 
@@ -291,8 +299,10 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.RealTimeResponse.SetTransport(transport)
 	c.RealTimeResponseAdmin.SetTransport(transport)
 	c.Recon.SetTransport(transport)
+	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
+	c.ScheduledReports.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)
 	c.SensorUpdatePolicies.SetTransport(transport)
 	c.SensorVisibilityExclusions.SetTransport(transport)

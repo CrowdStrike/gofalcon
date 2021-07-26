@@ -60,12 +60,6 @@ func NewUploadSampleV3ParamsWithHTTPClient(client *http.Client) *UploadSampleV3P
 */
 type UploadSampleV3Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Comment.
 
 	   A descriptive comment to identify the file for other users.
@@ -118,12 +112,6 @@ type UploadSampleV3Params struct {
 	- Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
 	*/
 	Sample runtime.NamedReadCloser
-
-	/* Source.
-
-	   Source for the file (feed or service name).
-	*/
-	Source string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -189,17 +177,6 @@ func (o *UploadSampleV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the upload sample v3 params
-func (o *UploadSampleV3Params) WithXCSUSERUUID(xCSUSERUUID *string) *UploadSampleV3Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the upload sample v3 params
-func (o *UploadSampleV3Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithComment adds the comment to the upload sample v3 params
 func (o *UploadSampleV3Params) WithComment(comment *string) *UploadSampleV3Params {
 	o.SetComment(comment)
@@ -244,17 +221,6 @@ func (o *UploadSampleV3Params) SetSample(sample runtime.NamedReadCloser) {
 	o.Sample = sample
 }
 
-// WithSource adds the source to the upload sample v3 params
-func (o *UploadSampleV3Params) WithSource(source string) *UploadSampleV3Params {
-	o.SetSource(source)
-	return o
-}
-
-// SetSource adds the source to the upload sample v3 params
-func (o *UploadSampleV3Params) SetSource(source string) {
-	o.Source = source
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -262,14 +228,6 @@ func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Comment != nil {
 
@@ -312,15 +270,6 @@ func (o *UploadSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// form file param sample
 	if err := r.SetFileParam("sample", o.Sample); err != nil {
 		return err
-	}
-
-	// form param source
-	frSource := o.Source
-	fSource := frSource
-	if fSource != "" {
-		if err := r.SetFormParam("source", fSource); err != nil {
-			return err
-		}
 	}
 
 	if len(res) > 0 {

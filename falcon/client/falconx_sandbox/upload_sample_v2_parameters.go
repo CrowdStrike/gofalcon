@@ -60,12 +60,6 @@ func NewUploadSampleV2ParamsWithHTTPClient(client *http.Client) *UploadSampleV2P
 */
 type UploadSampleV2Params struct {
 
-	/* XCSORIGIN.
-
-	   Source for the file (feed or service name).
-	*/
-	XCSORIGIN string
-
 	/* Comment.
 
 	   A descriptive comment to identify the file for other users.
@@ -183,17 +177,6 @@ func (o *UploadSampleV2Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSORIGIN adds the xCSORIGIN to the upload sample v2 params
-func (o *UploadSampleV2Params) WithXCSORIGIN(xCSORIGIN string) *UploadSampleV2Params {
-	o.SetXCSORIGIN(xCSORIGIN)
-	return o
-}
-
-// SetXCSORIGIN adds the xCSORIGIN to the upload sample v2 params
-func (o *UploadSampleV2Params) SetXCSORIGIN(xCSORIGIN string) {
-	o.XCSORIGIN = xCSORIGIN
-}
-
 // WithComment adds the comment to the upload sample v2 params
 func (o *UploadSampleV2Params) WithComment(comment *string) *UploadSampleV2Params {
 	o.SetComment(comment)
@@ -245,11 +228,6 @@ func (o *UploadSampleV2Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
-	// header param X-CS-ORIGIN
-	if err := r.SetHeaderParam("X-CS-ORIGIN", o.XCSORIGIN); err != nil {
-		return err
-	}
 
 	if o.Comment != nil {
 
