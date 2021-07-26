@@ -61,7 +61,7 @@ Falcon Client Secret`)
 		fmt.Printf("No available stream was found. This may be caused by second instance of this application already running in your environment with ID=%s, or by missing streaming api capability\n", *appName)
 	}
 	for _, availableStream := range availableStreams {
-		stream, err := falcon.NewStream(context.Background(), client, *appName, availableStream)
+		stream, err := falcon.NewStream(context.Background(), client, *appName, availableStream, 0)
 		if err != nil {
 			panic(err)
 		}

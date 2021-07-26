@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -18,18 +19,20 @@ type StreamingHandle struct {
 	ctx    context.Context
 	client *client.CrowdStrikeAPISpecification
 	appId  string
+	offset uint64
 	stream *models.MainAvailableStreamV2
 	Events chan *streaming_models.EventItem
 	Errors chan StreamingError
 }
 
 // NewStream initializes new StreamingHandle. Users are advised to read from the StreamingHandle channels
-func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) (*StreamingHandle, error) {
+func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64) (*StreamingHandle, error) {
 	sh := &StreamingHandle{
 		ctx:    ctx,
 		client: client,
 		appId:  appId,
 		stream: stream,
+		offset: offset,
 		Events: make(chan *streaming_models.EventItem),
 		Errors: make(chan StreamingError),
 	}
@@ -117,6 +120,9 @@ func (sh *StreamingHandle) Close() {
 }
 
 func (sh *StreamingHandle) url() string {
+	if sh.offset != 0 {
+		return fmt.Sprintf("%s&offset=%d", *sh.stream.DataFeedURL, sh.offset)
+	}
 	return *sh.stream.DataFeedURL
 }
 
