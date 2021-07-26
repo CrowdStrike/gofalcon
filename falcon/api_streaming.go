@@ -25,7 +25,10 @@ type StreamingHandle struct {
 	Errors chan StreamingError
 }
 
-// NewStream initializes new StreamingHandle. Users are advised to read from the StreamingHandle channels
+// NewStream initializes new StreamingHandle and connects to the Streaming API.
+// The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
+// The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
+// The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
 func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64) (*StreamingHandle, error) {
 	sh := &StreamingHandle{
 		ctx:    ctx,
