@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -18,18 +19,23 @@ type StreamingHandle struct {
 	ctx    context.Context
 	client *client.CrowdStrikeAPISpecification
 	appId  string
+	offset uint64
 	stream *models.MainAvailableStreamV2
 	Events chan *streaming_models.EventItem
 	Errors chan StreamingError
 }
 
-// NewStream initializes new StreamingHandle. Users are advised to read from the StreamingHandle channels
-func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2) (*StreamingHandle, error) {
+// NewStream initializes new StreamingHandle and connects to the Streaming API.
+// The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
+// The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
+// The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
+func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64) (*StreamingHandle, error) {
 	sh := &StreamingHandle{
 		ctx:    ctx,
 		client: client,
 		appId:  appId,
 		stream: stream,
+		offset: offset,
 		Events: make(chan *streaming_models.EventItem),
 		Errors: make(chan StreamingError),
 	}
@@ -71,7 +77,7 @@ func (sh *StreamingHandle) maintainSession() {
 }
 
 func (sh *StreamingHandle) open() error {
-	req, err := http.NewRequestWithContext(sh.ctx, "GET", *sh.stream.DataFeedURL, nil)
+	req, err := http.NewRequestWithContext(sh.ctx, "GET", sh.url(), nil)
 	if err != nil {
 		return err
 	}
@@ -114,6 +120,13 @@ func (sh *StreamingHandle) open() error {
 func (sh *StreamingHandle) Close() {
 	close(sh.Errors)
 	sh.Errors = nil
+}
+
+func (sh *StreamingHandle) url() string {
+	if sh.offset != 0 {
+		return fmt.Sprintf("%s&offset=%d", *sh.stream.DataFeedURL, sh.offset)
+	}
+	return *sh.stream.DataFeedURL
 }
 
 // StreamingError structure that holds original error and indicates whether the Error is likely fatal or not
