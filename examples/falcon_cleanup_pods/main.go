@@ -1,14 +1,14 @@
 package main
 
 import (
-	"errors"
 	"bufio"
 	"context"
-	"time"
+	"errors"
 	"flag"
 	"fmt"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -50,7 +50,7 @@ Falcon Client Secret`)
 	hideHosts(client, podIds, *dryRun)
 }
 
-func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <- chan string, dryRun bool) {
+func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <-chan string, dryRun bool) {
 	dryRunString := ""
 	if dryRun {
 		dryRunString = "(DRY-RUN) "
@@ -71,7 +71,7 @@ func hideHost(client *client.CrowdStrikeAPISpecification, id string) error {
 		Body: &models.MsaEntityActionRequestV2{
 			Ids: []string{id},
 		},
-		Context:      context.Background(),
+		Context: context.Background(),
 	})
 	if err != nil {
 		return err
@@ -94,8 +94,8 @@ func checkPayloadErrors(payloadErrors []*models.MsaAPIError) error {
 
 func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *models.DomainDeviceSwagger {
 	response, err := client.Hosts.GetDeviceDetails(&hosts.GetDeviceDetailsParams{
-		Ids: []string{hostId},
-		Context:      context.Background(),
+		Ids:     []string{hostId},
+		Context: context.Background(),
 	})
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
@@ -108,19 +108,18 @@ func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *
 	return response.Payload.Resources[0]
 }
 
-func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays uint) <- chan string {
+func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays uint) <-chan string {
 	hostIds := make(chan string)
 
-
 	go func() {
-		cutOffDate := time.Now().AddDate(0, 0, -1 * int(inactiveDays)).Format("2006-01-02")
+		cutOffDate := time.Now().AddDate(0, 0, -1*int(inactiveDays)).Format("2006-01-02")
 		filter := fmt.Sprintf("product_type_desc:'Pod'+last_seen:<'%s'", cutOffDate)
 		fmt.Printf("Querying Pods that has not been active since %s\n", cutOffDate)
 
 		one := int64(1)
 		response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
-			Filter: &filter,
-			Limit: &one,
+			Filter:  &filter,
+			Limit:   &one,
 			Context: context.Background(),
 		})
 		if err != nil {
@@ -134,11 +133,11 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 		fmt.Printf("Found %d pods that have been inactive\n", podCount)
 
 		limit := int64(100)
-		for offset := int64(0);; {
+		for offset := int64(0); ; {
 			response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
-				Filter: &filter,
-				Limit: &limit,
-				Offset: &offset,
+				Filter:  &filter,
+				Limit:   &limit,
+				Offset:  &offset,
 				Context: context.Background(),
 			})
 			if err != nil {

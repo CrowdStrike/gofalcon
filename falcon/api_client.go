@@ -37,8 +37,8 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	return client.New(customTransport, strfmt.Default), nil
 }
 
-type roundTripper struct{
-	T http.RoundTripper
+type roundTripper struct {
+	T                   http.RoundTripper
 	LastRateLimitDigits int
 }
 
