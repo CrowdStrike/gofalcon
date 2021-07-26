@@ -34,8 +34,18 @@ jobs:
 
     - name: Unit tests
       run: go test ./...
+
     - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:
         version: v1.29
         args: --timeout=3m12s
+
+    - name: "Check: go fmt"
+      run: |
+        if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+            gofmt -s -l -d .
+            echo "Please run: go fmt ./..."
+            exit 1
+        fi
+      if: matrix.os == 'ubuntu-latest'
