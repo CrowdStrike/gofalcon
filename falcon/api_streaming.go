@@ -71,7 +71,7 @@ func (sh *StreamingHandle) maintainSession() {
 }
 
 func (sh *StreamingHandle) open() error {
-	req, err := http.NewRequestWithContext(sh.ctx, "GET", *sh.stream.DataFeedURL, nil)
+	req, err := http.NewRequestWithContext(sh.ctx, "GET", sh.url(), nil)
 	if err != nil {
 		return err
 	}
@@ -114,6 +114,10 @@ func (sh *StreamingHandle) open() error {
 func (sh *StreamingHandle) Close() {
 	close(sh.Errors)
 	sh.Errors = nil
+}
+
+func (sh *StreamingHandle) url() string {
+	return *sh.stream.DataFeedURL
 }
 
 // StreamingError structure that holds original error and indicates whether the Error is likely fatal or not
