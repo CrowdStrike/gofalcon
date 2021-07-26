@@ -60,12 +60,6 @@ func NewGetSampleV3ParamsWithHTTPClient(client *http.Client) *GetSampleV3Params 
 */
 type GetSampleV3Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   The file SHA256.
@@ -142,17 +136,6 @@ func (o *GetSampleV3Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the get sample v3 params
-func (o *GetSampleV3Params) WithXCSUSERUUID(xCSUSERUUID *string) *GetSampleV3Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the get sample v3 params
-func (o *GetSampleV3Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the get sample v3 params
 func (o *GetSampleV3Params) WithIds(ids string) *GetSampleV3Params {
 	o.SetIds(ids)
@@ -182,14 +165,6 @@ func (o *GetSampleV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	// query param ids
 	qrIds := o.Ids
