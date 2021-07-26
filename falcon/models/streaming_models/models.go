@@ -37,7 +37,7 @@ type Event struct {
 	FilePath                      *string                  `json:"FilePath,omitempty"`
 	ProcessStartTime              *uint64                  `json:"ProcessStartTime,omitempty"`
 	ProcessEndTime                *uint64                  `json:"ProcessEndTime,omitempty"`
-	ProcessId                     *uint64                  `json:"ProcessId,omitempty"`
+	ProcessId                     *IntOrString             `json:"ProcessId,omitempty"`
 	UserName                      *string                  `json:"UserName,omitempty"`
 	DetectName                    *string                  `json:"DetectName,omitempty"`
 	CommandLine                   *string                  `json:"CommandLine,omitempty"`
@@ -55,11 +55,11 @@ type Event struct {
 	DocumentsAccessed             []DocumentsAccessed      `json:"DocumentsAccessed,omitempty"`
 	Commands                      []string                 `json:"Commands,omitempty"`
 
-	ParentProcesssId         *uint64 `json:"ParentProcessId,omitempty"`
-	ParentCommandLine        *string `json:"ParentCommandLine,omitempty"`
-	ParentImageFileName      *string `json:"ParentImageFileName,omitempty"`
-	GrandparentCommandLine   *string `json:"GrandparentCommandLine,omitempty"`
-	GrandparentImageFileName *string `json:"GrandparentImageFilename,omitempty"`
+	ParentProcesssId         *IntOrString `json:"ParentProcessId,omitempty"`
+	ParentCommandLine        *string      `json:"ParentCommandLine,omitempty"`
+	ParentImageFileName      *string      `json:"ParentImageFileName,omitempty"`
+	GrandparentCommandLine   *string      `json:"GrandparentCommandLine,omitempty"`
+	GrandparentImageFileName *string      `json:"GrandparentImageFilename,omitempty"`
 
 	NetworkAccesses   []NetworkAccess  `json:"NetworkAccesses,omitempty"`
 	Severity          *float64         `json:"Severity,omitempty"`
