@@ -137,11 +137,10 @@ func getSensors(client *client.CrowdStrikeAPISpecification, osName string) []*mo
 		panic(falcon.ErrorExplain(err))
 	}
 	payload := res.GetPayload()
-	if len(payload.Errors) != 0 {
-		fmt.Println(payload.Errors)
-		panic("Errors from the server")
-
+	if err = falcon.AssertNoError(payload.Errors); err != nil {
+		panic(err)
 	}
+
 	k := 0
 	for _, sensor := range payload.Resources {
 		if strings.Contains(*sensor.Description, "Falcon SIEM Connector") {
@@ -220,6 +219,10 @@ func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *m
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
+	if err = falcon.AssertNoError(sensors.Payload.Errors); err != nil {
+		panic(err)
+	}
+
 	go func() {
 		uniq := map[string]map[string]void{}
 		for _, s := range sensors.GetPayload().Resources {

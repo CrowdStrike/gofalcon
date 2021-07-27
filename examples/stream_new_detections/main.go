@@ -72,8 +72,8 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 			if err != nil {
 				panic(falcon.ErrorExplain(err))
 			}
-			for _, e := range response.Payload.Errors {
-				fmt.Println(e)
+			if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+				panic(err)
 			}
 			unseen := []string{}
 			for _, d := range response.Payload.Resources {
@@ -91,9 +91,10 @@ func streamDetections(c *client.CrowdStrikeAPISpecification) <-chan *models.Doma
 				if err != nil {
 					panic(falcon.ErrorExplain(err))
 				}
-				for _, e := range response.Payload.Errors {
-					fmt.Println(e)
+				if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+					panic(err)
 				}
+
 				res := response.Payload.Resources
 
 				sort.SliceStable(res, func(i, j int) bool {
