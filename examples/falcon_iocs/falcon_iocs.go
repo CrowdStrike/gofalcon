@@ -98,14 +98,16 @@ func addCrowdStrikeIOCs(iocs []string, description string, client *client.CrowdS
 		}
 
 		// add iocs to body
+		truth := true
 		body.Indicators = append(body.Indicators, &models.APIIndicatorCreateReqV1{
-			Type:        iocType,  // sha256, md5, domain, ipv4, ipv6
-			Action:      action,   // no_action, allow, prevent_no_ui, prevent, detect
-			Severity:    "medium", // informational, low, medium, high, critical
-			Description: description,
-			Platforms:   []string{"windows", "mac", "linux"},
-			Value:       iocStr,
-			Expiration:  strfmt.DateTime(time.Now().Add(24 * time.Hour * 365 * 10)),
+			AppliedGlobally: &truth,
+			Type:            iocType,  // sha256, md5, domain, ipv4, ipv6
+			Action:          action,   // no_action, allow, prevent_no_ui, prevent, detect
+			Severity:        "medium", // informational, low, medium, high, critical
+			Description:     description,
+			Platforms:       []string{"windows", "mac", "linux"},
+			Value:           iocStr,
+			Expiration:      strfmt.DateTime(time.Now().Add(24 * time.Hour * 365 * 10)),
 			// Tags:   []string{"example_tag1", "example_tag2"},
 		})
 	}
@@ -147,7 +149,7 @@ func _getCrowdStrikeIOCID(iocStr string, client *client.CrowdStrikeAPISpecificat
 
 	resources := res.GetPayload().Resources
 	if len(resources) != 1 {
-		return "", errors.New("no IOC not found: " + iocStr)
+		return "", errors.New("IOC not found: " + iocStr)
 	}
 
 	return resources[0], nil
