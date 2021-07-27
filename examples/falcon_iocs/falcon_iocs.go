@@ -149,7 +149,7 @@ func _getCrowdStrikeIOCID(iocStr string, client *client.CrowdStrikeAPISpecificat
 
 	resources := res.GetPayload().Resources
 	if len(resources) != 1 {
-		return "", errors.New("no IOC not found: " + iocStr)
+		return "", errors.New("IOC not found: " + iocStr)
 	}
 
 	return resources[0], nil
