@@ -20,9 +20,13 @@ func (st *IntOrString) UnmarshalJSON(b []byte) error {
 	case float64:
 		*st = IntOrString(uint64(v))
 	case string:
-		i, err := strconv.ParseUint(v, 10, 0)
-		if err != nil {
-			return err
+		i := uint64(0)
+		if v != "" {
+			var err error
+			i, err = strconv.ParseUint(v, 10, 0)
+			if err != nil {
+				return err
+			}
 		}
 		*st = IntOrString(i)
 	default:
