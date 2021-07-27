@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"context"
-	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -76,20 +75,7 @@ func hideHost(client *client.CrowdStrikeAPISpecification, id string) error {
 	if err != nil {
 		return err
 	}
-	return checkPayloadErrors(response.Payload.Errors)
-}
-
-// checkPayloadErrors converts MsaAPIError to golang error
-func checkPayloadErrors(payloadErrors []*models.MsaAPIError) error {
-	if len(payloadErrors) == 0 {
-		return nil
-	}
-	var sb strings.Builder
-
-	for _, payloadError := range payloadErrors {
-		sb.WriteString("API Error " + payloadError.ID + ": " + *payloadError.Message)
-	}
-	return errors.New(sb.String())
+	return falcon.AssertNoError(response.Payload.Errors)
 }
 
 func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *models.DomainDeviceSwagger {
@@ -100,9 +86,8 @@ func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
-	for _, e := range response.Payload.Errors {
-		fmt.Println(e)
-		panic("Error received when querying Host Details API")
+	if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+		panic(err)
 	}
 
 	return response.Payload.Resources[0]
@@ -125,9 +110,8 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 		if err != nil {
 			panic(falcon.ErrorExplain(err))
 		}
-		for _, e := range response.Payload.Errors {
-			fmt.Println(e)
-			panic("Error received when querying Hosts API")
+		if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+			panic(err)
 		}
 		podCount := *response.Payload.Meta.Pagination.Total
 		fmt.Printf("Found %d pods that have been inactive\n", podCount)
@@ -143,9 +127,8 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 			if err != nil {
 				panic(falcon.ErrorExplain(err))
 			}
-			for _, e := range response.Payload.Errors {
-				fmt.Println(e)
-				panic("Error received when querying Hosts API")
+			if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+				panic(err)
 			}
 
 			hosts := response.Payload.Resources

@@ -43,6 +43,9 @@ Falcon Client Secret`)
 		panic(err)
 	}
 	payload := res.GetPayload()
+	if err = falcon.AssertNoError(payload.Errors); err != nil {
+		panic(err)
+	}
 	fmt.Printf("As of %s your CrowdScore is %d.\n",
 		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }

@@ -1,12 +1,30 @@
 package falcon
 
 import (
+	"errors"
 	"fmt"
 	"net/url"
 	"reflect"
+	"strings"
 
+	"github.com/crowdstrike/gofalcon/falcon/models"
 	"golang.org/x/oauth2"
 )
+
+// AssertNoError converts MsaAPIError to golang errors
+// Falcon API oftentimes returns payload structure that may include application errors within MsaAPIError list.
+// For the users of the API it is often times desirable to convert the application errors from CrowdStrike platform to golang native errors to inform application flow.
+func AssertNoError(payloadErrors []*models.MsaAPIError) error {
+	if len(payloadErrors) == 0 {
+		return nil
+	}
+	var sb strings.Builder
+
+	for _, payloadError := range payloadErrors {
+		sb.WriteString("API Error " + payloadError.ID + ": " + *payloadError.Message)
+	}
+	return errors.New(sb.String())
+}
 
 // ErrorExplain extracts as much information from the error object as possible and returns as human readable string. This is useful for developers as gofalcon/falcon/client library is swagger generated and various error classes do not adhere to a common interface.
 func ErrorExplain(apiError error) string {

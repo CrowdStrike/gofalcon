@@ -52,8 +52,8 @@ Falcon Client Secret`)
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
-	for _, e := range response.Payload.Errors {
-		fmt.Println(e)
+	if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+		panic(err)
 	}
 
 	availableStreams := response.Payload.Resources

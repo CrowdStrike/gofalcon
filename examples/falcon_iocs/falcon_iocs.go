@@ -32,9 +32,12 @@ func getCrowdstrikeIOCs(client *client.CrowdStrikeAPISpecification) ([]string, e
 		params.SetLimit(&limit)
 		res, err := client.Ioc.IndicatorCombinedV1(params)
 		if err != nil {
-			// fmt.Println(res.Error())
 			return []string{}, err
 		}
+		if err = falcon.AssertNoError(res.GetPayload().Errors); err != nil {
+			return []string{}, err
+		}
+
 		for _, ioc := range res.GetPayload().Resources {
 			iocs = append(iocs, ioc.Value)
 		}
@@ -144,6 +147,9 @@ func _getCrowdStrikeIOCID(iocStr string, client *client.CrowdStrikeAPISpecificat
 	if err != nil {
 		return "", err
 	}
+	if err = falcon.AssertNoError(res.GetPayload().Errors); err != nil {
+		return "", err
+	}
 
 	resources := res.GetPayload().Resources
 	if len(resources) != 1 {
@@ -191,7 +197,15 @@ func showCrowdStrikeIOC(iocStr string, client *client.CrowdStrikeAPISpecificatio
 		return err
 	}
 
-	if res.GetPayload() != nil && len(res.GetPayload().Resources) != 0 {
+	if res.GetPayload() == nil {
+		return nil
+	}
+
+	if err = falcon.AssertNoError(res.GetPayload().Errors); err != nil {
+		panic(err)
+	}
+
+	if len(res.GetPayload().Resources) != 0 {
 		json, err := falcon_util.PrettyJson(res.GetPayload().Resources[0])
 		if err != nil {
 			return err

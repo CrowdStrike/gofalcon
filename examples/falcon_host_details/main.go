@@ -76,9 +76,8 @@ func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []strin
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
-	for _, e := range response.Payload.Errors {
-		fmt.Println(e)
-		panic("Error received when querying Host Details API")
+	if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+		panic(err)
 	}
 
 	return response.Payload.Resources
@@ -98,9 +97,8 @@ func getHostIds(client *client.CrowdStrikeAPISpecification) <-chan []string {
 			if err != nil {
 				panic(falcon.ErrorExplain(err))
 			}
-			for _, e := range response.Payload.Errors {
-				fmt.Println(e)
-				panic("Error received when querying Hosts API")
+			if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
+				panic(err)
 			}
 
 			hosts := response.Payload.Resources
