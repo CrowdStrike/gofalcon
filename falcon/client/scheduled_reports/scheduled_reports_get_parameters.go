@@ -60,18 +60,6 @@ func NewScheduledReportsGetParamsWithHTTPClient(client *http.Client) *ScheduledR
 */
 type ScheduledReportsGetParams struct {
 
-	/* XCSUSERID.
-
-	   The user id (not used with API client)
-	*/
-	XCSUSERID *string
-
-	/* XCSUSERUUID.
-
-	   The user uuid (not required for API client)
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   The scheduled_report id to get details about.
@@ -131,28 +119,6 @@ func (o *ScheduledReportsGetParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERID adds the xCSUSERID to the scheduled reports get params
-func (o *ScheduledReportsGetParams) WithXCSUSERID(xCSUSERID *string) *ScheduledReportsGetParams {
-	o.SetXCSUSERID(xCSUSERID)
-	return o
-}
-
-// SetXCSUSERID adds the xCSUSERId to the scheduled reports get params
-func (o *ScheduledReportsGetParams) SetXCSUSERID(xCSUSERID *string) {
-	o.XCSUSERID = xCSUSERID
-}
-
-// WithXCSUSERUUID adds the xCSUSERUUID to the scheduled reports get params
-func (o *ScheduledReportsGetParams) WithXCSUSERUUID(xCSUSERUUID *string) *ScheduledReportsGetParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the scheduled reports get params
-func (o *ScheduledReportsGetParams) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the scheduled reports get params
 func (o *ScheduledReportsGetParams) WithIds(ids []string) *ScheduledReportsGetParams {
 	o.SetIds(ids)
@@ -171,22 +137,6 @@ func (o *ScheduledReportsGetParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERID != nil {
-
-		// header param X-CS-USERID
-		if err := r.SetHeaderParam("X-CS-USERID", *o.XCSUSERID); err != nil {
-			return err
-		}
-	}
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Ids != nil {
 

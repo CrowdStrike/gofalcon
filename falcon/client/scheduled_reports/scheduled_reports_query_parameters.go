@@ -60,18 +60,6 @@ func NewScheduledReportsQueryParamsWithHTTPClient(client *http.Client) *Schedule
 */
 type ScheduledReportsQueryParams struct {
 
-	/* XCSUSERID.
-
-	   The user id (not used for API client)
-	*/
-	XCSUSERID *string
-
-	/* XCSUSERUUID.
-
-	   The user uuid (not used for API client)
-	*/
-	XCSUSERUUID *string
-
 	/* Filter.
 
 	   FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -155,28 +143,6 @@ func (o *ScheduledReportsQueryParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERID adds the xCSUSERID to the scheduled reports query params
-func (o *ScheduledReportsQueryParams) WithXCSUSERID(xCSUSERID *string) *ScheduledReportsQueryParams {
-	o.SetXCSUSERID(xCSUSERID)
-	return o
-}
-
-// SetXCSUSERID adds the xCSUSERId to the scheduled reports query params
-func (o *ScheduledReportsQueryParams) SetXCSUSERID(xCSUSERID *string) {
-	o.XCSUSERID = xCSUSERID
-}
-
-// WithXCSUSERUUID adds the xCSUSERUUID to the scheduled reports query params
-func (o *ScheduledReportsQueryParams) WithXCSUSERUUID(xCSUSERUUID *string) *ScheduledReportsQueryParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the scheduled reports query params
-func (o *ScheduledReportsQueryParams) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithFilter adds the filter to the scheduled reports query params
 func (o *ScheduledReportsQueryParams) WithFilter(filter *string) *ScheduledReportsQueryParams {
 	o.SetFilter(filter)
@@ -239,22 +205,6 @@ func (o *ScheduledReportsQueryParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERID != nil {
-
-		// header param X-CS-USERID
-		if err := r.SetHeaderParam("X-CS-USERID", *o.XCSUSERID); err != nil {
-			return err
-		}
-	}
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Filter != nil {
 
