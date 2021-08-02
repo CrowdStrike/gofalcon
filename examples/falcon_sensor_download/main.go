@@ -198,7 +198,7 @@ func getValidSensorVersions(client *client.CrowdStrikeAPISpecification, osName, 
 
 func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
 	for sensor := range oneSensorPerOsVersion(client) {
-		dir := filepath.Join(strings.ReplaceAll(*sensor.Os, "/", "-"), *sensor.OsVersion)
+		dir := filepath.Join(strings.ReplaceAll(*sensor.Os, "/", "-"), strings.ReplaceAll(*sensor.OsVersion, "/", "-"))
 		err := os.MkdirAll(dir, os.ModePerm)
 		if err != nil {
 			panic(fmt.Sprintf("Could not create directory %s: %v", dir, err))
