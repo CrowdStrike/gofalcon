@@ -24,7 +24,7 @@ go get github.com/CrowdStrike/gofalcon/falcon
 
 Various real-life examples can be found in the [examples/](examples/) directory. The bare minimum example follows.
 
-```
+```go
 package main
 
 import (
