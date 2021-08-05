@@ -26,6 +26,7 @@ type ApiConfig struct {
 	Debug bool
 }
 
+// Host returns FQDN of CrowdStrike API Gateway to be used by this ApiConfig
 func (ac *ApiConfig) Host() string {
 	if ac.HostOverride != "" {
 		return ac.HostOverride
@@ -33,6 +34,7 @@ func (ac *ApiConfig) Host() string {
 	return ac.Cloud.Host()
 }
 
+// Host returns base URL path to be used by this ApiConfig
 func (ac *ApiConfig) BasePath() string {
 	if ac.BasePathOverride == "" {
 		return client.DefaultBasePath

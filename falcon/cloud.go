@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// CloudType represents type of CrowdStrike Falcon cloud region.
 type CloudType int
 
 const (
