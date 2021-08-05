@@ -42,7 +42,7 @@ func ErrorExplain(apiError error) string {
 	return fmt.Sprintf("%v", apiError)
 }
 
-// Common interface for *Payload structures in the gofalcon/falcon/client library.
+// CommonPayload is interface for *Payload structures in the gofalcon/falcon/client library.
 type CommonPayload interface {
 	MarshalBinary() ([]byte, error)
 }

@@ -64,10 +64,6 @@ Falcon Client Secret`)
 	fmt.Println("]")
 }
 
-func HostDetails(client *client.CrowdStrikeAPISpecification) []*models.DomainDeviceSwagger {
-	return nil
-}
-
 func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []string) []*models.DomainDeviceSwagger {
 	response, err := client.Hosts.GetDeviceDetails(&hosts.GetDeviceDetailsParams{
 		Ids:     hostIds,
