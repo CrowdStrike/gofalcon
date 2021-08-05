@@ -8,11 +8,13 @@ Golang-based SDK to CrowdStrike's Falcon APIs.
 
 Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult set of [examples](examples) built on top of the SDK. What follows is a sub-set of these examples that can be found useful as stand-alone programs.
 
- * [falcon_sensor_download](examples/falcon_sensor_download) - stand-alone tool that can be used to download CrowdStrike Falcon Sensor
- * [falcon_event_stream](examples/falcon_event_stream) - stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console
- * [falcon_cleanup_pods](examples/falcon_cleanup_pods) - stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console
- * [falcon_iocs](examples/falcon_iocs) - stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdStrike Falcon Console
- * [falcon_host_details](examples/falcon_host_details) - stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform
+| Example | Description |
+|:--------|:------------|
+| [falcon_sensor_download](examples/falcon_sensor_download) | stand-alone tool that can be used to download CrowdStrike Falcon Sensor |
+| [falcon_event_stream](examples/falcon_event_stream) | stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console |
+| [falcon_cleanup_pods](examples/falcon_cleanup_pods) | stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console | 
+| [falcon_iocs](examples/falcon_iocs) | stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdStrike Falcon Console | 
+| [falcon_host_details](examples/falcon_host_details) | stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform |
 
 Gofalcon is an open source project, not CrowdStrike product. As such it carries
 no formal support, expressed or implied.
