@@ -1,5 +1,6 @@
 APIs
 CLI
+CodeQL
 CrowdScore
 CrowdStrike
 CrowdStrike's
