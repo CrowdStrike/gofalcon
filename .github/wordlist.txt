@@ -13,6 +13,7 @@ SDK
 detections
 dev
 gofalcon
+gosec
 hostnames
 initialisation
 iocs
