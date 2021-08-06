@@ -97,7 +97,7 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
 		panic("Suspicious file location: " + safeLocation)
 	}
-	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 	if err != nil {
 		panic(err)
 	}
