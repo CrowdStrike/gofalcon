@@ -46,10 +46,13 @@ Falcon Client Secret`)
 	}
 
 	podIds := getInactivePodIds(client, *inactiveDays)
-	hideHosts(client, podIds, *dryRun)
+	err = hideHosts(client, podIds, *dryRun)
+	if err != nil {
+		panic(err)
+	}
 }
 
-func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <-chan string, dryRun bool) {
+func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <-chan string, dryRun bool) error {
 	dryRunString := ""
 	if dryRun {
 		dryRunString = "(DRY-RUN) "
@@ -59,9 +62,13 @@ func hideHosts(client *client.CrowdStrikeAPISpecification, podIds <-chan string,
 		details := getHostDetails(client, podId)
 		fmt.Printf("%sRemoving pod %s (name=%s, inactive_since=%s)\n", dryRunString, podId, details.PodName, details.LastSeen)
 		if dryRun == false {
-			hideHost(client, podId)
+			err := hideHost(client, podId)
+			if err != nil {
+				return err
+			}
 		}
 	}
+	return nil
 }
 
 func hideHost(client *client.CrowdStrikeAPISpecification, id string) error {
