@@ -93,7 +93,11 @@ Falcon Client Secret`)
 }
 
 func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, filename string) {
-	file, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
+	safeLocation := filepath.Clean(filename)
+	if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
+		panic("Suspicious file location: " + safeLocation)
+	}
+	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
