@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOption) (*GetAssessmentV1OK, error)
 
+	GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOption) (*GetComplianceV1OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -67,6 +69,43 @@ func (a *Client) GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOp
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetAssessmentV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetComplianceV1 gets the zero trust assessment compliance report for one customer ID c ID
+*/
+func (a *Client) GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOption) (*GetComplianceV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetComplianceV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getComplianceV1",
+		Method:             "GET",
+		PathPattern:        "/zero-trust-assessment/entities/compliance/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetComplianceV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetComplianceV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetComplianceV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
