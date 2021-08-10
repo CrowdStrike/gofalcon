@@ -1,14 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"context"
 	"flag"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/crowdstrike/gofalcon/falcon"
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 	"golang.org/x/oauth2/clientcredentials"
 )
 
@@ -19,10 +18,10 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
-		*clientId = promptUser("Please provide your Falcon Client ID")
+		*clientId = falcon_util.PromptUser("Please provide your Falcon Client ID")
 	}
 	if *clientSecret == "" {
-		*clientSecret = promptUser("Please provide your Falcon Client Secret")
+		*clientSecret = falcon_util.PromptUser("Please provide your Falcon Client Secret")
 	}
 
 	config := clientcredentials.Config{
@@ -35,14 +34,4 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(token.AccessToken)
-}
-
-func promptUser(prompt string) string {
-	fmt.Printf("%s: ", prompt)
-	reader := bufio.NewReader(os.Stdin)
-	s, err := reader.ReadString('\n')
-	if err != nil {
-		panic(err)
-	}
-	return strings.TrimSpace(s)
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"context"
 	"flag"
 	"fmt"
@@ -14,6 +13,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
 func main() {
@@ -30,11 +30,11 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
-		*clientId = promptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+		*clientId = falcon_util.PromptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client ID`)
 	}
 	if *clientSecret == "" {
-		*clientSecret = promptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client Secret`)
 	}
 
@@ -55,7 +55,7 @@ Falcon Client Secret`)
 		if *osName == "" {
 			validOsNames := getValidOsNames(client)
 			fmt.Printf("Missing --os-name command-line option. Available OS names are: [%s]\n", strings.Join(validOsNames, ", "))
-			*osName = promptUser("Selected OS Name")
+			*osName = falcon_util.PromptUser("Selected OS Name")
 		}
 
 		if *osVersion == "" {
@@ -69,7 +69,7 @@ Falcon Client Secret`)
 				*osVersion = ""
 			} else {
 				fmt.Printf("Missing --os-version command-line option. Available OS versions are: [%s]\n", strings.Join(validOsVersions, ", "))
-				*osVersion = promptUser("Selected OS Version")
+				*osVersion = falcon_util.PromptUser("Selected OS Version")
 			}
 		}
 		if *sensorVersion == "" {
@@ -79,7 +79,7 @@ Falcon Client Secret`)
 				os.Exit(1)
 			}
 			fmt.Printf("Missing --sensor-version=latest command-line option. Available sensor versions are: [%s]\n", strings.Join(validSensorVersions, ", "))
-			*sensorVersion = promptUser("Selected Sensor Version")
+			*sensorVersion = falcon_util.PromptUser("Selected Sensor Version")
 		}
 
 		sensor := querySuitableSensor(client, *osName, *osVersion, *sensorVersion)
@@ -253,16 +253,6 @@ func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *m
 		close(out)
 	}()
 	return out
-}
-
-func promptUser(prompt string) string {
-	fmt.Printf("%s: ", prompt)
-	reader := bufio.NewReader(os.Stdin)
-	s, err := reader.ReadString('\n')
-	if err != nil {
-		panic(err)
-	}
-	return strings.TrimSpace(s)
 }
 
 type void struct{}

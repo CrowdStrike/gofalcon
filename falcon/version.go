@@ -1,5 +1,9 @@
 package falcon
 
+import (
+	"github.com/blang/semver/v4"
+)
+
 var (
-	Version = "0.2.7"
+	Version = semver.MustParse("0.2.7")
 )
