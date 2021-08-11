@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"context"
 	"flag"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -24,11 +22,11 @@ func main() {
 	flag.Parse()
 
 	if *clientId == "" {
-		*clientId = promptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+		*clientId = falcon_util.PromptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client ID`)
 	}
 	if *clientSecret == "" {
-		*clientSecret = promptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client Secret`)
 	}
 
@@ -107,14 +105,4 @@ func getHostIds(client *client.CrowdStrikeAPISpecification) <-chan []string {
 		close(hostIds)
 	}()
 	return hostIds
-}
-
-func promptUser(prompt string) string {
-	fmt.Printf("%s: ", prompt)
-	reader := bufio.NewReader(os.Stdin)
-	s, err := reader.ReadString('\n')
-	if err != nil {
-		panic(err)
-	}
-	return strings.TrimSpace(s)
 }

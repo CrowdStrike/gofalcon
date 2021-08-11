@@ -35,7 +35,7 @@ func CloudValidate(cloudString string) (CloudType, error) {
 	case "us-gov-1":
 		return CloudUsGov1, nil
 	}
-	return CloudUs1, fmt.Errorf("Unrecognised CrowdStrike Falcon Cloud: %s", lower)
+	return CloudUs1, fmt.Errorf("unrecognized CrowdStrike Falcon Cloud: %s", lower)
 }
 
 // Host returns default hostname for given cloud.

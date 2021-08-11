@@ -108,7 +108,7 @@ func (sh *StreamingHandle) open() error {
 		}
 		sh.Errors <- StreamingError{
 			Fatal: true,
-			Err:   errors.New("Streaming connection closed"),
+			Err:   errors.New("streaming connection closed"),
 		}
 		close(sh.Events)
 	}()

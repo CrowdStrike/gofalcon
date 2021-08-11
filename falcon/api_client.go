@@ -57,4 +57,4 @@ func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	return response, err
 }
 
-var userAgent = "gofalcon/" + Version
+var userAgent = "gofalcon/" + Version.String()
