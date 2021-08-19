@@ -45,6 +45,9 @@ type APIIndicatorV1 struct {
 	// expired
 	Expired bool `json:"expired,omitempty"`
 
+	// from parent
+	FromParent bool `json:"from_parent,omitempty"`
+
 	// host groups
 	HostGroups []string `json:"host_groups"`
 
@@ -63,6 +66,9 @@ type APIIndicatorV1 struct {
 	// modified on
 	// Format: date-time
 	ModifiedOn strfmt.DateTime `json:"modified_on,omitempty"`
+
+	// parent cid name
+	ParentCidName string `json:"parent_cid_name,omitempty"`
 
 	// platforms
 	Platforms []string `json:"platforms"`
