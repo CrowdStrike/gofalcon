@@ -60,6 +60,12 @@ func NewIndicatorSearchV1ParamsWithHTTPClient(client *http.Client) *IndicatorSea
 */
 type IndicatorSearchV1Params struct {
 
+	/* After.
+
+	   A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.
+	*/
+	After *string
+
 	/* Filter.
 
 	   The filter expression that should be used to limit the results.
@@ -74,7 +80,7 @@ type IndicatorSearchV1Params struct {
 
 	/* Offset.
 
-	   The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default.
+	   The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.
 	*/
 	Offset *int64
 
@@ -137,6 +143,17 @@ func (o *IndicatorSearchV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAfter adds the after to the indicator search v1 params
+func (o *IndicatorSearchV1Params) WithAfter(after *string) *IndicatorSearchV1Params {
+	o.SetAfter(after)
+	return o
+}
+
+// SetAfter adds the after to the indicator search v1 params
+func (o *IndicatorSearchV1Params) SetAfter(after *string) {
+	o.After = after
+}
+
 // WithFilter adds the filter to the indicator search v1 params
 func (o *IndicatorSearchV1Params) WithFilter(filter *string) *IndicatorSearchV1Params {
 	o.SetFilter(filter)
@@ -188,6 +205,23 @@ func (o *IndicatorSearchV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.After != nil {
+
+		// query param after
+		var qrAfter string
+
+		if o.After != nil {
+			qrAfter = *o.After
+		}
+		qAfter := qrAfter
+		if qAfter != "" {
+
+			if err := r.SetQueryParam("after", qAfter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Filter != nil {
 
