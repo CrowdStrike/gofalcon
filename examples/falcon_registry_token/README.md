@@ -14,5 +14,5 @@ export FALCON_CLOUD="us-1, us-2, eu-1, us-gov-1, etc"
 
 ## Usage
 ```
-./falcon_registry_token | docker login --username "fc-${CID}" --password-stdin registry.crowdstrike.com
+falcon_registry_token | docker login --username $(echo $CID | awk -F-  '{print("fc-" tolower($1))}') --password-stdin registry.crowdstrike.com 
 ```
