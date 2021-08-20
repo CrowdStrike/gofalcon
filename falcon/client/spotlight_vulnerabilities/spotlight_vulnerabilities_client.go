@@ -28,11 +28,50 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	GetRemediationsV2(params *GetRemediationsV2Params, opts ...ClientOption) (*GetRemediationsV2OK, error)
+
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
 
 	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  GetRemediationsV2 gets details on remediation by providing one or more i ds
+*/
+func (a *Client) GetRemediationsV2(params *GetRemediationsV2Params, opts ...ClientOption) (*GetRemediationsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRemediationsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getRemediationsV2",
+		Method:             "GET",
+		PathPattern:        "/spotlight/entities/remediations/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRemediationsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRemediationsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetRemediationsV2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
