@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -23,6 +24,9 @@ type DomainIOAEventAggregate struct {
 	// count
 	Count int32 `json:"count,omitempty"`
 
+	// events
+	Events []string `json:"events"`
+
 	// first timestamp
 	FirstTimestamp string `json:"first_timestamp,omitempty"`
 
@@ -35,17 +39,69 @@ type DomainIOAEventAggregate struct {
 	// score
 	Score int32 `json:"score,omitempty"`
 
+	// threatintel
+	Threatintel *DetectionAggregateThreatIntel `json:"threatintel,omitempty"`
+
 	// timestamps
 	Timestamps []string `json:"timestamps"`
 }
 
 // Validate validates this domain i o a event aggregate
 func (m *DomainIOAEventAggregate) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateThreatintel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this domain i o a event aggregate based on context it is used
+func (m *DomainIOAEventAggregate) validateThreatintel(formats strfmt.Registry) error {
+	if swag.IsZero(m.Threatintel) { // not required
+		return nil
+	}
+
+	if m.Threatintel != nil {
+		if err := m.Threatintel.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("threatintel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain i o a event aggregate based on the context it is used
 func (m *DomainIOAEventAggregate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateThreatintel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainIOAEventAggregate) contextValidateThreatintel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Threatintel != nil {
+		if err := m.Threatintel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("threatintel")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

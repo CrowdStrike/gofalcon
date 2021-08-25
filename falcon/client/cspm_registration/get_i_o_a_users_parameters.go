@@ -65,9 +65,21 @@ type GetIOAUsersParams struct {
 	*/
 	AccountID *string
 
+	/* AwsAccountID.
+
+	   AWS accountID
+	*/
+	AwsAccountID *string
+
+	/* AzureSubscriptionID.
+
+	   Azure subscription ID
+	*/
+	AzureSubscriptionID *string
+
 	/* AzureTenantID.
 
-	   Azure tenantID
+	   Azure tenant ID
 	*/
 	AzureTenantID *string
 
@@ -82,6 +94,12 @@ type GetIOAUsersParams struct {
 	   Policy ID
 	*/
 	PolicyID string
+
+	/* State.
+
+	   state
+	*/
+	State *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -147,6 +165,28 @@ func (o *GetIOAUsersParams) SetAccountID(accountID *string) {
 	o.AccountID = accountID
 }
 
+// WithAwsAccountID adds the awsAccountID to the get i o a users params
+func (o *GetIOAUsersParams) WithAwsAccountID(awsAccountID *string) *GetIOAUsersParams {
+	o.SetAwsAccountID(awsAccountID)
+	return o
+}
+
+// SetAwsAccountID adds the awsAccountId to the get i o a users params
+func (o *GetIOAUsersParams) SetAwsAccountID(awsAccountID *string) {
+	o.AwsAccountID = awsAccountID
+}
+
+// WithAzureSubscriptionID adds the azureSubscriptionID to the get i o a users params
+func (o *GetIOAUsersParams) WithAzureSubscriptionID(azureSubscriptionID *string) *GetIOAUsersParams {
+	o.SetAzureSubscriptionID(azureSubscriptionID)
+	return o
+}
+
+// SetAzureSubscriptionID adds the azureSubscriptionId to the get i o a users params
+func (o *GetIOAUsersParams) SetAzureSubscriptionID(azureSubscriptionID *string) {
+	o.AzureSubscriptionID = azureSubscriptionID
+}
+
 // WithAzureTenantID adds the azureTenantID to the get i o a users params
 func (o *GetIOAUsersParams) WithAzureTenantID(azureTenantID *string) *GetIOAUsersParams {
 	o.SetAzureTenantID(azureTenantID)
@@ -180,6 +220,17 @@ func (o *GetIOAUsersParams) SetPolicyID(policyID string) {
 	o.PolicyID = policyID
 }
 
+// WithState adds the state to the get i o a users params
+func (o *GetIOAUsersParams) WithState(state *string) *GetIOAUsersParams {
+	o.SetState(state)
+	return o
+}
+
+// SetState adds the state to the get i o a users params
+func (o *GetIOAUsersParams) SetState(state *string) {
+	o.State = state
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetIOAUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -200,6 +251,40 @@ func (o *GetIOAUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		if qAccountID != "" {
 
 			if err := r.SetQueryParam("account_id", qAccountID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.AwsAccountID != nil {
+
+		// query param aws_account_id
+		var qrAwsAccountID string
+
+		if o.AwsAccountID != nil {
+			qrAwsAccountID = *o.AwsAccountID
+		}
+		qAwsAccountID := qrAwsAccountID
+		if qAwsAccountID != "" {
+
+			if err := r.SetQueryParam("aws_account_id", qAwsAccountID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.AzureSubscriptionID != nil {
+
+		// query param azure_subscription_id
+		var qrAzureSubscriptionID string
+
+		if o.AzureSubscriptionID != nil {
+			qrAzureSubscriptionID = *o.AzureSubscriptionID
+		}
+		qAzureSubscriptionID := qrAzureSubscriptionID
+		if qAzureSubscriptionID != "" {
+
+			if err := r.SetQueryParam("azure_subscription_id", qAzureSubscriptionID); err != nil {
 				return err
 			}
 		}
@@ -239,6 +324,23 @@ func (o *GetIOAUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		if err := r.SetQueryParam("policy_id", qPolicyID); err != nil {
 			return err
+		}
+	}
+
+	if o.State != nil {
+
+		// query param state
+		var qrState string
+
+		if o.State != nil {
+			qrState = *o.State
+		}
+		qState := qrState
+		if qState != "" {
+
+			if err := r.SetQueryParam("state", qState); err != nil {
+				return err
+			}
 		}
 	}
 
