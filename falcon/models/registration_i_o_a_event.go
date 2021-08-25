@@ -103,6 +103,10 @@ type RegistrationIOAEvent struct {
 	// source ip address
 	SourceIPAddress string `json:"source_ip_address,omitempty"`
 
+	// state
+	// Required: true
+	State *string `json:"state"`
+
 	// user agent
 	UserAgent string `json:"user_agent,omitempty"`
 
@@ -145,6 +149,10 @@ func (m *RegistrationIOAEvent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePolicyID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -217,6 +225,15 @@ func (m *RegistrationIOAEvent) validateCloudProvider(formats strfmt.Registry) er
 func (m *RegistrationIOAEvent) validatePolicyID(formats strfmt.Registry) error {
 
 	if err := validate.Required("policy_id", "body", m.PolicyID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOAEvent) validateState(formats strfmt.Registry) error {
+
+	if err := validate.Required("state", "body", m.State); err != nil {
 		return err
 	}
 
