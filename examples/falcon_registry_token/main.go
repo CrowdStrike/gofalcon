@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client/unstable"
+	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
@@ -33,7 +33,7 @@ Falcon Client Secret`)
 		panic(err)
 	}
 
-	res, err := client.Unstable.ContainerRegistry(&unstable.ContainerRegistryParams{
+	res, err := client.FalconContainer.GetCredentials(&falcon_container.GetCredentialsParams{
 		Context: context.Background(),
 	})
 	if err != nil {
@@ -43,5 +43,18 @@ Falcon Client Secret`)
 	if err = falcon.AssertNoError(payload.Errors); err != nil {
 		panic(err)
 	}
-	fmt.Printf("%s", *payload.Resources[0].Token)
+	resources := payload.Resources
+	resourcesList := resources.([]interface{})
+	if len(resourcesList) != 1 {
+		fmt.Fprintf(os.Stderr, "Expected to receive exactly one token, but got %d\n", len(resourcesList))
+		panic("Unexpected response")
+	}
+	resourceMap := resourcesList[0].(map[string]interface{})
+	value, ok := resourceMap["token"]
+	if !ok {
+		fmt.Fprintf(os.Stderr, "Expected to receive map containing 'token' key, but got %s\n", resourceMap)
+		panic("Unexpected response")
+	}
+	valueString := value.(string)
+	fmt.Printf("%s", valueString)
 }
