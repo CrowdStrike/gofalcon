@@ -34,9 +34,13 @@ type ClientService interface {
 
 	PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error)
 
+	QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error)
+
 	QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error)
 
 	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error)
+
+	QueryGetNetworkAddressHistoryV1(params *QueryGetNetworkAddressHistoryV1Params, opts ...ClientOption) (*QueryGetNetworkAddressHistoryV1OK, error)
 
 	QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error)
 
@@ -121,6 +125,43 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOp
 }
 
 /*
+  QueryDeviceLoginHistory retrieves details about recent login sessions for a set of devices
+*/
+func (a *Client) QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryDeviceLoginHistoryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryDeviceLoginHistory",
+		Method:             "POST",
+		PathPattern:        "/devices/combined/devices/login-history/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryDeviceLoginHistoryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryDeviceLoginHistoryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryDeviceLoginHistoryDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   QueryDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria
 */
 func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error) {
@@ -191,6 +232,43 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryDevicesByFilterScrollDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  QueryGetNetworkAddressHistoryV1 retrieves history of IP and m a c addresses of devices
+*/
+func (a *Client) QueryGetNetworkAddressHistoryV1(params *QueryGetNetworkAddressHistoryV1Params, opts ...ClientOption) (*QueryGetNetworkAddressHistoryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryGetNetworkAddressHistoryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryGetNetworkAddressHistoryV1",
+		Method:             "POST",
+		PathPattern:        "/devices/combined/devices/network-address-history/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryGetNetworkAddressHistoryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryGetNetworkAddressHistoryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryGetNetworkAddressHistoryV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

@@ -18,6 +18,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
+	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
@@ -103,6 +104,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
+	cli.FalconContainer = falcon_container.New(transport, formats)
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
@@ -196,6 +198,8 @@ type CrowdStrikeAPISpecification struct {
 
 	FalconCompleteDashboard falcon_complete_dashboard.ClientService
 
+	FalconContainer falcon_container.ClientService
+
 	FalconxSandbox falconx_sandbox.ClientService
 
 	FirewallManagement firewall_management.ClientService
@@ -276,6 +280,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DeviceControlPolicies.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)
+	c.FalconContainer.SetTransport(transport)
 	c.FalconxSandbox.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
