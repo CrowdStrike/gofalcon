@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/crowdstrike/gofalcon/falcon"
+	"github.com/crowdstrike/gofalcon/falcon/client"
 )
 
 func PromptUser(prompt string) string {
@@ -15,4 +18,13 @@ func PromptUser(prompt string) string {
 		panic(err)
 	}
 	return strings.TrimSpace(s)
+}
+
+func CliClient(opts falcon.ApiConfig) *client.CrowdStrikeAPISpecification {
+	client, err := falcon.NewClient(&opts)
+	if err != nil {
+		panic(err)
+	}
+
+	return client
 }

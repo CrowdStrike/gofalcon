@@ -1,4 +1,18 @@
 builds:
+  - id: falcon-api
+    binary: falcon-api
+    main: ./cmd/falcon-api/
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
   - id: falcon_sensor_download
     binary: falcon_sensor_download
     main: ./examples/falcon_sensor_download/
@@ -105,7 +119,7 @@ changelog:
     - '^test:'
 
 nfpms:
-  - id: falcon_sensor_download
+  - id: gofalcon_complete_package
     package_name: gofalcon-utils
 
     file_name_template: "{{ .ProjectName }}-{{ .Version }}-{{ .Release }}.{{ .Arch }}"
