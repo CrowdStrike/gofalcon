@@ -88,7 +88,7 @@ type GetComplianceV1OK struct {
 }
 
 func (o *GetComplianceV1OK) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/compliance/v1][%d] getComplianceV1OK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1OK  %+v", 200, o.Payload)
 }
 func (o *GetComplianceV1OK) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
@@ -162,7 +162,7 @@ type GetComplianceV1Forbidden struct {
 }
 
 func (o *GetComplianceV1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/compliance/v1][%d] getComplianceV1Forbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1Forbidden  %+v", 403, o.Payload)
 }
 func (o *GetComplianceV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
@@ -236,7 +236,7 @@ type GetComplianceV1NotFound struct {
 }
 
 func (o *GetComplianceV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/compliance/v1][%d] getComplianceV1NotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1NotFound  %+v", 404, o.Payload)
 }
 func (o *GetComplianceV1NotFound) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
@@ -314,7 +314,7 @@ type GetComplianceV1TooManyRequests struct {
 }
 
 func (o *GetComplianceV1TooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/compliance/v1][%d] getComplianceV1TooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1TooManyRequests  %+v", 429, o.Payload)
 }
 func (o *GetComplianceV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
@@ -395,7 +395,7 @@ func (o *GetComplianceV1Default) Code() int {
 }
 
 func (o *GetComplianceV1Default) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/compliance/v1][%d] getComplianceV1 default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1 default  %+v", o._statusCode, o.Payload)
 }
 func (o *GetComplianceV1Default) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
