@@ -83,7 +83,7 @@ func (a *Client) GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOp
 	op := &runtime.ClientOperation{
 		ID:                 "getComplianceV1",
 		Method:             "GET",
-		PathPattern:        "/zero-trust-assessment/entities/compliance/v1",
+		PathPattern:        "/zero-trust-assessment/entities/audit/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
