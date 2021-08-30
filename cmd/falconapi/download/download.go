@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/crowdstrike/gofalcon/cmd/falcon-api/common"
+	"github.com/crowdstrike/gofalcon/cmd/falconapi/common"
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
@@ -27,7 +27,7 @@ type downloadOptions struct {
 var (
 	opts downloadOptions
 
-	// Command: falcon-api _download_
+	// Command: falconapi _download_
 	downloadCmd = &cobra.Command{
 		Use:   "download",
 		Short: "Generate Dockerfiles from templates",

@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/crowdstrike/gofalcon/cmd/falcon-api/common"
-	_ "github.com/crowdstrike/gofalcon/cmd/falcon-api/download"
+	"github.com/crowdstrike/gofalcon/cmd/falconapi/common"
+	_ "github.com/crowdstrike/gofalcon/cmd/falconapi/download"
 	"github.com/spf13/cobra"
 )
 

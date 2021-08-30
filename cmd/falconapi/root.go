@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crowdstrike/gofalcon/cmd/falcon-api/common"
+	"github.com/crowdstrike/gofalcon/cmd/falconapi/common"
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 	"github.com/spf13/cobra"
@@ -48,8 +48,8 @@ var (
 	gopts   falcon.ApiConfig
 	opts    Opts
 	rootCmd = &cobra.Command{
-		Use:                   "falcon-api",
-		Short:                 "falcon-api - Creating Dockerfiles using Go templating",
+		Use:                   "falconapi",
+		Short:                 "falconapi - Creating Dockerfiles using Go templating",
 		Long:                  `A tool to create multiple Dockerfiles using Go-style templating`,
 		SilenceUsage:          false,
 		SilenceErrors:         true,
