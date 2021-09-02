@@ -38,6 +38,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
@@ -124,6 +125,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
+	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
@@ -238,6 +240,8 @@ type CrowdStrikeAPISpecification struct {
 
 	PreventionPolicies prevention_policies.ClientService
 
+	Quarantine quarantine.ClientService
+
 	QuickScan quick_scan.ClientService
 
 	RealTimeResponse real_time_response.ClientService
@@ -300,6 +304,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Oauth2.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
+	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
 	c.RealTimeResponseAdmin.SetTransport(transport)
