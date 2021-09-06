@@ -22,6 +22,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
+	"github.com/crowdstrike/gofalcon/falcon/client/hash_analyzer"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
@@ -109,6 +110,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
+	cli.HashAnalyzer = hash_analyzer.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
 	cli.Hosts = hosts.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
@@ -208,6 +210,8 @@ type CrowdStrikeAPISpecification struct {
 
 	FirewallPolicies firewall_policies.ClientService
 
+	HashAnalyzer hash_analyzer.ClientService
+
 	HostGroup host_group.ClientService
 
 	Hosts hosts.ClientService
@@ -288,6 +292,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FalconxSandbox.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
+	c.HashAnalyzer.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
 	c.Hosts.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
