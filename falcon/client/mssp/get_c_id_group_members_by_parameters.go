@@ -62,7 +62,7 @@ type GetCIDGroupMembersByParams struct {
 
 	/* CidGroupIds.
 
-	   CID Group IDs to be searched on
+	   CID group IDs to search for
 	*/
 	CidGroupIds []string
 
@@ -166,8 +166,8 @@ func (o *GetCIDGroupMembersByParams) bindParamCidGroupIds(formats strfmt.Registr
 		cidGroupIdsIC = append(cidGroupIdsIC, cidGroupIdsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	cidGroupIdsIS := swag.JoinByFormat(cidGroupIdsIC, "csv")
+	// items.CollectionFormat: "multi"
+	cidGroupIdsIS := swag.JoinByFormat(cidGroupIdsIC, "multi")
 
 	return cidGroupIdsIS
 }

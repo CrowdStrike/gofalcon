@@ -166,8 +166,8 @@ func (o *GetUserGroupsByIDParams) bindParamUserGroupIds(formats strfmt.Registry)
 		userGroupIdsIC = append(userGroupIdsIC, userGroupIdsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	userGroupIdsIS := swag.JoinByFormat(userGroupIdsIC, "csv")
+	// items.CollectionFormat: "multi"
+	userGroupIdsIS := swag.JoinByFormat(userGroupIdsIC, "multi")
 
 	return userGroupIdsIS
 }
