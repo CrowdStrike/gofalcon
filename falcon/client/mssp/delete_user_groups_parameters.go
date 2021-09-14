@@ -62,7 +62,7 @@ type DeleteUserGroupsParams struct {
 
 	/* UserGroupIds.
 
-	   User Group IDs
+	   User group IDs to delete
 	*/
 	UserGroupIds []string
 
@@ -166,8 +166,8 @@ func (o *DeleteUserGroupsParams) bindParamUserGroupIds(formats strfmt.Registry) 
 		userGroupIdsIC = append(userGroupIdsIC, userGroupIdsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	userGroupIdsIS := swag.JoinByFormat(userGroupIdsIC, "csv")
+	// items.CollectionFormat: "multi"
+	userGroupIdsIS := swag.JoinByFormat(userGroupIdsIC, "multi")
 
 	return userGroupIdsIS
 }

@@ -62,7 +62,7 @@ type DeleteCIDGroupsParams struct {
 
 	/* CidGroupIds.
 
-	   CID group ids to be deleted
+	   CID group ids to delete
 	*/
 	CidGroupIds []string
 
@@ -166,8 +166,8 @@ func (o *DeleteCIDGroupsParams) bindParamCidGroupIds(formats strfmt.Registry) []
 		cidGroupIdsIC = append(cidGroupIdsIC, cidGroupIdsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	cidGroupIdsIS := swag.JoinByFormat(cidGroupIdsIC, "csv")
+	// items.CollectionFormat: "multi"
+	cidGroupIdsIS := swag.JoinByFormat(cidGroupIdsIC, "multi")
 
 	return cidGroupIdsIS
 }

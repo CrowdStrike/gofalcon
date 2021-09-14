@@ -62,13 +62,13 @@ type QueryRolesParams struct {
 
 	/* CidGroupID.
 
-	   CID Group ID to fetch MSSP role for
+	   CID group ID to fetch MSSP role for
 	*/
 	CidGroupID *string
 
 	/* Limit.
 
-	   Number of ids to return
+	   Maximum number of results to return
 
 	   Default: 10
 	*/
@@ -96,7 +96,7 @@ type QueryRolesParams struct {
 
 	/* UserGroupID.
 
-	   User Group ID to fetch MSSP role for
+	   User group ID to fetch MSSP role for
 	*/
 	UserGroupID *string
 

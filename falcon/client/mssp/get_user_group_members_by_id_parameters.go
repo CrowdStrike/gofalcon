@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetUserGroupMembersByIDParams creates a new GetUserGroupMembersByIDParams object,
@@ -61,9 +62,9 @@ type GetUserGroupMembersByIDParams struct {
 
 	/* UserGroupIds.
 
-	   User Group IDs to search for
+	   User group IDs to search for
 	*/
-	UserGroupIds string
+	UserGroupIds []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -119,13 +120,13 @@ func (o *GetUserGroupMembersByIDParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithUserGroupIds adds the userGroupIds to the get user group members by ID params
-func (o *GetUserGroupMembersByIDParams) WithUserGroupIds(userGroupIds string) *GetUserGroupMembersByIDParams {
+func (o *GetUserGroupMembersByIDParams) WithUserGroupIds(userGroupIds []string) *GetUserGroupMembersByIDParams {
 	o.SetUserGroupIds(userGroupIds)
 	return o
 }
 
 // SetUserGroupIds adds the userGroupIds to the get user group members by ID params
-func (o *GetUserGroupMembersByIDParams) SetUserGroupIds(userGroupIds string) {
+func (o *GetUserGroupMembersByIDParams) SetUserGroupIds(userGroupIds []string) {
 	o.UserGroupIds = userGroupIds
 }
 
@@ -137,12 +138,13 @@ func (o *GetUserGroupMembersByIDParams) WriteToRequest(r runtime.ClientRequest, 
 	}
 	var res []error
 
-	// query param user_group_ids
-	qrUserGroupIds := o.UserGroupIds
-	qUserGroupIds := qrUserGroupIds
-	if qUserGroupIds != "" {
+	if o.UserGroupIds != nil {
 
-		if err := r.SetQueryParam("user_group_ids", qUserGroupIds); err != nil {
+		// binding items for user_group_ids
+		joinedUserGroupIds := o.bindParamUserGroupIds(reg)
+
+		// query array param user_group_ids
+		if err := r.SetQueryParam("user_group_ids", joinedUserGroupIds...); err != nil {
 			return err
 		}
 	}
@@ -151,4 +153,21 @@ func (o *GetUserGroupMembersByIDParams) WriteToRequest(r runtime.ClientRequest, 
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUserGroupMembersByID binds the parameter user_group_ids
+func (o *GetUserGroupMembersByIDParams) bindParamUserGroupIds(formats strfmt.Registry) []string {
+	userGroupIdsIR := o.UserGroupIds
+
+	var userGroupIdsIC []string
+	for _, userGroupIdsIIR := range userGroupIdsIR { // explode []string
+
+		userGroupIdsIIV := userGroupIdsIIR // string as string
+		userGroupIdsIC = append(userGroupIdsIC, userGroupIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	userGroupIdsIS := swag.JoinByFormat(userGroupIdsIC, "multi")
+
+	return userGroupIdsIS
 }
