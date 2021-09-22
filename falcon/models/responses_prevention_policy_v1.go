@@ -21,6 +21,10 @@ import (
 // swagger:model responses.PreventionPolicyV1
 type ResponsesPreventionPolicyV1 struct {
 
+	// The customer id associated with the policy
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// The email of the user which created the policy
 	// Required: true
 	CreatedBy *string `json:"created_by"`
@@ -45,6 +49,10 @@ type ResponsesPreventionPolicyV1 struct {
 	// The unique id of the policy
 	// Required: true
 	ID *string `json:"id"`
+
+	// The IOA rule groups that are currently attached to the policy
+	// Required: true
+	IoaRuleGroups []*ResponsesIOARuleGroupV1 `json:"ioa_rule_groups"`
 
 	// The email of the user which last modified the policy
 	// Required: true
@@ -73,6 +81,10 @@ type ResponsesPreventionPolicyV1 struct {
 func (m *ResponsesPreventionPolicyV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -94,6 +106,10 @@ func (m *ResponsesPreventionPolicyV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIoaRuleGroups(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -120,6 +136,15 @@ func (m *ResponsesPreventionPolicyV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ResponsesPreventionPolicyV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -192,6 +217,31 @@ func (m *ResponsesPreventionPolicyV1) validateID(formats strfmt.Registry) error 
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ResponsesPreventionPolicyV1) validateIoaRuleGroups(formats strfmt.Registry) error {
+
+	if err := validate.Required("ioa_rule_groups", "body", m.IoaRuleGroups); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.IoaRuleGroups); i++ {
+		if swag.IsZero(m.IoaRuleGroups[i]) { // not required
+			continue
+		}
+
+		if m.IoaRuleGroups[i] != nil {
+			if err := m.IoaRuleGroups[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -307,6 +357,10 @@ func (m *ResponsesPreventionPolicyV1) ContextValidate(ctx context.Context, forma
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIoaRuleGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePreventionSettings(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -325,6 +379,24 @@ func (m *ResponsesPreventionPolicyV1) contextValidateGroups(ctx context.Context,
 			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ResponsesPreventionPolicyV1) contextValidateIoaRuleGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IoaRuleGroups); i++ {
+
+		if m.IoaRuleGroups[i] != nil {
+			if err := m.IoaRuleGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
