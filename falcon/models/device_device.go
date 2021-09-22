@@ -130,6 +130,9 @@ type DeviceDevice struct {
 	// notes
 	Notes []string `json:"notes"`
 
+	// os build
+	OsBuild string `json:"os_build,omitempty"`
+
 	// os version
 	OsVersion string `json:"os_version,omitempty"`
 
