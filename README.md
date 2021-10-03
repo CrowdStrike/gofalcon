@@ -1,4 +1,3 @@
-
 # gofalcon
 ![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg)
 [![gosec](https://github.com/CrowdStrike/gofalcon/actions/workflows/gosec.yml/badge.svg)](https://github.com/CrowdStrike/gofalcon/actions/workflows/gosec.yml)
@@ -8,7 +7,7 @@
 
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
-Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult set of [examples](examples) built on top of the SDK. What follows is a sub-set of these examples that can be found useful as stand-alone programs.
+Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult the set of [examples](examples) built on top of the SDK. What follows is a subset of these examples that can be found useful as stand-alone programs.
 
 | Example | Description |
 |:--------|:------------|
@@ -19,10 +18,10 @@ Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/githu
 | [falcon_host_details](examples/falcon_host_details) | stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform |
 | [falcon_registry_token](examples/falcon_registry_token) | helper to generate container registry logic information for `docker login` |
 
-Gofalcon is an open source project, not CrowdStrike product. As such it carries
+Gofalcon is an open source project, not a CrowdStrike product. As such, it carries
 no formal support, expressed or implied.
 
-gofalcon is periodically refreshed to reflect newest additions to the CrowdStrike API. Users of the SDK are advised to track the latest releases rather closely to ensure proper function; should the unlikely event of incompatible change to CrowdStrike API occur.
+Gofalcon is periodically refreshed to reflect the newest additions to the CrowdStrike API. Users of the SDK are advised to track the latest releases rather closely to ensure proper function in the unlikely event of an incompatible change to a CrowdStrike API.
 
 ## Installation
 ```
