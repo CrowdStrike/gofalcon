@@ -61,12 +61,6 @@ func NewUpdatePolicyContainerParamsWithHTTPClient(client *http.Client) *UpdatePo
 */
 type UpdatePolicyContainerParams struct {
 
-	/* XCSUSERNAME.
-
-	   The user id
-	*/
-	XCSUSERNAME string
-
 	// Body.
 	Body *models.FwmgrAPIPolicyContainerUpsertRequestV1
 
@@ -123,17 +117,6 @@ func (o *UpdatePolicyContainerParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the update policy container params
-func (o *UpdatePolicyContainerParams) WithXCSUSERNAME(xCSUSERNAME string) *UpdatePolicyContainerParams {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the update policy container params
-func (o *UpdatePolicyContainerParams) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithBody adds the body to the update policy container params
 func (o *UpdatePolicyContainerParams) WithBody(body *models.FwmgrAPIPolicyContainerUpsertRequestV1) *UpdatePolicyContainerParams {
 	o.SetBody(body)
@@ -152,11 +135,6 @@ func (o *UpdatePolicyContainerParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

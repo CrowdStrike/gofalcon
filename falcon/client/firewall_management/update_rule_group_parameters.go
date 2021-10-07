@@ -61,12 +61,6 @@ func NewUpdateRuleGroupParamsWithHTTPClient(client *http.Client) *UpdateRuleGrou
 */
 type UpdateRuleGroupParams struct {
 
-	/* XCSUSERNAME.
-
-	   The user id
-	*/
-	XCSUSERNAME string
-
 	// Body.
 	Body *models.FwmgrAPIRuleGroupModifyRequestV1
 
@@ -129,17 +123,6 @@ func (o *UpdateRuleGroupParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the update rule group params
-func (o *UpdateRuleGroupParams) WithXCSUSERNAME(xCSUSERNAME string) *UpdateRuleGroupParams {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the update rule group params
-func (o *UpdateRuleGroupParams) SetXCSUSERNAME(xCSUSERNAME string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithBody adds the body to the update rule group params
 func (o *UpdateRuleGroupParams) WithBody(body *models.FwmgrAPIRuleGroupModifyRequestV1) *UpdateRuleGroupParams {
 	o.SetBody(body)
@@ -169,11 +152,6 @@ func (o *UpdateRuleGroupParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERNAME
-	if err := r.SetHeaderParam("X-CS-USERNAME", o.XCSUSERNAME); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
