@@ -53,3 +53,18 @@ func (c CloudType) Host() string {
 		return "api.laggar.gcw.crowdstrike.com"
 	}
 }
+
+func (c CloudType) String() string {
+	switch c {
+	case CloudUs1:
+		return "us-1"
+	case CloudUs2:
+		return "us-2"
+	case CloudEu1:
+		return "eu-1"
+	case CloudUsGov1:
+		return "us-gov-1"
+	default:
+		return "UNKNOWN FALCON CLOUD REGION"
+	}
+}
