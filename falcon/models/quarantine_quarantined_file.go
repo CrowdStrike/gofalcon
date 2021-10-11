@@ -93,6 +93,8 @@ func (m *QuarantineQuarantinedFile) validatePaths(formats strfmt.Registry) error
 			if err := m.Paths[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("paths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("paths" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -125,6 +127,8 @@ func (m *QuarantineQuarantinedFile) contextValidatePaths(ctx context.Context, fo
 			if err := m.Paths[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("paths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("paths" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

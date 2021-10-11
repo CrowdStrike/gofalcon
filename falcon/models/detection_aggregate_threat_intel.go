@@ -45,6 +45,8 @@ func (m *DetectionAggregateThreatIntel) validateIndicator(formats strfmt.Registr
 		if err := m.Indicator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("indicator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("indicator")
 			}
 			return err
 		}
@@ -73,6 +75,8 @@ func (m *DetectionAggregateThreatIntel) contextValidateIndicator(ctx context.Con
 		if err := m.Indicator.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("indicator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("indicator")
 			}
 			return err
 		}

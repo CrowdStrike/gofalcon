@@ -71,6 +71,8 @@ func (m *ResponsesPreventionCategoryV1) validateSettings(formats strfmt.Registry
 			if err := m.Settings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -103,6 +105,8 @@ func (m *ResponsesPreventionCategoryV1) contextValidateSettings(ctx context.Cont
 			if err := m.Settings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

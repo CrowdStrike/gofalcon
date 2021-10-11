@@ -264,6 +264,8 @@ func (m *APIReportExecutionV1) validateResultMetadata(formats strfmt.Registry) e
 		if err := m.ResultMetadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result_metadata")
 			}
 			return err
 		}
@@ -364,6 +366,8 @@ func (m *APIReportExecutionV1) contextValidateResultMetadata(ctx context.Context
 		if err := m.ResultMetadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result_metadata")
 			}
 			return err
 		}

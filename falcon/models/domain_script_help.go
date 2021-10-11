@@ -102,6 +102,8 @@ func (m *DomainScriptHelp) validateArgs(formats strfmt.Registry) error {
 			if err := m.Args[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("args" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("args" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -172,6 +174,8 @@ func (m *DomainScriptHelp) validateSubCommands(formats strfmt.Registry) error {
 			if err := m.SubCommands[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_commands" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sub_commands" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -208,6 +212,8 @@ func (m *DomainScriptHelp) contextValidateArgs(ctx context.Context, formats strf
 			if err := m.Args[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("args" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("args" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -226,6 +232,8 @@ func (m *DomainScriptHelp) contextValidateSubCommands(ctx context.Context, forma
 			if err := m.SubCommands[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_commands" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sub_commands" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

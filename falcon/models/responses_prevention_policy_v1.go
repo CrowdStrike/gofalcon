@@ -203,6 +203,8 @@ func (m *ResponsesPreventionPolicyV1) validateGroups(formats strfmt.Registry) er
 			if err := m.Groups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -237,6 +239,8 @@ func (m *ResponsesPreventionPolicyV1) validateIoaRuleGroups(formats strfmt.Regis
 			if err := m.IoaRuleGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -339,6 +343,8 @@ func (m *ResponsesPreventionPolicyV1) validatePreventionSettings(formats strfmt.
 			if err := m.PreventionSettings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("prevention_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("prevention_settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -379,6 +385,8 @@ func (m *ResponsesPreventionPolicyV1) contextValidateGroups(ctx context.Context,
 			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -397,6 +405,8 @@ func (m *ResponsesPreventionPolicyV1) contextValidateIoaRuleGroups(ctx context.C
 			if err := m.IoaRuleGroups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ioa_rule_groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -415,6 +425,8 @@ func (m *ResponsesPreventionPolicyV1) contextValidatePreventionSettings(ctx cont
 			if err := m.PreventionSettings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("prevention_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("prevention_settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

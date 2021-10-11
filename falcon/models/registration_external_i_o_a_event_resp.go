@@ -79,6 +79,8 @@ func (m *RegistrationExternalIOAEventResp) validateEvents(formats strfmt.Registr
 			if err := m.Events[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -120,6 +122,8 @@ func (m *RegistrationExternalIOAEventResp) contextValidateEvents(ctx context.Con
 			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

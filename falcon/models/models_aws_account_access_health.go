@@ -45,6 +45,8 @@ func (m *ModelsAwsAccountAccessHealth) validateAPI(formats strfmt.Registry) erro
 		if err := m.API.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("api")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("api")
 			}
 			return err
 		}
@@ -73,6 +75,8 @@ func (m *ModelsAwsAccountAccessHealth) contextValidateAPI(ctx context.Context, f
 		if err := m.API.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("api")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("api")
 			}
 			return err
 		}

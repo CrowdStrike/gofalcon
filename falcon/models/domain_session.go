@@ -274,6 +274,8 @@ func (m *DomainSession) validateDeviceDetails(formats strfmt.Registry) error {
 		if err := m.DeviceDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_details")
 			}
 			return err
 		}
@@ -333,6 +335,8 @@ func (m *DomainSession) validateLogs(formats strfmt.Registry) error {
 			if err := m.Logs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("logs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -443,6 +447,8 @@ func (m *DomainSession) contextValidateDeviceDetails(ctx context.Context, format
 		if err := m.DeviceDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_details")
 			}
 			return err
 		}
@@ -459,6 +465,8 @@ func (m *DomainSession) contextValidateLogs(ctx context.Context, formats strfmt.
 			if err := m.Logs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("logs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

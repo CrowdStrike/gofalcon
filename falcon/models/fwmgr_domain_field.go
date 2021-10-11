@@ -96,6 +96,8 @@ func (m *FwmgrDomainField) validateOptions(formats strfmt.Registry) error {
 			if err := m.Options[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,6 +139,8 @@ func (m *FwmgrDomainField) contextValidateOptions(ctx context.Context, formats s
 			if err := m.Options[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("options" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("options" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

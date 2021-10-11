@@ -65,6 +65,8 @@ func (m *DomainAPIError) validateErrors(formats strfmt.Registry) error {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -85,6 +87,8 @@ func (m *DomainAPIError) validateMeta(formats strfmt.Registry) error {
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -119,6 +123,8 @@ func (m *DomainAPIError) contextValidateErrors(ctx context.Context, formats strf
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -135,6 +141,8 @@ func (m *DomainAPIError) contextValidateMeta(ctx context.Context, formats strfmt
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}

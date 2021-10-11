@@ -105,6 +105,8 @@ func (m *FwmgrAPIRuleGroupCreateRequestV1) validateRules(formats strfmt.Registry
 			if err := m.Rules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,6 +139,8 @@ func (m *FwmgrAPIRuleGroupCreateRequestV1) contextValidateRules(ctx context.Cont
 			if err := m.Rules[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

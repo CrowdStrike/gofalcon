@@ -54,6 +54,8 @@ func (m *MalqueryExternalHuntParametersV1) validateOptions(formats strfmt.Regist
 		if err := m.Options.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}
@@ -91,6 +93,8 @@ func (m *MalqueryExternalHuntParametersV1) contextValidateOptions(ctx context.Co
 		if err := m.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}

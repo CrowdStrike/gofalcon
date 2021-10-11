@@ -211,6 +211,8 @@ func (m *DomainIncident) validateEventsHistogram(formats strfmt.Registry) error 
 			if err := m.EventsHistogram[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events_histogram" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events_histogram" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -253,6 +255,8 @@ func (m *DomainIncident) validateHosts(formats strfmt.Registry) error {
 			if err := m.Hosts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hosts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hosts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -332,6 +336,8 @@ func (m *DomainIncident) contextValidateEventsHistogram(ctx context.Context, for
 			if err := m.EventsHistogram[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events_histogram" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events_histogram" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -350,6 +356,8 @@ func (m *DomainIncident) contextValidateHosts(ctx context.Context, formats strfm
 			if err := m.Hosts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hosts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hosts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

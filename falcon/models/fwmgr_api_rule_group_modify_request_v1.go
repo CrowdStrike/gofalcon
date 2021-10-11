@@ -94,6 +94,8 @@ func (m *FwmgrAPIRuleGroupModifyRequestV1) validateDiffOperations(formats strfmt
 			if err := m.DiffOperations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("diff_operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("diff_operations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -171,6 +173,8 @@ func (m *FwmgrAPIRuleGroupModifyRequestV1) contextValidateDiffOperations(ctx con
 			if err := m.DiffOperations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("diff_operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("diff_operations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

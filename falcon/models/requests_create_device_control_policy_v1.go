@@ -125,6 +125,8 @@ func (m *RequestsCreateDeviceControlPolicyV1) validateSettings(formats strfmt.Re
 		if err := m.Settings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
 			}
 			return err
 		}
@@ -153,6 +155,8 @@ func (m *RequestsCreateDeviceControlPolicyV1) contextValidateSettings(ctx contex
 		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
 			}
 			return err
 		}

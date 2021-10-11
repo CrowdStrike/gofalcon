@@ -202,6 +202,8 @@ func (m *DomainAPIDetectionDocument) validateBehaviors(formats strfmt.Registry) 
 			if err := m.Behaviors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("behaviors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("behaviors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -262,6 +264,8 @@ func (m *DomainAPIDetectionDocument) validateDevice(formats strfmt.Registry) err
 		if err := m.Device.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
 			}
 			return err
 		}
@@ -302,6 +306,8 @@ func (m *DomainAPIDetectionDocument) validateHostinfo(formats strfmt.Registry) e
 		if err := m.Hostinfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hostinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hostinfo")
 			}
 			return err
 		}
@@ -364,6 +370,8 @@ func (m *DomainAPIDetectionDocument) validateQuarantinedFiles(formats strfmt.Reg
 			if err := m.QuarantinedFiles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -444,6 +452,8 @@ func (m *DomainAPIDetectionDocument) contextValidateBehaviors(ctx context.Contex
 			if err := m.Behaviors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("behaviors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("behaviors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -460,6 +470,8 @@ func (m *DomainAPIDetectionDocument) contextValidateDevice(ctx context.Context, 
 		if err := m.Device.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
 			}
 			return err
 		}
@@ -474,6 +486,8 @@ func (m *DomainAPIDetectionDocument) contextValidateHostinfo(ctx context.Context
 		if err := m.Hostinfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hostinfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("hostinfo")
 			}
 			return err
 		}
@@ -490,6 +504,8 @@ func (m *DomainAPIDetectionDocument) contextValidateQuarantinedFiles(ctx context
 			if err := m.QuarantinedFiles[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quarantined_files" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

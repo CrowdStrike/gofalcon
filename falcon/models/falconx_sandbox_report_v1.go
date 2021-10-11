@@ -232,6 +232,8 @@ func (m *FalconxSandboxReportV1) validateContactedHosts(formats strfmt.Registry)
 			if err := m.ContactedHosts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contacted_hosts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contacted_hosts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -256,6 +258,8 @@ func (m *FalconxSandboxReportV1) validateDNSRequests(formats strfmt.Registry) er
 			if err := m.DNSRequests[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns_requests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dns_requests" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -280,6 +284,8 @@ func (m *FalconxSandboxReportV1) validateExtractedFiles(formats strfmt.Registry)
 			if err := m.ExtractedFiles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("extracted_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("extracted_files" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -304,6 +310,8 @@ func (m *FalconxSandboxReportV1) validateExtractedInterestingStrings(formats str
 			if err := m.ExtractedInterestingStrings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("extracted_interesting_strings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("extracted_interesting_strings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -328,6 +336,8 @@ func (m *FalconxSandboxReportV1) validateFileImports(formats strfmt.Registry) er
 			if err := m.FileImports[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("file_imports" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("file_imports" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -347,6 +357,8 @@ func (m *FalconxSandboxReportV1) validateFileMetadata(formats strfmt.Registry) e
 		if err := m.FileMetadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("file_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("file_metadata")
 			}
 			return err
 		}
@@ -369,6 +381,8 @@ func (m *FalconxSandboxReportV1) validateHTTPRequests(formats strfmt.Registry) e
 			if err := m.HTTPRequests[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("http_requests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("http_requests" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -393,6 +407,8 @@ func (m *FalconxSandboxReportV1) validateIncidents(formats strfmt.Registry) erro
 			if err := m.Incidents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("incidents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -417,6 +433,8 @@ func (m *FalconxSandboxReportV1) validateMemoryForensics(formats strfmt.Registry
 			if err := m.MemoryForensics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memory_forensics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memory_forensics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -441,6 +459,8 @@ func (m *FalconxSandboxReportV1) validateMitreAttacks(formats strfmt.Registry) e
 			if err := m.MitreAttacks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -465,6 +485,8 @@ func (m *FalconxSandboxReportV1) validateProcesses(formats strfmt.Registry) erro
 			if err := m.Processes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("processes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -489,6 +511,8 @@ func (m *FalconxSandboxReportV1) validateSignatures(formats strfmt.Registry) err
 			if err := m.Signatures[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("signatures" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("signatures" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -513,6 +537,8 @@ func (m *FalconxSandboxReportV1) validateSuricataAlerts(formats strfmt.Registry)
 			if err := m.SuricataAlerts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("suricata_alerts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suricata_alerts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -537,6 +563,8 @@ func (m *FalconxSandboxReportV1) validateVersionInfo(formats strfmt.Registry) er
 			if err := m.VersionInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("version_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("version_info" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -621,6 +649,8 @@ func (m *FalconxSandboxReportV1) contextValidateContactedHosts(ctx context.Conte
 			if err := m.ContactedHosts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contacted_hosts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contacted_hosts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -639,6 +669,8 @@ func (m *FalconxSandboxReportV1) contextValidateDNSRequests(ctx context.Context,
 			if err := m.DNSRequests[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dns_requests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dns_requests" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -657,6 +689,8 @@ func (m *FalconxSandboxReportV1) contextValidateExtractedFiles(ctx context.Conte
 			if err := m.ExtractedFiles[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("extracted_files" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("extracted_files" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -675,6 +709,8 @@ func (m *FalconxSandboxReportV1) contextValidateExtractedInterestingStrings(ctx 
 			if err := m.ExtractedInterestingStrings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("extracted_interesting_strings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("extracted_interesting_strings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -693,6 +729,8 @@ func (m *FalconxSandboxReportV1) contextValidateFileImports(ctx context.Context,
 			if err := m.FileImports[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("file_imports" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("file_imports" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -709,6 +747,8 @@ func (m *FalconxSandboxReportV1) contextValidateFileMetadata(ctx context.Context
 		if err := m.FileMetadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("file_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("file_metadata")
 			}
 			return err
 		}
@@ -725,6 +765,8 @@ func (m *FalconxSandboxReportV1) contextValidateHTTPRequests(ctx context.Context
 			if err := m.HTTPRequests[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("http_requests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("http_requests" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -743,6 +785,8 @@ func (m *FalconxSandboxReportV1) contextValidateIncidents(ctx context.Context, f
 			if err := m.Incidents[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("incidents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -761,6 +805,8 @@ func (m *FalconxSandboxReportV1) contextValidateMemoryForensics(ctx context.Cont
 			if err := m.MemoryForensics[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memory_forensics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memory_forensics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -779,6 +825,8 @@ func (m *FalconxSandboxReportV1) contextValidateMitreAttacks(ctx context.Context
 			if err := m.MitreAttacks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mitre_attacks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -797,6 +845,8 @@ func (m *FalconxSandboxReportV1) contextValidateProcesses(ctx context.Context, f
 			if err := m.Processes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("processes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -815,6 +865,8 @@ func (m *FalconxSandboxReportV1) contextValidateSignatures(ctx context.Context, 
 			if err := m.Signatures[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("signatures" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("signatures" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -833,6 +885,8 @@ func (m *FalconxSandboxReportV1) contextValidateSuricataAlerts(ctx context.Conte
 			if err := m.SuricataAlerts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("suricata_alerts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suricata_alerts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -851,6 +905,8 @@ func (m *FalconxSandboxReportV1) contextValidateVersionInfo(ctx context.Context,
 			if err := m.VersionInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("version_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("version_info" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -72,6 +72,8 @@ func (m *DomainSimpleActor) validateThumbnail(formats strfmt.Registry) error {
 		if err := m.Thumbnail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("thumbnail")
 			}
 			return err
 		}
@@ -100,6 +102,8 @@ func (m *DomainSimpleActor) contextValidateThumbnail(ctx context.Context, format
 		if err := m.Thumbnail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("thumbnail")
 			}
 			return err
 		}

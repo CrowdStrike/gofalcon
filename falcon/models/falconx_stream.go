@@ -66,6 +66,8 @@ func (m *FalconxStream) validateMatchedSignatures(formats strfmt.Registry) error
 			if err := m.MatchedSignatures[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -98,6 +100,8 @@ func (m *FalconxStream) contextValidateMatchedSignatures(ctx context.Context, fo
 			if err := m.MatchedSignatures[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matched_signatures" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

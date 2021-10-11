@@ -122,6 +122,8 @@ func (m *DomainSignalProperties) validateAssessment(formats strfmt.Registry) err
 		if err := m.Assessment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment")
 			}
 			return err
 		}
@@ -140,6 +142,8 @@ func (m *DomainSignalProperties) validateAssessmentItems(formats strfmt.Registry
 		if err := m.AssessmentItems.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment_items")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment_items")
 			}
 			return err
 		}
@@ -230,6 +234,8 @@ func (m *DomainSignalProperties) contextValidateAssessment(ctx context.Context, 
 		if err := m.Assessment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment")
 			}
 			return err
 		}
@@ -244,6 +250,8 @@ func (m *DomainSignalProperties) contextValidateAssessmentItems(ctx context.Cont
 		if err := m.AssessmentItems.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment_items")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment_items")
 			}
 			return err
 		}

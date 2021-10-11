@@ -82,6 +82,8 @@ func (m *DomainBatchGetCommandResponse) validateCombined(formats strfmt.Registry
 		if err := m.Combined.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("combined")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combined")
 			}
 			return err
 		}
@@ -105,6 +107,8 @@ func (m *DomainBatchGetCommandResponse) validateErrors(formats strfmt.Registry) 
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -125,6 +129,8 @@ func (m *DomainBatchGetCommandResponse) validateMeta(formats strfmt.Registry) er
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -161,6 +167,8 @@ func (m *DomainBatchGetCommandResponse) contextValidateCombined(ctx context.Cont
 		if err := m.Combined.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("combined")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combined")
 			}
 			return err
 		}
@@ -177,6 +185,8 @@ func (m *DomainBatchGetCommandResponse) contextValidateErrors(ctx context.Contex
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -193,6 +203,8 @@ func (m *DomainBatchGetCommandResponse) contextValidateMeta(ctx context.Context,
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}

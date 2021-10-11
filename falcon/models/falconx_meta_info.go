@@ -55,6 +55,8 @@ func (m *FalconxMetaInfo) validateMsaMetaInfo(formats strfmt.Registry) error {
 		if err := m.MsaMetaInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaMetaInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaMetaInfo")
 			}
 			return err
 		}
@@ -72,6 +74,8 @@ func (m *FalconxMetaInfo) validateQuota(formats strfmt.Registry) error {
 		if err := m.Quota.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}
@@ -104,6 +108,8 @@ func (m *FalconxMetaInfo) contextValidateMsaMetaInfo(ctx context.Context, format
 		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaMetaInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaMetaInfo")
 			}
 			return err
 		}
@@ -118,6 +124,8 @@ func (m *FalconxMetaInfo) contextValidateQuota(ctx context.Context, formats strf
 		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}

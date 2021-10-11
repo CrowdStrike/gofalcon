@@ -70,6 +70,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) validateErrors(form
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -90,6 +92,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) validateMeta(format
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -113,6 +117,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) validateResources(f
 			if err := m.Resources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -153,6 +159,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) contextValidateErro
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -169,6 +177,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) contextValidateMeta
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -185,6 +195,8 @@ func (m *RegistrationAWSProvisionGetAccountScriptResponseV2) contextValidateReso
 			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

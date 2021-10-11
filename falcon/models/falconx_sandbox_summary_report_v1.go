@@ -93,6 +93,8 @@ func (m *FalconxSandboxSummaryReportV1) validateIncidents(formats strfmt.Registr
 			if err := m.Incidents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("incidents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -125,6 +127,8 @@ func (m *FalconxSandboxSummaryReportV1) contextValidateIncidents(ctx context.Con
 			if err := m.Incidents[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("incidents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

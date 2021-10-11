@@ -64,6 +64,8 @@ func (m *FalconxErrorsOnly) validateMsaMetaInfo(formats strfmt.Registry) error {
 		if err := m.MsaMetaInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaMetaInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaMetaInfo")
 			}
 			return err
 		}
@@ -87,6 +89,8 @@ func (m *FalconxErrorsOnly) validateErrors(formats strfmt.Registry) error {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -106,6 +110,8 @@ func (m *FalconxErrorsOnly) validateQuota(formats strfmt.Registry) error {
 		if err := m.Quota.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}
@@ -142,6 +148,8 @@ func (m *FalconxErrorsOnly) contextValidateMsaMetaInfo(ctx context.Context, form
 		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaMetaInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaMetaInfo")
 			}
 			return err
 		}
@@ -158,6 +166,8 @@ func (m *FalconxErrorsOnly) contextValidateErrors(ctx context.Context, formats s
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,6 +184,8 @@ func (m *FalconxErrorsOnly) contextValidateQuota(ctx context.Context, formats st
 		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}

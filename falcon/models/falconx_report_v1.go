@@ -126,6 +126,8 @@ func (m *FalconxReportV1) validateIntel(formats strfmt.Registry) error {
 			if err := m.Intel[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intel" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intel" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -150,6 +152,8 @@ func (m *FalconxReportV1) validateMalquery(formats strfmt.Registry) error {
 			if err := m.Malquery[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("malquery" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malquery" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,6 +178,8 @@ func (m *FalconxReportV1) validateSandbox(formats strfmt.Registry) error {
 			if err := m.Sandbox[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sandbox" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -193,6 +199,8 @@ func (m *FalconxReportV1) validateThreatGraph(formats strfmt.Registry) error {
 		if err := m.ThreatGraph.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threat_graph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("threat_graph")
 			}
 			return err
 		}
@@ -235,6 +243,8 @@ func (m *FalconxReportV1) contextValidateIntel(ctx context.Context, formats strf
 			if err := m.Intel[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intel" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intel" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -253,6 +263,8 @@ func (m *FalconxReportV1) contextValidateMalquery(ctx context.Context, formats s
 			if err := m.Malquery[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("malquery" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("malquery" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -271,6 +283,8 @@ func (m *FalconxReportV1) contextValidateSandbox(ctx context.Context, formats st
 			if err := m.Sandbox[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sandbox" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -287,6 +301,8 @@ func (m *FalconxReportV1) contextValidateThreatGraph(ctx context.Context, format
 		if err := m.ThreatGraph.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("threat_graph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("threat_graph")
 			}
 			return err
 		}

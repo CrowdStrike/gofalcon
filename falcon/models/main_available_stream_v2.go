@@ -99,6 +99,8 @@ func (m *MainAvailableStreamV2) validateSessionToken(formats strfmt.Registry) er
 		if err := m.SessionToken.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sessionToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sessionToken")
 			}
 			return err
 		}
@@ -127,6 +129,8 @@ func (m *MainAvailableStreamV2) contextValidateSessionToken(ctx context.Context,
 		if err := m.SessionToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sessionToken")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sessionToken")
 			}
 			return err
 		}

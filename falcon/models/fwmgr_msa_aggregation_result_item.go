@@ -93,6 +93,8 @@ func (m *FwmgrMsaAggregationResultItem) validateSubAggregates(formats strfmt.Reg
 			if err := m.SubAggregates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -125,6 +127,8 @@ func (m *FwmgrMsaAggregationResultItem) contextValidateSubAggregates(ctx context
 			if err := m.SubAggregates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

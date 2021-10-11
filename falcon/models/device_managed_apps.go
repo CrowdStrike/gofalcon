@@ -66,6 +66,8 @@ func (m *DeviceManagedApps) validateAirlock(formats strfmt.Registry) error {
 		if err := m.Airlock.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -83,6 +85,8 @@ func (m *DeviceManagedApps) validateAutomox(formats strfmt.Registry) error {
 		if err := m.Automox.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -100,6 +104,8 @@ func (m *DeviceManagedApps) validateIdentityProtection(formats strfmt.Registry) 
 		if err := m.IdentityProtection.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identity-protection")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-protection")
 			}
 			return err
 		}
@@ -117,6 +123,8 @@ func (m *DeviceManagedApps) validateNetskope(formats strfmt.Registry) error {
 		if err := m.Netskope.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}
@@ -157,6 +165,8 @@ func (m *DeviceManagedApps) contextValidateAirlock(ctx context.Context, formats 
 		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -171,6 +181,8 @@ func (m *DeviceManagedApps) contextValidateAutomox(ctx context.Context, formats 
 		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -185,6 +197,8 @@ func (m *DeviceManagedApps) contextValidateIdentityProtection(ctx context.Contex
 		if err := m.IdentityProtection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identity-protection")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identity-protection")
 			}
 			return err
 		}
@@ -199,6 +213,8 @@ func (m *DeviceManagedApps) contextValidateNetskope(ctx context.Context, formats
 		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}

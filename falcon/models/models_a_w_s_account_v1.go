@@ -96,6 +96,8 @@ func (m *ModelsAWSAccountV1) validateAccessHealth(formats strfmt.Registry) error
 		if err := m.AccessHealth.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access_health")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("access_health")
 			}
 			return err
 		}
@@ -124,6 +126,8 @@ func (m *ModelsAWSAccountV1) contextValidateAccessHealth(ctx context.Context, fo
 		if err := m.AccessHealth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access_health")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("access_health")
 			}
 			return err
 		}

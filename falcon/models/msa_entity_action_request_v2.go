@@ -60,6 +60,8 @@ func (m *MsaEntityActionRequestV2) validateActionParameters(formats strfmt.Regis
 			if err := m.ActionParameters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("action_parameters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("action_parameters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -101,6 +103,8 @@ func (m *MsaEntityActionRequestV2) contextValidateActionParameters(ctx context.C
 			if err := m.ActionParameters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("action_parameters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("action_parameters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

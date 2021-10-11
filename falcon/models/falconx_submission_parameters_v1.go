@@ -54,6 +54,8 @@ func (m *FalconxSubmissionParametersV1) validateSandbox(formats strfmt.Registry)
 			if err := m.Sandbox[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sandbox" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -86,6 +88,8 @@ func (m *FalconxSubmissionParametersV1) contextValidateSandbox(ctx context.Conte
 			if err := m.Sandbox[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sandbox" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

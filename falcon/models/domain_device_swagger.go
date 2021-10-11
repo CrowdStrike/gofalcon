@@ -288,6 +288,8 @@ func (m *DomainDeviceSwagger) validateDevicePolicies(formats strfmt.Registry) er
 		if err := m.DevicePolicies.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_policies")
 			}
 			return err
 		}
@@ -305,6 +307,8 @@ func (m *DomainDeviceSwagger) validateManagedApps(formats strfmt.Registry) error
 		if err := m.ManagedApps.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managed_apps")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_apps")
 			}
 			return err
 		}
@@ -322,6 +326,8 @@ func (m *DomainDeviceSwagger) validateMeta(formats strfmt.Registry) error {
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -344,6 +350,8 @@ func (m *DomainDeviceSwagger) validatePolicies(formats strfmt.Registry) error {
 			if err := m.Policies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -386,6 +394,8 @@ func (m *DomainDeviceSwagger) contextValidateDevicePolicies(ctx context.Context,
 		if err := m.DevicePolicies.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_policies")
 			}
 			return err
 		}
@@ -400,6 +410,8 @@ func (m *DomainDeviceSwagger) contextValidateManagedApps(ctx context.Context, fo
 		if err := m.ManagedApps.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managed_apps")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_apps")
 			}
 			return err
 		}
@@ -414,6 +426,8 @@ func (m *DomainDeviceSwagger) contextValidateMeta(ctx context.Context, formats s
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -430,6 +444,8 @@ func (m *DomainDeviceSwagger) contextValidatePolicies(ctx context.Context, forma
 			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

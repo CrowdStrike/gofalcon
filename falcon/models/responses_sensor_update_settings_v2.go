@@ -133,6 +133,8 @@ func (m *ResponsesSensorUpdateSettingsV2) validateVariants(formats strfmt.Regist
 			if err := m.Variants[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,6 +167,8 @@ func (m *ResponsesSensorUpdateSettingsV2) contextValidateVariants(ctx context.Co
 			if err := m.Variants[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -98,6 +98,8 @@ func (m *FalconxActor) validateOrigins(formats strfmt.Registry) error {
 			if err := m.Origins[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("origins" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("origins" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -122,6 +124,8 @@ func (m *FalconxActor) validateTargetCountries(formats strfmt.Registry) error {
 			if err := m.TargetCountries[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_countries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -146,6 +150,8 @@ func (m *FalconxActor) validateTargetIndustries(formats strfmt.Registry) error {
 			if err := m.TargetIndustries[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_industries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -186,6 +192,8 @@ func (m *FalconxActor) contextValidateOrigins(ctx context.Context, formats strfm
 			if err := m.Origins[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("origins" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("origins" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -204,6 +212,8 @@ func (m *FalconxActor) contextValidateTargetCountries(ctx context.Context, forma
 			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_countries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -222,6 +232,8 @@ func (m *FalconxActor) contextValidateTargetIndustries(ctx context.Context, form
 			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_industries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

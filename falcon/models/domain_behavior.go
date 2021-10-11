@@ -128,6 +128,8 @@ func (m *DomainBehavior) validatePatternDispositionDetails(formats strfmt.Regist
 		if err := m.PatternDispositionDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
 			}
 			return err
 		}
@@ -187,6 +189,8 @@ func (m *DomainBehavior) contextValidatePatternDispositionDetails(ctx context.Co
 		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
 			}
 			return err
 		}

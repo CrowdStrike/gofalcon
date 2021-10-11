@@ -88,6 +88,8 @@ func (m *DeviceapiNetworkAddressHistoryV1) validateHistory(formats strfmt.Regist
 			if err := m.History[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("history" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("history" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -120,6 +122,8 @@ func (m *DeviceapiNetworkAddressHistoryV1) contextValidateHistory(ctx context.Co
 			if err := m.History[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("history" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("history" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -312,6 +312,8 @@ func (m *FwmgrFirewallRuleV1) validateFields(formats strfmt.Registry) error {
 			if err := m.Fields[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -332,6 +334,8 @@ func (m *FwmgrFirewallRuleV1) validateIcmp(formats strfmt.Registry) error {
 		if err := m.Icmp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("icmp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("icmp")
 			}
 			return err
 		}
@@ -364,6 +368,8 @@ func (m *FwmgrFirewallRuleV1) validateLocalAddress(formats strfmt.Registry) erro
 			if err := m.LocalAddress[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("local_address" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("local_address" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -389,6 +395,8 @@ func (m *FwmgrFirewallRuleV1) validateLocalPort(formats strfmt.Registry) error {
 			if err := m.LocalPort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("local_port" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("local_port" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -409,6 +417,8 @@ func (m *FwmgrFirewallRuleV1) validateMonitor(formats strfmt.Registry) error {
 		if err := m.Monitor.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("monitor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("monitor")
 			}
 			return err
 		}
@@ -459,6 +469,8 @@ func (m *FwmgrFirewallRuleV1) validateRemoteAddress(formats strfmt.Registry) err
 			if err := m.RemoteAddress[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("remote_address" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("remote_address" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -484,6 +496,8 @@ func (m *FwmgrFirewallRuleV1) validateRemotePort(formats strfmt.Registry) error 
 			if err := m.RemotePort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("remote_port" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("remote_port" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -504,6 +518,8 @@ func (m *FwmgrFirewallRuleV1) validateRuleGroup(formats strfmt.Registry) error {
 		if err := m.RuleGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rule_group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rule_group")
 			}
 			return err
 		}
@@ -571,6 +587,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateFields(ctx context.Context, formats
 			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -587,6 +605,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateIcmp(ctx context.Context, formats s
 		if err := m.Icmp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("icmp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("icmp")
 			}
 			return err
 		}
@@ -603,6 +623,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateLocalAddress(ctx context.Context, f
 			if err := m.LocalAddress[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("local_address" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("local_address" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -621,6 +643,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateLocalPort(ctx context.Context, form
 			if err := m.LocalPort[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("local_port" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("local_port" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -637,6 +661,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateMonitor(ctx context.Context, format
 		if err := m.Monitor.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("monitor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("monitor")
 			}
 			return err
 		}
@@ -653,6 +679,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateRemoteAddress(ctx context.Context, 
 			if err := m.RemoteAddress[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("remote_address" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("remote_address" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -671,6 +699,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateRemotePort(ctx context.Context, for
 			if err := m.RemotePort[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("remote_port" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("remote_port" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -687,6 +717,8 @@ func (m *FwmgrFirewallRuleV1) contextValidateRuleGroup(ctx context.Context, form
 		if err := m.RuleGroup.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rule_group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("rule_group")
 			}
 			return err
 		}
