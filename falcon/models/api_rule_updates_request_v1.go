@@ -87,6 +87,8 @@ func (m *APIRuleUpdatesRequestV1) validateRuleUpdates(formats strfmt.Registry) e
 			if err := m.RuleUpdates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rule_updates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rule_updates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,6 +139,8 @@ func (m *APIRuleUpdatesRequestV1) contextValidateRuleUpdates(ctx context.Context
 			if err := m.RuleUpdates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rule_updates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("rule_updates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

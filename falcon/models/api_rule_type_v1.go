@@ -119,6 +119,8 @@ func (m *APIRuleTypeV1) validateDispositionMap(formats strfmt.Registry) error {
 			if err := m.DispositionMap[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disposition_map" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disposition_map" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -144,6 +146,8 @@ func (m *APIRuleTypeV1) validateFields(formats strfmt.Registry) error {
 			if err := m.Fields[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -225,6 +229,8 @@ func (m *APIRuleTypeV1) contextValidateDispositionMap(ctx context.Context, forma
 			if err := m.DispositionMap[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disposition_map" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disposition_map" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -243,6 +249,8 @@ func (m *APIRuleTypeV1) contextValidateFields(ctx context.Context, formats strfm
 			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

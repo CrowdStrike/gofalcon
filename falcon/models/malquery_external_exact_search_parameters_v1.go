@@ -55,6 +55,8 @@ func (m *MalqueryExternalExactSearchParametersV1) validateOptions(formats strfmt
 		if err := m.Options.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}
@@ -78,6 +80,8 @@ func (m *MalqueryExternalExactSearchParametersV1) validatePatterns(formats strfm
 			if err := m.Patterns[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("patterns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -112,6 +116,8 @@ func (m *MalqueryExternalExactSearchParametersV1) contextValidateOptions(ctx con
 		if err := m.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *MalqueryExternalExactSearchParametersV1) contextValidatePatterns(ctx co
 			if err := m.Patterns[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("patterns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

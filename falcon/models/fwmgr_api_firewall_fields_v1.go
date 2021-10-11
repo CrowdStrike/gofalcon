@@ -73,6 +73,8 @@ func (m *FwmgrAPIFirewallFieldsV1) validateDefaultMonitor(formats strfmt.Registr
 		if err := m.DefaultMonitor.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("default_monitor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("default_monitor")
 			}
 			return err
 		}
@@ -114,6 +116,8 @@ func (m *FwmgrAPIFirewallFieldsV1) validatePlatformFields(formats strfmt.Registr
 			if err := m.PlatformFields[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platform_fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("platform_fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -148,6 +152,8 @@ func (m *FwmgrAPIFirewallFieldsV1) contextValidateDefaultMonitor(ctx context.Con
 		if err := m.DefaultMonitor.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("default_monitor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("default_monitor")
 			}
 			return err
 		}
@@ -164,6 +170,8 @@ func (m *FwmgrAPIFirewallFieldsV1) contextValidatePlatformFields(ctx context.Con
 			if err := m.PlatformFields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platform_fields" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("platform_fields" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

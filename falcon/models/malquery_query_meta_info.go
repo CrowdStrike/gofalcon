@@ -73,6 +73,8 @@ func (m *MalqueryQueryMetaInfo) validatePagination(formats strfmt.Registry) erro
 		if err := m.Pagination.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -99,6 +101,8 @@ func (m *MalqueryQueryMetaInfo) validateWrites(formats strfmt.Registry) error {
 		if err := m.Writes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("writes")
 			}
 			return err
 		}
@@ -131,6 +135,8 @@ func (m *MalqueryQueryMetaInfo) contextValidatePagination(ctx context.Context, f
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -145,6 +151,8 @@ func (m *MalqueryQueryMetaInfo) contextValidateWrites(ctx context.Context, forma
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("writes")
 			}
 			return err
 		}

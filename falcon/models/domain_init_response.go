@@ -124,6 +124,8 @@ func (m *DomainInitResponse) validateScripts(formats strfmt.Registry) error {
 			if err := m.Scripts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scripts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scripts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,6 +167,8 @@ func (m *DomainInitResponse) contextValidateScripts(ctx context.Context, formats
 			if err := m.Scripts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scripts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scripts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

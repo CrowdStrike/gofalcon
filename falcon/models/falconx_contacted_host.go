@@ -66,6 +66,8 @@ func (m *FalconxContactedHost) validateAssociatedRuntime(formats strfmt.Registry
 			if err := m.AssociatedRuntime[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -98,6 +100,8 @@ func (m *FalconxContactedHost) contextValidateAssociatedRuntime(ctx context.Cont
 			if err := m.AssociatedRuntime[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("associated_runtime" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

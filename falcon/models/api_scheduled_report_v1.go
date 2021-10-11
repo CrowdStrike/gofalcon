@@ -273,6 +273,8 @@ func (m *APIScheduledReportV1) validateLastExecution(formats strfmt.Registry) er
 		if err := m.LastExecution.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("last_execution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("last_execution")
 			}
 			return err
 		}
@@ -330,6 +332,8 @@ func (m *APIScheduledReportV1) validateNotifications(formats strfmt.Registry) er
 			if err := m.Notifications[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -350,6 +354,8 @@ func (m *APIScheduledReportV1) validateReportParams(formats strfmt.Registry) err
 		if err := m.ReportParams.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
 			}
 			return err
 		}
@@ -368,6 +374,8 @@ func (m *APIScheduledReportV1) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -486,6 +494,8 @@ func (m *APIScheduledReportV1) contextValidateLastExecution(ctx context.Context,
 		if err := m.LastExecution.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("last_execution")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("last_execution")
 			}
 			return err
 		}
@@ -502,6 +512,8 @@ func (m *APIScheduledReportV1) contextValidateNotifications(ctx context.Context,
 			if err := m.Notifications[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notifications" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -518,6 +530,8 @@ func (m *APIScheduledReportV1) contextValidateReportParams(ctx context.Context, 
 		if err := m.ReportParams.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
 			}
 			return err
 		}
@@ -532,6 +546,8 @@ func (m *APIScheduledReportV1) contextValidateSchedule(ctx context.Context, form
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}

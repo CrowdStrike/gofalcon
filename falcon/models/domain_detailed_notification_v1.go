@@ -56,6 +56,8 @@ func (m *DomainDetailedNotificationV1) validateDetails(formats strfmt.Registry) 
 		if err := m.Details.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -74,6 +76,8 @@ func (m *DomainDetailedNotificationV1) validateNotification(formats strfmt.Regis
 		if err := m.Notification.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notification")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("notification")
 			}
 			return err
 		}
@@ -106,6 +110,8 @@ func (m *DomainDetailedNotificationV1) contextValidateDetails(ctx context.Contex
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("details")
 			}
 			return err
 		}
@@ -120,6 +126,8 @@ func (m *DomainDetailedNotificationV1) contextValidateNotification(ctx context.C
 		if err := m.Notification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notification")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("notification")
 			}
 			return err
 		}

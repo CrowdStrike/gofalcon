@@ -102,6 +102,8 @@ func (m *DomainCIDPolicyAssignments) validateCisBenchmark(formats strfmt.Registr
 			if err := m.CisBenchmark[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -126,6 +128,8 @@ func (m *DomainCIDPolicyAssignments) validateNistBenchmark(formats strfmt.Regist
 			if err := m.NistBenchmark[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -150,6 +154,8 @@ func (m *DomainCIDPolicyAssignments) validatePciBenchmark(formats strfmt.Registr
 			if err := m.PciBenchmark[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,6 +180,8 @@ func (m *DomainCIDPolicyAssignments) validatePolicySettings(formats strfmt.Regis
 			if err := m.PolicySettings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policy_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policy_settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -230,6 +238,8 @@ func (m *DomainCIDPolicyAssignments) contextValidateCisBenchmark(ctx context.Con
 			if err := m.CisBenchmark[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -248,6 +258,8 @@ func (m *DomainCIDPolicyAssignments) contextValidateNistBenchmark(ctx context.Co
 			if err := m.NistBenchmark[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("nist_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -266,6 +278,8 @@ func (m *DomainCIDPolicyAssignments) contextValidatePciBenchmark(ctx context.Con
 			if err := m.PciBenchmark[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pci_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -284,6 +298,8 @@ func (m *DomainCIDPolicyAssignments) contextValidatePolicySettings(ctx context.C
 			if err := m.PolicySettings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policy_settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("policy_settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

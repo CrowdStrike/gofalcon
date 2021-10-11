@@ -120,6 +120,8 @@ func (m *DomainReportExecutionSummary) validateResultMetadata(formats strfmt.Reg
 		if err := m.ResultMetadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result_metadata")
 			}
 			return err
 		}
@@ -166,6 +168,8 @@ func (m *DomainReportExecutionSummary) contextValidateResultMetadata(ctx context
 		if err := m.ResultMetadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result_metadata")
 			}
 			return err
 		}

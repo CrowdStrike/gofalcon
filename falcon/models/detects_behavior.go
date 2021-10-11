@@ -437,6 +437,8 @@ func (m *DetectsBehavior) validateParentDetails(formats strfmt.Registry) error {
 		if err := m.ParentDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent_details")
 			}
 			return err
 		}
@@ -464,6 +466,8 @@ func (m *DetectsBehavior) validatePatternDispositionDetails(formats strfmt.Regis
 		if err := m.PatternDispositionDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
 			}
 			return err
 		}
@@ -599,6 +603,8 @@ func (m *DetectsBehavior) contextValidateParentDetails(ctx context.Context, form
 		if err := m.ParentDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parent_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent_details")
 			}
 			return err
 		}
@@ -613,6 +619,8 @@ func (m *DetectsBehavior) contextValidatePatternDispositionDetails(ctx context.C
 		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern_disposition_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern_disposition_details")
 			}
 			return err
 		}

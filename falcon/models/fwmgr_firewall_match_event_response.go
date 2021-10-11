@@ -349,6 +349,8 @@ func (m *FwmgrFirewallMatchEventResponse) validateFlags(formats strfmt.Registry)
 		if err := m.Flags.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flags")
 			}
 			return err
 		}
@@ -620,6 +622,8 @@ func (m *FwmgrFirewallMatchEventResponse) contextValidateFlags(ctx context.Conte
 		if err := m.Flags.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flags")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flags")
 			}
 			return err
 		}

@@ -79,6 +79,8 @@ func (m *DomainRuleMetaInfo) validatePagination(formats strfmt.Registry) error {
 		if err := m.Pagination.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -105,6 +107,8 @@ func (m *DomainRuleMetaInfo) validateQuota(formats strfmt.Registry) error {
 		if err := m.Quota.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}
@@ -131,6 +135,8 @@ func (m *DomainRuleMetaInfo) validateWrites(formats strfmt.Registry) error {
 		if err := m.Writes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("writes")
 			}
 			return err
 		}
@@ -167,6 +173,8 @@ func (m *DomainRuleMetaInfo) contextValidatePagination(ctx context.Context, form
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -181,6 +189,8 @@ func (m *DomainRuleMetaInfo) contextValidateQuota(ctx context.Context, formats s
 		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}
@@ -195,6 +205,8 @@ func (m *DomainRuleMetaInfo) contextValidateWrites(ctx context.Context, formats 
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("writes")
 			}
 			return err
 		}

@@ -80,6 +80,8 @@ func (m *RequestsDeviceControlPolicySettingsV1) validateClasses(formats strfmt.R
 			if err := m.Classes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("classes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("classes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -173,6 +175,8 @@ func (m *RequestsDeviceControlPolicySettingsV1) contextValidateClasses(ctx conte
 			if err := m.Classes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("classes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("classes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

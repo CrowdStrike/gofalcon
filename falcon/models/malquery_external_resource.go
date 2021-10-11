@@ -99,6 +99,8 @@ func (m *MalqueryExternalResource) validateSamples(formats strfmt.Registry) erro
 			if err := m.Samples[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("samples" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("samples" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,6 +133,8 @@ func (m *MalqueryExternalResource) contextValidateSamples(ctx context.Context, f
 			if err := m.Samples[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("samples" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("samples" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

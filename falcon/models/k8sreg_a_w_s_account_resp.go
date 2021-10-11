@@ -138,6 +138,8 @@ func (m *K8sregAWSAccountResp) validateAwsPermissionsStatus(formats strfmt.Regis
 			if err := m.AwsPermissionsStatus[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -241,6 +243,8 @@ func (m *K8sregAWSAccountResp) contextValidateAwsPermissionsStatus(ctx context.C
 			if err := m.AwsPermissionsStatus[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

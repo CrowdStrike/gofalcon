@@ -118,6 +118,8 @@ func (m *RequestsDeviceControlPolicyClassSettingsV1) validateExceptions(formats 
 			if err := m.Exceptions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("exceptions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("exceptions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -159,6 +161,8 @@ func (m *RequestsDeviceControlPolicyClassSettingsV1) contextValidateExceptions(c
 			if err := m.Exceptions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("exceptions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("exceptions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

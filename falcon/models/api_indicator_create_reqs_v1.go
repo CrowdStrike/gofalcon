@@ -57,6 +57,8 @@ func (m *APIIndicatorCreateReqsV1) validateIndicators(formats strfmt.Registry) e
 			if err := m.Indicators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -89,6 +91,8 @@ func (m *APIIndicatorCreateReqsV1) contextValidateIndicators(ctx context.Context
 			if err := m.Indicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

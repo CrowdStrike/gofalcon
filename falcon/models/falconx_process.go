@@ -113,6 +113,8 @@ func (m *FalconxProcess) validateFileAccesses(formats strfmt.Registry) error {
 			if err := m.FileAccesses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("file_accesses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("file_accesses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,6 +139,8 @@ func (m *FalconxProcess) validateHandles(formats strfmt.Registry) error {
 			if err := m.Handles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("handles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("handles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -161,6 +165,8 @@ func (m *FalconxProcess) validateProcessFlags(formats strfmt.Registry) error {
 			if err := m.ProcessFlags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("process_flags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("process_flags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -185,6 +191,8 @@ func (m *FalconxProcess) validateRegistry(formats strfmt.Registry) error {
 			if err := m.Registry[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("registry" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("registry" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -209,6 +217,8 @@ func (m *FalconxProcess) validateScriptCalls(formats strfmt.Registry) error {
 			if err := m.ScriptCalls[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("script_calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("script_calls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -233,6 +243,8 @@ func (m *FalconxProcess) validateStreams(formats strfmt.Registry) error {
 			if err := m.Streams[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("streams" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("streams" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -285,6 +297,8 @@ func (m *FalconxProcess) contextValidateFileAccesses(ctx context.Context, format
 			if err := m.FileAccesses[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("file_accesses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("file_accesses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -303,6 +317,8 @@ func (m *FalconxProcess) contextValidateHandles(ctx context.Context, formats str
 			if err := m.Handles[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("handles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("handles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -321,6 +337,8 @@ func (m *FalconxProcess) contextValidateProcessFlags(ctx context.Context, format
 			if err := m.ProcessFlags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("process_flags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("process_flags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -339,6 +357,8 @@ func (m *FalconxProcess) contextValidateRegistry(ctx context.Context, formats st
 			if err := m.Registry[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("registry" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("registry" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -357,6 +377,8 @@ func (m *FalconxProcess) contextValidateScriptCalls(ctx context.Context, formats
 			if err := m.ScriptCalls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("script_calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("script_calls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -375,6 +397,8 @@ func (m *FalconxProcess) contextValidateStreams(ctx context.Context, formats str
 			if err := m.Streams[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("streams" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("streams" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

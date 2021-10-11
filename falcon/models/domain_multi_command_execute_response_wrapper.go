@@ -65,6 +65,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) validateCombined(formats strf
 		if err := m.Combined.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("combined")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combined")
 			}
 			return err
 		}
@@ -88,6 +90,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) validateErrors(formats strfmt
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -108,6 +112,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) validateMeta(formats strfmt.R
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -144,6 +150,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) contextValidateCombined(ctx c
 		if err := m.Combined.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("combined")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("combined")
 			}
 			return err
 		}
@@ -160,6 +168,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) contextValidateErrors(ctx con
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -176,6 +186,8 @@ func (m *DomainMultiCommandExecuteResponseWrapper) contextValidateMeta(ctx conte
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}

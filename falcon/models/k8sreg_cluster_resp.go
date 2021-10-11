@@ -156,6 +156,8 @@ func (m *K8sregClusterResp) validateAgentVersion(formats strfmt.Registry) error 
 		if err := m.AgentVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent_version")
 			}
 			return err
 		}
@@ -223,6 +225,8 @@ func (m *K8sregClusterResp) validateHelmVersion(formats strfmt.Registry) error {
 		if err := m.HelmVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("helm_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("helm_version")
 			}
 			return err
 		}
@@ -241,6 +245,8 @@ func (m *K8sregClusterResp) validateK8sVersion(formats strfmt.Registry) error {
 		if err := m.K8sVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("k8s_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("k8s_version")
 			}
 			return err
 		}
@@ -321,6 +327,8 @@ func (m *K8sregClusterResp) contextValidateAgentVersion(ctx context.Context, for
 		if err := m.AgentVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent_version")
 			}
 			return err
 		}
@@ -335,6 +343,8 @@ func (m *K8sregClusterResp) contextValidateHelmVersion(ctx context.Context, form
 		if err := m.HelmVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("helm_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("helm_version")
 			}
 			return err
 		}
@@ -349,6 +359,8 @@ func (m *K8sregClusterResp) contextValidateK8sVersion(ctx context.Context, forma
 		if err := m.K8sVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("k8s_version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("k8s_version")
 			}
 			return err
 		}

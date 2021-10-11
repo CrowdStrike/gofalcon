@@ -61,6 +61,8 @@ func (m *FalconxIntelReportV1) validateActors(formats strfmt.Registry) error {
 			if err := m.Actors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -85,6 +87,8 @@ func (m *FalconxIntelReportV1) validateRelatedIndicators(formats strfmt.Registry
 			if err := m.RelatedIndicators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("related_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("related_indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -121,6 +125,8 @@ func (m *FalconxIntelReportV1) contextValidateActors(ctx context.Context, format
 			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -139,6 +145,8 @@ func (m *FalconxIntelReportV1) contextValidateRelatedIndicators(ctx context.Cont
 			if err := m.RelatedIndicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("related_indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("related_indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

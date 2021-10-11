@@ -105,6 +105,8 @@ func (m *CommonCIDComplianceResult) validatePlatforms(formats strfmt.Registry) e
 			if err := m.Platforms[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platforms" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("platforms" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,6 +139,8 @@ func (m *CommonCIDComplianceResult) contextValidatePlatforms(ctx context.Context
 			if err := m.Platforms[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platforms" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("platforms" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

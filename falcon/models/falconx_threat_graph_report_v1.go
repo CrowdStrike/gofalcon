@@ -51,6 +51,8 @@ func (m *FalconxThreatGraphReportV1) validateIndicators(formats strfmt.Registry)
 			if err := m.Indicators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -83,6 +85,8 @@ func (m *FalconxThreatGraphReportV1) contextValidateIndicators(ctx context.Conte
 			if err := m.Indicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -60,6 +60,8 @@ func (m *APIIndicatorUpdateReqsV1) validateBulkUpdate(formats strfmt.Registry) e
 		if err := m.BulkUpdate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bulk_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bulk_update")
 			}
 			return err
 		}
@@ -83,6 +85,8 @@ func (m *APIIndicatorUpdateReqsV1) validateIndicators(formats strfmt.Registry) e
 			if err := m.Indicators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -117,6 +121,8 @@ func (m *APIIndicatorUpdateReqsV1) contextValidateBulkUpdate(ctx context.Context
 		if err := m.BulkUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bulk_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bulk_update")
 			}
 			return err
 		}
@@ -133,6 +139,8 @@ func (m *APIIndicatorUpdateReqsV1) contextValidateIndicators(ctx context.Context
 			if err := m.Indicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("indicators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

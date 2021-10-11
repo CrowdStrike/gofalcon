@@ -59,6 +59,8 @@ func (m *CsdomainManagedApps) validateAirlock(formats strfmt.Registry) error {
 		if err := m.Airlock.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *CsdomainManagedApps) validateAutomox(formats strfmt.Registry) error {
 		if err := m.Automox.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -93,6 +97,8 @@ func (m *CsdomainManagedApps) validateNetskope(formats strfmt.Registry) error {
 		if err := m.Netskope.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}
@@ -129,6 +135,8 @@ func (m *CsdomainManagedApps) contextValidateAirlock(ctx context.Context, format
 		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -143,6 +151,8 @@ func (m *CsdomainManagedApps) contextValidateAutomox(ctx context.Context, format
 		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -157,6 +167,8 @@ func (m *CsdomainManagedApps) contextValidateNetskope(ctx context.Context, forma
 		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}

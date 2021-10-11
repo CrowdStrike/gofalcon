@@ -131,6 +131,8 @@ func (m *RequestsCreateRTResponsePolicyV1) validateSettings(formats strfmt.Regis
 			if err := m.Settings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -163,6 +165,8 @@ func (m *RequestsCreateRTResponsePolicyV1) contextValidateSettings(ctx context.C
 			if err := m.Settings[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("settings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("settings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

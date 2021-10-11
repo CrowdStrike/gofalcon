@@ -62,6 +62,8 @@ func (m *DomainAssessmentItems) validateOsSignals(formats strfmt.Registry) error
 			if err := m.OsSignals[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("os_signals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("os_signals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,6 +89,8 @@ func (m *DomainAssessmentItems) validateSensorSignals(formats strfmt.Registry) e
 			if err := m.SensorSignals[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sensor_signals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sensor_signals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -123,6 +127,8 @@ func (m *DomainAssessmentItems) contextValidateOsSignals(ctx context.Context, fo
 			if err := m.OsSignals[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("os_signals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("os_signals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -141,6 +147,8 @@ func (m *DomainAssessmentItems) contextValidateSensorSignals(ctx context.Context
 			if err := m.SensorSignals[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sensor_signals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sensor_signals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

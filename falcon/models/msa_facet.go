@@ -74,6 +74,8 @@ func (m *MsaFacet) validateBy(formats strfmt.Registry) error {
 			if err := m.By[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("by" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("by" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -124,6 +126,8 @@ func (m *MsaFacet) contextValidateBy(ctx context.Context, formats strfmt.Registr
 			if err := m.By[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("by" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("by" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

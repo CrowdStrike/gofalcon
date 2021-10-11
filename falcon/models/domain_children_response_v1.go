@@ -57,6 +57,8 @@ func (m *DomainChildrenResponseV1) validateMsaReplyMetaOnly(formats strfmt.Regis
 		if err := m.MsaReplyMetaOnly.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaReplyMetaOnly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaReplyMetaOnly")
 			}
 			return err
 		}
@@ -80,6 +82,8 @@ func (m *DomainChildrenResponseV1) validateResources(formats strfmt.Registry) er
 			if err := m.Resources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -114,6 +118,8 @@ func (m *DomainChildrenResponseV1) contextValidateMsaReplyMetaOnly(ctx context.C
 		if err := m.MsaReplyMetaOnly.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MsaReplyMetaOnly")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("MsaReplyMetaOnly")
 			}
 			return err
 		}
@@ -130,6 +136,8 @@ func (m *DomainChildrenResponseV1) contextValidateResources(ctx context.Context,
 			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

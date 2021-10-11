@@ -194,6 +194,8 @@ func (m *DomainNewsDocument) validateActors(formats strfmt.Registry) error {
 			if err := m.Actors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -218,6 +220,8 @@ func (m *DomainNewsDocument) validateAttachments(formats strfmt.Registry) error 
 			if err := m.Attachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -251,6 +255,8 @@ func (m *DomainNewsDocument) validateEntitlements(formats strfmt.Registry) error
 			if err := m.Entitlements[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entitlements" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entitlements" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -279,6 +285,8 @@ func (m *DomainNewsDocument) validateImage(formats strfmt.Registry) error {
 		if err := m.Image.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
 			}
 			return err
 		}
@@ -311,6 +319,8 @@ func (m *DomainNewsDocument) validateMotivations(formats strfmt.Registry) error 
 			if err := m.Motivations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("motivations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("motivations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -348,6 +358,8 @@ func (m *DomainNewsDocument) validateSubType(formats strfmt.Registry) error {
 		if err := m.SubType.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sub_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sub_type")
 			}
 			return err
 		}
@@ -371,6 +383,8 @@ func (m *DomainNewsDocument) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -396,6 +410,8 @@ func (m *DomainNewsDocument) validateTargetCountries(formats strfmt.Registry) er
 			if err := m.TargetCountries[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_countries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -421,6 +437,8 @@ func (m *DomainNewsDocument) validateTargetIndustries(formats strfmt.Registry) e
 			if err := m.TargetIndustries[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_industries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -441,6 +459,8 @@ func (m *DomainNewsDocument) validateThumbnail(formats strfmt.Registry) error {
 		if err := m.Thumbnail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("thumbnail")
 			}
 			return err
 		}
@@ -458,6 +478,8 @@ func (m *DomainNewsDocument) validateTopic(formats strfmt.Registry) error {
 		if err := m.Topic.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("topic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("topic")
 			}
 			return err
 		}
@@ -475,6 +497,8 @@ func (m *DomainNewsDocument) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -549,6 +573,8 @@ func (m *DomainNewsDocument) contextValidateActors(ctx context.Context, formats 
 			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -567,6 +593,8 @@ func (m *DomainNewsDocument) contextValidateAttachments(ctx context.Context, for
 			if err := m.Attachments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -585,6 +613,8 @@ func (m *DomainNewsDocument) contextValidateEntitlements(ctx context.Context, fo
 			if err := m.Entitlements[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entitlements" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entitlements" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -601,6 +631,8 @@ func (m *DomainNewsDocument) contextValidateImage(ctx context.Context, formats s
 		if err := m.Image.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
 			}
 			return err
 		}
@@ -617,6 +649,8 @@ func (m *DomainNewsDocument) contextValidateMotivations(ctx context.Context, for
 			if err := m.Motivations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("motivations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("motivations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -633,6 +667,8 @@ func (m *DomainNewsDocument) contextValidateSubType(ctx context.Context, formats
 		if err := m.SubType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sub_type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sub_type")
 			}
 			return err
 		}
@@ -649,6 +685,8 @@ func (m *DomainNewsDocument) contextValidateTags(ctx context.Context, formats st
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -667,6 +705,8 @@ func (m *DomainNewsDocument) contextValidateTargetCountries(ctx context.Context,
 			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_countries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -685,6 +725,8 @@ func (m *DomainNewsDocument) contextValidateTargetIndustries(ctx context.Context
 			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("target_industries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -701,6 +743,8 @@ func (m *DomainNewsDocument) contextValidateThumbnail(ctx context.Context, forma
 		if err := m.Thumbnail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("thumbnail")
 			}
 			return err
 		}
@@ -715,6 +759,8 @@ func (m *DomainNewsDocument) contextValidateTopic(ctx context.Context, formats s
 		if err := m.Topic.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("topic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("topic")
 			}
 			return err
 		}
@@ -729,6 +775,8 @@ func (m *DomainNewsDocument) contextValidateType(ctx context.Context, formats st
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("type")
 			}
 			return err
 		}

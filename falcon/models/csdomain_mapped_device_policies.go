@@ -101,6 +101,8 @@ func (m *CsdomainMappedDevicePolicies) validateAirlock(formats strfmt.Registry) 
 		if err := m.Airlock.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -118,6 +120,8 @@ func (m *CsdomainMappedDevicePolicies) validateAutomox(formats strfmt.Registry) 
 		if err := m.Automox.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -135,6 +139,8 @@ func (m *CsdomainMappedDevicePolicies) validateDeviceControl(formats strfmt.Regi
 		if err := m.DeviceControl.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_control")
 			}
 			return err
 		}
@@ -152,6 +158,8 @@ func (m *CsdomainMappedDevicePolicies) validateFirewall(formats strfmt.Registry)
 		if err := m.Firewall.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firewall")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firewall")
 			}
 			return err
 		}
@@ -169,6 +177,8 @@ func (m *CsdomainMappedDevicePolicies) validateGlobalConfig(formats strfmt.Regis
 		if err := m.GlobalConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("global_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("global_config")
 			}
 			return err
 		}
@@ -186,6 +196,8 @@ func (m *CsdomainMappedDevicePolicies) validateNetskope(formats strfmt.Registry)
 		if err := m.Netskope.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}
@@ -203,6 +215,8 @@ func (m *CsdomainMappedDevicePolicies) validatePrevention(formats strfmt.Registr
 		if err := m.Prevention.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("prevention")
 			}
 			return err
 		}
@@ -220,6 +234,8 @@ func (m *CsdomainMappedDevicePolicies) validateRemoteResponse(formats strfmt.Reg
 		if err := m.RemoteResponse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("remote_response")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("remote_response")
 			}
 			return err
 		}
@@ -237,6 +253,8 @@ func (m *CsdomainMappedDevicePolicies) validateSensorUpdate(formats strfmt.Regis
 		if err := m.SensorUpdate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sensor_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sensor_update")
 			}
 			return err
 		}
@@ -297,6 +315,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateAirlock(ctx context.Contex
 		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("airlock")
 			}
 			return err
 		}
@@ -311,6 +331,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateAutomox(ctx context.Contex
 		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automox")
 			}
 			return err
 		}
@@ -325,6 +347,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateDeviceControl(ctx context.
 		if err := m.DeviceControl.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_control")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_control")
 			}
 			return err
 		}
@@ -339,6 +363,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateFirewall(ctx context.Conte
 		if err := m.Firewall.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firewall")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firewall")
 			}
 			return err
 		}
@@ -353,6 +379,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateGlobalConfig(ctx context.C
 		if err := m.GlobalConfig.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("global_config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("global_config")
 			}
 			return err
 		}
@@ -367,6 +395,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateNetskope(ctx context.Conte
 		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("netskope")
 			}
 			return err
 		}
@@ -381,6 +411,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidatePrevention(ctx context.Con
 		if err := m.Prevention.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("prevention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("prevention")
 			}
 			return err
 		}
@@ -395,6 +427,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateRemoteResponse(ctx context
 		if err := m.RemoteResponse.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("remote_response")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("remote_response")
 			}
 			return err
 		}
@@ -409,6 +443,8 @@ func (m *CsdomainMappedDevicePolicies) contextValidateSensorUpdate(ctx context.C
 		if err := m.SensorUpdate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sensor_update")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sensor_update")
 			}
 			return err
 		}

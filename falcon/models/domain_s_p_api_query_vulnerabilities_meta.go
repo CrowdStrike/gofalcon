@@ -65,6 +65,8 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) validatePagination(formats strfmt.
 		if err := m.Pagination.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -111,6 +113,8 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) contextValidatePagination(ctx cont
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}

@@ -121,6 +121,8 @@ func (m *DomainQueuedSessionJob) validateCommands(formats strfmt.Registry) error
 			if err := m.Commands[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("Commands" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Commands" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -237,6 +239,8 @@ func (m *DomainQueuedSessionJob) contextValidateCommands(ctx context.Context, fo
 			if err := m.Commands[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("Commands" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Commands" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

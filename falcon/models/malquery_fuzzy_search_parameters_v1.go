@@ -55,6 +55,8 @@ func (m *MalqueryFuzzySearchParametersV1) validateOptions(formats strfmt.Registr
 		if err := m.Options.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}
@@ -78,6 +80,8 @@ func (m *MalqueryFuzzySearchParametersV1) validatePatterns(formats strfmt.Regist
 			if err := m.Patterns[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("patterns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -112,6 +116,8 @@ func (m *MalqueryFuzzySearchParametersV1) contextValidateOptions(ctx context.Con
 		if err := m.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("options")
 			}
 			return err
 		}
@@ -128,6 +134,8 @@ func (m *MalqueryFuzzySearchParametersV1) contextValidatePatterns(ctx context.Co
 			if err := m.Patterns[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("patterns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
