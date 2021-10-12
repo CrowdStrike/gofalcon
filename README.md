@@ -25,7 +25,7 @@ Gofalcon is periodically refreshed to reflect the newest additions to the CrowdS
 
 ## Installation
 ```
-go get github.com/CrowdStrike/gofalcon/falcon
+go get github.com/crowdstrike/gofalcon/falcon
 ```
 
 ## Usage Example
