@@ -22,6 +22,9 @@ type FalconxSubmissionParametersV1 struct {
 	// sandbox
 	Sandbox []*FalconxSandboxParametersV1 `json:"sandbox"`
 
+	// send email notification
+	SendEmailNotification bool `json:"send_email_notification,omitempty"`
+
 	// user tags
 	UserTags []string `json:"user_tags"`
 }
