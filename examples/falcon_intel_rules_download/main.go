@@ -5,6 +5,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -55,8 +57,13 @@ Falcon Client Secret`)
 	}
 }
 
-func DownloadLatestRuleFile(client *client.CrowdStrikeAPISpecification, filepath, intelType string) error {
-	file, err := os.OpenFile(filepath, os.O_CREATE|os.O_WRONLY, 0600)
+func DownloadLatestRuleFile(client *client.CrowdStrikeAPISpecification, filename, intelType string) error {
+	safeLocation := filepath.Clean(filename)
+	if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
+		panic("Suspicious file location: " + safeLocation)
+	}
+
+	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 	if err != nil {
 		return err
 	}
