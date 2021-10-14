@@ -20,13 +20,14 @@ import (
 // GetLatestIntelRuleFileReader is a Reader for the GetLatestIntelRuleFile structure.
 type GetLatestIntelRuleFileReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetLatestIntelRuleFileReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetLatestIntelRuleFileOK()
+		result := NewGetLatestIntelRuleFileOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -74,8 +75,11 @@ func (o *GetLatestIntelRuleFileReader) ReadResponse(response runtime.ClientRespo
 }
 
 // NewGetLatestIntelRuleFileOK creates a GetLatestIntelRuleFileOK with default headers values
-func NewGetLatestIntelRuleFileOK() *GetLatestIntelRuleFileOK {
-	return &GetLatestIntelRuleFileOK{}
+func NewGetLatestIntelRuleFileOK(writer io.Writer) *GetLatestIntelRuleFileOK {
+	return &GetLatestIntelRuleFileOK{
+
+		Payload: writer,
+	}
 }
 
 /* GetLatestIntelRuleFileOK describes a response with status code 200, with default header values.
@@ -91,10 +95,15 @@ type GetLatestIntelRuleFileOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 func (o *GetLatestIntelRuleFileOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
+}
+func (o *GetLatestIntelRuleFileOK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetLatestIntelRuleFileOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -119,6 +128,11 @@ func (o *GetLatestIntelRuleFileOK) readResponse(response runtime.ClientResponse,
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
+	httpruntime "github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 	log "github.com/sirupsen/logrus"
@@ -33,6 +34,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	customTransport := httptransport.NewWithClient(
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
 	customTransport.Debug = ac.Debug
+	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
 
 	return client.New(customTransport, strfmt.Default), nil
 }

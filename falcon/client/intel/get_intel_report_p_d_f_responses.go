@@ -20,13 +20,14 @@ import (
 // GetIntelReportPDFReader is a Reader for the GetIntelReportPDF structure.
 type GetIntelReportPDFReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetIntelReportPDFReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetIntelReportPDFOK()
+		result := NewGetIntelReportPDFOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -68,8 +69,11 @@ func (o *GetIntelReportPDFReader) ReadResponse(response runtime.ClientResponse, 
 }
 
 // NewGetIntelReportPDFOK creates a GetIntelReportPDFOK with default headers values
-func NewGetIntelReportPDFOK() *GetIntelReportPDFOK {
-	return &GetIntelReportPDFOK{}
+func NewGetIntelReportPDFOK(writer io.Writer) *GetIntelReportPDFOK {
+	return &GetIntelReportPDFOK{
+
+		Payload: writer,
+	}
 }
 
 /* GetIntelReportPDFOK describes a response with status code 200, with default header values.
@@ -85,10 +89,15 @@ type GetIntelReportPDFOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 func (o *GetIntelReportPDFOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK  %+v", 200, o.Payload)
+}
+func (o *GetIntelReportPDFOK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetIntelReportPDFOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -113,6 +122,11 @@ func (o *GetIntelReportPDFOK) readResponse(response runtime.ClientResponse, cons
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil
