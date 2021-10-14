@@ -32,6 +32,9 @@ type FalconxSandboxParametersV1 struct {
 	// environment id
 	EnvironmentID int32 `json:"environment_id,omitempty"`
 
+	// network settings
+	NetworkSettings string `json:"network_settings,omitempty"`
+
 	// sha256
 	Sha256 string `json:"sha256,omitempty"`
 
