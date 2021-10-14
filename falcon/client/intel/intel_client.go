@@ -6,6 +6,8 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"io"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -34,7 +36,7 @@ type ClientService interface {
 
 	GetIntelReportEntities(params *GetIntelReportEntitiesParams, opts ...ClientOption) (*GetIntelReportEntitiesOK, error)
 
-	GetIntelReportPDF(params *GetIntelReportPDFParams, opts ...ClientOption) (*GetIntelReportPDFOK, error)
+	GetIntelReportPDF(params *GetIntelReportPDFParams, writer io.Writer, opts ...ClientOption) (*GetIntelReportPDFOK, error)
 
 	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts ...ClientOption) (*GetIntelRuleEntitiesOK, error)
 
@@ -173,7 +175,7 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, op
 /*
   GetIntelReportPDF returns a report p d f attachment
 */
-func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, opts ...ClientOption) (*GetIntelReportPDFOK, error) {
+func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, writer io.Writer, opts ...ClientOption) (*GetIntelReportPDFOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelReportPDFParams()
@@ -186,7 +188,7 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, opts ...Clie
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetIntelReportPDFReader{formats: a.formats},
+		Reader:             &GetIntelReportPDFReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
