@@ -101,7 +101,9 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(err)
 	}
+	/* #nosec */
 	defer func() {
+		// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
 		if err := file.Close(); err != nil {
 			fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
 		}
