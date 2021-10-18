@@ -20,13 +20,14 @@ import (
 // GetIntelRuleFileReader is a Reader for the GetIntelRuleFile structure.
 type GetIntelRuleFileReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetIntelRuleFileReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetIntelRuleFileOK()
+		result := NewGetIntelRuleFileOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -74,8 +75,11 @@ func (o *GetIntelRuleFileReader) ReadResponse(response runtime.ClientResponse, c
 }
 
 // NewGetIntelRuleFileOK creates a GetIntelRuleFileOK with default headers values
-func NewGetIntelRuleFileOK() *GetIntelRuleFileOK {
-	return &GetIntelRuleFileOK{}
+func NewGetIntelRuleFileOK(writer io.Writer) *GetIntelRuleFileOK {
+	return &GetIntelRuleFileOK{
+
+		Payload: writer,
+	}
 }
 
 /* GetIntelRuleFileOK describes a response with status code 200, with default header values.
@@ -91,10 +95,15 @@ type GetIntelRuleFileOK struct {
 	/* The number of requests remaining for the sliding one minute window.
 	 */
 	XRateLimitRemaining int64
+
+	Payload io.Writer
 }
 
 func (o *GetIntelRuleFileOK) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK ", 200)
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
+}
+func (o *GetIntelRuleFileOK) GetPayload() io.Writer {
+	return o.Payload
 }
 
 func (o *GetIntelRuleFileOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -119,6 +128,11 @@ func (o *GetIntelRuleFileOK) readResponse(response runtime.ClientResponse, consu
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
 	}
 
 	return nil

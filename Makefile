@@ -30,7 +30,7 @@ specs/swagger-download-patch.json: specs/swagger-stripped-oauth.json
 
 specs/swagger-pdf-download-patch.json: specs/swagger-download-patch.json
 	# We add missing binary response body spec to the swagger
-	jq '.paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"}' $< > $@
+	jq '.paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"}' $< > $@
 
 specs/swagger.json:
 	@echo "Sorry swagger.json needs to be obtained manually at this moment"
