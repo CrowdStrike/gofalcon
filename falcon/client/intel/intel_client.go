@@ -40,7 +40,7 @@ type ClientService interface {
 
 	GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts ...ClientOption) (*GetIntelRuleEntitiesOK, error)
 
-	GetIntelRuleFile(params *GetIntelRuleFileParams, opts ...ClientOption) (*GetIntelRuleFileOK, error)
+	GetIntelRuleFile(params *GetIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetIntelRuleFileOK, error)
 
 	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error)
 
@@ -249,7 +249,7 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts .
 /*
   GetIntelRuleFile downloads earlier rule sets
 */
-func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, opts ...ClientOption) (*GetIntelRuleFileOK, error) {
+func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIntelRuleFileParams()
@@ -262,7 +262,7 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, opts ...Client
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetIntelRuleFileReader{formats: a.formats},
+		Reader:             &GetIntelRuleFileReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
