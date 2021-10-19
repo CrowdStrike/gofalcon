@@ -7,7 +7,7 @@
 
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
-Detailed API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). The easiest way to learn about the SDK is to consult the set of [examples](examples) built on top of the SDK. What follows is a subset of these examples that can be found useful as stand-alone programs.
+Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). Users are advised to consult this gofalcon documentation together with the comprehensive CrowdStrike API documentation published on [Developer Portal](https://developer.crowdstrike.com/crowdstrike/docs). The easiest way to learn about the SDK is to consult the set of [examples](examples) built on top of the SDK. What follows is a subset of these examples that can be found useful as stand-alone programs.
 
 | Example | Description |
 |:--------|:------------|
