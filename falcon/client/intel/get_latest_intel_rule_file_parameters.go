@@ -65,6 +65,12 @@ type GetLatestIntelRuleFileParams struct {
 	*/
 	Accept *string
 
+	/* IfModifiedSince.
+
+	   Download Only if changed since
+	*/
+	IfModifiedSince *string
+
 	/* Format.
 
 	   Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
@@ -157,6 +163,17 @@ func (o *GetLatestIntelRuleFileParams) SetAccept(accept *string) {
 	o.Accept = accept
 }
 
+// WithIfModifiedSince adds the ifModifiedSince to the get latest intel rule file params
+func (o *GetLatestIntelRuleFileParams) WithIfModifiedSince(ifModifiedSince *string) *GetLatestIntelRuleFileParams {
+	o.SetIfModifiedSince(ifModifiedSince)
+	return o
+}
+
+// SetIfModifiedSince adds the ifModifiedSince to the get latest intel rule file params
+func (o *GetLatestIntelRuleFileParams) SetIfModifiedSince(ifModifiedSince *string) {
+	o.IfModifiedSince = ifModifiedSince
+}
+
 // WithFormat adds the format to the get latest intel rule file params
 func (o *GetLatestIntelRuleFileParams) WithFormat(format *string) *GetLatestIntelRuleFileParams {
 	o.SetFormat(format)
@@ -191,6 +208,14 @@ func (o *GetLatestIntelRuleFileParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// header param Accept
 		if err := r.SetHeaderParam("Accept", *o.Accept); err != nil {
+			return err
+		}
+	}
+
+	if o.IfModifiedSince != nil {
+
+		// header param If-Modified-Since
+		if err := r.SetHeaderParam("If-Modified-Since", *o.IfModifiedSince); err != nil {
 			return err
 		}
 	}

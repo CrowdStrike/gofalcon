@@ -26,7 +26,7 @@ specs/swagger-stripped-oauth.json: specs/swagger-formatted.json
 
 specs/swagger-download-patch.json: specs/swagger-stripped-oauth.json
 	# We add missing binary response body spec to the swagger
-	jq '.definitions."domain.DownloadItem"."type"="string" | .definitions."domain.DownloadItem"."format"="binary" | .paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"}' $< > $@
+	jq '.definitions."domain.DownloadItem"."type"="string" | .definitions."domain.DownloadItem"."format"="binary" | .paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-files/v1"."get"."responses"."200"."schema"={"$$ref": "#/definitions/domain.DownloadItem"} | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}] | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}' $< > $@
 
 specs/swagger.json:
 	@echo "Sorry swagger.json needs to be obtained manually at this moment"
