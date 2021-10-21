@@ -2,6 +2,7 @@ package falcon
 
 import (
 	"context"
+	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
 )
@@ -22,6 +23,9 @@ type ApiConfig struct {
 	HostOverride string
 	// BasePathOverride allows to override default base path (default: /)
 	BasePathOverride string
+	// HttpTimeOutOverride allows users to override default HTTP Time-out (5 minutes). This timeout should rarely be hit. The time-out protects user-application should an unlikely event of CrowdStrike outage occur. Users that need to have more control over HTTP time-outs are advised to use context.Context argument to API calls instead of this variable.
+	HttpTimeOutOverride *time.Duration
+
 	// Debug forces print out of all http traffic going through the API Runtime
 	Debug bool
 }
@@ -40,4 +44,11 @@ func (ac *ApiConfig) BasePath() string {
 		return client.DefaultBasePath
 	}
 	return ac.BasePathOverride
+}
+
+func (ac *ApiConfig) HttpTimeout() time.Duration {
+	if ac.HttpTimeOutOverride == nil {
+		return 5 * time.Minute
+	}
+	return *ac.HttpTimeOutOverride
 }

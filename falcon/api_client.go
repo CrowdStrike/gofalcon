@@ -28,6 +28,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		}
 	}
 	authenticatedClient := config.Client(ac.Context)
+	authenticatedClient.Timeout = ac.HttpTimeout()
 	authenticatedClient.Transport = &roundTripper{
 		T: authenticatedClient.Transport,
 	}
