@@ -20,8 +20,7 @@ import (
 type APIReportExecutionV1 struct {
 
 	// can write
-	// Required: true
-	CanWrite *bool `json:"can_write"`
+	CanWrite bool `json:"can_write,omitempty"`
 
 	// created on
 	// Required: true
@@ -31,6 +30,9 @@ type APIReportExecutionV1 struct {
 	// customer id
 	// Required: true
 	CustomerID *string `json:"customer_id"`
+
+	// execution metadata
+	ExecutionMetadata *APIExecutionMetadataV1 `json:"execution_metadata,omitempty"`
 
 	// expiration on
 	// Required: true
@@ -42,8 +44,7 @@ type APIReportExecutionV1 struct {
 	ID *string `json:"id"`
 
 	// job reference
-	// Required: true
-	JobReference *string `json:"job_reference"`
+	JobReference string `json:"job_reference,omitempty"`
 
 	// last updated on
 	// Required: true
@@ -51,8 +52,7 @@ type APIReportExecutionV1 struct {
 	LastUpdatedOn *strfmt.DateTime `json:"last_updated_on"`
 
 	// report file reference
-	// Required: true
-	ReportFileReference *string `json:"report_file_reference"`
+	ReportFileReference string `json:"report_file_reference,omitempty"`
 
 	// result metadata
 	ResultMetadata *DomainResultMetadata `json:"result_metadata,omitempty"`
@@ -69,6 +69,10 @@ type APIReportExecutionV1 struct {
 	// Required: true
 	Status *string `json:"status"`
 
+	// status display
+	// Required: true
+	StatusDisplay *string `json:"status_display"`
+
 	// status msg
 	// Required: true
 	StatusMsg *string `json:"status_msg"`
@@ -77,8 +81,7 @@ type APIReportExecutionV1 struct {
 	Tracking string `json:"tracking,omitempty"`
 
 	// trigger reference
-	// Required: true
-	TriggerReference *string `json:"trigger_reference"`
+	TriggerReference string `json:"trigger_reference,omitempty"`
 
 	// type
 	// Required: true
@@ -97,15 +100,15 @@ type APIReportExecutionV1 struct {
 func (m *APIReportExecutionV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCanWrite(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCreatedOn(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateCustomerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExecutionMetadata(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -117,15 +120,7 @@ func (m *APIReportExecutionV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateJobReference(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateLastUpdatedOn(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateReportFileReference(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -145,11 +140,11 @@ func (m *APIReportExecutionV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateStatusMsg(formats); err != nil {
+	if err := m.validateStatusDisplay(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTriggerReference(formats); err != nil {
+	if err := m.validateStatusMsg(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -171,15 +166,6 @@ func (m *APIReportExecutionV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIReportExecutionV1) validateCanWrite(formats strfmt.Registry) error {
-
-	if err := validate.Required("can_write", "body", m.CanWrite); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *APIReportExecutionV1) validateCreatedOn(formats strfmt.Registry) error {
 
 	if err := validate.Required("created_on", "body", m.CreatedOn); err != nil {
@@ -197,6 +183,25 @@ func (m *APIReportExecutionV1) validateCustomerID(formats strfmt.Registry) error
 
 	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *APIReportExecutionV1) validateExecutionMetadata(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExecutionMetadata) { // not required
+		return nil
+	}
+
+	if m.ExecutionMetadata != nil {
+		if err := m.ExecutionMetadata.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("execution_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("execution_metadata")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -224,15 +229,6 @@ func (m *APIReportExecutionV1) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIReportExecutionV1) validateJobReference(formats strfmt.Registry) error {
-
-	if err := validate.Required("job_reference", "body", m.JobReference); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *APIReportExecutionV1) validateLastUpdatedOn(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_updated_on", "body", m.LastUpdatedOn); err != nil {
@@ -240,15 +236,6 @@ func (m *APIReportExecutionV1) validateLastUpdatedOn(formats strfmt.Registry) er
 	}
 
 	if err := validate.FormatOf("last_updated_on", "body", "date-time", m.LastUpdatedOn.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *APIReportExecutionV1) validateReportFileReference(formats strfmt.Registry) error {
-
-	if err := validate.Required("report_file_reference", "body", m.ReportFileReference); err != nil {
 		return err
 	}
 
@@ -301,18 +288,18 @@ func (m *APIReportExecutionV1) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIReportExecutionV1) validateStatusMsg(formats strfmt.Registry) error {
+func (m *APIReportExecutionV1) validateStatusDisplay(formats strfmt.Registry) error {
 
-	if err := validate.Required("status_msg", "body", m.StatusMsg); err != nil {
+	if err := validate.Required("status_display", "body", m.StatusDisplay); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *APIReportExecutionV1) validateTriggerReference(formats strfmt.Registry) error {
+func (m *APIReportExecutionV1) validateStatusMsg(formats strfmt.Registry) error {
 
-	if err := validate.Required("trigger_reference", "body", m.TriggerReference); err != nil {
+	if err := validate.Required("status_msg", "body", m.StatusMsg); err != nil {
 		return err
 	}
 
@@ -350,6 +337,10 @@ func (m *APIReportExecutionV1) validateUserUUID(formats strfmt.Registry) error {
 func (m *APIReportExecutionV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateExecutionMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateResultMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -357,6 +348,22 @@ func (m *APIReportExecutionV1) ContextValidate(ctx context.Context, formats strf
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIReportExecutionV1) contextValidateExecutionMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExecutionMetadata != nil {
+		if err := m.ExecutionMetadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("execution_metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("execution_metadata")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -19,18 +19,41 @@ import (
 // swagger:model domain.ResultMetadata
 type DomainResultMetadata struct {
 
+	// execution delay
+	// Required: true
+	ExecutionDelay *int64 `json:"execution_delay"`
+
 	// execution duration
 	// Required: true
 	ExecutionDuration *int64 `json:"execution_duration"`
+
+	// execution finish
+	// Required: true
+	// Format: date-time
+	ExecutionFinish *strfmt.DateTime `json:"execution_finish"`
 
 	// execution start
 	// Required: true
 	// Format: date-time
 	ExecutionStart *strfmt.DateTime `json:"execution_start"`
 
+	// queue duration
+	// Required: true
+	QueueDuration *int64 `json:"queue_duration"`
+
+	// queue start
+	// Required: true
+	// Format: date-time
+	QueueStart *strfmt.DateTime `json:"queue_start"`
+
 	// report file name
 	// Required: true
 	ReportFileName *string `json:"report_file_name"`
+
+	// report finish
+	// Required: true
+	// Format: date-time
+	ReportFinish *strfmt.DateTime `json:"report_finish"`
 
 	// result count
 	// Required: true
@@ -55,7 +78,15 @@ type DomainResultMetadata struct {
 func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateExecutionDelay(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateExecutionDuration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExecutionFinish(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -63,7 +94,19 @@ func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateQueueDuration(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQueueStart(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateReportFileName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReportFinish(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -89,9 +132,31 @@ func (m *DomainResultMetadata) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainResultMetadata) validateExecutionDelay(formats strfmt.Registry) error {
+
+	if err := validate.Required("execution_delay", "body", m.ExecutionDelay); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainResultMetadata) validateExecutionDuration(formats strfmt.Registry) error {
 
 	if err := validate.Required("execution_duration", "body", m.ExecutionDuration); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainResultMetadata) validateExecutionFinish(formats strfmt.Registry) error {
+
+	if err := validate.Required("execution_finish", "body", m.ExecutionFinish); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("execution_finish", "body", "date-time", m.ExecutionFinish.String(), formats); err != nil {
 		return err
 	}
 
@@ -111,9 +176,44 @@ func (m *DomainResultMetadata) validateExecutionStart(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *DomainResultMetadata) validateQueueDuration(formats strfmt.Registry) error {
+
+	if err := validate.Required("queue_duration", "body", m.QueueDuration); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainResultMetadata) validateQueueStart(formats strfmt.Registry) error {
+
+	if err := validate.Required("queue_start", "body", m.QueueStart); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("queue_start", "body", "date-time", m.QueueStart.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainResultMetadata) validateReportFileName(formats strfmt.Registry) error {
 
 	if err := validate.Required("report_file_name", "body", m.ReportFileName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainResultMetadata) validateReportFinish(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_finish", "body", m.ReportFinish); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("report_finish", "body", "date-time", m.ReportFinish.String(), formats); err != nil {
 		return err
 	}
 
