@@ -34,6 +34,8 @@ type ClientService interface {
 
 	ReportExecutionsQuery(params *ReportExecutionsQueryParams, opts ...ClientOption) (*ReportExecutionsQueryOK, error)
 
+	ReportExecutionsRetry(params *ReportExecutionsRetryParams, opts ...ClientOption) (*ReportExecutionsRetryOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -145,6 +147,43 @@ func (a *Client) ReportExecutionsQuery(params *ReportExecutionsQueryParams, opts
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*ReportExecutionsQueryDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  ReportExecutionsRetry this endpoint will be used to retry report executions
+*/
+func (a *Client) ReportExecutionsRetry(params *ReportExecutionsRetryParams, opts ...ClientOption) (*ReportExecutionsRetryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReportExecutionsRetryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "report-executions.retry",
+		Method:             "POST",
+		PathPattern:        "/reports/entities/report-executions-retry/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReportExecutionsRetryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReportExecutionsRetryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ReportExecutionsRetryDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
