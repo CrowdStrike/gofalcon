@@ -19,6 +19,9 @@ import (
 // swagger:model domain.APIHostGroup
 type DomainAPIHostGroup struct {
 
+	// id
+	ID string `json:"id,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`

@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DomainAPIRemediationIDs domain API remediation i ds
@@ -20,30 +18,11 @@ import (
 type DomainAPIRemediationIDs struct {
 
 	// ids
-	// Required: true
 	Ids []string `json:"ids"`
 }
 
 // Validate validates this domain API remediation i ds
 func (m *DomainAPIRemediationIDs) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateIds(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DomainAPIRemediationIDs) validateIds(formats strfmt.Registry) error {
-
-	if err := validate.Required("ids", "body", m.Ids); err != nil {
-		return err
-	}
-
 	return nil
 }
 

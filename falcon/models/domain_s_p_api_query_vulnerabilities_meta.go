@@ -29,6 +29,9 @@ type DomainSPAPIQueryVulnerabilitiesMeta struct {
 	// Required: true
 	QueryTime *float64 `json:"query_time"`
 
+	// quota
+	Quota *DomainQuota `json:"quota,omitempty"`
+
 	// trace id
 	// Required: true
 	TraceID *string `json:"trace_id"`
@@ -43,6 +46,10 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) Validate(formats strfmt.Registry) 
 	}
 
 	if err := m.validateQueryTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQuota(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,6 +91,25 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) validateQueryTime(formats strfmt.R
 	return nil
 }
 
+func (m *DomainSPAPIQueryVulnerabilitiesMeta) validateQuota(formats strfmt.Registry) error {
+	if swag.IsZero(m.Quota) { // not required
+		return nil
+	}
+
+	if m.Quota != nil {
+		if err := m.Quota.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainSPAPIQueryVulnerabilitiesMeta) validateTraceID(formats strfmt.Registry) error {
 
 	if err := validate.Required("trace_id", "body", m.TraceID); err != nil {
@@ -101,6 +127,10 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) ContextValidate(ctx context.Contex
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateQuota(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -115,6 +145,22 @@ func (m *DomainSPAPIQueryVulnerabilitiesMeta) contextValidatePagination(ctx cont
 				return ve.ValidateName("pagination")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("pagination")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainSPAPIQueryVulnerabilitiesMeta) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Quota != nil {
+		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quota")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quota")
 			}
 			return err
 		}

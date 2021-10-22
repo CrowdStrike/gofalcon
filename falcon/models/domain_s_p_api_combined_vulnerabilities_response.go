@@ -15,25 +15,25 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainSPAPIVulnerabilitiesEntitiesResponseV2 domain s p API vulnerabilities entities response v2
+// DomainSPAPICombinedVulnerabilitiesResponse domain s p API combined vulnerabilities response
 //
-// swagger:model domain.SPAPIVulnerabilitiesEntitiesResponseV2
-type DomainSPAPIVulnerabilitiesEntitiesResponseV2 struct {
+// swagger:model domain.SPAPICombinedVulnerabilitiesResponse
+type DomainSPAPICombinedVulnerabilitiesResponse struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *DomainMetaInfo `json:"meta"`
+	Meta *DomainSPAPIQueryVulnerabilitiesMeta `json:"meta"`
 
 	// resources
 	// Required: true
-	Resources []*DomainAPIVulnerabilityV2 `json:"resources"`
+	Resources []*DomainBaseAPIVulnerabilityV2 `json:"resources"`
 }
 
-// Validate validates this domain s p API vulnerabilities entities response v2
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) Validate(formats strfmt.Registry) error {
+// Validate validates this domain s p API combined vulnerabilities response
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) Validate(formats strfmt.R
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateErrors(formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateErrors(formats st
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateMeta(formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,7 +100,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateMeta(formats strf
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateResources(formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -127,8 +127,8 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) validateResources(formats
 	return nil
 }
 
-// ContextValidate validate this domain s p API vulnerabilities entities response v2 based on the context it is used
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this domain s p API combined vulnerabilities response based on the context it is used
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -149,7 +149,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) ContextValidate(ctx conte
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -169,7 +169,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateErrors(ctx
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -185,7 +185,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateMeta(ctx c
 	return nil
 }
 
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -206,7 +206,7 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) contextValidateResources(
 }
 
 // MarshalBinary interface implementation
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) MarshalBinary() ([]byte, error) {
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -214,8 +214,8 @@ func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) MarshalBinary() ([]byte, 
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainSPAPIVulnerabilitiesEntitiesResponseV2) UnmarshalBinary(b []byte) error {
-	var res DomainSPAPIVulnerabilitiesEntitiesResponseV2
+func (m *DomainSPAPICombinedVulnerabilitiesResponse) UnmarshalBinary(b []byte) error {
+	var res DomainSPAPICombinedVulnerabilitiesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
