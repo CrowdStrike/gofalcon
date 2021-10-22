@@ -28,6 +28,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CombinedQueryVulnerabilities(params *CombinedQueryVulnerabilitiesParams, opts ...ClientOption) (*CombinedQueryVulnerabilitiesOK, error)
+
 	GetRemediationsV2(params *GetRemediationsV2Params, opts ...ClientOption) (*GetRemediationsV2OK, error)
 
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
@@ -35,6 +37,43 @@ type ClientService interface {
 	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CombinedQueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability entities which match the filter criteria
+*/
+func (a *Client) CombinedQueryVulnerabilities(params *CombinedQueryVulnerabilitiesParams, opts ...ClientOption) (*CombinedQueryVulnerabilitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedQueryVulnerabilitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "combinedQueryVulnerabilities",
+		Method:             "GET",
+		PathPattern:        "/spotlight/combined/vulnerabilities/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedQueryVulnerabilitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedQueryVulnerabilitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CombinedQueryVulnerabilitiesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
