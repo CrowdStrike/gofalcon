@@ -17,6 +17,7 @@ gofalcon
 gosec
 hostnames
 initialisation
+intel
 iocs
 oauth
 pre
