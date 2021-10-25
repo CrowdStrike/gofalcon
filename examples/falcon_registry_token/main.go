@@ -41,7 +41,11 @@ Falcon Client Secret`)
 	}
 	payload := res.GetPayload()
 	if err = falcon.AssertNoError(payload.Errors); err != nil {
-		panic(err)
+		traceId := ""
+		if payload.Meta != nil && payload.Meta.TraceID != nil {
+			traceId = *payload.Meta.TraceID
+		}
+		fmt.Fprintf(os.Stderr, "WARNING: %v (trace_id=%s)", err, traceId)
 	}
 	resources := payload.Resources
 	resourcesList := resources.([]interface{})
