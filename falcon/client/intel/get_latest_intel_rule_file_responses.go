@@ -32,6 +32,12 @@ func (o *GetLatestIntelRuleFileReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return result, nil
+	case 304:
+		result := NewGetLatestIntelRuleFileNotModified()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 400:
 		result := NewGetLatestIntelRuleFileBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -134,6 +140,27 @@ func (o *GetLatestIntelRuleFileOK) readResponse(response runtime.ClientResponse,
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
+
+	return nil
+}
+
+// NewGetLatestIntelRuleFileNotModified creates a GetLatestIntelRuleFileNotModified with default headers values
+func NewGetLatestIntelRuleFileNotModified() *GetLatestIntelRuleFileNotModified {
+	return &GetLatestIntelRuleFileNotModified{}
+}
+
+/* GetLatestIntelRuleFileNotModified describes a response with status code 304, with default header values.
+
+Not Modified
+*/
+type GetLatestIntelRuleFileNotModified struct {
+}
+
+func (o *GetLatestIntelRuleFileNotModified) Error() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
+}
+
+func (o *GetLatestIntelRuleFileNotModified) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }

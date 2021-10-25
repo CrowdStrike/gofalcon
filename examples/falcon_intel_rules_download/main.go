@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"context"
 	"flag"
 	"fmt"
@@ -20,6 +22,7 @@ func main() {
 	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 	intelRuleType := flag.String("rule-type", "", fmt.Sprintf("Falcon Intelligence Rule Type: available types: %s", intel.RuleTypeValidValues))
+	since := flag.String("since", "", "Download file only if it was not modified since the given date. Example value: 'Fri, 16 Oct 2021 11:04:27 GMT'")
 	flag.Parse()
 
 	if *clientId == "" {
@@ -48,42 +51,50 @@ Falcon Client Secret`)
 	}
 
 	intelType := *intelRuleType
-	filepath := fmt.Sprintf("%s.tar.gz", intelType)
-	fmt.Printf("Downloading file %s\n", filepath)
-	err = DownloadLatestRuleFile(client, filepath, intelType)
+	fmt.Printf("Downloading %s\n", *intelRuleType)
+	buffer, err := DownloadLatestRuleFile(client, intelType, since)
 	if err != nil {
 		panic(err)
+	}
+	if buffer != nil {
+		filename := fmt.Sprintf("%s.tar.gz", intelType)
+		fmt.Printf("Storing as %s\n", filename)
+		safeLocation := filepath.Clean(filename)
+		if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
+			panic("Suspicious file location: " + safeLocation)
+		}
 
+		file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
+		if err != nil {
+			panic(err)
+		}
+
+		/* #nosec */
+		defer func() {
+			// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
+			if err := file.Close(); err != nil {
+				fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
+			}
+		}()
 	}
 }
 
-func DownloadLatestRuleFile(client *client.CrowdStrikeAPISpecification, filename, intelType string) error {
-	safeLocation := filepath.Clean(filename)
-	if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
-		panic("Suspicious file location: " + safeLocation)
-	}
-
-	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
-	if err != nil {
-		return err
-	}
-
-	/* #nosec */
-	defer func() {
-		// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
-		if err := file.Close(); err != nil {
-			fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
-		}
-	}()
-
+func DownloadLatestRuleFile(client *client.CrowdStrikeAPISpecification, intelType string, ifModifiedSince *string) (*bytes.Buffer, error) {
+	var buffer bytes.Buffer
 	gzip := "gzip"
-	_, err = client.Intel.GetLatestIntelRuleFile(&intel.GetLatestIntelRuleFileParams{
-		Context: context.Background(),
-		Type:    intelType,
-		Format:  &gzip,
-	}, file)
+
+	_, err := client.Intel.GetLatestIntelRuleFile(&intel.GetLatestIntelRuleFileParams{
+		Context:         context.Background(),
+		Type:            intelType,
+		Format:          &gzip,
+		IfModifiedSince: ifModifiedSince,
+	}, bufio.NewWriter(&buffer))
+
 	if err != nil {
-		return err
+		if success := err.(*intel.GetLatestIntelRuleFileNotModified); success != nil {
+			// File has not changed, return empty buffer
+			return nil, nil
+		}
 	}
-	return nil
+	return &buffer, err
 }
