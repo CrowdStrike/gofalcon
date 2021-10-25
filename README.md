@@ -14,6 +14,7 @@ Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.co
 | [falcon_sensor_download](examples/falcon_sensor_download) | stand-alone tool that can be used to download CrowdStrike Falcon Sensor |
 | [falcon_event_stream](examples/falcon_event_stream) | stand-alone tool that can be used to stream events as they happen in CrowdStrike Falcon Console |
 | [falcon_cleanup_pods](examples/falcon_cleanup_pods) | stand-alone tool that can be used to clean-up inactive pods from CrowdStrike Falcon Console | 
+| [falcon_get_cid](examples/falcon_get_cid) | stand-alone tool that can be used to get Customer ID based on the API key pair |
 | [falcon_iocs](examples/falcon_iocs) | stand-alone tool that can be used to add, delete or list Custom IOCs in the CrowdStrike Falcon Console | 
 | [falcon_intel_rules_download](examples/falcon_intel_rules_download) | stand-alone tool that downloads CrowdStrike Falcon Intelligence Rule files |
 | [falcon_host_details](examples/falcon_host_details) | stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform |
