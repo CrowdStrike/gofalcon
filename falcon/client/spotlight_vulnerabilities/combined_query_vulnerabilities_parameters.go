@@ -303,8 +303,8 @@ func (o *CombinedQueryVulnerabilitiesParams) bindParamFacet(formats strfmt.Regis
 		facetIC = append(facetIC, facetIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	facetIS := swag.JoinByFormat(facetIC, "csv")
+	// items.CollectionFormat: "multi"
+	facetIS := swag.JoinByFormat(facetIC, "multi")
 
 	return facetIS
 }
