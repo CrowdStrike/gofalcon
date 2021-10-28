@@ -16,6 +16,7 @@ detections
 dev
 gofalcon
 gosec
+hostname
 hostnames
 initialisation
 intel
