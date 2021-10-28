@@ -4,6 +4,7 @@ CodeQL
 CrowdScore
 CrowdStrike
 CrowdStrike's
+FQL
 Golang
 IOCs
 JSON
@@ -21,6 +22,7 @@ hostnames
 initialisation
 intel
 iocs
+jq
 oauth
 pre
 stdout

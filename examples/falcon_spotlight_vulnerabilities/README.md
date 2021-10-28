@@ -2,7 +2,7 @@
 
 [Falcon Spotlight](https://www.crowdstrike.com/endpoint-security-products/falcon-spotlight-vulnerability-management/) is CrowdStrike service that provides real-time visibility across your enterprise — giving you relevant and timely information you need to reduce your exposure to attacks with zero impact on your endpoints.
 
-This page re-resents stand-alone tool that uses Falcon Spotlight API to query the vulnerabilities affecting your environment and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+This page represents a stand-alone tool that uses Falcon Spotlight API to query the vulnerabilities affecting your environment and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
 
 ## Installation
 
@@ -56,3 +56,11 @@ $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
     falcon_spotlight_vulnerabilities --filter="cve.severity:'CRITICAL'" \
     | jq -r 'map( {"cve":.cve.id, "hostname": .host_info.hostname} ) | group_by(.hostname)[] | {(.[0].hostname): [.[] | .cve]}'
 ```
+
+List vulnerabilities except those of low and medium severity, **sort** by the time last updated timestamp.
+```
+$ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
+    falcon_spotlight_vulnerabilities --filter='cve.severity:!["LOW","MEDIUM"]' --sort="updated_timestamp.desc"
+```
+
+Please Refer to [Falcon Spotlight API documentation](https://falcon.crowdstrike.com/documentation/98/spotlight-apis) to learn more about FQL filter and FQL sort parameters, about the meaning of the vulnerability entity properties, and best practices. Further, please refer to [jq tool manual](https://stedolan.github.io/jq/manual/) to learn how to effectively post-process JSON outputs in command-line.

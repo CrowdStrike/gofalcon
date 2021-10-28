@@ -19,7 +19,8 @@ func main() {
 	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
-	filter := flag.String("filter", "", "Vulnerability search expession using Falcon Query Language (FQL)")
+	filter := flag.String("filter", "", "Vulnerability search expression using Falcon Query Language (FQL)")
+	sort := flag.String("sort", "", "Vulnerability sort expression using Falcon Query Language (FQL) ")
 	flag.Parse()
 
 	if *clientId == "" {
@@ -43,6 +44,9 @@ Examples:
 filter`)
 		*filter = strings.TrimSpace(*filter)
 	}
+	if *sort == "" {
+		sort = nil
+	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
 		ClientId:     *clientId,
@@ -56,7 +60,7 @@ filter`)
 		panic(err)
 	}
 
-	vulnerabilityBatches := queryVulnerabilities(client, *filter)
+	vulnerabilityBatches := queryVulnerabilities(client, *filter, sort)
 
 	fmt.Println("[")
 	empty := true
@@ -78,7 +82,7 @@ filter`)
 	fmt.Println("]")
 }
 
-func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter string) <-chan []*models.DomainBaseAPIVulnerabilityV2 {
+func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter string, sort *string) <-chan []*models.DomainBaseAPIVulnerabilityV2 {
 	vulnsBatches := make(chan []*models.DomainBaseAPIVulnerabilityV2)
 
 	go func() {
@@ -89,6 +93,7 @@ func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter str
 					Context: context.Background(),
 					Facet:   []string{"cve", "host_info", "remediation"},
 					Filter:  filter,
+					Sort:    sort,
 					After:   lastSeen,
 				},
 			)
