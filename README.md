@@ -19,6 +19,7 @@ Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.co
 | [falcon_intel_rules_download](examples/falcon_intel_rules_download) | stand-alone tool that downloads CrowdStrike Falcon Intelligence Rule files |
 | [falcon_host_details](examples/falcon_host_details) | stand-alone tool that outputs inventory of hosts registered to CrowdStrike Falcon platform |
 | [falcon_registry_token](examples/falcon_registry_token) | helper to generate container registry logic information for `docker login` |
+| [falcon_spotlight_vulnerabilities](examples/falcon_spotlight_vulnerabilities) | stand-alone tool that outputs inventory of vulnerabilities affecting your environment |
 
 Gofalcon is an open source project, not a CrowdStrike product. As such, it carries
 no formal support, expressed or implied.

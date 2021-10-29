@@ -83,6 +83,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_spotlight_vulnerabilities
+    binary: falcon_spotlight_vulnerabilities
+    main: ./examples/falcon_spotlight_vulnerabilities
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
 
 archives:
 - replacements:
@@ -130,6 +144,10 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_iocs
       - src: examples/falcon_host_details
         dst: /usr/share/doc/gofalcon/falcon_host_details
+      - src: examples/falcon_registry_token
+        dst: /usr/share/doc/gofalcon/falcon_registry_token
+      - src: examples/falcon_spotlight_vulnerabilities
+        dst: /usr/share/doc/gofalcon/falcon_spotlight_vulnerabilities
 
     homepage: github.com/crowdstrike/gofalcon
     license: MIT
