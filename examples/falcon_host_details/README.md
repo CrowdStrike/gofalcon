@@ -32,3 +32,19 @@ List hosts and agent versions as key-value dictionary
 ```
 falcon_host_details  | jq -r ' map( { (.hostname) : .agent_version } ) | add'
 ```
+
+List hosts of particular operating system (using FQL (Falcon Query Language))
+```
+falcon_host_details --filter="platform_name:'Windows'"
+```
+
+List Kubernetes pods (protected by CrowdStrike Falcon Container) that have been running during past 7 days, show only pod names, agent versions and cloud information.
+```
+week_ago=$(date -jf %s $(( $(date +%s) - 86400 * 7 )) +%Y-%m-%d)
+falcon_host_details --filter="product_type_desc:'Pod'+last_seen:>='${week_ago}'" \
+    | jq -r 'map({(.device_id): {"agent_version": .agent_version, "cloud": .service_provider, "pod_name": .pod_name}}) | add'
+```
+
+Please Refer to [Falcon Hosts API documentation](https://falcon.crowdstrike.com/documentation/84/host-and-host-group-management-apis) to learn more about FQL filter parameter, about the meaning of the entity properties, and best practices.
+Further, please refer to [jq tool manual](https://stedolan.github.io/jq/manual/) to learn how to effectively post-process JSON outputs in command-line.
+

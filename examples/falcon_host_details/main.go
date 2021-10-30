@@ -18,6 +18,7 @@ func main() {
 	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
 	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
+	filter := flag.String("filter", "", "Host search expression using Falcon Query Language (FQL)")
 
 	flag.Parse()
 
@@ -28,6 +29,9 @@ Falcon Client ID`)
 	if *clientSecret == "" {
 		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client Secret`)
+	}
+	if *filter == "" {
+		filter = nil
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -43,7 +47,7 @@ Falcon Client Secret`)
 
 	fmt.Println("[")
 	empty := true
-	for hostIdBatch := range getHostIds(client) {
+	for hostIdBatch := range getHostIds(client, filter) {
 		hostDetailBatch := getHostsDetails(client, hostIdBatch)
 		for _, host := range hostDetailBatch {
 			json, err := falcon_util.PrettyJson(host)
@@ -77,7 +81,7 @@ func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []strin
 	return response.Payload.Resources
 }
 
-func getHostIds(client *client.CrowdStrikeAPISpecification) <-chan []string {
+func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-chan []string {
 	hostIds := make(chan []string)
 
 	go func() {
@@ -86,6 +90,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification) <-chan []string {
 			response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
 				Limit:   &limit,
 				Offset:  &offset,
+				Filter:  filter,
 				Context: context.Background(),
 			})
 			if err != nil {
