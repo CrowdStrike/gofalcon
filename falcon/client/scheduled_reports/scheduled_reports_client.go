@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	ScheduledReportsGet(params *ScheduledReportsGetParams, opts ...ClientOption) (*ScheduledReportsGetOK, error)
 
+	ScheduledReportsLaunch(params *ScheduledReportsLaunchParams, opts ...ClientOption) (*ScheduledReportsLaunchOK, error)
+
 	ScheduledReportsQuery(params *ScheduledReportsQueryParams, opts ...ClientOption) (*ScheduledReportsQueryOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -69,6 +71,43 @@ func (a *Client) ScheduledReportsGet(params *ScheduledReportsGetParams, opts ...
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*ScheduledReportsGetDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  ScheduledReportsLaunch launches scheduled reports executions for the provided report i ds
+*/
+func (a *Client) ScheduledReportsLaunch(params *ScheduledReportsLaunchParams, opts ...ClientOption) (*ScheduledReportsLaunchOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewScheduledReportsLaunchParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "scheduled-reports.launch",
+		Method:             "POST",
+		PathPattern:        "/reports/entities/scheduled-reports/execution/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ScheduledReportsLaunchReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ScheduledReportsLaunchOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ScheduledReportsLaunchDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
