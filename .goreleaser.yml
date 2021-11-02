@@ -97,6 +97,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_intel_indicators
+    binary: falcon_intel_indicators
+    main: ./examples/falcon_intel_indicators
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
 
 archives:
 - replacements:
@@ -148,6 +162,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_registry_token
       - src: examples/falcon_spotlight_vulnerabilities
         dst: /usr/share/doc/gofalcon/falcon_spotlight_vulnerabilities
+      - src: examples/falcon_intel_indicators
+        dst: /usr/share/doc/gofalcon/falcon_intel_indicators
 
     homepage: github.com/crowdstrike/gofalcon
     license: MIT
