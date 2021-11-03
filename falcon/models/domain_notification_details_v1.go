@@ -43,7 +43,7 @@ type DomainNotificationDetailsV1 struct {
 	// The raw intelligence item title
 	Title string `json:"title,omitempty"`
 
-	// The ID of the notifications
+	// The type of the raw intelligence item
 	// Required: true
 	Type *string `json:"type"`
 

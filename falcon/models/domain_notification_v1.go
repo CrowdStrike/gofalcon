@@ -28,6 +28,9 @@ type DomainNotificationV1 struct {
 	// The unique ID of the user who is assigned to this notification
 	AssignedToUUID string `json:"assigned_to_uuid,omitempty"`
 
+	// Summary of the data breach which matched the rule
+	BreachSummary *DomainMatchedBreachSummaryV1 `json:"breach_summary,omitempty"`
+
 	// The date when the notification was generated
 	// Required: true
 	// Format: date-time
@@ -40,16 +43,22 @@ type DomainNotificationV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// Timestamp when the intelligence item is considered to have been posted
+	// The author who posted the intelligence item
+	ItemAuthor string `json:"item_author,omitempty"`
+
+	// Timestamp when the item is considered to have been created
 	// Required: true
 	// Format: date-time
 	ItemDate *strfmt.DateTime `json:"item_date"`
 
-	// ID of the intelligence item which generated the match
+	// ID of the item which matched the rule
 	// Required: true
 	ItemID *string `json:"item_id"`
 
-	// Type of intelligence item based on format, e.g. post, reply, botnet_config
+	// The site where the intelligence item was found
+	ItemSite string `json:"item_site,omitempty"`
+
+	// Type of the item which matched the rule: 'post', 'reply', 'botnet_config', 'breach', etc.
 	// Required: true
 	ItemType *string `json:"item_type"`
 
@@ -61,15 +70,15 @@ type DomainNotificationV1 struct {
 	// Required: true
 	RuleName *string `json:"rule_name"`
 
-	// rule priority
+	// The priority of the rule that generated this notification
 	// Required: true
 	RulePriority *string `json:"rule_priority"`
 
-	// rule topic
+	// The topic of the rule that generated this notification
 	// Required: true
 	RuleTopic *string `json:"rule_topic"`
 
-	// The notification status. This can be one of: new, in-progress, closed-false-positive, closed-true-positive.
+	// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
 	// Required: true
 	Status *string `json:"status"`
 
@@ -82,6 +91,10 @@ type DomainNotificationV1 struct {
 // Validate validates this domain notification v1
 func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBreachSummary(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCreatedDate(formats); err != nil {
 		res = append(res, err)
@@ -130,6 +143,25 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainNotificationV1) validateBreachSummary(formats strfmt.Registry) error {
+	if swag.IsZero(m.BreachSummary) { // not required
+		return nil
+	}
+
+	if m.BreachSummary != nil {
+		if err := m.BreachSummary.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("breach_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("breach_summary")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -244,8 +276,33 @@ func (m *DomainNotificationV1) validateUpdatedDate(formats strfmt.Registry) erro
 	return nil
 }
 
-// ContextValidate validates this domain notification v1 based on context it is used
+// ContextValidate validate this domain notification v1 based on the context it is used
 func (m *DomainNotificationV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBreachSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainNotificationV1) contextValidateBreachSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BreachSummary != nil {
+		if err := m.BreachSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("breach_summary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("breach_summary")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
