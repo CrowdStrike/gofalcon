@@ -19,9 +19,15 @@ import (
 // swagger:model domain.DetailedNotificationV1
 type DomainDetailedNotificationV1 struct {
 
+	// breach details
+	BreachDetails *DomainBreachDetailsV1 `json:"breach_details,omitempty"`
+
 	// details
+	Details *DomainNotificationDetailsV1 `json:"details,omitempty"`
+
+	// id
 	// Required: true
-	Details *DomainNotificationDetailsV1 `json:"details"`
+	ID *string `json:"id"`
 
 	// notification
 	// Required: true
@@ -32,7 +38,15 @@ type DomainDetailedNotificationV1 struct {
 func (m *DomainDetailedNotificationV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBreachDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDetails(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,10 +60,28 @@ func (m *DomainDetailedNotificationV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainDetailedNotificationV1) validateDetails(formats strfmt.Registry) error {
+func (m *DomainDetailedNotificationV1) validateBreachDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.BreachDetails) { // not required
+		return nil
+	}
 
-	if err := validate.Required("details", "body", m.Details); err != nil {
-		return err
+	if m.BreachDetails != nil {
+		if err := m.BreachDetails.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("breach_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("breach_details")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainDetailedNotificationV1) validateDetails(formats strfmt.Registry) error {
+	if swag.IsZero(m.Details) { // not required
+		return nil
 	}
 
 	if m.Details != nil {
@@ -61,6 +93,15 @@ func (m *DomainDetailedNotificationV1) validateDetails(formats strfmt.Registry) 
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainDetailedNotificationV1) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
 	}
 
 	return nil
@@ -90,6 +131,10 @@ func (m *DomainDetailedNotificationV1) validateNotification(formats strfmt.Regis
 func (m *DomainDetailedNotificationV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBreachDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateDetails(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -101,6 +146,22 @@ func (m *DomainDetailedNotificationV1) ContextValidate(ctx context.Context, form
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDetailedNotificationV1) contextValidateBreachDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BreachDetails != nil {
+		if err := m.BreachDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("breach_details")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("breach_details")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
