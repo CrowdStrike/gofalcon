@@ -28,99 +28,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*CreateIOCOK, error)
-
-	DeleteIOC(params *DeleteIOCParams, opts ...ClientOption) (*DeleteIOCOK, error)
-
 	DevicesCount(params *DevicesCountParams, opts ...ClientOption) (*DevicesCountOK, error)
 
 	DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) (*DevicesRanOnOK, error)
 
-	GetIOC(params *GetIOCParams, opts ...ClientOption) (*GetIOCOK, error)
-
 	ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOption) (*ProcessesRanOnOK, error)
-
-	QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*QueryIOCsOK, error)
-
-	UpdateIOC(params *UpdateIOCParams, opts ...ClientOption) (*UpdateIOCOK, error)
 
 	EntitiesProcesses(params *EntitiesProcessesParams, opts ...ClientOption) (*EntitiesProcessesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-  CreateIOC ds e p r e c a t e d use the new i o c management endpoint p o s t iocs entities indicators v1 create a new i o c
-*/
-func (a *Client) CreateIOC(params *CreateIOCParams, opts ...ClientOption) (*CreateIOCOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateIOCParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateIOC",
-		Method:             "POST",
-		PathPattern:        "/indicators/entities/iocs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateIOCReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateIOCOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*CreateIOCDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  DeleteIOC ds e p r e c a t e d use the new i o c management endpoint d e l e t e iocs entities indicators v1 delete an i o c by providing a type and value
-*/
-func (a *Client) DeleteIOC(params *DeleteIOCParams, opts ...ClientOption) (*DeleteIOCOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteIOCParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "DeleteIOC",
-		Method:             "DELETE",
-		PathPattern:        "/indicators/entities/iocs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteIOCReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*DeleteIOCOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*DeleteIOCDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -198,43 +114,6 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) 
 }
 
 /*
-  GetIOC ds e p r e c a t e d use the new i o c management endpoint g e t iocs entities indicators v1 get an i o c by providing a type and value
-*/
-func (a *Client) GetIOC(params *GetIOCParams, opts ...ClientOption) (*GetIOCOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetIOCParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetIOC",
-		Method:             "GET",
-		PathPattern:        "/indicators/entities/iocs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetIOCReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetIOCOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetIOCDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
   ProcessesRanOn searches for processes associated with a custom i o c
 */
 func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOption) (*ProcessesRanOnOK, error) {
@@ -268,80 +147,6 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOpti
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*ProcessesRanOnDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  QueryIOCs ds e p r e c a t e d use the new i o c management endpoint g e t iocs queries indicators v1 search the custom i o cs in your customer account
-*/
-func (a *Client) QueryIOCs(params *QueryIOCsParams, opts ...ClientOption) (*QueryIOCsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryIOCsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QueryIOCs",
-		Method:             "GET",
-		PathPattern:        "/indicators/queries/iocs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QueryIOCsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QueryIOCsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*QueryIOCsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  UpdateIOC ds e p r e c a t e d use the new i o c management endpoint p a t c h iocs entities indicators v1 update an i o c by providing a type and value
-*/
-func (a *Client) UpdateIOC(params *UpdateIOCParams, opts ...ClientOption) (*UpdateIOCOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateIOCParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "UpdateIOC",
-		Method:             "PATCH",
-		PathPattern:        "/indicators/entities/iocs/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdateIOCReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*UpdateIOCOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*UpdateIOCDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
