@@ -70,7 +70,7 @@ type CombinedQueryVulnerabilitiesParams struct {
 
 	     Select various details blocks to be returned for each vulnerability entity. Supported values:
 
-	<ul><li>host_info</li><li>remediation_details</li><li>cve_details</li></ul>
+	<ul><li>host_info</li><li>remediation</li><li>cve</li></ul>
 	*/
 	Facet []string
 
