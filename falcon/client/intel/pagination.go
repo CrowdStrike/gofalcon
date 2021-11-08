@@ -15,8 +15,11 @@ func (o *QueryIntelIndicatorEntitiesOK) Paginate() ClientOption {
 				operation.PathPattern = o.NextPage
 				params, ok := operation.Params.(*QueryIntelIndicatorEntitiesParams)
 				if ok {
-					params.Offset = nil
-					params.Filter = nil
+					operation.Params = &QueryIntelIndicatorEntitiesParams{
+						Context:    params.Context,
+						HTTPClient: params.HTTPClient,
+						timeout:    params.timeout,
+					}
 				}
 			}
 		}
@@ -34,8 +37,11 @@ func (o *QueryIntelIndicatorIdsOK) Paginate() ClientOption {
 				operation.PathPattern = o.NextPage
 				params, ok := operation.Params.(*QueryIntelIndicatorIdsParams)
 				if ok {
-					params.Offset = nil
-					params.Filter = nil
+					operation.Params = &QueryIntelIndicatorIdsParams{
+						Context:    params.Context,
+						HTTPClient: params.HTTPClient,
+						timeout:    params.timeout,
+					}
 				}
 			}
 		}

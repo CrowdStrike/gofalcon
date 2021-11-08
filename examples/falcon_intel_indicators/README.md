@@ -23,7 +23,7 @@ filter:
 Providing FQL filter on command-line and counting the results.
 ```
 $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
-      falcon_intel_indicators
+      falcon_intel_indicators \
       --filter="type:'url'+malicious_confidence:'Medium'"  | jq length
 ```
 
