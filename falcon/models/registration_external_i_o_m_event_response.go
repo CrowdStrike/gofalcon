@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RegistrationExternalIOAEventResponse registration external i o a event response
+// RegistrationExternalIOMEventResponse registration external i o m event response
 //
-// swagger:model registration.ExternalIOAEventResponse
-type RegistrationExternalIOAEventResponse struct {
+// swagger:model registration.ExternalIOMEventResponse
+type RegistrationExternalIOMEventResponse struct {
 
 	// errors
 	// Required: true
@@ -29,12 +29,11 @@ type RegistrationExternalIOAEventResponse struct {
 	Meta *RegistrationMSAMetaInfoExtension `json:"meta"`
 
 	// resources
-	// Required: true
-	Resources *RegistrationExternalIOAResources `json:"resources"`
+	Resources *RegistrationIOMResources `json:"resources,omitempty"`
 }
 
-// Validate validates this registration external i o a event response
-func (m *RegistrationExternalIOAEventResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this registration external i o m event response
+func (m *RegistrationExternalIOMEventResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +54,7 @@ func (m *RegistrationExternalIOAEventResponse) Validate(formats strfmt.Registry)
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) validateErrors(formats strfmt.Registry) error {
+func (m *RegistrationExternalIOMEventResponse) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -82,7 +81,7 @@ func (m *RegistrationExternalIOAEventResponse) validateErrors(formats strfmt.Reg
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) validateMeta(formats strfmt.Registry) error {
+func (m *RegistrationExternalIOMEventResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,10 +101,9 @@ func (m *RegistrationExternalIOAEventResponse) validateMeta(formats strfmt.Regis
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) validateResources(formats strfmt.Registry) error {
-
-	if err := validate.Required("resources", "body", m.Resources); err != nil {
-		return err
+func (m *RegistrationExternalIOMEventResponse) validateResources(formats strfmt.Registry) error {
+	if swag.IsZero(m.Resources) { // not required
+		return nil
 	}
 
 	if m.Resources != nil {
@@ -122,8 +120,8 @@ func (m *RegistrationExternalIOAEventResponse) validateResources(formats strfmt.
 	return nil
 }
 
-// ContextValidate validate this registration external i o a event response based on the context it is used
-func (m *RegistrationExternalIOAEventResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this registration external i o m event response based on the context it is used
+func (m *RegistrationExternalIOMEventResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -144,7 +142,7 @@ func (m *RegistrationExternalIOAEventResponse) ContextValidate(ctx context.Conte
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *RegistrationExternalIOMEventResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -164,7 +162,7 @@ func (m *RegistrationExternalIOAEventResponse) contextValidateErrors(ctx context
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *RegistrationExternalIOMEventResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -180,7 +178,7 @@ func (m *RegistrationExternalIOAEventResponse) contextValidateMeta(ctx context.C
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *RegistrationExternalIOMEventResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Resources != nil {
 		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
@@ -197,7 +195,7 @@ func (m *RegistrationExternalIOAEventResponse) contextValidateResources(ctx cont
 }
 
 // MarshalBinary interface implementation
-func (m *RegistrationExternalIOAEventResponse) MarshalBinary() ([]byte, error) {
+func (m *RegistrationExternalIOMEventResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -205,8 +203,8 @@ func (m *RegistrationExternalIOAEventResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RegistrationExternalIOAEventResponse) UnmarshalBinary(b []byte) error {
-	var res RegistrationExternalIOAEventResponse
+func (m *RegistrationExternalIOMEventResponse) UnmarshalBinary(b []byte) error {
+	var res RegistrationExternalIOMEventResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

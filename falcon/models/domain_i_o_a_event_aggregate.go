@@ -18,6 +18,9 @@ import (
 // swagger:model domain.IOAEventAggregate
 type DomainIOAEventAggregate struct {
 
+	// cid severity
+	CidSeverity int32 `json:"cid_severity,omitempty"`
+
 	// confidence
 	Confidence int32 `json:"confidence,omitempty"`
 

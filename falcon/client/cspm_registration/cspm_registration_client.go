@@ -38,6 +38,8 @@ type ClientService interface {
 
 	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
 
+	GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts ...ClientOption) (*GetBehaviorDetectionsOK, error)
+
 	GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error)
 
 	GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAwsAccountScriptsAttachmentOK, error)
@@ -53,6 +55,8 @@ type ClientService interface {
 	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts ...ClientOption) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
 
 	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error)
+
+	GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error)
 
 	GetIOAEvents(params *GetIOAEventsParams, opts ...ClientOption) (*GetIOAEventsOK, error)
 
@@ -225,6 +229,43 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, op
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteCSPMAzureAccountDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetBehaviorDetections gets list of detected behaviors
+*/
+func (a *Client) GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts ...ClientOption) (*GetBehaviorDetectionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBehaviorDetectionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBehaviorDetections",
+		Method:             "GET",
+		PathPattern:        "/detects/entities/ioa/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetBehaviorDetectionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBehaviorDetectionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetBehaviorDetectionsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -530,6 +571,43 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetCSPMScanScheduleDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetConfigurationDetections gets list of active misconfigurations
+*/
+func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetConfigurationDetectionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetConfigurationDetections",
+		Method:             "GET",
+		PathPattern:        "/detects/entities/iom/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConfigurationDetectionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetConfigurationDetectionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetConfigurationDetectionsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

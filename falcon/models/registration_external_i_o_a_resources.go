@@ -15,37 +15,27 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RegistrationExternalIOAEventResp registration external i o a event resp
+// RegistrationExternalIOAResources registration external i o a resources
 //
-// swagger:model registration.ExternalIOAEventResp
-type RegistrationExternalIOAEventResp struct {
+// swagger:model registration.ExternalIOAResources
+type RegistrationExternalIOAResources struct {
 
 	// confidence
-	// Required: true
-	Confidence *string `json:"confidence"`
+	Confidence string `json:"confidence,omitempty"`
 
 	// events
 	// Required: true
 	Events []*RegistrationIOAEvent `json:"events"`
 
 	// max score
-	// Required: true
-	MaxScore *int32 `json:"max_score"`
+	MaxScore int32 `json:"max_score,omitempty"`
 }
 
-// Validate validates this registration external i o a event resp
-func (m *RegistrationExternalIOAEventResp) Validate(formats strfmt.Registry) error {
+// Validate validates this registration external i o a resources
+func (m *RegistrationExternalIOAResources) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateConfidence(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateEvents(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMaxScore(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,16 +45,7 @@ func (m *RegistrationExternalIOAEventResp) Validate(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResp) validateConfidence(formats strfmt.Registry) error {
-
-	if err := validate.Required("confidence", "body", m.Confidence); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *RegistrationExternalIOAEventResp) validateEvents(formats strfmt.Registry) error {
+func (m *RegistrationExternalIOAResources) validateEvents(formats strfmt.Registry) error {
 
 	if err := validate.Required("events", "body", m.Events); err != nil {
 		return err
@@ -91,17 +72,8 @@ func (m *RegistrationExternalIOAEventResp) validateEvents(formats strfmt.Registr
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResp) validateMaxScore(formats strfmt.Registry) error {
-
-	if err := validate.Required("max_score", "body", m.MaxScore); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// ContextValidate validate this registration external i o a event resp based on the context it is used
-func (m *RegistrationExternalIOAEventResp) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this registration external i o a resources based on the context it is used
+func (m *RegistrationExternalIOAResources) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateEvents(ctx, formats); err != nil {
@@ -114,7 +86,7 @@ func (m *RegistrationExternalIOAEventResp) ContextValidate(ctx context.Context, 
 	return nil
 }
 
-func (m *RegistrationExternalIOAEventResp) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
+func (m *RegistrationExternalIOAResources) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Events); i++ {
 
@@ -135,7 +107,7 @@ func (m *RegistrationExternalIOAEventResp) contextValidateEvents(ctx context.Con
 }
 
 // MarshalBinary interface implementation
-func (m *RegistrationExternalIOAEventResp) MarshalBinary() ([]byte, error) {
+func (m *RegistrationExternalIOAResources) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -143,8 +115,8 @@ func (m *RegistrationExternalIOAEventResp) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *RegistrationExternalIOAEventResp) UnmarshalBinary(b []byte) error {
-	var res RegistrationExternalIOAEventResp
+func (m *RegistrationExternalIOAResources) UnmarshalBinary(b []byte) error {
+	var res RegistrationExternalIOAResources
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

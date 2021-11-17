@@ -42,6 +42,9 @@ type RegistrationIOAEvent struct {
 	// cloud region
 	CloudRegion string `json:"cloud_region,omitempty"`
 
+	// enrichments
+	Enrichments *DomainIOAEnrichments `json:"enrichments,omitempty"`
+
 	// error code
 	ErrorCode string `json:"error_code,omitempty"`
 
@@ -76,6 +79,10 @@ type RegistrationIOAEvent struct {
 	// Required: true
 	PolicyID *int32 `json:"policy_id"`
 
+	// policy statement
+	// Required: true
+	PolicyStatement *string `json:"policy_statement"`
+
 	// read only
 	ReadOnly bool `json:"read_only,omitempty"`
 
@@ -94,8 +101,16 @@ type RegistrationIOAEvent struct {
 	// response elements
 	ResponseElements string `json:"response_elements,omitempty"`
 
+	// service
+	// Required: true
+	Service *string `json:"service"`
+
 	// service event details
 	ServiceEventDetails string `json:"service_event_details,omitempty"`
+
+	// severity
+	// Required: true
+	Severity *string `json:"severity"`
 
 	// shared event id
 	SharedEventID string `json:"shared_event_id,omitempty"`
@@ -148,7 +163,23 @@ func (m *RegistrationIOAEvent) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEnrichments(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePolicyID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePolicyStatement(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateService(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSeverity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -226,9 +257,55 @@ func (m *RegistrationIOAEvent) validateCloudProvider(formats strfmt.Registry) er
 	return nil
 }
 
+func (m *RegistrationIOAEvent) validateEnrichments(formats strfmt.Registry) error {
+	if swag.IsZero(m.Enrichments) { // not required
+		return nil
+	}
+
+	if m.Enrichments != nil {
+		if err := m.Enrichments.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("enrichments")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enrichments")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *RegistrationIOAEvent) validatePolicyID(formats strfmt.Registry) error {
 
 	if err := validate.Required("policy_id", "body", m.PolicyID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOAEvent) validatePolicyStatement(formats strfmt.Registry) error {
+
+	if err := validate.Required("policy_statement", "body", m.PolicyStatement); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOAEvent) validateService(formats strfmt.Registry) error {
+
+	if err := validate.Required("service", "body", m.Service); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOAEvent) validateSeverity(formats strfmt.Registry) error {
+
+	if err := validate.Required("severity", "body", m.Severity); err != nil {
 		return err
 	}
 
@@ -274,6 +351,10 @@ func (m *RegistrationIOAEvent) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateEnrichments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -304,6 +385,22 @@ func (m *RegistrationIOAEvent) contextValidateCloudAccountID(ctx context.Context
 				return ve.ValidateName("cloud_account_id")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cloud_account_id")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOAEvent) contextValidateEnrichments(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Enrichments != nil {
+		if err := m.Enrichments.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("enrichments")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enrichments")
 			}
 			return err
 		}
