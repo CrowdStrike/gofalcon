@@ -74,13 +74,9 @@ Falcon Client Secret`)
 			panic(err)
 		}
 
-		/* #nosec */
-		defer func() {
-			// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
-			if err := file.Close(); err != nil {
-				fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
-			}
-		}()
+		if err := file.Close(); err != nil {
+			panic(err)
+		}
 	}
 }
 

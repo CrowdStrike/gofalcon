@@ -101,13 +101,6 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(err)
 	}
-	/* #nosec */
-	defer func() {
-		// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
-		if err := file.Close(); err != nil {
-			fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
-		}
-	}()
 
 	_, err = client.SensorDownload.DownloadSensorInstallerByID(
 		&sensor_download.DownloadSensorInstallerByIDParams{
@@ -117,6 +110,11 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	if err != nil {
 		panic(falcon.ErrorExplain(err))
 	}
+
+	if err := file.Close(); err != nil {
+		panic(err)
+	}
+
 	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, filename)
 }
 
