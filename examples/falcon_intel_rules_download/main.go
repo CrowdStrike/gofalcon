@@ -35,7 +35,7 @@ Falcon Client Secret`)
 	}
 
 	if !intel.RuleType(*intelRuleType).Valid() {
-		*intelRuleType = falcon_util.PromptUser(fmt.Sprintf("Missing--rule-type argument. Valid options are %s. \nRequested Rule type", intel.RuleTypeValidValues))
+		*intelRuleType = falcon_util.PromptUser(fmt.Sprintf("Missing --rule-type argument. Valid options are %s. \nRequested Rule type", intel.RuleTypeValidValues))
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
