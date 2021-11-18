@@ -6,6 +6,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -35,7 +36,7 @@ Falcon Client Secret`)
 	}
 
 	if !intel.RuleType(*intelRuleType).Valid() {
-		*intelRuleType = falcon_util.PromptUser(fmt.Sprintf("Missing--rule-type argument. Valid options are %s. \nRequested Rule type", intel.RuleTypeValidValues))
+		*intelRuleType = falcon_util.PromptUser(fmt.Sprintf("Missing --rule-type argument. Valid options are %s. \nRequested Rule type", intel.RuleTypeValidValues))
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -69,13 +70,13 @@ Falcon Client Secret`)
 			panic(err)
 		}
 
-		/* #nosec */
-		defer func() {
-			// (ignore possibly false positive https://github.com/securego/gosec/issues/714)
-			if err := file.Close(); err != nil {
-				fmt.Fprintf(os.Stderr, "Error closing file: %s\n", err)
-			}
-		}()
+		if _, err = io.Copy(file, buffer); err != nil {
+			panic(err)
+		}
+
+		if err := file.Close(); err != nil {
+			panic(err)
+		}
 	}
 }
 
