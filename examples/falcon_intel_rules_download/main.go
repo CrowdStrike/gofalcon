@@ -6,6 +6,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -66,6 +67,10 @@ Falcon Client Secret`)
 
 		file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 		if err != nil {
+			panic(err)
+		}
+
+		if _, err = io.Copy(file, buffer); err != nil {
 			panic(err)
 		}
 
