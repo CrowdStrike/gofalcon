@@ -64,6 +64,7 @@ func NewOauth2AccessTokenCreated() *Oauth2AccessTokenCreated {
 Successfully issued token
 */
 type Oauth2AccessTokenCreated struct {
+	XCSRegion string
 
 	/* Request limit per minute.
 	 */
@@ -84,6 +85,13 @@ func (o *Oauth2AccessTokenCreated) GetPayload() *models.DomainAccessTokenRespons
 }
 
 func (o *Oauth2AccessTokenCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-Region
+	hdrXCSRegion := response.GetHeader("X-CS-Region")
+
+	if hdrXCSRegion != "" {
+		o.XCSRegion = hdrXCSRegion
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

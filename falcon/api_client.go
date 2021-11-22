@@ -16,6 +16,10 @@ import (
 // NewClient return newly configured API Client based on configuration supplied by user.
 // NewClient function is preferred entry-point to gofalcon SDK.
 func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
+	if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
+		return nil, err
+	}
+
 	config := clientcredentials.Config{
 		ClientID:     ac.ClientId,
 		ClientSecret: ac.ClientSecret,
