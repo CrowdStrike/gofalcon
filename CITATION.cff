@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: 'goFalcon: The CrowdStrike Falcon SDK for Golang'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: 
+    family-names: CrowdStrike
+  - given-names: Šimon
+    family-names: Lukašík
+    affiliation: CrowdStrike
+repository-code: 'https://github.com/CrowdStrike/gofalcon'
+url: 'https://pkg.go.dev/github.com/crowdstrike/gofalcon'
+repository-artifact: 'https://pkg.go.dev/github.com/crowdstrike/gofalcon'
+abstract: >-
+  Golang-based SDK to CrowdStrike Falcon APIs.
+keywords:
+  - crowdstrike
+  - oauth2
+  - crowdstrike-api
+  - crowdstrike-falcon-api
+  - golang
+  - windows
+  - linux
+  - mac
+license: MIT
