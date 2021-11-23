@@ -48,6 +48,9 @@ Falcon Client Secret`)
 	fmt.Println("[")
 	empty := true
 	for hostIdBatch := range getHostIds(client, filter) {
+		if len(hostIdBatch) == 0 {
+			continue
+		}
 		hostDetailBatch := getHostsDetails(client, hostIdBatch)
 		for _, host := range hostDetailBatch {
 			json, err := falcon_util.PrettyJson(host)
