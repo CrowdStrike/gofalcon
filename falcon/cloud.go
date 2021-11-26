@@ -33,6 +33,8 @@ func CloudValidate(cloudString string) (CloudType, error) {
 	lower := strings.ToLower(trimmed)
 	switch lower {
 	case "":
+		fallthrough
+	case "autodiscover":
 		return CloudAutoDiscover, nil
 	case "us-1":
 		return CloudUs1, nil
@@ -65,7 +67,7 @@ func (c CloudType) Host() string {
 func (c CloudType) String() string {
 	switch c {
 	case CloudAutoDiscover:
-		return ""
+		return "autodiscover"
 	case CloudUs1:
 		return "us-1"
 	case CloudUs2:
