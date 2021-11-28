@@ -48,7 +48,7 @@ jobs:
             echo "Please run: go fmt ./..."
             exit 1
         fi
-        if [ "$(go mod tidy -v)" -qt 0 ]; then
+        if [ "$(go mod tidy -v | wc -l)" -gt 0 ]; then
             go mod tidy -v
             echo "Please run: go mod tidy"
             exit 1
