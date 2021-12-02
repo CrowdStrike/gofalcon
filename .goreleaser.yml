@@ -41,6 +41,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_get_cid
+    binary: falcon_get_cid
+    main: ./examples/falcon_get_cid
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
   - id: falcon_iocs
     binary: falcon_iocs
     main: ./examples/falcon_iocs
@@ -111,6 +125,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_intel_rules_download
+    binary: falcon_intel_rules_download
+    main: ./examples/falcon_intel_rules_download
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
 
 archives:
 - replacements:
@@ -154,6 +182,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_cleanup_pods
       - src: examples/falcon_event_stream
         dst: /usr/share/doc/gofalcon/falcon_event_stream
+      - src: examples/falcon_get_cid
+        dst: /usr/share/doc/gofalcon/falcon_get_cid
       - src: examples/falcon_iocs
         dst: /usr/share/doc/gofalcon/falcon_iocs
       - src: examples/falcon_host_details
