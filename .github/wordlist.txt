@@ -16,6 +16,7 @@ cid
 detections
 dev
 gofalcon
+golang
 gosec
 hostname
 hostnames

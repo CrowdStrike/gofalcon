@@ -1,0 +1,80 @@
+#!/bin/sh
+
+set -e
+
+die() {
+    echo "Fatal error: $*" >&2
+    echo "OS: '$os', Arch: '$arch', uname: '$(uname -a)'" >&2
+    exit 1
+}
+
+os=$(
+    uname | awk '{print tolower($0)}'
+)
+
+arch=$(
+    case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac
+)
+
+latest_package_urls() {
+    curl -s https://api.github.com/repos/crowdstrike/gofalcon/releases/latest | grep '"browser_download_url":' | sed 's/"$//g ; s/^.*browser_download_url": "//g'
+}
+
+package_discriminator=$(
+    case "${os}" in
+        darwin)
+            if [ "$arch" = "amd64" ]; then
+                echo "macOS"
+            else
+                die "Unsupported architecture"
+            fi
+            ;;
+        linux)
+            pkg_arch=$(
+                echo "$arch" | sed s/amd64/x86_64/g
+            )
+
+            if type rpm > /dev/null 2>&1; then
+                echo "${pkg_arch}.rpm"
+            elif type dpkg > /dev/null 2>&1; then
+                echo "${pkg_arch}.deb"
+            else
+                die "Unsupported packaging system"
+            fi
+            ;;
+        *)
+            die "Unsupported OS"
+            ;;
+    esac
+)
+package_url=$(
+    latest_package_urls | grep "$package_discriminator"
+)
+
+package_install() {
+    pkg=$1
+    if type dnf > /dev/null 2>&1; then
+        dnf install -q -y "$pkg" || rpm -ivh --nodeps "$pkg"
+    elif type yum > /dev/null 2>&1; then
+        yum install -q -y "$pkg" || rpm -ivh --nodeps "$pkg"
+    elif type zypper > /dev/null 2>&1; then
+        zypper --quiet install -y "$pkg" || rpm -ivh --nodeps "$pkg"
+    elif type rpm > /dev/null 2>&1; then
+        rpm -ivh --nodeps "$pkg"
+    elif type apt-get > /dev/null 2>&1; then
+        file=$(curl -w "%{filename_effective}" -LO "$pkg")
+        dpkg -i "$file"
+        rm "$file"
+    else
+        die "Unsupported packaging system"
+    fi
+}
+
+package_install "$package_url"
+
+echo "   )"
+echo "  (__"
+echo "  _  )_"
+echo " (_)_(_)      Gofalcon examples installed"
+echo "  (o o)       Use 'falcon_<<TAB>>' to discover installed binaries"
+echo " ==\\o/=="
