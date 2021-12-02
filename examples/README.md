@@ -16,3 +16,19 @@ Some of these examples ready to be used as stand-alone programs.
  * [falcon_spotlight_vulnerabilities](falcon_spotlight_vulnerabilities) - stand-alone tool that outputs inventory of vulnerabilities affecting your environment
  * [stream_new_detections](stream_new_detections/) - small utility to poll for a new detections in CrowdStrike Console
  * [oauth_token](oauth_token/) - a example tool to obtain OAuth2 token for use outside of gofalcon
+
+## Installation
+
+Many of the examples are useful and valuable as a stand-alone tools. The following instructions can be used to install them all at once
+
+### Installation using local golang install
+
+```
+go get -u github.com/crowdstrike/gofalcon/examples/...
+```
+
+### Installation using packaging system (rpm/deb)
+
+```
+curl -sSfL https://raw.githubusercontent.com/crowdstrike/gofalcon/main/examples/install | sudo sh -s
+```
