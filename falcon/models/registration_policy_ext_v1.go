@@ -19,6 +19,10 @@ import (
 // swagger:model registration.PolicyExtV1
 type RegistrationPolicyExtV1 struct {
 
+	// account id
+	// Required: true
+	AccountID *string `json:"account_id"`
+
 	// enabled
 	// Required: true
 	Enabled *bool `json:"enabled"`
@@ -27,14 +31,26 @@ type RegistrationPolicyExtV1 struct {
 	// Required: true
 	PolicyID *int32 `json:"policy_id"`
 
+	// regions
+	// Required: true
+	Regions []string `json:"regions"`
+
 	// severity
 	// Required: true
 	Severity *string `json:"severity"`
+
+	// tag excluded
+	// Required: true
+	TagExcluded *bool `json:"tag_excluded"`
 }
 
 // Validate validates this registration policy ext v1
 func (m *RegistrationPolicyExtV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAccountID(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateEnabled(formats); err != nil {
 		res = append(res, err)
@@ -44,13 +60,30 @@ func (m *RegistrationPolicyExtV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRegions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSeverity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTagExcluded(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *RegistrationPolicyExtV1) validateAccountID(formats strfmt.Registry) error {
+
+	if err := validate.Required("account_id", "body", m.AccountID); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -72,9 +105,27 @@ func (m *RegistrationPolicyExtV1) validatePolicyID(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *RegistrationPolicyExtV1) validateRegions(formats strfmt.Registry) error {
+
+	if err := validate.Required("regions", "body", m.Regions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *RegistrationPolicyExtV1) validateSeverity(formats strfmt.Registry) error {
 
 	if err := validate.Required("severity", "body", m.Severity); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationPolicyExtV1) validateTagExcluded(formats strfmt.Registry) error {
+
+	if err := validate.Required("tag_excluded", "body", m.TagExcluded); err != nil {
 		return err
 	}
 

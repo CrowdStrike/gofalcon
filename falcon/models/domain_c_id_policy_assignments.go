@@ -26,6 +26,9 @@ type DomainCIDPolicyAssignments struct {
 	// cis benchmark
 	CisBenchmark []*DomainCIDPolicyAssignmentsCisBenchmark `json:"cis_benchmark"`
 
+	// cloud asset type
+	CloudAssetType string `json:"cloud_asset_type,omitempty"`
+
 	// cloud service
 	CloudService string `json:"cloud_service,omitempty"`
 
@@ -34,6 +37,9 @@ type DomainCIDPolicyAssignments struct {
 
 	// default severity
 	DefaultSeverity string `json:"default_severity,omitempty"`
+
+	// fql policy
+	FqlPolicy string `json:"fql_policy,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -56,6 +62,9 @@ type DomainCIDPolicyAssignments struct {
 
 	// policy type
 	PolicyType string `json:"policy_type,omitempty"`
+
+	// soc2 benchmark
+	Soc2Benchmark []*DomainCIDPolicyAssignmentsSoc2Benchmark `json:"soc2_benchmark"`
 }
 
 // Validate validates this domain c ID policy assignments
@@ -79,6 +88,10 @@ func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePolicyTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSoc2Benchmark(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -204,6 +217,32 @@ func (m *DomainCIDPolicyAssignments) validatePolicyTimestamp(formats strfmt.Regi
 	return nil
 }
 
+func (m *DomainCIDPolicyAssignments) validateSoc2Benchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.Soc2Benchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Soc2Benchmark); i++ {
+		if swag.IsZero(m.Soc2Benchmark[i]) { // not required
+			continue
+		}
+
+		if m.Soc2Benchmark[i] != nil {
+			if err := m.Soc2Benchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("soc2_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("soc2_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain c ID policy assignments based on the context it is used
 func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -221,6 +260,10 @@ func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidatePolicySettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSoc2Benchmark(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -300,6 +343,26 @@ func (m *DomainCIDPolicyAssignments) contextValidatePolicySettings(ctx context.C
 					return ve.ValidateName("policy_settings" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("policy_settings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateSoc2Benchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Soc2Benchmark); i++ {
+
+		if m.Soc2Benchmark[i] != nil {
+			if err := m.Soc2Benchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("soc2_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("soc2_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
