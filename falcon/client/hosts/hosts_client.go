@@ -46,6 +46,8 @@ type ClientService interface {
 
 	UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error)
 
+	EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -343,6 +345,43 @@ func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...Client
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdateDeviceTagsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  EntitiesPerformAction performs the specified action on the provided prevention policy i ds
+*/
+func (a *Client) EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesPerformActionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entities.perform_action",
+		Method:             "POST",
+		PathPattern:        "/devices/entities/group-actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesPerformActionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesPerformActionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EntitiesPerformActionDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
