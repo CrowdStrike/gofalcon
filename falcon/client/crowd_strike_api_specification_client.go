@@ -34,6 +34,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
+	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
@@ -122,6 +123,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Iocs = iocs.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
+	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
@@ -234,6 +236,8 @@ type CrowdStrikeAPISpecification struct {
 
 	Malquery malquery.ClientService
 
+	MessageCenter message_center.ClientService
+
 	MlExclusions ml_exclusions.ClientService
 
 	Mssp mssp.ClientService
@@ -304,6 +308,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Iocs.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
+	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
