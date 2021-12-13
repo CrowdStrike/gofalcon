@@ -82,6 +82,10 @@ type QueryIntelIndicatorEntitiesOK struct {
 	 */
 	NextPage string
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -107,6 +111,13 @@ func (o *QueryIntelIndicatorEntitiesOK) readResponse(response runtime.ClientResp
 
 	if hdrNextPage != "" {
 		o.NextPage = hdrNextPage
+	}
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
 	}
 
 	// hydrates response header X-RateLimit-Limit
@@ -152,6 +163,10 @@ Bad Request
 */
 type QueryIntelIndicatorEntitiesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -171,6 +186,13 @@ func (o *QueryIntelIndicatorEntitiesBadRequest) GetPayload() *models.MsaErrorsOn
 }
 
 func (o *QueryIntelIndicatorEntitiesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -215,6 +237,10 @@ Forbidden
 */
 type QueryIntelIndicatorEntitiesForbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -234,6 +260,13 @@ func (o *QueryIntelIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMeta
 }
 
 func (o *QueryIntelIndicatorEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -278,6 +311,10 @@ Too Many Requests
 */
 type QueryIntelIndicatorEntitiesTooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -301,6 +338,13 @@ func (o *QueryIntelIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaRep
 }
 
 func (o *QueryIntelIndicatorEntitiesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -356,6 +400,10 @@ Internal Server Error
 */
 type QueryIntelIndicatorEntitiesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -375,6 +423,13 @@ func (o *QueryIntelIndicatorEntitiesInternalServerError) GetPayload() *models.Ms
 }
 
 func (o *QueryIntelIndicatorEntitiesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
