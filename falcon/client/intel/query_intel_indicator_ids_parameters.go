@@ -64,7 +64,7 @@ type QueryIntelIndicatorIdsParams struct {
 
 	     Filter your query by specifying FQL filter parameters. Filter parameters include:
 
-	_marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, targets, threat_types, type, vulnerabilities.
+	_marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, scope, targets, threat_types, type, vulnerabilities.
 	*/
 	Filter *string
 
@@ -74,9 +74,15 @@ type QueryIntelIndicatorIdsParams struct {
 	*/
 	IncludeDeleted *bool
 
+	/* IncludeRelations.
+
+	   If true, include related indicators in the response. Defaults to true.
+	*/
+	IncludeRelations *bool
+
 	/* Limit.
 
-	   Set the number of indicator IDs to return. The number must be between 1 and 50000
+	   Set the number of indicator IDs to return. The number must be between 1 and 10000
 	*/
 	Limit *int64
 
@@ -175,6 +181,17 @@ func (o *QueryIntelIndicatorIdsParams) SetIncludeDeleted(includeDeleted *bool) {
 	o.IncludeDeleted = includeDeleted
 }
 
+// WithIncludeRelations adds the includeRelations to the query intel indicator ids params
+func (o *QueryIntelIndicatorIdsParams) WithIncludeRelations(includeRelations *bool) *QueryIntelIndicatorIdsParams {
+	o.SetIncludeRelations(includeRelations)
+	return o
+}
+
+// SetIncludeRelations adds the includeRelations to the query intel indicator ids params
+func (o *QueryIntelIndicatorIdsParams) SetIncludeRelations(includeRelations *bool) {
+	o.IncludeRelations = includeRelations
+}
+
 // WithLimit adds the limit to the query intel indicator ids params
 func (o *QueryIntelIndicatorIdsParams) WithLimit(limit *int64) *QueryIntelIndicatorIdsParams {
 	o.SetLimit(limit)
@@ -256,6 +273,23 @@ func (o *QueryIntelIndicatorIdsParams) WriteToRequest(r runtime.ClientRequest, r
 		if qIncludeDeleted != "" {
 
 			if err := r.SetQueryParam("include_deleted", qIncludeDeleted); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeRelations != nil {
+
+		// query param include_relations
+		var qrIncludeRelations bool
+
+		if o.IncludeRelations != nil {
+			qrIncludeRelations = *o.IncludeRelations
+		}
+		qIncludeRelations := swag.FormatBool(qrIncludeRelations)
+		if qIncludeRelations != "" {
+
+			if err := r.SetQueryParam("include_relations", qIncludeRelations); err != nil {
 				return err
 			}
 		}
