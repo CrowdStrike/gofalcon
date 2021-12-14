@@ -72,6 +72,10 @@ OK
 */
 type GetIntelIndicatorEntitiesOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -91,6 +95,13 @@ func (o *GetIntelIndicatorEntitiesOK) GetPayload() *models.DomainPublicIndicator
 }
 
 func (o *GetIntelIndicatorEntitiesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -135,6 +146,10 @@ Forbidden
 */
 type GetIntelIndicatorEntitiesForbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -154,6 +169,13 @@ func (o *GetIntelIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOn
 }
 
 func (o *GetIntelIndicatorEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -198,6 +220,10 @@ Too Many Requests
 */
 type GetIntelIndicatorEntitiesTooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -221,6 +247,13 @@ func (o *GetIntelIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaReply
 }
 
 func (o *GetIntelIndicatorEntitiesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -276,6 +309,10 @@ Internal Server Error
 */
 type GetIntelIndicatorEntitiesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -295,6 +332,13 @@ func (o *GetIntelIndicatorEntitiesInternalServerError) GetPayload() *models.MsaE
 }
 
 func (o *GetIntelIndicatorEntitiesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
