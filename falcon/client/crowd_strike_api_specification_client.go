@@ -21,6 +21,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
 	"github.com/crowdstrike/gofalcon/falcon/client/falconx_sandbox"
+	"github.com/crowdstrike/gofalcon/falcon/client/filevantage"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/firewall_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/host_group"
@@ -110,6 +111,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconContainer = falcon_container.New(transport, formats)
 	cli.FalconxSandbox = falconx_sandbox.New(transport, formats)
+	cli.Filevantage = filevantage.New(transport, formats)
 	cli.FirewallManagement = firewall_management.New(transport, formats)
 	cli.FirewallPolicies = firewall_policies.New(transport, formats)
 	cli.HostGroup = host_group.New(transport, formats)
@@ -210,6 +212,8 @@ type CrowdStrikeAPISpecification struct {
 
 	FalconxSandbox falconx_sandbox.ClientService
 
+	Filevantage filevantage.ClientService
+
 	FirewallManagement firewall_management.ClientService
 
 	FirewallPolicies firewall_policies.ClientService
@@ -295,6 +299,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconContainer.SetTransport(transport)
 	c.FalconxSandbox.SetTransport(transport)
+	c.Filevantage.SetTransport(transport)
 	c.FirewallManagement.SetTransport(transport)
 	c.FirewallPolicies.SetTransport(transport)
 	c.HostGroup.SetTransport(transport)
