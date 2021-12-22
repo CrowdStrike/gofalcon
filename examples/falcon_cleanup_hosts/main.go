@@ -164,11 +164,13 @@ func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.Domai
 		dryRunString = "(DRY-RUN) "
 	}
 
-	for _, host := range hosts {
-		fmt.Printf("%sRemoving host:", dryRunString)
-		visualizeHost(host)
+	for _, hostChunk := range chunkBy(hosts, 25) {
+		for _, host := range hostChunk {
+			fmt.Printf("%sRemoving host:", dryRunString)
+			visualizeHost(host)
+		}
 		if dryRun == false {
-			err := hideHost(client, *host.DeviceID)
+			err := hideHostsInternal(client, hostChunk)
 			if err != nil {
 				return err
 			}
@@ -177,11 +179,17 @@ func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.Domai
 	return nil
 }
 
-func hideHost(client *client.CrowdStrikeAPISpecification, id string) error {
+func hideHostsInternal(client *client.CrowdStrikeAPISpecification, hostList []*models.DomainDeviceSwagger) error {
+	hostIds := []string{}
+	for _, host := range hostList {
+		hostIds = append(hostIds, *host.DeviceID)
+
+	}
+
 	response, err := client.Hosts.PerformActionV2(&hosts.PerformActionV2Params{
 		ActionName: "hide_host",
 		Body: &models.MsaEntityActionRequestV2{
-			Ids: []string{id},
+			Ids: hostIds,
 		},
 		Context: context.Background(),
 	})
@@ -248,4 +256,12 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 		close(hostIds)
 	}()
 	return hostIds
+}
+
+func chunkBy(items []*models.DomainDeviceSwagger, chunkSize int) (chunks [][]*models.DomainDeviceSwagger) {
+	for chunkSize < len(items) {
+		items, chunks = items[chunkSize:], append(chunks, items[0:chunkSize:chunkSize])
+	}
+
+	return append(chunks, items)
 }
