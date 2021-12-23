@@ -21,6 +21,7 @@ func main() {
 	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
 	dryRun := flag.Bool("dry-run", true, "Dry run will not remove the devices from Falcon")
 	filter := flag.String("filter", "", "Host search expression using Falcon Query Language (FQL)")
+	limit := flag.Int("batch-size", 25, "The number of entries to handle at a time. Maximum limit of 100")
 
 	flag.Parse()
 
@@ -31,6 +32,11 @@ Falcon Client ID`)
 	if *clientSecret == "" {
 		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
 Falcon Client Secret`)
+	}
+
+	if *limit > 100 {
+		fmt.Printf("The maximum allowed limit is 100. You entered: %d", *limit)
+		os.Exit(1)
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -61,7 +67,7 @@ Falcon Client Secret`)
 		return
 	}
 
-	err = hideHosts(client, hosts, *dryRun)
+	err = hideHosts(client, hosts, *dryRun, *limit)
 	if err != nil {
 		panic(err)
 	}
@@ -158,18 +164,18 @@ func debug(host *models.DomainDeviceSwagger) {
 	fmt.Println(json)
 }
 
-func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.DomainDeviceSwagger, dryRun bool) error {
+func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.DomainDeviceSwagger, dryRun bool, limit int) error {
 	dryRunString := ""
 	if dryRun {
 		dryRunString = "(DRY-RUN) "
 	}
 
-	for _, hostChunk := range chunkBy(hosts, 25) {
+	for _, hostChunk := range chunkBy(hosts, limit) {
 		for _, host := range hostChunk {
 			fmt.Printf("%sRemoving host:", dryRunString)
 			visualizeHost(host)
 		}
-		if dryRun == false {
+		if !dryRun {
 			err := hideHostsInternal(client, hostChunk)
 			if err != nil {
 				return err
