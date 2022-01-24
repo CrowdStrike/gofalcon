@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/blang/semver/v4 v4.0.0
-	github.com/go-openapi/errors v0.20.1
+	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.21.1
 	github.com/go-openapi/strfmt v0.21.1
 	github.com/go-openapi/swag v0.19.15
