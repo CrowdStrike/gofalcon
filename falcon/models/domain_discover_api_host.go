@@ -85,6 +85,9 @@ type DomainDiscoverAPIHost struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// Whether the asset is exposed to the internet (Yes or Unknown)
+	InternetExposure string `json:"internet_exposure,omitempty"`
+
 	// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
 	KernelVersion string `json:"kernel_version,omitempty"`
 
