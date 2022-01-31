@@ -132,6 +132,11 @@ func (m *DomainBatchInitSessionResponse) validateResources(formats strfmt.Regist
 		}
 		if val, ok := m.Resources[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + k)
+				}
 				return err
 			}
 		}
