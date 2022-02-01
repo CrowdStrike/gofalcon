@@ -44,11 +44,15 @@ type ClientService interface {
 
 	QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateBuildsOK, error)
 
+	QueryCombinedSensorUpdateKernels(params *QueryCombinedSensorUpdateKernelsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateKernelsOK, error)
+
 	QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesOK, error)
 
 	QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesV2OK, error)
 
 	QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePolicyMembersOK, error)
+
+	QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKernelsDistinctParams, opts ...ClientOption) (*QuerySensorUpdateKernelsDistinctOK, error)
 
 	QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, opts ...ClientOption) (*QuerySensorUpdatePoliciesOK, error)
 
@@ -327,6 +331,43 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 }
 
 /*
+  QueryCombinedSensorUpdateKernels retrieves kernel compatibility info for sensor update builds
+*/
+func (a *Client) QueryCombinedSensorUpdateKernels(params *QueryCombinedSensorUpdateKernelsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateKernelsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryCombinedSensorUpdateKernelsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryCombinedSensorUpdateKernels",
+		Method:             "GET",
+		PathPattern:        "/policy/combined/sensor-update-kernels/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryCombinedSensorUpdateKernelsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryCombinedSensorUpdateKernelsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryCombinedSensorUpdateKernelsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   QueryCombinedSensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
 func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesOK, error) {
@@ -434,6 +475,43 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryCombinedSensorUpdatePolicyMembersDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  QuerySensorUpdateKernelsDistinct retrieves kernel compatibility info for sensor update builds
+*/
+func (a *Client) QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKernelsDistinctParams, opts ...ClientOption) (*QuerySensorUpdateKernelsDistinctOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQuerySensorUpdateKernelsDistinctParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "querySensorUpdateKernelsDistinct",
+		Method:             "GET",
+		PathPattern:        "/policy/queries/sensor-update-kernels/{distinct-field}/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QuerySensorUpdateKernelsDistinctReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QuerySensorUpdateKernelsDistinctOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QuerySensorUpdateKernelsDistinctDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
