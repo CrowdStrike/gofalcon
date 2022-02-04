@@ -93,11 +93,7 @@ Falcon Client Secret`)
 }
 
 func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, dir, filename string) {
-	safeLocation, err := sanitizeFilePath(dir, filename)
-	if err != nil {
-		panic(err)
-	}
-	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
+	file, err := openFileForWriting(dir, filename)
 	if err != nil {
 		panic(err)
 	}
@@ -254,16 +250,16 @@ func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *m
 	return out
 }
 
-func sanitizeFilePath(dir, filename string) (string, error) {
+func openFileForWriting(dir, filename string) (*os.File, error) {
 	if strings.Contains(filename, "/") {
-		return "", fmt.Errorf("Refusing to download: '%s' includes '/' character", filename)
+		return nil, fmt.Errorf("Refusing to download: '%s' includes '/' character", filename)
 	}
 	path := filepath.Join(dir, filename)
 	safeLocation := filepath.Clean(path)
 	if strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
-		return "", fmt.Errorf("Refusing to download: Path '%s' looks suspicious", safeLocation)
+		return nil, fmt.Errorf("Refusing to download: Path '%s' looks suspicious", safeLocation)
 	}
-	return safeLocation, nil
+	return os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 }
 
 type void struct{}
