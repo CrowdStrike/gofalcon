@@ -88,16 +88,12 @@ Falcon Client Secret`)
 			os.Exit(1)
 		}
 
-		download(client, sensor, *sensor.Name)
+		download(client, sensor, ".", *sensor.Name)
 	}
 }
 
-func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, filename string) {
-	safeLocation := filepath.Clean(filename)
-	if strings.Contains(safeLocation, "/") || strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
-		panic("Suspicious file location: " + safeLocation)
-	}
-	file, err := os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
+func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, dir, filename string) {
+	file, err := openFileForWriting(dir, filename)
 	if err != nil {
 		panic(err)
 	}
@@ -213,8 +209,7 @@ func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
 				panic(fmt.Sprintf("Could not create directory %s: %v", dir, err))
 			}
 		}
-		filename := filepath.Join(dir, *sensor.Name)
-		download(client, sensor, filename)
+		download(client, sensor, dir, *sensor.Name)
 	}
 }
 
@@ -253,6 +248,18 @@ func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *m
 		close(out)
 	}()
 	return out
+}
+
+func openFileForWriting(dir, filename string) (*os.File, error) {
+	if strings.Contains(filename, "/") {
+		return nil, fmt.Errorf("Refusing to download: '%s' includes '/' character", filename)
+	}
+	path := filepath.Join(dir, filename)
+	safeLocation := filepath.Clean(path)
+	if strings.Contains(safeLocation, "\\") || strings.Contains(safeLocation, "..") {
+		return nil, fmt.Errorf("Refusing to download: Path '%s' looks suspicious", safeLocation)
+	}
+	return os.OpenFile(safeLocation, os.O_CREATE|os.O_WRONLY, 0600)
 }
 
 type void struct{}
