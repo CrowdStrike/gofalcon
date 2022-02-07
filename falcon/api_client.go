@@ -20,6 +20,9 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	if ac.ClientId == "" || ac.ClientSecret == "" {
 		return nil, errors.New("Invalid Falcon API Credentials, received empty value")
 	}
+	if ac.Context == nil {
+		return nil, errors.New("Invalid Context for falcon.ApiConfig.Context. Make that ApiConfig.Context is set.")
+	}
 	if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
 		return nil, err
 	}
