@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -11,7 +12,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
 	"github.com/crowdstrike/gofalcon/falcon/models"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
-	"github.com/pkg/errors"
 )
 
 var (
