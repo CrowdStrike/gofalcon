@@ -27,6 +27,20 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_detection_details
+    binary: falcon_detection_details
+    main: ./examples/falcon_detection_details
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
   - id: falcon_discover_host_details
     binary: falcon_discover_host_details
     main: ./examples/falcon_discover_host_details
@@ -194,6 +208,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_sensor_download.md
       - src: examples/falcon_cleanup_pods
         dst: /usr/share/doc/gofalcon/falcon_cleanup_pods
+      - src: examples/falcon_detection_details
+        dst: /usr/share/doc/gofalcon/falcon_detection_details
       - src: examples/falcon_discover_host_details
         dst: /usr/share/doc/gofalcon/falcon_discover_host_details
       - src: examples/falcon_event_stream
