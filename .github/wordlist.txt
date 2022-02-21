@@ -16,6 +16,7 @@ NewClient
 OAuth
 SDK
 cid
+cspm
 detections
 dev
 gofalcon
@@ -26,6 +27,7 @@ hostnames
 initialisation
 intel
 iocs
+ioms
 jq
 misconfigurations
 oauth
