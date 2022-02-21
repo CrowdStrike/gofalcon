@@ -4,11 +4,14 @@ CodeQL
 CrowdScore
 CrowdStrike
 CrowdStrike's
+CSPM
 FQL
 Golang
 IOCs
+IOMs
 JSON
 Kubernetes
+Misconfigurations
 NewClient
 OAuth
 SDK
@@ -24,6 +27,7 @@ initialisation
 intel
 iocs
 jq
+misconfigurations
 oauth
 pre
 stdout
