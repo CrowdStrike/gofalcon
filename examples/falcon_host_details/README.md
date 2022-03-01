@@ -1,6 +1,6 @@
 # Falcon Host Details
 
-Stand-alone tool that uses Host API to query all the host details and output JSON to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+Stand-alone tool that uses Host devices scroll API to query all the host details and output JSON to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
 
 ## Installation
 

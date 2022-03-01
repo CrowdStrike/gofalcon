@@ -89,12 +89,12 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 
 	go func() {
 		limit := int64(500)
-		for offset := int64(0); ; {
-			response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
+		for offset := ""; ; {
+			response, err := client.Hosts.QueryDevicesByFilterScroll(&hosts.QueryDevicesByFilterScrollParams{
+				Context: context.Background(),
 				Limit:   &limit,
 				Offset:  &offset,
 				Filter:  filter,
-				Context: context.Background(),
 			})
 			if err != nil {
 				panic(falcon.ErrorExplain(err))
@@ -104,11 +104,17 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 			}
 
 			hosts := response.Payload.Resources
-			hostIds <- hosts
-			offset = offset + int64(len(hosts))
-			if offset >= *response.Payload.Meta.Pagination.Total {
+			if len(hosts) == 0 {
 				break
 			}
+
+			hostIds <- hosts
+
+			if *response.Payload.Meta.Pagination.Offset == "" {
+				break // no more next page indicates we are done
+			}
+
+			offset = *response.Payload.Meta.Pagination.Offset
 		}
 		close(hostIds)
 	}()
