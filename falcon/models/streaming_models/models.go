@@ -1,5 +1,7 @@
 package streaming_models
 
+import "encoding/json"
+
 // EventItem - The structure for parent model
 type EventItem struct {
 	Event    Event    `json:"event" validate:"dive"`
@@ -67,7 +69,7 @@ type Event struct {
 	Tactic            *string          `json:"Tactic,omitempty"`
 	Technique         *string          `json:"Technique,omitempty"`
 	AuditKeyValues    []AuditKeyValues `json:"AuditKeyValues"`
-	IncidentType      *uint64          `json:"IncidentType,omitempty"`
+	IncidentType      json.Number      `json:"IncidentType,omitempty"`
 	IncidentStartTime *uint64          `json:"IncidentStartTime,omitempty"`
 	IncidentEndTime   *uint64          `json:"IncidentEndTime,omitempty"`
 	State             *string          `json:"State,omitempty"`
