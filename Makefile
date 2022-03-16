@@ -21,7 +21,7 @@ specs/swagger-stripped-oauth.json: specs/swagger-patched.json
 	# This achieves cleaner interface. OAuth is then applied automatically through the middle-ware.
 	jq 'walk(if type == "object" and has("security") and (has("consumes") or has("produces")) then del(.security) else . end)' $< > $@
 
-specs/swagger-patched.json: specs/swagger.json
+specs/swagger-patched.json: specs/swagger.json ./specs/transformation.jq
 	jq -f ./specs/transformation.jq $< > $@
 
 specs/swagger.json:
