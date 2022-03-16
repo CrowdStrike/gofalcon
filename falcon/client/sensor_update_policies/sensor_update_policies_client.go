@@ -489,7 +489,7 @@ func (a *Client) QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKerne
 	op := &runtime.ClientOperation{
 		ID:                 "querySensorUpdateKernelsDistinct",
 		Method:             "GET",
-		PathPattern:        "/policy/queries/sensor-update-kernels/{distinct-field}/v1",
+		PathPattern:        "/policy/queries/sensor-update-kernels/{distinct_field}/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

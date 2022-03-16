@@ -94,7 +94,7 @@ type QuerySensorUpdateKernelsDistinctOK struct {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctOK) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinctOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctOK  %+v", 200, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
@@ -168,7 +168,7 @@ type QuerySensorUpdateKernelsDistinctBadRequest struct {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctBadRequest) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctBadRequest  %+v", 400, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
@@ -242,7 +242,7 @@ type QuerySensorUpdateKernelsDistinctForbidden struct {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctForbidden) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinctForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctForbidden  %+v", 403, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
@@ -320,7 +320,7 @@ type QuerySensorUpdateKernelsDistinctTooManyRequests struct {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctTooManyRequests  %+v", 429, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
@@ -405,7 +405,7 @@ type QuerySensorUpdateKernelsDistinctInternalServerError struct {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinctInternalServerError  %+v", 500, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
@@ -475,7 +475,7 @@ func (o *QuerySensorUpdateKernelsDistinctDefault) Code() int {
 }
 
 func (o *QuerySensorUpdateKernelsDistinctDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct-field}/v1][%d] querySensorUpdateKernelsDistinct default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinct default  %+v", o._statusCode, o.Payload)
 }
 func (o *QuerySensorUpdateKernelsDistinctDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
