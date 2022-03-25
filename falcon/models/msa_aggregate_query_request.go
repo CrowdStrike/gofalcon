@@ -32,6 +32,10 @@ type MsaAggregateQueryRequest struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// include
+	// Required: true
+	Include *string `json:"include"`
+
 	// interval
 	// Required: true
 	Interval *string `json:"interval"`
@@ -90,6 +94,10 @@ func (m *MsaAggregateQueryRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInclude(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -182,6 +190,15 @@ func (m *MsaAggregateQueryRequest) validateField(formats strfmt.Registry) error 
 func (m *MsaAggregateQueryRequest) validateFilter(formats strfmt.Registry) error {
 
 	if err := validate.Required("filter", "body", m.Filter); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) validateInclude(formats strfmt.Registry) error {
+
+	if err := validate.Required("include", "body", m.Include); err != nil {
 		return err
 	}
 

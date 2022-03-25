@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -70,6 +71,12 @@ type PerformGroupActionParams struct {
 	// Body.
 	Body *models.MsaEntityActionRequestV2
 
+	/* DisableHostnameCheck.
+
+	   Bool to disable hostname check on add-member
+	*/
+	DisableHostnameCheck *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -87,7 +94,18 @@ func (o *PerformGroupActionParams) WithDefaults() *PerformGroupActionParams {
 //
 // All values with no default are reset to their zero value.
 func (o *PerformGroupActionParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		disableHostnameCheckDefault = bool(false)
+	)
+
+	val := PerformGroupActionParams{
+		DisableHostnameCheck: &disableHostnameCheckDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the perform group action params
@@ -145,6 +163,17 @@ func (o *PerformGroupActionParams) SetBody(body *models.MsaEntityActionRequestV2
 	o.Body = body
 }
 
+// WithDisableHostnameCheck adds the disableHostnameCheck to the perform group action params
+func (o *PerformGroupActionParams) WithDisableHostnameCheck(disableHostnameCheck *bool) *PerformGroupActionParams {
+	o.SetDisableHostnameCheck(disableHostnameCheck)
+	return o
+}
+
+// SetDisableHostnameCheck adds the disableHostnameCheck to the perform group action params
+func (o *PerformGroupActionParams) SetDisableHostnameCheck(disableHostnameCheck *bool) {
+	o.DisableHostnameCheck = disableHostnameCheck
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PerformGroupActionParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -165,6 +194,23 @@ func (o *PerformGroupActionParams) WriteToRequest(r runtime.ClientRequest, reg s
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.DisableHostnameCheck != nil {
+
+		// query param disable_hostname_check
+		var qrDisableHostnameCheck bool
+
+		if o.DisableHostnameCheck != nil {
+			qrDisableHostnameCheck = *o.DisableHostnameCheck
+		}
+		qDisableHostnameCheck := swag.FormatBool(qrDisableHostnameCheck)
+		if qDisableHostnameCheck != "" {
+
+			if err := r.SetQueryParam("disable_hostname_check", qDisableHostnameCheck); err != nil {
+				return err
+			}
 		}
 	}
 
