@@ -135,6 +135,60 @@ func (a *Client) AggregateBlockList(params *AggregateBlockListParams, opts ...Cl
 
 /*
   AggregateDetections retrieves aggregate detection values based on the matched filter
+
+  Fields allowed to aggregate on:
+
+- indexed_time
+
+- created_time
+
+- detect_time
+
+- ldt
+
+- cid
+
+- aid
+
+- platform_name
+
+- os_version
+
+- device_tags
+
+- host_name
+
+- status
+
+- severity
+
+- adversary_ids
+
+- behavior_ids
+
+- behavior_names
+
+- num_blocked_processes
+
+- num_quarantined_files
+
+- pattern_ids
+
+- first_behavior_time
+
+- last_behavior_time
+
+- show_in_ui
+
+- seconds_to_triaged
+
+- seconds_to_resolved
+
+- assigned_to_uid
+
+- public_tags
+
+- vertical_tags
 */
 func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...ClientOption) (*AggregateDetectionsOK, error) {
 	// TODO: Validate the params before sending
