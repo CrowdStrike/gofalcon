@@ -94,6 +94,13 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 		ClientSecret: clientSecret,
 	})
 	if err != nil {
+		switch e := err.(type) {
+		case *oauth2.Oauth2AccessTokenForbidden:
+			if e.Payload != nil && len(e.Payload.Errors) == 1 && e.Payload.Errors[0] != nil && e.Payload.Errors[0].Message != nil && *e.Payload.Errors[0].Message == "access denied, authorization failed" {
+				return fmt.Errorf("Please check the settings of IP-based allowlisting in CrowdStrike Falcon Console. %s", e)
+			}
+			return fmt.Errorf("Insufficient CrowdStrike privileges, please grant [Falcon Images Download: Read] to CrowdStrike API Key. Error was: %s", err)
+		}
 		return fmt.Errorf("Could not autodiscover Falcon cloud region: %v", err)
 	}
 	// (2) Parse & save the cloud-region information
