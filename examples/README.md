@@ -17,6 +17,7 @@ Some of these examples ready to be used as stand-alone programs.
  * [falcon_intel_rules_download](falcon_intel_rules_download) - stand-alone tool that downloads CrowdStrike Falcon Intelligence Rule files
  * [falcon_registry_token](falcon_registry_token) - helper to generate container registry logic information for `docker login`
  * [falcon_spotlight_vulnerabilities](falcon_spotlight_vulnerabilities) - stand-alone tool that outputs inventory of vulnerabilities affecting your environment
+* [falcon_supported_kernels](examples/falcon_supported_kernels) - stand-alone tool that outputs short list recent Linux kernels supported by CrowdStrike Falcon for a given distribution
  * [stream_new_detections](stream_new_detections/) - small utility to poll for a new detections in CrowdStrike Console
  * [oauth_token](oauth_token/) - a example tool to obtain OAuth2 token for use outside of gofalcon
 
