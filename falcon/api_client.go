@@ -41,7 +41,9 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 	authenticatedClient := config.Client(ac.Context)
 	authenticatedClient.Timeout = ac.HttpTimeout()
 	authenticatedClient.Transport = &roundTripper{
-		T: authenticatedClient.Transport,
+		T: &workaround{
+			T: authenticatedClient.Transport,
+		},
 	}
 	customTransport := httptransport.NewWithClient(
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
@@ -72,3 +74,20 @@ func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 }
 
 var userAgent = "gofalcon/" + Version.String()
+
+type workaround struct {
+	T http.RoundTripper
+}
+
+// RoundTrip workarounds missing content-type header when body is empty.
+// This temporary workaround is needed as the recent go-openapi/runtime middleware
+// won't send the content-type while the CrowdStrike service requires it for a time being
+// https://github.com/go-openapi/runtime/commit/753b551e6b4a36e461ac877874fd0a79d0ffcf53
+// Streaming session refresh within examples/falcon_event_stream can be used trigger this code
+func (w *workaround) RoundTrip(req *http.Request) (*http.Response, error) {
+	contentType := req.Header.Get("Content-Type")
+	if contentType == "" {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	return w.T.RoundTrip(req)
+}
