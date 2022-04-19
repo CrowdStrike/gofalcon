@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error)
 
+	GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error)
+
 	PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error)
 
 	QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error)
@@ -85,6 +87,43 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...Client
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetDeviceDetailsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetOnlineStateV1 gets the online status for one or more hosts by specifying each host s unique ID successful requests return an HTTP 200 response and the status for each host identified by a state of online offline or unknown for each host identified by host id make a g e t request to devices queries devices v1 to get a list of host i ds
+*/
+func (a *Client) GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOnlineStateV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetOnlineState.V1",
+		Method:             "GET",
+		PathPattern:        "/devices/entities/online-state/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOnlineStateV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetOnlineStateV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetOnlineStateV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
