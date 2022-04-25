@@ -7,6 +7,7 @@ package real_time_response
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -60,7 +61,7 @@ type ClientService interface {
 
 	RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...ClientOption) (*RTRExecuteCommandCreated, error)
 
-	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error)
+	RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, writer io.Writer, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error)
 
 	RTRInitSession(params *RTRInitSessionParams, opts ...ClientOption) (*RTRInitSessionCreated, error)
 
@@ -648,7 +649,7 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...Clie
 /*
   RTRGetExtractedFileContents gets r t r extracted file contents for specified session and sha256
 */
-func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error) {
+func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, writer io.Writer, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRGetExtractedFileContentsParams()
@@ -661,7 +662,7 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RTRGetExtractedFileContentsReader{formats: a.formats},
+		Reader:             &RTRGetExtractedFileContentsReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
