@@ -50,6 +50,8 @@ type ClientService interface {
 
 	RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption) (*RTRDeleteFileNoContent, error)
 
+	RTRDeleteFileV2(params *RTRDeleteFileV2Params, opts ...ClientOption) (*RTRDeleteFileV2NoContent, error)
+
 	RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, opts ...ClientOption) (*RTRDeleteQueuedSessionNoContent, error)
 
 	RTRDeleteSession(params *RTRDeleteSessionParams, opts ...ClientOption) (*RTRDeleteSessionNoContent, error)
@@ -65,6 +67,8 @@ type ClientService interface {
 	RTRListAllSessions(params *RTRListAllSessionsParams, opts ...ClientOption) (*RTRListAllSessionsOK, error)
 
 	RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) (*RTRListFilesOK, error)
+
+	RTRListFilesV2(params *RTRListFilesV2Params, opts ...ClientOption) (*RTRListFilesV2OK, error)
 
 	RTRListQueuedSessions(params *RTRListQueuedSessionsParams, opts ...ClientOption) (*RTRListQueuedSessionsOK, error)
 
@@ -452,6 +456,44 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption
 }
 
 /*
+  RTRDeleteFileV2 deletes a r t r session file
+*/
+func (a *Client) RTRDeleteFileV2(params *RTRDeleteFileV2Params, opts ...ClientOption) (*RTRDeleteFileV2NoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRDeleteFileV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-DeleteFileV2",
+		Method:             "DELETE",
+		PathPattern:        "/real-time-response/entities/file/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRDeleteFileV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRDeleteFileV2NoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-DeleteFileV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
   RTRDeleteQueuedSession deletes a queued session command
 */
 func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, opts ...ClientOption) (*RTRDeleteQueuedSessionNoContent, error) {
@@ -749,6 +791,43 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) 
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*RTRListFilesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  RTRListFilesV2 gets a list of files for the specified r t r session
+*/
+func (a *Client) RTRListFilesV2(params *RTRListFilesV2Params, opts ...ClientOption) (*RTRListFilesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRListFilesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-ListFilesV2",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/entities/file/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRListFilesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRListFilesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*RTRListFilesV2Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
