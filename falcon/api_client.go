@@ -49,6 +49,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
 	customTransport.Debug = ac.Debug
 	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
+	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
 
 	return client.New(customTransport, strfmt.Default), nil
 }

@@ -20,13 +20,14 @@ import (
 // RTRGetExtractedFileContentsReader is a Reader for the RTRGetExtractedFileContents structure.
 type RTRGetExtractedFileContentsReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *RTRGetExtractedFileContentsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewRTRGetExtractedFileContentsOK()
+		result := NewRTRGetExtractedFileContentsOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -74,8 +75,11 @@ func (o *RTRGetExtractedFileContentsReader) ReadResponse(response runtime.Client
 }
 
 // NewRTRGetExtractedFileContentsOK creates a RTRGetExtractedFileContentsOK with default headers values
-func NewRTRGetExtractedFileContentsOK() *RTRGetExtractedFileContentsOK {
-	return &RTRGetExtractedFileContentsOK{}
+func NewRTRGetExtractedFileContentsOK(writer io.Writer) *RTRGetExtractedFileContentsOK {
+	return &RTRGetExtractedFileContentsOK{
+
+		Payload: writer,
+	}
 }
 
 /* RTRGetExtractedFileContentsOK describes a response with status code 200, with default header values.
@@ -92,13 +96,13 @@ type RTRGetExtractedFileContentsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload io.Writer
 }
 
 func (o *RTRGetExtractedFileContentsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsOK  %+v", 200, o.Payload)
 }
-func (o *RTRGetExtractedFileContentsOK) GetPayload() []int64 {
+func (o *RTRGetExtractedFileContentsOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
@@ -127,7 +131,7 @@ func (o *RTRGetExtractedFileContentsOK) readResponse(response runtime.ClientResp
 	}
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
