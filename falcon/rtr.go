@@ -100,6 +100,14 @@ func (r *RTR) NewSession(ctx context.Context, deviceID string) (*RTRSession, err
 	}, nil
 }
 
+func (s RTRSession) ExecuteAndWait(ctx context.Context, baseCommand, commandString string) (*models.DomainStatusResponse, error) {
+	execution, err := s.Execute(ctx, baseCommand, commandString)
+	if err != nil {
+		return nil, err
+	}
+	return s.WaitForExecution(ctx, *execution.CloudRequestID)
+}
+
 func (s RTRSession) Execute(ctx context.Context, baseCommand, commandString string) (*models.DomainCommandExecuteResponse, error) {
 	response, err := s.cli.RTRExecuteActiveResponderCommand(&real_time_response.RTRExecuteActiveResponderCommandParams{
 		Context: ctx,
@@ -121,23 +129,23 @@ func (s RTRSession) Execute(ctx context.Context, baseCommand, commandString stri
 	return response.Payload.Resources[0], nil
 }
 
-func (s *RTRSession) WaitForExecution(ctx context.Context, cloudRequestId string) error {
+func (s *RTRSession) WaitForExecution(ctx context.Context, cloudRequestId string) (*models.DomainStatusResponse, error) {
 	for {
 		response, err := s.cli.RTRCheckActiveResponderCommandStatus(&real_time_response.RTRCheckActiveResponderCommandStatusParams{
 			Context:        ctx,
 			CloudRequestID: cloudRequestId,
 		})
 		if err != nil {
-			return err
+			return nil, err
 		}
 		if err = AssertNoError(response.Payload.Errors); err != nil {
-			return err
+			return nil, err
 		}
 		if len(response.Payload.Resources) != 1 {
-			return fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
+			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
 		if *response.Payload.Resources[0].Complete {
-			return nil
+			return response.Payload.Resources[0], nil
 		}
 		time.Sleep(120 * time.Millisecond)
 	}
