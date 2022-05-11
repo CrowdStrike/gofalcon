@@ -15,8 +15,11 @@ Misconfigurations
 NewClient
 OAuth
 SDK
+ZTA
+ZeroTrustAssessment
 cid
 cspm
+cybersecurity
 detections
 dev
 gofalcon
@@ -33,3 +36,5 @@ misconfigurations
 oauth
 pre
 stdout
+utilises
+zta

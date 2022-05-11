@@ -45,7 +45,7 @@ week_ago=$(date -jf %s $(( $(date +%s) - 86400 * 7 )) +%Y-%m-%d)
 falcon_zta --filter="last_seen:>='${week_ago}'" | jq -r 'sort_by(.assessment.overall)'
 ```
 
-Get ZTA details for the hosts last last seen this year and filter out those with the zta score bellow certain treshold.
+Get ZTA details for the hosts last last seen this year and filter out those with the zta score bellow certain threshold.
 ```
 go run ./examples/falcon_zta --filter="last_seen:>='2022-01-01'" | jq -r '.[] | select(.assessment.overall < 40)'
 ```
