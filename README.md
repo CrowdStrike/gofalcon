@@ -25,6 +25,7 @@ Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.co
 | [falcon_registry_token](examples/falcon_registry_token)                       | helper to generate container registry logic information for `docker login`                                                          |
 | [falcon_spotlight_vulnerabilities](examples/falcon_spotlight_vulnerabilities) | stand-alone tool that outputs inventory of vulnerabilities affecting your environment                                               |
 | [falcon_supported_kernels](examples/falcon_supported_kernels)                 | stand-alone tool that outputs short list recent Linux kernels supported by CrowdStrike Falcon for a given distribution              |
+| [falcon_zta](examples/falcon_zta)                                             | stand-alone tool that utilises Hosts and ZTA APIs and outputs ZTA findings for your environment                                     |
 
 Gofalcon is an open source project, not a CrowdStrike product. As such, it carries
 no formal support, expressed or implied.

@@ -167,6 +167,31 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_zta
+    binary: falcon_zta
+    main: ./examples/falcon_zta
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
   - id: falcon_intel_indicators
     binary: falcon_intel_indicators
     main: ./examples/falcon_intel_indicators
@@ -256,6 +281,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_spotlight_vulnerabilities
       - src: examples/falcon_supported_kernels
         dst: /usr/share/doc/gofalcon/falcon_supported_kernels
+      - src: examples/falcon_zta
+        dst: /usr/share/doc/gofalcon/falcon_zta
       - src: examples/falcon_intel_indicators
         dst: /usr/share/doc/gofalcon/falcon_intel_indicators
 
