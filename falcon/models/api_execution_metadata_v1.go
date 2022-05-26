@@ -38,6 +38,14 @@ type APIExecutionMetadataV1 struct {
 	// unscheduled execution type
 	// Required: true
 	UnscheduledExecutionType *string `json:"unscheduled_execution_type"`
+
+	// xdr data
+	// Required: true
+	XdrData *DomainXDRData `json:"xdr_data"`
+
+	// xdr params
+	// Required: true
+	XdrParams *DomainXDRParams `json:"xdr_params"`
 }
 
 // Validate validates this api execution metadata v1
@@ -61,6 +69,14 @@ func (m *APIExecutionMetadataV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUnscheduledExecutionType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXdrData(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXdrParams(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -115,8 +131,93 @@ func (m *APIExecutionMetadataV1) validateUnscheduledExecutionType(formats strfmt
 	return nil
 }
 
-// ContextValidate validates this api execution metadata v1 based on context it is used
+func (m *APIExecutionMetadataV1) validateXdrData(formats strfmt.Registry) error {
+
+	if err := validate.Required("xdr_data", "body", m.XdrData); err != nil {
+		return err
+	}
+
+	if m.XdrData != nil {
+		if err := m.XdrData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("xdr_data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("xdr_data")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIExecutionMetadataV1) validateXdrParams(formats strfmt.Registry) error {
+
+	if err := validate.Required("xdr_params", "body", m.XdrParams); err != nil {
+		return err
+	}
+
+	if m.XdrParams != nil {
+		if err := m.XdrParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("xdr_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("xdr_params")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api execution metadata v1 based on the context it is used
 func (m *APIExecutionMetadataV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateXdrData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateXdrParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIExecutionMetadataV1) contextValidateXdrData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XdrData != nil {
+		if err := m.XdrData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("xdr_data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("xdr_data")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *APIExecutionMetadataV1) contextValidateXdrParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.XdrParams != nil {
+		if err := m.XdrParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("xdr_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("xdr_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
