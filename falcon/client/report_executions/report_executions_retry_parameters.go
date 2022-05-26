@@ -61,18 +61,6 @@ func NewReportExecutionsRetryParamsWithHTTPClient(client *http.Client) *ReportEx
 */
 type ReportExecutionsRetryParams struct {
 
-	/* XCSUSERID.
-
-	   The user id
-	*/
-	XCSUSERID *string
-
-	/* XCSUSERUUID.
-
-	   The user uuid
-	*/
-	XCSUSERUUID string
-
 	// Body.
 	Body []*models.APIReportExecutionRetryRequestV1
 
@@ -129,28 +117,6 @@ func (o *ReportExecutionsRetryParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERID adds the xCSUSERID to the report executions retry params
-func (o *ReportExecutionsRetryParams) WithXCSUSERID(xCSUSERID *string) *ReportExecutionsRetryParams {
-	o.SetXCSUSERID(xCSUSERID)
-	return o
-}
-
-// SetXCSUSERID adds the xCSUSERId to the report executions retry params
-func (o *ReportExecutionsRetryParams) SetXCSUSERID(xCSUSERID *string) {
-	o.XCSUSERID = xCSUSERID
-}
-
-// WithXCSUSERUUID adds the xCSUSERUUID to the report executions retry params
-func (o *ReportExecutionsRetryParams) WithXCSUSERUUID(xCSUSERUUID string) *ReportExecutionsRetryParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the report executions retry params
-func (o *ReportExecutionsRetryParams) SetXCSUSERUUID(xCSUSERUUID string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the report executions retry params
 func (o *ReportExecutionsRetryParams) WithBody(body []*models.APIReportExecutionRetryRequestV1) *ReportExecutionsRetryParams {
 	o.SetBody(body)
@@ -169,19 +135,6 @@ func (o *ReportExecutionsRetryParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERID != nil {
-
-		// header param X-CS-USERID
-		if err := r.SetHeaderParam("X-CS-USERID", *o.XCSUSERID); err != nil {
-			return err
-		}
-	}
-
-	// header param X-CS-USERUUID
-	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
