@@ -46,7 +46,11 @@ type ClientService interface {
 
 	RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error)
 
+	RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...ClientOption) (*RTRGetPutFilesV2OK, error)
+
 	RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error)
+
+	RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOption) (*RTRGetScriptsV2OK, error)
 
 	RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOption) (*RTRListPutFilesOK, error)
 
@@ -356,6 +360,43 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOpti
 }
 
 /*
+  RTRGetPutFilesV2 gets put files based on the ID s given these are used for the r t r put command
+*/
+func (a *Client) RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...ClientOption) (*RTRGetPutFilesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRGetPutFilesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-GetPut-FilesV2",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/entities/put-files/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRGetPutFilesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRGetPutFilesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*RTRGetPutFilesV2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   RTRGetScripts gets custom scripts based on the ID s given these are used for the r t r runscript command
 */
 func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error) {
@@ -389,6 +430,43 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*RTRGetScriptsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  RTRGetScriptsV2 gets custom scripts based on the ID s given these are used for the r t r runscript command
+*/
+func (a *Client) RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOption) (*RTRGetScriptsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRGetScriptsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-GetScriptsV2",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/entities/scripts/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRGetScriptsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRGetScriptsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*RTRGetScriptsV2Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
