@@ -61,6 +61,8 @@ func NewAzureDownloadCertificateParamsWithHTTPClient(client *http.Client) *Azure
 type AzureDownloadCertificateParams struct {
 
 	// Refresh.
+	//
+	// Default: "false"
 	Refresh *string
 
 	/* TenantID.
@@ -87,7 +89,7 @@ func (o *AzureDownloadCertificateParams) WithDefaults() *AzureDownloadCertificat
 // All values with no default are reset to their zero value.
 func (o *AzureDownloadCertificateParams) SetDefaults() {
 	var (
-		refreshDefault = string(false)
+		refreshDefault = string("false")
 	)
 
 	val := AzureDownloadCertificateParams{

@@ -61,6 +61,8 @@ func NewDiscoverCloudAzureDownloadCertificateParamsWithHTTPClient(client *http.C
 type DiscoverCloudAzureDownloadCertificateParams struct {
 
 	// Refresh.
+	//
+	// Default: "false"
 	Refresh *string
 
 	/* TenantID.
@@ -87,7 +89,7 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) WithDefaults() *DiscoverCl
 // All values with no default are reset to their zero value.
 func (o *DiscoverCloudAzureDownloadCertificateParams) SetDefaults() {
 	var (
-		refreshDefault = string(false)
+		refreshDefault = string("false")
 	)
 
 	val := DiscoverCloudAzureDownloadCertificateParams{
