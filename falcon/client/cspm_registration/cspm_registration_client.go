@@ -30,6 +30,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AzureDownloadCertificate(params *AzureDownloadCertificateParams, opts ...ClientOption) (*AzureDownloadCertificateOK, error)
+
 	CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error)
 
 	CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error)
@@ -73,6 +75,43 @@ type ClientService interface {
 	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  AzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+*/
+func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams, opts ...ClientOption) (*AzureDownloadCertificateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAzureDownloadCertificateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "AzureDownloadCertificate",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-cspm-azure/entities/download-certificate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AzureDownloadCertificateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AzureDownloadCertificateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*AzureDownloadCertificateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
