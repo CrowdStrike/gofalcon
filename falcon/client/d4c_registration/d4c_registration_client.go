@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
 
+	DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error)
+
 	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
 
 	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
@@ -80,6 +82,43 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts .
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
+}
+
+/*
+  DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+*/
+func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDiscoverCloudAzureDownloadCertificateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DiscoverCloudAzureDownloadCertificate",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-azure/entities/download-certificate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DiscoverCloudAzureDownloadCertificateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DiscoverCloudAzureDownloadCertificateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DiscoverCloudAzureDownloadCertificateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
