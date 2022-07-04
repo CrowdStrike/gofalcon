@@ -91,7 +91,7 @@ func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter str
 			response, err := client.SpotlightVulnerabilities.CombinedQueryVulnerabilities(
 				&spotlight_vulnerabilities.CombinedQueryVulnerabilitiesParams{
 					Context: context.Background(),
-					Facet:   []string{"cve", "host_info", "remediation"},
+					Facet:   []string{"cve", "host_info", "remediation", "evaluation_logic"},
 					Filter:  filter,
 					Sort:    sort,
 					After:   lastSeen,
