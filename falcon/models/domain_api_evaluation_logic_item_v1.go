@@ -21,7 +21,7 @@ type DomainAPIEvaluationLogicItemV1 struct {
 
 	// id
 	// Required: true
-	ID *string `json:"id"`
+	ID *int64 `json:"id"`
 
 	// title
 	// Required: true

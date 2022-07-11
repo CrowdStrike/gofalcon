@@ -1,6 +1,5 @@
     .definitions."domain.DownloadItem"."type"="string"
   | .definitions."domain.DownloadItem"."format"="binary"
-  | .definitions."domain.APIEvaluationLogicItemV1".properties.id.type="string"
   | .paths."/intel/entities/report-files/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/intel/entities/rules-latest-files/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
   | .paths."/intel/entities/rules-files/v1"."get"."responses"."200"."schema"={"$ref": "#/definitions/domain.DownloadItem"}
