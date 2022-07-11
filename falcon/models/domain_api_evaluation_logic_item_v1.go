@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	jsonext "encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -21,7 +22,7 @@ type DomainAPIEvaluationLogicItemV1 struct {
 
 	// id
 	// Required: true
-	ID *int64 `json:"id"`
+	ID *jsonext.Number `json:"id"`
 
 	// title
 	// Required: true
