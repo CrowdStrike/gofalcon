@@ -36,7 +36,7 @@ jobs:
       run: go test ./...
 
     - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v2
+      uses: golangci/golangci-lint-action@v3
       with:
         args: --timeout=3m12s
         skip-go-installation: true
