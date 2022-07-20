@@ -32,6 +32,8 @@ type ClientService interface {
 
 	PatchEntitiesAlertsV1(params *PatchEntitiesAlertsV1Params, opts ...ClientOption) (*PatchEntitiesAlertsV1OK, error)
 
+	PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error)
+
 	PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error)
 
 	PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error)
@@ -110,6 +112,43 @@ func (a *Client) PatchEntitiesAlertsV1(params *PatchEntitiesAlertsV1Params, opts
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*PatchEntitiesAlertsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does
+*/
+func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchEntitiesAlertsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PatchEntitiesAlertsV2",
+		Method:             "PATCH",
+		PathPattern:        "/alerts/entities/alerts/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchEntitiesAlertsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PatchEntitiesAlertsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*PatchEntitiesAlertsV2Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
