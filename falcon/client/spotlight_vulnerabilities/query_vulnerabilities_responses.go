@@ -78,6 +78,10 @@ OK
 */
 type QueryVulnerabilitiesOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -86,17 +90,24 @@ type QueryVulnerabilitiesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainSPAPIQueryVulnerabilitiesResponse
+	Payload *models.DomainSPAPIQueryResponse
 }
 
 func (o *QueryVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK  %+v", 200, o.Payload)
 }
-func (o *QueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPIQueryVulnerabilitiesResponse {
+func (o *QueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryVulnerabilitiesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -120,7 +131,7 @@ func (o *QueryVulnerabilitiesOK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainSPAPIQueryVulnerabilitiesResponse)
+	o.Payload = new(models.DomainSPAPIQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -141,6 +152,10 @@ Bad Request
 */
 type QueryVulnerabilitiesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -149,17 +164,24 @@ type QueryVulnerabilitiesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainSPAPIQueryVulnerabilitiesResponse
+	Payload *models.DomainSPAPIQueryResponse
 }
 
 func (o *QueryVulnerabilitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
 }
-func (o *QueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPIQueryVulnerabilitiesResponse {
+func (o *QueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryVulnerabilitiesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -183,7 +205,7 @@ func (o *QueryVulnerabilitiesBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainSPAPIQueryVulnerabilitiesResponse)
+	o.Payload = new(models.DomainSPAPIQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -204,6 +226,10 @@ Forbidden
 */
 type QueryVulnerabilitiesForbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -223,6 +249,13 @@ func (o *QueryVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *QueryVulnerabilitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -267,6 +300,10 @@ Too Many Requests
 */
 type QueryVulnerabilitiesTooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -290,6 +327,13 @@ func (o *QueryVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaO
 }
 
 func (o *QueryVulnerabilitiesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -345,6 +389,10 @@ Internal Server Error
 */
 type QueryVulnerabilitiesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -353,17 +401,24 @@ type QueryVulnerabilitiesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainSPAPIQueryVulnerabilitiesResponse
+	Payload *models.DomainSPAPIQueryResponse
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
 }
-func (o *QueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPIQueryVulnerabilitiesResponse {
+func (o *QueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -387,7 +442,7 @@ func (o *QueryVulnerabilitiesInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainSPAPIQueryVulnerabilitiesResponse)
+	o.Payload = new(models.DomainSPAPIQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -411,7 +466,7 @@ OK
 type QueryVulnerabilitiesDefault struct {
 	_statusCode int
 
-	Payload *models.DomainSPAPIQueryVulnerabilitiesResponse
+	Payload *models.DomainSPAPIQueryResponse
 }
 
 // Code gets the status code for the query vulnerabilities default response
@@ -422,13 +477,13 @@ func (o *QueryVulnerabilitiesDefault) Code() int {
 func (o *QueryVulnerabilitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilities default  %+v", o._statusCode, o.Payload)
 }
-func (o *QueryVulnerabilitiesDefault) GetPayload() *models.DomainSPAPIQueryVulnerabilitiesResponse {
+func (o *QueryVulnerabilitiesDefault) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryVulnerabilitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainSPAPIQueryVulnerabilitiesResponse)
+	o.Payload = new(models.DomainSPAPIQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
