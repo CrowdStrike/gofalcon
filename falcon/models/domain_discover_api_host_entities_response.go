@@ -25,7 +25,7 @@ type DomainDiscoverAPIHostEntitiesResponse struct {
 
 	// meta
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *MsaspecMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
