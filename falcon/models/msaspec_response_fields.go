@@ -25,7 +25,7 @@ type MsaspecResponseFields struct {
 
 	// meta
 	// Required: true
-	Meta *MsaspecMetaInfo `json:"meta"`
+	Meta *MsaMetaInfo `json:"meta"`
 }
 
 // Validate validates this msaspec response fields
