@@ -12,6 +12,13 @@
   | .definitions."domain.DiscoverAPIHostEntitiesResponse".properties.errors.items."$ref" = "#/definitions/msa.APIError"
   | .definitions."msa.QueryResponse".properties.errors.items."$ref" = "#/definitions/msa.APIError"
   | .definitions."msaspec.ResponseFields".properties.errors.items."$ref" = "#/definitions/msa.APIError"
+  # Rename msaspec.Paging to msa.Paging. These are two names for the same type.
+  | del(.definitions."msaspec.Paging")
+  # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
+  | del(.definitions."msaspec.MetaInfo")
+  | .definitions."domain.DiscoverAPIHostEntitiesResponse".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
+  | .definitions."msa.QueryResponse".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
+  | .definitions."msaspec.ResponseFields".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
   # Misc fixes
   | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}]
   | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}
