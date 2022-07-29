@@ -60,12 +60,6 @@ func NewGetRulesV1ParamsWithHTTPClient(client *http.Client) *GetRulesV1Params {
 */
 type GetRulesV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   IDs of rules.
@@ -125,17 +119,6 @@ func (o *GetRulesV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the get rules v1 params
-func (o *GetRulesV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *GetRulesV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the get rules v1 params
-func (o *GetRulesV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the get rules v1 params
 func (o *GetRulesV1Params) WithIds(ids []string) *GetRulesV1Params {
 	o.SetIds(ids)
@@ -154,14 +137,6 @@ func (o *GetRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Ids != nil {
 

@@ -19,6 +19,10 @@ import (
 // swagger:model sadomain.Rule
 type SadomainRule struct {
 
+	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required.
+	// Required: true
+	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
@@ -28,7 +32,7 @@ type SadomainRule struct {
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
-	// The FQL filter contained in a rule and used for searching
+	// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity.
 	// Required: true
 	Filter *string `json:"filter"`
 
@@ -39,6 +43,9 @@ type SadomainRule struct {
 	// The name for a given rule
 	// Required: true
 	Name *string `json:"name"`
+
+	// The customer assets for which ownership must be verified, in order to monitor for breach data
+	OwnershipAssets *SadomainCustomerAssets `json:"ownership_assets,omitempty"`
 
 	// The permissions of a given rule
 	// Required: true
@@ -79,6 +86,10 @@ type SadomainRule struct {
 func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBreachMonitoringEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
@@ -96,6 +107,10 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOwnershipAssets(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -126,6 +141,15 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SadomainRule) validateBreachMonitoringEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("breach_monitoring_enabled", "body", m.BreachMonitoringEnabled); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -173,6 +197,25 @@ func (m *SadomainRule) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainRule) validateOwnershipAssets(formats strfmt.Registry) error {
+	if swag.IsZero(m.OwnershipAssets) { // not required
+		return nil
+	}
+
+	if m.OwnershipAssets != nil {
+		if err := m.OwnershipAssets.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ownership_assets")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ownership_assets")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -236,8 +279,33 @@ func (m *SadomainRule) validateUserUUID(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this sadomain rule based on context it is used
+// ContextValidate validate this sadomain rule based on the context it is used
 func (m *SadomainRule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOwnershipAssets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SadomainRule) contextValidateOwnershipAssets(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OwnershipAssets != nil {
+		if err := m.OwnershipAssets.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ownership_assets")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ownership_assets")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

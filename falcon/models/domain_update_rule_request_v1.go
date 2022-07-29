@@ -19,6 +19,10 @@ import (
 // swagger:model domain.UpdateRuleRequestV1
 type DomainUpdateRuleRequestV1 struct {
 
+	// Whether to monitor for breach data
+	// Required: true
+	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
+
 	// The filter to be used for searching
 	// Required: true
 	Filter *string `json:"filter"`
@@ -31,7 +35,7 @@ type DomainUpdateRuleRequestV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [private public]
+	// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [public private]
 	// Required: true
 	Permissions *string `json:"permissions"`
 
@@ -43,6 +47,10 @@ type DomainUpdateRuleRequestV1 struct {
 // Validate validates this domain update rule request v1
 func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBreachMonitoringEnabled(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateFilter(formats); err != nil {
 		res = append(res, err)
@@ -67,6 +75,15 @@ func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainUpdateRuleRequestV1) validateBreachMonitoringEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("breach_monitoring_enabled", "body", m.BreachMonitoringEnabled); err != nil {
+		return err
+	}
+
 	return nil
 }
 

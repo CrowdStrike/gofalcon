@@ -60,12 +60,6 @@ func NewDeleteRulesV1ParamsWithHTTPClient(client *http.Client) *DeleteRulesV1Par
 */
 type DeleteRulesV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Ids.
 
 	   IDs of rules.
@@ -125,17 +119,6 @@ func (o *DeleteRulesV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the delete rules v1 params
-func (o *DeleteRulesV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *DeleteRulesV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the delete rules v1 params
-func (o *DeleteRulesV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the delete rules v1 params
 func (o *DeleteRulesV1Params) WithIds(ids []string) *DeleteRulesV1Params {
 	o.SetIds(ids)
@@ -154,14 +137,6 @@ func (o *DeleteRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Ids != nil {
 
