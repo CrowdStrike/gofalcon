@@ -60,12 +60,6 @@ func NewQueryRulesV1ParamsWithHTTPClient(client *http.Client) *QueryRulesV1Param
 */
 type QueryRulesV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	/* Filter.
 
 	   FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions filter status created_timestamp last_updated_timestamp]
@@ -74,7 +68,7 @@ type QueryRulesV1Params struct {
 
 	/* Limit.
 
-	   Number of ids to return.
+	   Number of IDs to return. Offset + limit should NOT be above 10K.
 	*/
 	Limit *int64
 
@@ -82,7 +76,7 @@ type QueryRulesV1Params struct {
 
 	   Starting index of overall result set from which to return ids.
 	*/
-	Offset *string
+	Offset *int64
 
 	/* Q.
 
@@ -149,17 +143,6 @@ func (o *QueryRulesV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the query rules v1 params
-func (o *QueryRulesV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *QueryRulesV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the query rules v1 params
-func (o *QueryRulesV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithFilter adds the filter to the query rules v1 params
 func (o *QueryRulesV1Params) WithFilter(filter *string) *QueryRulesV1Params {
 	o.SetFilter(filter)
@@ -183,13 +166,13 @@ func (o *QueryRulesV1Params) SetLimit(limit *int64) {
 }
 
 // WithOffset adds the offset to the query rules v1 params
-func (o *QueryRulesV1Params) WithOffset(offset *string) *QueryRulesV1Params {
+func (o *QueryRulesV1Params) WithOffset(offset *int64) *QueryRulesV1Params {
 	o.SetOffset(offset)
 	return o
 }
 
 // SetOffset adds the offset to the query rules v1 params
-func (o *QueryRulesV1Params) SetOffset(offset *string) {
+func (o *QueryRulesV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
@@ -222,14 +205,6 @@ func (o *QueryRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 
 	if o.Filter != nil {
 
@@ -268,12 +243,12 @@ func (o *QueryRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	if o.Offset != nil {
 
 		// query param offset
-		var qrOffset string
+		var qrOffset int64
 
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
-		qOffset := qrOffset
+		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {

@@ -61,12 +61,6 @@ func NewCreateRulesV1ParamsWithHTTPClient(client *http.Client) *CreateRulesV1Par
 */
 type CreateRulesV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	// Body.
 	Body []*models.SadomainCreateRuleRequestV1
 
@@ -123,17 +117,6 @@ func (o *CreateRulesV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the create rules v1 params
-func (o *CreateRulesV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *CreateRulesV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the create rules v1 params
-func (o *CreateRulesV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the create rules v1 params
 func (o *CreateRulesV1Params) WithBody(body []*models.SadomainCreateRuleRequestV1) *CreateRulesV1Params {
 	o.SetBody(body)
@@ -152,14 +135,6 @@ func (o *CreateRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

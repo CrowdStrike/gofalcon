@@ -477,7 +477,7 @@ func (a *Client) GetNotificationsV1(params *GetNotificationsV1Params, opts ...Cl
 }
 
 /*
-  GetRulesV1 gets monitoring rules rules by provided i ds
+  GetRulesV1 gets monitoring rules based on their i ds i ds can be retrieved using the g e t queries rules v1 endpoint
 */
 func (a *Client) GetRulesV1(params *GetRulesV1Params, opts ...ClientOption) (*GetRulesV1OK, error) {
 	// TODO: Validate the params before sending

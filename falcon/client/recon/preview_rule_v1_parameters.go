@@ -61,12 +61,6 @@ func NewPreviewRuleV1ParamsWithHTTPClient(client *http.Client) *PreviewRuleV1Par
 */
 type PreviewRuleV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	// Body.
 	Body *models.DomainRulePreviewRequest
 
@@ -123,17 +117,6 @@ func (o *PreviewRuleV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the preview rule v1 params
-func (o *PreviewRuleV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *PreviewRuleV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the preview rule v1 params
-func (o *PreviewRuleV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the preview rule v1 params
 func (o *PreviewRuleV1Params) WithBody(body *models.DomainRulePreviewRequest) *PreviewRuleV1Params {
 	o.SetBody(body)
@@ -152,14 +135,6 @@ func (o *PreviewRuleV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

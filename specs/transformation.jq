@@ -14,9 +14,12 @@
   | .definitions."msaspec.ResponseFields".properties.errors.items."$ref" = "#/definitions/msa.APIError"
   # Rename msaspec.Paging to msa.Paging. These are two names for the same type.
   | del(.definitions."msaspec.Paging")
+  | .definitions."domain.RuleMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
   # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
   | del(.definitions."msaspec.MetaInfo")
   | .definitions."domain.DiscoverAPIHostEntitiesResponse".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
+  | .definitions."domain.AggregatesResponse".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
+  | .definitions."domain.ErrorsOnly".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
   | .definitions."msa.QueryResponse".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
   | .definitions."msaspec.ResponseFields".properties.meta."$ref" = "#/definitions/msa.MetaInfo"
   # Misc fixes

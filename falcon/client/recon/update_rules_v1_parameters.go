@@ -61,12 +61,6 @@ func NewUpdateRulesV1ParamsWithHTTPClient(client *http.Client) *UpdateRulesV1Par
 */
 type UpdateRulesV1Params struct {
 
-	/* XCSUSERUUID.
-
-	   User UUID
-	*/
-	XCSUSERUUID *string
-
 	// Body.
 	Body []*models.DomainUpdateRuleRequestV1
 
@@ -123,17 +117,6 @@ func (o *UpdateRulesV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the update rules v1 params
-func (o *UpdateRulesV1Params) WithXCSUSERUUID(xCSUSERUUID *string) *UpdateRulesV1Params {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the update rules v1 params
-func (o *UpdateRulesV1Params) SetXCSUSERUUID(xCSUSERUUID *string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithBody adds the body to the update rules v1 params
 func (o *UpdateRulesV1Params) WithBody(body []*models.DomainUpdateRuleRequestV1) *UpdateRulesV1Params {
 	o.SetBody(body)
@@ -152,14 +135,6 @@ func (o *UpdateRulesV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERUUID != nil {
-
-		// header param X-CS-USERUUID
-		if err := r.SetHeaderParam("X-CS-USERUUID", *o.XCSUSERUUID); err != nil {
-			return err
-		}
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
