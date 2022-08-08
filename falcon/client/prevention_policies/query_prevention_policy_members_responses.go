@@ -79,7 +79,7 @@ func NewQueryPreventionPolicyMembersOK() *QueryPreventionPolicyMembersOK {
 }
 
 /*
-	QueryPreventionPolicyMembersOK describes a response with status code 200, with default header values.
+QueryPreventionPolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewQueryPreventionPolicyMembersBadRequest() *QueryPreventionPolicyMembersBa
 }
 
 /*
-	QueryPreventionPolicyMembersBadRequest describes a response with status code 400, with default header values.
+QueryPreventionPolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewQueryPreventionPolicyMembersForbidden() *QueryPreventionPolicyMembersFor
 }
 
 /*
-	QueryPreventionPolicyMembersForbidden describes a response with status code 403, with default header values.
+QueryPreventionPolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -304,7 +304,7 @@ func NewQueryPreventionPolicyMembersNotFound() *QueryPreventionPolicyMembersNotF
 }
 
 /*
-	QueryPreventionPolicyMembersNotFound describes a response with status code 404, with default header values.
+QueryPreventionPolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -379,7 +379,7 @@ func NewQueryPreventionPolicyMembersTooManyRequests() *QueryPreventionPolicyMemb
 }
 
 /*
-	QueryPreventionPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryPreventionPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewQueryPreventionPolicyMembersInternalServerError() *QueryPreventionPolicy
 }
 
 /*
-	QueryPreventionPolicyMembersInternalServerError describes a response with status code 500, with default header values.
+QueryPreventionPolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewQueryPreventionPolicyMembersDefault(code int) *QueryPreventionPolicyMemb
 }
 
 /*
-	QueryPreventionPolicyMembersDefault describes a response with status code -1, with default header values.
+QueryPreventionPolicyMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

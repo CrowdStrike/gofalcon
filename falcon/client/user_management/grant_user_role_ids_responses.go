@@ -67,7 +67,7 @@ func NewGrantUserRoleIdsOK() *GrantUserRoleIdsOK {
 }
 
 /*
-	GrantUserRoleIdsOK describes a response with status code 200, with default header values.
+GrantUserRoleIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGrantUserRoleIdsBadRequest() *GrantUserRoleIdsBadRequest {
 }
 
 /*
-	GrantUserRoleIdsBadRequest describes a response with status code 400, with default header values.
+GrantUserRoleIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -195,7 +195,7 @@ func NewGrantUserRoleIdsForbidden() *GrantUserRoleIdsForbidden {
 }
 
 /*
-	GrantUserRoleIdsForbidden describes a response with status code 403, with default header values.
+GrantUserRoleIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -259,7 +259,7 @@ func NewGrantUserRoleIdsTooManyRequests() *GrantUserRoleIdsTooManyRequests {
 }
 
 /*
-	GrantUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
+GrantUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewGrantUserRoleIdsDefault(code int) *GrantUserRoleIdsDefault {
 }
 
 /*
-	GrantUserRoleIdsDefault describes a response with status code -1, with default header values.
+GrantUserRoleIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

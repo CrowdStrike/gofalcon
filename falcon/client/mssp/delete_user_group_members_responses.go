@@ -73,7 +73,7 @@ func NewDeleteUserGroupMembersOK() *DeleteUserGroupMembersOK {
 }
 
 /*
-	DeleteUserGroupMembersOK describes a response with status code 200, with default header values.
+DeleteUserGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewDeleteUserGroupMembersMultiStatus() *DeleteUserGroupMembersMultiStatus {
 }
 
 /*
-	DeleteUserGroupMembersMultiStatus describes a response with status code 207, with default header values.
+DeleteUserGroupMembersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -201,7 +201,7 @@ func NewDeleteUserGroupMembersBadRequest() *DeleteUserGroupMembersBadRequest {
 }
 
 /*
-	DeleteUserGroupMembersBadRequest describes a response with status code 400, with default header values.
+DeleteUserGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -265,7 +265,7 @@ func NewDeleteUserGroupMembersForbidden() *DeleteUserGroupMembersForbidden {
 }
 
 /*
-	DeleteUserGroupMembersForbidden describes a response with status code 403, with default header values.
+DeleteUserGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -329,7 +329,7 @@ func NewDeleteUserGroupMembersTooManyRequests() *DeleteUserGroupMembersTooManyRe
 }
 
 /*
-	DeleteUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+DeleteUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewDeleteUserGroupMembersDefault(code int) *DeleteUserGroupMembersDefault {
 }
 
 /*
-	DeleteUserGroupMembersDefault describes a response with status code -1, with default header values.
+DeleteUserGroupMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

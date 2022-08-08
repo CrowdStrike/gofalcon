@@ -73,7 +73,7 @@ func NewQueryCombinedDeviceControlPoliciesOK() *QueryCombinedDeviceControlPolici
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+QueryCombinedDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryCombinedDeviceControlPoliciesBadRequest() *QueryCombinedDeviceContr
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
+QueryCombinedDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryCombinedDeviceControlPoliciesForbidden() *QueryCombinedDeviceContro
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+QueryCombinedDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryCombinedDeviceControlPoliciesTooManyRequests() *QueryCombinedDevice
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+QueryCombinedDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryCombinedDeviceControlPoliciesInternalServerError() *QueryCombinedDe
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+QueryCombinedDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryCombinedDeviceControlPoliciesDefault(code int) *QueryCombinedDevice
 }
 
 /*
-	QueryCombinedDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
+QueryCombinedDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

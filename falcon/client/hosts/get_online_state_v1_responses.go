@@ -61,7 +61,7 @@ func NewGetOnlineStateV1OK() *GetOnlineStateV1OK {
 }
 
 /*
-	GetOnlineStateV1OK describes a response with status code 200, with default header values.
+GetOnlineStateV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewGetOnlineStateV1Forbidden() *GetOnlineStateV1Forbidden {
 }
 
 /*
-	GetOnlineStateV1Forbidden describes a response with status code 403, with default header values.
+GetOnlineStateV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewGetOnlineStateV1TooManyRequests() *GetOnlineStateV1TooManyRequests {
 }
 
 /*
-	GetOnlineStateV1TooManyRequests describes a response with status code 429, with default header values.
+GetOnlineStateV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewGetOnlineStateV1Default(code int) *GetOnlineStateV1Default {
 }
 
 /*
-	GetOnlineStateV1Default describes a response with status code -1, with default header values.
+GetOnlineStateV1Default describes a response with status code -1, with default header values.
 
 OK
 */

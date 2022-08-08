@@ -73,7 +73,7 @@ func NewCreateSVExclusionsV1OK() *CreateSVExclusionsV1OK {
 }
 
 /*
-	CreateSVExclusionsV1OK describes a response with status code 200, with default header values.
+CreateSVExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewCreateSVExclusionsV1BadRequest() *CreateSVExclusionsV1BadRequest {
 }
 
 /*
-	CreateSVExclusionsV1BadRequest describes a response with status code 400, with default header values.
+CreateSVExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewCreateSVExclusionsV1Forbidden() *CreateSVExclusionsV1Forbidden {
 }
 
 /*
-	CreateSVExclusionsV1Forbidden describes a response with status code 403, with default header values.
+CreateSVExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewCreateSVExclusionsV1TooManyRequests() *CreateSVExclusionsV1TooManyReques
 }
 
 /*
-	CreateSVExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+CreateSVExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewCreateSVExclusionsV1InternalServerError() *CreateSVExclusionsV1InternalS
 }
 
 /*
-	CreateSVExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+CreateSVExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewCreateSVExclusionsV1Default(code int) *CreateSVExclusionsV1Default {
 }
 
 /*
-	CreateSVExclusionsV1Default describes a response with status code -1, with default header values.
+CreateSVExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

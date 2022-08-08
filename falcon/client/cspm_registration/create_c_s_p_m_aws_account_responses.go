@@ -72,7 +72,7 @@ func NewCreateCSPMAwsAccountCreated() *CreateCSPMAwsAccountCreated {
 }
 
 /*
-	CreateCSPMAwsAccountCreated describes a response with status code 201, with default header values.
+CreateCSPMAwsAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -147,7 +147,7 @@ func NewCreateCSPMAwsAccountMultiStatus() *CreateCSPMAwsAccountMultiStatus {
 }
 
 /*
-	CreateCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
+CreateCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -222,7 +222,7 @@ func NewCreateCSPMAwsAccountBadRequest() *CreateCSPMAwsAccountBadRequest {
 }
 
 /*
-	CreateCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+CreateCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -297,7 +297,7 @@ func NewCreateCSPMAwsAccountForbidden() *CreateCSPMAwsAccountForbidden {
 }
 
 /*
-	CreateCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+CreateCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -372,7 +372,7 @@ func NewCreateCSPMAwsAccountTooManyRequests() *CreateCSPMAwsAccountTooManyReques
 }
 
 /*
-	CreateCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+CreateCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -462,7 +462,7 @@ func NewCreateCSPMAwsAccountInternalServerError() *CreateCSPMAwsAccountInternalS
 }
 
 /*
-	CreateCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+CreateCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

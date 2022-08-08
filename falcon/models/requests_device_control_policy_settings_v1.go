@@ -16,7 +16,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// RequestsDeviceControlPolicySettingsV1 A specific setting to update
+// RequestsDeviceControlPolicySettingsV1 requests device control policy settings v1
 //
 // swagger:model requests.DeviceControlPolicySettingsV1
 type RequestsDeviceControlPolicySettingsV1 struct {
@@ -25,18 +25,19 @@ type RequestsDeviceControlPolicySettingsV1 struct {
 	// Required: true
 	Classes []*RequestsDeviceControlPolicyClassSettingsV1 `json:"classes"`
 
+	// An array of exception IDs to delete from the policy
+	// Required: true
+	DeleteExceptions []string `json:"delete_exceptions"`
+
 	// Does the end user receives a notification when the policy is violated
 	// Required: true
-	// Enum: [TRUE FALSE]
+	// Enum: [SILENT NOTIFY_USER]
 	EndUserNotification *string `json:"end_user_notification"`
 
 	// How is this policy enforced
 	// Required: true
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE]
 	EnforcementMode *string `json:"enforcement_mode"`
-
-	// The id of the setting to update
-	// Required: true
-	ID *string `json:"id"`
 }
 
 // Validate validates this requests device control policy settings v1
@@ -47,15 +48,15 @@ func (m *RequestsDeviceControlPolicySettingsV1) Validate(formats strfmt.Registry
 		res = append(res, err)
 	}
 
+	if err := m.validateDeleteExceptions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEndUserNotification(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateEnforcementMode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -92,11 +93,20 @@ func (m *RequestsDeviceControlPolicySettingsV1) validateClasses(formats strfmt.R
 	return nil
 }
 
+func (m *RequestsDeviceControlPolicySettingsV1) validateDeleteExceptions(formats strfmt.Registry) error {
+
+	if err := validate.Required("delete_exceptions", "body", m.DeleteExceptions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var requestsDeviceControlPolicySettingsV1TypeEndUserNotificationPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["TRUE","FALSE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["SILENT","NOTIFY_USER"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -106,11 +116,11 @@ func init() {
 
 const (
 
-	// RequestsDeviceControlPolicySettingsV1EndUserNotificationTRUE captures enum value "TRUE"
-	RequestsDeviceControlPolicySettingsV1EndUserNotificationTRUE string = "TRUE"
+	// RequestsDeviceControlPolicySettingsV1EndUserNotificationSILENT captures enum value "SILENT"
+	RequestsDeviceControlPolicySettingsV1EndUserNotificationSILENT string = "SILENT"
 
-	// RequestsDeviceControlPolicySettingsV1EndUserNotificationFALSE captures enum value "FALSE"
-	RequestsDeviceControlPolicySettingsV1EndUserNotificationFALSE string = "FALSE"
+	// RequestsDeviceControlPolicySettingsV1EndUserNotificationNOTIFYUSER captures enum value "NOTIFY_USER"
+	RequestsDeviceControlPolicySettingsV1EndUserNotificationNOTIFYUSER string = "NOTIFY_USER"
 )
 
 // prop value enum
@@ -135,18 +145,43 @@ func (m *RequestsDeviceControlPolicySettingsV1) validateEndUserNotification(form
 	return nil
 }
 
+var requestsDeviceControlPolicySettingsV1TypeEnforcementModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		requestsDeviceControlPolicySettingsV1TypeEnforcementModePropEnum = append(requestsDeviceControlPolicySettingsV1TypeEnforcementModePropEnum, v)
+	}
+}
+
+const (
+
+	// RequestsDeviceControlPolicySettingsV1EnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	RequestsDeviceControlPolicySettingsV1EnforcementModeMONITORONLY string = "MONITOR_ONLY"
+
+	// RequestsDeviceControlPolicySettingsV1EnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	RequestsDeviceControlPolicySettingsV1EnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+)
+
+// prop value enum
+func (m *RequestsDeviceControlPolicySettingsV1) validateEnforcementModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, requestsDeviceControlPolicySettingsV1TypeEnforcementModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (m *RequestsDeviceControlPolicySettingsV1) validateEnforcementMode(formats strfmt.Registry) error {
 
 	if err := validate.Required("enforcement_mode", "body", m.EnforcementMode); err != nil {
 		return err
 	}
 
-	return nil
-}
-
-func (m *RequestsDeviceControlPolicySettingsV1) validateID(formats strfmt.Registry) error {
-
-	if err := validate.Required("id", "body", m.ID); err != nil {
+	// value enum
+	if err := m.validateEnforcementModeEnum("enforcement_mode", "body", *m.EnforcementMode); err != nil {
 		return err
 	}
 

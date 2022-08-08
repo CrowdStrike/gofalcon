@@ -73,7 +73,7 @@ func NewQueryDeviceControlPoliciesOK() *QueryDeviceControlPoliciesOK {
 }
 
 /*
-	QueryDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+QueryDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryDeviceControlPoliciesBadRequest() *QueryDeviceControlPoliciesBadReq
 }
 
 /*
-	QueryDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
+QueryDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryDeviceControlPoliciesForbidden() *QueryDeviceControlPoliciesForbidd
 }
 
 /*
-	QueryDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+QueryDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryDeviceControlPoliciesTooManyRequests() *QueryDeviceControlPoliciesT
 }
 
 /*
-	QueryDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+QueryDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryDeviceControlPoliciesInternalServerError() *QueryDeviceControlPolic
 }
 
 /*
-	QueryDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+QueryDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryDeviceControlPoliciesDefault(code int) *QueryDeviceControlPoliciesD
 }
 
 /*
-	QueryDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
+QueryDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

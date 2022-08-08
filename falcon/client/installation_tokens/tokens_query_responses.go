@@ -73,7 +73,7 @@ func NewTokensQueryOK() *TokensQueryOK {
 }
 
 /*
-	TokensQueryOK describes a response with status code 200, with default header values.
+TokensQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewTokensQueryBadRequest() *TokensQueryBadRequest {
 }
 
 /*
-	TokensQueryBadRequest describes a response with status code 400, with default header values.
+TokensQueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewTokensQueryForbidden() *TokensQueryForbidden {
 }
 
 /*
-	TokensQueryForbidden describes a response with status code 403, with default header values.
+TokensQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewTokensQueryTooManyRequests() *TokensQueryTooManyRequests {
 }
 
 /*
-	TokensQueryTooManyRequests describes a response with status code 429, with default header values.
+TokensQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewTokensQueryInternalServerError() *TokensQueryInternalServerError {
 }
 
 /*
-	TokensQueryInternalServerError describes a response with status code 500, with default header values.
+TokensQueryInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewTokensQueryDefault(code int) *TokensQueryDefault {
 }
 
 /*
-	TokensQueryDefault describes a response with status code -1, with default header values.
+TokensQueryDefault describes a response with status code -1, with default header values.
 
 OK
 */

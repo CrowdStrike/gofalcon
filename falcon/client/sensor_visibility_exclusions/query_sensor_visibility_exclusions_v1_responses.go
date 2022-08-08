@@ -73,7 +73,7 @@ func NewQuerySensorVisibilityExclusionsV1OK() *QuerySensorVisibilityExclusionsV1
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
+QuerySensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQuerySensorVisibilityExclusionsV1BadRequest() *QuerySensorVisibilityExcl
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
+QuerySensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQuerySensorVisibilityExclusionsV1Forbidden() *QuerySensorVisibilityExclu
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
+QuerySensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQuerySensorVisibilityExclusionsV1TooManyRequests() *QuerySensorVisibilit
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+QuerySensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQuerySensorVisibilityExclusionsV1InternalServerError() *QuerySensorVisib
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+QuerySensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQuerySensorVisibilityExclusionsV1Default(code int) *QuerySensorVisibilit
 }
 
 /*
-	QuerySensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
+QuerySensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

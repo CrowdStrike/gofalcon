@@ -79,7 +79,7 @@ func NewPerformDeviceControlPoliciesActionOK() *PerformDeviceControlPoliciesActi
 }
 
 /*
-	PerformDeviceControlPoliciesActionOK describes a response with status code 200, with default header values.
+PerformDeviceControlPoliciesActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewPerformDeviceControlPoliciesActionBadRequest() *PerformDeviceControlPoli
 }
 
 /*
-	PerformDeviceControlPoliciesActionBadRequest describes a response with status code 400, with default header values.
+PerformDeviceControlPoliciesActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewPerformDeviceControlPoliciesActionForbidden() *PerformDeviceControlPolic
 }
 
 /*
-	PerformDeviceControlPoliciesActionForbidden describes a response with status code 403, with default header values.
+PerformDeviceControlPoliciesActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewPerformDeviceControlPoliciesActionNotFound() *PerformDeviceControlPolici
 }
 
 /*
-	PerformDeviceControlPoliciesActionNotFound describes a response with status code 404, with default header values.
+PerformDeviceControlPoliciesActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewPerformDeviceControlPoliciesActionTooManyRequests() *PerformDeviceContro
 }
 
 /*
-	PerformDeviceControlPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
+PerformDeviceControlPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewPerformDeviceControlPoliciesActionInternalServerError() *PerformDeviceCo
 }
 
 /*
-	PerformDeviceControlPoliciesActionInternalServerError describes a response with status code 500, with default header values.
+PerformDeviceControlPoliciesActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewPerformDeviceControlPoliciesActionDefault(code int) *PerformDeviceContro
 }
 
 /*
-	PerformDeviceControlPoliciesActionDefault describes a response with status code -1, with default header values.
+PerformDeviceControlPoliciesActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

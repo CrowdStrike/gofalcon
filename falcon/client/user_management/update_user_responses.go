@@ -73,7 +73,7 @@ func NewUpdateUserOK() *UpdateUserOK {
 }
 
 /*
-	UpdateUserOK describes a response with status code 200, with default header values.
+UpdateUserOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewUpdateUserBadRequest() *UpdateUserBadRequest {
 }
 
 /*
-	UpdateUserBadRequest describes a response with status code 400, with default header values.
+UpdateUserBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewUpdateUserForbidden() *UpdateUserForbidden {
 }
 
 /*
-	UpdateUserForbidden describes a response with status code 403, with default header values.
+UpdateUserForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewUpdateUserNotFound() *UpdateUserNotFound {
 }
 
 /*
-	UpdateUserNotFound describes a response with status code 404, with default header values.
+UpdateUserNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -329,7 +329,7 @@ func NewUpdateUserTooManyRequests() *UpdateUserTooManyRequests {
 }
 
 /*
-	UpdateUserTooManyRequests describes a response with status code 429, with default header values.
+UpdateUserTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewUpdateUserDefault(code int) *UpdateUserDefault {
 }
 
 /*
-	UpdateUserDefault describes a response with status code -1, with default header values.
+UpdateUserDefault describes a response with status code -1, with default header values.
 
 OK
 */

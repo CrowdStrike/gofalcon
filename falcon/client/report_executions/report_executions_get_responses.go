@@ -67,7 +67,7 @@ func NewReportExecutionsGetOK() *ReportExecutionsGetOK {
 }
 
 /*
-	ReportExecutionsGetOK describes a response with status code 200, with default header values.
+ReportExecutionsGetOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -142,7 +142,7 @@ func NewReportExecutionsGetBadRequest() *ReportExecutionsGetBadRequest {
 }
 
 /*
-	ReportExecutionsGetBadRequest describes a response with status code 400, with default header values.
+ReportExecutionsGetBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -217,7 +217,7 @@ func NewReportExecutionsGetForbidden() *ReportExecutionsGetForbidden {
 }
 
 /*
-	ReportExecutionsGetForbidden describes a response with status code 403, with default header values.
+ReportExecutionsGetForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -292,7 +292,7 @@ func NewReportExecutionsGetTooManyRequests() *ReportExecutionsGetTooManyRequests
 }
 
 /*
-	ReportExecutionsGetTooManyRequests describes a response with status code 429, with default header values.
+ReportExecutionsGetTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -384,7 +384,7 @@ func NewReportExecutionsGetDefault(code int) *ReportExecutionsGetDefault {
 }
 
 /*
-	ReportExecutionsGetDefault describes a response with status code -1, with default header values.
+ReportExecutionsGetDefault describes a response with status code -1, with default header values.
 
 OK
 */

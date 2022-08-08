@@ -73,7 +73,7 @@ func NewGetReportsOK() *GetReportsOK {
 }
 
 /*
-	GetReportsOK describes a response with status code 200, with default header values.
+GetReportsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetReportsBadRequest() *GetReportsBadRequest {
 }
 
 /*
-	GetReportsBadRequest describes a response with status code 400, with default header values.
+GetReportsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewGetReportsForbidden() *GetReportsForbidden {
 }
 
 /*
-	GetReportsForbidden describes a response with status code 403, with default header values.
+GetReportsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewGetReportsTooManyRequests() *GetReportsTooManyRequests {
 }
 
 /*
-	GetReportsTooManyRequests describes a response with status code 429, with default header values.
+GetReportsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetReportsInternalServerError() *GetReportsInternalServerError {
 }
 
 /*
-	GetReportsInternalServerError describes a response with status code 500, with default header values.
+GetReportsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetReportsDefault(code int) *GetReportsDefault {
 }
 
 /*
-	GetReportsDefault describes a response with status code -1, with default header values.
+GetReportsDefault describes a response with status code -1, with default header values.
 
 OK
 */

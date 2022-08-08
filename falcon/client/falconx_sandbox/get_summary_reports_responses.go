@@ -73,7 +73,7 @@ func NewGetSummaryReportsOK() *GetSummaryReportsOK {
 }
 
 /*
-	GetSummaryReportsOK describes a response with status code 200, with default header values.
+GetSummaryReportsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetSummaryReportsBadRequest() *GetSummaryReportsBadRequest {
 }
 
 /*
-	GetSummaryReportsBadRequest describes a response with status code 400, with default header values.
+GetSummaryReportsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewGetSummaryReportsForbidden() *GetSummaryReportsForbidden {
 }
 
 /*
-	GetSummaryReportsForbidden describes a response with status code 403, with default header values.
+GetSummaryReportsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewGetSummaryReportsTooManyRequests() *GetSummaryReportsTooManyRequests {
 }
 
 /*
-	GetSummaryReportsTooManyRequests describes a response with status code 429, with default header values.
+GetSummaryReportsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetSummaryReportsInternalServerError() *GetSummaryReportsInternalServerE
 }
 
 /*
-	GetSummaryReportsInternalServerError describes a response with status code 500, with default header values.
+GetSummaryReportsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetSummaryReportsDefault(code int) *GetSummaryReportsDefault {
 }
 
 /*
-	GetSummaryReportsDefault describes a response with status code -1, with default header values.
+GetSummaryReportsDefault describes a response with status code -1, with default header values.
 
 OK
 */

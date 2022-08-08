@@ -21,18 +21,18 @@ import (
 // swagger:model responses.DeviceControlSettingsV1
 type ResponsesDeviceControlSettingsV1 struct {
 
-	// classes
+	// List of class_settings this policy applies to
 	// Required: true
 	Classes []*ResponsesDeviceControlPolicyClassSettingsV1 `json:"classes"`
 
 	// Does the end user receives a notification when the policy is violated
 	// Required: true
-	// Enum: [TRUE FALSE]
+	// Enum: [SILENT NOTIFY_USER]
 	EndUserNotification *string `json:"end_user_notification"`
 
 	// [How] is this policy enforced
 	// Required: true
-	// Enum: [ENFORCED MONITORY_ONLY]
+	// Enum: [MONITOR_ONLY MONITOR_ENFORCE OFF]
 	EnforcementMode *string `json:"enforcement_mode"`
 }
 
@@ -89,7 +89,7 @@ var responsesDeviceControlSettingsV1TypeEndUserNotificationPropEnum []interface{
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["TRUE","FALSE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["SILENT","NOTIFY_USER"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -99,11 +99,11 @@ func init() {
 
 const (
 
-	// ResponsesDeviceControlSettingsV1EndUserNotificationTRUE captures enum value "TRUE"
-	ResponsesDeviceControlSettingsV1EndUserNotificationTRUE string = "TRUE"
+	// ResponsesDeviceControlSettingsV1EndUserNotificationSILENT captures enum value "SILENT"
+	ResponsesDeviceControlSettingsV1EndUserNotificationSILENT string = "SILENT"
 
-	// ResponsesDeviceControlSettingsV1EndUserNotificationFALSE captures enum value "FALSE"
-	ResponsesDeviceControlSettingsV1EndUserNotificationFALSE string = "FALSE"
+	// ResponsesDeviceControlSettingsV1EndUserNotificationNOTIFYUSER captures enum value "NOTIFY_USER"
+	ResponsesDeviceControlSettingsV1EndUserNotificationNOTIFYUSER string = "NOTIFY_USER"
 )
 
 // prop value enum
@@ -132,7 +132,7 @@ var responsesDeviceControlSettingsV1TypeEnforcementModePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ENFORCED","MONITORY_ONLY"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["MONITOR_ONLY","MONITOR_ENFORCE","OFF"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -142,11 +142,14 @@ func init() {
 
 const (
 
-	// ResponsesDeviceControlSettingsV1EnforcementModeENFORCED captures enum value "ENFORCED"
-	ResponsesDeviceControlSettingsV1EnforcementModeENFORCED string = "ENFORCED"
+	// ResponsesDeviceControlSettingsV1EnforcementModeMONITORONLY captures enum value "MONITOR_ONLY"
+	ResponsesDeviceControlSettingsV1EnforcementModeMONITORONLY string = "MONITOR_ONLY"
 
-	// ResponsesDeviceControlSettingsV1EnforcementModeMONITORYONLY captures enum value "MONITORY_ONLY"
-	ResponsesDeviceControlSettingsV1EnforcementModeMONITORYONLY string = "MONITORY_ONLY"
+	// ResponsesDeviceControlSettingsV1EnforcementModeMONITORENFORCE captures enum value "MONITOR_ENFORCE"
+	ResponsesDeviceControlSettingsV1EnforcementModeMONITORENFORCE string = "MONITOR_ENFORCE"
+
+	// ResponsesDeviceControlSettingsV1EnforcementModeOFF captures enum value "OFF"
+	ResponsesDeviceControlSettingsV1EnforcementModeOFF string = "OFF"
 )
 
 // prop value enum

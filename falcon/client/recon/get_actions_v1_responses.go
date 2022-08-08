@@ -79,7 +79,7 @@ func NewGetActionsV1OK() *GetActionsV1OK {
 }
 
 /*
-	GetActionsV1OK describes a response with status code 200, with default header values.
+GetActionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewGetActionsV1BadRequest() *GetActionsV1BadRequest {
 }
 
 /*
-	GetActionsV1BadRequest describes a response with status code 400, with default header values.
+GetActionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewGetActionsV1Unauthorized() *GetActionsV1Unauthorized {
 }
 
 /*
-	GetActionsV1Unauthorized describes a response with status code 401, with default header values.
+GetActionsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -304,7 +304,7 @@ func NewGetActionsV1Forbidden() *GetActionsV1Forbidden {
 }
 
 /*
-	GetActionsV1Forbidden describes a response with status code 403, with default header values.
+GetActionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewGetActionsV1TooManyRequests() *GetActionsV1TooManyRequests {
 }
 
 /*
-	GetActionsV1TooManyRequests describes a response with status code 429, with default header values.
+GetActionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewGetActionsV1InternalServerError() *GetActionsV1InternalServerError {
 }
 
 /*
-	GetActionsV1InternalServerError describes a response with status code 500, with default header values.
+GetActionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewGetActionsV1Default(code int) *GetActionsV1Default {
 }
 
 /*
-	GetActionsV1Default describes a response with status code -1, with default header values.
+GetActionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

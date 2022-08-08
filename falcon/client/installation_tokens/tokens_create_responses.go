@@ -66,7 +66,7 @@ func NewTokensCreateCreated() *TokensCreateCreated {
 }
 
 /*
-	TokensCreateCreated describes a response with status code 201, with default header values.
+TokensCreateCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -130,7 +130,7 @@ func NewTokensCreateBadRequest() *TokensCreateBadRequest {
 }
 
 /*
-	TokensCreateBadRequest describes a response with status code 400, with default header values.
+TokensCreateBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -194,7 +194,7 @@ func NewTokensCreateForbidden() *TokensCreateForbidden {
 }
 
 /*
-	TokensCreateForbidden describes a response with status code 403, with default header values.
+TokensCreateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -258,7 +258,7 @@ func NewTokensCreateTooManyRequests() *TokensCreateTooManyRequests {
 }
 
 /*
-	TokensCreateTooManyRequests describes a response with status code 429, with default header values.
+TokensCreateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -337,7 +337,7 @@ func NewTokensCreateInternalServerError() *TokensCreateInternalServerError {
 }
 
 /*
-	TokensCreateInternalServerError describes a response with status code 500, with default header values.
+TokensCreateInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

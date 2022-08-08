@@ -67,7 +67,7 @@ func NewAggregateRulesOK() *AggregateRulesOK {
 }
 
 /*
-	AggregateRulesOK describes a response with status code 200, with default header values.
+AggregateRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewAggregateRulesBadRequest() *AggregateRulesBadRequest {
 }
 
 /*
-	AggregateRulesBadRequest describes a response with status code 400, with default header values.
+AggregateRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -195,7 +195,7 @@ func NewAggregateRulesForbidden() *AggregateRulesForbidden {
 }
 
 /*
-	AggregateRulesForbidden describes a response with status code 403, with default header values.
+AggregateRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -259,7 +259,7 @@ func NewAggregateRulesTooManyRequests() *AggregateRulesTooManyRequests {
 }
 
 /*
-	AggregateRulesTooManyRequests describes a response with status code 429, with default header values.
+AggregateRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewAggregateRulesDefault(code int) *AggregateRulesDefault {
 }
 
 /*
-	AggregateRulesDefault describes a response with status code -1, with default header values.
+AggregateRulesDefault describes a response with status code -1, with default header values.
 
 OK
 */

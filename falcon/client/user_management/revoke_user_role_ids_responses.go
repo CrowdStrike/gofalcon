@@ -67,7 +67,7 @@ func NewRevokeUserRoleIdsOK() *RevokeUserRoleIdsOK {
 }
 
 /*
-	RevokeUserRoleIdsOK describes a response with status code 200, with default header values.
+RevokeUserRoleIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewRevokeUserRoleIdsBadRequest() *RevokeUserRoleIdsBadRequest {
 }
 
 /*
-	RevokeUserRoleIdsBadRequest describes a response with status code 400, with default header values.
+RevokeUserRoleIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -195,7 +195,7 @@ func NewRevokeUserRoleIdsForbidden() *RevokeUserRoleIdsForbidden {
 }
 
 /*
-	RevokeUserRoleIdsForbidden describes a response with status code 403, with default header values.
+RevokeUserRoleIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -259,7 +259,7 @@ func NewRevokeUserRoleIdsTooManyRequests() *RevokeUserRoleIdsTooManyRequests {
 }
 
 /*
-	RevokeUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
+RevokeUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewRevokeUserRoleIdsDefault(code int) *RevokeUserRoleIdsDefault {
 }
 
 /*
-	RevokeUserRoleIdsDefault describes a response with status code -1, with default header values.
+RevokeUserRoleIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

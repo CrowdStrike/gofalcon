@@ -73,7 +73,7 @@ func NewGetCSPMGCPUserScriptsAttachmentOK() *GetCSPMGCPUserScriptsAttachmentOK {
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentOK describes a response with status code 200, with default header values.
+GetCSPMGCPUserScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetCSPMGCPUserScriptsAttachmentBadRequest() *GetCSPMGCPUserScriptsAttach
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+GetCSPMGCPUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewGetCSPMGCPUserScriptsAttachmentForbidden() *GetCSPMGCPUserScriptsAttachm
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+GetCSPMGCPUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewGetCSPMGCPUserScriptsAttachmentTooManyRequests() *GetCSPMGCPUserScriptsA
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMGCPUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetCSPMGCPUserScriptsAttachmentInternalServerError() *GetCSPMGCPUserScri
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+GetCSPMGCPUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetCSPMGCPUserScriptsAttachmentDefault(code int) *GetCSPMGCPUserScriptsA
 }
 
 /*
-	GetCSPMGCPUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
+GetCSPMGCPUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
 
 OK
 */

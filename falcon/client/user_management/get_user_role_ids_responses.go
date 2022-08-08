@@ -73,7 +73,7 @@ func NewGetUserRoleIdsOK() *GetUserRoleIdsOK {
 }
 
 /*
-	GetUserRoleIdsOK describes a response with status code 200, with default header values.
+GetUserRoleIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetUserRoleIdsBadRequest() *GetUserRoleIdsBadRequest {
 }
 
 /*
-	GetUserRoleIdsBadRequest describes a response with status code 400, with default header values.
+GetUserRoleIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewGetUserRoleIdsForbidden() *GetUserRoleIdsForbidden {
 }
 
 /*
-	GetUserRoleIdsForbidden describes a response with status code 403, with default header values.
+GetUserRoleIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewGetUserRoleIdsTooManyRequests() *GetUserRoleIdsTooManyRequests {
 }
 
 /*
-	GetUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
+GetUserRoleIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetUserRoleIdsInternalServerError() *GetUserRoleIdsInternalServerError {
 }
 
 /*
-	GetUserRoleIdsInternalServerError describes a response with status code 500, with default header values.
+GetUserRoleIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetUserRoleIdsDefault(code int) *GetUserRoleIdsDefault {
 }
 
 /*
-	GetUserRoleIdsDefault describes a response with status code -1, with default header values.
+GetUserRoleIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

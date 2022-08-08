@@ -38,6 +38,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
+	"github.com/crowdstrike/gofalcon/falcon/client/mobile_enrollment"
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
@@ -130,6 +131,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
+	cli.MobileEnrollment = mobile_enrollment.New(transport, formats)
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
@@ -250,6 +252,8 @@ type CrowdStrikeAPISpecification struct {
 
 	MlExclusions ml_exclusions.ClientService
 
+	MobileEnrollment mobile_enrollment.ClientService
+
 	Mssp mssp.ClientService
 
 	Oauth2 oauth2.ClientService
@@ -324,6 +328,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
+	c.MobileEnrollment.SetTransport(transport)
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)

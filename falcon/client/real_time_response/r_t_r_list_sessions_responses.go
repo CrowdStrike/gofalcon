@@ -73,7 +73,7 @@ func NewRTRListSessionsOK() *RTRListSessionsOK {
 }
 
 /*
-	RTRListSessionsOK describes a response with status code 200, with default header values.
+RTRListSessionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewRTRListSessionsBadRequest() *RTRListSessionsBadRequest {
 }
 
 /*
-	RTRListSessionsBadRequest describes a response with status code 400, with default header values.
+RTRListSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewRTRListSessionsForbidden() *RTRListSessionsForbidden {
 }
 
 /*
-	RTRListSessionsForbidden describes a response with status code 403, with default header values.
+RTRListSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewRTRListSessionsNotFound() *RTRListSessionsNotFound {
 }
 
 /*
-	RTRListSessionsNotFound describes a response with status code 404, with default header values.
+RTRListSessionsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -329,7 +329,7 @@ func NewRTRListSessionsTooManyRequests() *RTRListSessionsTooManyRequests {
 }
 
 /*
-	RTRListSessionsTooManyRequests describes a response with status code 429, with default header values.
+RTRListSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewRTRListSessionsDefault(code int) *RTRListSessionsDefault {
 }
 
 /*
-	RTRListSessionsDefault describes a response with status code -1, with default header values.
+RTRListSessionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

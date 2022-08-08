@@ -73,7 +73,7 @@ func NewGetPreventionPoliciesOK() *GetPreventionPoliciesOK {
 }
 
 /*
-	GetPreventionPoliciesOK describes a response with status code 200, with default header values.
+GetPreventionPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewGetPreventionPoliciesForbidden() *GetPreventionPoliciesForbidden {
 }
 
 /*
-	GetPreventionPoliciesForbidden describes a response with status code 403, with default header values.
+GetPreventionPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -223,7 +223,7 @@ func NewGetPreventionPoliciesNotFound() *GetPreventionPoliciesNotFound {
 }
 
 /*
-	GetPreventionPoliciesNotFound describes a response with status code 404, with default header values.
+GetPreventionPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -298,7 +298,7 @@ func NewGetPreventionPoliciesTooManyRequests() *GetPreventionPoliciesTooManyRequ
 }
 
 /*
-	GetPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
+GetPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewGetPreventionPoliciesInternalServerError() *GetPreventionPoliciesInterna
 }
 
 /*
-	GetPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
+GetPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewGetPreventionPoliciesDefault(code int) *GetPreventionPoliciesDefault {
 }
 
 /*
-	GetPreventionPoliciesDefault describes a response with status code -1, with default header values.
+GetPreventionPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -73,7 +73,7 @@ func NewQuerySensorUpdatePoliciesOK() *QuerySensorUpdatePoliciesOK {
 }
 
 /*
-	QuerySensorUpdatePoliciesOK describes a response with status code 200, with default header values.
+QuerySensorUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQuerySensorUpdatePoliciesBadRequest() *QuerySensorUpdatePoliciesBadReque
 }
 
 /*
-	QuerySensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
+QuerySensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQuerySensorUpdatePoliciesForbidden() *QuerySensorUpdatePoliciesForbidden
 }
 
 /*
-	QuerySensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+QuerySensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQuerySensorUpdatePoliciesTooManyRequests() *QuerySensorUpdatePoliciesToo
 }
 
 /*
-	QuerySensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+QuerySensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQuerySensorUpdatePoliciesInternalServerError() *QuerySensorUpdatePolicie
 }
 
 /*
-	QuerySensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+QuerySensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQuerySensorUpdatePoliciesDefault(code int) *QuerySensorUpdatePoliciesDef
 }
 
 /*
-	QuerySensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
+QuerySensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

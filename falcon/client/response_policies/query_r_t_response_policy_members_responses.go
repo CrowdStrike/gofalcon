@@ -79,7 +79,7 @@ func NewQueryRTResponsePolicyMembersOK() *QueryRTResponsePolicyMembersOK {
 }
 
 /*
-	QueryRTResponsePolicyMembersOK describes a response with status code 200, with default header values.
+QueryRTResponsePolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewQueryRTResponsePolicyMembersBadRequest() *QueryRTResponsePolicyMembersBa
 }
 
 /*
-	QueryRTResponsePolicyMembersBadRequest describes a response with status code 400, with default header values.
+QueryRTResponsePolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewQueryRTResponsePolicyMembersForbidden() *QueryRTResponsePolicyMembersFor
 }
 
 /*
-	QueryRTResponsePolicyMembersForbidden describes a response with status code 403, with default header values.
+QueryRTResponsePolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -304,7 +304,7 @@ func NewQueryRTResponsePolicyMembersNotFound() *QueryRTResponsePolicyMembersNotF
 }
 
 /*
-	QueryRTResponsePolicyMembersNotFound describes a response with status code 404, with default header values.
+QueryRTResponsePolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -379,7 +379,7 @@ func NewQueryRTResponsePolicyMembersTooManyRequests() *QueryRTResponsePolicyMemb
 }
 
 /*
-	QueryRTResponsePolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryRTResponsePolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewQueryRTResponsePolicyMembersInternalServerError() *QueryRTResponsePolicy
 }
 
 /*
-	QueryRTResponsePolicyMembersInternalServerError describes a response with status code 500, with default header values.
+QueryRTResponsePolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewQueryRTResponsePolicyMembersDefault(code int) *QueryRTResponsePolicyMemb
 }
 
 /*
-	QueryRTResponsePolicyMembersDefault describes a response with status code -1, with default header values.
+QueryRTResponsePolicyMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -73,7 +73,7 @@ func NewRetrieveUserOK() *RetrieveUserOK {
 }
 
 /*
-	RetrieveUserOK describes a response with status code 200, with default header values.
+RetrieveUserOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewRetrieveUserBadRequest() *RetrieveUserBadRequest {
 }
 
 /*
-	RetrieveUserBadRequest describes a response with status code 400, with default header values.
+RetrieveUserBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewRetrieveUserForbidden() *RetrieveUserForbidden {
 }
 
 /*
-	RetrieveUserForbidden describes a response with status code 403, with default header values.
+RetrieveUserForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewRetrieveUserNotFound() *RetrieveUserNotFound {
 }
 
 /*
-	RetrieveUserNotFound describes a response with status code 404, with default header values.
+RetrieveUserNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -329,7 +329,7 @@ func NewRetrieveUserTooManyRequests() *RetrieveUserTooManyRequests {
 }
 
 /*
-	RetrieveUserTooManyRequests describes a response with status code 429, with default header values.
+RetrieveUserTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewRetrieveUserDefault(code int) *RetrieveUserDefault {
 }
 
 /*
-	RetrieveUserDefault describes a response with status code -1, with default header values.
+RetrieveUserDefault describes a response with status code -1, with default header values.
 
 OK
 */

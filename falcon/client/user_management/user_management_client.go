@@ -54,6 +54,26 @@ type ClientService interface {
 
 	UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error)
 
+	CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error)
+
+	CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) (*CreateUserV1Created, error)
+
+	DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) (*DeleteUserV1OK, error)
+
+	EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error)
+
+	QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error)
+
+	QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error)
+
+	RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...ClientOption) (*RetrieveUsersGETV1OK, error)
+
+	UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) (*UpdateUserV1OK, error)
+
+	UserActionV1(params *UserActionV1Params, opts ...ClientOption) (*UserActionV1OK, error)
+
+	UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -499,6 +519,377 @@ func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*Up
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdateUserDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+CombinedUserRolesV1 gets user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
+*/
+func (a *Client) CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCombinedUserRolesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "combinedUserRolesV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/combined/user-roles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CombinedUserRolesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CombinedUserRolesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CombinedUserRolesV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+CreateUserV1 creates a new user after creating a user assign one or more roles with p o s t user management entities user role actions v1
+*/
+func (a *Client) CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) (*CreateUserV1Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateUserV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createUserV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateUserV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateUserV1Created)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createUserV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteUserV1 deletes a user permanently
+*/
+func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) (*DeleteUserV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteUserV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteUserV1",
+		Method:             "DELETE",
+		PathPattern:        "/user-management/entities/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteUserV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DeleteUserV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+EntitiesRolesV1 gets info about a role
+*/
+func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewEntitiesRolesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "entitiesRolesV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/entities/roles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &EntitiesRolesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*EntitiesRolesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*EntitiesRolesV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueriesRolesV1 shows role i ds for all roles available in your customer account for more information on each role provide the role ID to user management entities roles v1
+*/
+func (a *Client) QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueriesRolesV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queriesRolesV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/queries/roles/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueriesRolesV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueriesRolesV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueriesRolesV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueryUserV1 lists user i ds for all users in your customer account for more information on each user provide the user ID to user management entities users g e t v1
+*/
+func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryUserV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryUserV1",
+		Method:             "GET",
+		PathPattern:        "/user-management/queries/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryUserV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryUserV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryUserV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+RetrieveUsersGETV1 gets info about users including their name UID and c ID by providing user u UI ds
+*/
+func (a *Client) RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...ClientOption) (*RetrieveUsersGETV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRetrieveUsersGETV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "retrieveUsersGETV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/users/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RetrieveUsersGETV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RetrieveUsersGETV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*RetrieveUsersGETV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpdateUserV1 modifies an existing user s first or last name
+*/
+func (a *Client) UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) (*UpdateUserV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateUserV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateUserV1",
+		Method:             "PATCH",
+		PathPattern:        "/user-management/entities/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateUserV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateUserV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UpdateUserV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UserActionV1 applies actions to one or more user available action names reset 2fa reset password
+*/
+func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) (*UserActionV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUserActionV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "userActionV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/user-actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UserActionV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UserActionV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UserActionV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UserRolesActionV1 grants or revoke one or more role s to a user against a c ID
+*/
+func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUserRolesActionV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "userRolesActionV1",
+		Method:             "POST",
+		PathPattern:        "/user-management/entities/user-role-actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UserRolesActionV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UserRolesActionV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UserRolesActionV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

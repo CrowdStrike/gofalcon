@@ -67,7 +67,7 @@ func NewGetPolicyContainersOK() *GetPolicyContainersOK {
 }
 
 /*
-	GetPolicyContainersOK describes a response with status code 200, with default header values.
+GetPolicyContainersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGetPolicyContainersBadRequest() *GetPolicyContainersBadRequest {
 }
 
 /*
-	GetPolicyContainersBadRequest describes a response with status code 400, with default header values.
+GetPolicyContainersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -195,7 +195,7 @@ func NewGetPolicyContainersForbidden() *GetPolicyContainersForbidden {
 }
 
 /*
-	GetPolicyContainersForbidden describes a response with status code 403, with default header values.
+GetPolicyContainersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -259,7 +259,7 @@ func NewGetPolicyContainersTooManyRequests() *GetPolicyContainersTooManyRequests
 }
 
 /*
-	GetPolicyContainersTooManyRequests describes a response with status code 429, with default header values.
+GetPolicyContainersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewGetPolicyContainersDefault(code int) *GetPolicyContainersDefault {
 }
 
 /*
-	GetPolicyContainersDefault describes a response with status code -1, with default header values.
+GetPolicyContainersDefault describes a response with status code -1, with default header values.
 
 OK
 */

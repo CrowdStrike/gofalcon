@@ -77,7 +77,7 @@ func NewDownloadSensorInstallerByIDOK(writer io.Writer) *DownloadSensorInstaller
 }
 
 /*
-	DownloadSensorInstallerByIDOK describes a response with status code 200, with default header values.
+DownloadSensorInstallerByIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -139,7 +139,7 @@ func NewDownloadSensorInstallerByIDBadRequest() *DownloadSensorInstallerByIDBadR
 }
 
 /*
-	DownloadSensorInstallerByIDBadRequest describes a response with status code 400, with default header values.
+DownloadSensorInstallerByIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -203,7 +203,7 @@ func NewDownloadSensorInstallerByIDForbidden() *DownloadSensorInstallerByIDForbi
 }
 
 /*
-	DownloadSensorInstallerByIDForbidden describes a response with status code 403, with default header values.
+DownloadSensorInstallerByIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +267,7 @@ func NewDownloadSensorInstallerByIDNotFound() *DownloadSensorInstallerByIDNotFou
 }
 
 /*
-	DownloadSensorInstallerByIDNotFound describes a response with status code 404, with default header values.
+DownloadSensorInstallerByIDNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -331,7 +331,7 @@ func NewDownloadSensorInstallerByIDTooManyRequests() *DownloadSensorInstallerByI
 }
 
 /*
-	DownloadSensorInstallerByIDTooManyRequests describes a response with status code 429, with default header values.
+DownloadSensorInstallerByIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewDownloadSensorInstallerByIDDefault(code int, writer io.Writer) *Download
 }
 
 /*
-	DownloadSensorInstallerByIDDefault describes a response with status code -1, with default header values.
+DownloadSensorInstallerByIDDefault describes a response with status code -1, with default header values.
 
 OK
 */

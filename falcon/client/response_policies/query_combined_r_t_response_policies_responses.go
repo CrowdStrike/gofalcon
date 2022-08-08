@@ -73,7 +73,7 @@ func NewQueryCombinedRTResponsePoliciesOK() *QueryCombinedRTResponsePoliciesOK {
 }
 
 /*
-	QueryCombinedRTResponsePoliciesOK describes a response with status code 200, with default header values.
+QueryCombinedRTResponsePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewQueryCombinedRTResponsePoliciesBadRequest() *QueryCombinedRTResponsePoli
 }
 
 /*
-	QueryCombinedRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
+QueryCombinedRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewQueryCombinedRTResponsePoliciesForbidden() *QueryCombinedRTResponsePolic
 }
 
 /*
-	QueryCombinedRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
+QueryCombinedRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewQueryCombinedRTResponsePoliciesTooManyRequests() *QueryCombinedRTRespons
 }
 
 /*
-	QueryCombinedRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
+QueryCombinedRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewQueryCombinedRTResponsePoliciesInternalServerError() *QueryCombinedRTRes
 }
 
 /*
-	QueryCombinedRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
+QueryCombinedRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewQueryCombinedRTResponsePoliciesDefault(code int) *QueryCombinedRTRespons
 }
 
 /*
-	QueryCombinedRTResponsePoliciesDefault describes a response with status code -1, with default header values.
+QueryCombinedRTResponsePoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

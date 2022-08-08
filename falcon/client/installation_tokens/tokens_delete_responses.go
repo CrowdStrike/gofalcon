@@ -79,7 +79,7 @@ func NewTokensDeleteOK() *TokensDeleteOK {
 }
 
 /*
-	TokensDeleteOK describes a response with status code 200, with default header values.
+TokensDeleteOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewTokensDeleteBadRequest() *TokensDeleteBadRequest {
 }
 
 /*
-	TokensDeleteBadRequest describes a response with status code 400, with default header values.
+TokensDeleteBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewTokensDeleteForbidden() *TokensDeleteForbidden {
 }
 
 /*
-	TokensDeleteForbidden describes a response with status code 403, with default header values.
+TokensDeleteForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewTokensDeleteNotFound() *TokensDeleteNotFound {
 }
 
 /*
-	TokensDeleteNotFound describes a response with status code 404, with default header values.
+TokensDeleteNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewTokensDeleteTooManyRequests() *TokensDeleteTooManyRequests {
 }
 
 /*
-	TokensDeleteTooManyRequests describes a response with status code 429, with default header values.
+TokensDeleteTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewTokensDeleteInternalServerError() *TokensDeleteInternalServerError {
 }
 
 /*
-	TokensDeleteInternalServerError describes a response with status code 500, with default header values.
+TokensDeleteInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewTokensDeleteDefault(code int) *TokensDeleteDefault {
 }
 
 /*
-	TokensDeleteDefault describes a response with status code -1, with default header values.
+TokensDeleteDefault describes a response with status code -1, with default header values.
 
 OK
 */

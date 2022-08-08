@@ -73,7 +73,7 @@ func NewDeleteSensorVisibilityExclusionsV1OK() *DeleteSensorVisibilityExclusions
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
+DeleteSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewDeleteSensorVisibilityExclusionsV1BadRequest() *DeleteSensorVisibilityEx
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
+DeleteSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewDeleteSensorVisibilityExclusionsV1Forbidden() *DeleteSensorVisibilityExc
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
+DeleteSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewDeleteSensorVisibilityExclusionsV1TooManyRequests() *DeleteSensorVisibil
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+DeleteSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewDeleteSensorVisibilityExclusionsV1InternalServerError() *DeleteSensorVis
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+DeleteSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewDeleteSensorVisibilityExclusionsV1Default(code int) *DeleteSensorVisibil
 }
 
 /*
-	DeleteSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
+DeleteSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

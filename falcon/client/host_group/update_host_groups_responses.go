@@ -79,7 +79,7 @@ func NewUpdateHostGroupsOK() *UpdateHostGroupsOK {
 }
 
 /*
-	UpdateHostGroupsOK describes a response with status code 200, with default header values.
+UpdateHostGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewUpdateHostGroupsBadRequest() *UpdateHostGroupsBadRequest {
 }
 
 /*
-	UpdateHostGroupsBadRequest describes a response with status code 400, with default header values.
+UpdateHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewUpdateHostGroupsForbidden() *UpdateHostGroupsForbidden {
 }
 
 /*
-	UpdateHostGroupsForbidden describes a response with status code 403, with default header values.
+UpdateHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewUpdateHostGroupsNotFound() *UpdateHostGroupsNotFound {
 }
 
 /*
-	UpdateHostGroupsNotFound describes a response with status code 404, with default header values.
+UpdateHostGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewUpdateHostGroupsTooManyRequests() *UpdateHostGroupsTooManyRequests {
 }
 
 /*
-	UpdateHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+UpdateHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewUpdateHostGroupsInternalServerError() *UpdateHostGroupsInternalServerErr
 }
 
 /*
-	UpdateHostGroupsInternalServerError describes a response with status code 500, with default header values.
+UpdateHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewUpdateHostGroupsDefault(code int) *UpdateHostGroupsDefault {
 }
 
 /*
-	UpdateHostGroupsDefault describes a response with status code -1, with default header values.
+UpdateHostGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

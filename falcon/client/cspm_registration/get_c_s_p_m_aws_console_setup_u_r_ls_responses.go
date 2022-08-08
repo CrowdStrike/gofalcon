@@ -79,7 +79,7 @@ func NewGetCSPMAwsConsoleSetupURLsOK() *GetCSPMAwsConsoleSetupURLsOK {
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsOK describes a response with status code 200, with default header values.
+GetCSPMAwsConsoleSetupURLsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetCSPMAwsConsoleSetupURLsMultiStatus() *GetCSPMAwsConsoleSetupURLsMulti
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsMultiStatus describes a response with status code 207, with default header values.
+GetCSPMAwsConsoleSetupURLsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -207,7 +207,7 @@ func NewGetCSPMAwsConsoleSetupURLsBadRequest() *GetCSPMAwsConsoleSetupURLsBadReq
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsBadRequest describes a response with status code 400, with default header values.
+GetCSPMAwsConsoleSetupURLsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -271,7 +271,7 @@ func NewGetCSPMAwsConsoleSetupURLsForbidden() *GetCSPMAwsConsoleSetupURLsForbidd
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsForbidden describes a response with status code 403, with default header values.
+GetCSPMAwsConsoleSetupURLsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -335,7 +335,7 @@ func NewGetCSPMAwsConsoleSetupURLsTooManyRequests() *GetCSPMAwsConsoleSetupURLsT
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMAwsConsoleSetupURLsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetCSPMAwsConsoleSetupURLsInternalServerError() *GetCSPMAwsConsoleSetupU
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsInternalServerError describes a response with status code 500, with default header values.
+GetCSPMAwsConsoleSetupURLsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetCSPMAwsConsoleSetupURLsDefault(code int) *GetCSPMAwsConsoleSetupURLsD
 }
 
 /*
-	GetCSPMAwsConsoleSetupURLsDefault describes a response with status code -1, with default header values.
+GetCSPMAwsConsoleSetupURLsDefault describes a response with status code -1, with default header values.
 
 OK
 */

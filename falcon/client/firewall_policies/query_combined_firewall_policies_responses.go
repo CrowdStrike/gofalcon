@@ -73,7 +73,7 @@ func NewQueryCombinedFirewallPoliciesOK() *QueryCombinedFirewallPoliciesOK {
 }
 
 /*
-	QueryCombinedFirewallPoliciesOK describes a response with status code 200, with default header values.
+QueryCombinedFirewallPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryCombinedFirewallPoliciesBadRequest() *QueryCombinedFirewallPolicies
 }
 
 /*
-	QueryCombinedFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
+QueryCombinedFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryCombinedFirewallPoliciesForbidden() *QueryCombinedFirewallPoliciesF
 }
 
 /*
-	QueryCombinedFirewallPoliciesForbidden describes a response with status code 403, with default header values.
+QueryCombinedFirewallPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryCombinedFirewallPoliciesTooManyRequests() *QueryCombinedFirewallPol
 }
 
 /*
-	QueryCombinedFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
+QueryCombinedFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryCombinedFirewallPoliciesInternalServerError() *QueryCombinedFirewal
 }
 
 /*
-	QueryCombinedFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
+QueryCombinedFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryCombinedFirewallPoliciesDefault(code int) *QueryCombinedFirewallPol
 }
 
 /*
-	QueryCombinedFirewallPoliciesDefault describes a response with status code -1, with default header values.
+QueryCombinedFirewallPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

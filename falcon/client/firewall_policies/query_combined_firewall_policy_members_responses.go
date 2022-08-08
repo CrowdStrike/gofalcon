@@ -79,7 +79,7 @@ func NewQueryCombinedFirewallPolicyMembersOK() *QueryCombinedFirewallPolicyMembe
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersOK describes a response with status code 200, with default header values.
+QueryCombinedFirewallPolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewQueryCombinedFirewallPolicyMembersBadRequest() *QueryCombinedFirewallPol
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersBadRequest describes a response with status code 400, with default header values.
+QueryCombinedFirewallPolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewQueryCombinedFirewallPolicyMembersForbidden() *QueryCombinedFirewallPoli
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersForbidden describes a response with status code 403, with default header values.
+QueryCombinedFirewallPolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewQueryCombinedFirewallPolicyMembersNotFound() *QueryCombinedFirewallPolic
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersNotFound describes a response with status code 404, with default header values.
+QueryCombinedFirewallPolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewQueryCombinedFirewallPolicyMembersTooManyRequests() *QueryCombinedFirewa
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryCombinedFirewallPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewQueryCombinedFirewallPolicyMembersInternalServerError() *QueryCombinedFi
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersInternalServerError describes a response with status code 500, with default header values.
+QueryCombinedFirewallPolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewQueryCombinedFirewallPolicyMembersDefault(code int) *QueryCombinedFirewa
 }
 
 /*
-	QueryCombinedFirewallPolicyMembersDefault describes a response with status code -1, with default header values.
+QueryCombinedFirewallPolicyMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

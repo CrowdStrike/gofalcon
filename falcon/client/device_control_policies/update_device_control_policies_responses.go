@@ -79,11 +79,15 @@ func NewUpdateDeviceControlPoliciesOK() *UpdateDeviceControlPoliciesOK {
 }
 
 /*
-	UpdateDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+UpdateDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
 type UpdateDeviceControlPoliciesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -104,6 +108,13 @@ func (o *UpdateDeviceControlPoliciesOK) GetPayload() *models.ResponsesDeviceCont
 }
 
 func (o *UpdateDeviceControlPoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -143,11 +154,15 @@ func NewUpdateDeviceControlPoliciesBadRequest() *UpdateDeviceControlPoliciesBadR
 }
 
 /*
-	UpdateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
+UpdateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
 type UpdateDeviceControlPoliciesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -168,6 +183,13 @@ func (o *UpdateDeviceControlPoliciesBadRequest) GetPayload() *models.ResponsesDe
 }
 
 func (o *UpdateDeviceControlPoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -207,11 +229,15 @@ func NewUpdateDeviceControlPoliciesForbidden() *UpdateDeviceControlPoliciesForbi
 }
 
 /*
-	UpdateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+UpdateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
 type UpdateDeviceControlPoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -232,6 +258,13 @@ func (o *UpdateDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnl
 }
 
 func (o *UpdateDeviceControlPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -271,11 +304,15 @@ func NewUpdateDeviceControlPoliciesNotFound() *UpdateDeviceControlPoliciesNotFou
 }
 
 /*
-	UpdateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+UpdateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
 type UpdateDeviceControlPoliciesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -296,6 +333,13 @@ func (o *UpdateDeviceControlPoliciesNotFound) GetPayload() *models.ResponsesDevi
 }
 
 func (o *UpdateDeviceControlPoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -335,11 +379,15 @@ func NewUpdateDeviceControlPoliciesTooManyRequests() *UpdateDeviceControlPolicie
 }
 
 /*
-	UpdateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+UpdateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
 type UpdateDeviceControlPoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -364,6 +412,13 @@ func (o *UpdateDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaRep
 }
 
 func (o *UpdateDeviceControlPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -414,11 +469,15 @@ func NewUpdateDeviceControlPoliciesInternalServerError() *UpdateDeviceControlPol
 }
 
 /*
-	UpdateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+UpdateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
 type UpdateDeviceControlPoliciesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -439,6 +498,13 @@ func (o *UpdateDeviceControlPoliciesInternalServerError) GetPayload() *models.Re
 }
 
 func (o *UpdateDeviceControlPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -480,7 +546,7 @@ func NewUpdateDeviceControlPoliciesDefault(code int) *UpdateDeviceControlPolicie
 }
 
 /*
-	UpdateDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
+UpdateDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

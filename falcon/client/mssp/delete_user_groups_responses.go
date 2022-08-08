@@ -73,7 +73,7 @@ func NewDeleteUserGroupsOK() *DeleteUserGroupsOK {
 }
 
 /*
-	DeleteUserGroupsOK describes a response with status code 200, with default header values.
+DeleteUserGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewDeleteUserGroupsMultiStatus() *DeleteUserGroupsMultiStatus {
 }
 
 /*
-	DeleteUserGroupsMultiStatus describes a response with status code 207, with default header values.
+DeleteUserGroupsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -223,7 +223,7 @@ func NewDeleteUserGroupsBadRequest() *DeleteUserGroupsBadRequest {
 }
 
 /*
-	DeleteUserGroupsBadRequest describes a response with status code 400, with default header values.
+DeleteUserGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -298,7 +298,7 @@ func NewDeleteUserGroupsForbidden() *DeleteUserGroupsForbidden {
 }
 
 /*
-	DeleteUserGroupsForbidden describes a response with status code 403, with default header values.
+DeleteUserGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -373,7 +373,7 @@ func NewDeleteUserGroupsTooManyRequests() *DeleteUserGroupsTooManyRequests {
 }
 
 /*
-	DeleteUserGroupsTooManyRequests describes a response with status code 429, with default header values.
+DeleteUserGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -465,7 +465,7 @@ func NewDeleteUserGroupsDefault(code int) *DeleteUserGroupsDefault {
 }
 
 /*
-	DeleteUserGroupsDefault describes a response with status code -1, with default header values.
+DeleteUserGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

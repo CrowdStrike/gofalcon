@@ -67,7 +67,7 @@ func NewUpdateRulesOK() *UpdateRulesOK {
 }
 
 /*
-	UpdateRulesOK describes a response with status code 200, with default header values.
+UpdateRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewUpdateRulesForbidden() *UpdateRulesForbidden {
 }
 
 /*
-	UpdateRulesForbidden describes a response with status code 403, with default header values.
+UpdateRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -195,7 +195,7 @@ func NewUpdateRulesNotFound() *UpdateRulesNotFound {
 }
 
 /*
-	UpdateRulesNotFound describes a response with status code 404, with default header values.
+UpdateRulesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -259,7 +259,7 @@ func NewUpdateRulesTooManyRequests() *UpdateRulesTooManyRequests {
 }
 
 /*
-	UpdateRulesTooManyRequests describes a response with status code 429, with default header values.
+UpdateRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewUpdateRulesDefault(code int) *UpdateRulesDefault {
 }
 
 /*
-	UpdateRulesDefault describes a response with status code -1, with default header values.
+UpdateRulesDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -73,7 +73,7 @@ func NewQueryBehaviorsOK() *QueryBehaviorsOK {
 }
 
 /*
-	QueryBehaviorsOK describes a response with status code 200, with default header values.
+QueryBehaviorsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryBehaviorsBadRequest() *QueryBehaviorsBadRequest {
 }
 
 /*
-	QueryBehaviorsBadRequest describes a response with status code 400, with default header values.
+QueryBehaviorsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryBehaviorsForbidden() *QueryBehaviorsForbidden {
 }
 
 /*
-	QueryBehaviorsForbidden describes a response with status code 403, with default header values.
+QueryBehaviorsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryBehaviorsTooManyRequests() *QueryBehaviorsTooManyRequests {
 }
 
 /*
-	QueryBehaviorsTooManyRequests describes a response with status code 429, with default header values.
+QueryBehaviorsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryBehaviorsInternalServerError() *QueryBehaviorsInternalServerError {
 }
 
 /*
-	QueryBehaviorsInternalServerError describes a response with status code 500, with default header values.
+QueryBehaviorsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryBehaviorsDefault(code int) *QueryBehaviorsDefault {
 }
 
 /*
-	QueryBehaviorsDefault describes a response with status code -1, with default header values.
+QueryBehaviorsDefault describes a response with status code -1, with default header values.
 
 OK
 */

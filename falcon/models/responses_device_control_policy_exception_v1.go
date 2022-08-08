@@ -20,59 +20,55 @@ import (
 type ResponsesDeviceControlPolicyExceptionV1 struct {
 
 	// action
-	// Required: true
-	Action *string `json:"action"`
+	Action string `json:"action,omitempty"`
 
 	// USB Class ID to apply the exception. If empty it applies to all classes
 	// Required: true
 	Class *string `json:"class"`
 
 	// combined id
-	// Required: true
-	CombinedID *string `json:"combined_id"`
+	CombinedID string `json:"combined_id,omitempty"`
+
+	// description
+	Description string `json:"description,omitempty"`
+
+	// expiration time
+	ExpirationTime string `json:"expiration_time,omitempty"`
 
 	// Unique identifier for an exception
 	// Required: true
 	ID *string `json:"id"`
 
 	// match method
-	// Required: true
-	MatchMethod *string `json:"match_method"`
+	MatchMethod string `json:"match_method,omitempty"`
 
 	// product id
-	// Required: true
-	ProductID *string `json:"product_id"`
+	ProductID string `json:"product_id,omitempty"`
+
+	// product id decimal
+	ProductIDDecimal string `json:"product_id_decimal,omitempty"`
 
 	// product name
-	// Required: true
-	ProductName *string `json:"product_name"`
+	ProductName string `json:"product_name,omitempty"`
 
 	// serial number
-	// Required: true
-	SerialNumber *string `json:"serial_number"`
+	SerialNumber string `json:"serial_number,omitempty"`
 
 	// Hexadecimal VendorID used to apply the exception
-	// Required: true
-	VendorID *string `json:"vendor_id"`
+	VendorID string `json:"vendor_id,omitempty"`
+
+	// Hexadecimal VendorID used to apply the exception
+	VendorIDDecimal string `json:"vendor_id_decimal,omitempty"`
 
 	// Vendor Name
-	// Required: true
-	VendorName *string `json:"vendor_name"`
+	VendorName string `json:"vendor_name,omitempty"`
 }
 
 // Validate validates this responses device control policy exception v1
 func (m *ResponsesDeviceControlPolicyExceptionV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAction(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateClass(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCombinedID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -80,42 +76,9 @@ func (m *ResponsesDeviceControlPolicyExceptionV1) Validate(formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.validateMatchMethod(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProductID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProductName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSerialNumber(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVendorID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVendorName(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateAction(formats strfmt.Registry) error {
-
-	if err := validate.Required("action", "body", m.Action); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -128,72 +91,9 @@ func (m *ResponsesDeviceControlPolicyExceptionV1) validateClass(formats strfmt.R
 	return nil
 }
 
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateCombinedID(formats strfmt.Registry) error {
-
-	if err := validate.Required("combined_id", "body", m.CombinedID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *ResponsesDeviceControlPolicyExceptionV1) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateMatchMethod(formats strfmt.Registry) error {
-
-	if err := validate.Required("match_method", "body", m.MatchMethod); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateProductID(formats strfmt.Registry) error {
-
-	if err := validate.Required("product_id", "body", m.ProductID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateProductName(formats strfmt.Registry) error {
-
-	if err := validate.Required("product_name", "body", m.ProductName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateSerialNumber(formats strfmt.Registry) error {
-
-	if err := validate.Required("serial_number", "body", m.SerialNumber); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateVendorID(formats strfmt.Registry) error {
-
-	if err := validate.Required("vendor_id", "body", m.VendorID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ResponsesDeviceControlPolicyExceptionV1) validateVendorName(formats strfmt.Registry) error {
-
-	if err := validate.Required("vendor_name", "body", m.VendorName); err != nil {
 		return err
 	}
 

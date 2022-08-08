@@ -61,7 +61,7 @@ func NewEntitiesPerformActionOK() *EntitiesPerformActionOK {
 }
 
 /*
-	EntitiesPerformActionOK describes a response with status code 200, with default header values.
+EntitiesPerformActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewEntitiesPerformActionForbidden() *EntitiesPerformActionForbidden {
 }
 
 /*
-	EntitiesPerformActionForbidden describes a response with status code 403, with default header values.
+EntitiesPerformActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewEntitiesPerformActionTooManyRequests() *EntitiesPerformActionTooManyRequ
 }
 
 /*
-	EntitiesPerformActionTooManyRequests describes a response with status code 429, with default header values.
+EntitiesPerformActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewEntitiesPerformActionDefault(code int) *EntitiesPerformActionDefault {
 }
 
 /*
-	EntitiesPerformActionDefault describes a response with status code -1, with default header values.
+EntitiesPerformActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

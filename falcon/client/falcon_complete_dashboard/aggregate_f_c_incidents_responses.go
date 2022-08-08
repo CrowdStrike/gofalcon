@@ -61,7 +61,7 @@ func NewAggregateFCIncidentsOK() *AggregateFCIncidentsOK {
 }
 
 /*
-	AggregateFCIncidentsOK describes a response with status code 200, with default header values.
+AggregateFCIncidentsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewAggregateFCIncidentsForbidden() *AggregateFCIncidentsForbidden {
 }
 
 /*
-	AggregateFCIncidentsForbidden describes a response with status code 403, with default header values.
+AggregateFCIncidentsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewAggregateFCIncidentsTooManyRequests() *AggregateFCIncidentsTooManyReques
 }
 
 /*
-	AggregateFCIncidentsTooManyRequests describes a response with status code 429, with default header values.
+AggregateFCIncidentsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewAggregateFCIncidentsDefault(code int) *AggregateFCIncidentsDefault {
 }
 
 /*
-	AggregateFCIncidentsDefault describes a response with status code -1, with default header values.
+AggregateFCIncidentsDefault describes a response with status code -1, with default header values.
 
 OK
 */

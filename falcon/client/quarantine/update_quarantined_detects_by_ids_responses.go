@@ -61,7 +61,7 @@ func NewUpdateQuarantinedDetectsByIdsOK() *UpdateQuarantinedDetectsByIdsOK {
 }
 
 /*
-	UpdateQuarantinedDetectsByIdsOK describes a response with status code 200, with default header values.
+UpdateQuarantinedDetectsByIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewUpdateQuarantinedDetectsByIdsForbidden() *UpdateQuarantinedDetectsByIdsF
 }
 
 /*
-	UpdateQuarantinedDetectsByIdsForbidden describes a response with status code 403, with default header values.
+UpdateQuarantinedDetectsByIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewUpdateQuarantinedDetectsByIdsTooManyRequests() *UpdateQuarantinedDetects
 }
 
 /*
-	UpdateQuarantinedDetectsByIdsTooManyRequests describes a response with status code 429, with default header values.
+UpdateQuarantinedDetectsByIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewUpdateQuarantinedDetectsByIdsDefault(code int) *UpdateQuarantinedDetects
 }
 
 /*
-	UpdateQuarantinedDetectsByIdsDefault describes a response with status code -1, with default header values.
+UpdateQuarantinedDetectsByIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

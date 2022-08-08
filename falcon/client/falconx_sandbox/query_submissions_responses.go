@@ -73,7 +73,7 @@ func NewQuerySubmissionsOK() *QuerySubmissionsOK {
 }
 
 /*
-	QuerySubmissionsOK describes a response with status code 200, with default header values.
+QuerySubmissionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQuerySubmissionsBadRequest() *QuerySubmissionsBadRequest {
 }
 
 /*
-	QuerySubmissionsBadRequest describes a response with status code 400, with default header values.
+QuerySubmissionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQuerySubmissionsForbidden() *QuerySubmissionsForbidden {
 }
 
 /*
-	QuerySubmissionsForbidden describes a response with status code 403, with default header values.
+QuerySubmissionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQuerySubmissionsTooManyRequests() *QuerySubmissionsTooManyRequests {
 }
 
 /*
-	QuerySubmissionsTooManyRequests describes a response with status code 429, with default header values.
+QuerySubmissionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQuerySubmissionsInternalServerError() *QuerySubmissionsInternalServerErr
 }
 
 /*
-	QuerySubmissionsInternalServerError describes a response with status code 500, with default header values.
+QuerySubmissionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQuerySubmissionsDefault(code int) *QuerySubmissionsDefault {
 }
 
 /*
-	QuerySubmissionsDefault describes a response with status code -1, with default header values.
+QuerySubmissionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -61,7 +61,7 @@ func NewGetVulnerabilitiesOK() *GetVulnerabilitiesOK {
 }
 
 /*
-	GetVulnerabilitiesOK describes a response with status code 200, with default header values.
+GetVulnerabilitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewGetVulnerabilitiesForbidden() *GetVulnerabilitiesForbidden {
 }
 
 /*
-	GetVulnerabilitiesForbidden describes a response with status code 403, with default header values.
+GetVulnerabilitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewGetVulnerabilitiesTooManyRequests() *GetVulnerabilitiesTooManyRequests {
 }
 
 /*
-	GetVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
+GetVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewGetVulnerabilitiesDefault(code int) *GetVulnerabilitiesDefault {
 }
 
 /*
-	GetVulnerabilitiesDefault describes a response with status code -1, with default header values.
+GetVulnerabilitiesDefault describes a response with status code -1, with default header values.
 
 OK
 */

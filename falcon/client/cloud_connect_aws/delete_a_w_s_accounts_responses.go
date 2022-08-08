@@ -73,7 +73,7 @@ func NewDeleteAWSAccountsOK() *DeleteAWSAccountsOK {
 }
 
 /*
-	DeleteAWSAccountsOK describes a response with status code 200, with default header values.
+DeleteAWSAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewDeleteAWSAccountsBadRequest() *DeleteAWSAccountsBadRequest {
 }
 
 /*
-	DeleteAWSAccountsBadRequest describes a response with status code 400, with default header values.
+DeleteAWSAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewDeleteAWSAccountsForbidden() *DeleteAWSAccountsForbidden {
 }
 
 /*
-	DeleteAWSAccountsForbidden describes a response with status code 403, with default header values.
+DeleteAWSAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewDeleteAWSAccountsTooManyRequests() *DeleteAWSAccountsTooManyRequests {
 }
 
 /*
-	DeleteAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
+DeleteAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewDeleteAWSAccountsInternalServerError() *DeleteAWSAccountsInternalServerE
 }
 
 /*
-	DeleteAWSAccountsInternalServerError describes a response with status code 500, with default header values.
+DeleteAWSAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewDeleteAWSAccountsDefault(code int) *DeleteAWSAccountsDefault {
 }
 
 /*
-	DeleteAWSAccountsDefault describes a response with status code -1, with default header values.
+DeleteAWSAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

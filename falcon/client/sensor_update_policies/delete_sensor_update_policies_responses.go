@@ -73,7 +73,7 @@ func NewDeleteSensorUpdatePoliciesOK() *DeleteSensorUpdatePoliciesOK {
 }
 
 /*
-	DeleteSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
+DeleteSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewDeleteSensorUpdatePoliciesForbidden() *DeleteSensorUpdatePoliciesForbidd
 }
 
 /*
-	DeleteSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+DeleteSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -201,7 +201,7 @@ func NewDeleteSensorUpdatePoliciesNotFound() *DeleteSensorUpdatePoliciesNotFound
 }
 
 /*
-	DeleteSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+DeleteSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -265,7 +265,7 @@ func NewDeleteSensorUpdatePoliciesTooManyRequests() *DeleteSensorUpdatePoliciesT
 }
 
 /*
-	DeleteSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+DeleteSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewDeleteSensorUpdatePoliciesInternalServerError() *DeleteSensorUpdatePolic
 }
 
 /*
-	DeleteSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+DeleteSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewDeleteSensorUpdatePoliciesDefault(code int) *DeleteSensorUpdatePoliciesD
 }
 
 /*
-	DeleteSensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
+DeleteSensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

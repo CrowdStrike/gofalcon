@@ -73,7 +73,7 @@ func NewQueryPreventionPoliciesOK() *QueryPreventionPoliciesOK {
 }
 
 /*
-	QueryPreventionPoliciesOK describes a response with status code 200, with default header values.
+QueryPreventionPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewQueryPreventionPoliciesBadRequest() *QueryPreventionPoliciesBadRequest {
 }
 
 /*
-	QueryPreventionPoliciesBadRequest describes a response with status code 400, with default header values.
+QueryPreventionPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewQueryPreventionPoliciesForbidden() *QueryPreventionPoliciesForbidden {
 }
 
 /*
-	QueryPreventionPoliciesForbidden describes a response with status code 403, with default header values.
+QueryPreventionPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewQueryPreventionPoliciesTooManyRequests() *QueryPreventionPoliciesTooMany
 }
 
 /*
-	QueryPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
+QueryPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewQueryPreventionPoliciesInternalServerError() *QueryPreventionPoliciesInt
 }
 
 /*
-	QueryPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
+QueryPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewQueryPreventionPoliciesDefault(code int) *QueryPreventionPoliciesDefault
 }
 
 /*
-	QueryPreventionPoliciesDefault describes a response with status code -1, with default header values.
+QueryPreventionPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

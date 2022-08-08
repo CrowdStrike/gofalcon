@@ -73,7 +73,7 @@ func NewGetRolesByIDOK() *GetRolesByIDOK {
 }
 
 /*
-	GetRolesByIDOK describes a response with status code 200, with default header values.
+GetRolesByIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetRolesByIDMultiStatus() *GetRolesByIDMultiStatus {
 }
 
 /*
-	GetRolesByIDMultiStatus describes a response with status code 207, with default header values.
+GetRolesByIDMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -201,7 +201,7 @@ func NewGetRolesByIDBadRequest() *GetRolesByIDBadRequest {
 }
 
 /*
-	GetRolesByIDBadRequest describes a response with status code 400, with default header values.
+GetRolesByIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -265,7 +265,7 @@ func NewGetRolesByIDForbidden() *GetRolesByIDForbidden {
 }
 
 /*
-	GetRolesByIDForbidden describes a response with status code 403, with default header values.
+GetRolesByIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -329,7 +329,7 @@ func NewGetRolesByIDTooManyRequests() *GetRolesByIDTooManyRequests {
 }
 
 /*
-	GetRolesByIDTooManyRequests describes a response with status code 429, with default header values.
+GetRolesByIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewGetRolesByIDDefault(code int) *GetRolesByIDDefault {
 }
 
 /*
-	GetRolesByIDDefault describes a response with status code -1, with default header values.
+GetRolesByIDDefault describes a response with status code -1, with default header values.
 
 OK
 */

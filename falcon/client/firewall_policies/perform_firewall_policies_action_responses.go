@@ -79,7 +79,7 @@ func NewPerformFirewallPoliciesActionOK() *PerformFirewallPoliciesActionOK {
 }
 
 /*
-	PerformFirewallPoliciesActionOK describes a response with status code 200, with default header values.
+PerformFirewallPoliciesActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewPerformFirewallPoliciesActionBadRequest() *PerformFirewallPoliciesAction
 }
 
 /*
-	PerformFirewallPoliciesActionBadRequest describes a response with status code 400, with default header values.
+PerformFirewallPoliciesActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewPerformFirewallPoliciesActionForbidden() *PerformFirewallPoliciesActionF
 }
 
 /*
-	PerformFirewallPoliciesActionForbidden describes a response with status code 403, with default header values.
+PerformFirewallPoliciesActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewPerformFirewallPoliciesActionNotFound() *PerformFirewallPoliciesActionNo
 }
 
 /*
-	PerformFirewallPoliciesActionNotFound describes a response with status code 404, with default header values.
+PerformFirewallPoliciesActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewPerformFirewallPoliciesActionTooManyRequests() *PerformFirewallPoliciesA
 }
 
 /*
-	PerformFirewallPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
+PerformFirewallPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewPerformFirewallPoliciesActionInternalServerError() *PerformFirewallPolic
 }
 
 /*
-	PerformFirewallPoliciesActionInternalServerError describes a response with status code 500, with default header values.
+PerformFirewallPoliciesActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewPerformFirewallPoliciesActionDefault(code int) *PerformFirewallPoliciesA
 }
 
 /*
-	PerformFirewallPoliciesActionDefault describes a response with status code -1, with default header values.
+PerformFirewallPoliciesActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

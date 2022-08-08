@@ -66,7 +66,7 @@ func NewBatchRefreshSessionsCreated() *BatchRefreshSessionsCreated {
 }
 
 /*
-	BatchRefreshSessionsCreated describes a response with status code 201, with default header values.
+BatchRefreshSessionsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -130,7 +130,7 @@ func NewBatchRefreshSessionsBadRequest() *BatchRefreshSessionsBadRequest {
 }
 
 /*
-	BatchRefreshSessionsBadRequest describes a response with status code 400, with default header values.
+BatchRefreshSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -194,7 +194,7 @@ func NewBatchRefreshSessionsForbidden() *BatchRefreshSessionsForbidden {
 }
 
 /*
-	BatchRefreshSessionsForbidden describes a response with status code 403, with default header values.
+BatchRefreshSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -258,7 +258,7 @@ func NewBatchRefreshSessionsTooManyRequests() *BatchRefreshSessionsTooManyReques
 }
 
 /*
-	BatchRefreshSessionsTooManyRequests describes a response with status code 429, with default header values.
+BatchRefreshSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -337,7 +337,7 @@ func NewBatchRefreshSessionsInternalServerError() *BatchRefreshSessionsInternalS
 }
 
 /*
-	BatchRefreshSessionsInternalServerError describes a response with status code 500, with default header values.
+BatchRefreshSessionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

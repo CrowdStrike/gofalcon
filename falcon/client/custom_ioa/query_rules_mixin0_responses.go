@@ -67,7 +67,7 @@ func NewQueryRulesMixin0OK() *QueryRulesMixin0OK {
 }
 
 /*
-	QueryRulesMixin0OK describes a response with status code 200, with default header values.
+QueryRulesMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewQueryRulesMixin0Forbidden() *QueryRulesMixin0Forbidden {
 }
 
 /*
-	QueryRulesMixin0Forbidden describes a response with status code 403, with default header values.
+QueryRulesMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -195,7 +195,7 @@ func NewQueryRulesMixin0NotFound() *QueryRulesMixin0NotFound {
 }
 
 /*
-	QueryRulesMixin0NotFound describes a response with status code 404, with default header values.
+QueryRulesMixin0NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -259,7 +259,7 @@ func NewQueryRulesMixin0TooManyRequests() *QueryRulesMixin0TooManyRequests {
 }
 
 /*
-	QueryRulesMixin0TooManyRequests describes a response with status code 429, with default header values.
+QueryRulesMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewQueryRulesMixin0Default(code int) *QueryRulesMixin0Default {
 }
 
 /*
-	QueryRulesMixin0Default describes a response with status code -1, with default header values.
+QueryRulesMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

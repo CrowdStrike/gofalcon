@@ -73,7 +73,7 @@ func NewCaseAddAttachmentOK() *CaseAddAttachmentOK {
 }
 
 /*
-	CaseAddAttachmentOK describes a response with status code 200, with default header values.
+CaseAddAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewCaseAddAttachmentBadRequest() *CaseAddAttachmentBadRequest {
 }
 
 /*
-	CaseAddAttachmentBadRequest describes a response with status code 400, with default header values.
+CaseAddAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewCaseAddAttachmentForbidden() *CaseAddAttachmentForbidden {
 }
 
 /*
-	CaseAddAttachmentForbidden describes a response with status code 403, with default header values.
+CaseAddAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewCaseAddAttachmentTooManyRequests() *CaseAddAttachmentTooManyRequests {
 }
 
 /*
-	CaseAddAttachmentTooManyRequests describes a response with status code 429, with default header values.
+CaseAddAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewCaseAddAttachmentInternalServerError() *CaseAddAttachmentInternalServerE
 }
 
 /*
-	CaseAddAttachmentInternalServerError describes a response with status code 500, with default header values.
+CaseAddAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewCaseAddAttachmentDefault(code int) *CaseAddAttachmentDefault {
 }
 
 /*
-	CaseAddAttachmentDefault describes a response with status code -1, with default header values.
+CaseAddAttachmentDefault describes a response with status code -1, with default header values.
 
 OK
 */

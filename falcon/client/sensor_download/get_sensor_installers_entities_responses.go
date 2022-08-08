@@ -79,7 +79,7 @@ func NewGetSensorInstallersEntitiesOK() *GetSensorInstallersEntitiesOK {
 }
 
 /*
-	GetSensorInstallersEntitiesOK describes a response with status code 200, with default header values.
+GetSensorInstallersEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetSensorInstallersEntitiesMultiStatus() *GetSensorInstallersEntitiesMul
 }
 
 /*
-	GetSensorInstallersEntitiesMultiStatus describes a response with status code 207, with default header values.
+GetSensorInstallersEntitiesMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -207,7 +207,7 @@ func NewGetSensorInstallersEntitiesBadRequest() *GetSensorInstallersEntitiesBadR
 }
 
 /*
-	GetSensorInstallersEntitiesBadRequest describes a response with status code 400, with default header values.
+GetSensorInstallersEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -271,7 +271,7 @@ func NewGetSensorInstallersEntitiesForbidden() *GetSensorInstallersEntitiesForbi
 }
 
 /*
-	GetSensorInstallersEntitiesForbidden describes a response with status code 403, with default header values.
+GetSensorInstallersEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -335,7 +335,7 @@ func NewGetSensorInstallersEntitiesNotFound() *GetSensorInstallersEntitiesNotFou
 }
 
 /*
-	GetSensorInstallersEntitiesNotFound describes a response with status code 404, with default header values.
+GetSensorInstallersEntitiesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -399,7 +399,7 @@ func NewGetSensorInstallersEntitiesTooManyRequests() *GetSensorInstallersEntitie
 }
 
 /*
-	GetSensorInstallersEntitiesTooManyRequests describes a response with status code 429, with default header values.
+GetSensorInstallersEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -480,7 +480,7 @@ func NewGetSensorInstallersEntitiesDefault(code int) *GetSensorInstallersEntitie
 }
 
 /*
-	GetSensorInstallersEntitiesDefault describes a response with status code -1, with default header values.
+GetSensorInstallersEntitiesDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -79,7 +79,7 @@ func NewGetHostGroupsOK() *GetHostGroupsOK {
 }
 
 /*
-	GetHostGroupsOK describes a response with status code 200, with default header values.
+GetHostGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetHostGroupsBadRequest() *GetHostGroupsBadRequest {
 }
 
 /*
-	GetHostGroupsBadRequest describes a response with status code 400, with default header values.
+GetHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewGetHostGroupsForbidden() *GetHostGroupsForbidden {
 }
 
 /*
-	GetHostGroupsForbidden describes a response with status code 403, with default header values.
+GetHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewGetHostGroupsNotFound() *GetHostGroupsNotFound {
 }
 
 /*
-	GetHostGroupsNotFound describes a response with status code 404, with default header values.
+GetHostGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewGetHostGroupsTooManyRequests() *GetHostGroupsTooManyRequests {
 }
 
 /*
-	GetHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+GetHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetHostGroupsInternalServerError() *GetHostGroupsInternalServerError {
 }
 
 /*
-	GetHostGroupsInternalServerError describes a response with status code 500, with default header values.
+GetHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetHostGroupsDefault(code int) *GetHostGroupsDefault {
 }
 
 /*
-	GetHostGroupsDefault describes a response with status code -1, with default header values.
+GetHostGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

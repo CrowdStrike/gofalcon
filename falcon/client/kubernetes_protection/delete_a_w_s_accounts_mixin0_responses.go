@@ -79,7 +79,7 @@ func NewDeleteAWSAccountsMixin0OK() *DeleteAWSAccountsMixin0OK {
 }
 
 /*
-	DeleteAWSAccountsMixin0OK describes a response with status code 200, with default header values.
+DeleteAWSAccountsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewDeleteAWSAccountsMixin0MultiStatus() *DeleteAWSAccountsMixin0MultiStatus
 }
 
 /*
-	DeleteAWSAccountsMixin0MultiStatus describes a response with status code 207, with default header values.
+DeleteAWSAccountsMixin0MultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -229,7 +229,7 @@ func NewDeleteAWSAccountsMixin0BadRequest() *DeleteAWSAccountsMixin0BadRequest {
 }
 
 /*
-	DeleteAWSAccountsMixin0BadRequest describes a response with status code 400, with default header values.
+DeleteAWSAccountsMixin0BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -304,7 +304,7 @@ func NewDeleteAWSAccountsMixin0Forbidden() *DeleteAWSAccountsMixin0Forbidden {
 }
 
 /*
-	DeleteAWSAccountsMixin0Forbidden describes a response with status code 403, with default header values.
+DeleteAWSAccountsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewDeleteAWSAccountsMixin0TooManyRequests() *DeleteAWSAccountsMixin0TooMany
 }
 
 /*
-	DeleteAWSAccountsMixin0TooManyRequests describes a response with status code 429, with default header values.
+DeleteAWSAccountsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewDeleteAWSAccountsMixin0InternalServerError() *DeleteAWSAccountsMixin0Int
 }
 
 /*
-	DeleteAWSAccountsMixin0InternalServerError describes a response with status code 500, with default header values.
+DeleteAWSAccountsMixin0InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewDeleteAWSAccountsMixin0Default(code int) *DeleteAWSAccountsMixin0Default
 }
 
 /*
-	DeleteAWSAccountsMixin0Default describes a response with status code -1, with default header values.
+DeleteAWSAccountsMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

@@ -72,7 +72,7 @@ func NewCreateAWSAccountCreated() *CreateAWSAccountCreated {
 }
 
 /*
-	CreateAWSAccountCreated describes a response with status code 201, with default header values.
+CreateAWSAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -147,7 +147,7 @@ func NewCreateAWSAccountMultiStatus() *CreateAWSAccountMultiStatus {
 }
 
 /*
-	CreateAWSAccountMultiStatus describes a response with status code 207, with default header values.
+CreateAWSAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -222,7 +222,7 @@ func NewCreateAWSAccountBadRequest() *CreateAWSAccountBadRequest {
 }
 
 /*
-	CreateAWSAccountBadRequest describes a response with status code 400, with default header values.
+CreateAWSAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -297,7 +297,7 @@ func NewCreateAWSAccountForbidden() *CreateAWSAccountForbidden {
 }
 
 /*
-	CreateAWSAccountForbidden describes a response with status code 403, with default header values.
+CreateAWSAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -372,7 +372,7 @@ func NewCreateAWSAccountTooManyRequests() *CreateAWSAccountTooManyRequests {
 }
 
 /*
-	CreateAWSAccountTooManyRequests describes a response with status code 429, with default header values.
+CreateAWSAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -462,7 +462,7 @@ func NewCreateAWSAccountInternalServerError() *CreateAWSAccountInternalServerErr
 }
 
 /*
-	CreateAWSAccountInternalServerError describes a response with status code 500, with default header values.
+CreateAWSAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

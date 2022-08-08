@@ -73,7 +73,7 @@ func NewGetHelmValuesYamlOK() *GetHelmValuesYamlOK {
 }
 
 /*
-	GetHelmValuesYamlOK describes a response with status code 200, with default header values.
+GetHelmValuesYamlOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +146,7 @@ func NewGetHelmValuesYamlBadRequest() *GetHelmValuesYamlBadRequest {
 }
 
 /*
-	GetHelmValuesYamlBadRequest describes a response with status code 400, with default header values.
+GetHelmValuesYamlBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -221,7 +221,7 @@ func NewGetHelmValuesYamlForbidden() *GetHelmValuesYamlForbidden {
 }
 
 /*
-	GetHelmValuesYamlForbidden describes a response with status code 403, with default header values.
+GetHelmValuesYamlForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -296,7 +296,7 @@ func NewGetHelmValuesYamlTooManyRequests() *GetHelmValuesYamlTooManyRequests {
 }
 
 /*
-	GetHelmValuesYamlTooManyRequests describes a response with status code 429, with default header values.
+GetHelmValuesYamlTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -386,7 +386,7 @@ func NewGetHelmValuesYamlInternalServerError() *GetHelmValuesYamlInternalServerE
 }
 
 /*
-	GetHelmValuesYamlInternalServerError describes a response with status code 500, with default header values.
+GetHelmValuesYamlInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -463,7 +463,7 @@ func NewGetHelmValuesYamlDefault(code int) *GetHelmValuesYamlDefault {
 }
 
 /*
-	GetHelmValuesYamlDefault describes a response with status code -1, with default header values.
+GetHelmValuesYamlDefault describes a response with status code -1, with default header values.
 
 OK
 */

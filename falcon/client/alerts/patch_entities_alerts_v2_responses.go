@@ -73,7 +73,7 @@ func NewPatchEntitiesAlertsV2OK() *PatchEntitiesAlertsV2OK {
 }
 
 /*
-	PatchEntitiesAlertsV2OK describes a response with status code 200, with default header values.
+PatchEntitiesAlertsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewPatchEntitiesAlertsV2BadRequest() *PatchEntitiesAlertsV2BadRequest {
 }
 
 /*
-	PatchEntitiesAlertsV2BadRequest describes a response with status code 400, with default header values.
+PatchEntitiesAlertsV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewPatchEntitiesAlertsV2Forbidden() *PatchEntitiesAlertsV2Forbidden {
 }
 
 /*
-	PatchEntitiesAlertsV2Forbidden describes a response with status code 403, with default header values.
+PatchEntitiesAlertsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewPatchEntitiesAlertsV2TooManyRequests() *PatchEntitiesAlertsV2TooManyRequ
 }
 
 /*
-	PatchEntitiesAlertsV2TooManyRequests describes a response with status code 429, with default header values.
+PatchEntitiesAlertsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewPatchEntitiesAlertsV2InternalServerError() *PatchEntitiesAlertsV2Interna
 }
 
 /*
-	PatchEntitiesAlertsV2InternalServerError describes a response with status code 500, with default header values.
+PatchEntitiesAlertsV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewPatchEntitiesAlertsV2Default(code int) *PatchEntitiesAlertsV2Default {
 }
 
 /*
-	PatchEntitiesAlertsV2Default describes a response with status code -1, with default header values.
+PatchEntitiesAlertsV2Default describes a response with status code -1, with default header values.
 
 OK
 */

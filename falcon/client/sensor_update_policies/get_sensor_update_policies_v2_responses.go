@@ -73,7 +73,7 @@ func NewGetSensorUpdatePoliciesV2OK() *GetSensorUpdatePoliciesV2OK {
 }
 
 /*
-	GetSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
+GetSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetSensorUpdatePoliciesV2Forbidden() *GetSensorUpdatePoliciesV2Forbidden
 }
 
 /*
-	GetSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
+GetSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -201,7 +201,7 @@ func NewGetSensorUpdatePoliciesV2NotFound() *GetSensorUpdatePoliciesV2NotFound {
 }
 
 /*
-	GetSensorUpdatePoliciesV2NotFound describes a response with status code 404, with default header values.
+GetSensorUpdatePoliciesV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -265,7 +265,7 @@ func NewGetSensorUpdatePoliciesV2TooManyRequests() *GetSensorUpdatePoliciesV2Too
 }
 
 /*
-	GetSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
+GetSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetSensorUpdatePoliciesV2InternalServerError() *GetSensorUpdatePoliciesV
 }
 
 /*
-	GetSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
+GetSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetSensorUpdatePoliciesV2Default(code int) *GetSensorUpdatePoliciesV2Def
 }
 
 /*
-	GetSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
+GetSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
 
 OK
 */

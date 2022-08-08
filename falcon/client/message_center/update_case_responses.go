@@ -73,7 +73,7 @@ func NewUpdateCaseOK() *UpdateCaseOK {
 }
 
 /*
-	UpdateCaseOK describes a response with status code 200, with default header values.
+UpdateCaseOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewUpdateCaseBadRequest() *UpdateCaseBadRequest {
 }
 
 /*
-	UpdateCaseBadRequest describes a response with status code 400, with default header values.
+UpdateCaseBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewUpdateCaseForbidden() *UpdateCaseForbidden {
 }
 
 /*
-	UpdateCaseForbidden describes a response with status code 403, with default header values.
+UpdateCaseForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewUpdateCaseTooManyRequests() *UpdateCaseTooManyRequests {
 }
 
 /*
-	UpdateCaseTooManyRequests describes a response with status code 429, with default header values.
+UpdateCaseTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewUpdateCaseInternalServerError() *UpdateCaseInternalServerError {
 }
 
 /*
-	UpdateCaseInternalServerError describes a response with status code 500, with default header values.
+UpdateCaseInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewUpdateCaseDefault(code int) *UpdateCaseDefault {
 }
 
 /*
-	UpdateCaseDefault describes a response with status code -1, with default header values.
+UpdateCaseDefault describes a response with status code -1, with default header values.
 
 OK
 */

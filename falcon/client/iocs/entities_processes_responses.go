@@ -61,7 +61,7 @@ func NewEntitiesProcessesOK() *EntitiesProcessesOK {
 }
 
 /*
-	EntitiesProcessesOK describes a response with status code 200, with default header values.
+EntitiesProcessesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewEntitiesProcessesForbidden() *EntitiesProcessesForbidden {
 }
 
 /*
-	EntitiesProcessesForbidden describes a response with status code 403, with default header values.
+EntitiesProcessesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewEntitiesProcessesTooManyRequests() *EntitiesProcessesTooManyRequests {
 }
 
 /*
-	EntitiesProcessesTooManyRequests describes a response with status code 429, with default header values.
+EntitiesProcessesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewEntitiesProcessesDefault(code int) *EntitiesProcessesDefault {
 }
 
 /*
-	EntitiesProcessesDefault describes a response with status code -1, with default header values.
+EntitiesProcessesDefault describes a response with status code -1, with default header values.
 
 OK
 */

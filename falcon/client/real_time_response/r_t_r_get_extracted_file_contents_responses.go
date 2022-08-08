@@ -83,7 +83,7 @@ func NewRTRGetExtractedFileContentsOK(writer io.Writer) *RTRGetExtractedFileCont
 }
 
 /*
-	RTRGetExtractedFileContentsOK describes a response with status code 200, with default header values.
+RTRGetExtractedFileContentsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -145,7 +145,7 @@ func NewRTRGetExtractedFileContentsBadRequest() *RTRGetExtractedFileContentsBadR
 }
 
 /*
-	RTRGetExtractedFileContentsBadRequest describes a response with status code 400, with default header values.
+RTRGetExtractedFileContentsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -209,7 +209,7 @@ func NewRTRGetExtractedFileContentsForbidden() *RTRGetExtractedFileContentsForbi
 }
 
 /*
-	RTRGetExtractedFileContentsForbidden describes a response with status code 403, with default header values.
+RTRGetExtractedFileContentsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,7 +273,7 @@ func NewRTRGetExtractedFileContentsNotFound() *RTRGetExtractedFileContentsNotFou
 }
 
 /*
-	RTRGetExtractedFileContentsNotFound describes a response with status code 404, with default header values.
+RTRGetExtractedFileContentsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -337,7 +337,7 @@ func NewRTRGetExtractedFileContentsTooManyRequests() *RTRGetExtractedFileContent
 }
 
 /*
-	RTRGetExtractedFileContentsTooManyRequests describes a response with status code 429, with default header values.
+RTRGetExtractedFileContentsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -416,7 +416,7 @@ func NewRTRGetExtractedFileContentsInternalServerError() *RTRGetExtractedFileCon
 }
 
 /*
-	RTRGetExtractedFileContentsInternalServerError describes a response with status code 500, with default header values.
+RTRGetExtractedFileContentsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -482,7 +482,7 @@ func NewRTRGetExtractedFileContentsDefault(code int) *RTRGetExtractedFileContent
 }
 
 /*
-	RTRGetExtractedFileContentsDefault describes a response with status code -1, with default header values.
+RTRGetExtractedFileContentsDefault describes a response with status code -1, with default header values.
 
 OK
 */

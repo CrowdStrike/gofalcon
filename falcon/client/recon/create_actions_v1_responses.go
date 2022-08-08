@@ -85,7 +85,7 @@ func NewCreateActionsV1OK() *CreateActionsV1OK {
 }
 
 /*
-	CreateActionsV1OK describes a response with status code 200, with default header values.
+CreateActionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -160,7 +160,7 @@ func NewCreateActionsV1BadRequest() *CreateActionsV1BadRequest {
 }
 
 /*
-	CreateActionsV1BadRequest describes a response with status code 400, with default header values.
+CreateActionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -235,7 +235,7 @@ func NewCreateActionsV1Unauthorized() *CreateActionsV1Unauthorized {
 }
 
 /*
-	CreateActionsV1Unauthorized describes a response with status code 401, with default header values.
+CreateActionsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -310,7 +310,7 @@ func NewCreateActionsV1Forbidden() *CreateActionsV1Forbidden {
 }
 
 /*
-	CreateActionsV1Forbidden describes a response with status code 403, with default header values.
+CreateActionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -385,7 +385,7 @@ func NewCreateActionsV1NotFound() *CreateActionsV1NotFound {
 }
 
 /*
-	CreateActionsV1NotFound describes a response with status code 404, with default header values.
+CreateActionsV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -460,7 +460,7 @@ func NewCreateActionsV1TooManyRequests() *CreateActionsV1TooManyRequests {
 }
 
 /*
-	CreateActionsV1TooManyRequests describes a response with status code 429, with default header values.
+CreateActionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -550,7 +550,7 @@ func NewCreateActionsV1InternalServerError() *CreateActionsV1InternalServerError
 }
 
 /*
-	CreateActionsV1InternalServerError describes a response with status code 500, with default header values.
+CreateActionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -627,7 +627,7 @@ func NewCreateActionsV1Default(code int) *CreateActionsV1Default {
 }
 
 /*
-	CreateActionsV1Default describes a response with status code -1, with default header values.
+CreateActionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */
