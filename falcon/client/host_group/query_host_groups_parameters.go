@@ -53,10 +53,12 @@ func NewQueryHostGroupsParamsWithHTTPClient(client *http.Client) *QueryHostGroup
 	}
 }
 
-/* QueryHostGroupsParams contains all the parameters to send to the API endpoint
-   for the query host groups operation.
+/*
+QueryHostGroupsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query host groups operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryHostGroupsParams struct {
 

@@ -53,10 +53,12 @@ func NewQueryHiddenDevicesParamsWithHTTPClient(client *http.Client) *QueryHidden
 	}
 }
 
-/* QueryHiddenDevicesParams contains all the parameters to send to the API endpoint
-   for the query hidden devices operation.
+/*
+QueryHiddenDevicesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query hidden devices operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryHiddenDevicesParams struct {
 

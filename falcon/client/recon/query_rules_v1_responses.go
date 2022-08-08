@@ -78,7 +78,8 @@ func NewQueryRulesV1OK() *QueryRulesV1OK {
 	return &QueryRulesV1OK{}
 }
 
-/* QueryRulesV1OK describes a response with status code 200, with default header values.
+/*
+	QueryRulesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewQueryRulesV1BadRequest() *QueryRulesV1BadRequest {
 	return &QueryRulesV1BadRequest{}
 }
 
-/* QueryRulesV1BadRequest describes a response with status code 400, with default header values.
+/*
+	QueryRulesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewQueryRulesV1Unauthorized() *QueryRulesV1Unauthorized {
 	return &QueryRulesV1Unauthorized{}
 }
 
-/* QueryRulesV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	QueryRulesV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewQueryRulesV1Forbidden() *QueryRulesV1Forbidden {
 	return &QueryRulesV1Forbidden{}
 }
 
-/* QueryRulesV1Forbidden describes a response with status code 403, with default header values.
+/*
+	QueryRulesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewQueryRulesV1TooManyRequests() *QueryRulesV1TooManyRequests {
 	return &QueryRulesV1TooManyRequests{}
 }
 
-/* QueryRulesV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryRulesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewQueryRulesV1InternalServerError() *QueryRulesV1InternalServerError {
 	return &QueryRulesV1InternalServerError{}
 }
 
-/* QueryRulesV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryRulesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewQueryRulesV1Default(code int) *QueryRulesV1Default {
 	}
 }
 
-/* QueryRulesV1Default describes a response with status code -1, with default header values.
+/*
+	QueryRulesV1Default describes a response with status code -1, with default header values.
 
 OK
 */

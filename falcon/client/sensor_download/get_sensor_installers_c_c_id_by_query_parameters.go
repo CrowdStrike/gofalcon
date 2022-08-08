@@ -52,10 +52,12 @@ func NewGetSensorInstallersCCIDByQueryParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/* GetSensorInstallersCCIDByQueryParams contains all the parameters to send to the API endpoint
-   for the get sensor installers c c ID by query operation.
+/*
+GetSensorInstallersCCIDByQueryParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get sensor installers c c ID by query operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSensorInstallersCCIDByQueryParams struct {
 	timeout    time.Duration

@@ -66,7 +66,8 @@ func NewRTRCheckCommandStatusOK() *RTRCheckCommandStatusOK {
 	return &RTRCheckCommandStatusOK{}
 }
 
-/* RTRCheckCommandStatusOK describes a response with status code 200, with default header values.
+/*
+	RTRCheckCommandStatusOK describes a response with status code 200, with default header values.
 
 success
 */
@@ -129,7 +130,8 @@ func NewRTRCheckCommandStatusUnauthorized() *RTRCheckCommandStatusUnauthorized {
 	return &RTRCheckCommandStatusUnauthorized{}
 }
 
-/* RTRCheckCommandStatusUnauthorized describes a response with status code 401, with default header values.
+/*
+	RTRCheckCommandStatusUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -192,7 +194,8 @@ func NewRTRCheckCommandStatusForbidden() *RTRCheckCommandStatusForbidden {
 	return &RTRCheckCommandStatusForbidden{}
 }
 
-/* RTRCheckCommandStatusForbidden describes a response with status code 403, with default header values.
+/*
+	RTRCheckCommandStatusForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRTRCheckCommandStatusTooManyRequests() *RTRCheckCommandStatusTooManyRequ
 	return &RTRCheckCommandStatusTooManyRequests{}
 }
 
-/* RTRCheckCommandStatusTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRCheckCommandStatusTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRTRCheckCommandStatusDefault(code int) *RTRCheckCommandStatusDefault {
 	}
 }
 
-/* RTRCheckCommandStatusDefault describes a response with status code -1, with default header values.
+/*
+	RTRCheckCommandStatusDefault describes a response with status code -1, with default header values.
 
 success
 */

@@ -78,7 +78,8 @@ func NewGetNotificationsDetailedTranslatedV1OK() *GetNotificationsDetailedTransl
 	return &GetNotificationsDetailedTranslatedV1OK{}
 }
 
-/* GetNotificationsDetailedTranslatedV1OK describes a response with status code 200, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewGetNotificationsDetailedTranslatedV1BadRequest() *GetNotificationsDetail
 	return &GetNotificationsDetailedTranslatedV1BadRequest{}
 }
 
-/* GetNotificationsDetailedTranslatedV1BadRequest describes a response with status code 400, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewGetNotificationsDetailedTranslatedV1Unauthorized() *GetNotificationsDeta
 	return &GetNotificationsDetailedTranslatedV1Unauthorized{}
 }
 
-/* GetNotificationsDetailedTranslatedV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewGetNotificationsDetailedTranslatedV1Forbidden() *GetNotificationsDetaile
 	return &GetNotificationsDetailedTranslatedV1Forbidden{}
 }
 
-/* GetNotificationsDetailedTranslatedV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewGetNotificationsDetailedTranslatedV1TooManyRequests() *GetNotificationsD
 	return &GetNotificationsDetailedTranslatedV1TooManyRequests{}
 }
 
-/* GetNotificationsDetailedTranslatedV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewGetNotificationsDetailedTranslatedV1InternalServerError() *GetNotificati
 	return &GetNotificationsDetailedTranslatedV1InternalServerError{}
 }
 
-/* GetNotificationsDetailedTranslatedV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewGetNotificationsDetailedTranslatedV1Default(code int) *GetNotificationsD
 	}
 }
 
-/* GetNotificationsDetailedTranslatedV1Default describes a response with status code -1, with default header values.
+/*
+	GetNotificationsDetailedTranslatedV1Default describes a response with status code -1, with default header values.
 
 OK
 */

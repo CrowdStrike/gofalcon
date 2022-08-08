@@ -78,7 +78,8 @@ func NewPostMalQueryFuzzySearchV1OK() *PostMalQueryFuzzySearchV1OK {
 	return &PostMalQueryFuzzySearchV1OK{}
 }
 
-/* PostMalQueryFuzzySearchV1OK describes a response with status code 200, with default header values.
+/*
+	PostMalQueryFuzzySearchV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewPostMalQueryFuzzySearchV1BadRequest() *PostMalQueryFuzzySearchV1BadReque
 	return &PostMalQueryFuzzySearchV1BadRequest{}
 }
 
-/* PostMalQueryFuzzySearchV1BadRequest describes a response with status code 400, with default header values.
+/*
+	PostMalQueryFuzzySearchV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewPostMalQueryFuzzySearchV1Unauthorized() *PostMalQueryFuzzySearchV1Unauth
 	return &PostMalQueryFuzzySearchV1Unauthorized{}
 }
 
-/* PostMalQueryFuzzySearchV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	PostMalQueryFuzzySearchV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -267,7 +270,8 @@ func NewPostMalQueryFuzzySearchV1Forbidden() *PostMalQueryFuzzySearchV1Forbidden
 	return &PostMalQueryFuzzySearchV1Forbidden{}
 }
 
-/* PostMalQueryFuzzySearchV1Forbidden describes a response with status code 403, with default header values.
+/*
+	PostMalQueryFuzzySearchV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -330,7 +334,8 @@ func NewPostMalQueryFuzzySearchV1TooManyRequests() *PostMalQueryFuzzySearchV1Too
 	return &PostMalQueryFuzzySearchV1TooManyRequests{}
 }
 
-/* PostMalQueryFuzzySearchV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	PostMalQueryFuzzySearchV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewPostMalQueryFuzzySearchV1InternalServerError() *PostMalQueryFuzzySearchV
 	return &PostMalQueryFuzzySearchV1InternalServerError{}
 }
 
-/* PostMalQueryFuzzySearchV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	PostMalQueryFuzzySearchV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewPostMalQueryFuzzySearchV1Default(code int) *PostMalQueryFuzzySearchV1Def
 	}
 }
 
-/* PostMalQueryFuzzySearchV1Default describes a response with status code -1, with default header values.
+/*
+	PostMalQueryFuzzySearchV1Default describes a response with status code -1, with default header values.
 
 OK
 */

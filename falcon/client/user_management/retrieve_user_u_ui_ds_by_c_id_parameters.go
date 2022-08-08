@@ -52,10 +52,12 @@ func NewRetrieveUserUUIDsByCIDParamsWithHTTPClient(client *http.Client) *Retriev
 	}
 }
 
-/* RetrieveUserUUIDsByCIDParams contains all the parameters to send to the API endpoint
-   for the retrieve user u UI ds by c ID operation.
+/*
+RetrieveUserUUIDsByCIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the retrieve user u UI ds by c ID operation.
+
+	Typically these are written to a http.Request.
 */
 type RetrieveUserUUIDsByCIDParams struct {
 	timeout    time.Duration

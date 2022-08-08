@@ -72,7 +72,8 @@ func NewSetPreventionPoliciesPrecedenceOK() *SetPreventionPoliciesPrecedenceOK {
 	return &SetPreventionPoliciesPrecedenceOK{}
 }
 
-/* SetPreventionPoliciesPrecedenceOK describes a response with status code 200, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewSetPreventionPoliciesPrecedenceBadRequest() *SetPreventionPoliciesPreced
 	return &SetPreventionPoliciesPrecedenceBadRequest{}
 }
 
-/* SetPreventionPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewSetPreventionPoliciesPrecedenceForbidden() *SetPreventionPoliciesPrecede
 	return &SetPreventionPoliciesPrecedenceForbidden{}
 }
 
-/* SetPreventionPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewSetPreventionPoliciesPrecedenceTooManyRequests() *SetPreventionPoliciesP
 	return &SetPreventionPoliciesPrecedenceTooManyRequests{}
 }
 
-/* SetPreventionPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewSetPreventionPoliciesPrecedenceInternalServerError() *SetPreventionPolic
 	return &SetPreventionPoliciesPrecedenceInternalServerError{}
 }
 
-/* SetPreventionPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewSetPreventionPoliciesPrecedenceDefault(code int) *SetPreventionPoliciesP
 	}
 }
 
-/* SetPreventionPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
+/*
+	SetPreventionPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
 
 OK
 */

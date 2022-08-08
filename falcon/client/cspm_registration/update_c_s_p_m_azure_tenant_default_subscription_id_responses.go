@@ -65,7 +65,8 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDCreated() *UpdateCSPMAzureTena
 	return &UpdateCSPMAzureTenantDefaultSubscriptionIDCreated{}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDCreated describes a response with status code 201, with default header values.
+/*
+	UpdateCSPMAzureTenantDefaultSubscriptionIDCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -139,7 +140,8 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest() *UpdateCSPMAzureT
 	return &UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest{}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -213,7 +215,8 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDForbidden() *UpdateCSPMAzureTe
 	return &UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden{}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden describes a response with status code 403, with default header values.
+/*
+	UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -287,7 +290,8 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests() *UpdateCSPMA
 	return &UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests{}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -376,7 +380,8 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError() *UpdateC
 	return &UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError{}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

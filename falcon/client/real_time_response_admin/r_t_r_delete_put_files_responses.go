@@ -72,7 +72,8 @@ func NewRTRDeletePutFilesOK() *RTRDeletePutFilesOK {
 	return &RTRDeletePutFilesOK{}
 }
 
-/* RTRDeletePutFilesOK describes a response with status code 200, with default header values.
+/*
+	RTRDeletePutFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewRTRDeletePutFilesBadRequest() *RTRDeletePutFilesBadRequest {
 	return &RTRDeletePutFilesBadRequest{}
 }
 
-/* RTRDeletePutFilesBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRDeletePutFilesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewRTRDeletePutFilesForbidden() *RTRDeletePutFilesForbidden {
 	return &RTRDeletePutFilesForbidden{}
 }
 
-/* RTRDeletePutFilesForbidden describes a response with status code 403, with default header values.
+/*
+	RTRDeletePutFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewRTRDeletePutFilesNotFound() *RTRDeletePutFilesNotFound {
 	return &RTRDeletePutFilesNotFound{}
 }
 
-/* RTRDeletePutFilesNotFound describes a response with status code 404, with default header values.
+/*
+	RTRDeletePutFilesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -324,7 +328,8 @@ func NewRTRDeletePutFilesTooManyRequests() *RTRDeletePutFilesTooManyRequests {
 	return &RTRDeletePutFilesTooManyRequests{}
 }
 
-/* RTRDeletePutFilesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRDeletePutFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,7 +409,8 @@ func NewRTRDeletePutFilesDefault(code int) *RTRDeletePutFilesDefault {
 	}
 }
 
-/* RTRDeletePutFilesDefault describes a response with status code -1, with default header values.
+/*
+	RTRDeletePutFilesDefault describes a response with status code -1, with default header values.
 
 OK
 */

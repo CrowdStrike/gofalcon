@@ -54,10 +54,12 @@ func NewAggregateCasesParamsWithHTTPClient(client *http.Client) *AggregateCasesP
 	}
 }
 
-/* AggregateCasesParams contains all the parameters to send to the API endpoint
-   for the aggregate cases operation.
+/*
+AggregateCasesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate cases operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateCasesParams struct {
 

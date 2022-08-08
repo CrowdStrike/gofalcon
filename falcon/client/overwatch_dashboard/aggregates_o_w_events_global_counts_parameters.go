@@ -52,10 +52,12 @@ func NewAggregatesOWEventsGlobalCountsParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/* AggregatesOWEventsGlobalCountsParams contains all the parameters to send to the API endpoint
-   for the aggregates o w events global counts operation.
+/*
+AggregatesOWEventsGlobalCountsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregates o w events global counts operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregatesOWEventsGlobalCountsParams struct {
 

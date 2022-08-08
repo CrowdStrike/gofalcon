@@ -52,10 +52,12 @@ func NewRTRCreatePutFilesParamsWithHTTPClient(client *http.Client) *RTRCreatePut
 	}
 }
 
-/* RTRCreatePutFilesParams contains all the parameters to send to the API endpoint
-   for the r t r create put files operation.
+/*
+RTRCreatePutFilesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r create put files operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRCreatePutFilesParams struct {
 

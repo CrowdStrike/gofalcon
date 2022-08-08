@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-  CreateFirewallPolicies creates firewall policies by specifying details about the policy to create
+CreateFirewallPolicies creates firewall policies by specifying details about the policy to create
 */
 func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, opts ...ClientOption) (*CreateFirewallPoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) CreateFirewallPolicies(params *CreateFirewallPoliciesParams, op
 }
 
 /*
-  DeleteFirewallPolicies deletes a set of firewall policies by specifying their i ds
+DeleteFirewallPolicies deletes a set of firewall policies by specifying their i ds
 */
 func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, opts ...ClientOption) (*DeleteFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -129,7 +129,7 @@ func (a *Client) DeleteFirewallPolicies(params *DeleteFirewallPoliciesParams, op
 }
 
 /*
-  GetFirewallPolicies retrieves a set of firewall policies by specifying their i ds
+GetFirewallPolicies retrieves a set of firewall policies by specifying their i ds
 */
 func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, opts ...ClientOption) (*GetFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) GetFirewallPolicies(params *GetFirewallPoliciesParams, opts ...
 }
 
 /*
-  PerformFirewallPoliciesAction performs the specified action on the firewall policies specified in the request
+PerformFirewallPoliciesAction performs the specified action on the firewall policies specified in the request
 */
 func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesActionParams, opts ...ClientOption) (*PerformFirewallPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +203,7 @@ func (a *Client) PerformFirewallPoliciesAction(params *PerformFirewallPoliciesAc
 }
 
 /*
-  QueryCombinedFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policies which match the filter criteria
+QueryCombinedFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policies which match the filter criteria
 */
 func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoliciesParams, opts ...ClientOption) (*QueryCombinedFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -240,7 +240,7 @@ func (a *Client) QueryCombinedFirewallPolicies(params *QueryCombinedFirewallPoli
 }
 
 /*
-  QueryCombinedFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+QueryCombinedFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewallPolicyMembersParams, opts ...ClientOption) (*QueryCombinedFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -277,7 +277,7 @@ func (a *Client) QueryCombinedFirewallPolicyMembers(params *QueryCombinedFirewal
 }
 
 /*
-  QueryFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policy i ds which match the filter criteria
+QueryFirewallPolicies searches for firewall policies in your environment by providing an f q l filter and paging details returns a set of firewall policy i ds which match the filter criteria
 */
 func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, opts ...ClientOption) (*QueryFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -314,7 +314,7 @@ func (a *Client) QueryFirewallPolicies(params *QueryFirewallPoliciesParams, opts
 }
 
 /*
-  QueryFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+QueryFirewallPolicyMembers searches for members of a firewall policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersParams, opts ...ClientOption) (*QueryFirewallPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ func (a *Client) QueryFirewallPolicyMembers(params *QueryFirewallPolicyMembersPa
 }
 
 /*
-  SetFirewallPoliciesPrecedence sets the precedence of firewall policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
+SetFirewallPoliciesPrecedence sets the precedence of firewall policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
 func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPrecedenceParams, opts ...ClientOption) (*SetFirewallPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -388,7 +388,7 @@ func (a *Client) SetFirewallPoliciesPrecedence(params *SetFirewallPoliciesPreced
 }
 
 /*
-  UpdateFirewallPolicies updates firewall policies by specifying the ID of the policy and details to update
+UpdateFirewallPolicies updates firewall policies by specifying the ID of the policy and details to update
 */
 func (a *Client) UpdateFirewallPolicies(params *UpdateFirewallPoliciesParams, opts ...ClientOption) (*UpdateFirewallPoliciesOK, error) {
 	// TODO: Validate the params before sending

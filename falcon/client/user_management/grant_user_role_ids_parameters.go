@@ -54,10 +54,12 @@ func NewGrantUserRoleIdsParamsWithHTTPClient(client *http.Client) *GrantUserRole
 	}
 }
 
-/* GrantUserRoleIdsParams contains all the parameters to send to the API endpoint
-   for the grant user role ids operation.
+/*
+GrantUserRoleIdsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the grant user role ids operation.
+
+	Typically these are written to a http.Request.
 */
 type GrantUserRoleIdsParams struct {
 

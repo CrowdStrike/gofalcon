@@ -72,7 +72,8 @@ func NewQueryMLExclusionsV1OK() *QueryMLExclusionsV1OK {
 	return &QueryMLExclusionsV1OK{}
 }
 
-/* QueryMLExclusionsV1OK describes a response with status code 200, with default header values.
+/*
+	QueryMLExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewQueryMLExclusionsV1BadRequest() *QueryMLExclusionsV1BadRequest {
 	return &QueryMLExclusionsV1BadRequest{}
 }
 
-/* QueryMLExclusionsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	QueryMLExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewQueryMLExclusionsV1Forbidden() *QueryMLExclusionsV1Forbidden {
 	return &QueryMLExclusionsV1Forbidden{}
 }
 
-/* QueryMLExclusionsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	QueryMLExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewQueryMLExclusionsV1TooManyRequests() *QueryMLExclusionsV1TooManyRequests
 	return &QueryMLExclusionsV1TooManyRequests{}
 }
 
-/* QueryMLExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryMLExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewQueryMLExclusionsV1InternalServerError() *QueryMLExclusionsV1InternalSer
 	return &QueryMLExclusionsV1InternalServerError{}
 }
 
-/* QueryMLExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryMLExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewQueryMLExclusionsV1Default(code int) *QueryMLExclusionsV1Default {
 	}
 }
 
-/* QueryMLExclusionsV1Default describes a response with status code -1, with default header values.
+/*
+	QueryMLExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

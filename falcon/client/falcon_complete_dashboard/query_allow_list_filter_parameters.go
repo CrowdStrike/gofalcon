@@ -53,10 +53,12 @@ func NewQueryAllowListFilterParamsWithHTTPClient(client *http.Client) *QueryAllo
 	}
 }
 
-/* QueryAllowListFilterParams contains all the parameters to send to the API endpoint
-   for the query allow list filter operation.
+/*
+QueryAllowListFilterParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query allow list filter operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryAllowListFilterParams struct {
 

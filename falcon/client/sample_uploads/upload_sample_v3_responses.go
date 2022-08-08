@@ -72,7 +72,8 @@ func NewUploadSampleV3OK() *UploadSampleV3OK {
 	return &UploadSampleV3OK{}
 }
 
-/* UploadSampleV3OK describes a response with status code 200, with default header values.
+/*
+	UploadSampleV3OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewUploadSampleV3BadRequest() *UploadSampleV3BadRequest {
 	return &UploadSampleV3BadRequest{}
 }
 
-/* UploadSampleV3BadRequest describes a response with status code 400, with default header values.
+/*
+	UploadSampleV3BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewUploadSampleV3Forbidden() *UploadSampleV3Forbidden {
 	return &UploadSampleV3Forbidden{}
 }
 
-/* UploadSampleV3Forbidden describes a response with status code 403, with default header values.
+/*
+	UploadSampleV3Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewUploadSampleV3TooManyRequests() *UploadSampleV3TooManyRequests {
 	return &UploadSampleV3TooManyRequests{}
 }
 
-/* UploadSampleV3TooManyRequests describes a response with status code 429, with default header values.
+/*
+	UploadSampleV3TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewUploadSampleV3InternalServerError() *UploadSampleV3InternalServerError {
 	return &UploadSampleV3InternalServerError{}
 }
 
-/* UploadSampleV3InternalServerError describes a response with status code 500, with default header values.
+/*
+	UploadSampleV3InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewUploadSampleV3Default(code int) *UploadSampleV3Default {
 	}
 }
 
-/* UploadSampleV3Default describes a response with status code -1, with default header values.
+/*
+	UploadSampleV3Default describes a response with status code -1, with default header values.
 
 OK
 */

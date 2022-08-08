@@ -66,7 +66,8 @@ func NewRTRCreateScriptsOK() *RTRCreateScriptsOK {
 	return &RTRCreateScriptsOK{}
 }
 
-/* RTRCreateScriptsOK describes a response with status code 200, with default header values.
+/*
+	RTRCreateScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewRTRCreateScriptsBadRequest() *RTRCreateScriptsBadRequest {
 	return &RTRCreateScriptsBadRequest{}
 }
 
-/* RTRCreateScriptsBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRCreateScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewRTRCreateScriptsForbidden() *RTRCreateScriptsForbidden {
 	return &RTRCreateScriptsForbidden{}
 }
 
-/* RTRCreateScriptsForbidden describes a response with status code 403, with default header values.
+/*
+	RTRCreateScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRTRCreateScriptsTooManyRequests() *RTRCreateScriptsTooManyRequests {
 	return &RTRCreateScriptsTooManyRequests{}
 }
 
-/* RTRCreateScriptsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRCreateScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRTRCreateScriptsDefault(code int) *RTRCreateScriptsDefault {
 	}
 }
 
-/* RTRCreateScriptsDefault describes a response with status code -1, with default header values.
+/*
+	RTRCreateScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */

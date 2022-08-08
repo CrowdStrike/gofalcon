@@ -70,7 +70,7 @@ type ClientService interface {
 }
 
 /*
-  AggregateNotificationsV1 gets notification aggregates as specified via JSON in request body
+AggregateNotificationsV1 gets notification aggregates as specified via JSON in request body
 */
 func (a *Client) AggregateNotificationsV1(params *AggregateNotificationsV1Params, opts ...ClientOption) (*AggregateNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -107,7 +107,7 @@ func (a *Client) AggregateNotificationsV1(params *AggregateNotificationsV1Params
 }
 
 /*
-  CreateActionsV1 creates actions for a monitoring rule accepts a list of actions that will be attached to the monitoring rule
+CreateActionsV1 creates actions for a monitoring rule accepts a list of actions that will be attached to the monitoring rule
 */
 func (a *Client) CreateActionsV1(params *CreateActionsV1Params, opts ...ClientOption) (*CreateActionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -144,7 +144,7 @@ func (a *Client) CreateActionsV1(params *CreateActionsV1Params, opts ...ClientOp
 }
 
 /*
-  CreateRulesV1 creates monitoring rules
+CreateRulesV1 creates monitoring rules
 */
 func (a *Client) CreateRulesV1(params *CreateRulesV1Params, opts ...ClientOption) (*CreateRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -181,7 +181,7 @@ func (a *Client) CreateRulesV1(params *CreateRulesV1Params, opts ...ClientOption
 }
 
 /*
-  DeleteActionV1 deletes an action from a monitoring rule based on the action ID
+DeleteActionV1 deletes an action from a monitoring rule based on the action ID
 */
 func (a *Client) DeleteActionV1(params *DeleteActionV1Params, opts ...ClientOption) (*DeleteActionV1OK, error) {
 	// TODO: Validate the params before sending
@@ -218,7 +218,7 @@ func (a *Client) DeleteActionV1(params *DeleteActionV1Params, opts ...ClientOpti
 }
 
 /*
-  DeleteNotificationsV1 deletes notifications based on i ds notifications cannot be recovered after they are deleted
+DeleteNotificationsV1 deletes notifications based on i ds notifications cannot be recovered after they are deleted
 */
 func (a *Client) DeleteNotificationsV1(params *DeleteNotificationsV1Params, opts ...ClientOption) (*DeleteNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -255,7 +255,7 @@ func (a *Client) DeleteNotificationsV1(params *DeleteNotificationsV1Params, opts
 }
 
 /*
-  DeleteRulesV1 deletes monitoring rules
+DeleteRulesV1 deletes monitoring rules
 */
 func (a *Client) DeleteRulesV1(params *DeleteRulesV1Params, opts ...ClientOption) (*DeleteRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -292,7 +292,7 @@ func (a *Client) DeleteRulesV1(params *DeleteRulesV1Params, opts ...ClientOption
 }
 
 /*
-  GetActionsV1 gets actions based on their i ds i ds can be retrieved using the g e t queries actions v1 endpoint
+GetActionsV1 gets actions based on their i ds i ds can be retrieved using the g e t queries actions v1 endpoint
 */
 func (a *Client) GetActionsV1(params *GetActionsV1Params, opts ...ClientOption) (*GetActionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -329,7 +329,7 @@ func (a *Client) GetActionsV1(params *GetActionsV1Params, opts ...ClientOption) 
 }
 
 /*
-  GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match this endpoint will return translated notification content the only target language available is english a single notification can be translated per request
+GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match this endpoint will return translated notification content the only target language available is english a single notification can be translated per request
 */
 func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDetailedTranslatedV1Params, opts ...ClientOption) (*GetNotificationsDetailedTranslatedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -366,7 +366,7 @@ func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDe
 }
 
 /*
-  GetNotificationsDetailedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match
+GetNotificationsDetailedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match
 */
 func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Params, opts ...ClientOption) (*GetNotificationsDetailedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -403,7 +403,7 @@ func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Pa
 }
 
 /*
-  GetNotificationsTranslatedV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint this endpoint will return translated notification content the only target language available is english
+GetNotificationsTranslatedV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint this endpoint will return translated notification content the only target language available is english
 */
 func (a *Client) GetNotificationsTranslatedV1(params *GetNotificationsTranslatedV1Params, opts ...ClientOption) (*GetNotificationsTranslatedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -440,7 +440,7 @@ func (a *Client) GetNotificationsTranslatedV1(params *GetNotificationsTranslated
 }
 
 /*
-  GetNotificationsV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint
+GetNotificationsV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint
 */
 func (a *Client) GetNotificationsV1(params *GetNotificationsV1Params, opts ...ClientOption) (*GetNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -477,7 +477,7 @@ func (a *Client) GetNotificationsV1(params *GetNotificationsV1Params, opts ...Cl
 }
 
 /*
-  GetRulesV1 gets monitoring rules based on their i ds i ds can be retrieved using the g e t queries rules v1 endpoint
+GetRulesV1 gets monitoring rules based on their i ds i ds can be retrieved using the g e t queries rules v1 endpoint
 */
 func (a *Client) GetRulesV1(params *GetRulesV1Params, opts ...ClientOption) (*GetRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -514,7 +514,7 @@ func (a *Client) GetRulesV1(params *GetRulesV1Params, opts ...ClientOption) (*Ge
 }
 
 /*
-  PreviewRuleV1 previews rules notification count and distribution this will return aggregations on channel count site
+PreviewRuleV1 previews rules notification count and distribution this will return aggregations on channel count site
 */
 func (a *Client) PreviewRuleV1(params *PreviewRuleV1Params, opts ...ClientOption) (*PreviewRuleV1OK, error) {
 	// TODO: Validate the params before sending
@@ -551,7 +551,7 @@ func (a *Client) PreviewRuleV1(params *PreviewRuleV1Params, opts ...ClientOption
 }
 
 /*
-  QueryActionsV1 queries actions based on provided criteria use the i ds from this response to get the action entities on g e t entities actions v1
+QueryActionsV1 queries actions based on provided criteria use the i ds from this response to get the action entities on g e t entities actions v1
 */
 func (a *Client) QueryActionsV1(params *QueryActionsV1Params, opts ...ClientOption) (*QueryActionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -588,7 +588,7 @@ func (a *Client) QueryActionsV1(params *QueryActionsV1Params, opts ...ClientOpti
 }
 
 /*
-  QueryNotificationsV1 queries notifications based on provided criteria use the i ds from this response to get the notification entities on g e t entities notifications v1 or g e t entities notifications detailed v1
+QueryNotificationsV1 queries notifications based on provided criteria use the i ds from this response to get the notification entities on g e t entities notifications v1 or g e t entities notifications detailed v1
 */
 func (a *Client) QueryNotificationsV1(params *QueryNotificationsV1Params, opts ...ClientOption) (*QueryNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -625,7 +625,7 @@ func (a *Client) QueryNotificationsV1(params *QueryNotificationsV1Params, opts .
 }
 
 /*
-  QueryRulesV1 queries monitoring rules based on provided criteria use the i ds from this response to fetch the rules on entities rules v1
+QueryRulesV1 queries monitoring rules based on provided criteria use the i ds from this response to fetch the rules on entities rules v1
 */
 func (a *Client) QueryRulesV1(params *QueryRulesV1Params, opts ...ClientOption) (*QueryRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -662,7 +662,7 @@ func (a *Client) QueryRulesV1(params *QueryRulesV1Params, opts ...ClientOption) 
 }
 
 /*
-  UpdateActionV1 updates an action for a monitoring rule
+UpdateActionV1 updates an action for a monitoring rule
 */
 func (a *Client) UpdateActionV1(params *UpdateActionV1Params, opts ...ClientOption) (*UpdateActionV1OK, error) {
 	// TODO: Validate the params before sending
@@ -699,7 +699,7 @@ func (a *Client) UpdateActionV1(params *UpdateActionV1Params, opts ...ClientOpti
 }
 
 /*
-  UpdateNotificationsV1 updates notification status or assignee accepts bulk requests
+UpdateNotificationsV1 updates notification status or assignee accepts bulk requests
 */
 func (a *Client) UpdateNotificationsV1(params *UpdateNotificationsV1Params, opts ...ClientOption) (*UpdateNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -736,7 +736,7 @@ func (a *Client) UpdateNotificationsV1(params *UpdateNotificationsV1Params, opts
 }
 
 /*
-  UpdateRulesV1 updates monitoring rules
+UpdateRulesV1 updates monitoring rules
 */
 func (a *Client) UpdateRulesV1(params *UpdateRulesV1Params, opts ...ClientOption) (*UpdateRulesV1OK, error) {
 	// TODO: Validate the params before sending

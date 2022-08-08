@@ -52,10 +52,12 @@ func NewRTRDeleteSessionParamsWithHTTPClient(client *http.Client) *RTRDeleteSess
 	}
 }
 
-/* RTRDeleteSessionParams contains all the parameters to send to the API endpoint
-   for the r t r delete session operation.
+/*
+RTRDeleteSessionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r delete session operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRDeleteSessionParams struct {
 

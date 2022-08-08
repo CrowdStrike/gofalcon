@@ -54,10 +54,12 @@ func NewUpdateQuarantinedDetectsByIdsParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/* UpdateQuarantinedDetectsByIdsParams contains all the parameters to send to the API endpoint
-   for the update quarantined detects by ids operation.
+/*
+UpdateQuarantinedDetectsByIdsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update quarantined detects by ids operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateQuarantinedDetectsByIdsParams struct {
 

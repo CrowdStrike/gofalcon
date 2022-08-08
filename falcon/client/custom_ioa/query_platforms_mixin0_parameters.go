@@ -53,10 +53,12 @@ func NewQueryPlatformsMixin0ParamsWithHTTPClient(client *http.Client) *QueryPlat
 	}
 }
 
-/* QueryPlatformsMixin0Params contains all the parameters to send to the API endpoint
-   for the query platforms mixin0 operation.
+/*
+QueryPlatformsMixin0Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query platforms mixin0 operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryPlatformsMixin0Params struct {
 

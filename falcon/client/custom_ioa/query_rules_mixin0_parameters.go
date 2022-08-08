@@ -53,10 +53,12 @@ func NewQueryRulesMixin0ParamsWithHTTPClient(client *http.Client) *QueryRulesMix
 	}
 }
 
-/* QueryRulesMixin0Params contains all the parameters to send to the API endpoint
-   for the query rules mixin0 operation.
+/*
+QueryRulesMixin0Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query rules mixin0 operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryRulesMixin0Params struct {
 

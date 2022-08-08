@@ -72,7 +72,8 @@ func NewGetCSPMAzureUserScriptsAttachmentOK() *GetCSPMAzureUserScriptsAttachment
 	return &GetCSPMAzureUserScriptsAttachmentOK{}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetCSPMAzureUserScriptsAttachmentBadRequest() *GetCSPMAzureUserScriptsAt
 	return &GetCSPMAzureUserScriptsAttachmentBadRequest{}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewGetCSPMAzureUserScriptsAttachmentForbidden() *GetCSPMAzureUserScriptsAtt
 	return &GetCSPMAzureUserScriptsAttachmentForbidden{}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewGetCSPMAzureUserScriptsAttachmentTooManyRequests() *GetCSPMAzureUserScri
 	return &GetCSPMAzureUserScriptsAttachmentTooManyRequests{}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetCSPMAzureUserScriptsAttachmentInternalServerError() *GetCSPMAzureUser
 	return &GetCSPMAzureUserScriptsAttachmentInternalServerError{}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetCSPMAzureUserScriptsAttachmentDefault(code int) *GetCSPMAzureUserScri
 	}
 }
 
-/* GetCSPMAzureUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
+/*
+	GetCSPMAzureUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
 
 OK
 */

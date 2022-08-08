@@ -54,10 +54,12 @@ func NewCreateRulesV1ParamsWithHTTPClient(client *http.Client) *CreateRulesV1Par
 	}
 }
 
-/* CreateRulesV1Params contains all the parameters to send to the API endpoint
-   for the create rules v1 operation.
+/*
+CreateRulesV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create rules v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateRulesV1Params struct {
 

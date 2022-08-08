@@ -53,10 +53,12 @@ func NewUploadSampleV3ParamsWithHTTPClient(client *http.Client) *UploadSampleV3P
 	}
 }
 
-/* UploadSampleV3Params contains all the parameters to send to the API endpoint
-   for the upload sample v3 operation.
+/*
+UploadSampleV3Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the upload sample v3 operation.
+
+	Typically these are written to a http.Request.
 */
 type UploadSampleV3Params struct {
 

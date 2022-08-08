@@ -54,10 +54,12 @@ func NewScanSamplesParamsWithHTTPClient(client *http.Client) *ScanSamplesParams 
 	}
 }
 
-/* ScanSamplesParams contains all the parameters to send to the API endpoint
-   for the scan samples operation.
+/*
+ScanSamplesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the scan samples operation.
+
+	Typically these are written to a http.Request.
 */
 type ScanSamplesParams struct {
 

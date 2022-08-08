@@ -78,7 +78,8 @@ func NewDeleteNotificationsV1OK() *DeleteNotificationsV1OK {
 	return &DeleteNotificationsV1OK{}
 }
 
-/* DeleteNotificationsV1OK describes a response with status code 200, with default header values.
+/*
+	DeleteNotificationsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewDeleteNotificationsV1BadRequest() *DeleteNotificationsV1BadRequest {
 	return &DeleteNotificationsV1BadRequest{}
 }
 
-/* DeleteNotificationsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteNotificationsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewDeleteNotificationsV1Unauthorized() *DeleteNotificationsV1Unauthorized {
 	return &DeleteNotificationsV1Unauthorized{}
 }
 
-/* DeleteNotificationsV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	DeleteNotificationsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewDeleteNotificationsV1Forbidden() *DeleteNotificationsV1Forbidden {
 	return &DeleteNotificationsV1Forbidden{}
 }
 
-/* DeleteNotificationsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	DeleteNotificationsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewDeleteNotificationsV1TooManyRequests() *DeleteNotificationsV1TooManyRequ
 	return &DeleteNotificationsV1TooManyRequests{}
 }
 
-/* DeleteNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewDeleteNotificationsV1InternalServerError() *DeleteNotificationsV1Interna
 	return &DeleteNotificationsV1InternalServerError{}
 }
 
-/* DeleteNotificationsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteNotificationsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewDeleteNotificationsV1Default(code int) *DeleteNotificationsV1Default {
 	}
 }
 
-/* DeleteNotificationsV1Default describes a response with status code -1, with default header values.
+/*
+	DeleteNotificationsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

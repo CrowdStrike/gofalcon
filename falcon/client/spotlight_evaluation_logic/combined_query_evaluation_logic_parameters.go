@@ -53,10 +53,12 @@ func NewCombinedQueryEvaluationLogicParamsWithHTTPClient(client *http.Client) *C
 	}
 }
 
-/* CombinedQueryEvaluationLogicParams contains all the parameters to send to the API endpoint
-   for the combined query evaluation logic operation.
+/*
+CombinedQueryEvaluationLogicParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the combined query evaluation logic operation.
+
+	Typically these are written to a http.Request.
 */
 type CombinedQueryEvaluationLogicParams struct {
 

@@ -53,10 +53,12 @@ func NewGetRulesMixin0ParamsWithHTTPClient(client *http.Client) *GetRulesMixin0P
 	}
 }
 
-/* GetRulesMixin0Params contains all the parameters to send to the API endpoint
-   for the get rules mixin0 operation.
+/*
+GetRulesMixin0Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get rules mixin0 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRulesMixin0Params struct {
 

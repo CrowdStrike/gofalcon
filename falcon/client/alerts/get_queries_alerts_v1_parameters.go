@@ -53,10 +53,12 @@ func NewGetQueriesAlertsV1ParamsWithHTTPClient(client *http.Client) *GetQueriesA
 	}
 }
 
-/* GetQueriesAlertsV1Params contains all the parameters to send to the API endpoint
-   for the get queries alerts v1 operation.
+/*
+GetQueriesAlertsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get queries alerts v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQueriesAlertsV1Params struct {
 

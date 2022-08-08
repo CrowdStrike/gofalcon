@@ -78,7 +78,8 @@ func NewUpdateNotificationsV1OK() *UpdateNotificationsV1OK {
 	return &UpdateNotificationsV1OK{}
 }
 
-/* UpdateNotificationsV1OK describes a response with status code 200, with default header values.
+/*
+	UpdateNotificationsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewUpdateNotificationsV1BadRequest() *UpdateNotificationsV1BadRequest {
 	return &UpdateNotificationsV1BadRequest{}
 }
 
-/* UpdateNotificationsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateNotificationsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewUpdateNotificationsV1Unauthorized() *UpdateNotificationsV1Unauthorized {
 	return &UpdateNotificationsV1Unauthorized{}
 }
 
-/* UpdateNotificationsV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	UpdateNotificationsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewUpdateNotificationsV1Forbidden() *UpdateNotificationsV1Forbidden {
 	return &UpdateNotificationsV1Forbidden{}
 }
 
-/* UpdateNotificationsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	UpdateNotificationsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewUpdateNotificationsV1TooManyRequests() *UpdateNotificationsV1TooManyRequ
 	return &UpdateNotificationsV1TooManyRequests{}
 }
 
-/* UpdateNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewUpdateNotificationsV1InternalServerError() *UpdateNotificationsV1Interna
 	return &UpdateNotificationsV1InternalServerError{}
 }
 
-/* UpdateNotificationsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateNotificationsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewUpdateNotificationsV1Default(code int) *UpdateNotificationsV1Default {
 	}
 }
 
-/* UpdateNotificationsV1Default describes a response with status code -1, with default header values.
+/*
+	UpdateNotificationsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

@@ -71,7 +71,8 @@ func NewCreateCSPMAwsAccountCreated() *CreateCSPMAwsAccountCreated {
 	return &CreateCSPMAwsAccountCreated{}
 }
 
-/* CreateCSPMAwsAccountCreated describes a response with status code 201, with default header values.
+/*
+	CreateCSPMAwsAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -145,7 +146,8 @@ func NewCreateCSPMAwsAccountMultiStatus() *CreateCSPMAwsAccountMultiStatus {
 	return &CreateCSPMAwsAccountMultiStatus{}
 }
 
-/* CreateCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
+/*
+	CreateCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -219,7 +221,8 @@ func NewCreateCSPMAwsAccountBadRequest() *CreateCSPMAwsAccountBadRequest {
 	return &CreateCSPMAwsAccountBadRequest{}
 }
 
-/* CreateCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+/*
+	CreateCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -293,7 +296,8 @@ func NewCreateCSPMAwsAccountForbidden() *CreateCSPMAwsAccountForbidden {
 	return &CreateCSPMAwsAccountForbidden{}
 }
 
-/* CreateCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+/*
+	CreateCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -367,7 +371,8 @@ func NewCreateCSPMAwsAccountTooManyRequests() *CreateCSPMAwsAccountTooManyReques
 	return &CreateCSPMAwsAccountTooManyRequests{}
 }
 
-/* CreateCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -456,7 +461,8 @@ func NewCreateCSPMAwsAccountInternalServerError() *CreateCSPMAwsAccountInternalS
 	return &CreateCSPMAwsAccountInternalServerError{}
 }
 
-/* CreateCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+/*
+	CreateCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

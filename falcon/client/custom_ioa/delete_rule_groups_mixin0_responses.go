@@ -66,7 +66,8 @@ func NewDeleteRuleGroupsMixin0OK() *DeleteRuleGroupsMixin0OK {
 	return &DeleteRuleGroupsMixin0OK{}
 }
 
-/* DeleteRuleGroupsMixin0OK describes a response with status code 200, with default header values.
+/*
+	DeleteRuleGroupsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewDeleteRuleGroupsMixin0Forbidden() *DeleteRuleGroupsMixin0Forbidden {
 	return &DeleteRuleGroupsMixin0Forbidden{}
 }
 
-/* DeleteRuleGroupsMixin0Forbidden describes a response with status code 403, with default header values.
+/*
+	DeleteRuleGroupsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -192,7 +194,8 @@ func NewDeleteRuleGroupsMixin0NotFound() *DeleteRuleGroupsMixin0NotFound {
 	return &DeleteRuleGroupsMixin0NotFound{}
 }
 
-/* DeleteRuleGroupsMixin0NotFound describes a response with status code 404, with default header values.
+/*
+	DeleteRuleGroupsMixin0NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -255,7 +258,8 @@ func NewDeleteRuleGroupsMixin0TooManyRequests() *DeleteRuleGroupsMixin0TooManyRe
 	return &DeleteRuleGroupsMixin0TooManyRequests{}
 }
 
-/* DeleteRuleGroupsMixin0TooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteRuleGroupsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewDeleteRuleGroupsMixin0Default(code int) *DeleteRuleGroupsMixin0Default {
 	}
 }
 
-/* DeleteRuleGroupsMixin0Default describes a response with status code -1, with default header values.
+/*
+	DeleteRuleGroupsMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

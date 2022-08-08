@@ -52,10 +52,12 @@ func NewListAvailableStreamsOAuth2ParamsWithHTTPClient(client *http.Client) *Lis
 	}
 }
 
-/* ListAvailableStreamsOAuth2Params contains all the parameters to send to the API endpoint
-   for the list available streams o auth2 operation.
+/*
+ListAvailableStreamsOAuth2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list available streams o auth2 operation.
+
+	Typically these are written to a http.Request.
 */
 type ListAvailableStreamsOAuth2Params struct {
 

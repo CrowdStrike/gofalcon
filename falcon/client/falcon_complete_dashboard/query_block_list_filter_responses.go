@@ -60,7 +60,8 @@ func NewQueryBlockListFilterOK() *QueryBlockListFilterOK {
 	return &QueryBlockListFilterOK{}
 }
 
-/* QueryBlockListFilterOK describes a response with status code 200, with default header values.
+/*
+	QueryBlockListFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewQueryBlockListFilterForbidden() *QueryBlockListFilterForbidden {
 	return &QueryBlockListFilterForbidden{}
 }
 
-/* QueryBlockListFilterForbidden describes a response with status code 403, with default header values.
+/*
+	QueryBlockListFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewQueryBlockListFilterTooManyRequests() *QueryBlockListFilterTooManyReques
 	return &QueryBlockListFilterTooManyRequests{}
 }
 
-/* QueryBlockListFilterTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryBlockListFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewQueryBlockListFilterDefault(code int) *QueryBlockListFilterDefault {
 	}
 }
 
-/* QueryBlockListFilterDefault describes a response with status code -1, with default header values.
+/*
+	QueryBlockListFilterDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -54,10 +54,12 @@ func NewGetCaseActivityByIdsParamsWithHTTPClient(client *http.Client) *GetCaseAc
 	}
 }
 
-/* GetCaseActivityByIdsParams contains all the parameters to send to the API endpoint
-   for the get case activity by ids operation.
+/*
+GetCaseActivityByIdsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get case activity by ids operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCaseActivityByIdsParams struct {
 

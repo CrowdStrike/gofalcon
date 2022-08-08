@@ -44,7 +44,7 @@ type ClientService interface {
 }
 
 /*
-  GetAccounts gets details on accounts by providing one or more i ds
+GetAccounts gets details on accounts by providing one or more i ds
 */
 func (a *Client) GetAccounts(params *GetAccountsParams, opts ...ClientOption) (*GetAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -81,7 +81,7 @@ func (a *Client) GetAccounts(params *GetAccountsParams, opts ...ClientOption) (*
 }
 
 /*
-  GetHosts gets details on assets by providing one or more i ds
+GetHosts gets details on assets by providing one or more i ds
 */
 func (a *Client) GetHosts(params *GetHostsParams, opts ...ClientOption) (*GetHostsOK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) GetHosts(params *GetHostsParams, opts ...ClientOption) (*GetHos
 }
 
 /*
-  GetLogins gets details on logins by providing one or more i ds
+GetLogins gets details on logins by providing one or more i ds
 */
 func (a *Client) GetLogins(params *GetLoginsParams, opts ...ClientOption) (*GetLoginsOK, error) {
 	// TODO: Validate the params before sending
@@ -155,7 +155,7 @@ func (a *Client) GetLogins(params *GetLoginsParams, opts ...ClientOption) (*GetL
 }
 
 /*
-  QueryAccounts searches for accounts in your environment by providing an f q l falcon query language filter and paging details returns a set of account i ds which match the filter criteria
+QueryAccounts searches for accounts in your environment by providing an f q l falcon query language filter and paging details returns a set of account i ds which match the filter criteria
 */
 func (a *Client) QueryAccounts(params *QueryAccountsParams, opts ...ClientOption) (*QueryAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ func (a *Client) QueryAccounts(params *QueryAccountsParams, opts ...ClientOption
 }
 
 /*
-  QueryHosts searches for assets in your environment by providing an f q l falcon query language filter and paging details returns a set of asset i ds which match the filter criteria
+QueryHosts searches for assets in your environment by providing an f q l falcon query language filter and paging details returns a set of asset i ds which match the filter criteria
 */
 func (a *Client) QueryHosts(params *QueryHostsParams, opts ...ClientOption) (*QueryHostsOK, error) {
 	// TODO: Validate the params before sending
@@ -229,7 +229,7 @@ func (a *Client) QueryHosts(params *QueryHostsParams, opts ...ClientOption) (*Qu
 }
 
 /*
-  QueryLogins searches for logins in your environment by providing an f q l falcon query language filter and paging details returns a set of login i ds which match the filter criteria
+QueryLogins searches for logins in your environment by providing an f q l falcon query language filter and paging details returns a set of login i ds which match the filter criteria
 */
 func (a *Client) QueryLogins(params *QueryLoginsParams, opts ...ClientOption) (*QueryLoginsOK, error) {
 	// TODO: Validate the params before sending

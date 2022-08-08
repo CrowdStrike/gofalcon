@@ -72,7 +72,8 @@ func NewTokensReadOK() *TokensReadOK {
 	return &TokensReadOK{}
 }
 
-/* TokensReadOK describes a response with status code 200, with default header values.
+/*
+	TokensReadOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewTokensReadBadRequest() *TokensReadBadRequest {
 	return &TokensReadBadRequest{}
 }
 
-/* TokensReadBadRequest describes a response with status code 400, with default header values.
+/*
+	TokensReadBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewTokensReadForbidden() *TokensReadForbidden {
 	return &TokensReadForbidden{}
 }
 
-/* TokensReadForbidden describes a response with status code 403, with default header values.
+/*
+	TokensReadForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewTokensReadTooManyRequests() *TokensReadTooManyRequests {
 	return &TokensReadTooManyRequests{}
 }
 
-/* TokensReadTooManyRequests describes a response with status code 429, with default header values.
+/*
+	TokensReadTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewTokensReadInternalServerError() *TokensReadInternalServerError {
 	return &TokensReadInternalServerError{}
 }
 
-/* TokensReadInternalServerError describes a response with status code 500, with default header values.
+/*
+	TokensReadInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewTokensReadDefault(code int) *TokensReadDefault {
 	}
 }
 
-/* TokensReadDefault describes a response with status code -1, with default header values.
+/*
+	TokensReadDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -71,7 +71,8 @@ func NewCreateCSPMGCPAccountCreated() *CreateCSPMGCPAccountCreated {
 	return &CreateCSPMGCPAccountCreated{}
 }
 
-/* CreateCSPMGCPAccountCreated describes a response with status code 201, with default header values.
+/*
+	CreateCSPMGCPAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -134,7 +135,8 @@ func NewCreateCSPMGCPAccountMultiStatus() *CreateCSPMGCPAccountMultiStatus {
 	return &CreateCSPMGCPAccountMultiStatus{}
 }
 
-/* CreateCSPMGCPAccountMultiStatus describes a response with status code 207, with default header values.
+/*
+	CreateCSPMGCPAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -197,7 +199,8 @@ func NewCreateCSPMGCPAccountBadRequest() *CreateCSPMGCPAccountBadRequest {
 	return &CreateCSPMGCPAccountBadRequest{}
 }
 
-/* CreateCSPMGCPAccountBadRequest describes a response with status code 400, with default header values.
+/*
+	CreateCSPMGCPAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -260,7 +263,8 @@ func NewCreateCSPMGCPAccountForbidden() *CreateCSPMGCPAccountForbidden {
 	return &CreateCSPMGCPAccountForbidden{}
 }
 
-/* CreateCSPMGCPAccountForbidden describes a response with status code 403, with default header values.
+/*
+	CreateCSPMGCPAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -323,7 +327,8 @@ func NewCreateCSPMGCPAccountTooManyRequests() *CreateCSPMGCPAccountTooManyReques
 	return &CreateCSPMGCPAccountTooManyRequests{}
 }
 
-/* CreateCSPMGCPAccountTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateCSPMGCPAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -401,7 +406,8 @@ func NewCreateCSPMGCPAccountInternalServerError() *CreateCSPMGCPAccountInternalS
 	return &CreateCSPMGCPAccountInternalServerError{}
 }
 
-/* CreateCSPMGCPAccountInternalServerError describes a response with status code 500, with default header values.
+/*
+	CreateCSPMGCPAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

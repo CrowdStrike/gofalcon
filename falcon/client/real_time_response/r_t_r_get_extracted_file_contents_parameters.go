@@ -52,10 +52,12 @@ func NewRTRGetExtractedFileContentsParamsWithHTTPClient(client *http.Client) *RT
 	}
 }
 
-/* RTRGetExtractedFileContentsParams contains all the parameters to send to the API endpoint
-   for the r t r get extracted file contents operation.
+/*
+RTRGetExtractedFileContentsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r get extracted file contents operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRGetExtractedFileContentsParams struct {
 

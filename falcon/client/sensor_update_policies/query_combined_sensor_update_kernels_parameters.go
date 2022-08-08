@@ -53,10 +53,12 @@ func NewQueryCombinedSensorUpdateKernelsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/* QueryCombinedSensorUpdateKernelsParams contains all the parameters to send to the API endpoint
-   for the query combined sensor update kernels operation.
+/*
+QueryCombinedSensorUpdateKernelsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query combined sensor update kernels operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryCombinedSensorUpdateKernelsParams struct {
 

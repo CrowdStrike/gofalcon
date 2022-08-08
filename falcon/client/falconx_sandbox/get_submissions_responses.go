@@ -72,7 +72,8 @@ func NewGetSubmissionsOK() *GetSubmissionsOK {
 	return &GetSubmissionsOK{}
 }
 
-/* GetSubmissionsOK describes a response with status code 200, with default header values.
+/*
+	GetSubmissionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetSubmissionsBadRequest() *GetSubmissionsBadRequest {
 	return &GetSubmissionsBadRequest{}
 }
 
-/* GetSubmissionsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetSubmissionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewGetSubmissionsForbidden() *GetSubmissionsForbidden {
 	return &GetSubmissionsForbidden{}
 }
 
-/* GetSubmissionsForbidden describes a response with status code 403, with default header values.
+/*
+	GetSubmissionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewGetSubmissionsTooManyRequests() *GetSubmissionsTooManyRequests {
 	return &GetSubmissionsTooManyRequests{}
 }
 
-/* GetSubmissionsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetSubmissionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetSubmissionsInternalServerError() *GetSubmissionsInternalServerError {
 	return &GetSubmissionsInternalServerError{}
 }
 
-/* GetSubmissionsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetSubmissionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetSubmissionsDefault(code int) *GetSubmissionsDefault {
 	}
 }
 
-/* GetSubmissionsDefault describes a response with status code -1, with default header values.
+/*
+	GetSubmissionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

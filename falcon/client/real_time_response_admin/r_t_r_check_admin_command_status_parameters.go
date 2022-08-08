@@ -53,10 +53,12 @@ func NewRTRCheckAdminCommandStatusParamsWithHTTPClient(client *http.Client) *RTR
 	}
 }
 
-/* RTRCheckAdminCommandStatusParams contains all the parameters to send to the API endpoint
-   for the r t r check admin command status operation.
+/*
+RTRCheckAdminCommandStatusParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r check admin command status operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRCheckAdminCommandStatusParams struct {
 

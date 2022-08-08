@@ -52,10 +52,12 @@ func NewDeleteActionV1ParamsWithHTTPClient(client *http.Client) *DeleteActionV1P
 	}
 }
 
-/* DeleteActionV1Params contains all the parameters to send to the API endpoint
-   for the delete action v1 operation.
+/*
+DeleteActionV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete action v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteActionV1Params struct {
 

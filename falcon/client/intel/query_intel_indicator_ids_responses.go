@@ -72,7 +72,8 @@ func NewQueryIntelIndicatorIdsOK() *QueryIntelIndicatorIdsOK {
 	return &QueryIntelIndicatorIdsOK{}
 }
 
-/* QueryIntelIndicatorIdsOK describes a response with status code 200, with default header values.
+/*
+	QueryIntelIndicatorIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -157,7 +158,8 @@ func NewQueryIntelIndicatorIdsBadRequest() *QueryIntelIndicatorIdsBadRequest {
 	return &QueryIntelIndicatorIdsBadRequest{}
 }
 
-/* QueryIntelIndicatorIdsBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryIntelIndicatorIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -231,7 +233,8 @@ func NewQueryIntelIndicatorIdsForbidden() *QueryIntelIndicatorIdsForbidden {
 	return &QueryIntelIndicatorIdsForbidden{}
 }
 
-/* QueryIntelIndicatorIdsForbidden describes a response with status code 403, with default header values.
+/*
+	QueryIntelIndicatorIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -305,7 +308,8 @@ func NewQueryIntelIndicatorIdsTooManyRequests() *QueryIntelIndicatorIdsTooManyRe
 	return &QueryIntelIndicatorIdsTooManyRequests{}
 }
 
-/* QueryIntelIndicatorIdsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryIntelIndicatorIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -394,7 +398,8 @@ func NewQueryIntelIndicatorIdsInternalServerError() *QueryIntelIndicatorIdsInter
 	return &QueryIntelIndicatorIdsInternalServerError{}
 }
 
-/* QueryIntelIndicatorIdsInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryIntelIndicatorIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -470,7 +475,8 @@ func NewQueryIntelIndicatorIdsDefault(code int) *QueryIntelIndicatorIdsDefault {
 	}
 }
 
-/* QueryIntelIndicatorIdsDefault describes a response with status code -1, with default header values.
+/*
+	QueryIntelIndicatorIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

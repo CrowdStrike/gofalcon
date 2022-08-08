@@ -54,10 +54,12 @@ func NewPerformIncidentActionParamsWithHTTPClient(client *http.Client) *PerformI
 	}
 }
 
-/* PerformIncidentActionParams contains all the parameters to send to the API endpoint
-   for the perform incident action operation.
+/*
+PerformIncidentActionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the perform incident action operation.
+
+	Typically these are written to a http.Request.
 */
 type PerformIncidentActionParams struct {
 

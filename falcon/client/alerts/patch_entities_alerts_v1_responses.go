@@ -72,7 +72,8 @@ func NewPatchEntitiesAlertsV1OK() *PatchEntitiesAlertsV1OK {
 	return &PatchEntitiesAlertsV1OK{}
 }
 
-/* PatchEntitiesAlertsV1OK describes a response with status code 200, with default header values.
+/*
+	PatchEntitiesAlertsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewPatchEntitiesAlertsV1BadRequest() *PatchEntitiesAlertsV1BadRequest {
 	return &PatchEntitiesAlertsV1BadRequest{}
 }
 
-/* PatchEntitiesAlertsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	PatchEntitiesAlertsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewPatchEntitiesAlertsV1Forbidden() *PatchEntitiesAlertsV1Forbidden {
 	return &PatchEntitiesAlertsV1Forbidden{}
 }
 
-/* PatchEntitiesAlertsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	PatchEntitiesAlertsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewPatchEntitiesAlertsV1TooManyRequests() *PatchEntitiesAlertsV1TooManyRequ
 	return &PatchEntitiesAlertsV1TooManyRequests{}
 }
 
-/* PatchEntitiesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	PatchEntitiesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewPatchEntitiesAlertsV1InternalServerError() *PatchEntitiesAlertsV1Interna
 	return &PatchEntitiesAlertsV1InternalServerError{}
 }
 
-/* PatchEntitiesAlertsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	PatchEntitiesAlertsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewPatchEntitiesAlertsV1Default(code int) *PatchEntitiesAlertsV1Default {
 	}
 }
 
-/* PatchEntitiesAlertsV1Default describes a response with status code -1, with default header values.
+/*
+	PatchEntitiesAlertsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

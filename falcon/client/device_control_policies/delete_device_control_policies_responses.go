@@ -72,7 +72,8 @@ func NewDeleteDeviceControlPoliciesOK() *DeleteDeviceControlPoliciesOK {
 	return &DeleteDeviceControlPoliciesOK{}
 }
 
-/* DeleteDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+/*
+	DeleteDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewDeleteDeviceControlPoliciesForbidden() *DeleteDeviceControlPoliciesForbi
 	return &DeleteDeviceControlPoliciesForbidden{}
 }
 
-/* DeleteDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -198,7 +200,8 @@ func NewDeleteDeviceControlPoliciesNotFound() *DeleteDeviceControlPoliciesNotFou
 	return &DeleteDeviceControlPoliciesNotFound{}
 }
 
-/* DeleteDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	DeleteDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -261,7 +264,8 @@ func NewDeleteDeviceControlPoliciesTooManyRequests() *DeleteDeviceControlPolicie
 	return &DeleteDeviceControlPoliciesTooManyRequests{}
 }
 
-/* DeleteDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewDeleteDeviceControlPoliciesInternalServerError() *DeleteDeviceControlPol
 	return &DeleteDeviceControlPoliciesInternalServerError{}
 }
 
-/* DeleteDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewDeleteDeviceControlPoliciesDefault(code int) *DeleteDeviceControlPolicie
 	}
 }
 
-/* DeleteDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	DeleteDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

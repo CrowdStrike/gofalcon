@@ -54,10 +54,12 @@ func NewUpdateRulesV1ParamsWithHTTPClient(client *http.Client) *UpdateRulesV1Par
 	}
 }
 
-/* UpdateRulesV1Params contains all the parameters to send to the API endpoint
-   for the update rules v1 operation.
+/*
+UpdateRulesV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update rules v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateRulesV1Params struct {
 

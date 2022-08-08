@@ -52,10 +52,12 @@ func NewRegenerateAPIKeyParamsWithHTTPClient(client *http.Client) *RegenerateAPI
 	}
 }
 
-/* RegenerateAPIKeyParams contains all the parameters to send to the API endpoint
-   for the regenerate API key operation.
+/*
+RegenerateAPIKeyParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the regenerate API key operation.
+
+	Typically these are written to a http.Request.
 */
 type RegenerateAPIKeyParams struct {
 	timeout    time.Duration

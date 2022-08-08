@@ -60,7 +60,8 @@ func NewAggregateDetectionsOK() *AggregateDetectionsOK {
 	return &AggregateDetectionsOK{}
 }
 
-/* AggregateDetectionsOK describes a response with status code 200, with default header values.
+/*
+	AggregateDetectionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -134,7 +135,8 @@ func NewAggregateDetectionsForbidden() *AggregateDetectionsForbidden {
 	return &AggregateDetectionsForbidden{}
 }
 
-/* AggregateDetectionsForbidden describes a response with status code 403, with default header values.
+/*
+	AggregateDetectionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -208,7 +210,8 @@ func NewAggregateDetectionsTooManyRequests() *AggregateDetectionsTooManyRequests
 	return &AggregateDetectionsTooManyRequests{}
 }
 
-/* AggregateDetectionsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AggregateDetectionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -299,7 +302,8 @@ func NewAggregateDetectionsDefault(code int) *AggregateDetectionsDefault {
 	}
 }
 
-/* AggregateDetectionsDefault describes a response with status code -1, with default header values.
+/*
+	AggregateDetectionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -72,7 +72,8 @@ func NewRTRListAllSessionsOK() *RTRListAllSessionsOK {
 	return &RTRListAllSessionsOK{}
 }
 
-/* RTRListAllSessionsOK describes a response with status code 200, with default header values.
+/*
+	RTRListAllSessionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewRTRListAllSessionsBadRequest() *RTRListAllSessionsBadRequest {
 	return &RTRListAllSessionsBadRequest{}
 }
 
-/* RTRListAllSessionsBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRListAllSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewRTRListAllSessionsForbidden() *RTRListAllSessionsForbidden {
 	return &RTRListAllSessionsForbidden{}
 }
 
-/* RTRListAllSessionsForbidden describes a response with status code 403, with default header values.
+/*
+	RTRListAllSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewRTRListAllSessionsNotFound() *RTRListAllSessionsNotFound {
 	return &RTRListAllSessionsNotFound{}
 }
 
-/* RTRListAllSessionsNotFound describes a response with status code 404, with default header values.
+/*
+	RTRListAllSessionsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -324,7 +328,8 @@ func NewRTRListAllSessionsTooManyRequests() *RTRListAllSessionsTooManyRequests {
 	return &RTRListAllSessionsTooManyRequests{}
 }
 
-/* RTRListAllSessionsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRListAllSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,7 +409,8 @@ func NewRTRListAllSessionsDefault(code int) *RTRListAllSessionsDefault {
 	}
 }
 
-/* RTRListAllSessionsDefault describes a response with status code -1, with default header values.
+/*
+	RTRListAllSessionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

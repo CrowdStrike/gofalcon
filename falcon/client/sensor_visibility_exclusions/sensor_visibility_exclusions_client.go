@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-  CreateSVExclusionsV1 creates the sensor visibility exclusions
+CreateSVExclusionsV1 creates the sensor visibility exclusions
 */
 func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts ...ClientOption) (*CreateSVExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -79,7 +79,7 @@ func (a *Client) CreateSVExclusionsV1(params *CreateSVExclusionsV1Params, opts .
 }
 
 /*
-  DeleteSensorVisibilityExclusionsV1 deletes the sensor visibility exclusions by id
+DeleteSensorVisibilityExclusionsV1 deletes the sensor visibility exclusions by id
 */
 func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*DeleteSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) DeleteSensorVisibilityExclusionsV1(params *DeleteSensorVisibili
 }
 
 /*
-  GetSensorVisibilityExclusionsV1 gets a set of sensor visibility exclusions by specifying their i ds
+GetSensorVisibilityExclusionsV1 gets a set of sensor visibility exclusions by specifying their i ds
 */
 func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*GetSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) GetSensorVisibilityExclusionsV1(params *GetSensorVisibilityExcl
 }
 
 /*
-  QuerySensorVisibilityExclusionsV1 searches for sensor visibility exclusions
+QuerySensorVisibilityExclusionsV1 searches for sensor visibility exclusions
 */
 func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibilityExclusionsV1Params, opts ...ClientOption) (*QuerySensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) QuerySensorVisibilityExclusionsV1(params *QuerySensorVisibility
 }
 
 /*
-  UpdateSensorVisibilityExclusionsV1 updates the sensor visibility exclusions
+UpdateSensorVisibilityExclusionsV1 updates the sensor visibility exclusions
 */
 func (a *Client) UpdateSensorVisibilityExclusionsV1(params *UpdateSensorVisibilityExclusionsV1Params, opts ...ClientOption) (*UpdateSensorVisibilityExclusionsV1OK, error) {
 	// TODO: Validate the params before sending

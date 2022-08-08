@@ -54,10 +54,12 @@ func NewUpdateCaseParamsWithHTTPClient(client *http.Client) *UpdateCaseParams {
 	}
 }
 
-/* UpdateCaseParams contains all the parameters to send to the API endpoint
-   for the update case operation.
+/*
+UpdateCaseParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update case operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateCaseParams struct {
 

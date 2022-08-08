@@ -72,7 +72,8 @@ func NewGetIOAEventsOK() *GetIOAEventsOK {
 	return &GetIOAEventsOK{}
 }
 
-/* GetIOAEventsOK describes a response with status code 200, with default header values.
+/*
+	GetIOAEventsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetIOAEventsBadRequest() *GetIOAEventsBadRequest {
 	return &GetIOAEventsBadRequest{}
 }
 
-/* GetIOAEventsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetIOAEventsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewGetIOAEventsForbidden() *GetIOAEventsForbidden {
 	return &GetIOAEventsForbidden{}
 }
 
-/* GetIOAEventsForbidden describes a response with status code 403, with default header values.
+/*
+	GetIOAEventsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewGetIOAEventsTooManyRequests() *GetIOAEventsTooManyRequests {
 	return &GetIOAEventsTooManyRequests{}
 }
 
-/* GetIOAEventsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetIOAEventsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewGetIOAEventsInternalServerError() *GetIOAEventsInternalServerError {
 	return &GetIOAEventsInternalServerError{}
 }
 
-/* GetIOAEventsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetIOAEventsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewGetIOAEventsDefault(code int) *GetIOAEventsDefault {
 	}
 }
 
-/* GetIOAEventsDefault describes a response with status code -1, with default header values.
+/*
+	GetIOAEventsDefault describes a response with status code -1, with default header values.
 
 OK
 */

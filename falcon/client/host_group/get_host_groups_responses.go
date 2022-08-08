@@ -78,7 +78,8 @@ func NewGetHostGroupsOK() *GetHostGroupsOK {
 	return &GetHostGroupsOK{}
 }
 
-/* GetHostGroupsOK describes a response with status code 200, with default header values.
+/*
+	GetHostGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewGetHostGroupsBadRequest() *GetHostGroupsBadRequest {
 	return &GetHostGroupsBadRequest{}
 }
 
-/* GetHostGroupsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewGetHostGroupsForbidden() *GetHostGroupsForbidden {
 	return &GetHostGroupsForbidden{}
 }
 
-/* GetHostGroupsForbidden describes a response with status code 403, with default header values.
+/*
+	GetHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewGetHostGroupsNotFound() *GetHostGroupsNotFound {
 	return &GetHostGroupsNotFound{}
 }
 
-/* GetHostGroupsNotFound describes a response with status code 404, with default header values.
+/*
+	GetHostGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewGetHostGroupsTooManyRequests() *GetHostGroupsTooManyRequests {
 	return &GetHostGroupsTooManyRequests{}
 }
 
-/* GetHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewGetHostGroupsInternalServerError() *GetHostGroupsInternalServerError {
 	return &GetHostGroupsInternalServerError{}
 }
 
-/* GetHostGroupsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewGetHostGroupsDefault(code int) *GetHostGroupsDefault {
 	}
 }
 
-/* GetHostGroupsDefault describes a response with status code -1, with default header values.
+/*
+	GetHostGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

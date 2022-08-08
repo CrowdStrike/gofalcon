@@ -53,10 +53,12 @@ func NewDeleteFirewallPoliciesParamsWithHTTPClient(client *http.Client) *DeleteF
 	}
 }
 
-/* DeleteFirewallPoliciesParams contains all the parameters to send to the API endpoint
-   for the delete firewall policies operation.
+/*
+DeleteFirewallPoliciesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete firewall policies operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteFirewallPoliciesParams struct {
 

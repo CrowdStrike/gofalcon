@@ -53,10 +53,12 @@ func NewAzureDownloadCertificateParamsWithHTTPClient(client *http.Client) *Azure
 	}
 }
 
-/* AzureDownloadCertificateParams contains all the parameters to send to the API endpoint
-   for the azure download certificate operation.
+/*
+AzureDownloadCertificateParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the azure download certificate operation.
+
+	Typically these are written to a http.Request.
 */
 type AzureDownloadCertificateParams struct {
 

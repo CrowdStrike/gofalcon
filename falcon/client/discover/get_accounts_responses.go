@@ -72,7 +72,8 @@ func NewGetAccountsOK() *GetAccountsOK {
 	return &GetAccountsOK{}
 }
 
-/* GetAccountsOK describes a response with status code 200, with default header values.
+/*
+	GetAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetAccountsBadRequest() *GetAccountsBadRequest {
 	return &GetAccountsBadRequest{}
 }
 
-/* GetAccountsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewGetAccountsForbidden() *GetAccountsForbidden {
 	return &GetAccountsForbidden{}
 }
 
-/* GetAccountsForbidden describes a response with status code 403, with default header values.
+/*
+	GetAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewGetAccountsTooManyRequests() *GetAccountsTooManyRequests {
 	return &GetAccountsTooManyRequests{}
 }
 
-/* GetAccountsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewGetAccountsInternalServerError() *GetAccountsInternalServerError {
 	return &GetAccountsInternalServerError{}
 }
 
-/* GetAccountsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewGetAccountsDefault(code int) *GetAccountsDefault {
 	}
 }
 
-/* GetAccountsDefault describes a response with status code -1, with default header values.
+/*
+	GetAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

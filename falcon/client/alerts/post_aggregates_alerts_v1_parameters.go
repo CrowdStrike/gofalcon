@@ -54,10 +54,12 @@ func NewPostAggregatesAlertsV1ParamsWithHTTPClient(client *http.Client) *PostAgg
 	}
 }
 
-/* PostAggregatesAlertsV1Params contains all the parameters to send to the API endpoint
-   for the post aggregates alerts v1 operation.
+/*
+PostAggregatesAlertsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post aggregates alerts v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAggregatesAlertsV1Params struct {
 

@@ -54,10 +54,12 @@ func NewSetPreventionPoliciesPrecedenceParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/* SetPreventionPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-   for the set prevention policies precedence operation.
+/*
+SetPreventionPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the set prevention policies precedence operation.
+
+	Typically these are written to a http.Request.
 */
 type SetPreventionPoliciesPrecedenceParams struct {
 

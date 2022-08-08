@@ -65,7 +65,8 @@ func NewRTRDeleteSessionNoContent() *RTRDeleteSessionNoContent {
 	return &RTRDeleteSessionNoContent{}
 }
 
-/* RTRDeleteSessionNoContent describes a response with status code 204, with default header values.
+/*
+	RTRDeleteSessionNoContent describes a response with status code 204, with default header values.
 
 No Content
 */
@@ -128,7 +129,8 @@ func NewRTRDeleteSessionBadRequest() *RTRDeleteSessionBadRequest {
 	return &RTRDeleteSessionBadRequest{}
 }
 
-/* RTRDeleteSessionBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRDeleteSessionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -191,7 +193,8 @@ func NewRTRDeleteSessionUnauthorized() *RTRDeleteSessionUnauthorized {
 	return &RTRDeleteSessionUnauthorized{}
 }
 
-/* RTRDeleteSessionUnauthorized describes a response with status code 401, with default header values.
+/*
+	RTRDeleteSessionUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -254,7 +257,8 @@ func NewRTRDeleteSessionForbidden() *RTRDeleteSessionForbidden {
 	return &RTRDeleteSessionForbidden{}
 }
 
-/* RTRDeleteSessionForbidden describes a response with status code 403, with default header values.
+/*
+	RTRDeleteSessionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -317,7 +321,8 @@ func NewRTRDeleteSessionTooManyRequests() *RTRDeleteSessionTooManyRequests {
 	return &RTRDeleteSessionTooManyRequests{}
 }
 
-/* RTRDeleteSessionTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRDeleteSessionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

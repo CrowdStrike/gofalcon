@@ -53,10 +53,12 @@ func NewRevokeUserRoleIdsParamsWithHTTPClient(client *http.Client) *RevokeUserRo
 	}
 }
 
-/* RevokeUserRoleIdsParams contains all the parameters to send to the API endpoint
-   for the revoke user role ids operation.
+/*
+RevokeUserRoleIdsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the revoke user role ids operation.
+
+	Typically these are written to a http.Request.
 */
 type RevokeUserRoleIdsParams struct {
 

@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-  ScheduledReportsGet retrieves scheduled reports for the provided report i ds
+ScheduledReportsGet retrieves scheduled reports for the provided report i ds
 */
 func (a *Client) ScheduledReportsGet(params *ScheduledReportsGetParams, opts ...ClientOption) (*ScheduledReportsGetOK, error) {
 	// TODO: Validate the params before sending
@@ -75,7 +75,7 @@ func (a *Client) ScheduledReportsGet(params *ScheduledReportsGetParams, opts ...
 }
 
 /*
-  ScheduledReportsLaunch launches scheduled reports executions for the provided report i ds
+ScheduledReportsLaunch launches scheduled reports executions for the provided report i ds
 */
 func (a *Client) ScheduledReportsLaunch(params *ScheduledReportsLaunchParams, opts ...ClientOption) (*ScheduledReportsLaunchOK, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +112,7 @@ func (a *Client) ScheduledReportsLaunch(params *ScheduledReportsLaunchParams, op
 }
 
 /*
-  ScheduledReportsQuery finds all report i ds matching the query with filter
+ScheduledReportsQuery finds all report i ds matching the query with filter
 */
 func (a *Client) ScheduledReportsQuery(params *ScheduledReportsQueryParams, opts ...ClientOption) (*ScheduledReportsQueryOK, error) {
 	// TODO: Validate the params before sending

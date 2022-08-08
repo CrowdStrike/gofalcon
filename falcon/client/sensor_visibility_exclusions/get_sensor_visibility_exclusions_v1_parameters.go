@@ -53,10 +53,12 @@ func NewGetSensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/* GetSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
-   for the get sensor visibility exclusions v1 operation.
+/*
+GetSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get sensor visibility exclusions v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSensorVisibilityExclusionsV1Params struct {
 

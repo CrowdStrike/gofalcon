@@ -53,10 +53,12 @@ func NewRTRGetScriptsV2ParamsWithHTTPClient(client *http.Client) *RTRGetScriptsV
 	}
 }
 
-/* RTRGetScriptsV2Params contains all the parameters to send to the API endpoint
-   for the r t r get scripts v2 operation.
+/*
+RTRGetScriptsV2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r get scripts v2 operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRGetScriptsV2Params struct {
 

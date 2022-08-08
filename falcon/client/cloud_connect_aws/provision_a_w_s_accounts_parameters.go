@@ -54,10 +54,12 @@ func NewProvisionAWSAccountsParamsWithHTTPClient(client *http.Client) *Provision
 	}
 }
 
-/* ProvisionAWSAccountsParams contains all the parameters to send to the API endpoint
-   for the provision a w s accounts operation.
+/*
+ProvisionAWSAccountsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the provision a w s accounts operation.
+
+	Typically these are written to a http.Request.
 */
 type ProvisionAWSAccountsParams struct {
 

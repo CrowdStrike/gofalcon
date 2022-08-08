@@ -53,10 +53,12 @@ func NewQueryBehaviorsParamsWithHTTPClient(client *http.Client) *QueryBehaviorsP
 	}
 }
 
-/* QueryBehaviorsParams contains all the parameters to send to the API endpoint
-   for the query behaviors operation.
+/*
+QueryBehaviorsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query behaviors operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryBehaviorsParams struct {
 

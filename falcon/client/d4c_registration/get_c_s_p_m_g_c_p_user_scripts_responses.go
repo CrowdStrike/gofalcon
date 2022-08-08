@@ -78,7 +78,8 @@ func NewGetCSPMGCPUserScriptsOK() *GetCSPMGCPUserScriptsOK {
 	return &GetCSPMGCPUserScriptsOK{}
 }
 
-/* GetCSPMGCPUserScriptsOK describes a response with status code 200, with default header values.
+/*
+	GetCSPMGCPUserScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewGetCSPMGCPUserScriptsMultiStatus() *GetCSPMGCPUserScriptsMultiStatus {
 	return &GetCSPMGCPUserScriptsMultiStatus{}
 }
 
-/* GetCSPMGCPUserScriptsMultiStatus describes a response with status code 207, with default header values.
+/*
+	GetCSPMGCPUserScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -204,7 +206,8 @@ func NewGetCSPMGCPUserScriptsBadRequest() *GetCSPMGCPUserScriptsBadRequest {
 	return &GetCSPMGCPUserScriptsBadRequest{}
 }
 
-/* GetCSPMGCPUserScriptsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetCSPMGCPUserScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -267,7 +270,8 @@ func NewGetCSPMGCPUserScriptsForbidden() *GetCSPMGCPUserScriptsForbidden {
 	return &GetCSPMGCPUserScriptsForbidden{}
 }
 
-/* GetCSPMGCPUserScriptsForbidden describes a response with status code 403, with default header values.
+/*
+	GetCSPMGCPUserScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -330,7 +334,8 @@ func NewGetCSPMGCPUserScriptsTooManyRequests() *GetCSPMGCPUserScriptsTooManyRequ
 	return &GetCSPMGCPUserScriptsTooManyRequests{}
 }
 
-/* GetCSPMGCPUserScriptsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetCSPMGCPUserScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewGetCSPMGCPUserScriptsInternalServerError() *GetCSPMGCPUserScriptsInterna
 	return &GetCSPMGCPUserScriptsInternalServerError{}
 }
 
-/* GetCSPMGCPUserScriptsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetCSPMGCPUserScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewGetCSPMGCPUserScriptsDefault(code int) *GetCSPMGCPUserScriptsDefault {
 	}
 }
 
-/* GetCSPMGCPUserScriptsDefault describes a response with status code -1, with default header values.
+/*
+	GetCSPMGCPUserScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */

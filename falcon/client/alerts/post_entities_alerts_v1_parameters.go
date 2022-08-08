@@ -54,10 +54,12 @@ func NewPostEntitiesAlertsV1ParamsWithHTTPClient(client *http.Client) *PostEntit
 	}
 }
 
-/* PostEntitiesAlertsV1Params contains all the parameters to send to the API endpoint
-   for the post entities alerts v1 operation.
+/*
+PostEntitiesAlertsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post entities alerts v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostEntitiesAlertsV1Params struct {
 

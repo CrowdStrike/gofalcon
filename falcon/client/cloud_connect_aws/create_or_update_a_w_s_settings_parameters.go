@@ -54,10 +54,12 @@ func NewCreateOrUpdateAWSSettingsParamsWithHTTPClient(client *http.Client) *Crea
 	}
 }
 
-/* CreateOrUpdateAWSSettingsParams contains all the parameters to send to the API endpoint
-   for the create or update a w s settings operation.
+/*
+CreateOrUpdateAWSSettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create or update a w s settings operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateOrUpdateAWSSettingsParams struct {
 

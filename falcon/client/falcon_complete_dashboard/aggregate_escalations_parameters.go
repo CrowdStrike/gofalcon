@@ -54,10 +54,12 @@ func NewAggregateEscalationsParamsWithHTTPClient(client *http.Client) *Aggregate
 	}
 }
 
-/* AggregateEscalationsParams contains all the parameters to send to the API endpoint
-   for the aggregate escalations operation.
+/*
+AggregateEscalationsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate escalations operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateEscalationsParams struct {
 

@@ -72,7 +72,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1OK() *GetMalQueryEntitiesSamplesFetchV1
 	return &GetMalQueryEntitiesSamplesFetchV1OK{}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1OK describes a response with status code 200, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1OK describes a response with status code 200, with default header values.
 
 The zip archive if it's ready for download
 */
@@ -123,7 +124,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1Unauthorized() *GetMalQueryEntitiesSamp
 	return &GetMalQueryEntitiesSamplesFetchV1Unauthorized{}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -186,7 +188,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1Forbidden() *GetMalQueryEntitiesSamples
 	return &GetMalQueryEntitiesSamplesFetchV1Forbidden{}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -249,7 +252,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1TooManyRequests() *GetMalQueryEntitiesS
 	return &GetMalQueryEntitiesSamplesFetchV1TooManyRequests{}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -327,7 +331,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1InternalServerError() *GetMalQueryEntit
 	return &GetMalQueryEntitiesSamplesFetchV1InternalServerError{}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -392,7 +397,8 @@ func NewGetMalQueryEntitiesSamplesFetchV1Default(code int) *GetMalQueryEntitiesS
 	}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1Default describes a response with status code -1, with default header values.
+/*
+	GetMalQueryEntitiesSamplesFetchV1Default describes a response with status code -1, with default header values.
 
 The zip archive if it's ready for download
 */

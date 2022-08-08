@@ -52,10 +52,12 @@ func NewRTRListFilesV2ParamsWithHTTPClient(client *http.Client) *RTRListFilesV2P
 	}
 }
 
-/* RTRListFilesV2Params contains all the parameters to send to the API endpoint
-   for the r t r list files v2 operation.
+/*
+RTRListFilesV2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r list files v2 operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRListFilesV2Params struct {
 

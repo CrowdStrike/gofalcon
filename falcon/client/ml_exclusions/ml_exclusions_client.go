@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-  CreateMLExclusionsV1 creates the m l exclusions
+CreateMLExclusionsV1 creates the m l exclusions
 */
 func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts ...ClientOption) (*CreateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -79,7 +79,7 @@ func (a *Client) CreateMLExclusionsV1(params *CreateMLExclusionsV1Params, opts .
 }
 
 /*
-  DeleteMLExclusionsV1 deletes the m l exclusions by id
+DeleteMLExclusionsV1 deletes the m l exclusions by id
 */
 func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts ...ClientOption) (*DeleteMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts .
 }
 
 /*
-  GetMLExclusionsV1 gets a set of m l exclusions by specifying their i ds
+GetMLExclusionsV1 gets a set of m l exclusions by specifying their i ds
 */
 func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...ClientOption) (*GetMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...Clie
 }
 
 /*
-  QueryMLExclusionsV1 searches for m l exclusions
+QueryMLExclusionsV1 searches for m l exclusions
 */
 func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, opts ...ClientOption) (*QueryMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) QueryMLExclusionsV1(params *QueryMLExclusionsV1Params, opts ...
 }
 
 /*
-  UpdateMLExclusionsV1 updates the m l exclusions
+UpdateMLExclusionsV1 updates the m l exclusions
 */
 func (a *Client) UpdateMLExclusionsV1(params *UpdateMLExclusionsV1Params, opts ...ClientOption) (*UpdateMLExclusionsV1OK, error) {
 	// TODO: Validate the params before sending

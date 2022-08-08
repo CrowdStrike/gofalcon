@@ -72,7 +72,8 @@ func NewCreateUserGroupsOK() *CreateUserGroupsOK {
 	return &CreateUserGroupsOK{}
 }
 
-/* CreateUserGroupsOK describes a response with status code 200, with default header values.
+/*
+	CreateUserGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewCreateUserGroupsMultiStatus() *CreateUserGroupsMultiStatus {
 	return &CreateUserGroupsMultiStatus{}
 }
 
-/* CreateUserGroupsMultiStatus describes a response with status code 207, with default header values.
+/*
+	CreateUserGroupsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -198,7 +200,8 @@ func NewCreateUserGroupsBadRequest() *CreateUserGroupsBadRequest {
 	return &CreateUserGroupsBadRequest{}
 }
 
-/* CreateUserGroupsBadRequest describes a response with status code 400, with default header values.
+/*
+	CreateUserGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -261,7 +264,8 @@ func NewCreateUserGroupsForbidden() *CreateUserGroupsForbidden {
 	return &CreateUserGroupsForbidden{}
 }
 
-/* CreateUserGroupsForbidden describes a response with status code 403, with default header values.
+/*
+	CreateUserGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -324,7 +328,8 @@ func NewCreateUserGroupsTooManyRequests() *CreateUserGroupsTooManyRequests {
 	return &CreateUserGroupsTooManyRequests{}
 }
 
-/* CreateUserGroupsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateUserGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,7 +409,8 @@ func NewCreateUserGroupsDefault(code int) *CreateUserGroupsDefault {
 	}
 }
 
-/* CreateUserGroupsDefault describes a response with status code -1, with default header values.
+/*
+	CreateUserGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

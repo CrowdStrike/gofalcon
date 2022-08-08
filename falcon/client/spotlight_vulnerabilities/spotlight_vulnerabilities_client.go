@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-  CombinedQueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability entities which match the filter criteria
+CombinedQueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability entities which match the filter criteria
 */
 func (a *Client) CombinedQueryVulnerabilities(params *CombinedQueryVulnerabilitiesParams, opts ...ClientOption) (*CombinedQueryVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +77,7 @@ func (a *Client) CombinedQueryVulnerabilities(params *CombinedQueryVulnerabiliti
 }
 
 /*
-  GetRemediationsV2 gets details on remediation by providing one or more i ds
+GetRemediationsV2 gets details on remediation by providing one or more i ds
 */
 func (a *Client) GetRemediationsV2(params *GetRemediationsV2Params, opts ...ClientOption) (*GetRemediationsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -114,7 +114,7 @@ func (a *Client) GetRemediationsV2(params *GetRemediationsV2Params, opts ...Clie
 }
 
 /*
-  GetVulnerabilities gets details on vulnerabilities by providing one or more i ds
+GetVulnerabilities gets details on vulnerabilities by providing one or more i ds
 */
 func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -151,7 +151,7 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...Cl
 }
 
 /*
-  QueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability i ds which match the filter criteria
+QueryVulnerabilities searches for vulnerabilities in your environment by providing an f q l filter and paging details returns a set of vulnerability i ds which match the filter criteria
 */
 func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending

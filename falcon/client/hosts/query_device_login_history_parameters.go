@@ -54,10 +54,12 @@ func NewQueryDeviceLoginHistoryParamsWithHTTPClient(client *http.Client) *QueryD
 	}
 }
 
-/* QueryDeviceLoginHistoryParams contains all the parameters to send to the API endpoint
-   for the query device login history operation.
+/*
+QueryDeviceLoginHistoryParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query device login history operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryDeviceLoginHistoryParams struct {
 

@@ -53,10 +53,12 @@ func NewGetScansParamsWithHTTPClient(client *http.Client) *GetScansParams {
 	}
 }
 
-/* GetScansParams contains all the parameters to send to the API endpoint
-   for the get scans operation.
+/*
+GetScansParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get scans operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScansParams struct {
 

@@ -72,7 +72,8 @@ func NewGetCSPMGCPUserScriptsAttachmentOK() *GetCSPMGCPUserScriptsAttachmentOK {
 	return &GetCSPMGCPUserScriptsAttachmentOK{}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentOK describes a response with status code 200, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetCSPMGCPUserScriptsAttachmentBadRequest() *GetCSPMGCPUserScriptsAttach
 	return &GetCSPMGCPUserScriptsAttachmentBadRequest{}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewGetCSPMGCPUserScriptsAttachmentForbidden() *GetCSPMGCPUserScriptsAttachm
 	return &GetCSPMGCPUserScriptsAttachmentForbidden{}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewGetCSPMGCPUserScriptsAttachmentTooManyRequests() *GetCSPMGCPUserScriptsA
 	return &GetCSPMGCPUserScriptsAttachmentTooManyRequests{}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetCSPMGCPUserScriptsAttachmentInternalServerError() *GetCSPMGCPUserScri
 	return &GetCSPMGCPUserScriptsAttachmentInternalServerError{}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetCSPMGCPUserScriptsAttachmentDefault(code int) *GetCSPMGCPUserScriptsA
 	}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
+/*
+	GetCSPMGCPUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-  ReportExecutionsDownloadGet gets report entity download
+ReportExecutionsDownloadGet gets report entity download
 */
 func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGetParams, opts ...ClientOption) (*ReportExecutionsDownloadGetOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +77,7 @@ func (a *Client) ReportExecutionsDownloadGet(params *ReportExecutionsDownloadGet
 }
 
 /*
-  ReportExecutionsGet retrieves report details for the provided report i ds
+ReportExecutionsGet retrieves report details for the provided report i ds
 */
 func (a *Client) ReportExecutionsGet(params *ReportExecutionsGetParams, opts ...ClientOption) (*ReportExecutionsGetOK, error) {
 	// TODO: Validate the params before sending
@@ -114,7 +114,7 @@ func (a *Client) ReportExecutionsGet(params *ReportExecutionsGetParams, opts ...
 }
 
 /*
-  ReportExecutionsQuery finds all report execution i ds matching the query with filter
+ReportExecutionsQuery finds all report execution i ds matching the query with filter
 */
 func (a *Client) ReportExecutionsQuery(params *ReportExecutionsQueryParams, opts ...ClientOption) (*ReportExecutionsQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -151,7 +151,7 @@ func (a *Client) ReportExecutionsQuery(params *ReportExecutionsQueryParams, opts
 }
 
 /*
-  ReportExecutionsRetry this endpoint will be used to retry report executions
+ReportExecutionsRetry this endpoint will be used to retry report executions
 */
 func (a *Client) ReportExecutionsRetry(params *ReportExecutionsRetryParams, opts ...ClientOption) (*ReportExecutionsRetryOK, error) {
 	// TODO: Validate the params before sending

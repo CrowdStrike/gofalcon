@@ -52,10 +52,12 @@ func NewAPIPreemptProxyPostGraphqlParamsWithHTTPClient(client *http.Client) *API
 	}
 }
 
-/* APIPreemptProxyPostGraphqlParams contains all the parameters to send to the API endpoint
-   for the api preempt proxy post graphql operation.
+/*
+APIPreemptProxyPostGraphqlParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the api preempt proxy post graphql operation.
+
+	Typically these are written to a http.Request.
 */
 type APIPreemptProxyPostGraphqlParams struct {
 

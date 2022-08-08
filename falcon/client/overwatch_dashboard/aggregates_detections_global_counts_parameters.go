@@ -52,10 +52,12 @@ func NewAggregatesDetectionsGlobalCountsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/* AggregatesDetectionsGlobalCountsParams contains all the parameters to send to the API endpoint
-   for the aggregates detections global counts operation.
+/*
+AggregatesDetectionsGlobalCountsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregates detections global counts operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregatesDetectionsGlobalCountsParams struct {
 

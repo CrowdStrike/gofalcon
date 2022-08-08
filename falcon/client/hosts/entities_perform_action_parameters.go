@@ -55,10 +55,12 @@ func NewEntitiesPerformActionParamsWithHTTPClient(client *http.Client) *Entities
 	}
 }
 
-/* EntitiesPerformActionParams contains all the parameters to send to the API endpoint
-   for the entities perform action operation.
+/*
+EntitiesPerformActionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the entities perform action operation.
+
+	Typically these are written to a http.Request.
 */
 type EntitiesPerformActionParams struct {
 

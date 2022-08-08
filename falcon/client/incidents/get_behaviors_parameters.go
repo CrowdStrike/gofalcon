@@ -54,10 +54,12 @@ func NewGetBehaviorsParamsWithHTTPClient(client *http.Client) *GetBehaviorsParam
 	}
 }
 
-/* GetBehaviorsParams contains all the parameters to send to the API endpoint
-   for the get behaviors operation.
+/*
+GetBehaviorsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get behaviors operation.
+
+	Typically these are written to a http.Request.
 */
 type GetBehaviorsParams struct {
 

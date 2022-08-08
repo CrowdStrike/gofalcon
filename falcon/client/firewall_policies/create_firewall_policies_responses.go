@@ -71,7 +71,8 @@ func NewCreateFirewallPoliciesCreated() *CreateFirewallPoliciesCreated {
 	return &CreateFirewallPoliciesCreated{}
 }
 
-/* CreateFirewallPoliciesCreated describes a response with status code 201, with default header values.
+/*
+	CreateFirewallPoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -134,7 +135,8 @@ func NewCreateFirewallPoliciesBadRequest() *CreateFirewallPoliciesBadRequest {
 	return &CreateFirewallPoliciesBadRequest{}
 }
 
-/* CreateFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	CreateFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -197,7 +199,8 @@ func NewCreateFirewallPoliciesForbidden() *CreateFirewallPoliciesForbidden {
 	return &CreateFirewallPoliciesForbidden{}
 }
 
-/* CreateFirewallPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	CreateFirewallPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -260,7 +263,8 @@ func NewCreateFirewallPoliciesNotFound() *CreateFirewallPoliciesNotFound {
 	return &CreateFirewallPoliciesNotFound{}
 }
 
-/* CreateFirewallPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	CreateFirewallPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -323,7 +327,8 @@ func NewCreateFirewallPoliciesTooManyRequests() *CreateFirewallPoliciesTooManyRe
 	return &CreateFirewallPoliciesTooManyRequests{}
 }
 
-/* CreateFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -401,7 +406,8 @@ func NewCreateFirewallPoliciesInternalServerError() *CreateFirewallPoliciesInter
 	return &CreateFirewallPoliciesInternalServerError{}
 }
 
-/* CreateFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	CreateFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

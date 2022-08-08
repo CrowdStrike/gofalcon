@@ -78,7 +78,8 @@ func NewPerformPreventionPoliciesActionOK() *PerformPreventionPoliciesActionOK {
 	return &PerformPreventionPoliciesActionOK{}
 }
 
-/* PerformPreventionPoliciesActionOK describes a response with status code 200, with default header values.
+/*
+	PerformPreventionPoliciesActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewPerformPreventionPoliciesActionBadRequest() *PerformPreventionPoliciesAc
 	return &PerformPreventionPoliciesActionBadRequest{}
 }
 
-/* PerformPreventionPoliciesActionBadRequest describes a response with status code 400, with default header values.
+/*
+	PerformPreventionPoliciesActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewPerformPreventionPoliciesActionForbidden() *PerformPreventionPoliciesAct
 	return &PerformPreventionPoliciesActionForbidden{}
 }
 
-/* PerformPreventionPoliciesActionForbidden describes a response with status code 403, with default header values.
+/*
+	PerformPreventionPoliciesActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -300,7 +303,8 @@ func NewPerformPreventionPoliciesActionNotFound() *PerformPreventionPoliciesActi
 	return &PerformPreventionPoliciesActionNotFound{}
 }
 
-/* PerformPreventionPoliciesActionNotFound describes a response with status code 404, with default header values.
+/*
+	PerformPreventionPoliciesActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -374,7 +378,8 @@ func NewPerformPreventionPoliciesActionTooManyRequests() *PerformPreventionPolic
 	return &PerformPreventionPoliciesActionTooManyRequests{}
 }
 
-/* PerformPreventionPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
+/*
+	PerformPreventionPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewPerformPreventionPoliciesActionInternalServerError() *PerformPreventionP
 	return &PerformPreventionPoliciesActionInternalServerError{}
 }
 
-/* PerformPreventionPoliciesActionInternalServerError describes a response with status code 500, with default header values.
+/*
+	PerformPreventionPoliciesActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewPerformPreventionPoliciesActionDefault(code int) *PerformPreventionPolic
 	}
 }
 
-/* PerformPreventionPoliciesActionDefault describes a response with status code -1, with default header values.
+/*
+	PerformPreventionPoliciesActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

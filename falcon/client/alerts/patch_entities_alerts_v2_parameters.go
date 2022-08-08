@@ -54,10 +54,12 @@ func NewPatchEntitiesAlertsV2ParamsWithHTTPClient(client *http.Client) *PatchEnt
 	}
 }
 
-/* PatchEntitiesAlertsV2Params contains all the parameters to send to the API endpoint
-   for the patch entities alerts v2 operation.
+/*
+PatchEntitiesAlertsV2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch entities alerts v2 operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchEntitiesAlertsV2Params struct {
 

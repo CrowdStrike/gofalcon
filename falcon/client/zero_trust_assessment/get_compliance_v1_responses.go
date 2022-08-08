@@ -66,7 +66,8 @@ func NewGetComplianceV1OK() *GetComplianceV1OK {
 	return &GetComplianceV1OK{}
 }
 
-/* GetComplianceV1OK describes a response with status code 200, with default header values.
+/*
+	GetComplianceV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -140,7 +141,8 @@ func NewGetComplianceV1Forbidden() *GetComplianceV1Forbidden {
 	return &GetComplianceV1Forbidden{}
 }
 
-/* GetComplianceV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetComplianceV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -214,7 +216,8 @@ func NewGetComplianceV1NotFound() *GetComplianceV1NotFound {
 	return &GetComplianceV1NotFound{}
 }
 
-/* GetComplianceV1NotFound describes a response with status code 404, with default header values.
+/*
+	GetComplianceV1NotFound describes a response with status code 404, with default header values.
 
 One or more of the specified agent IDs is not found.
 */
@@ -288,7 +291,8 @@ func NewGetComplianceV1TooManyRequests() *GetComplianceV1TooManyRequests {
 	return &GetComplianceV1TooManyRequests{}
 }
 
-/* GetComplianceV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetComplianceV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -379,7 +383,8 @@ func NewGetComplianceV1Default(code int) *GetComplianceV1Default {
 	}
 }
 
-/* GetComplianceV1Default describes a response with status code -1, with default header values.
+/*
+	GetComplianceV1Default describes a response with status code -1, with default header values.
 
 OK
 */

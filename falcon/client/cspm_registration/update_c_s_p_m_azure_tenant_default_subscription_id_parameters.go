@@ -52,10 +52,12 @@ func NewUpdateCSPMAzureTenantDefaultSubscriptionIDParamsWithHTTPClient(client *h
 	}
 }
 
-/* UpdateCSPMAzureTenantDefaultSubscriptionIDParams contains all the parameters to send to the API endpoint
-   for the update c s p m azure tenant default subscription ID operation.
+/*
+UpdateCSPMAzureTenantDefaultSubscriptionIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update c s p m azure tenant default subscription ID operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateCSPMAzureTenantDefaultSubscriptionIDParams struct {
 

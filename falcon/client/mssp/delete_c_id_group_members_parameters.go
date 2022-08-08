@@ -54,10 +54,12 @@ func NewDeleteCIDGroupMembersParamsWithHTTPClient(client *http.Client) *DeleteCI
 	}
 }
 
-/* DeleteCIDGroupMembersParams contains all the parameters to send to the API endpoint
-   for the delete c ID group members operation.
+/*
+DeleteCIDGroupMembersParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete c ID group members operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteCIDGroupMembersParams struct {
 

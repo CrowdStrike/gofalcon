@@ -50,7 +50,7 @@ type ClientService interface {
 }
 
 /*
-  AuditEventsQuery searches for audit events by providing an f q l filter and paging details
+AuditEventsQuery searches for audit events by providing an f q l filter and paging details
 */
 func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, opts ...ClientOption) (*AuditEventsQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -87,7 +87,7 @@ func (a *Client) AuditEventsQuery(params *AuditEventsQueryParams, opts ...Client
 }
 
 /*
-  AuditEventsRead gets the details of one or more audit events by id
+AuditEventsRead gets the details of one or more audit events by id
 */
 func (a *Client) AuditEventsRead(params *AuditEventsReadParams, opts ...ClientOption) (*AuditEventsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -124,7 +124,7 @@ func (a *Client) AuditEventsRead(params *AuditEventsReadParams, opts ...ClientOp
 }
 
 /*
-  CustomerSettingsRead checks current installation token settings
+CustomerSettingsRead checks current installation token settings
 */
 func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, opts ...ClientOption) (*CustomerSettingsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +161,7 @@ func (a *Client) CustomerSettingsRead(params *CustomerSettingsReadParams, opts .
 }
 
 /*
-  TokensCreate creates a token
+TokensCreate creates a token
 */
 func (a *Client) TokensCreate(params *TokensCreateParams, opts ...ClientOption) (*TokensCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -199,7 +199,7 @@ func (a *Client) TokensCreate(params *TokensCreateParams, opts ...ClientOption) 
 }
 
 /*
-  TokensDelete deletes a token immediately to revoke a token use p a t c h installation tokens entities tokens v1 instead
+TokensDelete deletes a token immediately to revoke a token use p a t c h installation tokens entities tokens v1 instead
 */
 func (a *Client) TokensDelete(params *TokensDeleteParams, opts ...ClientOption) (*TokensDeleteOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) TokensDelete(params *TokensDeleteParams, opts ...ClientOption) 
 }
 
 /*
-  TokensQuery searches for tokens by providing an f q l filter and paging details
+TokensQuery searches for tokens by providing an f q l filter and paging details
 */
 func (a *Client) TokensQuery(params *TokensQueryParams, opts ...ClientOption) (*TokensQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -273,7 +273,7 @@ func (a *Client) TokensQuery(params *TokensQueryParams, opts ...ClientOption) (*
 }
 
 /*
-  TokensRead gets the details of one or more tokens by id
+TokensRead gets the details of one or more tokens by id
 */
 func (a *Client) TokensRead(params *TokensReadParams, opts ...ClientOption) (*TokensReadOK, error) {
 	// TODO: Validate the params before sending
@@ -310,7 +310,7 @@ func (a *Client) TokensRead(params *TokensReadParams, opts ...ClientOption) (*To
 }
 
 /*
-  TokensUpdate updates one or more tokens use this endpoint to edit labels change expiration revoke or restore
+TokensUpdate updates one or more tokens use this endpoint to edit labels change expiration revoke or restore
 */
 func (a *Client) TokensUpdate(params *TokensUpdateParams, opts ...ClientOption) (*TokensUpdateOK, error) {
 	// TODO: Validate the params before sending

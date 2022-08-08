@@ -54,10 +54,12 @@ func NewCaseAddActivityParamsWithHTTPClient(client *http.Client) *CaseAddActivit
 	}
 }
 
-/* CaseAddActivityParams contains all the parameters to send to the API endpoint
-   for the case add activity operation.
+/*
+CaseAddActivityParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the case add activity operation.
+
+	Typically these are written to a http.Request.
 */
 type CaseAddActivityParams struct {
 

@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-  CreateRTResponsePolicies creates response policies by specifying details about the policy to create
+CreateRTResponsePolicies creates response policies by specifying details about the policy to create
 */
 func (a *Client) CreateRTResponsePolicies(params *CreateRTResponsePoliciesParams, opts ...ClientOption) (*CreateRTResponsePoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) CreateRTResponsePolicies(params *CreateRTResponsePoliciesParams
 }
 
 /*
-  DeleteRTResponsePolicies deletes a set of response policies by specifying their i ds
+DeleteRTResponsePolicies deletes a set of response policies by specifying their i ds
 */
 func (a *Client) DeleteRTResponsePolicies(params *DeleteRTResponsePoliciesParams, opts ...ClientOption) (*DeleteRTResponsePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -129,7 +129,7 @@ func (a *Client) DeleteRTResponsePolicies(params *DeleteRTResponsePoliciesParams
 }
 
 /*
-  GetRTResponsePolicies retrieves a set of response policies by specifying their i ds
+GetRTResponsePolicies retrieves a set of response policies by specifying their i ds
 */
 func (a *Client) GetRTResponsePolicies(params *GetRTResponsePoliciesParams, opts ...ClientOption) (*GetRTResponsePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) GetRTResponsePolicies(params *GetRTResponsePoliciesParams, opts
 }
 
 /*
-  PerformRTResponsePoliciesAction performs the specified action on the response policies specified in the request
+PerformRTResponsePoliciesAction performs the specified action on the response policies specified in the request
 */
 func (a *Client) PerformRTResponsePoliciesAction(params *PerformRTResponsePoliciesActionParams, opts ...ClientOption) (*PerformRTResponsePoliciesActionOK, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +203,7 @@ func (a *Client) PerformRTResponsePoliciesAction(params *PerformRTResponsePolici
 }
 
 /*
-  QueryCombinedRTResponsePolicies searches for response policies in your environment by providing an f q l filter and paging details returns a set of response policies which match the filter criteria
+QueryCombinedRTResponsePolicies searches for response policies in your environment by providing an f q l filter and paging details returns a set of response policies which match the filter criteria
 */
 func (a *Client) QueryCombinedRTResponsePolicies(params *QueryCombinedRTResponsePoliciesParams, opts ...ClientOption) (*QueryCombinedRTResponsePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -240,7 +240,7 @@ func (a *Client) QueryCombinedRTResponsePolicies(params *QueryCombinedRTResponse
 }
 
 /*
-  QueryCombinedRTResponsePolicyMembers searches for members of a response policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+QueryCombinedRTResponsePolicyMembers searches for members of a response policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedRTResponsePolicyMembers(params *QueryCombinedRTResponsePolicyMembersParams, opts ...ClientOption) (*QueryCombinedRTResponsePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -277,7 +277,7 @@ func (a *Client) QueryCombinedRTResponsePolicyMembers(params *QueryCombinedRTRes
 }
 
 /*
-  QueryRTResponsePolicies searches for response policies in your environment by providing an f q l filter with sort and or paging details this returns a set of response policy i ds that match the given criteria
+QueryRTResponsePolicies searches for response policies in your environment by providing an f q l filter with sort and or paging details this returns a set of response policy i ds that match the given criteria
 */
 func (a *Client) QueryRTResponsePolicies(params *QueryRTResponsePoliciesParams, opts ...ClientOption) (*QueryRTResponsePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -314,7 +314,7 @@ func (a *Client) QueryRTResponsePolicies(params *QueryRTResponsePoliciesParams, 
 }
 
 /*
-  QueryRTResponsePolicyMembers searches for members of a response policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+QueryRTResponsePolicyMembers searches for members of a response policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QueryRTResponsePolicyMembers(params *QueryRTResponsePolicyMembersParams, opts ...ClientOption) (*QueryRTResponsePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ func (a *Client) QueryRTResponsePolicyMembers(params *QueryRTResponsePolicyMembe
 }
 
 /*
-  SetRTResponsePoliciesPrecedence sets the precedence of response policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
+SetRTResponsePoliciesPrecedence sets the precedence of response policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
 func (a *Client) SetRTResponsePoliciesPrecedence(params *SetRTResponsePoliciesPrecedenceParams, opts ...ClientOption) (*SetRTResponsePoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -388,7 +388,7 @@ func (a *Client) SetRTResponsePoliciesPrecedence(params *SetRTResponsePoliciesPr
 }
 
 /*
-  UpdateRTResponsePolicies updates response policies by specifying the ID of the policy and details to update
+UpdateRTResponsePolicies updates response policies by specifying the ID of the policy and details to update
 */
 func (a *Client) UpdateRTResponsePolicies(params *UpdateRTResponsePoliciesParams, opts ...ClientOption) (*UpdateRTResponsePoliciesOK, error) {
 	// TODO: Validate the params before sending

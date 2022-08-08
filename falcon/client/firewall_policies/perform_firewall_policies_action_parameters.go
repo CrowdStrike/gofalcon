@@ -54,10 +54,12 @@ func NewPerformFirewallPoliciesActionParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/* PerformFirewallPoliciesActionParams contains all the parameters to send to the API endpoint
-   for the perform firewall policies action operation.
+/*
+PerformFirewallPoliciesActionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the perform firewall policies action operation.
+
+	Typically these are written to a http.Request.
 */
 type PerformFirewallPoliciesActionParams struct {
 

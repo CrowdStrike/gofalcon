@@ -53,10 +53,12 @@ func NewGetCSPMCGPAccountParamsWithHTTPClient(client *http.Client) *GetCSPMCGPAc
 	}
 }
 
-/* GetCSPMCGPAccountParams contains all the parameters to send to the API endpoint
-   for the get c s p m c g p account operation.
+/*
+GetCSPMCGPAccountParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get c s p m c g p account operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCSPMCGPAccountParams struct {
 

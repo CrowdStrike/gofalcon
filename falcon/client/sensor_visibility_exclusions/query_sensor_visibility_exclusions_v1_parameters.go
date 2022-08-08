@@ -53,10 +53,12 @@ func NewQuerySensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/* QuerySensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
-   for the query sensor visibility exclusions v1 operation.
+/*
+QuerySensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query sensor visibility exclusions v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type QuerySensorVisibilityExclusionsV1Params struct {
 

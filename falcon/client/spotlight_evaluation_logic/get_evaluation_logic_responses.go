@@ -72,7 +72,8 @@ func NewGetEvaluationLogicOK() *GetEvaluationLogicOK {
 	return &GetEvaluationLogicOK{}
 }
 
-/* GetEvaluationLogicOK describes a response with status code 200, with default header values.
+/*
+	GetEvaluationLogicOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetEvaluationLogicBadRequest() *GetEvaluationLogicBadRequest {
 	return &GetEvaluationLogicBadRequest{}
 }
 
-/* GetEvaluationLogicBadRequest describes a response with status code 400, with default header values.
+/*
+	GetEvaluationLogicBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -208,7 +210,8 @@ func NewGetEvaluationLogicForbidden() *GetEvaluationLogicForbidden {
 	return &GetEvaluationLogicForbidden{}
 }
 
-/* GetEvaluationLogicForbidden describes a response with status code 403, with default header values.
+/*
+	GetEvaluationLogicForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -282,7 +285,8 @@ func NewGetEvaluationLogicTooManyRequests() *GetEvaluationLogicTooManyRequests {
 	return &GetEvaluationLogicTooManyRequests{}
 }
 
-/* GetEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -371,7 +375,8 @@ func NewGetEvaluationLogicInternalServerError() *GetEvaluationLogicInternalServe
 	return &GetEvaluationLogicInternalServerError{}
 }
 
-/* GetEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -435,7 +440,8 @@ func NewGetEvaluationLogicDefault(code int) *GetEvaluationLogicDefault {
 	}
 }
 
-/* GetEvaluationLogicDefault describes a response with status code -1, with default header values.
+/*
+	GetEvaluationLogicDefault describes a response with status code -1, with default header values.
 
 OK
 */

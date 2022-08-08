@@ -78,7 +78,8 @@ func NewUpdateDeviceControlPoliciesOK() *UpdateDeviceControlPoliciesOK {
 	return &UpdateDeviceControlPoliciesOK{}
 }
 
-/* UpdateDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+/*
+	UpdateDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewUpdateDeviceControlPoliciesBadRequest() *UpdateDeviceControlPoliciesBadR
 	return &UpdateDeviceControlPoliciesBadRequest{}
 }
 
-/* UpdateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewUpdateDeviceControlPoliciesForbidden() *UpdateDeviceControlPoliciesForbi
 	return &UpdateDeviceControlPoliciesForbidden{}
 }
 
-/* UpdateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	UpdateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewUpdateDeviceControlPoliciesNotFound() *UpdateDeviceControlPoliciesNotFou
 	return &UpdateDeviceControlPoliciesNotFound{}
 }
 
-/* UpdateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	UpdateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewUpdateDeviceControlPoliciesTooManyRequests() *UpdateDeviceControlPolicie
 	return &UpdateDeviceControlPoliciesTooManyRequests{}
 }
 
-/* UpdateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewUpdateDeviceControlPoliciesInternalServerError() *UpdateDeviceControlPol
 	return &UpdateDeviceControlPoliciesInternalServerError{}
 }
 
-/* UpdateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewUpdateDeviceControlPoliciesDefault(code int) *UpdateDeviceControlPolicie
 	}
 }
 
-/* UpdateDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	UpdateDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

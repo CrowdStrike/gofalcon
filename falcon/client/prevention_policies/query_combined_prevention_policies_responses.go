@@ -72,7 +72,8 @@ func NewQueryCombinedPreventionPoliciesOK() *QueryCombinedPreventionPoliciesOK {
 	return &QueryCombinedPreventionPoliciesOK{}
 }
 
-/* QueryCombinedPreventionPoliciesOK describes a response with status code 200, with default header values.
+/*
+	QueryCombinedPreventionPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewQueryCombinedPreventionPoliciesBadRequest() *QueryCombinedPreventionPoli
 	return &QueryCombinedPreventionPoliciesBadRequest{}
 }
 
-/* QueryCombinedPreventionPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryCombinedPreventionPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewQueryCombinedPreventionPoliciesForbidden() *QueryCombinedPreventionPolic
 	return &QueryCombinedPreventionPoliciesForbidden{}
 }
 
-/* QueryCombinedPreventionPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	QueryCombinedPreventionPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewQueryCombinedPreventionPoliciesTooManyRequests() *QueryCombinedPreventio
 	return &QueryCombinedPreventionPoliciesTooManyRequests{}
 }
 
-/* QueryCombinedPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryCombinedPreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewQueryCombinedPreventionPoliciesInternalServerError() *QueryCombinedPreve
 	return &QueryCombinedPreventionPoliciesInternalServerError{}
 }
 
-/* QueryCombinedPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryCombinedPreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewQueryCombinedPreventionPoliciesDefault(code int) *QueryCombinedPreventio
 	}
 }
 
-/* QueryCombinedPreventionPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	QueryCombinedPreventionPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -72,7 +72,8 @@ func NewUpdateCSPMScanScheduleOK() *UpdateCSPMScanScheduleOK {
 	return &UpdateCSPMScanScheduleOK{}
 }
 
-/* UpdateCSPMScanScheduleOK describes a response with status code 200, with default header values.
+/*
+	UpdateCSPMScanScheduleOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewUpdateCSPMScanScheduleBadRequest() *UpdateCSPMScanScheduleBadRequest {
 	return &UpdateCSPMScanScheduleBadRequest{}
 }
 
-/* UpdateCSPMScanScheduleBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateCSPMScanScheduleBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewUpdateCSPMScanScheduleForbidden() *UpdateCSPMScanScheduleForbidden {
 	return &UpdateCSPMScanScheduleForbidden{}
 }
 
-/* UpdateCSPMScanScheduleForbidden describes a response with status code 403, with default header values.
+/*
+	UpdateCSPMScanScheduleForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewUpdateCSPMScanScheduleTooManyRequests() *UpdateCSPMScanScheduleTooManyRe
 	return &UpdateCSPMScanScheduleTooManyRequests{}
 }
 
-/* UpdateCSPMScanScheduleTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateCSPMScanScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewUpdateCSPMScanScheduleInternalServerError() *UpdateCSPMScanScheduleInter
 	return &UpdateCSPMScanScheduleInternalServerError{}
 }
 
-/* UpdateCSPMScanScheduleInternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateCSPMScanScheduleInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewUpdateCSPMScanScheduleDefault(code int) *UpdateCSPMScanScheduleDefault {
 	}
 }
 
-/* UpdateCSPMScanScheduleDefault describes a response with status code -1, with default header values.
+/*
+	UpdateCSPMScanScheduleDefault describes a response with status code -1, with default header values.
 
 OK
 */

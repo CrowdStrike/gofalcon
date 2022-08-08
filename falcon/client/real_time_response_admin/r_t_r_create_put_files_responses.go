@@ -66,7 +66,8 @@ func NewRTRCreatePutFilesOK() *RTRCreatePutFilesOK {
 	return &RTRCreatePutFilesOK{}
 }
 
-/* RTRCreatePutFilesOK describes a response with status code 200, with default header values.
+/*
+	RTRCreatePutFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewRTRCreatePutFilesBadRequest() *RTRCreatePutFilesBadRequest {
 	return &RTRCreatePutFilesBadRequest{}
 }
 
-/* RTRCreatePutFilesBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRCreatePutFilesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewRTRCreatePutFilesForbidden() *RTRCreatePutFilesForbidden {
 	return &RTRCreatePutFilesForbidden{}
 }
 
-/* RTRCreatePutFilesForbidden describes a response with status code 403, with default header values.
+/*
+	RTRCreatePutFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRTRCreatePutFilesTooManyRequests() *RTRCreatePutFilesTooManyRequests {
 	return &RTRCreatePutFilesTooManyRequests{}
 }
 
-/* RTRCreatePutFilesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRCreatePutFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRTRCreatePutFilesDefault(code int) *RTRCreatePutFilesDefault {
 	}
 }
 
-/* RTRCreatePutFilesDefault describes a response with status code -1, with default header values.
+/*
+	RTRCreatePutFilesDefault describes a response with status code -1, with default header values.
 
 OK
 */

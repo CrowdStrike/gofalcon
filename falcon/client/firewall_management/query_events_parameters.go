@@ -53,10 +53,12 @@ func NewQueryEventsParamsWithHTTPClient(client *http.Client) *QueryEventsParams 
 	}
 }
 
-/* QueryEventsParams contains all the parameters to send to the API endpoint
-   for the query events operation.
+/*
+QueryEventsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query events operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryEventsParams struct {
 

@@ -53,10 +53,12 @@ func NewRetrieveUserUUIDParamsWithHTTPClient(client *http.Client) *RetrieveUserU
 	}
 }
 
-/* RetrieveUserUUIDParams contains all the parameters to send to the API endpoint
-   for the retrieve user UUID operation.
+/*
+RetrieveUserUUIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the retrieve user UUID operation.
+
+	Typically these are written to a http.Request.
 */
 type RetrieveUserUUIDParams struct {
 

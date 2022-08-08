@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-  IndicatorCombinedV1 gets combined for indicators
+IndicatorCombinedV1 gets combined for indicators
 */
 func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...ClientOption) (*IndicatorCombinedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -83,7 +83,7 @@ func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...
 }
 
 /*
-  IndicatorCreateV1 creates indicators
+IndicatorCreateV1 creates indicators
 */
 func (a *Client) IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...ClientOption) (*IndicatorCreateV1Created, error) {
 	// TODO: Validate the params before sending
@@ -121,7 +121,7 @@ func (a *Client) IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...Clie
 }
 
 /*
-  IndicatorDeleteV1 deletes indicators by ids
+IndicatorDeleteV1 deletes indicators by ids
 */
 func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...ClientOption) (*IndicatorDeleteV1OK, error) {
 	// TODO: Validate the params before sending
@@ -158,7 +158,7 @@ func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...Clie
 }
 
 /*
-  IndicatorGetV1 gets indicators by ids
+IndicatorGetV1 gets indicators by ids
 */
 func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOption) (*IndicatorGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -195,7 +195,7 @@ func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOpti
 }
 
 /*
-  IndicatorSearchV1 searches for indicators
+IndicatorSearchV1 searches for indicators
 */
 func (a *Client) IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...ClientOption) (*IndicatorSearchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +232,7 @@ func (a *Client) IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...Clie
 }
 
 /*
-  IndicatorUpdateV1 updates indicators
+IndicatorUpdateV1 updates indicators
 */
 func (a *Client) IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...ClientOption) (*IndicatorUpdateV1OK, error) {
 	// TODO: Validate the params before sending

@@ -36,9 +36,9 @@ type ClientService interface {
 }
 
 /*
-  GetChanges retrieves information on changes
+GetChanges retrieves information on changes
 
-  Retrieve key attributes of Falcon FileVantage changes for the specified ids.
+Retrieve key attributes of Falcon FileVantage changes for the specified ids.
 */
 func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*GetChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -75,9 +75,9 @@ func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*Ge
 }
 
 /*
-  QueryChanges returns one or more change i ds
+QueryChanges returns one or more change i ds
 
-  Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
+Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
 */
 func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error) {
 	// TODO: Validate the params before sending

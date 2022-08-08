@@ -78,7 +78,8 @@ func NewQueryActionsV1OK() *QueryActionsV1OK {
 	return &QueryActionsV1OK{}
 }
 
-/* QueryActionsV1OK describes a response with status code 200, with default header values.
+/*
+	QueryActionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewQueryActionsV1BadRequest() *QueryActionsV1BadRequest {
 	return &QueryActionsV1BadRequest{}
 }
 
-/* QueryActionsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	QueryActionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewQueryActionsV1Unauthorized() *QueryActionsV1Unauthorized {
 	return &QueryActionsV1Unauthorized{}
 }
 
-/* QueryActionsV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	QueryActionsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewQueryActionsV1Forbidden() *QueryActionsV1Forbidden {
 	return &QueryActionsV1Forbidden{}
 }
 
-/* QueryActionsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	QueryActionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewQueryActionsV1TooManyRequests() *QueryActionsV1TooManyRequests {
 	return &QueryActionsV1TooManyRequests{}
 }
 
-/* QueryActionsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryActionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewQueryActionsV1InternalServerError() *QueryActionsV1InternalServerError {
 	return &QueryActionsV1InternalServerError{}
 }
 
-/* QueryActionsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryActionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewQueryActionsV1Default(code int) *QueryActionsV1Default {
 	}
 }
 
-/* QueryActionsV1Default describes a response with status code -1, with default header values.
+/*
+	QueryActionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

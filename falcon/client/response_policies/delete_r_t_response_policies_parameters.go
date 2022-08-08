@@ -53,10 +53,12 @@ func NewDeleteRTResponsePoliciesParamsWithHTTPClient(client *http.Client) *Delet
 	}
 }
 
-/* DeleteRTResponsePoliciesParams contains all the parameters to send to the API endpoint
-   for the delete r t response policies operation.
+/*
+DeleteRTResponsePoliciesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete r t response policies operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRTResponsePoliciesParams struct {
 

@@ -53,10 +53,12 @@ func NewIndicatorGetV1ParamsWithHTTPClient(client *http.Client) *IndicatorGetV1P
 	}
 }
 
-/* IndicatorGetV1Params contains all the parameters to send to the API endpoint
-   for the indicator get v1 operation.
+/*
+IndicatorGetV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the indicator get v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type IndicatorGetV1Params struct {
 

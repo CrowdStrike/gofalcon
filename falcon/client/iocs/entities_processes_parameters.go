@@ -53,10 +53,12 @@ func NewEntitiesProcessesParamsWithHTTPClient(client *http.Client) *EntitiesProc
 	}
 }
 
-/* EntitiesProcessesParams contains all the parameters to send to the API endpoint
-   for the entities processes operation.
+/*
+EntitiesProcessesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the entities processes operation.
+
+	Typically these are written to a http.Request.
 */
 type EntitiesProcessesParams struct {
 

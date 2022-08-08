@@ -80,7 +80,7 @@ type ClientService interface {
 }
 
 /*
-  AddCIDGroupMembers adds new c ID group member
+AddCIDGroupMembers adds new c ID group member
 */
 func (a *Client) AddCIDGroupMembers(params *AddCIDGroupMembersParams, opts ...ClientOption) (*AddCIDGroupMembersOK, *AddCIDGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -119,7 +119,7 @@ func (a *Client) AddCIDGroupMembers(params *AddCIDGroupMembersParams, opts ...Cl
 }
 
 /*
-  AddRole assigns new m s s p role s between user group and c ID group it does not revoke existing role s between user group and c ID group user group ID and c ID group ID have to be specified in request
+AddRole assigns new m s s p role s between user group and c ID group it does not revoke existing role s between user group and c ID group user group ID and c ID group ID have to be specified in request
 */
 func (a *Client) AddRole(params *AddRoleParams, opts ...ClientOption) (*AddRoleOK, *AddRoleMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -158,7 +158,7 @@ func (a *Client) AddRole(params *AddRoleParams, opts ...ClientOption) (*AddRoleO
 }
 
 /*
-  AddUserGroupMembers adds new user group member maximum 500 members allowed per user group
+AddUserGroupMembers adds new user group member maximum 500 members allowed per user group
 */
 func (a *Client) AddUserGroupMembers(params *AddUserGroupMembersParams, opts ...ClientOption) (*AddUserGroupMembersOK, *AddUserGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -197,7 +197,7 @@ func (a *Client) AddUserGroupMembers(params *AddUserGroupMembersParams, opts ...
 }
 
 /*
-  CreateCIDGroups creates new c ID group s maximum 500 c ID group s allowed
+CreateCIDGroups creates new c ID group s maximum 500 c ID group s allowed
 */
 func (a *Client) CreateCIDGroups(params *CreateCIDGroupsParams, opts ...ClientOption) (*CreateCIDGroupsOK, *CreateCIDGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) CreateCIDGroups(params *CreateCIDGroupsParams, opts ...ClientOp
 }
 
 /*
-  CreateUserGroups creates new user group s maximum 500 user group s allowed per customer
+CreateUserGroups creates new user group s maximum 500 user group s allowed per customer
 */
 func (a *Client) CreateUserGroups(params *CreateUserGroupsParams, opts ...ClientOption) (*CreateUserGroupsOK, *CreateUserGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -275,7 +275,7 @@ func (a *Client) CreateUserGroups(params *CreateUserGroupsParams, opts ...Client
 }
 
 /*
-  DeleteCIDGroupMembers deletes c ID group members entry
+DeleteCIDGroupMembers deletes c ID group members entry
 */
 func (a *Client) DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts ...ClientOption) (*DeleteCIDGroupMembersOK, *DeleteCIDGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -314,7 +314,7 @@ func (a *Client) DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts
 }
 
 /*
-  DeleteCIDGroups deletes c ID groups by ID
+DeleteCIDGroups deletes c ID groups by ID
 */
 func (a *Client) DeleteCIDGroups(params *DeleteCIDGroupsParams, opts ...ClientOption) (*DeleteCIDGroupsOK, *DeleteCIDGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -353,7 +353,7 @@ func (a *Client) DeleteCIDGroups(params *DeleteCIDGroupsParams, opts ...ClientOp
 }
 
 /*
-  DeleteUserGroupMembers deletes user group members entry
+DeleteUserGroupMembers deletes user group members entry
 */
 func (a *Client) DeleteUserGroupMembers(params *DeleteUserGroupMembersParams, opts ...ClientOption) (*DeleteUserGroupMembersOK, *DeleteUserGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +392,7 @@ func (a *Client) DeleteUserGroupMembers(params *DeleteUserGroupMembersParams, op
 }
 
 /*
-  DeleteUserGroups deletes user groups by ID
+DeleteUserGroups deletes user groups by ID
 */
 func (a *Client) DeleteUserGroups(params *DeleteUserGroupsParams, opts ...ClientOption) (*DeleteUserGroupsOK, *DeleteUserGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -431,7 +431,7 @@ func (a *Client) DeleteUserGroups(params *DeleteUserGroupsParams, opts ...Client
 }
 
 /*
-  DeletedRoles deletes m s s p role assignment s between user group and c ID group user group ID and c ID group ID have to be specified in request only specified roles are removed if specified in request payload else association between user group and c ID group is dissolved completely if no roles specified
+DeletedRoles deletes m s s p role assignment s between user group and c ID group user group ID and c ID group ID have to be specified in request only specified roles are removed if specified in request payload else association between user group and c ID group is dissolved completely if no roles specified
 */
 func (a *Client) DeletedRoles(params *DeletedRolesParams, opts ...ClientOption) (*DeletedRolesOK, *DeletedRolesMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -470,7 +470,7 @@ func (a *Client) DeletedRoles(params *DeletedRolesParams, opts ...ClientOption) 
 }
 
 /*
-  GetCIDGroupByID gets c ID groups by ID
+GetCIDGroupByID gets c ID groups by ID
 */
 func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOption) (*GetCIDGroupByIDOK, *GetCIDGroupByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -509,7 +509,7 @@ func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOp
 }
 
 /*
-  GetCIDGroupMembersBy gets c ID group members by c ID group ID
+GetCIDGroupMembersBy gets c ID group members by c ID group ID
 */
 func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -548,7 +548,7 @@ func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts .
 }
 
 /*
-  GetChildren gets link to child customer by child c ID s
+GetChildren gets link to child customer by child c ID s
 */
 func (a *Client) GetChildren(params *GetChildrenParams, opts ...ClientOption) (*GetChildrenOK, *GetChildrenMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -587,7 +587,7 @@ func (a *Client) GetChildren(params *GetChildrenParams, opts ...ClientOption) (*
 }
 
 /*
-  GetRolesByID gets m s s p role assignment s m s s p role assignment is of the format
+GetRolesByID gets m s s p role assignment s m s s p role assignment is of the format
 */
 func (a *Client) GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) (*GetRolesByIDOK, *GetRolesByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -626,7 +626,7 @@ func (a *Client) GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) 
 }
 
 /*
-  GetUserGroupMembersByID gets user group members by user group ID
+GetUserGroupMembersByID gets user group members by user group ID
 */
 func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, opts ...ClientOption) (*GetUserGroupMembersByIDOK, *GetUserGroupMembersByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -665,7 +665,7 @@ func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, 
 }
 
 /*
-  GetUserGroupsByID gets user groups by ID
+GetUserGroupsByID gets user groups by ID
 */
 func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -704,7 +704,7 @@ func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...Clie
 }
 
 /*
-  QueryCIDGroupMembers queries a c ID groups members by associated c ID
+QueryCIDGroupMembers queries a c ID groups members by associated c ID
 */
 func (a *Client) QueryCIDGroupMembers(params *QueryCIDGroupMembersParams, opts ...ClientOption) (*QueryCIDGroupMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -741,7 +741,7 @@ func (a *Client) QueryCIDGroupMembers(params *QueryCIDGroupMembersParams, opts .
 }
 
 /*
-  QueryCIDGroups queries c ID groups
+QueryCIDGroups queries c ID groups
 */
 func (a *Client) QueryCIDGroups(params *QueryCIDGroupsParams, opts ...ClientOption) (*QueryCIDGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -778,7 +778,7 @@ func (a *Client) QueryCIDGroups(params *QueryCIDGroupsParams, opts ...ClientOpti
 }
 
 /*
-  QueryChildren queries for customers linked as children
+QueryChildren queries for customers linked as children
 */
 func (a *Client) QueryChildren(params *QueryChildrenParams, opts ...ClientOption) (*QueryChildrenOK, error) {
 	// TODO: Validate the params before sending
@@ -815,7 +815,7 @@ func (a *Client) QueryChildren(params *QueryChildrenParams, opts ...ClientOption
 }
 
 /*
-  QueryRoles queries links between user groups and c ID groups at least one of c ID group ID or user group ID should also be provided role ID is optional
+QueryRoles queries links between user groups and c ID groups at least one of c ID group ID or user group ID should also be provided role ID is optional
 */
 func (a *Client) QueryRoles(params *QueryRolesParams, opts ...ClientOption) (*QueryRolesOK, error) {
 	// TODO: Validate the params before sending
@@ -852,7 +852,7 @@ func (a *Client) QueryRoles(params *QueryRolesParams, opts ...ClientOption) (*Qu
 }
 
 /*
-  QueryUserGroupMembers queries user group member by user UUID
+QueryUserGroupMembers queries user group member by user UUID
 */
 func (a *Client) QueryUserGroupMembers(params *QueryUserGroupMembersParams, opts ...ClientOption) (*QueryUserGroupMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -889,7 +889,7 @@ func (a *Client) QueryUserGroupMembers(params *QueryUserGroupMembersParams, opts
 }
 
 /*
-  QueryUserGroups queries user groups
+QueryUserGroups queries user groups
 */
 func (a *Client) QueryUserGroups(params *QueryUserGroupsParams, opts ...ClientOption) (*QueryUserGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -926,7 +926,7 @@ func (a *Client) QueryUserGroups(params *QueryUserGroupsParams, opts ...ClientOp
 }
 
 /*
-  UpdateCIDGroups updates existing c ID group s c ID group ID is expected for each c ID group definition provided in request body c ID group member s remain unaffected
+UpdateCIDGroups updates existing c ID group s c ID group ID is expected for each c ID group definition provided in request body c ID group member s remain unaffected
 */
 func (a *Client) UpdateCIDGroups(params *UpdateCIDGroupsParams, opts ...ClientOption) (*UpdateCIDGroupsOK, *UpdateCIDGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -965,7 +965,7 @@ func (a *Client) UpdateCIDGroups(params *UpdateCIDGroupsParams, opts ...ClientOp
 }
 
 /*
-  UpdateUserGroups updates existing user group s user group ID is expected for each user group definition provided in request body user group member s remain unaffected
+UpdateUserGroups updates existing user group s user group ID is expected for each user group definition provided in request body user group member s remain unaffected
 */
 func (a *Client) UpdateUserGroups(params *UpdateUserGroupsParams, opts ...ClientOption) (*UpdateUserGroupsOK, *UpdateUserGroupsMultiStatus, error) {
 	// TODO: Validate the params before sending

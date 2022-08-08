@@ -82,7 +82,8 @@ func NewGetIntelRuleFileOK(writer io.Writer) *GetIntelRuleFileOK {
 	}
 }
 
-/* GetIntelRuleFileOK describes a response with status code 200, with default header values.
+/*
+	GetIntelRuleFileOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +144,8 @@ func NewGetIntelRuleFileBadRequest() *GetIntelRuleFileBadRequest {
 	return &GetIntelRuleFileBadRequest{}
 }
 
-/* GetIntelRuleFileBadRequest describes a response with status code 400, with default header values.
+/*
+	GetIntelRuleFileBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -206,7 +208,8 @@ func NewGetIntelRuleFileForbidden() *GetIntelRuleFileForbidden {
 	return &GetIntelRuleFileForbidden{}
 }
 
-/* GetIntelRuleFileForbidden describes a response with status code 403, with default header values.
+/*
+	GetIntelRuleFileForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -269,7 +272,8 @@ func NewGetIntelRuleFileNotFound() *GetIntelRuleFileNotFound {
 	return &GetIntelRuleFileNotFound{}
 }
 
-/* GetIntelRuleFileNotFound describes a response with status code 404, with default header values.
+/*
+	GetIntelRuleFileNotFound describes a response with status code 404, with default header values.
 
 Bad Request
 */
@@ -332,7 +336,8 @@ func NewGetIntelRuleFileTooManyRequests() *GetIntelRuleFileTooManyRequests {
 	return &GetIntelRuleFileTooManyRequests{}
 }
 
-/* GetIntelRuleFileTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetIntelRuleFileTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +415,8 @@ func NewGetIntelRuleFileInternalServerError() *GetIntelRuleFileInternalServerErr
 	return &GetIntelRuleFileInternalServerError{}
 }
 
-/* GetIntelRuleFileInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetIntelRuleFileInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -475,7 +481,8 @@ func NewGetIntelRuleFileDefault(code int) *GetIntelRuleFileDefault {
 	}
 }
 
-/* GetIntelRuleFileDefault describes a response with status code -1, with default header values.
+/*
+	GetIntelRuleFileDefault describes a response with status code -1, with default header values.
 
 OK
 */

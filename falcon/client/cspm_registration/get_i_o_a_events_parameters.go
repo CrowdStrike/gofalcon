@@ -53,10 +53,12 @@ func NewGetIOAEventsParamsWithHTTPClient(client *http.Client) *GetIOAEventsParam
 	}
 }
 
-/* GetIOAEventsParams contains all the parameters to send to the API endpoint
-   for the get i o a events operation.
+/*
+GetIOAEventsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get i o a events operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIOAEventsParams struct {
 

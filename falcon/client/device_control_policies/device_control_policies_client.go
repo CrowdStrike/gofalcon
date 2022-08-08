@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-  CreateDeviceControlPolicies creates device control policies by specifying details about the policy to create
+CreateDeviceControlPolicies creates device control policies by specifying details about the policy to create
 */
 func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPoliciesParams, opts ...ClientOption) (*CreateDeviceControlPoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) CreateDeviceControlPolicies(params *CreateDeviceControlPolicies
 }
 
 /*
-  DeleteDeviceControlPolicies deletes a set of device control policies by specifying their i ds
+DeleteDeviceControlPolicies deletes a set of device control policies by specifying their i ds
 */
 func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, opts ...ClientOption) (*DeleteDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -129,7 +129,7 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 }
 
 /*
-  GetDeviceControlPolicies retrieves a set of device control policies by specifying their i ds
+GetDeviceControlPolicies retrieves a set of device control policies by specifying their i ds
 */
 func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 }
 
 /*
-  PerformDeviceControlPoliciesAction performs the specified action on the device control policies specified in the request
+PerformDeviceControlPoliciesAction performs the specified action on the device control policies specified in the request
 */
 func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, opts ...ClientOption) (*PerformDeviceControlPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +203,7 @@ func (a *Client) PerformDeviceControlPoliciesAction(params *PerformDeviceControl
 }
 
 /*
-  QueryCombinedDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policies which match the filter criteria
+QueryCombinedDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policies which match the filter criteria
 */
 func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceControlPoliciesParams, opts ...ClientOption) (*QueryCombinedDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -240,7 +240,7 @@ func (a *Client) QueryCombinedDeviceControlPolicies(params *QueryCombinedDeviceC
 }
 
 /*
-  QueryCombinedDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+QueryCombinedDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryCombinedDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -277,7 +277,7 @@ func (a *Client) QueryCombinedDeviceControlPolicyMembers(params *QueryCombinedDe
 }
 
 /*
-  QueryDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policy i ds which match the filter criteria
+QueryDeviceControlPolicies searches for device control policies in your environment by providing an f q l filter and paging details returns a set of device control policy i ds which match the filter criteria
 */
 func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesParams, opts ...ClientOption) (*QueryDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -314,7 +314,7 @@ func (a *Client) QueryDeviceControlPolicies(params *QueryDeviceControlPoliciesPa
 }
 
 /*
-  QueryDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+QueryDeviceControlPolicyMembers searches for members of a device control policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryDeviceControlPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ func (a *Client) QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolic
 }
 
 /*
-  SetDeviceControlPoliciesPrecedence sets the precedence of device control policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
+SetDeviceControlPoliciesPrecedence sets the precedence of device control policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
 func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, opts ...ClientOption) (*SetDeviceControlPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -388,7 +388,7 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 }
 
 /*
-  UpdateDeviceControlPolicies updates device control policies by specifying the ID of the policy and details to update
+UpdateDeviceControlPolicies updates device control policies by specifying the ID of the policy and details to update
 */
 func (a *Client) UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error) {
 	// TODO: Validate the params before sending

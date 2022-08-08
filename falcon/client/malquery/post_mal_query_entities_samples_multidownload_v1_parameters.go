@@ -54,10 +54,12 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1ParamsWithHTTPClient(client *h
 	}
 }
 
-/* PostMalQueryEntitiesSamplesMultidownloadV1Params contains all the parameters to send to the API endpoint
-   for the post mal query entities samples multidownload v1 operation.
+/*
+PostMalQueryEntitiesSamplesMultidownloadV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post mal query entities samples multidownload v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Params struct {
 

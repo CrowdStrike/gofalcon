@@ -78,7 +78,8 @@ func NewQueryCombinedDeviceControlPolicyMembersOK() *QueryCombinedDeviceControlP
 	return &QueryCombinedDeviceControlPolicyMembersOK{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersOK describes a response with status code 200, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewQueryCombinedDeviceControlPolicyMembersBadRequest() *QueryCombinedDevice
 	return &QueryCombinedDeviceControlPolicyMembersBadRequest{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewQueryCombinedDeviceControlPolicyMembersForbidden() *QueryCombinedDeviceC
 	return &QueryCombinedDeviceControlPolicyMembersForbidden{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersForbidden describes a response with status code 403, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewQueryCombinedDeviceControlPolicyMembersNotFound() *QueryCombinedDeviceCo
 	return &QueryCombinedDeviceControlPolicyMembersNotFound{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersNotFound describes a response with status code 404, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewQueryCombinedDeviceControlPolicyMembersTooManyRequests() *QueryCombinedD
 	return &QueryCombinedDeviceControlPolicyMembersTooManyRequests{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewQueryCombinedDeviceControlPolicyMembersInternalServerError() *QueryCombi
 	return &QueryCombinedDeviceControlPolicyMembersInternalServerError{}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewQueryCombinedDeviceControlPolicyMembersDefault(code int) *QueryCombinedD
 	}
 }
 
-/* QueryCombinedDeviceControlPolicyMembersDefault describes a response with status code -1, with default header values.
+/*
+	QueryCombinedDeviceControlPolicyMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

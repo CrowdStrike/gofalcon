@@ -66,7 +66,8 @@ func NewUpdateRuleGroupMixin0OK() *UpdateRuleGroupMixin0OK {
 	return &UpdateRuleGroupMixin0OK{}
 }
 
-/* UpdateRuleGroupMixin0OK describes a response with status code 200, with default header values.
+/*
+	UpdateRuleGroupMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewUpdateRuleGroupMixin0Forbidden() *UpdateRuleGroupMixin0Forbidden {
 	return &UpdateRuleGroupMixin0Forbidden{}
 }
 
-/* UpdateRuleGroupMixin0Forbidden describes a response with status code 403, with default header values.
+/*
+	UpdateRuleGroupMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -192,7 +194,8 @@ func NewUpdateRuleGroupMixin0NotFound() *UpdateRuleGroupMixin0NotFound {
 	return &UpdateRuleGroupMixin0NotFound{}
 }
 
-/* UpdateRuleGroupMixin0NotFound describes a response with status code 404, with default header values.
+/*
+	UpdateRuleGroupMixin0NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -255,7 +258,8 @@ func NewUpdateRuleGroupMixin0TooManyRequests() *UpdateRuleGroupMixin0TooManyRequ
 	return &UpdateRuleGroupMixin0TooManyRequests{}
 }
 
-/* UpdateRuleGroupMixin0TooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateRuleGroupMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewUpdateRuleGroupMixin0Default(code int) *UpdateRuleGroupMixin0Default {
 	}
 }
 
-/* UpdateRuleGroupMixin0Default describes a response with status code -1, with default header values.
+/*
+	UpdateRuleGroupMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

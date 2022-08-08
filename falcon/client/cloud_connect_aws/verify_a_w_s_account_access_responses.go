@@ -72,7 +72,8 @@ func NewVerifyAWSAccountAccessOK() *VerifyAWSAccountAccessOK {
 	return &VerifyAWSAccountAccessOK{}
 }
 
-/* VerifyAWSAccountAccessOK describes a response with status code 200, with default header values.
+/*
+	VerifyAWSAccountAccessOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewVerifyAWSAccountAccessBadRequest() *VerifyAWSAccountAccessBadRequest {
 	return &VerifyAWSAccountAccessBadRequest{}
 }
 
-/* VerifyAWSAccountAccessBadRequest describes a response with status code 400, with default header values.
+/*
+	VerifyAWSAccountAccessBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewVerifyAWSAccountAccessForbidden() *VerifyAWSAccountAccessForbidden {
 	return &VerifyAWSAccountAccessForbidden{}
 }
 
-/* VerifyAWSAccountAccessForbidden describes a response with status code 403, with default header values.
+/*
+	VerifyAWSAccountAccessForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewVerifyAWSAccountAccessTooManyRequests() *VerifyAWSAccountAccessTooManyRe
 	return &VerifyAWSAccountAccessTooManyRequests{}
 }
 
-/* VerifyAWSAccountAccessTooManyRequests describes a response with status code 429, with default header values.
+/*
+	VerifyAWSAccountAccessTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewVerifyAWSAccountAccessInternalServerError() *VerifyAWSAccountAccessInter
 	return &VerifyAWSAccountAccessInternalServerError{}
 }
 
-/* VerifyAWSAccountAccessInternalServerError describes a response with status code 500, with default header values.
+/*
+	VerifyAWSAccountAccessInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewVerifyAWSAccountAccessDefault(code int) *VerifyAWSAccountAccessDefault {
 	}
 }
 
-/* VerifyAWSAccountAccessDefault describes a response with status code -1, with default header values.
+/*
+	VerifyAWSAccountAccessDefault describes a response with status code -1, with default header values.
 
 OK
 */

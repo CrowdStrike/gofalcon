@@ -78,7 +78,8 @@ func NewGetAWSAccountsMixin0OK() *GetAWSAccountsMixin0OK {
 	return &GetAWSAccountsMixin0OK{}
 }
 
-/* GetAWSAccountsMixin0OK describes a response with status code 200, with default header values.
+/*
+	GetAWSAccountsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewGetAWSAccountsMixin0MultiStatus() *GetAWSAccountsMixin0MultiStatus {
 	return &GetAWSAccountsMixin0MultiStatus{}
 }
 
-/* GetAWSAccountsMixin0MultiStatus describes a response with status code 207, with default header values.
+/*
+	GetAWSAccountsMixin0MultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -226,7 +228,8 @@ func NewGetAWSAccountsMixin0BadRequest() *GetAWSAccountsMixin0BadRequest {
 	return &GetAWSAccountsMixin0BadRequest{}
 }
 
-/* GetAWSAccountsMixin0BadRequest describes a response with status code 400, with default header values.
+/*
+	GetAWSAccountsMixin0BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -300,7 +303,8 @@ func NewGetAWSAccountsMixin0Forbidden() *GetAWSAccountsMixin0Forbidden {
 	return &GetAWSAccountsMixin0Forbidden{}
 }
 
-/* GetAWSAccountsMixin0Forbidden describes a response with status code 403, with default header values.
+/*
+	GetAWSAccountsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewGetAWSAccountsMixin0TooManyRequests() *GetAWSAccountsMixin0TooManyReques
 	return &GetAWSAccountsMixin0TooManyRequests{}
 }
 
-/* GetAWSAccountsMixin0TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetAWSAccountsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewGetAWSAccountsMixin0InternalServerError() *GetAWSAccountsMixin0InternalS
 	return &GetAWSAccountsMixin0InternalServerError{}
 }
 
-/* GetAWSAccountsMixin0InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetAWSAccountsMixin0InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewGetAWSAccountsMixin0Default(code int) *GetAWSAccountsMixin0Default {
 	}
 }
 
-/* GetAWSAccountsMixin0Default describes a response with status code -1, with default header values.
+/*
+	GetAWSAccountsMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

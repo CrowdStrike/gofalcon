@@ -54,10 +54,12 @@ func NewAggregateRulesParamsWithHTTPClient(client *http.Client) *AggregateRulesP
 	}
 }
 
-/* AggregateRulesParams contains all the parameters to send to the API endpoint
-   for the aggregate rules operation.
+/*
+AggregateRulesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate rules operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateRulesParams struct {
 

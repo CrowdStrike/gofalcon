@@ -78,7 +78,8 @@ func NewCreateRulesV1OK() *CreateRulesV1OK {
 	return &CreateRulesV1OK{}
 }
 
-/* CreateRulesV1OK describes a response with status code 200, with default header values.
+/*
+	CreateRulesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewCreateRulesV1BadRequest() *CreateRulesV1BadRequest {
 	return &CreateRulesV1BadRequest{}
 }
 
-/* CreateRulesV1BadRequest describes a response with status code 400, with default header values.
+/*
+	CreateRulesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewCreateRulesV1Unauthorized() *CreateRulesV1Unauthorized {
 	return &CreateRulesV1Unauthorized{}
 }
 
-/* CreateRulesV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	CreateRulesV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewCreateRulesV1Forbidden() *CreateRulesV1Forbidden {
 	return &CreateRulesV1Forbidden{}
 }
 
-/* CreateRulesV1Forbidden describes a response with status code 403, with default header values.
+/*
+	CreateRulesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewCreateRulesV1TooManyRequests() *CreateRulesV1TooManyRequests {
 	return &CreateRulesV1TooManyRequests{}
 }
 
-/* CreateRulesV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateRulesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewCreateRulesV1InternalServerError() *CreateRulesV1InternalServerError {
 	return &CreateRulesV1InternalServerError{}
 }
 
-/* CreateRulesV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	CreateRulesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewCreateRulesV1Default(code int) *CreateRulesV1Default {
 	}
 }
 
-/* CreateRulesV1Default describes a response with status code -1, with default header values.
+/*
+	CreateRulesV1Default describes a response with status code -1, with default header values.
 
 OK
 */

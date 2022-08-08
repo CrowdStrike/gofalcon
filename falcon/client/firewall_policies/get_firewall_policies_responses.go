@@ -72,7 +72,8 @@ func NewGetFirewallPoliciesOK() *GetFirewallPoliciesOK {
 	return &GetFirewallPoliciesOK{}
 }
 
-/* GetFirewallPoliciesOK describes a response with status code 200, with default header values.
+/*
+	GetFirewallPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetFirewallPoliciesForbidden() *GetFirewallPoliciesForbidden {
 	return &GetFirewallPoliciesForbidden{}
 }
 
-/* GetFirewallPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	GetFirewallPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -198,7 +200,8 @@ func NewGetFirewallPoliciesNotFound() *GetFirewallPoliciesNotFound {
 	return &GetFirewallPoliciesNotFound{}
 }
 
-/* GetFirewallPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	GetFirewallPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -261,7 +264,8 @@ func NewGetFirewallPoliciesTooManyRequests() *GetFirewallPoliciesTooManyRequests
 	return &GetFirewallPoliciesTooManyRequests{}
 }
 
-/* GetFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetFirewallPoliciesInternalServerError() *GetFirewallPoliciesInternalSer
 	return &GetFirewallPoliciesInternalServerError{}
 }
 
-/* GetFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetFirewallPoliciesDefault(code int) *GetFirewallPoliciesDefault {
 	}
 }
 
-/* GetFirewallPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	GetFirewallPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

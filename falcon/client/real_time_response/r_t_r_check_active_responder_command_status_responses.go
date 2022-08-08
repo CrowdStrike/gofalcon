@@ -66,7 +66,8 @@ func NewRTRCheckActiveResponderCommandStatusOK() *RTRCheckActiveResponderCommand
 	return &RTRCheckActiveResponderCommandStatusOK{}
 }
 
-/* RTRCheckActiveResponderCommandStatusOK describes a response with status code 200, with default header values.
+/*
+	RTRCheckActiveResponderCommandStatusOK describes a response with status code 200, with default header values.
 
 success
 */
@@ -129,7 +130,8 @@ func NewRTRCheckActiveResponderCommandStatusUnauthorized() *RTRCheckActiveRespon
 	return &RTRCheckActiveResponderCommandStatusUnauthorized{}
 }
 
-/* RTRCheckActiveResponderCommandStatusUnauthorized describes a response with status code 401, with default header values.
+/*
+	RTRCheckActiveResponderCommandStatusUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -192,7 +194,8 @@ func NewRTRCheckActiveResponderCommandStatusForbidden() *RTRCheckActiveResponder
 	return &RTRCheckActiveResponderCommandStatusForbidden{}
 }
 
-/* RTRCheckActiveResponderCommandStatusForbidden describes a response with status code 403, with default header values.
+/*
+	RTRCheckActiveResponderCommandStatusForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRTRCheckActiveResponderCommandStatusTooManyRequests() *RTRCheckActiveRes
 	return &RTRCheckActiveResponderCommandStatusTooManyRequests{}
 }
 
-/* RTRCheckActiveResponderCommandStatusTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRCheckActiveResponderCommandStatusTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRTRCheckActiveResponderCommandStatusDefault(code int) *RTRCheckActiveRes
 	}
 }
 
-/* RTRCheckActiveResponderCommandStatusDefault describes a response with status code -1, with default header values.
+/*
+	RTRCheckActiveResponderCommandStatusDefault describes a response with status code -1, with default header values.
 
 success
 */

@@ -54,10 +54,12 @@ func NewCreateSVExclusionsV1ParamsWithHTTPClient(client *http.Client) *CreateSVE
 	}
 }
 
-/* CreateSVExclusionsV1Params contains all the parameters to send to the API endpoint
-   for the create s v exclusions v1 operation.
+/*
+CreateSVExclusionsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create s v exclusions v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateSVExclusionsV1Params struct {
 

@@ -53,10 +53,12 @@ func NewGetPreventionPoliciesParamsWithHTTPClient(client *http.Client) *GetPreve
 	}
 }
 
-/* GetPreventionPoliciesParams contains all the parameters to send to the API endpoint
-   for the get prevention policies operation.
+/*
+GetPreventionPoliciesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get prevention policies operation.
+
+	Typically these are written to a http.Request.
 */
 type GetPreventionPoliciesParams struct {
 

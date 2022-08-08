@@ -72,7 +72,8 @@ func NewGetAvailableRoleIdsOK() *GetAvailableRoleIdsOK {
 	return &GetAvailableRoleIdsOK{}
 }
 
-/* GetAvailableRoleIdsOK describes a response with status code 200, with default header values.
+/*
+	GetAvailableRoleIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetAvailableRoleIdsForbidden() *GetAvailableRoleIdsForbidden {
 	return &GetAvailableRoleIdsForbidden{}
 }
 
-/* GetAvailableRoleIdsForbidden describes a response with status code 403, with default header values.
+/*
+	GetAvailableRoleIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -198,7 +200,8 @@ func NewGetAvailableRoleIdsNotFound() *GetAvailableRoleIdsNotFound {
 	return &GetAvailableRoleIdsNotFound{}
 }
 
-/* GetAvailableRoleIdsNotFound describes a response with status code 404, with default header values.
+/*
+	GetAvailableRoleIdsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -261,7 +264,8 @@ func NewGetAvailableRoleIdsTooManyRequests() *GetAvailableRoleIdsTooManyRequests
 	return &GetAvailableRoleIdsTooManyRequests{}
 }
 
-/* GetAvailableRoleIdsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetAvailableRoleIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetAvailableRoleIdsInternalServerError() *GetAvailableRoleIdsInternalSer
 	return &GetAvailableRoleIdsInternalServerError{}
 }
 
-/* GetAvailableRoleIdsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetAvailableRoleIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetAvailableRoleIdsDefault(code int) *GetAvailableRoleIdsDefault {
 	}
 }
 
-/* GetAvailableRoleIdsDefault describes a response with status code -1, with default header values.
+/*
+	GetAvailableRoleIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

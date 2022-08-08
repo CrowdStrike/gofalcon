@@ -78,7 +78,8 @@ func NewGetRulesV1OK() *GetRulesV1OK {
 	return &GetRulesV1OK{}
 }
 
-/* GetRulesV1OK describes a response with status code 200, with default header values.
+/*
+	GetRulesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewGetRulesV1BadRequest() *GetRulesV1BadRequest {
 	return &GetRulesV1BadRequest{}
 }
 
-/* GetRulesV1BadRequest describes a response with status code 400, with default header values.
+/*
+	GetRulesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewGetRulesV1Unauthorized() *GetRulesV1Unauthorized {
 	return &GetRulesV1Unauthorized{}
 }
 
-/* GetRulesV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	GetRulesV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewGetRulesV1Forbidden() *GetRulesV1Forbidden {
 	return &GetRulesV1Forbidden{}
 }
 
-/* GetRulesV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetRulesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewGetRulesV1TooManyRequests() *GetRulesV1TooManyRequests {
 	return &GetRulesV1TooManyRequests{}
 }
 
-/* GetRulesV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetRulesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewGetRulesV1InternalServerError() *GetRulesV1InternalServerError {
 	return &GetRulesV1InternalServerError{}
 }
 
-/* GetRulesV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetRulesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewGetRulesV1Default(code int) *GetRulesV1Default {
 	}
 }
 
-/* GetRulesV1Default describes a response with status code -1, with default header values.
+/*
+	GetRulesV1Default describes a response with status code -1, with default header values.
 
 OK
 */

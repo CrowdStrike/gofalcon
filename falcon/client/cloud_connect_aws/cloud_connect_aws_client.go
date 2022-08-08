@@ -52,7 +52,7 @@ type ClientService interface {
 }
 
 /*
-  CreateOrUpdateAWSSettings creates or update global settings which are applicable to all provisioned a w s accounts
+CreateOrUpdateAWSSettings creates or update global settings which are applicable to all provisioned a w s accounts
 */
 func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsParams, opts ...ClientOption) (*CreateOrUpdateAWSSettingsCreated, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +90,7 @@ func (a *Client) CreateOrUpdateAWSSettings(params *CreateOrUpdateAWSSettingsPara
 }
 
 /*
-  DeleteAWSAccounts deletes a set of a w s accounts by specifying their i ds
+DeleteAWSAccounts deletes a set of a w s accounts by specifying their i ds
 */
 func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...ClientOption) (*DeleteAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -127,7 +127,7 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...Clie
 }
 
 /*
-  GetAWSAccounts retrieves a set of a w s accounts by specifying their i ds
+GetAWSAccounts retrieves a set of a w s accounts by specifying their i ds
 */
 func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOption) (*GetAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -164,7 +164,7 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOpti
 }
 
 /*
-  GetAWSSettings retrieves a set of global settings which are applicable to all provisioned a w s accounts
+GetAWSSettings retrieves a set of global settings which are applicable to all provisioned a w s accounts
 */
 func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, opts ...ClientOption) (*GetAWSSettingsOK, error) {
 	// TODO: Validate the params before sending
@@ -201,7 +201,7 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, opts ...ClientOpti
 }
 
 /*
-  ProvisionAWSAccounts provisions a w s accounts by specifying details about the accounts to provision
+ProvisionAWSAccounts provisions a w s accounts by specifying details about the accounts to provision
 */
 func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, opts ...ClientOption) (*ProvisionAWSAccountsCreated, error) {
 	// TODO: Validate the params before sending
@@ -239,7 +239,7 @@ func (a *Client) ProvisionAWSAccounts(params *ProvisionAWSAccountsParams, opts .
 }
 
 /*
-  QueryAWSAccounts searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s accounts which match the filter criteria
+QueryAWSAccounts searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s accounts which match the filter criteria
 */
 func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, opts ...ClientOption) (*QueryAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -276,7 +276,7 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, opts ...Client
 }
 
 /*
-  QueryAWSAccountsForIDs searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s account i ds which match the filter criteria
+QueryAWSAccountsForIDs searches for provisioned a w s accounts by providing an f q l filter and paging details returns a set of a w s account i ds which match the filter criteria
 */
 func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, opts ...ClientOption) (*QueryAWSAccountsForIDsOK, error) {
 	// TODO: Validate the params before sending
@@ -313,7 +313,7 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, op
 }
 
 /*
-  UpdateAWSAccounts updates a w s accounts by specifying the ID of the account and details to update
+UpdateAWSAccounts updates a w s accounts by specifying the ID of the account and details to update
 */
 func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, opts ...ClientOption) (*UpdateAWSAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -350,7 +350,7 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, opts ...Clie
 }
 
 /*
-  VerifyAWSAccountAccess performs an access verification check on the specified a w s account i ds
+VerifyAWSAccountAccess performs an access verification check on the specified a w s account i ds
 */
 func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, opts ...ClientOption) (*VerifyAWSAccountAccessOK, error) {
 	// TODO: Validate the params before sending

@@ -59,7 +59,8 @@ func NewCreateRuleCreated() *CreateRuleCreated {
 	return &CreateRuleCreated{}
 }
 
-/* CreateRuleCreated describes a response with status code 201, with default header values.
+/*
+	CreateRuleCreated describes a response with status code 201, with default header values.
 
 OK
 */
@@ -122,7 +123,8 @@ func NewCreateRuleForbidden() *CreateRuleForbidden {
 	return &CreateRuleForbidden{}
 }
 
-/* CreateRuleForbidden describes a response with status code 403, with default header values.
+/*
+	CreateRuleForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -185,7 +187,8 @@ func NewCreateRuleNotFound() *CreateRuleNotFound {
 	return &CreateRuleNotFound{}
 }
 
-/* CreateRuleNotFound describes a response with status code 404, with default header values.
+/*
+	CreateRuleNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -248,7 +251,8 @@ func NewCreateRuleTooManyRequests() *CreateRuleTooManyRequests {
 	return &CreateRuleTooManyRequests{}
 }
 
-/* CreateRuleTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateRuleTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

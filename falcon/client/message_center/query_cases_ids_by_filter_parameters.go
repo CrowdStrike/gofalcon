@@ -53,10 +53,12 @@ func NewQueryCasesIdsByFilterParamsWithHTTPClient(client *http.Client) *QueryCas
 	}
 }
 
-/* QueryCasesIdsByFilterParams contains all the parameters to send to the API endpoint
-   for the query cases ids by filter operation.
+/*
+QueryCasesIdsByFilterParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query cases ids by filter operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryCasesIdsByFilterParams struct {
 

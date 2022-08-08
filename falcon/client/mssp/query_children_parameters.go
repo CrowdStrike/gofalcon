@@ -53,10 +53,12 @@ func NewQueryChildrenParamsWithHTTPClient(client *http.Client) *QueryChildrenPar
 	}
 }
 
-/* QueryChildrenParams contains all the parameters to send to the API endpoint
-   for the query children operation.
+/*
+QueryChildrenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query children operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryChildrenParams struct {
 

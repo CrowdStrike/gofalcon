@@ -53,10 +53,12 @@ func NewCrowdScoreParamsWithHTTPClient(client *http.Client) *CrowdScoreParams {
 	}
 }
 
-/* CrowdScoreParams contains all the parameters to send to the API endpoint
-   for the crowd score operation.
+/*
+CrowdScoreParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the crowd score operation.
+
+	Typically these are written to a http.Request.
 */
 type CrowdScoreParams struct {
 

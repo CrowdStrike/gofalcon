@@ -60,7 +60,8 @@ func NewGetAggregateFilesOK() *GetAggregateFilesOK {
 	return &GetAggregateFilesOK{}
 }
 
-/* GetAggregateFilesOK describes a response with status code 200, with default header values.
+/*
+	GetAggregateFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -134,7 +135,8 @@ func NewGetAggregateFilesForbidden() *GetAggregateFilesForbidden {
 	return &GetAggregateFilesForbidden{}
 }
 
-/* GetAggregateFilesForbidden describes a response with status code 403, with default header values.
+/*
+	GetAggregateFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -208,7 +210,8 @@ func NewGetAggregateFilesTooManyRequests() *GetAggregateFilesTooManyRequests {
 	return &GetAggregateFilesTooManyRequests{}
 }
 
-/* GetAggregateFilesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetAggregateFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -299,7 +302,8 @@ func NewGetAggregateFilesDefault(code int) *GetAggregateFilesDefault {
 	}
 }
 
-/* GetAggregateFilesDefault describes a response with status code -1, with default header values.
+/*
+	GetAggregateFilesDefault describes a response with status code -1, with default header values.
 
 OK
 */

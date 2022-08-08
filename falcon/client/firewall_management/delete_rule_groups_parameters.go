@@ -53,10 +53,12 @@ func NewDeleteRuleGroupsParamsWithHTTPClient(client *http.Client) *DeleteRuleGro
 	}
 }
 
-/* DeleteRuleGroupsParams contains all the parameters to send to the API endpoint
-   for the delete rule groups operation.
+/*
+DeleteRuleGroupsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete rule groups operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRuleGroupsParams struct {
 

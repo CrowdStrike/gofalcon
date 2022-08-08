@@ -53,10 +53,12 @@ func NewDeleteIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *DeleteIO
 	}
 }
 
-/* DeleteIOAExclusionsV1Params contains all the parameters to send to the API endpoint
-   for the delete i o a exclusions v1 operation.
+/*
+DeleteIOAExclusionsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete i o a exclusions v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteIOAExclusionsV1Params struct {
 

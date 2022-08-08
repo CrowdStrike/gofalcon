@@ -66,7 +66,8 @@ func NewGetRuleGroupsOK() *GetRuleGroupsOK {
 	return &GetRuleGroupsOK{}
 }
 
-/* GetRuleGroupsOK describes a response with status code 200, with default header values.
+/*
+	GetRuleGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewGetRuleGroupsBadRequest() *GetRuleGroupsBadRequest {
 	return &GetRuleGroupsBadRequest{}
 }
 
-/* GetRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewGetRuleGroupsForbidden() *GetRuleGroupsForbidden {
 	return &GetRuleGroupsForbidden{}
 }
 
-/* GetRuleGroupsForbidden describes a response with status code 403, with default header values.
+/*
+	GetRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewGetRuleGroupsTooManyRequests() *GetRuleGroupsTooManyRequests {
 	return &GetRuleGroupsTooManyRequests{}
 }
 
-/* GetRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewGetRuleGroupsDefault(code int) *GetRuleGroupsDefault {
 	}
 }
 
-/* GetRuleGroupsDefault describes a response with status code -1, with default header values.
+/*
+	GetRuleGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

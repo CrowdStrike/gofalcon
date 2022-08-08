@@ -78,7 +78,8 @@ func NewTokensUpdateOK() *TokensUpdateOK {
 	return &TokensUpdateOK{}
 }
 
-/* TokensUpdateOK describes a response with status code 200, with default header values.
+/*
+	TokensUpdateOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewTokensUpdateBadRequest() *TokensUpdateBadRequest {
 	return &TokensUpdateBadRequest{}
 }
 
-/* TokensUpdateBadRequest describes a response with status code 400, with default header values.
+/*
+	TokensUpdateBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewTokensUpdateForbidden() *TokensUpdateForbidden {
 	return &TokensUpdateForbidden{}
 }
 
-/* TokensUpdateForbidden describes a response with status code 403, with default header values.
+/*
+	TokensUpdateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewTokensUpdateNotFound() *TokensUpdateNotFound {
 	return &TokensUpdateNotFound{}
 }
 
-/* TokensUpdateNotFound describes a response with status code 404, with default header values.
+/*
+	TokensUpdateNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewTokensUpdateTooManyRequests() *TokensUpdateTooManyRequests {
 	return &TokensUpdateTooManyRequests{}
 }
 
-/* TokensUpdateTooManyRequests describes a response with status code 429, with default header values.
+/*
+	TokensUpdateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewTokensUpdateInternalServerError() *TokensUpdateInternalServerError {
 	return &TokensUpdateInternalServerError{}
 }
 
-/* TokensUpdateInternalServerError describes a response with status code 500, with default header values.
+/*
+	TokensUpdateInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewTokensUpdateDefault(code int) *TokensUpdateDefault {
 	}
 }
 
-/* TokensUpdateDefault describes a response with status code -1, with default header values.
+/*
+	TokensUpdateDefault describes a response with status code -1, with default header values.
 
 OK
 */

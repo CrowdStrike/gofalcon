@@ -52,10 +52,12 @@ func NewDownloadSensorInstallerByIDParamsWithHTTPClient(client *http.Client) *Do
 	}
 }
 
-/* DownloadSensorInstallerByIDParams contains all the parameters to send to the API endpoint
-   for the download sensor installer by Id operation.
+/*
+DownloadSensorInstallerByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the download sensor installer by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type DownloadSensorInstallerByIDParams struct {
 

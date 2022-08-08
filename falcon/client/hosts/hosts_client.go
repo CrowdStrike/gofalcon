@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-  GetDeviceDetails gets details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
+GetDeviceDetails gets details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
 */
 func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -91,7 +91,7 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...Client
 }
 
 /*
-  GetOnlineStateV1 gets the online status for one or more hosts by specifying each host s unique ID successful requests return an HTTP 200 response and the status for each host identified by a state of online offline or unknown for each host identified by host id make a g e t request to devices queries devices v1 to get a list of host i ds
+GetOnlineStateV1 gets the online status for one or more hosts by specifying each host s unique ID successful requests return an HTTP 200 response and the status for each host identified by a state of online offline or unknown for each host identified by host id make a g e t request to devices queries devices v1 to get a list of host i ds
 */
 func (a *Client) GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error) {
 	// TODO: Validate the params before sending
@@ -128,7 +128,7 @@ func (a *Client) GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...Client
 }
 
 /*
-  PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host delete or restore a host
+PerformActionV2 takes various actions on the hosts in your environment contain or lift containment on a host delete or restore a host
 */
 func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOp
 }
 
 /*
-  QueryDeviceLoginHistory retrieves details about recent login sessions for a set of devices
+QueryDeviceLoginHistory retrieves details about recent login sessions for a set of devices
 */
 func (a *Client) QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +203,7 @@ func (a *Client) QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, 
 }
 
 /*
-  QueryDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria
+QueryDevicesByFilter searches for hosts in your environment by platform hostname IP and other criteria
 */
 func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -240,7 +240,7 @@ func (a *Client) QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts .
 }
 
 /*
-  QueryDevicesByFilterScroll searches for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
+QueryDevicesByFilterScroll searches for hosts in your environment by platform hostname IP and other criteria with continuous pagination capability based on offset pointer which expires after 2 minutes with no maximum limit
 */
 func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error) {
 	// TODO: Validate the params before sending
@@ -277,7 +277,7 @@ func (a *Client) QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollPa
 }
 
 /*
-  QueryGetNetworkAddressHistoryV1 retrieves history of IP and m a c addresses of devices
+QueryGetNetworkAddressHistoryV1 retrieves history of IP and m a c addresses of devices
 */
 func (a *Client) QueryGetNetworkAddressHistoryV1(params *QueryGetNetworkAddressHistoryV1Params, opts ...ClientOption) (*QueryGetNetworkAddressHistoryV1OK, error) {
 	// TODO: Validate the params before sending
@@ -314,7 +314,7 @@ func (a *Client) QueryGetNetworkAddressHistoryV1(params *QueryGetNetworkAddressH
 }
 
 /*
-  QueryHiddenDevices retrieves hidden hosts that match the provided filter criteria
+QueryHiddenDevices retrieves hidden hosts that match the provided filter criteria
 */
 func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...Cl
 }
 
 /*
-  UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts
+UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts
 */
 func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error) {
 	// TODO: Validate the params before sending
@@ -388,7 +388,7 @@ func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...Client
 }
 
 /*
-  EntitiesPerformAction performs the specified action on the provided prevention policy i ds
+EntitiesPerformAction performs the specified action on the provided prevention policy i ds
 */
 func (a *Client) EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error) {
 	// TODO: Validate the params before sending

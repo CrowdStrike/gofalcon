@@ -54,10 +54,12 @@ func NewGetCaseEntitiesByIDsParamsWithHTTPClient(client *http.Client) *GetCaseEn
 	}
 }
 
-/* GetCaseEntitiesByIDsParams contains all the parameters to send to the API endpoint
-   for the get case entities by i ds operation.
+/*
+GetCaseEntitiesByIDsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get case entities by i ds operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCaseEntitiesByIDsParams struct {
 

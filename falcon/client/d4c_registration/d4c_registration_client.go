@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-  CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
+CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
 */
 func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -85,7 +85,7 @@ func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts .
 }
 
 /*
-  DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
 */
 func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzur
 }
 
 /*
-  GetCSPMAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
+GetCSPMAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
 */
 func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +161,7 @@ func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, 
 }
 
 /*
-  GetCSPMCGPAccount returns information about the current status of an g c p account
+GetCSPMCGPAccount returns information about the current status of an g c p account
 */
 func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -200,7 +200,7 @@ func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...Clie
 }
 
 /*
-  GetCSPMGCPUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
+GetCSPMGCPUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
 */
 func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -239,7 +239,7 @@ func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts
 }
 
 /*
-  GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
+GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
 */
 func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending

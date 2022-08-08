@@ -53,10 +53,12 @@ func NewGetNotificationsV1ParamsWithHTTPClient(client *http.Client) *GetNotifica
 	}
 }
 
-/* GetNotificationsV1Params contains all the parameters to send to the API endpoint
-   for the get notifications v1 operation.
+/*
+GetNotificationsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get notifications v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetNotificationsV1Params struct {
 

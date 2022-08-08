@@ -78,7 +78,8 @@ func NewGetScansOK() *GetScansOK {
 	return &GetScansOK{}
 }
 
-/* GetScansOK describes a response with status code 200, with default header values.
+/*
+	GetScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewGetScansBadRequest() *GetScansBadRequest {
 	return &GetScansBadRequest{}
 }
 
-/* GetScansBadRequest describes a response with status code 400, with default header values.
+/*
+	GetScansBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewGetScansForbidden() *GetScansForbidden {
 	return &GetScansForbidden{}
 }
 
-/* GetScansForbidden describes a response with status code 403, with default header values.
+/*
+	GetScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewGetScansNotFound() *GetScansNotFound {
 	return &GetScansNotFound{}
 }
 
-/* GetScansNotFound describes a response with status code 404, with default header values.
+/*
+	GetScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewGetScansTooManyRequests() *GetScansTooManyRequests {
 	return &GetScansTooManyRequests{}
 }
 
-/* GetScansTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewGetScansInternalServerError() *GetScansInternalServerError {
 	return &GetScansInternalServerError{}
 }
 
-/* GetScansInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetScansInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewGetScansDefault(code int) *GetScansDefault {
 	}
 }
 
-/* GetScansDefault describes a response with status code -1, with default header values.
+/*
+	GetScansDefault describes a response with status code -1, with default header values.
 
 OK
 */

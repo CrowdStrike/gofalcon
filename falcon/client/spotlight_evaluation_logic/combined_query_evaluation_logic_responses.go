@@ -72,7 +72,8 @@ func NewCombinedQueryEvaluationLogicOK() *CombinedQueryEvaluationLogicOK {
 	return &CombinedQueryEvaluationLogicOK{}
 }
 
-/* CombinedQueryEvaluationLogicOK describes a response with status code 200, with default header values.
+/*
+	CombinedQueryEvaluationLogicOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewCombinedQueryEvaluationLogicBadRequest() *CombinedQueryEvaluationLogicBa
 	return &CombinedQueryEvaluationLogicBadRequest{}
 }
 
-/* CombinedQueryEvaluationLogicBadRequest describes a response with status code 400, with default header values.
+/*
+	CombinedQueryEvaluationLogicBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -208,7 +210,8 @@ func NewCombinedQueryEvaluationLogicForbidden() *CombinedQueryEvaluationLogicFor
 	return &CombinedQueryEvaluationLogicForbidden{}
 }
 
-/* CombinedQueryEvaluationLogicForbidden describes a response with status code 403, with default header values.
+/*
+	CombinedQueryEvaluationLogicForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -282,7 +285,8 @@ func NewCombinedQueryEvaluationLogicTooManyRequests() *CombinedQueryEvaluationLo
 	return &CombinedQueryEvaluationLogicTooManyRequests{}
 }
 
-/* CombinedQueryEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CombinedQueryEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -371,7 +375,8 @@ func NewCombinedQueryEvaluationLogicInternalServerError() *CombinedQueryEvaluati
 	return &CombinedQueryEvaluationLogicInternalServerError{}
 }
 
-/* CombinedQueryEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
+/*
+	CombinedQueryEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -435,7 +440,8 @@ func NewCombinedQueryEvaluationLogicDefault(code int) *CombinedQueryEvaluationLo
 	}
 }
 
-/* CombinedQueryEvaluationLogicDefault describes a response with status code -1, with default header values.
+/*
+	CombinedQueryEvaluationLogicDefault describes a response with status code -1, with default header values.
 
 OK
 */

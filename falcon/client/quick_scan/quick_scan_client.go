@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-  GetScans checks the status of a volume scan time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
+GetScans checks the status of a volume scan time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
 func (a *Client) GetScans(params *GetScansParams, opts ...ClientOption) (*GetScansOK, error) {
 	// TODO: Validate the params before sending
@@ -79,7 +79,7 @@ func (a *Client) GetScans(params *GetScansParams, opts ...ClientOption) (*GetSca
 }
 
 /*
-  GetScansAggregates gets scans aggregations as specified via json in request body
+GetScansAggregates gets scans aggregations as specified via json in request body
 */
 func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, opts ...ClientOption) (*GetScansAggregatesOK, error) {
 	// TODO: Validate the params before sending
@@ -117,7 +117,7 @@ func (a *Client) GetScansAggregates(params *GetScansAggregatesParams, opts ...Cl
 }
 
 /*
-  QuerySubmissionsMixin0 finds i ds for submitted scans by providing an f q l filter and paging details returns a set of volume i ds that match your criteria
+QuerySubmissionsMixin0 finds i ds for submitted scans by providing an f q l filter and paging details returns a set of volume i ds that match your criteria
 */
 func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, opts ...ClientOption) (*QuerySubmissionsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -154,7 +154,7 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, op
 }
 
 /*
-  ScanSamples submits a volume of files for ml scanning time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
+ScanSamples submits a volume of files for ml scanning time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 */
 func (a *Client) ScanSamples(params *ScanSamplesParams, opts ...ClientOption) (*ScanSamplesOK, error) {
 	// TODO: Validate the params before sending

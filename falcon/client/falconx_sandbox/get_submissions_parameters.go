@@ -53,10 +53,12 @@ func NewGetSubmissionsParamsWithHTTPClient(client *http.Client) *GetSubmissionsP
 	}
 }
 
-/* GetSubmissionsParams contains all the parameters to send to the API endpoint
-   for the get submissions operation.
+/*
+GetSubmissionsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get submissions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSubmissionsParams struct {
 

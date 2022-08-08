@@ -53,10 +53,12 @@ func NewQueryPolicyRulesParamsWithHTTPClient(client *http.Client) *QueryPolicyRu
 	}
 }
 
-/* QueryPolicyRulesParams contains all the parameters to send to the API endpoint
-   for the query policy rules operation.
+/*
+QueryPolicyRulesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query policy rules operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryPolicyRulesParams struct {
 

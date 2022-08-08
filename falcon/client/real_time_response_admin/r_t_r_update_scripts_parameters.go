@@ -53,10 +53,12 @@ func NewRTRUpdateScriptsParamsWithHTTPClient(client *http.Client) *RTRUpdateScri
 	}
 }
 
-/* RTRUpdateScriptsParams contains all the parameters to send to the API endpoint
-   for the r t r update scripts operation.
+/*
+RTRUpdateScriptsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r update scripts operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRUpdateScriptsParams struct {
 

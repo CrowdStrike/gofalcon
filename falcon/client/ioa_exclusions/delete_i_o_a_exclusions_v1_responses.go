@@ -72,7 +72,8 @@ func NewDeleteIOAExclusionsV1OK() *DeleteIOAExclusionsV1OK {
 	return &DeleteIOAExclusionsV1OK{}
 }
 
-/* DeleteIOAExclusionsV1OK describes a response with status code 200, with default header values.
+/*
+	DeleteIOAExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewDeleteIOAExclusionsV1BadRequest() *DeleteIOAExclusionsV1BadRequest {
 	return &DeleteIOAExclusionsV1BadRequest{}
 }
 
-/* DeleteIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewDeleteIOAExclusionsV1Forbidden() *DeleteIOAExclusionsV1Forbidden {
 	return &DeleteIOAExclusionsV1Forbidden{}
 }
 
-/* DeleteIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	DeleteIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewDeleteIOAExclusionsV1TooManyRequests() *DeleteIOAExclusionsV1TooManyRequ
 	return &DeleteIOAExclusionsV1TooManyRequests{}
 }
 
-/* DeleteIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewDeleteIOAExclusionsV1InternalServerError() *DeleteIOAExclusionsV1Interna
 	return &DeleteIOAExclusionsV1InternalServerError{}
 }
 
-/* DeleteIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewDeleteIOAExclusionsV1Default(code int) *DeleteIOAExclusionsV1Default {
 	}
 }
 
-/* DeleteIOAExclusionsV1Default describes a response with status code -1, with default header values.
+/*
+	DeleteIOAExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

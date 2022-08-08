@@ -72,7 +72,8 @@ func NewUpdateDetectsByIdsV2OK() *UpdateDetectsByIdsV2OK {
 	return &UpdateDetectsByIdsV2OK{}
 }
 
-/* UpdateDetectsByIdsV2OK describes a response with status code 200, with default header values.
+/*
+	UpdateDetectsByIdsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewUpdateDetectsByIdsV2BadRequest() *UpdateDetectsByIdsV2BadRequest {
 	return &UpdateDetectsByIdsV2BadRequest{}
 }
 
-/* UpdateDetectsByIdsV2BadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateDetectsByIdsV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewUpdateDetectsByIdsV2Forbidden() *UpdateDetectsByIdsV2Forbidden {
 	return &UpdateDetectsByIdsV2Forbidden{}
 }
 
-/* UpdateDetectsByIdsV2Forbidden describes a response with status code 403, with default header values.
+/*
+	UpdateDetectsByIdsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewUpdateDetectsByIdsV2TooManyRequests() *UpdateDetectsByIdsV2TooManyReques
 	return &UpdateDetectsByIdsV2TooManyRequests{}
 }
 
-/* UpdateDetectsByIdsV2TooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateDetectsByIdsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewUpdateDetectsByIdsV2InternalServerError() *UpdateDetectsByIdsV2InternalS
 	return &UpdateDetectsByIdsV2InternalServerError{}
 }
 
-/* UpdateDetectsByIdsV2InternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateDetectsByIdsV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewUpdateDetectsByIdsV2Default(code int) *UpdateDetectsByIdsV2Default {
 	}
 }
 
-/* UpdateDetectsByIdsV2Default describes a response with status code -1, with default header values.
+/*
+	UpdateDetectsByIdsV2Default describes a response with status code -1, with default header values.
 
 OK
 */

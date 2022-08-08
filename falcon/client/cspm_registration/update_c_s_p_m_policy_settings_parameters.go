@@ -54,10 +54,12 @@ func NewUpdateCSPMPolicySettingsParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/* UpdateCSPMPolicySettingsParams contains all the parameters to send to the API endpoint
-   for the update c s p m policy settings operation.
+/*
+UpdateCSPMPolicySettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update c s p m policy settings operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateCSPMPolicySettingsParams struct {
 

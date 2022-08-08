@@ -78,7 +78,8 @@ func NewUpdateActionV1OK() *UpdateActionV1OK {
 	return &UpdateActionV1OK{}
 }
 
-/* UpdateActionV1OK describes a response with status code 200, with default header values.
+/*
+	UpdateActionV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewUpdateActionV1BadRequest() *UpdateActionV1BadRequest {
 	return &UpdateActionV1BadRequest{}
 }
 
-/* UpdateActionV1BadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateActionV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewUpdateActionV1Unauthorized() *UpdateActionV1Unauthorized {
 	return &UpdateActionV1Unauthorized{}
 }
 
-/* UpdateActionV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	UpdateActionV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewUpdateActionV1Forbidden() *UpdateActionV1Forbidden {
 	return &UpdateActionV1Forbidden{}
 }
 
-/* UpdateActionV1Forbidden describes a response with status code 403, with default header values.
+/*
+	UpdateActionV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewUpdateActionV1TooManyRequests() *UpdateActionV1TooManyRequests {
 	return &UpdateActionV1TooManyRequests{}
 }
 
-/* UpdateActionV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateActionV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewUpdateActionV1InternalServerError() *UpdateActionV1InternalServerError {
 	return &UpdateActionV1InternalServerError{}
 }
 
-/* UpdateActionV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateActionV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewUpdateActionV1Default(code int) *UpdateActionV1Default {
 	}
 }
 
-/* UpdateActionV1Default describes a response with status code -1, with default header values.
+/*
+	UpdateActionV1Default describes a response with status code -1, with default header values.
 
 OK
 */

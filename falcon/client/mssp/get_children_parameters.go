@@ -53,10 +53,12 @@ func NewGetChildrenParamsWithHTTPClient(client *http.Client) *GetChildrenParams 
 	}
 }
 
-/* GetChildrenParams contains all the parameters to send to the API endpoint
-   for the get children operation.
+/*
+GetChildrenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get children operation.
+
+	Typically these are written to a http.Request.
 */
 type GetChildrenParams struct {
 

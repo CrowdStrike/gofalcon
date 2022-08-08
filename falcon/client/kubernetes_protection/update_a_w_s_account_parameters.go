@@ -53,10 +53,12 @@ func NewUpdateAWSAccountParamsWithHTTPClient(client *http.Client) *UpdateAWSAcco
 	}
 }
 
-/* UpdateAWSAccountParams contains all the parameters to send to the API endpoint
-   for the update a w s account operation.
+/*
+UpdateAWSAccountParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update a w s account operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateAWSAccountParams struct {
 

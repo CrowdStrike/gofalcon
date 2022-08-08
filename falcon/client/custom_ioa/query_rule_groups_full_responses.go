@@ -66,7 +66,8 @@ func NewQueryRuleGroupsFullOK() *QueryRuleGroupsFullOK {
 	return &QueryRuleGroupsFullOK{}
 }
 
-/* QueryRuleGroupsFullOK describes a response with status code 200, with default header values.
+/*
+	QueryRuleGroupsFullOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewQueryRuleGroupsFullForbidden() *QueryRuleGroupsFullForbidden {
 	return &QueryRuleGroupsFullForbidden{}
 }
 
-/* QueryRuleGroupsFullForbidden describes a response with status code 403, with default header values.
+/*
+	QueryRuleGroupsFullForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -192,7 +194,8 @@ func NewQueryRuleGroupsFullNotFound() *QueryRuleGroupsFullNotFound {
 	return &QueryRuleGroupsFullNotFound{}
 }
 
-/* QueryRuleGroupsFullNotFound describes a response with status code 404, with default header values.
+/*
+	QueryRuleGroupsFullNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -255,7 +258,8 @@ func NewQueryRuleGroupsFullTooManyRequests() *QueryRuleGroupsFullTooManyRequests
 	return &QueryRuleGroupsFullTooManyRequests{}
 }
 
-/* QueryRuleGroupsFullTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryRuleGroupsFullTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewQueryRuleGroupsFullDefault(code int) *QueryRuleGroupsFullDefault {
 	}
 }
 
-/* QueryRuleGroupsFullDefault describes a response with status code -1, with default header values.
+/*
+	QueryRuleGroupsFullDefault describes a response with status code -1, with default header values.
 
 OK
 */
