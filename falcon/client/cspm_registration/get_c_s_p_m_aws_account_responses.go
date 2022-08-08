@@ -79,7 +79,7 @@ func NewGetCSPMAwsAccountOK() *GetCSPMAwsAccountOK {
 }
 
 /*
-	GetCSPMAwsAccountOK describes a response with status code 200, with default header values.
+GetCSPMAwsAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewGetCSPMAwsAccountMultiStatus() *GetCSPMAwsAccountMultiStatus {
 }
 
 /*
-	GetCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
+GetCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -229,7 +229,7 @@ func NewGetCSPMAwsAccountBadRequest() *GetCSPMAwsAccountBadRequest {
 }
 
 /*
-	GetCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+GetCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -304,7 +304,7 @@ func NewGetCSPMAwsAccountForbidden() *GetCSPMAwsAccountForbidden {
 }
 
 /*
-	GetCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+GetCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewGetCSPMAwsAccountTooManyRequests() *GetCSPMAwsAccountTooManyRequests {
 }
 
 /*
-	GetCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewGetCSPMAwsAccountInternalServerError() *GetCSPMAwsAccountInternalServerE
 }
 
 /*
-	GetCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+GetCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewGetCSPMAwsAccountDefault(code int) *GetCSPMAwsAccountDefault {
 }
 
 /*
-	GetCSPMAwsAccountDefault describes a response with status code -1, with default header values.
+GetCSPMAwsAccountDefault describes a response with status code -1, with default header values.
 
 OK
 */

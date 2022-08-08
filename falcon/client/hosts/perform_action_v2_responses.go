@@ -72,7 +72,7 @@ func NewPerformActionV2Accepted() *PerformActionV2Accepted {
 }
 
 /*
-	PerformActionV2Accepted describes a response with status code 202, with default header values.
+PerformActionV2Accepted describes a response with status code 202, with default header values.
 
 Accepted
 */
@@ -136,7 +136,7 @@ func NewPerformActionV2BadRequest() *PerformActionV2BadRequest {
 }
 
 /*
-	PerformActionV2BadRequest describes a response with status code 400, with default header values.
+PerformActionV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -200,7 +200,7 @@ func NewPerformActionV2Forbidden() *PerformActionV2Forbidden {
 }
 
 /*
-	PerformActionV2Forbidden describes a response with status code 403, with default header values.
+PerformActionV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -264,7 +264,7 @@ func NewPerformActionV2Conflict() *PerformActionV2Conflict {
 }
 
 /*
-	PerformActionV2Conflict describes a response with status code 409, with default header values.
+PerformActionV2Conflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -328,7 +328,7 @@ func NewPerformActionV2TooManyRequests() *PerformActionV2TooManyRequests {
 }
 
 /*
-	PerformActionV2TooManyRequests describes a response with status code 429, with default header values.
+PerformActionV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -407,7 +407,7 @@ func NewPerformActionV2InternalServerError() *PerformActionV2InternalServerError
 }
 
 /*
-	PerformActionV2InternalServerError describes a response with status code 500, with default header values.
+PerformActionV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

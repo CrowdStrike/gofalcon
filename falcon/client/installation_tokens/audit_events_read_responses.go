@@ -73,7 +73,7 @@ func NewAuditEventsReadOK() *AuditEventsReadOK {
 }
 
 /*
-	AuditEventsReadOK describes a response with status code 200, with default header values.
+AuditEventsReadOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewAuditEventsReadBadRequest() *AuditEventsReadBadRequest {
 }
 
 /*
-	AuditEventsReadBadRequest describes a response with status code 400, with default header values.
+AuditEventsReadBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewAuditEventsReadForbidden() *AuditEventsReadForbidden {
 }
 
 /*
-	AuditEventsReadForbidden describes a response with status code 403, with default header values.
+AuditEventsReadForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewAuditEventsReadTooManyRequests() *AuditEventsReadTooManyRequests {
 }
 
 /*
-	AuditEventsReadTooManyRequests describes a response with status code 429, with default header values.
+AuditEventsReadTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewAuditEventsReadInternalServerError() *AuditEventsReadInternalServerError
 }
 
 /*
-	AuditEventsReadInternalServerError describes a response with status code 500, with default header values.
+AuditEventsReadInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewAuditEventsReadDefault(code int) *AuditEventsReadDefault {
 }
 
 /*
-	AuditEventsReadDefault describes a response with status code -1, with default header values.
+AuditEventsReadDefault describes a response with status code -1, with default header values.
 
 OK
 */

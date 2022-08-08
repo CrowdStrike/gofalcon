@@ -61,7 +61,7 @@ func NewQueryUserGroupMembersOK() *QueryUserGroupMembersOK {
 }
 
 /*
-	QueryUserGroupMembersOK describes a response with status code 200, with default header values.
+QueryUserGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewQueryUserGroupMembersForbidden() *QueryUserGroupMembersForbidden {
 }
 
 /*
-	QueryUserGroupMembersForbidden describes a response with status code 403, with default header values.
+QueryUserGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewQueryUserGroupMembersTooManyRequests() *QueryUserGroupMembersTooManyRequ
 }
 
 /*
-	QueryUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewQueryUserGroupMembersDefault(code int) *QueryUserGroupMembersDefault {
 }
 
 /*
-	QueryUserGroupMembersDefault describes a response with status code -1, with default header values.
+QueryUserGroupMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

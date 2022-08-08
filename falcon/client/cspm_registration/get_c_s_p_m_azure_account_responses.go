@@ -79,7 +79,7 @@ func NewGetCSPMAzureAccountOK() *GetCSPMAzureAccountOK {
 }
 
 /*
-	GetCSPMAzureAccountOK describes a response with status code 200, with default header values.
+GetCSPMAzureAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetCSPMAzureAccountMultiStatus() *GetCSPMAzureAccountMultiStatus {
 }
 
 /*
-	GetCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
+GetCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -207,7 +207,7 @@ func NewGetCSPMAzureAccountBadRequest() *GetCSPMAzureAccountBadRequest {
 }
 
 /*
-	GetCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
+GetCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -271,7 +271,7 @@ func NewGetCSPMAzureAccountForbidden() *GetCSPMAzureAccountForbidden {
 }
 
 /*
-	GetCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
+GetCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -335,7 +335,7 @@ func NewGetCSPMAzureAccountTooManyRequests() *GetCSPMAzureAccountTooManyRequests
 }
 
 /*
-	GetCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetCSPMAzureAccountInternalServerError() *GetCSPMAzureAccountInternalSer
 }
 
 /*
-	GetCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
+GetCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetCSPMAzureAccountDefault(code int) *GetCSPMAzureAccountDefault {
 }
 
 /*
-	GetCSPMAzureAccountDefault describes a response with status code -1, with default header values.
+GetCSPMAzureAccountDefault describes a response with status code -1, with default header values.
 
 OK
 */

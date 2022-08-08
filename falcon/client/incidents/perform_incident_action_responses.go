@@ -79,7 +79,7 @@ func NewPerformIncidentActionOK() *PerformIncidentActionOK {
 }
 
 /*
-	PerformIncidentActionOK describes a response with status code 200, with default header values.
+PerformIncidentActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewPerformIncidentActionBadRequest() *PerformIncidentActionBadRequest {
 }
 
 /*
-	PerformIncidentActionBadRequest describes a response with status code 400, with default header values.
+PerformIncidentActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewPerformIncidentActionForbidden() *PerformIncidentActionForbidden {
 }
 
 /*
-	PerformIncidentActionForbidden describes a response with status code 403, with default header values.
+PerformIncidentActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewPerformIncidentActionConflict() *PerformIncidentActionConflict {
 }
 
 /*
-	PerformIncidentActionConflict describes a response with status code 409, with default header values.
+PerformIncidentActionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -335,7 +335,7 @@ func NewPerformIncidentActionTooManyRequests() *PerformIncidentActionTooManyRequ
 }
 
 /*
-	PerformIncidentActionTooManyRequests describes a response with status code 429, with default header values.
+PerformIncidentActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewPerformIncidentActionInternalServerError() *PerformIncidentActionInterna
 }
 
 /*
-	PerformIncidentActionInternalServerError describes a response with status code 500, with default header values.
+PerformIncidentActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewPerformIncidentActionDefault(code int) *PerformIncidentActionDefault {
 }
 
 /*
-	PerformIncidentActionDefault describes a response with status code -1, with default header values.
+PerformIncidentActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

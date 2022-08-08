@@ -73,7 +73,7 @@ func NewRTRGetScriptsV2OK() *RTRGetScriptsV2OK {
 }
 
 /*
-	RTRGetScriptsV2OK describes a response with status code 200, with default header values.
+RTRGetScriptsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewRTRGetScriptsV2BadRequest() *RTRGetScriptsV2BadRequest {
 }
 
 /*
-	RTRGetScriptsV2BadRequest describes a response with status code 400, with default header values.
+RTRGetScriptsV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewRTRGetScriptsV2Forbidden() *RTRGetScriptsV2Forbidden {
 }
 
 /*
-	RTRGetScriptsV2Forbidden describes a response with status code 403, with default header values.
+RTRGetScriptsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewRTRGetScriptsV2NotFound() *RTRGetScriptsV2NotFound {
 }
 
 /*
-	RTRGetScriptsV2NotFound describes a response with status code 404, with default header values.
+RTRGetScriptsV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -373,7 +373,7 @@ func NewRTRGetScriptsV2TooManyRequests() *RTRGetScriptsV2TooManyRequests {
 }
 
 /*
-	RTRGetScriptsV2TooManyRequests describes a response with status code 429, with default header values.
+RTRGetScriptsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -465,7 +465,7 @@ func NewRTRGetScriptsV2Default(code int) *RTRGetScriptsV2Default {
 }
 
 /*
-	RTRGetScriptsV2Default describes a response with status code -1, with default header values.
+RTRGetScriptsV2Default describes a response with status code -1, with default header values.
 
 OK
 */

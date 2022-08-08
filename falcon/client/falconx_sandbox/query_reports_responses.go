@@ -73,7 +73,7 @@ func NewQueryReportsOK() *QueryReportsOK {
 }
 
 /*
-	QueryReportsOK describes a response with status code 200, with default header values.
+QueryReportsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryReportsBadRequest() *QueryReportsBadRequest {
 }
 
 /*
-	QueryReportsBadRequest describes a response with status code 400, with default header values.
+QueryReportsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryReportsForbidden() *QueryReportsForbidden {
 }
 
 /*
-	QueryReportsForbidden describes a response with status code 403, with default header values.
+QueryReportsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryReportsTooManyRequests() *QueryReportsTooManyRequests {
 }
 
 /*
-	QueryReportsTooManyRequests describes a response with status code 429, with default header values.
+QueryReportsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryReportsInternalServerError() *QueryReportsInternalServerError {
 }
 
 /*
-	QueryReportsInternalServerError describes a response with status code 500, with default header values.
+QueryReportsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryReportsDefault(code int) *QueryReportsDefault {
 }
 
 /*
-	QueryReportsDefault describes a response with status code -1, with default header values.
+QueryReportsDefault describes a response with status code -1, with default header values.
 
 OK
 */

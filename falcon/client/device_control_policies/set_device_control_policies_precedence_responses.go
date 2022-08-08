@@ -73,7 +73,7 @@ func NewSetDeviceControlPoliciesPrecedenceOK() *SetDeviceControlPoliciesPreceden
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceOK describes a response with status code 200, with default header values.
+SetDeviceControlPoliciesPrecedenceOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewSetDeviceControlPoliciesPrecedenceBadRequest() *SetDeviceControlPolicies
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
+SetDeviceControlPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewSetDeviceControlPoliciesPrecedenceForbidden() *SetDeviceControlPoliciesP
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
+SetDeviceControlPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewSetDeviceControlPoliciesPrecedenceTooManyRequests() *SetDeviceControlPol
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+SetDeviceControlPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewSetDeviceControlPoliciesPrecedenceInternalServerError() *SetDeviceContro
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
+SetDeviceControlPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewSetDeviceControlPoliciesPrecedenceDefault(code int) *SetDeviceControlPol
 }
 
 /*
-	SetDeviceControlPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
+SetDeviceControlPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
 
 OK
 */

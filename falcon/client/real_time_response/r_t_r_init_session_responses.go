@@ -66,7 +66,7 @@ func NewRTRInitSessionCreated() *RTRInitSessionCreated {
 }
 
 /*
-	RTRInitSessionCreated describes a response with status code 201, with default header values.
+RTRInitSessionCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -130,7 +130,7 @@ func NewRTRInitSessionBadRequest() *RTRInitSessionBadRequest {
 }
 
 /*
-	RTRInitSessionBadRequest describes a response with status code 400, with default header values.
+RTRInitSessionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -194,7 +194,7 @@ func NewRTRInitSessionForbidden() *RTRInitSessionForbidden {
 }
 
 /*
-	RTRInitSessionForbidden describes a response with status code 403, with default header values.
+RTRInitSessionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -258,7 +258,7 @@ func NewRTRInitSessionTooManyRequests() *RTRInitSessionTooManyRequests {
 }
 
 /*
-	RTRInitSessionTooManyRequests describes a response with status code 429, with default header values.
+RTRInitSessionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -337,7 +337,7 @@ func NewRTRInitSessionInternalServerError() *RTRInitSessionInternalServerError {
 }
 
 /*
-	RTRInitSessionInternalServerError describes a response with status code 500, with default header values.
+RTRInitSessionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

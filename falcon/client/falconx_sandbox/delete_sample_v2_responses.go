@@ -79,7 +79,7 @@ func NewDeleteSampleV2OK() *DeleteSampleV2OK {
 }
 
 /*
-	DeleteSampleV2OK describes a response with status code 200, with default header values.
+DeleteSampleV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewDeleteSampleV2BadRequest() *DeleteSampleV2BadRequest {
 }
 
 /*
-	DeleteSampleV2BadRequest describes a response with status code 400, with default header values.
+DeleteSampleV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewDeleteSampleV2Forbidden() *DeleteSampleV2Forbidden {
 }
 
 /*
-	DeleteSampleV2Forbidden describes a response with status code 403, with default header values.
+DeleteSampleV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -304,7 +304,7 @@ func NewDeleteSampleV2NotFound() *DeleteSampleV2NotFound {
 }
 
 /*
-	DeleteSampleV2NotFound describes a response with status code 404, with default header values.
+DeleteSampleV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -379,7 +379,7 @@ func NewDeleteSampleV2TooManyRequests() *DeleteSampleV2TooManyRequests {
 }
 
 /*
-	DeleteSampleV2TooManyRequests describes a response with status code 429, with default header values.
+DeleteSampleV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewDeleteSampleV2InternalServerError() *DeleteSampleV2InternalServerError {
 }
 
 /*
-	DeleteSampleV2InternalServerError describes a response with status code 500, with default header values.
+DeleteSampleV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewDeleteSampleV2Default(code int) *DeleteSampleV2Default {
 }
 
 /*
-	DeleteSampleV2Default describes a response with status code -1, with default header values.
+DeleteSampleV2Default describes a response with status code -1, with default header values.
 
 OK
 */

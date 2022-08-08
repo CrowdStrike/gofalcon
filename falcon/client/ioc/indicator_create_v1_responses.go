@@ -54,7 +54,7 @@ func NewIndicatorCreateV1Created() *IndicatorCreateV1Created {
 }
 
 /*
-	IndicatorCreateV1Created describes a response with status code 201, with default header values.
+IndicatorCreateV1Created describes a response with status code 201, with default header values.
 
 Created
 */
@@ -129,7 +129,7 @@ func NewIndicatorCreateV1Forbidden() *IndicatorCreateV1Forbidden {
 }
 
 /*
-	IndicatorCreateV1Forbidden describes a response with status code 403, with default header values.
+IndicatorCreateV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -204,7 +204,7 @@ func NewIndicatorCreateV1TooManyRequests() *IndicatorCreateV1TooManyRequests {
 }
 
 /*
-	IndicatorCreateV1TooManyRequests describes a response with status code 429, with default header values.
+IndicatorCreateV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

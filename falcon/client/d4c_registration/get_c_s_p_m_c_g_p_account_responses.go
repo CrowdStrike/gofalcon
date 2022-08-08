@@ -79,7 +79,7 @@ func NewGetCSPMCGPAccountOK() *GetCSPMCGPAccountOK {
 }
 
 /*
-	GetCSPMCGPAccountOK describes a response with status code 200, with default header values.
+GetCSPMCGPAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetCSPMCGPAccountMultiStatus() *GetCSPMCGPAccountMultiStatus {
 }
 
 /*
-	GetCSPMCGPAccountMultiStatus describes a response with status code 207, with default header values.
+GetCSPMCGPAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -207,7 +207,7 @@ func NewGetCSPMCGPAccountBadRequest() *GetCSPMCGPAccountBadRequest {
 }
 
 /*
-	GetCSPMCGPAccountBadRequest describes a response with status code 400, with default header values.
+GetCSPMCGPAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -271,7 +271,7 @@ func NewGetCSPMCGPAccountForbidden() *GetCSPMCGPAccountForbidden {
 }
 
 /*
-	GetCSPMCGPAccountForbidden describes a response with status code 403, with default header values.
+GetCSPMCGPAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -335,7 +335,7 @@ func NewGetCSPMCGPAccountTooManyRequests() *GetCSPMCGPAccountTooManyRequests {
 }
 
 /*
-	GetCSPMCGPAccountTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMCGPAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetCSPMCGPAccountInternalServerError() *GetCSPMCGPAccountInternalServerE
 }
 
 /*
-	GetCSPMCGPAccountInternalServerError describes a response with status code 500, with default header values.
+GetCSPMCGPAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetCSPMCGPAccountDefault(code int) *GetCSPMCGPAccountDefault {
 }
 
 /*
-	GetCSPMCGPAccountDefault describes a response with status code -1, with default header values.
+GetCSPMCGPAccountDefault describes a response with status code -1, with default header values.
 
 OK
 */

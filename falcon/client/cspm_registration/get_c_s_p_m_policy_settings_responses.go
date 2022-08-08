@@ -79,7 +79,7 @@ func NewGetCSPMPolicySettingsOK() *GetCSPMPolicySettingsOK {
 }
 
 /*
-	GetCSPMPolicySettingsOK describes a response with status code 200, with default header values.
+GetCSPMPolicySettingsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewGetCSPMPolicySettingsMultiStatus() *GetCSPMPolicySettingsMultiStatus {
 }
 
 /*
-	GetCSPMPolicySettingsMultiStatus describes a response with status code 207, with default header values.
+GetCSPMPolicySettingsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -229,7 +229,7 @@ func NewGetCSPMPolicySettingsBadRequest() *GetCSPMPolicySettingsBadRequest {
 }
 
 /*
-	GetCSPMPolicySettingsBadRequest describes a response with status code 400, with default header values.
+GetCSPMPolicySettingsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -304,7 +304,7 @@ func NewGetCSPMPolicySettingsForbidden() *GetCSPMPolicySettingsForbidden {
 }
 
 /*
-	GetCSPMPolicySettingsForbidden describes a response with status code 403, with default header values.
+GetCSPMPolicySettingsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewGetCSPMPolicySettingsTooManyRequests() *GetCSPMPolicySettingsTooManyRequ
 }
 
 /*
-	GetCSPMPolicySettingsTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMPolicySettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewGetCSPMPolicySettingsInternalServerError() *GetCSPMPolicySettingsInterna
 }
 
 /*
-	GetCSPMPolicySettingsInternalServerError describes a response with status code 500, with default header values.
+GetCSPMPolicySettingsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewGetCSPMPolicySettingsDefault(code int) *GetCSPMPolicySettingsDefault {
 }
 
 /*
-	GetCSPMPolicySettingsDefault describes a response with status code -1, with default header values.
+GetCSPMPolicySettingsDefault describes a response with status code -1, with default header values.
 
 OK
 */

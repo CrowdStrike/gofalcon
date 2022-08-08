@@ -61,7 +61,7 @@ func NewQueryDevicesByFilterScrollOK() *QueryDevicesByFilterScrollOK {
 }
 
 /*
-	QueryDevicesByFilterScrollOK describes a response with status code 200, with default header values.
+QueryDevicesByFilterScrollOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewQueryDevicesByFilterScrollForbidden() *QueryDevicesByFilterScrollForbidd
 }
 
 /*
-	QueryDevicesByFilterScrollForbidden describes a response with status code 403, with default header values.
+QueryDevicesByFilterScrollForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewQueryDevicesByFilterScrollTooManyRequests() *QueryDevicesByFilterScrollT
 }
 
 /*
-	QueryDevicesByFilterScrollTooManyRequests describes a response with status code 429, with default header values.
+QueryDevicesByFilterScrollTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewQueryDevicesByFilterScrollDefault(code int) *QueryDevicesByFilterScrollD
 }
 
 /*
-	QueryDevicesByFilterScrollDefault describes a response with status code -1, with default header values.
+QueryDevicesByFilterScrollDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -67,7 +67,7 @@ func NewGetIntelActorEntitiesOK() *GetIntelActorEntitiesOK {
 }
 
 /*
-	GetIntelActorEntitiesOK describes a response with status code 200, with default header values.
+GetIntelActorEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGetIntelActorEntitiesForbidden() *GetIntelActorEntitiesForbidden {
 }
 
 /*
-	GetIntelActorEntitiesForbidden describes a response with status code 403, with default header values.
+GetIntelActorEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -195,7 +195,7 @@ func NewGetIntelActorEntitiesTooManyRequests() *GetIntelActorEntitiesTooManyRequ
 }
 
 /*
-	GetIntelActorEntitiesTooManyRequests describes a response with status code 429, with default header values.
+GetIntelActorEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -274,7 +274,7 @@ func NewGetIntelActorEntitiesInternalServerError() *GetIntelActorEntitiesInterna
 }
 
 /*
-	GetIntelActorEntitiesInternalServerError describes a response with status code 500, with default header values.
+GetIntelActorEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -340,7 +340,7 @@ func NewGetIntelActorEntitiesDefault(code int) *GetIntelActorEntitiesDefault {
 }
 
 /*
-	GetIntelActorEntitiesDefault describes a response with status code -1, with default header values.
+GetIntelActorEntitiesDefault describes a response with status code -1, with default header values.
 
 OK
 */

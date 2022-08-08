@@ -67,7 +67,7 @@ func NewGetEventsOK() *GetEventsOK {
 }
 
 /*
-	GetEventsOK describes a response with status code 200, with default header values.
+GetEventsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGetEventsBadRequest() *GetEventsBadRequest {
 }
 
 /*
-	GetEventsBadRequest describes a response with status code 400, with default header values.
+GetEventsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -195,7 +195,7 @@ func NewGetEventsForbidden() *GetEventsForbidden {
 }
 
 /*
-	GetEventsForbidden describes a response with status code 403, with default header values.
+GetEventsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -259,7 +259,7 @@ func NewGetEventsTooManyRequests() *GetEventsTooManyRequests {
 }
 
 /*
-	GetEventsTooManyRequests describes a response with status code 429, with default header values.
+GetEventsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewGetEventsDefault(code int) *GetEventsDefault {
 }
 
 /*
-	GetEventsDefault describes a response with status code -1, with default header values.
+GetEventsDefault describes a response with status code -1, with default header values.
 
 OK
 */

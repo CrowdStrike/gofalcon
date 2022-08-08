@@ -61,7 +61,7 @@ func NewQueryEscalationsFilterOK() *QueryEscalationsFilterOK {
 }
 
 /*
-	QueryEscalationsFilterOK describes a response with status code 200, with default header values.
+QueryEscalationsFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewQueryEscalationsFilterForbidden() *QueryEscalationsFilterForbidden {
 }
 
 /*
-	QueryEscalationsFilterForbidden describes a response with status code 403, with default header values.
+QueryEscalationsFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewQueryEscalationsFilterTooManyRequests() *QueryEscalationsFilterTooManyRe
 }
 
 /*
-	QueryEscalationsFilterTooManyRequests describes a response with status code 429, with default header values.
+QueryEscalationsFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewQueryEscalationsFilterDefault(code int) *QueryEscalationsFilterDefault {
 }
 
 /*
-	QueryEscalationsFilterDefault describes a response with status code -1, with default header values.
+QueryEscalationsFilterDefault describes a response with status code -1, with default header values.
 
 OK
 */

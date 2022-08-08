@@ -73,7 +73,7 @@ func NewGetAssessmentV1OK() *GetAssessmentV1OK {
 }
 
 /*
-	GetAssessmentV1OK describes a response with status code 200, with default header values.
+GetAssessmentV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewGetAssessmentV1BadRequest() *GetAssessmentV1BadRequest {
 }
 
 /*
-	GetAssessmentV1BadRequest describes a response with status code 400, with default header values.
+GetAssessmentV1BadRequest describes a response with status code 400, with default header values.
 
 Number of agent IDs exceeds the limit of 1000.
 */
@@ -223,7 +223,7 @@ func NewGetAssessmentV1Forbidden() *GetAssessmentV1Forbidden {
 }
 
 /*
-	GetAssessmentV1Forbidden describes a response with status code 403, with default header values.
+GetAssessmentV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewGetAssessmentV1NotFound() *GetAssessmentV1NotFound {
 }
 
 /*
-	GetAssessmentV1NotFound describes a response with status code 404, with default header values.
+GetAssessmentV1NotFound describes a response with status code 404, with default header values.
 
 One or more of the specified agent IDs is not found.
 */
@@ -373,7 +373,7 @@ func NewGetAssessmentV1TooManyRequests() *GetAssessmentV1TooManyRequests {
 }
 
 /*
-	GetAssessmentV1TooManyRequests describes a response with status code 429, with default header values.
+GetAssessmentV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -465,7 +465,7 @@ func NewGetAssessmentV1Default(code int) *GetAssessmentV1Default {
 }
 
 /*
-	GetAssessmentV1Default describes a response with status code -1, with default header values.
+GetAssessmentV1Default describes a response with status code -1, with default header values.
 
 OK
 */

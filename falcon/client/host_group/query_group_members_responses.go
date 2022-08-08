@@ -79,7 +79,7 @@ func NewQueryGroupMembersOK() *QueryGroupMembersOK {
 }
 
 /*
-	QueryGroupMembersOK describes a response with status code 200, with default header values.
+QueryGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewQueryGroupMembersBadRequest() *QueryGroupMembersBadRequest {
 }
 
 /*
-	QueryGroupMembersBadRequest describes a response with status code 400, with default header values.
+QueryGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewQueryGroupMembersForbidden() *QueryGroupMembersForbidden {
 }
 
 /*
-	QueryGroupMembersForbidden describes a response with status code 403, with default header values.
+QueryGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewQueryGroupMembersNotFound() *QueryGroupMembersNotFound {
 }
 
 /*
-	QueryGroupMembersNotFound describes a response with status code 404, with default header values.
+QueryGroupMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewQueryGroupMembersTooManyRequests() *QueryGroupMembersTooManyRequests {
 }
 
 /*
-	QueryGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewQueryGroupMembersInternalServerError() *QueryGroupMembersInternalServerE
 }
 
 /*
-	QueryGroupMembersInternalServerError describes a response with status code 500, with default header values.
+QueryGroupMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewQueryGroupMembersDefault(code int) *QueryGroupMembersDefault {
 }
 
 /*
-	QueryGroupMembersDefault describes a response with status code -1, with default header values.
+QueryGroupMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

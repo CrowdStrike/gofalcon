@@ -67,7 +67,7 @@ func NewUpdateRuleGroupOK() *UpdateRuleGroupOK {
 }
 
 /*
-	UpdateRuleGroupOK describes a response with status code 200, with default header values.
+UpdateRuleGroupOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -142,7 +142,7 @@ func NewUpdateRuleGroupBadRequest() *UpdateRuleGroupBadRequest {
 }
 
 /*
-	UpdateRuleGroupBadRequest describes a response with status code 400, with default header values.
+UpdateRuleGroupBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -217,7 +217,7 @@ func NewUpdateRuleGroupForbidden() *UpdateRuleGroupForbidden {
 }
 
 /*
-	UpdateRuleGroupForbidden describes a response with status code 403, with default header values.
+UpdateRuleGroupForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -292,7 +292,7 @@ func NewUpdateRuleGroupTooManyRequests() *UpdateRuleGroupTooManyRequests {
 }
 
 /*
-	UpdateRuleGroupTooManyRequests describes a response with status code 429, with default header values.
+UpdateRuleGroupTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -384,7 +384,7 @@ func NewUpdateRuleGroupDefault(code int) *UpdateRuleGroupDefault {
 }
 
 /*
-	UpdateRuleGroupDefault describes a response with status code -1, with default header values.
+UpdateRuleGroupDefault describes a response with status code -1, with default header values.
 
 OK
 */

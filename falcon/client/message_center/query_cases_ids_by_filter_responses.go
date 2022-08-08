@@ -73,7 +73,7 @@ func NewQueryCasesIdsByFilterOK() *QueryCasesIdsByFilterOK {
 }
 
 /*
-	QueryCasesIdsByFilterOK describes a response with status code 200, with default header values.
+QueryCasesIdsByFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewQueryCasesIdsByFilterBadRequest() *QueryCasesIdsByFilterBadRequest {
 }
 
 /*
-	QueryCasesIdsByFilterBadRequest describes a response with status code 400, with default header values.
+QueryCasesIdsByFilterBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewQueryCasesIdsByFilterForbidden() *QueryCasesIdsByFilterForbidden {
 }
 
 /*
-	QueryCasesIdsByFilterForbidden describes a response with status code 403, with default header values.
+QueryCasesIdsByFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewQueryCasesIdsByFilterTooManyRequests() *QueryCasesIdsByFilterTooManyRequ
 }
 
 /*
-	QueryCasesIdsByFilterTooManyRequests describes a response with status code 429, with default header values.
+QueryCasesIdsByFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewQueryCasesIdsByFilterInternalServerError() *QueryCasesIdsByFilterInterna
 }
 
 /*
-	QueryCasesIdsByFilterInternalServerError describes a response with status code 500, with default header values.
+QueryCasesIdsByFilterInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewQueryCasesIdsByFilterDefault(code int) *QueryCasesIdsByFilterDefault {
 }
 
 /*
-	QueryCasesIdsByFilterDefault describes a response with status code -1, with default header values.
+QueryCasesIdsByFilterDefault describes a response with status code -1, with default header values.
 
 OK
 */

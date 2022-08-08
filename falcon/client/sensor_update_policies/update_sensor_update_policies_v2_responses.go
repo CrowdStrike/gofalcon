@@ -79,7 +79,7 @@ func NewUpdateSensorUpdatePoliciesV2OK() *UpdateSensorUpdatePoliciesV2OK {
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
+UpdateSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewUpdateSensorUpdatePoliciesV2BadRequest() *UpdateSensorUpdatePoliciesV2Ba
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2BadRequest describes a response with status code 400, with default header values.
+UpdateSensorUpdatePoliciesV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewUpdateSensorUpdatePoliciesV2Forbidden() *UpdateSensorUpdatePoliciesV2For
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
+UpdateSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewUpdateSensorUpdatePoliciesV2NotFound() *UpdateSensorUpdatePoliciesV2NotF
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2NotFound describes a response with status code 404, with default header values.
+UpdateSensorUpdatePoliciesV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewUpdateSensorUpdatePoliciesV2TooManyRequests() *UpdateSensorUpdatePolicie
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
+UpdateSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewUpdateSensorUpdatePoliciesV2InternalServerError() *UpdateSensorUpdatePol
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
+UpdateSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewUpdateSensorUpdatePoliciesV2Default(code int) *UpdateSensorUpdatePolicie
 }
 
 /*
-	UpdateSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
+UpdateSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
 
 OK
 */

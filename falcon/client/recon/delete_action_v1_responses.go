@@ -79,7 +79,7 @@ func NewDeleteActionV1OK() *DeleteActionV1OK {
 }
 
 /*
-	DeleteActionV1OK describes a response with status code 200, with default header values.
+DeleteActionV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewDeleteActionV1BadRequest() *DeleteActionV1BadRequest {
 }
 
 /*
-	DeleteActionV1BadRequest describes a response with status code 400, with default header values.
+DeleteActionV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewDeleteActionV1Unauthorized() *DeleteActionV1Unauthorized {
 }
 
 /*
-	DeleteActionV1Unauthorized describes a response with status code 401, with default header values.
+DeleteActionV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -304,7 +304,7 @@ func NewDeleteActionV1Forbidden() *DeleteActionV1Forbidden {
 }
 
 /*
-	DeleteActionV1Forbidden describes a response with status code 403, with default header values.
+DeleteActionV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewDeleteActionV1TooManyRequests() *DeleteActionV1TooManyRequests {
 }
 
 /*
-	DeleteActionV1TooManyRequests describes a response with status code 429, with default header values.
+DeleteActionV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewDeleteActionV1InternalServerError() *DeleteActionV1InternalServerError {
 }
 
 /*
-	DeleteActionV1InternalServerError describes a response with status code 500, with default header values.
+DeleteActionV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewDeleteActionV1Default(code int) *DeleteActionV1Default {
 }
 
 /*
-	DeleteActionV1Default describes a response with status code -1, with default header values.
+DeleteActionV1Default describes a response with status code -1, with default header values.
 
 OK
 */

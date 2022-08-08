@@ -72,7 +72,7 @@ func NewCreateDeviceControlPoliciesCreated() *CreateDeviceControlPoliciesCreated
 }
 
 /*
-	CreateDeviceControlPoliciesCreated describes a response with status code 201, with default header values.
+CreateDeviceControlPoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -136,7 +136,7 @@ func NewCreateDeviceControlPoliciesBadRequest() *CreateDeviceControlPoliciesBadR
 }
 
 /*
-	CreateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
+CreateDeviceControlPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -200,7 +200,7 @@ func NewCreateDeviceControlPoliciesForbidden() *CreateDeviceControlPoliciesForbi
 }
 
 /*
-	CreateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+CreateDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -264,7 +264,7 @@ func NewCreateDeviceControlPoliciesNotFound() *CreateDeviceControlPoliciesNotFou
 }
 
 /*
-	CreateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+CreateDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -328,7 +328,7 @@ func NewCreateDeviceControlPoliciesTooManyRequests() *CreateDeviceControlPolicie
 }
 
 /*
-	CreateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+CreateDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -407,7 +407,7 @@ func NewCreateDeviceControlPoliciesInternalServerError() *CreateDeviceControlPol
 }
 
 /*
-	CreateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+CreateDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

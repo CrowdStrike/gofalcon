@@ -73,7 +73,7 @@ func NewQueryAccountsOK() *QueryAccountsOK {
 }
 
 /*
-	QueryAccountsOK describes a response with status code 200, with default header values.
+QueryAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewQueryAccountsBadRequest() *QueryAccountsBadRequest {
 }
 
 /*
-	QueryAccountsBadRequest describes a response with status code 400, with default header values.
+QueryAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -223,7 +223,7 @@ func NewQueryAccountsForbidden() *QueryAccountsForbidden {
 }
 
 /*
-	QueryAccountsForbidden describes a response with status code 403, with default header values.
+QueryAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -298,7 +298,7 @@ func NewQueryAccountsTooManyRequests() *QueryAccountsTooManyRequests {
 }
 
 /*
-	QueryAccountsTooManyRequests describes a response with status code 429, with default header values.
+QueryAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -388,7 +388,7 @@ func NewQueryAccountsInternalServerError() *QueryAccountsInternalServerError {
 }
 
 /*
-	QueryAccountsInternalServerError describes a response with status code 500, with default header values.
+QueryAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -465,7 +465,7 @@ func NewQueryAccountsDefault(code int) *QueryAccountsDefault {
 }
 
 /*
-	QueryAccountsDefault describes a response with status code -1, with default header values.
+QueryAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -79,7 +79,7 @@ func NewPerformRTResponsePoliciesActionOK() *PerformRTResponsePoliciesActionOK {
 }
 
 /*
-	PerformRTResponsePoliciesActionOK describes a response with status code 200, with default header values.
+PerformRTResponsePoliciesActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewPerformRTResponsePoliciesActionBadRequest() *PerformRTResponsePoliciesAc
 }
 
 /*
-	PerformRTResponsePoliciesActionBadRequest describes a response with status code 400, with default header values.
+PerformRTResponsePoliciesActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -229,7 +229,7 @@ func NewPerformRTResponsePoliciesActionForbidden() *PerformRTResponsePoliciesAct
 }
 
 /*
-	PerformRTResponsePoliciesActionForbidden describes a response with status code 403, with default header values.
+PerformRTResponsePoliciesActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -304,7 +304,7 @@ func NewPerformRTResponsePoliciesActionNotFound() *PerformRTResponsePoliciesActi
 }
 
 /*
-	PerformRTResponsePoliciesActionNotFound describes a response with status code 404, with default header values.
+PerformRTResponsePoliciesActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -379,7 +379,7 @@ func NewPerformRTResponsePoliciesActionTooManyRequests() *PerformRTResponsePolic
 }
 
 /*
-	PerformRTResponsePoliciesActionTooManyRequests describes a response with status code 429, with default header values.
+PerformRTResponsePoliciesActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewPerformRTResponsePoliciesActionInternalServerError() *PerformRTResponseP
 }
 
 /*
-	PerformRTResponsePoliciesActionInternalServerError describes a response with status code 500, with default header values.
+PerformRTResponsePoliciesActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewPerformRTResponsePoliciesActionDefault(code int) *PerformRTResponsePolic
 }
 
 /*
-	PerformRTResponsePoliciesActionDefault describes a response with status code -1, with default header values.
+PerformRTResponsePoliciesActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

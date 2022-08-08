@@ -79,7 +79,7 @@ func NewUpdateAWSAccountsOK() *UpdateAWSAccountsOK {
 }
 
 /*
-	UpdateAWSAccountsOK describes a response with status code 200, with default header values.
+UpdateAWSAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewUpdateAWSAccountsBadRequest() *UpdateAWSAccountsBadRequest {
 }
 
 /*
-	UpdateAWSAccountsBadRequest describes a response with status code 400, with default header values.
+UpdateAWSAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewUpdateAWSAccountsForbidden() *UpdateAWSAccountsForbidden {
 }
 
 /*
-	UpdateAWSAccountsForbidden describes a response with status code 403, with default header values.
+UpdateAWSAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewUpdateAWSAccountsNotFound() *UpdateAWSAccountsNotFound {
 }
 
 /*
-	UpdateAWSAccountsNotFound describes a response with status code 404, with default header values.
+UpdateAWSAccountsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewUpdateAWSAccountsTooManyRequests() *UpdateAWSAccountsTooManyRequests {
 }
 
 /*
-	UpdateAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
+UpdateAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewUpdateAWSAccountsInternalServerError() *UpdateAWSAccountsInternalServerE
 }
 
 /*
-	UpdateAWSAccountsInternalServerError describes a response with status code 500, with default header values.
+UpdateAWSAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewUpdateAWSAccountsDefault(code int) *UpdateAWSAccountsDefault {
 }
 
 /*
-	UpdateAWSAccountsDefault describes a response with status code -1, with default header values.
+UpdateAWSAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

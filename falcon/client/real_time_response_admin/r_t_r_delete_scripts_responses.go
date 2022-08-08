@@ -73,7 +73,7 @@ func NewRTRDeleteScriptsOK() *RTRDeleteScriptsOK {
 }
 
 /*
-	RTRDeleteScriptsOK describes a response with status code 200, with default header values.
+RTRDeleteScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewRTRDeleteScriptsBadRequest() *RTRDeleteScriptsBadRequest {
 }
 
 /*
-	RTRDeleteScriptsBadRequest describes a response with status code 400, with default header values.
+RTRDeleteScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewRTRDeleteScriptsForbidden() *RTRDeleteScriptsForbidden {
 }
 
 /*
-	RTRDeleteScriptsForbidden describes a response with status code 403, with default header values.
+RTRDeleteScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewRTRDeleteScriptsNotFound() *RTRDeleteScriptsNotFound {
 }
 
 /*
-	RTRDeleteScriptsNotFound describes a response with status code 404, with default header values.
+RTRDeleteScriptsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -329,7 +329,7 @@ func NewRTRDeleteScriptsTooManyRequests() *RTRDeleteScriptsTooManyRequests {
 }
 
 /*
-	RTRDeleteScriptsTooManyRequests describes a response with status code 429, with default header values.
+RTRDeleteScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewRTRDeleteScriptsDefault(code int) *RTRDeleteScriptsDefault {
 }
 
 /*
-	RTRDeleteScriptsDefault describes a response with status code -1, with default header values.
+RTRDeleteScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */

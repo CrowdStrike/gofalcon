@@ -73,7 +73,7 @@ func NewDeleteHostGroupsOK() *DeleteHostGroupsOK {
 }
 
 /*
-	DeleteHostGroupsOK describes a response with status code 200, with default header values.
+DeleteHostGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewDeleteHostGroupsForbidden() *DeleteHostGroupsForbidden {
 }
 
 /*
-	DeleteHostGroupsForbidden describes a response with status code 403, with default header values.
+DeleteHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -201,7 +201,7 @@ func NewDeleteHostGroupsNotFound() *DeleteHostGroupsNotFound {
 }
 
 /*
-	DeleteHostGroupsNotFound describes a response with status code 404, with default header values.
+DeleteHostGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -265,7 +265,7 @@ func NewDeleteHostGroupsTooManyRequests() *DeleteHostGroupsTooManyRequests {
 }
 
 /*
-	DeleteHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+DeleteHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewDeleteHostGroupsInternalServerError() *DeleteHostGroupsInternalServerErr
 }
 
 /*
-	DeleteHostGroupsInternalServerError describes a response with status code 500, with default header values.
+DeleteHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewDeleteHostGroupsDefault(code int) *DeleteHostGroupsDefault {
 }
 
 /*
-	DeleteHostGroupsDefault describes a response with status code -1, with default header values.
+DeleteHostGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

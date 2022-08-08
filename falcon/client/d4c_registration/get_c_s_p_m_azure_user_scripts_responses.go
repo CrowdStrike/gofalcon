@@ -79,7 +79,7 @@ func NewGetCSPMAzureUserScriptsOK() *GetCSPMAzureUserScriptsOK {
 }
 
 /*
-	GetCSPMAzureUserScriptsOK describes a response with status code 200, with default header values.
+GetCSPMAzureUserScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetCSPMAzureUserScriptsMultiStatus() *GetCSPMAzureUserScriptsMultiStatus
 }
 
 /*
-	GetCSPMAzureUserScriptsMultiStatus describes a response with status code 207, with default header values.
+GetCSPMAzureUserScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -207,7 +207,7 @@ func NewGetCSPMAzureUserScriptsBadRequest() *GetCSPMAzureUserScriptsBadRequest {
 }
 
 /*
-	GetCSPMAzureUserScriptsBadRequest describes a response with status code 400, with default header values.
+GetCSPMAzureUserScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -271,7 +271,7 @@ func NewGetCSPMAzureUserScriptsForbidden() *GetCSPMAzureUserScriptsForbidden {
 }
 
 /*
-	GetCSPMAzureUserScriptsForbidden describes a response with status code 403, with default header values.
+GetCSPMAzureUserScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -335,7 +335,7 @@ func NewGetCSPMAzureUserScriptsTooManyRequests() *GetCSPMAzureUserScriptsTooMany
 }
 
 /*
-	GetCSPMAzureUserScriptsTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMAzureUserScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetCSPMAzureUserScriptsInternalServerError() *GetCSPMAzureUserScriptsInt
 }
 
 /*
-	GetCSPMAzureUserScriptsInternalServerError describes a response with status code 500, with default header values.
+GetCSPMAzureUserScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetCSPMAzureUserScriptsDefault(code int) *GetCSPMAzureUserScriptsDefault
 }
 
 /*
-	GetCSPMAzureUserScriptsDefault describes a response with status code -1, with default header values.
+GetCSPMAzureUserScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */

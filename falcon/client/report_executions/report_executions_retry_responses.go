@@ -67,7 +67,7 @@ func NewReportExecutionsRetryOK() *ReportExecutionsRetryOK {
 }
 
 /*
-	ReportExecutionsRetryOK describes a response with status code 200, with default header values.
+ReportExecutionsRetryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -142,7 +142,7 @@ func NewReportExecutionsRetryBadRequest() *ReportExecutionsRetryBadRequest {
 }
 
 /*
-	ReportExecutionsRetryBadRequest describes a response with status code 400, with default header values.
+ReportExecutionsRetryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -217,7 +217,7 @@ func NewReportExecutionsRetryForbidden() *ReportExecutionsRetryForbidden {
 }
 
 /*
-	ReportExecutionsRetryForbidden describes a response with status code 403, with default header values.
+ReportExecutionsRetryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -292,7 +292,7 @@ func NewReportExecutionsRetryTooManyRequests() *ReportExecutionsRetryTooManyRequ
 }
 
 /*
-	ReportExecutionsRetryTooManyRequests describes a response with status code 429, with default header values.
+ReportExecutionsRetryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -384,7 +384,7 @@ func NewReportExecutionsRetryDefault(code int) *ReportExecutionsRetryDefault {
 }
 
 /*
-	ReportExecutionsRetryDefault describes a response with status code -1, with default header values.
+ReportExecutionsRetryDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -73,7 +73,7 @@ func NewUpdateIOAExclusionsV1OK() *UpdateIOAExclusionsV1OK {
 }
 
 /*
-	UpdateIOAExclusionsV1OK describes a response with status code 200, with default header values.
+UpdateIOAExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewUpdateIOAExclusionsV1BadRequest() *UpdateIOAExclusionsV1BadRequest {
 }
 
 /*
-	UpdateIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
+UpdateIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewUpdateIOAExclusionsV1Forbidden() *UpdateIOAExclusionsV1Forbidden {
 }
 
 /*
-	UpdateIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
+UpdateIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewUpdateIOAExclusionsV1TooManyRequests() *UpdateIOAExclusionsV1TooManyRequ
 }
 
 /*
-	UpdateIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+UpdateIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewUpdateIOAExclusionsV1InternalServerError() *UpdateIOAExclusionsV1Interna
 }
 
 /*
-	UpdateIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+UpdateIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewUpdateIOAExclusionsV1Default(code int) *UpdateIOAExclusionsV1Default {
 }
 
 /*
-	UpdateIOAExclusionsV1Default describes a response with status code -1, with default header values.
+UpdateIOAExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

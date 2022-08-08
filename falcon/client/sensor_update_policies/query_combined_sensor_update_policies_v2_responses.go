@@ -73,7 +73,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2OK() *QueryCombinedSensorUpdatePolici
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
+QueryCombinedSensorUpdatePoliciesV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2BadRequest() *QueryCombinedSensorUpda
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2BadRequest describes a response with status code 400, with default header values.
+QueryCombinedSensorUpdatePoliciesV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2Forbidden() *QueryCombinedSensorUpdat
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
+QueryCombinedSensorUpdatePoliciesV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2TooManyRequests() *QueryCombinedSenso
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
+QueryCombinedSensorUpdatePoliciesV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2InternalServerError() *QueryCombinedS
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
+QueryCombinedSensorUpdatePoliciesV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewQueryCombinedSensorUpdatePoliciesV2Default(code int) *QueryCombinedSenso
 }
 
 /*
-	QueryCombinedSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
+QueryCombinedSensorUpdatePoliciesV2Default describes a response with status code -1, with default header values.
 
 OK
 */

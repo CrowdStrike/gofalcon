@@ -61,7 +61,7 @@ func NewQueryPlatformsMixin0OK() *QueryPlatformsMixin0OK {
 }
 
 /*
-	QueryPlatformsMixin0OK describes a response with status code 200, with default header values.
+QueryPlatformsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewQueryPlatformsMixin0Forbidden() *QueryPlatformsMixin0Forbidden {
 }
 
 /*
-	QueryPlatformsMixin0Forbidden describes a response with status code 403, with default header values.
+QueryPlatformsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewQueryPlatformsMixin0TooManyRequests() *QueryPlatformsMixin0TooManyReques
 }
 
 /*
-	QueryPlatformsMixin0TooManyRequests describes a response with status code 429, with default header values.
+QueryPlatformsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewQueryPlatformsMixin0Default(code int) *QueryPlatformsMixin0Default {
 }
 
 /*
-	QueryPlatformsMixin0Default describes a response with status code -1, with default header values.
+QueryPlatformsMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

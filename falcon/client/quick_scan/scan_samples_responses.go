@@ -73,7 +73,7 @@ func NewScanSamplesOK() *ScanSamplesOK {
 }
 
 /*
-	ScanSamplesOK describes a response with status code 200, with default header values.
+ScanSamplesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewScanSamplesBadRequest() *ScanSamplesBadRequest {
 }
 
 /*
-	ScanSamplesBadRequest describes a response with status code 400, with default header values.
+ScanSamplesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewScanSamplesForbidden() *ScanSamplesForbidden {
 }
 
 /*
-	ScanSamplesForbidden describes a response with status code 403, with default header values.
+ScanSamplesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewScanSamplesTooManyRequests() *ScanSamplesTooManyRequests {
 }
 
 /*
-	ScanSamplesTooManyRequests describes a response with status code 429, with default header values.
+ScanSamplesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewScanSamplesInternalServerError() *ScanSamplesInternalServerError {
 }
 
 /*
-	ScanSamplesInternalServerError describes a response with status code 500, with default header values.
+ScanSamplesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewScanSamplesDefault(code int) *ScanSamplesDefault {
 }
 
 /*
-	ScanSamplesDefault describes a response with status code -1, with default header values.
+ScanSamplesDefault describes a response with status code -1, with default header values.
 
 OK
 */

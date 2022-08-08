@@ -66,7 +66,7 @@ func NewUpdateCSPMAzureAccountClientIDCreated() *UpdateCSPMAzureAccountClientIDC
 }
 
 /*
-	UpdateCSPMAzureAccountClientIDCreated describes a response with status code 201, with default header values.
+UpdateCSPMAzureAccountClientIDCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -130,7 +130,7 @@ func NewUpdateCSPMAzureAccountClientIDBadRequest() *UpdateCSPMAzureAccountClient
 }
 
 /*
-	UpdateCSPMAzureAccountClientIDBadRequest describes a response with status code 400, with default header values.
+UpdateCSPMAzureAccountClientIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -194,7 +194,7 @@ func NewUpdateCSPMAzureAccountClientIDForbidden() *UpdateCSPMAzureAccountClientI
 }
 
 /*
-	UpdateCSPMAzureAccountClientIDForbidden describes a response with status code 403, with default header values.
+UpdateCSPMAzureAccountClientIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -258,7 +258,7 @@ func NewUpdateCSPMAzureAccountClientIDTooManyRequests() *UpdateCSPMAzureAccountC
 }
 
 /*
-	UpdateCSPMAzureAccountClientIDTooManyRequests describes a response with status code 429, with default header values.
+UpdateCSPMAzureAccountClientIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -337,7 +337,7 @@ func NewUpdateCSPMAzureAccountClientIDInternalServerError() *UpdateCSPMAzureAcco
 }
 
 /*
-	UpdateCSPMAzureAccountClientIDInternalServerError describes a response with status code 500, with default header values.
+UpdateCSPMAzureAccountClientIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

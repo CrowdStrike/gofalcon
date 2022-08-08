@@ -66,7 +66,7 @@ func NewRTRDeleteQueuedSessionNoContent() *RTRDeleteQueuedSessionNoContent {
 }
 
 /*
-	RTRDeleteQueuedSessionNoContent describes a response with status code 204, with default header values.
+RTRDeleteQueuedSessionNoContent describes a response with status code 204, with default header values.
 
 No Content
 */
@@ -130,7 +130,7 @@ func NewRTRDeleteQueuedSessionBadRequest() *RTRDeleteQueuedSessionBadRequest {
 }
 
 /*
-	RTRDeleteQueuedSessionBadRequest describes a response with status code 400, with default header values.
+RTRDeleteQueuedSessionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -194,7 +194,7 @@ func NewRTRDeleteQueuedSessionUnauthorized() *RTRDeleteQueuedSessionUnauthorized
 }
 
 /*
-	RTRDeleteQueuedSessionUnauthorized describes a response with status code 401, with default header values.
+RTRDeleteQueuedSessionUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -258,7 +258,7 @@ func NewRTRDeleteQueuedSessionForbidden() *RTRDeleteQueuedSessionForbidden {
 }
 
 /*
-	RTRDeleteQueuedSessionForbidden describes a response with status code 403, with default header values.
+RTRDeleteQueuedSessionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -322,7 +322,7 @@ func NewRTRDeleteQueuedSessionTooManyRequests() *RTRDeleteQueuedSessionTooManyRe
 }
 
 /*
-	RTRDeleteQueuedSessionTooManyRequests describes a response with status code 429, with default header values.
+RTRDeleteQueuedSessionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

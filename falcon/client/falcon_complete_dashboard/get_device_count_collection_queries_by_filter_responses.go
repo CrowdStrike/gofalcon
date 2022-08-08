@@ -61,7 +61,7 @@ func NewGetDeviceCountCollectionQueriesByFilterOK() *GetDeviceCountCollectionQue
 }
 
 /*
-	GetDeviceCountCollectionQueriesByFilterOK describes a response with status code 200, with default header values.
+GetDeviceCountCollectionQueriesByFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewGetDeviceCountCollectionQueriesByFilterForbidden() *GetDeviceCountCollec
 }
 
 /*
-	GetDeviceCountCollectionQueriesByFilterForbidden describes a response with status code 403, with default header values.
+GetDeviceCountCollectionQueriesByFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewGetDeviceCountCollectionQueriesByFilterTooManyRequests() *GetDeviceCount
 }
 
 /*
-	GetDeviceCountCollectionQueriesByFilterTooManyRequests describes a response with status code 429, with default header values.
+GetDeviceCountCollectionQueriesByFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewGetDeviceCountCollectionQueriesByFilterDefault(code int) *GetDeviceCount
 }
 
 /*
-	GetDeviceCountCollectionQueriesByFilterDefault describes a response with status code -1, with default header values.
+GetDeviceCountCollectionQueriesByFilterDefault describes a response with status code -1, with default header values.
 
 OK
 */

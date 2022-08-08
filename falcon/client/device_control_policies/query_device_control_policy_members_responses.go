@@ -79,7 +79,7 @@ func NewQueryDeviceControlPolicyMembersOK() *QueryDeviceControlPolicyMembersOK {
 }
 
 /*
-	QueryDeviceControlPolicyMembersOK describes a response with status code 200, with default header values.
+QueryDeviceControlPolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewQueryDeviceControlPolicyMembersBadRequest() *QueryDeviceControlPolicyMem
 }
 
 /*
-	QueryDeviceControlPolicyMembersBadRequest describes a response with status code 400, with default header values.
+QueryDeviceControlPolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewQueryDeviceControlPolicyMembersForbidden() *QueryDeviceControlPolicyMemb
 }
 
 /*
-	QueryDeviceControlPolicyMembersForbidden describes a response with status code 403, with default header values.
+QueryDeviceControlPolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewQueryDeviceControlPolicyMembersNotFound() *QueryDeviceControlPolicyMembe
 }
 
 /*
-	QueryDeviceControlPolicyMembersNotFound describes a response with status code 404, with default header values.
+QueryDeviceControlPolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewQueryDeviceControlPolicyMembersTooManyRequests() *QueryDeviceControlPoli
 }
 
 /*
-	QueryDeviceControlPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+QueryDeviceControlPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewQueryDeviceControlPolicyMembersInternalServerError() *QueryDeviceControl
 }
 
 /*
-	QueryDeviceControlPolicyMembersInternalServerError describes a response with status code 500, with default header values.
+QueryDeviceControlPolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewQueryDeviceControlPolicyMembersDefault(code int) *QueryDeviceControlPoli
 }
 
 /*
-	QueryDeviceControlPolicyMembersDefault describes a response with status code -1, with default header values.
+QueryDeviceControlPolicyMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

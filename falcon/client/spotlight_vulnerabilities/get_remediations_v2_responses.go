@@ -61,7 +61,7 @@ func NewGetRemediationsV2OK() *GetRemediationsV2OK {
 }
 
 /*
-	GetRemediationsV2OK describes a response with status code 200, with default header values.
+GetRemediationsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewGetRemediationsV2Forbidden() *GetRemediationsV2Forbidden {
 }
 
 /*
-	GetRemediationsV2Forbidden describes a response with status code 403, with default header values.
+GetRemediationsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewGetRemediationsV2TooManyRequests() *GetRemediationsV2TooManyRequests {
 }
 
 /*
-	GetRemediationsV2TooManyRequests describes a response with status code 429, with default header values.
+GetRemediationsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewGetRemediationsV2Default(code int) *GetRemediationsV2Default {
 }
 
 /*
-	GetRemediationsV2Default describes a response with status code -1, with default header values.
+GetRemediationsV2Default describes a response with status code -1, with default header values.
 
 OK
 */

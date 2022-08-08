@@ -67,7 +67,7 @@ func NewGetRulesMixin0OK() *GetRulesMixin0OK {
 }
 
 /*
-	GetRulesMixin0OK describes a response with status code 200, with default header values.
+GetRulesMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGetRulesMixin0Forbidden() *GetRulesMixin0Forbidden {
 }
 
 /*
-	GetRulesMixin0Forbidden describes a response with status code 403, with default header values.
+GetRulesMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -195,7 +195,7 @@ func NewGetRulesMixin0NotFound() *GetRulesMixin0NotFound {
 }
 
 /*
-	GetRulesMixin0NotFound describes a response with status code 404, with default header values.
+GetRulesMixin0NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -259,7 +259,7 @@ func NewGetRulesMixin0TooManyRequests() *GetRulesMixin0TooManyRequests {
 }
 
 /*
-	GetRulesMixin0TooManyRequests describes a response with status code 429, with default header values.
+GetRulesMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewGetRulesMixin0Default(code int) *GetRulesMixin0Default {
 }
 
 /*
-	GetRulesMixin0Default describes a response with status code -1, with default header values.
+GetRulesMixin0Default describes a response with status code -1, with default header values.
 
 OK
 */

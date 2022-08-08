@@ -79,7 +79,7 @@ func NewGetAWSAccountsOK() *GetAWSAccountsOK {
 }
 
 /*
-	GetAWSAccountsOK describes a response with status code 200, with default header values.
+GetAWSAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -143,7 +143,7 @@ func NewGetAWSAccountsBadRequest() *GetAWSAccountsBadRequest {
 }
 
 /*
-	GetAWSAccountsBadRequest describes a response with status code 400, with default header values.
+GetAWSAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -207,7 +207,7 @@ func NewGetAWSAccountsForbidden() *GetAWSAccountsForbidden {
 }
 
 /*
-	GetAWSAccountsForbidden describes a response with status code 403, with default header values.
+GetAWSAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +271,7 @@ func NewGetAWSAccountsNotFound() *GetAWSAccountsNotFound {
 }
 
 /*
-	GetAWSAccountsNotFound describes a response with status code 404, with default header values.
+GetAWSAccountsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -335,7 +335,7 @@ func NewGetAWSAccountsTooManyRequests() *GetAWSAccountsTooManyRequests {
 }
 
 /*
-	GetAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
+GetAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -414,7 +414,7 @@ func NewGetAWSAccountsInternalServerError() *GetAWSAccountsInternalServerError {
 }
 
 /*
-	GetAWSAccountsInternalServerError describes a response with status code 500, with default header values.
+GetAWSAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -480,7 +480,7 @@ func NewGetAWSAccountsDefault(code int) *GetAWSAccountsDefault {
 }
 
 /*
-	GetAWSAccountsDefault describes a response with status code -1, with default header values.
+GetAWSAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

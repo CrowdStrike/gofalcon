@@ -61,7 +61,7 @@ func NewQueryDeviceLoginHistoryOK() *QueryDeviceLoginHistoryOK {
 }
 
 /*
-	QueryDeviceLoginHistoryOK describes a response with status code 200, with default header values.
+QueryDeviceLoginHistoryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -136,7 +136,7 @@ func NewQueryDeviceLoginHistoryForbidden() *QueryDeviceLoginHistoryForbidden {
 }
 
 /*
-	QueryDeviceLoginHistoryForbidden describes a response with status code 403, with default header values.
+QueryDeviceLoginHistoryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -211,7 +211,7 @@ func NewQueryDeviceLoginHistoryTooManyRequests() *QueryDeviceLoginHistoryTooMany
 }
 
 /*
-	QueryDeviceLoginHistoryTooManyRequests describes a response with status code 429, with default header values.
+QueryDeviceLoginHistoryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -303,7 +303,7 @@ func NewQueryDeviceLoginHistoryDefault(code int) *QueryDeviceLoginHistoryDefault
 }
 
 /*
-	QueryDeviceLoginHistoryDefault describes a response with status code -1, with default header values.
+QueryDeviceLoginHistoryDefault describes a response with status code -1, with default header values.
 
 OK
 */

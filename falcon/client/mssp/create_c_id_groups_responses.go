@@ -73,7 +73,7 @@ func NewCreateCIDGroupsOK() *CreateCIDGroupsOK {
 }
 
 /*
-	CreateCIDGroupsOK describes a response with status code 200, with default header values.
+CreateCIDGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewCreateCIDGroupsMultiStatus() *CreateCIDGroupsMultiStatus {
 }
 
 /*
-	CreateCIDGroupsMultiStatus describes a response with status code 207, with default header values.
+CreateCIDGroupsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -201,7 +201,7 @@ func NewCreateCIDGroupsBadRequest() *CreateCIDGroupsBadRequest {
 }
 
 /*
-	CreateCIDGroupsBadRequest describes a response with status code 400, with default header values.
+CreateCIDGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -265,7 +265,7 @@ func NewCreateCIDGroupsForbidden() *CreateCIDGroupsForbidden {
 }
 
 /*
-	CreateCIDGroupsForbidden describes a response with status code 403, with default header values.
+CreateCIDGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -329,7 +329,7 @@ func NewCreateCIDGroupsTooManyRequests() *CreateCIDGroupsTooManyRequests {
 }
 
 /*
-	CreateCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
+CreateCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewCreateCIDGroupsDefault(code int) *CreateCIDGroupsDefault {
 }
 
 /*
-	CreateCIDGroupsDefault describes a response with status code -1, with default header values.
+CreateCIDGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

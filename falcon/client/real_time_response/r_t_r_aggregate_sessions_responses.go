@@ -73,7 +73,7 @@ func NewRTRAggregateSessionsOK() *RTRAggregateSessionsOK {
 }
 
 /*
-	RTRAggregateSessionsOK describes a response with status code 200, with default header values.
+RTRAggregateSessionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewRTRAggregateSessionsBadRequest() *RTRAggregateSessionsBadRequest {
 }
 
 /*
-	RTRAggregateSessionsBadRequest describes a response with status code 400, with default header values.
+RTRAggregateSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewRTRAggregateSessionsForbidden() *RTRAggregateSessionsForbidden {
 }
 
 /*
-	RTRAggregateSessionsForbidden describes a response with status code 403, with default header values.
+RTRAggregateSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewRTRAggregateSessionsNotFound() *RTRAggregateSessionsNotFound {
 }
 
 /*
-	RTRAggregateSessionsNotFound describes a response with status code 404, with default header values.
+RTRAggregateSessionsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -329,7 +329,7 @@ func NewRTRAggregateSessionsTooManyRequests() *RTRAggregateSessionsTooManyReques
 }
 
 /*
-	RTRAggregateSessionsTooManyRequests describes a response with status code 429, with default header values.
+RTRAggregateSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewRTRAggregateSessionsDefault(code int) *RTRAggregateSessionsDefault {
 }
 
 /*
-	RTRAggregateSessionsDefault describes a response with status code -1, with default header values.
+RTRAggregateSessionsDefault describes a response with status code -1, with default header values.
 
 OK
 */

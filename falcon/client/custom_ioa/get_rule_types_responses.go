@@ -67,7 +67,7 @@ func NewGetRuleTypesOK() *GetRuleTypesOK {
 }
 
 /*
-	GetRuleTypesOK describes a response with status code 200, with default header values.
+GetRuleTypesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -131,7 +131,7 @@ func NewGetRuleTypesForbidden() *GetRuleTypesForbidden {
 }
 
 /*
-	GetRuleTypesForbidden describes a response with status code 403, with default header values.
+GetRuleTypesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -195,7 +195,7 @@ func NewGetRuleTypesNotFound() *GetRuleTypesNotFound {
 }
 
 /*
-	GetRuleTypesNotFound describes a response with status code 404, with default header values.
+GetRuleTypesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -259,7 +259,7 @@ func NewGetRuleTypesTooManyRequests() *GetRuleTypesTooManyRequests {
 }
 
 /*
-	GetRuleTypesTooManyRequests describes a response with status code 429, with default header values.
+GetRuleTypesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -340,7 +340,7 @@ func NewGetRuleTypesDefault(code int) *GetRuleTypesDefault {
 }
 
 /*
-	GetRuleTypesDefault describes a response with status code -1, with default header values.
+GetRuleTypesDefault describes a response with status code -1, with default header values.
 
 OK
 */

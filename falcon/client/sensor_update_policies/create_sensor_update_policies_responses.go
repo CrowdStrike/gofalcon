@@ -72,7 +72,7 @@ func NewCreateSensorUpdatePoliciesCreated() *CreateSensorUpdatePoliciesCreated {
 }
 
 /*
-	CreateSensorUpdatePoliciesCreated describes a response with status code 201, with default header values.
+CreateSensorUpdatePoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -136,7 +136,7 @@ func NewCreateSensorUpdatePoliciesBadRequest() *CreateSensorUpdatePoliciesBadReq
 }
 
 /*
-	CreateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
+CreateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -200,7 +200,7 @@ func NewCreateSensorUpdatePoliciesForbidden() *CreateSensorUpdatePoliciesForbidd
 }
 
 /*
-	CreateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+CreateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -264,7 +264,7 @@ func NewCreateSensorUpdatePoliciesNotFound() *CreateSensorUpdatePoliciesNotFound
 }
 
 /*
-	CreateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+CreateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -328,7 +328,7 @@ func NewCreateSensorUpdatePoliciesTooManyRequests() *CreateSensorUpdatePoliciesT
 }
 
 /*
-	CreateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+CreateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -407,7 +407,7 @@ func NewCreateSensorUpdatePoliciesInternalServerError() *CreateSensorUpdatePolic
 }
 
 /*
-	CreateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+CreateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

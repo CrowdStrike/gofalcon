@@ -73,7 +73,7 @@ func NewCreateMLExclusionsV1OK() *CreateMLExclusionsV1OK {
 }
 
 /*
-	CreateMLExclusionsV1OK describes a response with status code 200, with default header values.
+CreateMLExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewCreateMLExclusionsV1BadRequest() *CreateMLExclusionsV1BadRequest {
 }
 
 /*
-	CreateMLExclusionsV1BadRequest describes a response with status code 400, with default header values.
+CreateMLExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewCreateMLExclusionsV1Forbidden() *CreateMLExclusionsV1Forbidden {
 }
 
 /*
-	CreateMLExclusionsV1Forbidden describes a response with status code 403, with default header values.
+CreateMLExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewCreateMLExclusionsV1TooManyRequests() *CreateMLExclusionsV1TooManyReques
 }
 
 /*
-	CreateMLExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+CreateMLExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewCreateMLExclusionsV1InternalServerError() *CreateMLExclusionsV1InternalS
 }
 
 /*
-	CreateMLExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+CreateMLExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewCreateMLExclusionsV1Default(code int) *CreateMLExclusionsV1Default {
 }
 
 /*
-	CreateMLExclusionsV1Default describes a response with status code -1, with default header values.
+CreateMLExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

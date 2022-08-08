@@ -73,7 +73,7 @@ func NewGetCSPMAzureUserScriptsAttachmentOK() *GetCSPMAzureUserScriptsAttachment
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
+GetCSPMAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewGetCSPMAzureUserScriptsAttachmentBadRequest() *GetCSPMAzureUserScriptsAt
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+GetCSPMAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewGetCSPMAzureUserScriptsAttachmentForbidden() *GetCSPMAzureUserScriptsAtt
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+GetCSPMAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewGetCSPMAzureUserScriptsAttachmentTooManyRequests() *GetCSPMAzureUserScri
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+GetCSPMAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewGetCSPMAzureUserScriptsAttachmentInternalServerError() *GetCSPMAzureUser
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+GetCSPMAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -410,7 +410,7 @@ func NewGetCSPMAzureUserScriptsAttachmentDefault(code int) *GetCSPMAzureUserScri
 }
 
 /*
-	GetCSPMAzureUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
+GetCSPMAzureUserScriptsAttachmentDefault describes a response with status code -1, with default header values.
 
 OK
 */

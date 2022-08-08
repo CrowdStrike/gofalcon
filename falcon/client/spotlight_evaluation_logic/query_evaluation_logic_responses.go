@@ -73,7 +73,7 @@ func NewQueryEvaluationLogicOK() *QueryEvaluationLogicOK {
 }
 
 /*
-	QueryEvaluationLogicOK describes a response with status code 200, with default header values.
+QueryEvaluationLogicOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -148,7 +148,7 @@ func NewQueryEvaluationLogicBadRequest() *QueryEvaluationLogicBadRequest {
 }
 
 /*
-	QueryEvaluationLogicBadRequest describes a response with status code 400, with default header values.
+QueryEvaluationLogicBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -211,7 +211,7 @@ func NewQueryEvaluationLogicForbidden() *QueryEvaluationLogicForbidden {
 }
 
 /*
-	QueryEvaluationLogicForbidden describes a response with status code 403, with default header values.
+QueryEvaluationLogicForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -286,7 +286,7 @@ func NewQueryEvaluationLogicTooManyRequests() *QueryEvaluationLogicTooManyReques
 }
 
 /*
-	QueryEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
+QueryEvaluationLogicTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -376,7 +376,7 @@ func NewQueryEvaluationLogicInternalServerError() *QueryEvaluationLogicInternalS
 }
 
 /*
-	QueryEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
+QueryEvaluationLogicInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -441,7 +441,7 @@ func NewQueryEvaluationLogicDefault(code int) *QueryEvaluationLogicDefault {
 }
 
 /*
-	QueryEvaluationLogicDefault describes a response with status code -1, with default header values.
+QueryEvaluationLogicDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -67,7 +67,7 @@ func NewScheduledReportsQueryOK() *ScheduledReportsQueryOK {
 }
 
 /*
-	ScheduledReportsQueryOK describes a response with status code 200, with default header values.
+ScheduledReportsQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -142,7 +142,7 @@ func NewScheduledReportsQueryBadRequest() *ScheduledReportsQueryBadRequest {
 }
 
 /*
-	ScheduledReportsQueryBadRequest describes a response with status code 400, with default header values.
+ScheduledReportsQueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -217,7 +217,7 @@ func NewScheduledReportsQueryForbidden() *ScheduledReportsQueryForbidden {
 }
 
 /*
-	ScheduledReportsQueryForbidden describes a response with status code 403, with default header values.
+ScheduledReportsQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -292,7 +292,7 @@ func NewScheduledReportsQueryTooManyRequests() *ScheduledReportsQueryTooManyRequ
 }
 
 /*
-	ScheduledReportsQueryTooManyRequests describes a response with status code 429, with default header values.
+ScheduledReportsQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -384,7 +384,7 @@ func NewScheduledReportsQueryDefault(code int) *ScheduledReportsQueryDefault {
 }
 
 /*
-	ScheduledReportsQueryDefault describes a response with status code -1, with default header values.
+ScheduledReportsQueryDefault describes a response with status code -1, with default header values.
 
 OK
 */

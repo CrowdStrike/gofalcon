@@ -73,7 +73,7 @@ func NewAddUserGroupMembersOK() *AddUserGroupMembersOK {
 }
 
 /*
-	AddUserGroupMembersOK describes a response with status code 200, with default header values.
+AddUserGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -137,7 +137,7 @@ func NewAddUserGroupMembersMultiStatus() *AddUserGroupMembersMultiStatus {
 }
 
 /*
-	AddUserGroupMembersMultiStatus describes a response with status code 207, with default header values.
+AddUserGroupMembersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -201,7 +201,7 @@ func NewAddUserGroupMembersBadRequest() *AddUserGroupMembersBadRequest {
 }
 
 /*
-	AddUserGroupMembersBadRequest describes a response with status code 400, with default header values.
+AddUserGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -265,7 +265,7 @@ func NewAddUserGroupMembersForbidden() *AddUserGroupMembersForbidden {
 }
 
 /*
-	AddUserGroupMembersForbidden describes a response with status code 403, with default header values.
+AddUserGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -329,7 +329,7 @@ func NewAddUserGroupMembersTooManyRequests() *AddUserGroupMembersTooManyRequests
 }
 
 /*
-	AddUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+AddUserGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -410,7 +410,7 @@ func NewAddUserGroupMembersDefault(code int) *AddUserGroupMembersDefault {
 }
 
 /*
-	AddUserGroupMembersDefault describes a response with status code -1, with default header values.
+AddUserGroupMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

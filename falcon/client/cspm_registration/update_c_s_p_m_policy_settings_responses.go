@@ -79,7 +79,7 @@ func NewUpdateCSPMPolicySettingsOK() *UpdateCSPMPolicySettingsOK {
 }
 
 /*
-	UpdateCSPMPolicySettingsOK describes a response with status code 200, with default header values.
+UpdateCSPMPolicySettingsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -154,7 +154,7 @@ func NewUpdateCSPMPolicySettingsMultiStatus() *UpdateCSPMPolicySettingsMultiStat
 }
 
 /*
-	UpdateCSPMPolicySettingsMultiStatus describes a response with status code 207, with default header values.
+UpdateCSPMPolicySettingsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -229,7 +229,7 @@ func NewUpdateCSPMPolicySettingsBadRequest() *UpdateCSPMPolicySettingsBadRequest
 }
 
 /*
-	UpdateCSPMPolicySettingsBadRequest describes a response with status code 400, with default header values.
+UpdateCSPMPolicySettingsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -304,7 +304,7 @@ func NewUpdateCSPMPolicySettingsForbidden() *UpdateCSPMPolicySettingsForbidden {
 }
 
 /*
-	UpdateCSPMPolicySettingsForbidden describes a response with status code 403, with default header values.
+UpdateCSPMPolicySettingsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -379,7 +379,7 @@ func NewUpdateCSPMPolicySettingsTooManyRequests() *UpdateCSPMPolicySettingsTooMa
 }
 
 /*
-	UpdateCSPMPolicySettingsTooManyRequests describes a response with status code 429, with default header values.
+UpdateCSPMPolicySettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -469,7 +469,7 @@ func NewUpdateCSPMPolicySettingsInternalServerError() *UpdateCSPMPolicySettingsI
 }
 
 /*
-	UpdateCSPMPolicySettingsInternalServerError describes a response with status code 500, with default header values.
+UpdateCSPMPolicySettingsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -546,7 +546,7 @@ func NewUpdateCSPMPolicySettingsDefault(code int) *UpdateCSPMPolicySettingsDefau
 }
 
 /*
-	UpdateCSPMPolicySettingsDefault describes a response with status code -1, with default header values.
+UpdateCSPMPolicySettingsDefault describes a response with status code -1, with default header values.
 
 OK
 */

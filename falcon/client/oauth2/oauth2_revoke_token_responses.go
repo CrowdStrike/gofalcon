@@ -73,7 +73,7 @@ func NewOauth2RevokeTokenOK() *Oauth2RevokeTokenOK {
 }
 
 /*
-	Oauth2RevokeTokenOK describes a response with status code 200, with default header values.
+Oauth2RevokeTokenOK describes a response with status code 200, with default header values.
 
 Successfully revoked token
 */
@@ -137,7 +137,7 @@ func NewOauth2RevokeTokenBadRequest() *Oauth2RevokeTokenBadRequest {
 }
 
 /*
-	Oauth2RevokeTokenBadRequest describes a response with status code 400, with default header values.
+Oauth2RevokeTokenBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -201,7 +201,7 @@ func NewOauth2RevokeTokenForbidden() *Oauth2RevokeTokenForbidden {
 }
 
 /*
-	Oauth2RevokeTokenForbidden describes a response with status code 403, with default header values.
+Oauth2RevokeTokenForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -265,7 +265,7 @@ func NewOauth2RevokeTokenTooManyRequests() *Oauth2RevokeTokenTooManyRequests {
 }
 
 /*
-	Oauth2RevokeTokenTooManyRequests describes a response with status code 429, with default header values.
+Oauth2RevokeTokenTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -344,7 +344,7 @@ func NewOauth2RevokeTokenInternalServerError() *Oauth2RevokeTokenInternalServerE
 }
 
 /*
-	Oauth2RevokeTokenInternalServerError describes a response with status code 500, with default header values.
+Oauth2RevokeTokenInternalServerError describes a response with status code 500, with default header values.
 
 Failed to revoke token
 */
@@ -410,7 +410,7 @@ func NewOauth2RevokeTokenDefault(code int) *Oauth2RevokeTokenDefault {
 }
 
 /*
-	Oauth2RevokeTokenDefault describes a response with status code -1, with default header values.
+Oauth2RevokeTokenDefault describes a response with status code -1, with default header values.
 
 Successfully revoked token
 */

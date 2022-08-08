@@ -61,7 +61,7 @@ func NewAggregateEscalationsOK() *AggregateEscalationsOK {
 }
 
 /*
-	AggregateEscalationsOK describes a response with status code 200, with default header values.
+AggregateEscalationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -125,7 +125,7 @@ func NewAggregateEscalationsForbidden() *AggregateEscalationsForbidden {
 }
 
 /*
-	AggregateEscalationsForbidden describes a response with status code 403, with default header values.
+AggregateEscalationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +189,7 @@ func NewAggregateEscalationsTooManyRequests() *AggregateEscalationsTooManyReques
 }
 
 /*
-	AggregateEscalationsTooManyRequests describes a response with status code 429, with default header values.
+AggregateEscalationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +270,7 @@ func NewAggregateEscalationsDefault(code int) *AggregateEscalationsDefault {
 }
 
 /*
-	AggregateEscalationsDefault describes a response with status code -1, with default header values.
+AggregateEscalationsDefault describes a response with status code -1, with default header values.
 
 OK
 */
