@@ -53,10 +53,12 @@ func NewGetOnlineStateV1ParamsWithHTTPClient(client *http.Client) *GetOnlineStat
 	}
 }
 
-/* GetOnlineStateV1Params contains all the parameters to send to the API endpoint
-   for the get online state v1 operation.
+/*
+GetOnlineStateV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get online state v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOnlineStateV1Params struct {
 

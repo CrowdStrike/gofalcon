@@ -50,7 +50,7 @@ type ClientService interface {
 }
 
 /*
-  GetMalQueryDownloadV1 downloads a file indexed by mal query specify the file using its s h a256 only one file is supported at this time
+GetMalQueryDownloadV1 downloads a file indexed by mal query specify the file using its s h a256 only one file is supported at this time
 */
 func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, opts ...ClientOption) (*GetMalQueryDownloadV1OK, error) {
 	// TODO: Validate the params before sending
@@ -87,7 +87,7 @@ func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, opts
 }
 
 /*
-  GetMalQueryEntitiesSamplesFetchV1 fetches a zip archive with password infected containing the samples call this once the entities samples multidownload request has finished processing
+GetMalQueryEntitiesSamplesFetchV1 fetches a zip archive with password infected containing the samples call this once the entities samples multidownload request has finished processing
 */
 func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSamplesFetchV1Params, opts ...ClientOption) (*GetMalQueryEntitiesSamplesFetchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -124,7 +124,7 @@ func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSa
 }
 
 /*
-  GetMalQueryMetadataV1 retrieves indexed files metadata by their hash
+GetMalQueryMetadataV1 retrieves indexed files metadata by their hash
 */
 func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, opts ...ClientOption) (*GetMalQueryMetadataV1OK, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +161,7 @@ func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, opts
 }
 
 /*
-  GetMalQueryQuotasV1 gets information about search and download quotas in your environment
+GetMalQueryQuotasV1 gets information about search and download quotas in your environment
 */
 func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, opts ...ClientOption) (*GetMalQueryQuotasV1OK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, opts ...
 }
 
 /*
-  GetMalQueryRequestV1 checks the status and results of an asynchronous request such as hunt or exact search supports a single request id at this time
+GetMalQueryRequestV1 checks the status and results of an asynchronous request such as hunt or exact search supports a single request id at this time
 */
 func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, opts ...ClientOption) (*GetMalQueryRequestV1OK, error) {
 	// TODO: Validate the params before sending
@@ -235,7 +235,7 @@ func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, opts .
 }
 
 /*
-  PostMalQueryEntitiesSamplesMultidownloadV1 schedules samples for download use the result id with the request endpoint to check if the download is ready after which you can call the entities samples fetch to get the zip
+PostMalQueryEntitiesSamplesMultidownloadV1 schedules samples for download use the result id with the request endpoint to check if the download is ready after which you can call the entities samples fetch to get the zip
 */
 func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQueryEntitiesSamplesMultidownloadV1Params, opts ...ClientOption) (*PostMalQueryEntitiesSamplesMultidownloadV1OK, error) {
 	// TODO: Validate the params before sending
@@ -272,7 +272,7 @@ func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQuery
 }
 
 /*
-  PostMalQueryExactSearchV1 searches falcon mal query for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity you can filter results on criteria such as file type file size and first seen date returns a request id which can be used with the request endpoint
+PostMalQueryExactSearchV1 searches falcon mal query for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity you can filter results on criteria such as file type file size and first seen date returns a request id which can be used with the request endpoint
 */
 func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Params, opts ...ClientOption) (*PostMalQueryExactSearchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -309,7 +309,7 @@ func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Para
 }
 
 /*
-  PostMalQueryFuzzySearchV1 searches falcon mal query quickly but with more potential for false positives search for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity
+PostMalQueryFuzzySearchV1 searches falcon mal query quickly but with more potential for false positives search for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity
 */
 func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Params, opts ...ClientOption) (*PostMalQueryFuzzySearchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -346,7 +346,7 @@ func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Para
 }
 
 /*
-  PostMalQueryHuntV1 schedules a y a r a based search for execution returns a request id which can be used with the request endpoint
+PostMalQueryHuntV1 schedules a y a r a based search for execution returns a request id which can be used with the request endpoint
 */
 func (a *Client) PostMalQueryHuntV1(params *PostMalQueryHuntV1Params, opts ...ClientOption) (*PostMalQueryHuntV1OK, error) {
 	// TODO: Validate the params before sending

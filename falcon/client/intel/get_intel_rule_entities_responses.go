@@ -66,7 +66,8 @@ func NewGetIntelRuleEntitiesOK() *GetIntelRuleEntitiesOK {
 	return &GetIntelRuleEntitiesOK{}
 }
 
-/* GetIntelRuleEntitiesOK describes a response with status code 200, with default header values.
+/*
+	GetIntelRuleEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewGetIntelRuleEntitiesForbidden() *GetIntelRuleEntitiesForbidden {
 	return &GetIntelRuleEntitiesForbidden{}
 }
 
-/* GetIntelRuleEntitiesForbidden describes a response with status code 403, with default header values.
+/*
+	GetIntelRuleEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -192,7 +194,8 @@ func NewGetIntelRuleEntitiesTooManyRequests() *GetIntelRuleEntitiesTooManyReques
 	return &GetIntelRuleEntitiesTooManyRequests{}
 }
 
-/* GetIntelRuleEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetIntelRuleEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -270,7 +273,8 @@ func NewGetIntelRuleEntitiesInternalServerError() *GetIntelRuleEntitiesInternalS
 	return &GetIntelRuleEntitiesInternalServerError{}
 }
 
-/* GetIntelRuleEntitiesInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetIntelRuleEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -335,7 +339,8 @@ func NewGetIntelRuleEntitiesDefault(code int) *GetIntelRuleEntitiesDefault {
 	}
 }
 
-/* GetIntelRuleEntitiesDefault describes a response with status code -1, with default header values.
+/*
+	GetIntelRuleEntitiesDefault describes a response with status code -1, with default header values.
 
 OK
 */

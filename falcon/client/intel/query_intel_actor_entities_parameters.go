@@ -53,10 +53,12 @@ func NewQueryIntelActorEntitiesParamsWithHTTPClient(client *http.Client) *QueryI
 	}
 }
 
-/* QueryIntelActorEntitiesParams contains all the parameters to send to the API endpoint
-   for the query intel actor entities operation.
+/*
+QueryIntelActorEntitiesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query intel actor entities operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryIntelActorEntitiesParams struct {
 

@@ -66,7 +66,8 @@ func NewDeleteRuleGroupsOK() *DeleteRuleGroupsOK {
 	return &DeleteRuleGroupsOK{}
 }
 
-/* DeleteRuleGroupsOK describes a response with status code 200, with default header values.
+/*
+	DeleteRuleGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -140,7 +141,8 @@ func NewDeleteRuleGroupsBadRequest() *DeleteRuleGroupsBadRequest {
 	return &DeleteRuleGroupsBadRequest{}
 }
 
-/* DeleteRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -214,7 +216,8 @@ func NewDeleteRuleGroupsForbidden() *DeleteRuleGroupsForbidden {
 	return &DeleteRuleGroupsForbidden{}
 }
 
-/* DeleteRuleGroupsForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -288,7 +291,8 @@ func NewDeleteRuleGroupsTooManyRequests() *DeleteRuleGroupsTooManyRequests {
 	return &DeleteRuleGroupsTooManyRequests{}
 }
 
-/* DeleteRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -379,7 +383,8 @@ func NewDeleteRuleGroupsDefault(code int) *DeleteRuleGroupsDefault {
 	}
 }
 
-/* DeleteRuleGroupsDefault describes a response with status code -1, with default header values.
+/*
+	DeleteRuleGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

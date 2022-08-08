@@ -66,7 +66,8 @@ func NewScheduledReportsLaunchOK() *ScheduledReportsLaunchOK {
 	return &ScheduledReportsLaunchOK{}
 }
 
-/* ScheduledReportsLaunchOK describes a response with status code 200, with default header values.
+/*
+	ScheduledReportsLaunchOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -140,7 +141,8 @@ func NewScheduledReportsLaunchBadRequest() *ScheduledReportsLaunchBadRequest {
 	return &ScheduledReportsLaunchBadRequest{}
 }
 
-/* ScheduledReportsLaunchBadRequest describes a response with status code 400, with default header values.
+/*
+	ScheduledReportsLaunchBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -214,7 +216,8 @@ func NewScheduledReportsLaunchForbidden() *ScheduledReportsLaunchForbidden {
 	return &ScheduledReportsLaunchForbidden{}
 }
 
-/* ScheduledReportsLaunchForbidden describes a response with status code 403, with default header values.
+/*
+	ScheduledReportsLaunchForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -288,7 +291,8 @@ func NewScheduledReportsLaunchTooManyRequests() *ScheduledReportsLaunchTooManyRe
 	return &ScheduledReportsLaunchTooManyRequests{}
 }
 
-/* ScheduledReportsLaunchTooManyRequests describes a response with status code 429, with default header values.
+/*
+	ScheduledReportsLaunchTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -379,7 +383,8 @@ func NewScheduledReportsLaunchDefault(code int) *ScheduledReportsLaunchDefault {
 	}
 }
 
-/* ScheduledReportsLaunchDefault describes a response with status code -1, with default header values.
+/*
+	ScheduledReportsLaunchDefault describes a response with status code -1, with default header values.
 
 OK
 */

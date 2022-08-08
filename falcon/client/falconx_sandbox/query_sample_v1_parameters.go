@@ -54,10 +54,12 @@ func NewQuerySampleV1ParamsWithHTTPClient(client *http.Client) *QuerySampleV1Par
 	}
 }
 
-/* QuerySampleV1Params contains all the parameters to send to the API endpoint
-   for the query sample v1 operation.
+/*
+QuerySampleV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query sample v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type QuerySampleV1Params struct {
 

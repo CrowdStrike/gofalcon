@@ -53,10 +53,12 @@ func NewQueryReportsParamsWithHTTPClient(client *http.Client) *QueryReportsParam
 	}
 }
 
-/* QueryReportsParams contains all the parameters to send to the API endpoint
-   for the query reports operation.
+/*
+QueryReportsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query reports operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryReportsParams struct {
 

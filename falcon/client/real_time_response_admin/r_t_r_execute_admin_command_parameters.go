@@ -54,10 +54,12 @@ func NewRTRExecuteAdminCommandParamsWithHTTPClient(client *http.Client) *RTRExec
 	}
 }
 
-/* RTRExecuteAdminCommandParams contains all the parameters to send to the API endpoint
-   for the r t r execute admin command operation.
+/*
+RTRExecuteAdminCommandParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r execute admin command operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRExecuteAdminCommandParams struct {
 

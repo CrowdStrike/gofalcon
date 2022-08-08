@@ -54,10 +54,12 @@ func NewAggregateNotificationsV1ParamsWithHTTPClient(client *http.Client) *Aggre
 	}
 }
 
-/* AggregateNotificationsV1Params contains all the parameters to send to the API endpoint
-   for the aggregate notifications v1 operation.
+/*
+AggregateNotificationsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate notifications v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateNotificationsV1Params struct {
 

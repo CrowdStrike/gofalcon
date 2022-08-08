@@ -44,7 +44,7 @@ type ClientService interface {
 }
 
 /*
-  DownloadSensorInstallerByID downloads sensor installer by s h a256 ID
+DownloadSensorInstallerByID downloads sensor installer by s h a256 ID
 */
 func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -81,7 +81,7 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 }
 
 /*
-  GetCombinedSensorInstallersByQuery gets sensor installer details by provided query
+GetCombinedSensorInstallersByQuery gets sensor installer details by provided query
 */
 func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 }
 
 /*
-  GetSensorInstallersByQuery gets sensor installer i ds by provided query
+GetSensorInstallersByQuery gets sensor installer i ds by provided query
 */
 func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, opts ...ClientOption) (*GetSensorInstallersByQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -155,7 +155,7 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 }
 
 /*
-  GetSensorInstallersCCIDByQuery gets c c ID to use with sensor installers
+GetSensorInstallersCCIDByQuery gets c c ID to use with sensor installers
 */
 func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, opts ...ClientOption) (*GetSensorInstallersCCIDByQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 }
 
 /*
-  GetSensorInstallersEntities gets sensor installer details by provided s h a256 i ds
+GetSensorInstallersEntities gets sensor installer details by provided s h a256 i ds
 */
 func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, opts ...ClientOption) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error) {
 	// TODO: Validate the params before sending

@@ -52,10 +52,12 @@ func NewGetCSPMAzureUserScriptsParamsWithHTTPClient(client *http.Client) *GetCSP
 	}
 }
 
-/* GetCSPMAzureUserScriptsParams contains all the parameters to send to the API endpoint
-   for the get c s p m azure user scripts operation.
+/*
+GetCSPMAzureUserScriptsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get c s p m azure user scripts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCSPMAzureUserScriptsParams struct {
 	timeout    time.Duration

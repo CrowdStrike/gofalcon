@@ -72,7 +72,8 @@ func NewGetCaseEntitiesByIDsOK() *GetCaseEntitiesByIDsOK {
 	return &GetCaseEntitiesByIDsOK{}
 }
 
-/* GetCaseEntitiesByIDsOK describes a response with status code 200, with default header values.
+/*
+	GetCaseEntitiesByIDsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetCaseEntitiesByIDsBadRequest() *GetCaseEntitiesByIDsBadRequest {
 	return &GetCaseEntitiesByIDsBadRequest{}
 }
 
-/* GetCaseEntitiesByIDsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetCaseEntitiesByIDsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewGetCaseEntitiesByIDsForbidden() *GetCaseEntitiesByIDsForbidden {
 	return &GetCaseEntitiesByIDsForbidden{}
 }
 
-/* GetCaseEntitiesByIDsForbidden describes a response with status code 403, with default header values.
+/*
+	GetCaseEntitiesByIDsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewGetCaseEntitiesByIDsTooManyRequests() *GetCaseEntitiesByIDsTooManyReques
 	return &GetCaseEntitiesByIDsTooManyRequests{}
 }
 
-/* GetCaseEntitiesByIDsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetCaseEntitiesByIDsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewGetCaseEntitiesByIDsInternalServerError() *GetCaseEntitiesByIDsInternalS
 	return &GetCaseEntitiesByIDsInternalServerError{}
 }
 
-/* GetCaseEntitiesByIDsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetCaseEntitiesByIDsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewGetCaseEntitiesByIDsDefault(code int) *GetCaseEntitiesByIDsDefault {
 	}
 }
 
-/* GetCaseEntitiesByIDsDefault describes a response with status code -1, with default header values.
+/*
+	GetCaseEntitiesByIDsDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-  DeleteSampleV3 removes a sample including file meta and submissions from the collection
+DeleteSampleV3 removes a sample including file meta and submissions from the collection
 */
 func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error) {
 	// TODO: Validate the params before sending
@@ -75,7 +75,7 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOpti
 }
 
 /*
-  GetSampleV3 retrieves the file associated with the given ID s h a256
+GetSampleV3 retrieves the file associated with the given ID s h a256
 */
 func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*GetSampleV3OK, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +112,7 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*
 }
 
 /*
-  UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
+UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
 */
 func (a *Client) UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOption) (*UploadSampleV3OK, error) {
 	// TODO: Validate the params before sending

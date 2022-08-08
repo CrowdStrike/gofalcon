@@ -60,7 +60,8 @@ func NewIndicatorDeleteV1OK() *IndicatorDeleteV1OK {
 	return &IndicatorDeleteV1OK{}
 }
 
-/* IndicatorDeleteV1OK describes a response with status code 200, with default header values.
+/*
+	IndicatorDeleteV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -134,7 +135,8 @@ func NewIndicatorDeleteV1Forbidden() *IndicatorDeleteV1Forbidden {
 	return &IndicatorDeleteV1Forbidden{}
 }
 
-/* IndicatorDeleteV1Forbidden describes a response with status code 403, with default header values.
+/*
+	IndicatorDeleteV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -208,7 +210,8 @@ func NewIndicatorDeleteV1TooManyRequests() *IndicatorDeleteV1TooManyRequests {
 	return &IndicatorDeleteV1TooManyRequests{}
 }
 
-/* IndicatorDeleteV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	IndicatorDeleteV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -299,7 +302,8 @@ func NewIndicatorDeleteV1Default(code int) *IndicatorDeleteV1Default {
 	}
 }
 
-/* IndicatorDeleteV1Default describes a response with status code -1, with default header values.
+/*
+	IndicatorDeleteV1Default describes a response with status code -1, with default header values.
 
 OK
 */

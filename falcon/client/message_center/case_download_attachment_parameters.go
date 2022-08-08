@@ -52,10 +52,12 @@ func NewCaseDownloadAttachmentParamsWithHTTPClient(client *http.Client) *CaseDow
 	}
 }
 
-/* CaseDownloadAttachmentParams contains all the parameters to send to the API endpoint
-   for the case download attachment operation.
+/*
+CaseDownloadAttachmentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the case download attachment operation.
+
+	Typically these are written to a http.Request.
 */
 type CaseDownloadAttachmentParams struct {
 

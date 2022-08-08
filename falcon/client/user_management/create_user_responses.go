@@ -59,7 +59,8 @@ func NewCreateUserCreated() *CreateUserCreated {
 	return &CreateUserCreated{}
 }
 
-/* CreateUserCreated describes a response with status code 201, with default header values.
+/*
+	CreateUserCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -122,7 +123,8 @@ func NewCreateUserBadRequest() *CreateUserBadRequest {
 	return &CreateUserBadRequest{}
 }
 
-/* CreateUserBadRequest describes a response with status code 400, with default header values.
+/*
+	CreateUserBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -185,7 +187,8 @@ func NewCreateUserForbidden() *CreateUserForbidden {
 	return &CreateUserForbidden{}
 }
 
-/* CreateUserForbidden describes a response with status code 403, with default header values.
+/*
+	CreateUserForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -248,7 +251,8 @@ func NewCreateUserTooManyRequests() *CreateUserTooManyRequests {
 	return &CreateUserTooManyRequests{}
 }
 
-/* CreateUserTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CreateUserTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

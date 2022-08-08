@@ -72,7 +72,8 @@ func NewGetCaseActivityByIdsOK() *GetCaseActivityByIdsOK {
 	return &GetCaseActivityByIdsOK{}
 }
 
-/* GetCaseActivityByIdsOK describes a response with status code 200, with default header values.
+/*
+	GetCaseActivityByIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetCaseActivityByIdsBadRequest() *GetCaseActivityByIdsBadRequest {
 	return &GetCaseActivityByIdsBadRequest{}
 }
 
-/* GetCaseActivityByIdsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetCaseActivityByIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewGetCaseActivityByIdsForbidden() *GetCaseActivityByIdsForbidden {
 	return &GetCaseActivityByIdsForbidden{}
 }
 
-/* GetCaseActivityByIdsForbidden describes a response with status code 403, with default header values.
+/*
+	GetCaseActivityByIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewGetCaseActivityByIdsTooManyRequests() *GetCaseActivityByIdsTooManyReques
 	return &GetCaseActivityByIdsTooManyRequests{}
 }
 
-/* GetCaseActivityByIdsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetCaseActivityByIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewGetCaseActivityByIdsInternalServerError() *GetCaseActivityByIdsInternalS
 	return &GetCaseActivityByIdsInternalServerError{}
 }
 
-/* GetCaseActivityByIdsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetCaseActivityByIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewGetCaseActivityByIdsDefault(code int) *GetCaseActivityByIdsDefault {
 	}
 }
 
-/* GetCaseActivityByIdsDefault describes a response with status code -1, with default header values.
+/*
+	GetCaseActivityByIdsDefault describes a response with status code -1, with default header values.
 
 OK
 */

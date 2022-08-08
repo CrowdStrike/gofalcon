@@ -53,10 +53,12 @@ func NewIndicatorCombinedV1ParamsWithHTTPClient(client *http.Client) *IndicatorC
 	}
 }
 
-/* IndicatorCombinedV1Params contains all the parameters to send to the API endpoint
-   for the indicator combined v1 operation.
+/*
+IndicatorCombinedV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the indicator combined v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type IndicatorCombinedV1Params struct {
 

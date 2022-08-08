@@ -53,10 +53,12 @@ func NewGetHostGroupsParamsWithHTTPClient(client *http.Client) *GetHostGroupsPar
 	}
 }
 
-/* GetHostGroupsParams contains all the parameters to send to the API endpoint
-   for the get host groups operation.
+/*
+GetHostGroupsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get host groups operation.
+
+	Typically these are written to a http.Request.
 */
 type GetHostGroupsParams struct {
 

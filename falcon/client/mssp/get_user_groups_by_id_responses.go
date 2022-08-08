@@ -72,7 +72,8 @@ func NewGetUserGroupsByIDOK() *GetUserGroupsByIDOK {
 	return &GetUserGroupsByIDOK{}
 }
 
-/* GetUserGroupsByIDOK describes a response with status code 200, with default header values.
+/*
+	GetUserGroupsByIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetUserGroupsByIDMultiStatus() *GetUserGroupsByIDMultiStatus {
 	return &GetUserGroupsByIDMultiStatus{}
 }
 
-/* GetUserGroupsByIDMultiStatus describes a response with status code 207, with default header values.
+/*
+	GetUserGroupsByIDMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -220,7 +222,8 @@ func NewGetUserGroupsByIDBadRequest() *GetUserGroupsByIDBadRequest {
 	return &GetUserGroupsByIDBadRequest{}
 }
 
-/* GetUserGroupsByIDBadRequest describes a response with status code 400, with default header values.
+/*
+	GetUserGroupsByIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -294,7 +297,8 @@ func NewGetUserGroupsByIDForbidden() *GetUserGroupsByIDForbidden {
 	return &GetUserGroupsByIDForbidden{}
 }
 
-/* GetUserGroupsByIDForbidden describes a response with status code 403, with default header values.
+/*
+	GetUserGroupsByIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -368,7 +372,8 @@ func NewGetUserGroupsByIDTooManyRequests() *GetUserGroupsByIDTooManyRequests {
 	return &GetUserGroupsByIDTooManyRequests{}
 }
 
-/* GetUserGroupsByIDTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetUserGroupsByIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -459,7 +464,8 @@ func NewGetUserGroupsByIDDefault(code int) *GetUserGroupsByIDDefault {
 	}
 }
 
-/* GetUserGroupsByIDDefault describes a response with status code -1, with default header values.
+/*
+	GetUserGroupsByIDDefault describes a response with status code -1, with default header values.
 
 OK
 */

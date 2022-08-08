@@ -53,10 +53,12 @@ func NewRTRGetPutFilesV2ParamsWithHTTPClient(client *http.Client) *RTRGetPutFile
 	}
 }
 
-/* RTRGetPutFilesV2Params contains all the parameters to send to the API endpoint
-   for the r t r get put files v2 operation.
+/*
+RTRGetPutFilesV2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r get put files v2 operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRGetPutFilesV2Params struct {
 

@@ -54,10 +54,12 @@ func NewPostMalQueryFuzzySearchV1ParamsWithHTTPClient(client *http.Client) *Post
 	}
 }
 
-/* PostMalQueryFuzzySearchV1Params contains all the parameters to send to the API endpoint
-   for the post mal query fuzzy search v1 operation.
+/*
+PostMalQueryFuzzySearchV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post mal query fuzzy search v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostMalQueryFuzzySearchV1Params struct {
 

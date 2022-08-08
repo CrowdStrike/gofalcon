@@ -53,10 +53,12 @@ func NewQueryCombinedSensorUpdatePoliciesV2ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/* QueryCombinedSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
-   for the query combined sensor update policies v2 operation.
+/*
+QueryCombinedSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query combined sensor update policies v2 operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryCombinedSensorUpdatePoliciesV2Params struct {
 

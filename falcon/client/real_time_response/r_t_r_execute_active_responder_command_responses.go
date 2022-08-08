@@ -59,7 +59,8 @@ func NewRTRExecuteActiveResponderCommandCreated() *RTRExecuteActiveResponderComm
 	return &RTRExecuteActiveResponderCommandCreated{}
 }
 
-/* RTRExecuteActiveResponderCommandCreated describes a response with status code 201, with default header values.
+/*
+	RTRExecuteActiveResponderCommandCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -122,7 +123,8 @@ func NewRTRExecuteActiveResponderCommandBadRequest() *RTRExecuteActiveResponderC
 	return &RTRExecuteActiveResponderCommandBadRequest{}
 }
 
-/* RTRExecuteActiveResponderCommandBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRExecuteActiveResponderCommandBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -185,7 +187,8 @@ func NewRTRExecuteActiveResponderCommandForbidden() *RTRExecuteActiveResponderCo
 	return &RTRExecuteActiveResponderCommandForbidden{}
 }
 
-/* RTRExecuteActiveResponderCommandForbidden describes a response with status code 403, with default header values.
+/*
+	RTRExecuteActiveResponderCommandForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -248,7 +251,8 @@ func NewRTRExecuteActiveResponderCommandTooManyRequests() *RTRExecuteActiveRespo
 	return &RTRExecuteActiveResponderCommandTooManyRequests{}
 }
 
-/* RTRExecuteActiveResponderCommandTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRExecuteActiveResponderCommandTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

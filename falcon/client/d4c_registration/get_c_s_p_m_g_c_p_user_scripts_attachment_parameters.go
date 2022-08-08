@@ -52,10 +52,12 @@ func NewGetCSPMGCPUserScriptsAttachmentParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/* GetCSPMGCPUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
-   for the get c s p m g c p user scripts attachment operation.
+/*
+GetCSPMGCPUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get c s p m g c p user scripts attachment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCSPMGCPUserScriptsAttachmentParams struct {
 	timeout    time.Duration

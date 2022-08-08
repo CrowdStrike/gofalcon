@@ -81,7 +81,7 @@ type ClientService interface {
 }
 
 /*
-  BatchActiveResponderCmd batches executes a r t r active responder command across the hosts mapped to the given batch ID
+BatchActiveResponderCmd batches executes a r t r active responder command across the hosts mapped to the given batch ID
 */
 func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, opts ...ClientOption) (*BatchActiveResponderCmdCreated, error) {
 	// TODO: Validate the params before sending
@@ -119,7 +119,7 @@ func (a *Client) BatchActiveResponderCmd(params *BatchActiveResponderCmdParams, 
 }
 
 /*
-  BatchCmd batches executes a r t r read only command across the hosts mapped to the given batch ID
+BatchCmd batches executes a r t r read only command across the hosts mapped to the given batch ID
 */
 func (a *Client) BatchCmd(params *BatchCmdParams, opts ...ClientOption) (*BatchCmdCreated, error) {
 	// TODO: Validate the params before sending
@@ -157,7 +157,7 @@ func (a *Client) BatchCmd(params *BatchCmdParams, opts ...ClientOption) (*BatchC
 }
 
 /*
-  BatchGetCmd batches executes get command across hosts to retrieve files after this call is made g e t real time response combined batch get command v1 is used to query for the results
+BatchGetCmd batches executes get command across hosts to retrieve files after this call is made g e t real time response combined batch get command v1 is used to query for the results
 */
 func (a *Client) BatchGetCmd(params *BatchGetCmdParams, opts ...ClientOption) (*BatchGetCmdCreated, error) {
 	// TODO: Validate the params before sending
@@ -195,7 +195,7 @@ func (a *Client) BatchGetCmd(params *BatchGetCmdParams, opts ...ClientOption) (*
 }
 
 /*
-  BatchGetCmdStatus retrieves the status of the specified batch get command will return successful files when they are finished processing
+BatchGetCmdStatus retrieves the status of the specified batch get command will return successful files when they are finished processing
 */
 func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, opts ...ClientOption) (*BatchGetCmdStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +232,7 @@ func (a *Client) BatchGetCmdStatus(params *BatchGetCmdStatusParams, opts ...Clie
 }
 
 /*
-  BatchInitSessions batches initialize a r t r session on multiple hosts before any r t r commands can be used an active session is needed on the host
+BatchInitSessions batches initialize a r t r session on multiple hosts before any r t r commands can be used an active session is needed on the host
 */
 func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, opts ...ClientOption) (*BatchInitSessionsCreated, error) {
 	// TODO: Validate the params before sending
@@ -270,7 +270,7 @@ func (a *Client) BatchInitSessions(params *BatchInitSessionsParams, opts ...Clie
 }
 
 /*
-  BatchRefreshSessions batches refresh a r t r session on multiple hosts r t r sessions will expire after 10 minutes unless refreshed
+BatchRefreshSessions batches refresh a r t r session on multiple hosts r t r sessions will expire after 10 minutes unless refreshed
 */
 func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, opts ...ClientOption) (*BatchRefreshSessionsCreated, error) {
 	// TODO: Validate the params before sending
@@ -308,7 +308,7 @@ func (a *Client) BatchRefreshSessions(params *BatchRefreshSessionsParams, opts .
 }
 
 /*
-  RTRAggregateSessions gets aggregates on session data
+RTRAggregateSessions gets aggregates on session data
 */
 func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, opts ...ClientOption) (*RTRAggregateSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -345,7 +345,7 @@ func (a *Client) RTRAggregateSessions(params *RTRAggregateSessionsParams, opts .
 }
 
 /*
-  RTRCheckActiveResponderCommandStatus gets status of an executed active responder command on a single host
+RTRCheckActiveResponderCommandStatus gets status of an executed active responder command on a single host
 */
 func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResponderCommandStatusParams, opts ...ClientOption) (*RTRCheckActiveResponderCommandStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -382,7 +382,7 @@ func (a *Client) RTRCheckActiveResponderCommandStatus(params *RTRCheckActiveResp
 }
 
 /*
-  RTRCheckCommandStatus gets status of an executed command on a single host
+RTRCheckCommandStatus gets status of an executed command on a single host
 */
 func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, opts ...ClientOption) (*RTRCheckCommandStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -419,7 +419,7 @@ func (a *Client) RTRCheckCommandStatus(params *RTRCheckCommandStatusParams, opts
 }
 
 /*
-  RTRDeleteFile deletes a r t r session file
+RTRDeleteFile deletes a r t r session file
 */
 func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption) (*RTRDeleteFileNoContent, error) {
 	// TODO: Validate the params before sending
@@ -457,7 +457,7 @@ func (a *Client) RTRDeleteFile(params *RTRDeleteFileParams, opts ...ClientOption
 }
 
 /*
-  RTRDeleteFileV2 deletes a r t r session file
+RTRDeleteFileV2 deletes a r t r session file
 */
 func (a *Client) RTRDeleteFileV2(params *RTRDeleteFileV2Params, opts ...ClientOption) (*RTRDeleteFileV2NoContent, error) {
 	// TODO: Validate the params before sending
@@ -495,7 +495,7 @@ func (a *Client) RTRDeleteFileV2(params *RTRDeleteFileV2Params, opts ...ClientOp
 }
 
 /*
-  RTRDeleteQueuedSession deletes a queued session command
+RTRDeleteQueuedSession deletes a queued session command
 */
 func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, opts ...ClientOption) (*RTRDeleteQueuedSessionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -533,7 +533,7 @@ func (a *Client) RTRDeleteQueuedSession(params *RTRDeleteQueuedSessionParams, op
 }
 
 /*
-  RTRDeleteSession deletes a session
+RTRDeleteSession deletes a session
 */
 func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, opts ...ClientOption) (*RTRDeleteSessionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -571,7 +571,7 @@ func (a *Client) RTRDeleteSession(params *RTRDeleteSessionParams, opts ...Client
 }
 
 /*
-  RTRExecuteActiveResponderCommand executes an active responder command on a single host
+RTRExecuteActiveResponderCommand executes an active responder command on a single host
 */
 func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveResponderCommandParams, opts ...ClientOption) (*RTRExecuteActiveResponderCommandCreated, error) {
 	// TODO: Validate the params before sending
@@ -609,7 +609,7 @@ func (a *Client) RTRExecuteActiveResponderCommand(params *RTRExecuteActiveRespon
 }
 
 /*
-  RTRExecuteCommand executes a command on a single host
+RTRExecuteCommand executes a command on a single host
 */
 func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...ClientOption) (*RTRExecuteCommandCreated, error) {
 	// TODO: Validate the params before sending
@@ -647,7 +647,7 @@ func (a *Client) RTRExecuteCommand(params *RTRExecuteCommandParams, opts ...Clie
 }
 
 /*
-  RTRGetExtractedFileContents gets r t r extracted file contents for specified session and sha256
+RTRGetExtractedFileContents gets r t r extracted file contents for specified session and sha256
 */
 func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContentsParams, writer io.Writer, opts ...ClientOption) (*RTRGetExtractedFileContentsOK, error) {
 	// TODO: Validate the params before sending
@@ -684,7 +684,7 @@ func (a *Client) RTRGetExtractedFileContents(params *RTRGetExtractedFileContents
 }
 
 /*
-  RTRInitSession initializes a new session with the r t r cloud
+RTRInitSession initializes a new session with the r t r cloud
 */
 func (a *Client) RTRInitSession(params *RTRInitSessionParams, opts ...ClientOption) (*RTRInitSessionCreated, error) {
 	// TODO: Validate the params before sending
@@ -722,7 +722,7 @@ func (a *Client) RTRInitSession(params *RTRInitSessionParams, opts ...ClientOpti
 }
 
 /*
-  RTRListAllSessions gets a list of session ids
+RTRListAllSessions gets a list of session ids
 */
 func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, opts ...ClientOption) (*RTRListAllSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -759,7 +759,7 @@ func (a *Client) RTRListAllSessions(params *RTRListAllSessionsParams, opts ...Cl
 }
 
 /*
-  RTRListFiles gets a list of files for the specified r t r session
+RTRListFiles gets a list of files for the specified r t r session
 */
 func (a *Client) RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) (*RTRListFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -796,7 +796,7 @@ func (a *Client) RTRListFiles(params *RTRListFilesParams, opts ...ClientOption) 
 }
 
 /*
-  RTRListFilesV2 gets a list of files for the specified r t r session
+RTRListFilesV2 gets a list of files for the specified r t r session
 */
 func (a *Client) RTRListFilesV2(params *RTRListFilesV2Params, opts ...ClientOption) (*RTRListFilesV2OK, error) {
 	// TODO: Validate the params before sending
@@ -833,7 +833,7 @@ func (a *Client) RTRListFilesV2(params *RTRListFilesV2Params, opts ...ClientOpti
 }
 
 /*
-  RTRListQueuedSessions gets queued session metadata by session ID
+RTRListQueuedSessions gets queued session metadata by session ID
 */
 func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, opts ...ClientOption) (*RTRListQueuedSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -870,7 +870,7 @@ func (a *Client) RTRListQueuedSessions(params *RTRListQueuedSessionsParams, opts
 }
 
 /*
-  RTRListSessions gets session metadata by session id
+RTRListSessions gets session metadata by session id
 */
 func (a *Client) RTRListSessions(params *RTRListSessionsParams, opts ...ClientOption) (*RTRListSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -907,7 +907,7 @@ func (a *Client) RTRListSessions(params *RTRListSessionsParams, opts ...ClientOp
 }
 
 /*
-  RTRPulseSession refreshes a session timeout on a single host
+RTRPulseSession refreshes a session timeout on a single host
 */
 func (a *Client) RTRPulseSession(params *RTRPulseSessionParams, opts ...ClientOption) (*RTRPulseSessionCreated, error) {
 	// TODO: Validate the params before sending

@@ -72,7 +72,8 @@ func NewUpdatePolicyContainerOK() *UpdatePolicyContainerOK {
 	return &UpdatePolicyContainerOK{}
 }
 
-/* UpdatePolicyContainerOK describes a response with status code 200, with default header values.
+/*
+	UpdatePolicyContainerOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewUpdatePolicyContainerCreated() *UpdatePolicyContainerCreated {
 	return &UpdatePolicyContainerCreated{}
 }
 
-/* UpdatePolicyContainerCreated describes a response with status code 201, with default header values.
+/*
+	UpdatePolicyContainerCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -220,7 +222,8 @@ func NewUpdatePolicyContainerBadRequest() *UpdatePolicyContainerBadRequest {
 	return &UpdatePolicyContainerBadRequest{}
 }
 
-/* UpdatePolicyContainerBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdatePolicyContainerBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -294,7 +297,8 @@ func NewUpdatePolicyContainerForbidden() *UpdatePolicyContainerForbidden {
 	return &UpdatePolicyContainerForbidden{}
 }
 
-/* UpdatePolicyContainerForbidden describes a response with status code 403, with default header values.
+/*
+	UpdatePolicyContainerForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -368,7 +372,8 @@ func NewUpdatePolicyContainerTooManyRequests() *UpdatePolicyContainerTooManyRequ
 	return &UpdatePolicyContainerTooManyRequests{}
 }
 
-/* UpdatePolicyContainerTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdatePolicyContainerTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -459,7 +464,8 @@ func NewUpdatePolicyContainerDefault(code int) *UpdatePolicyContainerDefault {
 	}
 }
 
-/* UpdatePolicyContainerDefault describes a response with status code -1, with default header values.
+/*
+	UpdatePolicyContainerDefault describes a response with status code -1, with default header values.
 
 OK
 */

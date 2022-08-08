@@ -54,10 +54,12 @@ func NewTokensCreateParamsWithHTTPClient(client *http.Client) *TokensCreateParam
 	}
 }
 
-/* TokensCreateParams contains all the parameters to send to the API endpoint
-   for the tokens create operation.
+/*
+TokensCreateParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the tokens create operation.
+
+	Typically these are written to a http.Request.
 */
 type TokensCreateParams struct {
 

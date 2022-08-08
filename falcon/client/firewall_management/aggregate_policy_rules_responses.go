@@ -66,7 +66,8 @@ func NewAggregatePolicyRulesOK() *AggregatePolicyRulesOK {
 	return &AggregatePolicyRulesOK{}
 }
 
-/* AggregatePolicyRulesOK describes a response with status code 200, with default header values.
+/*
+	AggregatePolicyRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewAggregatePolicyRulesBadRequest() *AggregatePolicyRulesBadRequest {
 	return &AggregatePolicyRulesBadRequest{}
 }
 
-/* AggregatePolicyRulesBadRequest describes a response with status code 400, with default header values.
+/*
+	AggregatePolicyRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewAggregatePolicyRulesForbidden() *AggregatePolicyRulesForbidden {
 	return &AggregatePolicyRulesForbidden{}
 }
 
-/* AggregatePolicyRulesForbidden describes a response with status code 403, with default header values.
+/*
+	AggregatePolicyRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewAggregatePolicyRulesTooManyRequests() *AggregatePolicyRulesTooManyReques
 	return &AggregatePolicyRulesTooManyRequests{}
 }
 
-/* AggregatePolicyRulesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AggregatePolicyRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewAggregatePolicyRulesDefault(code int) *AggregatePolicyRulesDefault {
 	}
 }
 
-/* AggregatePolicyRulesDefault describes a response with status code -1, with default header values.
+/*
+	AggregatePolicyRulesDefault describes a response with status code -1, with default header values.
 
 OK
 */

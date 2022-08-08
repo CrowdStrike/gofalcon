@@ -72,7 +72,8 @@ func NewDiscoverCloudAzureDownloadCertificateOK() *DiscoverCloudAzureDownloadCer
 	return &DiscoverCloudAzureDownloadCertificateOK{}
 }
 
-/* DiscoverCloudAzureDownloadCertificateOK describes a response with status code 200, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewDiscoverCloudAzureDownloadCertificateBadRequest() *DiscoverCloudAzureDow
 	return &DiscoverCloudAzureDownloadCertificateBadRequest{}
 }
 
-/* DiscoverCloudAzureDownloadCertificateBadRequest describes a response with status code 400, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewDiscoverCloudAzureDownloadCertificateForbidden() *DiscoverCloudAzureDown
 	return &DiscoverCloudAzureDownloadCertificateForbidden{}
 }
 
-/* DiscoverCloudAzureDownloadCertificateForbidden describes a response with status code 403, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewDiscoverCloudAzureDownloadCertificateTooManyRequests() *DiscoverCloudAzu
 	return &DiscoverCloudAzureDownloadCertificateTooManyRequests{}
 }
 
-/* DiscoverCloudAzureDownloadCertificateTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewDiscoverCloudAzureDownloadCertificateInternalServerError() *DiscoverClou
 	return &DiscoverCloudAzureDownloadCertificateInternalServerError{}
 }
 
-/* DiscoverCloudAzureDownloadCertificateInternalServerError describes a response with status code 500, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewDiscoverCloudAzureDownloadCertificateDefault(code int) *DiscoverCloudAzu
 	}
 }
 
-/* DiscoverCloudAzureDownloadCertificateDefault describes a response with status code -1, with default header values.
+/*
+	DiscoverCloudAzureDownloadCertificateDefault describes a response with status code -1, with default header values.
 
 OK
 */

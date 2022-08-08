@@ -52,10 +52,12 @@ func NewGetComplianceV1ParamsWithHTTPClient(client *http.Client) *GetComplianceV
 	}
 }
 
-/* GetComplianceV1Params contains all the parameters to send to the API endpoint
-   for the get compliance v1 operation.
+/*
+GetComplianceV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get compliance v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetComplianceV1Params struct {
 	timeout    time.Duration

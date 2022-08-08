@@ -53,10 +53,12 @@ func NewTokensQueryParamsWithHTTPClient(client *http.Client) *TokensQueryParams 
 	}
 }
 
-/* TokensQueryParams contains all the parameters to send to the API endpoint
-   for the tokens query operation.
+/*
+TokensQueryParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the tokens query operation.
+
+	Typically these are written to a http.Request.
 */
 type TokensQueryParams struct {
 

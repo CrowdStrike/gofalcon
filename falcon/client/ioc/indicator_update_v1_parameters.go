@@ -55,10 +55,12 @@ func NewIndicatorUpdateV1ParamsWithHTTPClient(client *http.Client) *IndicatorUpd
 	}
 }
 
-/* IndicatorUpdateV1Params contains all the parameters to send to the API endpoint
-   for the indicator update v1 operation.
+/*
+IndicatorUpdateV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the indicator update v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type IndicatorUpdateV1Params struct {
 

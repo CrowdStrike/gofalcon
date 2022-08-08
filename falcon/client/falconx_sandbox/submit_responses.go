@@ -72,7 +72,8 @@ func NewSubmitOK() *SubmitOK {
 	return &SubmitOK{}
 }
 
-/* SubmitOK describes a response with status code 200, with default header values.
+/*
+	SubmitOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewSubmitBadRequest() *SubmitBadRequest {
 	return &SubmitBadRequest{}
 }
 
-/* SubmitBadRequest describes a response with status code 400, with default header values.
+/*
+	SubmitBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewSubmitForbidden() *SubmitForbidden {
 	return &SubmitForbidden{}
 }
 
-/* SubmitForbidden describes a response with status code 403, with default header values.
+/*
+	SubmitForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewSubmitTooManyRequests() *SubmitTooManyRequests {
 	return &SubmitTooManyRequests{}
 }
 
-/* SubmitTooManyRequests describes a response with status code 429, with default header values.
+/*
+	SubmitTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewSubmitInternalServerError() *SubmitInternalServerError {
 	return &SubmitInternalServerError{}
 }
 
-/* SubmitInternalServerError describes a response with status code 500, with default header values.
+/*
+	SubmitInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewSubmitDefault(code int) *SubmitDefault {
 	}
 }
 
-/* SubmitDefault describes a response with status code -1, with default header values.
+/*
+	SubmitDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -66,7 +66,8 @@ func NewDeleteRulesOK() *DeleteRulesOK {
 	return &DeleteRulesOK{}
 }
 
-/* DeleteRulesOK describes a response with status code 200, with default header values.
+/*
+	DeleteRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewDeleteRulesForbidden() *DeleteRulesForbidden {
 	return &DeleteRulesForbidden{}
 }
 
-/* DeleteRulesForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -192,7 +194,8 @@ func NewDeleteRulesNotFound() *DeleteRulesNotFound {
 	return &DeleteRulesNotFound{}
 }
 
-/* DeleteRulesNotFound describes a response with status code 404, with default header values.
+/*
+	DeleteRulesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -255,7 +258,8 @@ func NewDeleteRulesTooManyRequests() *DeleteRulesTooManyRequests {
 	return &DeleteRulesTooManyRequests{}
 }
 
-/* DeleteRulesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewDeleteRulesDefault(code int) *DeleteRulesDefault {
 	}
 }
 
-/* DeleteRulesDefault describes a response with status code -1, with default header values.
+/*
+	DeleteRulesDefault describes a response with status code -1, with default header values.
 
 OK
 */

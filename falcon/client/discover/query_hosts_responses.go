@@ -72,7 +72,8 @@ func NewQueryHostsOK() *QueryHostsOK {
 	return &QueryHostsOK{}
 }
 
-/* QueryHostsOK describes a response with status code 200, with default header values.
+/*
+	QueryHostsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewQueryHostsBadRequest() *QueryHostsBadRequest {
 	return &QueryHostsBadRequest{}
 }
 
-/* QueryHostsBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryHostsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewQueryHostsForbidden() *QueryHostsForbidden {
 	return &QueryHostsForbidden{}
 }
 
-/* QueryHostsForbidden describes a response with status code 403, with default header values.
+/*
+	QueryHostsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewQueryHostsTooManyRequests() *QueryHostsTooManyRequests {
 	return &QueryHostsTooManyRequests{}
 }
 
-/* QueryHostsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryHostsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewQueryHostsInternalServerError() *QueryHostsInternalServerError {
 	return &QueryHostsInternalServerError{}
 }
 
-/* QueryHostsInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryHostsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewQueryHostsDefault(code int) *QueryHostsDefault {
 	}
 }
 
-/* QueryHostsDefault describes a response with status code -1, with default header values.
+/*
+	QueryHostsDefault describes a response with status code -1, with default header values.
 
 OK
 */

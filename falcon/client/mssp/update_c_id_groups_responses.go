@@ -72,7 +72,8 @@ func NewUpdateCIDGroupsOK() *UpdateCIDGroupsOK {
 	return &UpdateCIDGroupsOK{}
 }
 
-/* UpdateCIDGroupsOK describes a response with status code 200, with default header values.
+/*
+	UpdateCIDGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewUpdateCIDGroupsMultiStatus() *UpdateCIDGroupsMultiStatus {
 	return &UpdateCIDGroupsMultiStatus{}
 }
 
-/* UpdateCIDGroupsMultiStatus describes a response with status code 207, with default header values.
+/*
+	UpdateCIDGroupsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -198,7 +200,8 @@ func NewUpdateCIDGroupsBadRequest() *UpdateCIDGroupsBadRequest {
 	return &UpdateCIDGroupsBadRequest{}
 }
 
-/* UpdateCIDGroupsBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateCIDGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -261,7 +264,8 @@ func NewUpdateCIDGroupsForbidden() *UpdateCIDGroupsForbidden {
 	return &UpdateCIDGroupsForbidden{}
 }
 
-/* UpdateCIDGroupsForbidden describes a response with status code 403, with default header values.
+/*
+	UpdateCIDGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -324,7 +328,8 @@ func NewUpdateCIDGroupsTooManyRequests() *UpdateCIDGroupsTooManyRequests {
 	return &UpdateCIDGroupsTooManyRequests{}
 }
 
-/* UpdateCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,7 +409,8 @@ func NewUpdateCIDGroupsDefault(code int) *UpdateCIDGroupsDefault {
 	}
 }
 
-/* UpdateCIDGroupsDefault describes a response with status code -1, with default header values.
+/*
+	UpdateCIDGroupsDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -52,10 +52,12 @@ func NewDevicesCountParamsWithHTTPClient(client *http.Client) *DevicesCountParam
 	}
 }
 
-/* DevicesCountParams contains all the parameters to send to the API endpoint
-   for the devices count operation.
+/*
+DevicesCountParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the devices count operation.
+
+	Typically these are written to a http.Request.
 */
 type DevicesCountParams struct {
 

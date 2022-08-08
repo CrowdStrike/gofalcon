@@ -54,10 +54,12 @@ func NewGetIntelIndicatorEntitiesParamsWithHTTPClient(client *http.Client) *GetI
 	}
 }
 
-/* GetIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
-   for the get intel indicator entities operation.
+/*
+GetIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get intel indicator entities operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntelIndicatorEntitiesParams struct {
 

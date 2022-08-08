@@ -58,7 +58,7 @@ type ClientService interface {
 }
 
 /*
-  CreateUser creates a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
+CreateUser creates a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
 */
 func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
@@ -96,7 +96,7 @@ func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*Cr
 }
 
 /*
-  DeleteUser deletes a user permanently
+DeleteUser deletes a user permanently
 */
 func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
@@ -133,7 +133,7 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*De
 }
 
 /*
-  GetAvailableRoleIds shows role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
+GetAvailableRoleIds shows role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -170,7 +170,7 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...
 }
 
 /*
-  GetRoles gets info about a role
+GetRoles gets info about a role
 */
 func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
@@ -207,7 +207,7 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 }
 
 /*
-  GetUserRoleIds shows role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
+GetUserRoleIds shows role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -244,7 +244,7 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOpti
 }
 
 /*
-  GrantUserRoleIds assigns one or more roles to a user
+GrantUserRoleIds assigns one or more roles to a user
 */
 func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -281,7 +281,7 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...Client
 }
 
 /*
-  RetrieveEmailsByCID lists the usernames usually an email address for all users in your customer account
+RetrieveEmailsByCID lists the usernames usually an email address for all users in your customer account
 */
 func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...
 }
 
 /*
-  RetrieveUser gets info about a user
+RetrieveUser gets info about a user
 */
 func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
 	// TODO: Validate the params before sending
@@ -355,7 +355,7 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) 
 }
 
 /*
-  RetrieveUserUUID gets a user s ID by providing a username usually an email address
+RetrieveUserUUID gets a user s ID by providing a username usually an email address
 */
 func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +392,7 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...Client
 }
 
 /*
-  RetrieveUserUUIDsByCID lists user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
+RetrieveUserUUIDsByCID lists user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
 */
 func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -429,7 +429,7 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, op
 }
 
 /*
-  RevokeUserRoleIds revokes one or more roles from a user
+RevokeUserRoleIds revokes one or more roles from a user
 */
 func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -466,7 +466,7 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...Clie
 }
 
 /*
-  UpdateUser modifies an existing user s first or last name
+UpdateUser modifies an existing user s first or last name
 */
 func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending

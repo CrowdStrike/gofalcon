@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-  AggregatesDetectionsGlobalCounts gets the total number of detections pushed across all customers
+AggregatesDetectionsGlobalCounts gets the total number of detections pushed across all customers
 */
 func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGlobalCountsParams, opts ...ClientOption) (*AggregatesDetectionsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending
@@ -79,7 +79,7 @@ func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGl
 }
 
 /*
-  AggregatesEvents gets aggregate over watch detection event info by providing an aggregate query
+AggregatesEvents gets aggregate over watch detection event info by providing an aggregate query
 */
 func (a *Client) AggregatesEvents(params *AggregatesEventsParams, opts ...ClientOption) (*AggregatesEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) AggregatesEvents(params *AggregatesEventsParams, opts ...Client
 }
 
 /*
-  AggregatesEventsCollections gets over watch detection event collection info by providing an aggregate query
+AggregatesEventsCollections gets over watch detection event collection info by providing an aggregate query
 */
 func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollectionsParams, opts ...ClientOption) (*AggregatesEventsCollectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollections
 }
 
 /*
-  AggregatesIncidentsGlobalCounts gets the total number of incidents pushed across all customers
+AggregatesIncidentsGlobalCounts gets the total number of incidents pushed across all customers
 */
 func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlobalCountsParams, opts ...ClientOption) (*AggregatesIncidentsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlob
 }
 
 /*
-  AggregatesOWEventsGlobalCounts gets the total number of over watch events across all customers
+AggregatesOWEventsGlobalCounts gets the total number of over watch events across all customers
 */
 func (a *Client) AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobalCountsParams, opts ...ClientOption) (*AggregatesOWEventsGlobalCountsOK, error) {
 	// TODO: Validate the params before sending

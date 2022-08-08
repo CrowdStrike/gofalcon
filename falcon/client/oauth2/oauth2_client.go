@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-  Oauth2AccessToken generates an o auth2 access token
+Oauth2AccessToken generates an o auth2 access token
 */
 func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...ClientOption) (*Oauth2AccessTokenCreated, error) {
 	// TODO: Validate the params before sending
@@ -76,7 +76,7 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...Clie
 }
 
 /*
-  Oauth2RevokeToken revokes a previously issued o auth2 access token before the end of its standard 30 minute lifespan
+Oauth2RevokeToken revokes a previously issued o auth2 access token before the end of its standard 30 minute lifespan
 */
 func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams, opts ...ClientOption) (*Oauth2RevokeTokenOK, error) {
 	// TODO: Validate the params before sending

@@ -53,10 +53,12 @@ func NewRTRListAllSessionsParamsWithHTTPClient(client *http.Client) *RTRListAllS
 	}
 }
 
-/* RTRListAllSessionsParams contains all the parameters to send to the API endpoint
-   for the r t r list all sessions operation.
+/*
+RTRListAllSessionsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r list all sessions operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRListAllSessionsParams struct {
 

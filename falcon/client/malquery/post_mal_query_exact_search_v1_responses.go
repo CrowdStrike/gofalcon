@@ -78,7 +78,8 @@ func NewPostMalQueryExactSearchV1OK() *PostMalQueryExactSearchV1OK {
 	return &PostMalQueryExactSearchV1OK{}
 }
 
-/* PostMalQueryExactSearchV1OK describes a response with status code 200, with default header values.
+/*
+	PostMalQueryExactSearchV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewPostMalQueryExactSearchV1BadRequest() *PostMalQueryExactSearchV1BadReque
 	return &PostMalQueryExactSearchV1BadRequest{}
 }
 
-/* PostMalQueryExactSearchV1BadRequest describes a response with status code 400, with default header values.
+/*
+	PostMalQueryExactSearchV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewPostMalQueryExactSearchV1Unauthorized() *PostMalQueryExactSearchV1Unauth
 	return &PostMalQueryExactSearchV1Unauthorized{}
 }
 
-/* PostMalQueryExactSearchV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	PostMalQueryExactSearchV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -267,7 +270,8 @@ func NewPostMalQueryExactSearchV1Forbidden() *PostMalQueryExactSearchV1Forbidden
 	return &PostMalQueryExactSearchV1Forbidden{}
 }
 
-/* PostMalQueryExactSearchV1Forbidden describes a response with status code 403, with default header values.
+/*
+	PostMalQueryExactSearchV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -330,7 +334,8 @@ func NewPostMalQueryExactSearchV1TooManyRequests() *PostMalQueryExactSearchV1Too
 	return &PostMalQueryExactSearchV1TooManyRequests{}
 }
 
-/* PostMalQueryExactSearchV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	PostMalQueryExactSearchV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewPostMalQueryExactSearchV1InternalServerError() *PostMalQueryExactSearchV
 	return &PostMalQueryExactSearchV1InternalServerError{}
 }
 
-/* PostMalQueryExactSearchV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	PostMalQueryExactSearchV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewPostMalQueryExactSearchV1Default(code int) *PostMalQueryExactSearchV1Def
 	}
 }
 
-/* PostMalQueryExactSearchV1Default describes a response with status code -1, with default header values.
+/*
+	PostMalQueryExactSearchV1Default describes a response with status code -1, with default header values.
 
 OK
 */

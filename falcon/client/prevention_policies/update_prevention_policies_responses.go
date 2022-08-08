@@ -78,7 +78,8 @@ func NewUpdatePreventionPoliciesOK() *UpdatePreventionPoliciesOK {
 	return &UpdatePreventionPoliciesOK{}
 }
 
-/* UpdatePreventionPoliciesOK describes a response with status code 200, with default header values.
+/*
+	UpdatePreventionPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewUpdatePreventionPoliciesBadRequest() *UpdatePreventionPoliciesBadRequest
 	return &UpdatePreventionPoliciesBadRequest{}
 }
 
-/* UpdatePreventionPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdatePreventionPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewUpdatePreventionPoliciesForbidden() *UpdatePreventionPoliciesForbidden {
 	return &UpdatePreventionPoliciesForbidden{}
 }
 
-/* UpdatePreventionPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	UpdatePreventionPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -300,7 +303,8 @@ func NewUpdatePreventionPoliciesNotFound() *UpdatePreventionPoliciesNotFound {
 	return &UpdatePreventionPoliciesNotFound{}
 }
 
-/* UpdatePreventionPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	UpdatePreventionPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -374,7 +378,8 @@ func NewUpdatePreventionPoliciesTooManyRequests() *UpdatePreventionPoliciesTooMa
 	return &UpdatePreventionPoliciesTooManyRequests{}
 }
 
-/* UpdatePreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdatePreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewUpdatePreventionPoliciesInternalServerError() *UpdatePreventionPoliciesI
 	return &UpdatePreventionPoliciesInternalServerError{}
 }
 
-/* UpdatePreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdatePreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewUpdatePreventionPoliciesDefault(code int) *UpdatePreventionPoliciesDefau
 	}
 }
 
-/* UpdatePreventionPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	UpdatePreventionPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -53,10 +53,12 @@ func NewGetRTResponsePoliciesParamsWithHTTPClient(client *http.Client) *GetRTRes
 	}
 }
 
-/* GetRTResponsePoliciesParams contains all the parameters to send to the API endpoint
-   for the get r t response policies operation.
+/*
+GetRTResponsePoliciesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get r t response policies operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRTResponsePoliciesParams struct {
 

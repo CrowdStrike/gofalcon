@@ -53,10 +53,12 @@ func NewQueryPreventionPolicyMembersParamsWithHTTPClient(client *http.Client) *Q
 	}
 }
 
-/* QueryPreventionPolicyMembersParams contains all the parameters to send to the API endpoint
-   for the query prevention policy members operation.
+/*
+QueryPreventionPolicyMembersParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query prevention policy members operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryPreventionPolicyMembersParams struct {
 

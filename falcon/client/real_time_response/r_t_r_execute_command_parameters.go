@@ -54,10 +54,12 @@ func NewRTRExecuteCommandParamsWithHTTPClient(client *http.Client) *RTRExecuteCo
 	}
 }
 
-/* RTRExecuteCommandParams contains all the parameters to send to the API endpoint
-   for the r t r execute command operation.
+/*
+RTRExecuteCommandParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r execute command operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRExecuteCommandParams struct {
 

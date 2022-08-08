@@ -53,10 +53,12 @@ func NewQueryAWSAccountsParamsWithHTTPClient(client *http.Client) *QueryAWSAccou
 	}
 }
 
-/* QueryAWSAccountsParams contains all the parameters to send to the API endpoint
-   for the query a w s accounts operation.
+/*
+QueryAWSAccountsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query a w s accounts operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryAWSAccountsParams struct {
 

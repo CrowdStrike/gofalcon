@@ -52,10 +52,12 @@ func NewGetIOAUsersParamsWithHTTPClient(client *http.Client) *GetIOAUsersParams 
 	}
 }
 
-/* GetIOAUsersParams contains all the parameters to send to the API endpoint
-   for the get i o a users operation.
+/*
+GetIOAUsersParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get i o a users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIOAUsersParams struct {
 

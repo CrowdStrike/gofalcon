@@ -78,7 +78,8 @@ func NewQueryNotificationsV1OK() *QueryNotificationsV1OK {
 	return &QueryNotificationsV1OK{}
 }
 
-/* QueryNotificationsV1OK describes a response with status code 200, with default header values.
+/*
+	QueryNotificationsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewQueryNotificationsV1BadRequest() *QueryNotificationsV1BadRequest {
 	return &QueryNotificationsV1BadRequest{}
 }
 
-/* QueryNotificationsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	QueryNotificationsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewQueryNotificationsV1Unauthorized() *QueryNotificationsV1Unauthorized {
 	return &QueryNotificationsV1Unauthorized{}
 }
 
-/* QueryNotificationsV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	QueryNotificationsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -300,7 +303,8 @@ func NewQueryNotificationsV1Forbidden() *QueryNotificationsV1Forbidden {
 	return &QueryNotificationsV1Forbidden{}
 }
 
-/* QueryNotificationsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	QueryNotificationsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewQueryNotificationsV1TooManyRequests() *QueryNotificationsV1TooManyReques
 	return &QueryNotificationsV1TooManyRequests{}
 }
 
-/* QueryNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryNotificationsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewQueryNotificationsV1InternalServerError() *QueryNotificationsV1InternalS
 	return &QueryNotificationsV1InternalServerError{}
 }
 
-/* QueryNotificationsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryNotificationsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewQueryNotificationsV1Default(code int) *QueryNotificationsV1Default {
 	}
 }
 
-/* QueryNotificationsV1Default describes a response with status code -1, with default header values.
+/*
+	QueryNotificationsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

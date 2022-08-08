@@ -52,10 +52,12 @@ func NewGetMalQueryEntitiesSamplesFetchV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/* GetMalQueryEntitiesSamplesFetchV1Params contains all the parameters to send to the API endpoint
-   for the get mal query entities samples fetch v1 operation.
+/*
+GetMalQueryEntitiesSamplesFetchV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get mal query entities samples fetch v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetMalQueryEntitiesSamplesFetchV1Params struct {
 

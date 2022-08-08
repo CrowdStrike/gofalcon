@@ -52,10 +52,12 @@ func NewAggregatesIncidentsGlobalCountsParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/* AggregatesIncidentsGlobalCountsParams contains all the parameters to send to the API endpoint
-   for the aggregates incidents global counts operation.
+/*
+AggregatesIncidentsGlobalCountsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregates incidents global counts operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregatesIncidentsGlobalCountsParams struct {
 

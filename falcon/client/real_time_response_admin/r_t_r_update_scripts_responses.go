@@ -66,7 +66,8 @@ func NewRTRUpdateScriptsOK() *RTRUpdateScriptsOK {
 	return &RTRUpdateScriptsOK{}
 }
 
-/* RTRUpdateScriptsOK describes a response with status code 200, with default header values.
+/*
+	RTRUpdateScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewRTRUpdateScriptsBadRequest() *RTRUpdateScriptsBadRequest {
 	return &RTRUpdateScriptsBadRequest{}
 }
 
-/* RTRUpdateScriptsBadRequest describes a response with status code 400, with default header values.
+/*
+	RTRUpdateScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewRTRUpdateScriptsForbidden() *RTRUpdateScriptsForbidden {
 	return &RTRUpdateScriptsForbidden{}
 }
 
-/* RTRUpdateScriptsForbidden describes a response with status code 403, with default header values.
+/*
+	RTRUpdateScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRTRUpdateScriptsTooManyRequests() *RTRUpdateScriptsTooManyRequests {
 	return &RTRUpdateScriptsTooManyRequests{}
 }
 
-/* RTRUpdateScriptsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRUpdateScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRTRUpdateScriptsDefault(code int) *RTRUpdateScriptsDefault {
 	}
 }
 
-/* RTRUpdateScriptsDefault describes a response with status code -1, with default header values.
+/*
+	RTRUpdateScriptsDefault describes a response with status code -1, with default header values.
 
 OK
 */

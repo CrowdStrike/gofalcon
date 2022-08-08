@@ -60,7 +60,8 @@ func NewQueryPlatformsOK() *QueryPlatformsOK {
 	return &QueryPlatformsOK{}
 }
 
-/* QueryPlatformsOK describes a response with status code 200, with default header values.
+/*
+	QueryPlatformsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewQueryPlatformsForbidden() *QueryPlatformsForbidden {
 	return &QueryPlatformsForbidden{}
 }
 
-/* QueryPlatformsForbidden describes a response with status code 403, with default header values.
+/*
+	QueryPlatformsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewQueryPlatformsTooManyRequests() *QueryPlatformsTooManyRequests {
 	return &QueryPlatformsTooManyRequests{}
 }
 
-/* QueryPlatformsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryPlatformsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewQueryPlatformsDefault(code int) *QueryPlatformsDefault {
 	}
 }
 
-/* QueryPlatformsDefault describes a response with status code -1, with default header values.
+/*
+	QueryPlatformsDefault describes a response with status code -1, with default header values.
 
 OK
 */

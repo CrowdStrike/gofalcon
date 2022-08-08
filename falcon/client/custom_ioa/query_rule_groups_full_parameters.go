@@ -53,10 +53,12 @@ func NewQueryRuleGroupsFullParamsWithHTTPClient(client *http.Client) *QueryRuleG
 	}
 }
 
-/* QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
-   for the query rule groups full operation.
+/*
+QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query rule groups full operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryRuleGroupsFullParams struct {
 

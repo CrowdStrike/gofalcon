@@ -72,7 +72,8 @@ func NewGetSensorVisibilityExclusionsV1OK() *GetSensorVisibilityExclusionsV1OK {
 	return &GetSensorVisibilityExclusionsV1OK{}
 }
 
-/* GetSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewGetSensorVisibilityExclusionsV1BadRequest() *GetSensorVisibilityExclusio
 	return &GetSensorVisibilityExclusionsV1BadRequest{}
 }
 
-/* GetSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewGetSensorVisibilityExclusionsV1Forbidden() *GetSensorVisibilityExclusion
 	return &GetSensorVisibilityExclusionsV1Forbidden{}
 }
 
-/* GetSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewGetSensorVisibilityExclusionsV1TooManyRequests() *GetSensorVisibilityExc
 	return &GetSensorVisibilityExclusionsV1TooManyRequests{}
 }
 
-/* GetSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewGetSensorVisibilityExclusionsV1InternalServerError() *GetSensorVisibilit
 	return &GetSensorVisibilityExclusionsV1InternalServerError{}
 }
 
-/* GetSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewGetSensorVisibilityExclusionsV1Default(code int) *GetSensorVisibilityExc
 	}
 }
 
-/* GetSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
+/*
+	GetSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

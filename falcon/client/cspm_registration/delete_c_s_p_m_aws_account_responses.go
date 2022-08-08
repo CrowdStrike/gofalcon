@@ -78,7 +78,8 @@ func NewDeleteCSPMAwsAccountOK() *DeleteCSPMAwsAccountOK {
 	return &DeleteCSPMAwsAccountOK{}
 }
 
-/* DeleteCSPMAwsAccountOK describes a response with status code 200, with default header values.
+/*
+	DeleteCSPMAwsAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewDeleteCSPMAwsAccountMultiStatus() *DeleteCSPMAwsAccountMultiStatus {
 	return &DeleteCSPMAwsAccountMultiStatus{}
 }
 
-/* DeleteCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
+/*
+	DeleteCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -204,7 +206,8 @@ func NewDeleteCSPMAwsAccountBadRequest() *DeleteCSPMAwsAccountBadRequest {
 	return &DeleteCSPMAwsAccountBadRequest{}
 }
 
-/* DeleteCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -267,7 +270,8 @@ func NewDeleteCSPMAwsAccountForbidden() *DeleteCSPMAwsAccountForbidden {
 	return &DeleteCSPMAwsAccountForbidden{}
 }
 
-/* DeleteCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -330,7 +334,8 @@ func NewDeleteCSPMAwsAccountTooManyRequests() *DeleteCSPMAwsAccountTooManyReques
 	return &DeleteCSPMAwsAccountTooManyRequests{}
 }
 
-/* DeleteCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewDeleteCSPMAwsAccountInternalServerError() *DeleteCSPMAwsAccountInternalS
 	return &DeleteCSPMAwsAccountInternalServerError{}
 }
 
-/* DeleteCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewDeleteCSPMAwsAccountDefault(code int) *DeleteCSPMAwsAccountDefault {
 	}
 }
 
-/* DeleteCSPMAwsAccountDefault describes a response with status code -1, with default header values.
+/*
+	DeleteCSPMAwsAccountDefault describes a response with status code -1, with default header values.
 
 OK
 */

@@ -53,10 +53,12 @@ func NewQueryIncidentIdsByFilterParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/* QueryIncidentIdsByFilterParams contains all the parameters to send to the API endpoint
-   for the query incident ids by filter operation.
+/*
+QueryIncidentIdsByFilterParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query incident ids by filter operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryIncidentIdsByFilterParams struct {
 

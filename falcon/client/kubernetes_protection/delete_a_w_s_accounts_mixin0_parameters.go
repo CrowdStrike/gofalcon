@@ -53,10 +53,12 @@ func NewDeleteAWSAccountsMixin0ParamsWithHTTPClient(client *http.Client) *Delete
 	}
 }
 
-/* DeleteAWSAccountsMixin0Params contains all the parameters to send to the API endpoint
-   for the delete a w s accounts mixin0 operation.
+/*
+DeleteAWSAccountsMixin0Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete a w s accounts mixin0 operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAWSAccountsMixin0Params struct {
 

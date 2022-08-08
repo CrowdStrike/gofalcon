@@ -55,10 +55,12 @@ func NewBatchInitSessionsParamsWithHTTPClient(client *http.Client) *BatchInitSes
 	}
 }
 
-/* BatchInitSessionsParams contains all the parameters to send to the API endpoint
-   for the batch init sessions operation.
+/*
+BatchInitSessionsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the batch init sessions operation.
+
+	Typically these are written to a http.Request.
 */
 type BatchInitSessionsParams struct {
 

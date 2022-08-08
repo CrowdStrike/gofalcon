@@ -78,7 +78,8 @@ func NewPerformGroupActionOK() *PerformGroupActionOK {
 	return &PerformGroupActionOK{}
 }
 
-/* PerformGroupActionOK describes a response with status code 200, with default header values.
+/*
+	PerformGroupActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewPerformGroupActionBadRequest() *PerformGroupActionBadRequest {
 	return &PerformGroupActionBadRequest{}
 }
 
-/* PerformGroupActionBadRequest describes a response with status code 400, with default header values.
+/*
+	PerformGroupActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewPerformGroupActionForbidden() *PerformGroupActionForbidden {
 	return &PerformGroupActionForbidden{}
 }
 
-/* PerformGroupActionForbidden describes a response with status code 403, with default header values.
+/*
+	PerformGroupActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -300,7 +303,8 @@ func NewPerformGroupActionNotFound() *PerformGroupActionNotFound {
 	return &PerformGroupActionNotFound{}
 }
 
-/* PerformGroupActionNotFound describes a response with status code 404, with default header values.
+/*
+	PerformGroupActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -374,7 +378,8 @@ func NewPerformGroupActionTooManyRequests() *PerformGroupActionTooManyRequests {
 	return &PerformGroupActionTooManyRequests{}
 }
 
-/* PerformGroupActionTooManyRequests describes a response with status code 429, with default header values.
+/*
+	PerformGroupActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewPerformGroupActionInternalServerError() *PerformGroupActionInternalServe
 	return &PerformGroupActionInternalServerError{}
 }
 
-/* PerformGroupActionInternalServerError describes a response with status code 500, with default header values.
+/*
+	PerformGroupActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewPerformGroupActionDefault(code int) *PerformGroupActionDefault {
 	}
 }
 
-/* PerformGroupActionDefault describes a response with status code -1, with default header values.
+/*
+	PerformGroupActionDefault describes a response with status code -1, with default header values.
 
 OK
 */

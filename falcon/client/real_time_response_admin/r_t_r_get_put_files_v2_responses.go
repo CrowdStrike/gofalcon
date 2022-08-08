@@ -72,7 +72,8 @@ func NewRTRGetPutFilesV2OK() *RTRGetPutFilesV2OK {
 	return &RTRGetPutFilesV2OK{}
 }
 
-/* RTRGetPutFilesV2OK describes a response with status code 200, with default header values.
+/*
+	RTRGetPutFilesV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewRTRGetPutFilesV2BadRequest() *RTRGetPutFilesV2BadRequest {
 	return &RTRGetPutFilesV2BadRequest{}
 }
 
-/* RTRGetPutFilesV2BadRequest describes a response with status code 400, with default header values.
+/*
+	RTRGetPutFilesV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewRTRGetPutFilesV2Forbidden() *RTRGetPutFilesV2Forbidden {
 	return &RTRGetPutFilesV2Forbidden{}
 }
 
-/* RTRGetPutFilesV2Forbidden describes a response with status code 403, with default header values.
+/*
+	RTRGetPutFilesV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewRTRGetPutFilesV2NotFound() *RTRGetPutFilesV2NotFound {
 	return &RTRGetPutFilesV2NotFound{}
 }
 
-/* RTRGetPutFilesV2NotFound describes a response with status code 404, with default header values.
+/*
+	RTRGetPutFilesV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -368,7 +372,8 @@ func NewRTRGetPutFilesV2TooManyRequests() *RTRGetPutFilesV2TooManyRequests {
 	return &RTRGetPutFilesV2TooManyRequests{}
 }
 
-/* RTRGetPutFilesV2TooManyRequests describes a response with status code 429, with default header values.
+/*
+	RTRGetPutFilesV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -459,7 +464,8 @@ func NewRTRGetPutFilesV2Default(code int) *RTRGetPutFilesV2Default {
 	}
 }
 
-/* RTRGetPutFilesV2Default describes a response with status code -1, with default header values.
+/*
+	RTRGetPutFilesV2Default describes a response with status code -1, with default header values.
 
 OK
 */

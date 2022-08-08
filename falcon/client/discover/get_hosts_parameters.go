@@ -53,10 +53,12 @@ func NewGetHostsParamsWithHTTPClient(client *http.Client) *GetHostsParams {
 	}
 }
 
-/* GetHostsParams contains all the parameters to send to the API endpoint
-   for the get hosts operation.
+/*
+GetHostsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get hosts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetHostsParams struct {
 

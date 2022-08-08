@@ -78,7 +78,8 @@ func NewGetMalQueryMetadataV1OK() *GetMalQueryMetadataV1OK {
 	return &GetMalQueryMetadataV1OK{}
 }
 
-/* GetMalQueryMetadataV1OK describes a response with status code 200, with default header values.
+/*
+	GetMalQueryMetadataV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewGetMalQueryMetadataV1BadRequest() *GetMalQueryMetadataV1BadRequest {
 	return &GetMalQueryMetadataV1BadRequest{}
 }
 
-/* GetMalQueryMetadataV1BadRequest describes a response with status code 400, with default header values.
+/*
+	GetMalQueryMetadataV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewGetMalQueryMetadataV1Unauthorized() *GetMalQueryMetadataV1Unauthorized {
 	return &GetMalQueryMetadataV1Unauthorized{}
 }
 
-/* GetMalQueryMetadataV1Unauthorized describes a response with status code 401, with default header values.
+/*
+	GetMalQueryMetadataV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -267,7 +270,8 @@ func NewGetMalQueryMetadataV1Forbidden() *GetMalQueryMetadataV1Forbidden {
 	return &GetMalQueryMetadataV1Forbidden{}
 }
 
-/* GetMalQueryMetadataV1Forbidden describes a response with status code 403, with default header values.
+/*
+	GetMalQueryMetadataV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -330,7 +334,8 @@ func NewGetMalQueryMetadataV1TooManyRequests() *GetMalQueryMetadataV1TooManyRequ
 	return &GetMalQueryMetadataV1TooManyRequests{}
 }
 
-/* GetMalQueryMetadataV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetMalQueryMetadataV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewGetMalQueryMetadataV1InternalServerError() *GetMalQueryMetadataV1Interna
 	return &GetMalQueryMetadataV1InternalServerError{}
 }
 
-/* GetMalQueryMetadataV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	GetMalQueryMetadataV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewGetMalQueryMetadataV1Default(code int) *GetMalQueryMetadataV1Default {
 	}
 }
 
-/* GetMalQueryMetadataV1Default describes a response with status code -1, with default header values.
+/*
+	GetMalQueryMetadataV1Default describes a response with status code -1, with default header values.
 
 OK
 */

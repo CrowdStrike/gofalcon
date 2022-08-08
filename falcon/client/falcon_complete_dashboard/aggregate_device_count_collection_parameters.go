@@ -54,10 +54,12 @@ func NewAggregateDeviceCountCollectionParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/* AggregateDeviceCountCollectionParams contains all the parameters to send to the API endpoint
-   for the aggregate device count collection operation.
+/*
+AggregateDeviceCountCollectionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate device count collection operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateDeviceCountCollectionParams struct {
 

@@ -60,7 +60,8 @@ func NewAggregateRemediationsOK() *AggregateRemediationsOK {
 	return &AggregateRemediationsOK{}
 }
 
-/* AggregateRemediationsOK describes a response with status code 200, with default header values.
+/*
+	AggregateRemediationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewAggregateRemediationsForbidden() *AggregateRemediationsForbidden {
 	return &AggregateRemediationsForbidden{}
 }
 
-/* AggregateRemediationsForbidden describes a response with status code 403, with default header values.
+/*
+	AggregateRemediationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewAggregateRemediationsTooManyRequests() *AggregateRemediationsTooManyRequ
 	return &AggregateRemediationsTooManyRequests{}
 }
 
-/* AggregateRemediationsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AggregateRemediationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewAggregateRemediationsDefault(code int) *AggregateRemediationsDefault {
 	}
 }
 
-/* AggregateRemediationsDefault describes a response with status code -1, with default header values.
+/*
+	AggregateRemediationsDefault describes a response with status code -1, with default header values.
 
 OK
 */

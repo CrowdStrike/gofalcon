@@ -60,7 +60,8 @@ func NewAggregatesOWEventsGlobalCountsOK() *AggregatesOWEventsGlobalCountsOK {
 	return &AggregatesOWEventsGlobalCountsOK{}
 }
 
-/* AggregatesOWEventsGlobalCountsOK describes a response with status code 200, with default header values.
+/*
+	AggregatesOWEventsGlobalCountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewAggregatesOWEventsGlobalCountsForbidden() *AggregatesOWEventsGlobalCount
 	return &AggregatesOWEventsGlobalCountsForbidden{}
 }
 
-/* AggregatesOWEventsGlobalCountsForbidden describes a response with status code 403, with default header values.
+/*
+	AggregatesOWEventsGlobalCountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewAggregatesOWEventsGlobalCountsTooManyRequests() *AggregatesOWEventsGloba
 	return &AggregatesOWEventsGlobalCountsTooManyRequests{}
 }
 
-/* AggregatesOWEventsGlobalCountsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AggregatesOWEventsGlobalCountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewAggregatesOWEventsGlobalCountsDefault(code int) *AggregatesOWEventsGloba
 	}
 }
 
-/* AggregatesOWEventsGlobalCountsDefault describes a response with status code -1, with default header values.
+/*
+	AggregatesOWEventsGlobalCountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

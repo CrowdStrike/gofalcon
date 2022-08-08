@@ -72,7 +72,8 @@ func NewCombinedQueryVulnerabilitiesOK() *CombinedQueryVulnerabilitiesOK {
 	return &CombinedQueryVulnerabilitiesOK{}
 }
 
-/* CombinedQueryVulnerabilitiesOK describes a response with status code 200, with default header values.
+/*
+	CombinedQueryVulnerabilitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewCombinedQueryVulnerabilitiesBadRequest() *CombinedQueryVulnerabilitiesBa
 	return &CombinedQueryVulnerabilitiesBadRequest{}
 }
 
-/* CombinedQueryVulnerabilitiesBadRequest describes a response with status code 400, with default header values.
+/*
+	CombinedQueryVulnerabilitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewCombinedQueryVulnerabilitiesForbidden() *CombinedQueryVulnerabilitiesFor
 	return &CombinedQueryVulnerabilitiesForbidden{}
 }
 
-/* CombinedQueryVulnerabilitiesForbidden describes a response with status code 403, with default header values.
+/*
+	CombinedQueryVulnerabilitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewCombinedQueryVulnerabilitiesTooManyRequests() *CombinedQueryVulnerabilit
 	return &CombinedQueryVulnerabilitiesTooManyRequests{}
 }
 
-/* CombinedQueryVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	CombinedQueryVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewCombinedQueryVulnerabilitiesInternalServerError() *CombinedQueryVulnerab
 	return &CombinedQueryVulnerabilitiesInternalServerError{}
 }
 
-/* CombinedQueryVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
+/*
+	CombinedQueryVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewCombinedQueryVulnerabilitiesDefault(code int) *CombinedQueryVulnerabilit
 	}
 }
 
-/* CombinedQueryVulnerabilitiesDefault describes a response with status code -1, with default header values.
+/*
+	CombinedQueryVulnerabilitiesDefault describes a response with status code -1, with default header values.
 
 OK
 */

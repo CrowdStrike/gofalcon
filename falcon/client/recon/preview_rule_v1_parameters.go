@@ -54,10 +54,12 @@ func NewPreviewRuleV1ParamsWithHTTPClient(client *http.Client) *PreviewRuleV1Par
 	}
 }
 
-/* PreviewRuleV1Params contains all the parameters to send to the API endpoint
-   for the preview rule v1 operation.
+/*
+PreviewRuleV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the preview rule v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PreviewRuleV1Params struct {
 

@@ -78,7 +78,8 @@ func NewUpdateFirewallPoliciesOK() *UpdateFirewallPoliciesOK {
 	return &UpdateFirewallPoliciesOK{}
 }
 
-/* UpdateFirewallPoliciesOK describes a response with status code 200, with default header values.
+/*
+	UpdateFirewallPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewUpdateFirewallPoliciesBadRequest() *UpdateFirewallPoliciesBadRequest {
 	return &UpdateFirewallPoliciesBadRequest{}
 }
 
-/* UpdateFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	UpdateFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewUpdateFirewallPoliciesForbidden() *UpdateFirewallPoliciesForbidden {
 	return &UpdateFirewallPoliciesForbidden{}
 }
 
-/* UpdateFirewallPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	UpdateFirewallPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewUpdateFirewallPoliciesNotFound() *UpdateFirewallPoliciesNotFound {
 	return &UpdateFirewallPoliciesNotFound{}
 }
 
-/* UpdateFirewallPoliciesNotFound describes a response with status code 404, with default header values.
+/*
+	UpdateFirewallPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewUpdateFirewallPoliciesTooManyRequests() *UpdateFirewallPoliciesTooManyRe
 	return &UpdateFirewallPoliciesTooManyRequests{}
 }
 
-/* UpdateFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	UpdateFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewUpdateFirewallPoliciesInternalServerError() *UpdateFirewallPoliciesInter
 	return &UpdateFirewallPoliciesInternalServerError{}
 }
 
-/* UpdateFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	UpdateFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewUpdateFirewallPoliciesDefault(code int) *UpdateFirewallPoliciesDefault {
 	}
 }
 
-/* UpdateFirewallPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	UpdateFirewallPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

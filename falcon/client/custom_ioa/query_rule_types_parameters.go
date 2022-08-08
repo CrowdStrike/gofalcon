@@ -53,10 +53,12 @@ func NewQueryRuleTypesParamsWithHTTPClient(client *http.Client) *QueryRuleTypesP
 	}
 }
 
-/* QueryRuleTypesParams contains all the parameters to send to the API endpoint
-   for the query rule types operation.
+/*
+QueryRuleTypesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query rule types operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryRuleTypesParams struct {
 

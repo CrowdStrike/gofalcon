@@ -60,7 +60,8 @@ func NewGetPlatformsOK() *GetPlatformsOK {
 	return &GetPlatformsOK{}
 }
 
-/* GetPlatformsOK describes a response with status code 200, with default header values.
+/*
+	GetPlatformsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewGetPlatformsForbidden() *GetPlatformsForbidden {
 	return &GetPlatformsForbidden{}
 }
 
-/* GetPlatformsForbidden describes a response with status code 403, with default header values.
+/*
+	GetPlatformsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewGetPlatformsTooManyRequests() *GetPlatformsTooManyRequests {
 	return &GetPlatformsTooManyRequests{}
 }
 
-/* GetPlatformsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetPlatformsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewGetPlatformsDefault(code int) *GetPlatformsDefault {
 	}
 }
 
-/* GetPlatformsDefault describes a response with status code -1, with default header values.
+/*
+	GetPlatformsDefault describes a response with status code -1, with default header values.
 
 OK
 */

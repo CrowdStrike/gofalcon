@@ -54,10 +54,12 @@ func NewPostMalQueryExactSearchV1ParamsWithHTTPClient(client *http.Client) *Post
 	}
 }
 
-/* PostMalQueryExactSearchV1Params contains all the parameters to send to the API endpoint
-   for the post mal query exact search v1 operation.
+/*
+PostMalQueryExactSearchV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post mal query exact search v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostMalQueryExactSearchV1Params struct {
 

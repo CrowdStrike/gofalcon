@@ -60,7 +60,7 @@ type ClientService interface {
 }
 
 /*
-  AggregateAllowList retrieves aggregate allowlist ticket values based on the matched filter
+AggregateAllowList retrieves aggregate allowlist ticket values based on the matched filter
 */
 func (a *Client) AggregateAllowList(params *AggregateAllowListParams, opts ...ClientOption) (*AggregateAllowListOK, error) {
 	// TODO: Validate the params before sending
@@ -97,7 +97,7 @@ func (a *Client) AggregateAllowList(params *AggregateAllowListParams, opts ...Cl
 }
 
 /*
-  AggregateBlockList retrieves aggregate blocklist ticket values based on the matched filter
+AggregateBlockList retrieves aggregate blocklist ticket values based on the matched filter
 */
 func (a *Client) AggregateBlockList(params *AggregateBlockListParams, opts ...ClientOption) (*AggregateBlockListOK, error) {
 	// TODO: Validate the params before sending
@@ -134,9 +134,9 @@ func (a *Client) AggregateBlockList(params *AggregateBlockListParams, opts ...Cl
 }
 
 /*
-  AggregateDetections retrieves aggregate detection values based on the matched filter
+	AggregateDetections retrieves aggregate detection values based on the matched filter
 
-  Fields allowed to aggregate on:
+	Fields allowed to aggregate on:
 
 - indexed_time
 
@@ -225,7 +225,7 @@ func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...
 }
 
 /*
-  AggregateDeviceCountCollection retrieves aggregate host devices count based on the matched filter
+AggregateDeviceCountCollection retrieves aggregate host devices count based on the matched filter
 */
 func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountCollectionParams, opts ...ClientOption) (*AggregateDeviceCountCollectionOK, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountColl
 }
 
 /*
-  AggregateEscalations retrieves aggregate escalation ticket values based on the matched filter
+AggregateEscalations retrieves aggregate escalation ticket values based on the matched filter
 */
 func (a *Client) AggregateEscalations(params *AggregateEscalationsParams, opts ...ClientOption) (*AggregateEscalationsOK, error) {
 	// TODO: Validate the params before sending
@@ -299,7 +299,7 @@ func (a *Client) AggregateEscalations(params *AggregateEscalationsParams, opts .
 }
 
 /*
-  AggregateFCIncidents retrieves aggregate incident values based on the matched filter
+AggregateFCIncidents retrieves aggregate incident values based on the matched filter
 */
 func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts ...ClientOption) (*AggregateFCIncidentsOK, error) {
 	// TODO: Validate the params before sending
@@ -336,7 +336,7 @@ func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts .
 }
 
 /*
-  AggregateRemediations retrieves aggregate remediation ticket values based on the matched filter
+AggregateRemediations retrieves aggregate remediation ticket values based on the matched filter
 */
 func (a *Client) AggregateRemediations(params *AggregateRemediationsParams, opts ...ClientOption) (*AggregateRemediationsOK, error) {
 	// TODO: Validate the params before sending
@@ -373,7 +373,7 @@ func (a *Client) AggregateRemediations(params *AggregateRemediationsParams, opts
 }
 
 /*
-  GetDeviceCountCollectionQueriesByFilter retrieves device count collection ids that match the provided f q l filter criteria with scrolling enabled
+GetDeviceCountCollectionQueriesByFilter retrieves device count collection ids that match the provided f q l filter criteria with scrolling enabled
 */
 func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountCollectionQueriesByFilterParams, opts ...ClientOption) (*GetDeviceCountCollectionQueriesByFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -410,7 +410,7 @@ func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountC
 }
 
 /*
-  QueryAllowListFilter retrieves allowlist tickets that match the provided filter criteria with scrolling enabled
+QueryAllowListFilter retrieves allowlist tickets that match the provided filter criteria with scrolling enabled
 */
 func (a *Client) QueryAllowListFilter(params *QueryAllowListFilterParams, opts ...ClientOption) (*QueryAllowListFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -447,7 +447,7 @@ func (a *Client) QueryAllowListFilter(params *QueryAllowListFilterParams, opts .
 }
 
 /*
-  QueryBlockListFilter retrieves block listtickets that match the provided filter criteria with scrolling enabled
+QueryBlockListFilter retrieves block listtickets that match the provided filter criteria with scrolling enabled
 */
 func (a *Client) QueryBlockListFilter(params *QueryBlockListFilterParams, opts ...ClientOption) (*QueryBlockListFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -484,7 +484,7 @@ func (a *Client) QueryBlockListFilter(params *QueryBlockListFilterParams, opts .
 }
 
 /*
-  QueryDetectionIdsByFilter retrieves detections ids that match the provided f q l filter criteria with scrolling enabled
+QueryDetectionIdsByFilter retrieves detections ids that match the provided f q l filter criteria with scrolling enabled
 */
 func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterParams, opts ...ClientOption) (*QueryDetectionIdsByFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -521,7 +521,7 @@ func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterPara
 }
 
 /*
-  QueryEscalationsFilter retrieves escalation tickets that match the provided filter criteria with scrolling enabled
+QueryEscalationsFilter retrieves escalation tickets that match the provided filter criteria with scrolling enabled
 */
 func (a *Client) QueryEscalationsFilter(params *QueryEscalationsFilterParams, opts ...ClientOption) (*QueryEscalationsFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -558,7 +558,7 @@ func (a *Client) QueryEscalationsFilter(params *QueryEscalationsFilterParams, op
 }
 
 /*
-  QueryIncidentIdsByFilter retrieves incidents that match the provided filter criteria with scrolling enabled
+QueryIncidentIdsByFilter retrieves incidents that match the provided filter criteria with scrolling enabled
 */
 func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams, opts ...ClientOption) (*QueryIncidentIdsByFilterOK, error) {
 	// TODO: Validate the params before sending
@@ -595,7 +595,7 @@ func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams
 }
 
 /*
-  QueryRemediationsFilter retrieves remediation tickets that match the provided filter criteria with scrolling enabled
+QueryRemediationsFilter retrieves remediation tickets that match the provided filter criteria with scrolling enabled
 */
 func (a *Client) QueryRemediationsFilter(params *QueryRemediationsFilterParams, opts ...ClientOption) (*QueryRemediationsFilterOK, error) {
 	// TODO: Validate the params before sending

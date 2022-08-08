@@ -60,7 +60,8 @@ func NewGetFirewallFieldsOK() *GetFirewallFieldsOK {
 	return &GetFirewallFieldsOK{}
 }
 
-/* GetFirewallFieldsOK describes a response with status code 200, with default header values.
+/*
+	GetFirewallFieldsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewGetFirewallFieldsForbidden() *GetFirewallFieldsForbidden {
 	return &GetFirewallFieldsForbidden{}
 }
 
-/* GetFirewallFieldsForbidden describes a response with status code 403, with default header values.
+/*
+	GetFirewallFieldsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewGetFirewallFieldsTooManyRequests() *GetFirewallFieldsTooManyRequests {
 	return &GetFirewallFieldsTooManyRequests{}
 }
 
-/* GetFirewallFieldsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetFirewallFieldsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewGetFirewallFieldsDefault(code int) *GetFirewallFieldsDefault {
 	}
 }
 
-/* GetFirewallFieldsDefault describes a response with status code -1, with default header values.
+/*
+	GetFirewallFieldsDefault describes a response with status code -1, with default header values.
 
 OK
 */

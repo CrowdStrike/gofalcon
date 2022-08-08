@@ -53,10 +53,12 @@ func NewGetAWSAccountsMixin0ParamsWithHTTPClient(client *http.Client) *GetAWSAcc
 	}
 }
 
-/* GetAWSAccountsMixin0Params contains all the parameters to send to the API endpoint
-   for the get a w s accounts mixin0 operation.
+/*
+GetAWSAccountsMixin0Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get a w s accounts mixin0 operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAWSAccountsMixin0Params struct {
 

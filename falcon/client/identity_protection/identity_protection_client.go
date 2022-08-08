@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-  APIPreemptProxyPostGraphql identities protection graph q l API allows to retrieve entities timeline activities identity based incidents and security assessment allows to perform actions on entities and identity based incidents
+APIPreemptProxyPostGraphql identities protection graph q l API allows to retrieve entities timeline activities identity based incidents and security assessment allows to perform actions on entities and identity based incidents
 */
 func (a *Client) APIPreemptProxyPostGraphql(params *APIPreemptProxyPostGraphqlParams, opts ...ClientOption) (*APIPreemptProxyPostGraphqlOK, error) {
 	// TODO: Validate the params before sending

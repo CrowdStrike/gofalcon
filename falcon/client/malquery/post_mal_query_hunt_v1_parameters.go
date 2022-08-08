@@ -54,10 +54,12 @@ func NewPostMalQueryHuntV1ParamsWithHTTPClient(client *http.Client) *PostMalQuer
 	}
 }
 
-/* PostMalQueryHuntV1Params contains all the parameters to send to the API endpoint
-   for the post mal query hunt v1 operation.
+/*
+PostMalQueryHuntV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the post mal query hunt v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type PostMalQueryHuntV1Params struct {
 

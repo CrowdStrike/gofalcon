@@ -53,7 +53,8 @@ func NewAPIPreemptProxyPostGraphqlOK() *APIPreemptProxyPostGraphqlOK {
 	return &APIPreemptProxyPostGraphqlOK{}
 }
 
-/* APIPreemptProxyPostGraphqlOK describes a response with status code 200, with default header values.
+/*
+	APIPreemptProxyPostGraphqlOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -115,7 +116,8 @@ func NewAPIPreemptProxyPostGraphqlForbidden() *APIPreemptProxyPostGraphqlForbidd
 	return &APIPreemptProxyPostGraphqlForbidden{}
 }
 
-/* APIPreemptProxyPostGraphqlForbidden describes a response with status code 403, with default header values.
+/*
+	APIPreemptProxyPostGraphqlForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +191,8 @@ func NewAPIPreemptProxyPostGraphqlTooManyRequests() *APIPreemptProxyPostGraphqlT
 	return &APIPreemptProxyPostGraphqlTooManyRequests{}
 }
 
-/* APIPreemptProxyPostGraphqlTooManyRequests describes a response with status code 429, with default header values.
+/*
+	APIPreemptProxyPostGraphqlTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

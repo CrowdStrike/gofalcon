@@ -72,7 +72,8 @@ func NewAzureDownloadCertificateOK() *AzureDownloadCertificateOK {
 	return &AzureDownloadCertificateOK{}
 }
 
-/* AzureDownloadCertificateOK describes a response with status code 200, with default header values.
+/*
+	AzureDownloadCertificateOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewAzureDownloadCertificateBadRequest() *AzureDownloadCertificateBadRequest
 	return &AzureDownloadCertificateBadRequest{}
 }
 
-/* AzureDownloadCertificateBadRequest describes a response with status code 400, with default header values.
+/*
+	AzureDownloadCertificateBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewAzureDownloadCertificateForbidden() *AzureDownloadCertificateForbidden {
 	return &AzureDownloadCertificateForbidden{}
 }
 
-/* AzureDownloadCertificateForbidden describes a response with status code 403, with default header values.
+/*
+	AzureDownloadCertificateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewAzureDownloadCertificateTooManyRequests() *AzureDownloadCertificateTooMa
 	return &AzureDownloadCertificateTooManyRequests{}
 }
 
-/* AzureDownloadCertificateTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AzureDownloadCertificateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewAzureDownloadCertificateInternalServerError() *AzureDownloadCertificateI
 	return &AzureDownloadCertificateInternalServerError{}
 }
 
-/* AzureDownloadCertificateInternalServerError describes a response with status code 500, with default header values.
+/*
+	AzureDownloadCertificateInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewAzureDownloadCertificateDefault(code int) *AzureDownloadCertificateDefau
 	}
 }
 
-/* AzureDownloadCertificateDefault describes a response with status code -1, with default header values.
+/*
+	AzureDownloadCertificateDefault describes a response with status code -1, with default header values.
 
 OK
 */

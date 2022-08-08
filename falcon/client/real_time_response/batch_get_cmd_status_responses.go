@@ -78,7 +78,8 @@ func NewBatchGetCmdStatusOK() *BatchGetCmdStatusOK {
 	return &BatchGetCmdStatusOK{}
 }
 
-/* BatchGetCmdStatusOK describes a response with status code 200, with default header values.
+/*
+	BatchGetCmdStatusOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewBatchGetCmdStatusBadRequest() *BatchGetCmdStatusBadRequest {
 	return &BatchGetCmdStatusBadRequest{}
 }
 
-/* BatchGetCmdStatusBadRequest describes a response with status code 400, with default header values.
+/*
+	BatchGetCmdStatusBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewBatchGetCmdStatusForbidden() *BatchGetCmdStatusForbidden {
 	return &BatchGetCmdStatusForbidden{}
 }
 
-/* BatchGetCmdStatusForbidden describes a response with status code 403, with default header values.
+/*
+	BatchGetCmdStatusForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewBatchGetCmdStatusNotFound() *BatchGetCmdStatusNotFound {
 	return &BatchGetCmdStatusNotFound{}
 }
 
-/* BatchGetCmdStatusNotFound describes a response with status code 404, with default header values.
+/*
+	BatchGetCmdStatusNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewBatchGetCmdStatusTooManyRequests() *BatchGetCmdStatusTooManyRequests {
 	return &BatchGetCmdStatusTooManyRequests{}
 }
 
-/* BatchGetCmdStatusTooManyRequests describes a response with status code 429, with default header values.
+/*
+	BatchGetCmdStatusTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewBatchGetCmdStatusInternalServerError() *BatchGetCmdStatusInternalServerE
 	return &BatchGetCmdStatusInternalServerError{}
 }
 
-/* BatchGetCmdStatusInternalServerError describes a response with status code 500, with default header values.
+/*
+	BatchGetCmdStatusInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewBatchGetCmdStatusDefault(code int) *BatchGetCmdStatusDefault {
 	}
 }
 
-/* BatchGetCmdStatusDefault describes a response with status code -1, with default header values.
+/*
+	BatchGetCmdStatusDefault describes a response with status code -1, with default header values.
 
 OK
 */

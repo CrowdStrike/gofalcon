@@ -54,10 +54,12 @@ func NewAggregateAllowListParamsWithHTTPClient(client *http.Client) *AggregateAl
 	}
 }
 
-/* AggregateAllowListParams contains all the parameters to send to the API endpoint
-   for the aggregate allow list operation.
+/*
+AggregateAllowListParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the aggregate allow list operation.
+
+	Typically these are written to a http.Request.
 */
 type AggregateAllowListParams struct {
 

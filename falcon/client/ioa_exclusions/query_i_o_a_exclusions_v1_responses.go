@@ -72,7 +72,8 @@ func NewQueryIOAExclusionsV1OK() *QueryIOAExclusionsV1OK {
 	return &QueryIOAExclusionsV1OK{}
 }
 
-/* QueryIOAExclusionsV1OK describes a response with status code 200, with default header values.
+/*
+	QueryIOAExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewQueryIOAExclusionsV1BadRequest() *QueryIOAExclusionsV1BadRequest {
 	return &QueryIOAExclusionsV1BadRequest{}
 }
 
-/* QueryIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	QueryIOAExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewQueryIOAExclusionsV1Forbidden() *QueryIOAExclusionsV1Forbidden {
 	return &QueryIOAExclusionsV1Forbidden{}
 }
 
-/* QueryIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	QueryIOAExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewQueryIOAExclusionsV1TooManyRequests() *QueryIOAExclusionsV1TooManyReques
 	return &QueryIOAExclusionsV1TooManyRequests{}
 }
 
-/* QueryIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryIOAExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewQueryIOAExclusionsV1InternalServerError() *QueryIOAExclusionsV1InternalS
 	return &QueryIOAExclusionsV1InternalServerError{}
 }
 
-/* QueryIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryIOAExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewQueryIOAExclusionsV1Default(code int) *QueryIOAExclusionsV1Default {
 	}
 }
 
-/* QueryIOAExclusionsV1Default describes a response with status code -1, with default header values.
+/*
+	QueryIOAExclusionsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

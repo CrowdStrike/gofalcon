@@ -78,7 +78,8 @@ func NewQueryCombinedGroupMembersOK() *QueryCombinedGroupMembersOK {
 	return &QueryCombinedGroupMembersOK{}
 }
 
-/* QueryCombinedGroupMembersOK describes a response with status code 200, with default header values.
+/*
+	QueryCombinedGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -141,7 +142,8 @@ func NewQueryCombinedGroupMembersBadRequest() *QueryCombinedGroupMembersBadReque
 	return &QueryCombinedGroupMembersBadRequest{}
 }
 
-/* QueryCombinedGroupMembersBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryCombinedGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -204,7 +206,8 @@ func NewQueryCombinedGroupMembersForbidden() *QueryCombinedGroupMembersForbidden
 	return &QueryCombinedGroupMembersForbidden{}
 }
 
-/* QueryCombinedGroupMembersForbidden describes a response with status code 403, with default header values.
+/*
+	QueryCombinedGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -267,7 +270,8 @@ func NewQueryCombinedGroupMembersNotFound() *QueryCombinedGroupMembersNotFound {
 	return &QueryCombinedGroupMembersNotFound{}
 }
 
-/* QueryCombinedGroupMembersNotFound describes a response with status code 404, with default header values.
+/*
+	QueryCombinedGroupMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -330,7 +334,8 @@ func NewQueryCombinedGroupMembersTooManyRequests() *QueryCombinedGroupMembersToo
 	return &QueryCombinedGroupMembersTooManyRequests{}
 }
 
-/* QueryCombinedGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryCombinedGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -408,7 +413,8 @@ func NewQueryCombinedGroupMembersInternalServerError() *QueryCombinedGroupMember
 	return &QueryCombinedGroupMembersInternalServerError{}
 }
 
-/* QueryCombinedGroupMembersInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryCombinedGroupMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -473,7 +479,8 @@ func NewQueryCombinedGroupMembersDefault(code int) *QueryCombinedGroupMembersDef
 	}
 }
 
-/* QueryCombinedGroupMembersDefault describes a response with status code -1, with default header values.
+/*
+	QueryCombinedGroupMembersDefault describes a response with status code -1, with default header values.
 
 OK
 */

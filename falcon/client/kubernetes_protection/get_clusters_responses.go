@@ -78,7 +78,8 @@ func NewGetClustersOK() *GetClustersOK {
 	return &GetClustersOK{}
 }
 
-/* GetClustersOK describes a response with status code 200, with default header values.
+/*
+	GetClustersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewGetClustersMultiStatus() *GetClustersMultiStatus {
 	return &GetClustersMultiStatus{}
 }
 
-/* GetClustersMultiStatus describes a response with status code 207, with default header values.
+/*
+	GetClustersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -226,7 +228,8 @@ func NewGetClustersBadRequest() *GetClustersBadRequest {
 	return &GetClustersBadRequest{}
 }
 
-/* GetClustersBadRequest describes a response with status code 400, with default header values.
+/*
+	GetClustersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -300,7 +303,8 @@ func NewGetClustersForbidden() *GetClustersForbidden {
 	return &GetClustersForbidden{}
 }
 
-/* GetClustersForbidden describes a response with status code 403, with default header values.
+/*
+	GetClustersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewGetClustersTooManyRequests() *GetClustersTooManyRequests {
 	return &GetClustersTooManyRequests{}
 }
 
-/* GetClustersTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetClustersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewGetClustersInternalServerError() *GetClustersInternalServerError {
 	return &GetClustersInternalServerError{}
 }
 
-/* GetClustersInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetClustersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewGetClustersDefault(code int) *GetClustersDefault {
 	}
 }
 
-/* GetClustersDefault describes a response with status code -1, with default header values.
+/*
+	GetClustersDefault describes a response with status code -1, with default header values.
 
 OK
 */

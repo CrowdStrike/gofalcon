@@ -72,7 +72,8 @@ func NewGetIOAUsersOK() *GetIOAUsersOK {
 	return &GetIOAUsersOK{}
 }
 
-/* GetIOAUsersOK describes a response with status code 200, with default header values.
+/*
+	GetIOAUsersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewGetIOAUsersBadRequest() *GetIOAUsersBadRequest {
 	return &GetIOAUsersBadRequest{}
 }
 
-/* GetIOAUsersBadRequest describes a response with status code 400, with default header values.
+/*
+	GetIOAUsersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewGetIOAUsersForbidden() *GetIOAUsersForbidden {
 	return &GetIOAUsersForbidden{}
 }
 
-/* GetIOAUsersForbidden describes a response with status code 403, with default header values.
+/*
+	GetIOAUsersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewGetIOAUsersTooManyRequests() *GetIOAUsersTooManyRequests {
 	return &GetIOAUsersTooManyRequests{}
 }
 
-/* GetIOAUsersTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetIOAUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewGetIOAUsersInternalServerError() *GetIOAUsersInternalServerError {
 	return &GetIOAUsersInternalServerError{}
 }
 
-/* GetIOAUsersInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetIOAUsersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewGetIOAUsersDefault(code int) *GetIOAUsersDefault {
 	}
 }
 
-/* GetIOAUsersDefault describes a response with status code -1, with default header values.
+/*
+	GetIOAUsersDefault describes a response with status code -1, with default header values.
 
 OK
 */

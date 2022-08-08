@@ -72,7 +72,8 @@ func NewAddRoleOK() *AddRoleOK {
 	return &AddRoleOK{}
 }
 
-/* AddRoleOK describes a response with status code 200, with default header values.
+/*
+	AddRoleOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewAddRoleMultiStatus() *AddRoleMultiStatus {
 	return &AddRoleMultiStatus{}
 }
 
-/* AddRoleMultiStatus describes a response with status code 207, with default header values.
+/*
+	AddRoleMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -198,7 +200,8 @@ func NewAddRoleBadRequest() *AddRoleBadRequest {
 	return &AddRoleBadRequest{}
 }
 
-/* AddRoleBadRequest describes a response with status code 400, with default header values.
+/*
+	AddRoleBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -261,7 +264,8 @@ func NewAddRoleForbidden() *AddRoleForbidden {
 	return &AddRoleForbidden{}
 }
 
-/* AddRoleForbidden describes a response with status code 403, with default header values.
+/*
+	AddRoleForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -324,7 +328,8 @@ func NewAddRoleTooManyRequests() *AddRoleTooManyRequests {
 	return &AddRoleTooManyRequests{}
 }
 
-/* AddRoleTooManyRequests describes a response with status code 429, with default header values.
+/*
+	AddRoleTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,7 +409,8 @@ func NewAddRoleDefault(code int) *AddRoleDefault {
 	}
 }
 
-/* AddRoleDefault describes a response with status code -1, with default header values.
+/*
+	AddRoleDefault describes a response with status code -1, with default header values.
 
 OK
 */

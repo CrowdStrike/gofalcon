@@ -60,7 +60,8 @@ func NewDevicesRanOnOK() *DevicesRanOnOK {
 	return &DevicesRanOnOK{}
 }
 
-/* DevicesRanOnOK describes a response with status code 200, with default header values.
+/*
+	DevicesRanOnOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -123,7 +124,8 @@ func NewDevicesRanOnForbidden() *DevicesRanOnForbidden {
 	return &DevicesRanOnForbidden{}
 }
 
-/* DevicesRanOnForbidden describes a response with status code 403, with default header values.
+/*
+	DevicesRanOnForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -186,7 +188,8 @@ func NewDevicesRanOnTooManyRequests() *DevicesRanOnTooManyRequests {
 	return &DevicesRanOnTooManyRequests{}
 }
 
-/* DevicesRanOnTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DevicesRanOnTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -266,7 +269,8 @@ func NewDevicesRanOnDefault(code int) *DevicesRanOnDefault {
 	}
 }
 
-/* DevicesRanOnDefault describes a response with status code -1, with default header values.
+/*
+	DevicesRanOnDefault describes a response with status code -1, with default header values.
 
 OK
 */

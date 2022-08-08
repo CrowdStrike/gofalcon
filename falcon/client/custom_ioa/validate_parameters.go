@@ -54,10 +54,12 @@ func NewValidateParamsWithHTTPClient(client *http.Client) *ValidateParams {
 	}
 }
 
-/* ValidateParams contains all the parameters to send to the API endpoint
-   for the validate operation.
+/*
+ValidateParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the validate operation.
+
+	Typically these are written to a http.Request.
 */
 type ValidateParams struct {
 

@@ -54,10 +54,12 @@ func NewPerformDeviceControlPoliciesActionParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/* PerformDeviceControlPoliciesActionParams contains all the parameters to send to the API endpoint
-   for the perform device control policies action operation.
+/*
+PerformDeviceControlPoliciesActionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the perform device control policies action operation.
+
+	Typically these are written to a http.Request.
 */
 type PerformDeviceControlPoliciesActionParams struct {
 

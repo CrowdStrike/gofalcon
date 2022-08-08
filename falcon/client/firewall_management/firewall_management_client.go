@@ -74,7 +74,7 @@ type ClientService interface {
 }
 
 /*
-  AggregateEvents aggregates events for customer
+AggregateEvents aggregates events for customer
 */
 func (a *Client) AggregateEvents(params *AggregateEventsParams, opts ...ClientOption) (*AggregateEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -111,7 +111,7 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams, opts ...ClientOp
 }
 
 /*
-  AggregatePolicyRules aggregates rules within a policy for customer
+AggregatePolicyRules aggregates rules within a policy for customer
 */
 func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, opts ...ClientOption) (*AggregatePolicyRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -148,7 +148,7 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, opts .
 }
 
 /*
-  AggregateRuleGroups aggregates rule groups for customer
+AggregateRuleGroups aggregates rule groups for customer
 */
 func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...ClientOption) (*AggregateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -185,7 +185,7 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...
 }
 
 /*
-  AggregateRules aggregates rules for customer
+AggregateRules aggregates rules for customer
 */
 func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOption) (*AggregateRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOpti
 }
 
 /*
-  CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
+CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
 */
 func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOp
 }
 
 /*
-  DeleteRuleGroups deletes rule group entities by ID
+DeleteRuleGroups deletes rule group entities by ID
 */
 func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -297,7 +297,7 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...Client
 }
 
 /*
-  GetEvents gets events entities by ID and optionally version
+GetEvents gets events entities by ID and optionally version
 */
 func (a *Client) GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -334,7 +334,7 @@ func (a *Client) GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetE
 }
 
 /*
-  GetFirewallFields gets the firewall field specifications by ID
+GetFirewallFields gets the firewall field specifications by ID
 */
 func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...ClientOption) (*GetFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
@@ -371,7 +371,7 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...Clie
 }
 
 /*
-  GetPlatforms gets platforms by ID e g windows or mac or droid
+GetPlatforms gets platforms by ID e g windows or mac or droid
 */
 func (a *Client) GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) (*GetPlatformsOK, error) {
 	// TODO: Validate the params before sending
@@ -408,7 +408,7 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) 
 }
 
 /*
-  GetPolicyContainers gets policy container entities by policy ID
+GetPolicyContainers gets policy container entities by policy ID
 */
 func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, opts ...ClientOption) (*GetPolicyContainersOK, error) {
 	// TODO: Validate the params before sending
@@ -445,7 +445,7 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, opts ...
 }
 
 /*
-  GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
+GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
 */
 func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -482,7 +482,7 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption
 }
 
 /*
-  GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
+GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
 */
 func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -519,7 +519,7 @@ func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRul
 }
 
 /*
-  QueryEvents finds all event i ds matching the query with filter
+QueryEvents finds all event i ds matching the query with filter
 */
 func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*QueryEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -556,7 +556,7 @@ func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*
 }
 
 /*
-  QueryFirewallFields gets the firewall field specification i ds for the provided platform
+QueryFirewallFields gets the firewall field specification i ds for the provided platform
 */
 func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...ClientOption) (*QueryFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
@@ -593,7 +593,7 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...
 }
 
 /*
-  QueryPlatforms gets the list of platform names
+QueryPlatforms gets the list of platform names
 */
 func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error) {
 	// TODO: Validate the params before sending
@@ -630,7 +630,7 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOpti
 }
 
 /*
-  QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
+QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
 */
 func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, opts ...ClientOption) (*QueryPolicyRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -667,7 +667,7 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, opts ...Client
 }
 
 /*
-  QueryRuleGroups finds all rule group i ds matching the query with filter
+QueryRuleGroups finds all rule group i ds matching the query with filter
 */
 func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -704,7 +704,7 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOp
 }
 
 /*
-  QueryRules finds all rule i ds matching the query with filter
+QueryRules finds all rule i ds matching the query with filter
 */
 func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -741,7 +741,7 @@ func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*Qu
 }
 
 /*
-  UpdatePolicyContainer updates an identified policy container
+UpdatePolicyContainer updates an identified policy container
 */
 func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
 	// TODO: Validate the params before sending
@@ -780,7 +780,7 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts
 }
 
 /*
-  UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
+UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
 */
 func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error) {
 	// TODO: Validate the params before sending

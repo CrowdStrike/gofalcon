@@ -52,10 +52,12 @@ func NewGetAWSSettingsParamsWithHTTPClient(client *http.Client) *GetAWSSettingsP
 	}
 }
 
-/* GetAWSSettingsParams contains all the parameters to send to the API endpoint
-   for the get a w s settings operation.
+/*
+GetAWSSettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get a w s settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAWSSettingsParams struct {
 	timeout    time.Duration

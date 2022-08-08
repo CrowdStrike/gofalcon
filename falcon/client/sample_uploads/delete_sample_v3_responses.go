@@ -78,7 +78,8 @@ func NewDeleteSampleV3OK() *DeleteSampleV3OK {
 	return &DeleteSampleV3OK{}
 }
 
-/* DeleteSampleV3OK describes a response with status code 200, with default header values.
+/*
+	DeleteSampleV3OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewDeleteSampleV3BadRequest() *DeleteSampleV3BadRequest {
 	return &DeleteSampleV3BadRequest{}
 }
 
-/* DeleteSampleV3BadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteSampleV3BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -226,7 +228,8 @@ func NewDeleteSampleV3Forbidden() *DeleteSampleV3Forbidden {
 	return &DeleteSampleV3Forbidden{}
 }
 
-/* DeleteSampleV3Forbidden describes a response with status code 403, with default header values.
+/*
+	DeleteSampleV3Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -300,7 +303,8 @@ func NewDeleteSampleV3NotFound() *DeleteSampleV3NotFound {
 	return &DeleteSampleV3NotFound{}
 }
 
-/* DeleteSampleV3NotFound describes a response with status code 404, with default header values.
+/*
+	DeleteSampleV3NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -374,7 +378,8 @@ func NewDeleteSampleV3TooManyRequests() *DeleteSampleV3TooManyRequests {
 	return &DeleteSampleV3TooManyRequests{}
 }
 
-/* DeleteSampleV3TooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteSampleV3TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewDeleteSampleV3InternalServerError() *DeleteSampleV3InternalServerError {
 	return &DeleteSampleV3InternalServerError{}
 }
 
-/* DeleteSampleV3InternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteSampleV3InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewDeleteSampleV3Default(code int) *DeleteSampleV3Default {
 	}
 }
 
-/* DeleteSampleV3Default describes a response with status code -1, with default header values.
+/*
+	DeleteSampleV3Default describes a response with status code -1, with default header values.
 
 OK
 */

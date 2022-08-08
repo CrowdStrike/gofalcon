@@ -54,10 +54,12 @@ func NewUpdateNotificationsV1ParamsWithHTTPClient(client *http.Client) *UpdateNo
 	}
 }
 
-/* UpdateNotificationsV1Params contains all the parameters to send to the API endpoint
-   for the update notifications v1 operation.
+/*
+UpdateNotificationsV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update notifications v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateNotificationsV1Params struct {
 

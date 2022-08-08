@@ -78,7 +78,8 @@ func NewGetLocationsOK() *GetLocationsOK {
 	return &GetLocationsOK{}
 }
 
-/* GetLocationsOK describes a response with status code 200, with default header values.
+/*
+	GetLocationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -152,7 +153,8 @@ func NewGetLocationsMultiStatus() *GetLocationsMultiStatus {
 	return &GetLocationsMultiStatus{}
 }
 
-/* GetLocationsMultiStatus describes a response with status code 207, with default header values.
+/*
+	GetLocationsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -226,7 +228,8 @@ func NewGetLocationsBadRequest() *GetLocationsBadRequest {
 	return &GetLocationsBadRequest{}
 }
 
-/* GetLocationsBadRequest describes a response with status code 400, with default header values.
+/*
+	GetLocationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -300,7 +303,8 @@ func NewGetLocationsForbidden() *GetLocationsForbidden {
 	return &GetLocationsForbidden{}
 }
 
-/* GetLocationsForbidden describes a response with status code 403, with default header values.
+/*
+	GetLocationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -374,7 +378,8 @@ func NewGetLocationsTooManyRequests() *GetLocationsTooManyRequests {
 	return &GetLocationsTooManyRequests{}
 }
 
-/* GetLocationsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -463,7 +468,8 @@ func NewGetLocationsInternalServerError() *GetLocationsInternalServerError {
 	return &GetLocationsInternalServerError{}
 }
 
-/* GetLocationsInternalServerError describes a response with status code 500, with default header values.
+/*
+	GetLocationsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -539,7 +545,8 @@ func NewGetLocationsDefault(code int) *GetLocationsDefault {
 	}
 }
 
-/* GetLocationsDefault describes a response with status code -1, with default header values.
+/*
+	GetLocationsDefault describes a response with status code -1, with default header values.
 
 OK
 */

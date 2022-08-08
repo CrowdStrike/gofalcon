@@ -71,7 +71,8 @@ func NewDeleteReportAccepted() *DeleteReportAccepted {
 	return &DeleteReportAccepted{}
 }
 
-/* DeleteReportAccepted describes a response with status code 202, with default header values.
+/*
+	DeleteReportAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
@@ -134,7 +135,8 @@ func NewDeleteReportBadRequest() *DeleteReportBadRequest {
 	return &DeleteReportBadRequest{}
 }
 
-/* DeleteReportBadRequest describes a response with status code 400, with default header values.
+/*
+	DeleteReportBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -197,7 +199,8 @@ func NewDeleteReportForbidden() *DeleteReportForbidden {
 	return &DeleteReportForbidden{}
 }
 
-/* DeleteReportForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteReportForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -260,7 +263,8 @@ func NewDeleteReportNotFound() *DeleteReportNotFound {
 	return &DeleteReportNotFound{}
 }
 
-/* DeleteReportNotFound describes a response with status code 404, with default header values.
+/*
+	DeleteReportNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -323,7 +327,8 @@ func NewDeleteReportTooManyRequests() *DeleteReportTooManyRequests {
 	return &DeleteReportTooManyRequests{}
 }
 
-/* DeleteReportTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteReportTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -401,7 +406,8 @@ func NewDeleteReportInternalServerError() *DeleteReportInternalServerError {
 	return &DeleteReportInternalServerError{}
 }
 
-/* DeleteReportInternalServerError describes a response with status code 500, with default header values.
+/*
+	DeleteReportInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

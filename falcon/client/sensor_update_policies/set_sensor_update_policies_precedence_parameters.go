@@ -54,10 +54,12 @@ func NewSetSensorUpdatePoliciesPrecedenceParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/* SetSensorUpdatePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-   for the set sensor update policies precedence operation.
+/*
+SetSensorUpdatePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the set sensor update policies precedence operation.
+
+	Typically these are written to a http.Request.
 */
 type SetSensorUpdatePoliciesPrecedenceParams struct {
 

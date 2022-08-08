@@ -53,10 +53,12 @@ func NewRTRCheckActiveResponderCommandStatusParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/* RTRCheckActiveResponderCommandStatusParams contains all the parameters to send to the API endpoint
-   for the r t r check active responder command status operation.
+/*
+RTRCheckActiveResponderCommandStatusParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the r t r check active responder command status operation.
+
+	Typically these are written to a http.Request.
 */
 type RTRCheckActiveResponderCommandStatusParams struct {
 

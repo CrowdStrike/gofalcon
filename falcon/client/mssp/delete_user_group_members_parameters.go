@@ -54,10 +54,12 @@ func NewDeleteUserGroupMembersParamsWithHTTPClient(client *http.Client) *DeleteU
 	}
 }
 
-/* DeleteUserGroupMembersParams contains all the parameters to send to the API endpoint
-   for the delete user group members operation.
+/*
+DeleteUserGroupMembersParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete user group members operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteUserGroupMembersParams struct {
 

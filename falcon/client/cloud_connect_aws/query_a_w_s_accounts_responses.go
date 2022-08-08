@@ -72,7 +72,8 @@ func NewQueryAWSAccountsOK() *QueryAWSAccountsOK {
 	return &QueryAWSAccountsOK{}
 }
 
-/* QueryAWSAccountsOK describes a response with status code 200, with default header values.
+/*
+	QueryAWSAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewQueryAWSAccountsBadRequest() *QueryAWSAccountsBadRequest {
 	return &QueryAWSAccountsBadRequest{}
 }
 
-/* QueryAWSAccountsBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryAWSAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewQueryAWSAccountsForbidden() *QueryAWSAccountsForbidden {
 	return &QueryAWSAccountsForbidden{}
 }
 
-/* QueryAWSAccountsForbidden describes a response with status code 403, with default header values.
+/*
+	QueryAWSAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewQueryAWSAccountsTooManyRequests() *QueryAWSAccountsTooManyRequests {
 	return &QueryAWSAccountsTooManyRequests{}
 }
 
-/* QueryAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewQueryAWSAccountsInternalServerError() *QueryAWSAccountsInternalServerErr
 	return &QueryAWSAccountsInternalServerError{}
 }
 
-/* QueryAWSAccountsInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryAWSAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewQueryAWSAccountsDefault(code int) *QueryAWSAccountsDefault {
 	}
 }
 
-/* QueryAWSAccountsDefault describes a response with status code -1, with default header values.
+/*
+	QueryAWSAccountsDefault describes a response with status code -1, with default header values.
 
 OK
 */

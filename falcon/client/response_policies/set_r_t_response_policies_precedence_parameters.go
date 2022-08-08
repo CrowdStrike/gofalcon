@@ -54,10 +54,12 @@ func NewSetRTResponsePoliciesPrecedenceParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/* SetRTResponsePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
-   for the set r t response policies precedence operation.
+/*
+SetRTResponsePoliciesPrecedenceParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the set r t response policies precedence operation.
+
+	Typically these are written to a http.Request.
 */
 type SetRTResponsePoliciesPrecedenceParams struct {
 

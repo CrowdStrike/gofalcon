@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-  GetQueriesAlertsV1 retrieves all alerts ids that match a given query
+GetQueriesAlertsV1 retrieves all alerts ids that match a given query
 */
 func (a *Client) GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...ClientOption) (*GetQueriesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -79,7 +79,7 @@ func (a *Client) GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...Cl
 }
 
 /*
-  PatchEntitiesAlertsV1 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does remove tag remove a tag from 1 or more detection s assign to user id assign 1 or more detection s to a user identified by user id eg user1 at example com unassign unassign an previously assigned user from 1 or more detection s the value passed to this action is ignored new behavior processed adds a newly processed behavior to 1 or more detection s update status update status for 1 or more detection s assign to uuid assign 1 or more detection s to a user identified by UUID add tag add a tag to 1 or more detection s remove tags by prefix remove tags with given prefix from 1 or more detection s append comment appends new comment to existing comments assign to name assign 1 or more detection s to a user identified by user name show in ui shows 1 or more detection s on UI if set to true hides otherwise an empty nil value is also valid skip side effects internal only command to skip side effects during beta phase
+PatchEntitiesAlertsV1 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does remove tag remove a tag from 1 or more detection s assign to user id assign 1 or more detection s to a user identified by user id eg user1 at example com unassign unassign an previously assigned user from 1 or more detection s the value passed to this action is ignored new behavior processed adds a newly processed behavior to 1 or more detection s update status update status for 1 or more detection s assign to uuid assign 1 or more detection s to a user identified by UUID add tag add a tag to 1 or more detection s remove tags by prefix remove tags with given prefix from 1 or more detection s append comment appends new comment to existing comments assign to name assign 1 or more detection s to a user identified by user name show in ui shows 1 or more detection s on UI if set to true hides otherwise an empty nil value is also valid skip side effects internal only command to skip side effects during beta phase
 */
 func (a *Client) PatchEntitiesAlertsV1(params *PatchEntitiesAlertsV1Params, opts ...ClientOption) (*PatchEntitiesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) PatchEntitiesAlertsV1(params *PatchEntitiesAlertsV1Params, opts
 }
 
 /*
-  PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does
+PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does
 */
 func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts
 }
 
 /*
-  PostAggregatesAlertsV1 retrieves aggregates for alerts across all c i ds
+PostAggregatesAlertsV1 retrieves aggregates for alerts across all c i ds
 */
 func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, op
 }
 
 /*
-  PostEntitiesAlertsV1 retrieves all alerts given their ids
+PostEntitiesAlertsV1 retrieves all alerts given their ids
 */
 func (a *Client) PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error) {
 	// TODO: Validate the params before sending

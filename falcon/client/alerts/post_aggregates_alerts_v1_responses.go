@@ -72,7 +72,8 @@ func NewPostAggregatesAlertsV1OK() *PostAggregatesAlertsV1OK {
 	return &PostAggregatesAlertsV1OK{}
 }
 
-/* PostAggregatesAlertsV1OK describes a response with status code 200, with default header values.
+/*
+	PostAggregatesAlertsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -146,7 +147,8 @@ func NewPostAggregatesAlertsV1BadRequest() *PostAggregatesAlertsV1BadRequest {
 	return &PostAggregatesAlertsV1BadRequest{}
 }
 
-/* PostAggregatesAlertsV1BadRequest describes a response with status code 400, with default header values.
+/*
+	PostAggregatesAlertsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -220,7 +222,8 @@ func NewPostAggregatesAlertsV1Forbidden() *PostAggregatesAlertsV1Forbidden {
 	return &PostAggregatesAlertsV1Forbidden{}
 }
 
-/* PostAggregatesAlertsV1Forbidden describes a response with status code 403, with default header values.
+/*
+	PostAggregatesAlertsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -294,7 +297,8 @@ func NewPostAggregatesAlertsV1TooManyRequests() *PostAggregatesAlertsV1TooManyRe
 	return &PostAggregatesAlertsV1TooManyRequests{}
 }
 
-/* PostAggregatesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
+/*
+	PostAggregatesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -383,7 +387,8 @@ func NewPostAggregatesAlertsV1InternalServerError() *PostAggregatesAlertsV1Inter
 	return &PostAggregatesAlertsV1InternalServerError{}
 }
 
-/* PostAggregatesAlertsV1InternalServerError describes a response with status code 500, with default header values.
+/*
+	PostAggregatesAlertsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -459,7 +464,8 @@ func NewPostAggregatesAlertsV1Default(code int) *PostAggregatesAlertsV1Default {
 	}
 }
 
-/* PostAggregatesAlertsV1Default describes a response with status code -1, with default header values.
+/*
+	PostAggregatesAlertsV1Default describes a response with status code -1, with default header values.
 
 OK
 */

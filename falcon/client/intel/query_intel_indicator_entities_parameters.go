@@ -53,10 +53,12 @@ func NewQueryIntelIndicatorEntitiesParamsWithHTTPClient(client *http.Client) *Qu
 	}
 }
 
-/* QueryIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
-   for the query intel indicator entities operation.
+/*
+QueryIntelIndicatorEntitiesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query intel indicator entities operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryIntelIndicatorEntitiesParams struct {
 

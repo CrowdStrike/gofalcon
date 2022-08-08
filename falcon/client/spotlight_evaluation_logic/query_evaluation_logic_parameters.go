@@ -53,10 +53,12 @@ func NewQueryEvaluationLogicParamsWithHTTPClient(client *http.Client) *QueryEval
 	}
 }
 
-/* QueryEvaluationLogicParams contains all the parameters to send to the API endpoint
-   for the query evaluation logic operation.
+/*
+QueryEvaluationLogicParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the query evaluation logic operation.
+
+	Typically these are written to a http.Request.
 */
 type QueryEvaluationLogicParams struct {
 

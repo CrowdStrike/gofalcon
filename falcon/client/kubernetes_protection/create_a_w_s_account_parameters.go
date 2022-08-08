@@ -54,10 +54,12 @@ func NewCreateAWSAccountParamsWithHTTPClient(client *http.Client) *CreateAWSAcco
 	}
 }
 
-/* CreateAWSAccountParams contains all the parameters to send to the API endpoint
-   for the create a w s account operation.
+/*
+CreateAWSAccountParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create a w s account operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateAWSAccountParams struct {
 

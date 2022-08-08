@@ -72,7 +72,8 @@ func NewQueryFirewallPoliciesOK() *QueryFirewallPoliciesOK {
 	return &QueryFirewallPoliciesOK{}
 }
 
-/* QueryFirewallPoliciesOK describes a response with status code 200, with default header values.
+/*
+	QueryFirewallPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -135,7 +136,8 @@ func NewQueryFirewallPoliciesBadRequest() *QueryFirewallPoliciesBadRequest {
 	return &QueryFirewallPoliciesBadRequest{}
 }
 
-/* QueryFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
+/*
+	QueryFirewallPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -198,7 +200,8 @@ func NewQueryFirewallPoliciesForbidden() *QueryFirewallPoliciesForbidden {
 	return &QueryFirewallPoliciesForbidden{}
 }
 
-/* QueryFirewallPoliciesForbidden describes a response with status code 403, with default header values.
+/*
+	QueryFirewallPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -261,7 +264,8 @@ func NewQueryFirewallPoliciesTooManyRequests() *QueryFirewallPoliciesTooManyRequ
 	return &QueryFirewallPoliciesTooManyRequests{}
 }
 
-/* QueryFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/*
+	QueryFirewallPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -339,7 +343,8 @@ func NewQueryFirewallPoliciesInternalServerError() *QueryFirewallPoliciesInterna
 	return &QueryFirewallPoliciesInternalServerError{}
 }
 
-/* QueryFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
+/*
+	QueryFirewallPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -404,7 +409,8 @@ func NewQueryFirewallPoliciesDefault(code int) *QueryFirewallPoliciesDefault {
 	}
 }
 
-/* QueryFirewallPoliciesDefault describes a response with status code -1, with default header values.
+/*
+	QueryFirewallPoliciesDefault describes a response with status code -1, with default header values.
 
 OK
 */

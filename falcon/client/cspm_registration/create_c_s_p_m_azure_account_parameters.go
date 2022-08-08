@@ -54,10 +54,12 @@ func NewCreateCSPMAzureAccountParamsWithHTTPClient(client *http.Client) *CreateC
 	}
 }
 
-/* CreateCSPMAzureAccountParams contains all the parameters to send to the API endpoint
-   for the create c s p m azure account operation.
+/*
+CreateCSPMAzureAccountParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create c s p m azure account operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateCSPMAzureAccountParams struct {
 

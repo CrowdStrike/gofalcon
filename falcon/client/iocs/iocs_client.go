@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-  DevicesCount numbers of hosts in your customer account that have observed a given custom i o c
+DevicesCount numbers of hosts in your customer account that have observed a given custom i o c
 */
 func (a *Client) DevicesCount(params *DevicesCountParams, opts ...ClientOption) (*DevicesCountOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +77,7 @@ func (a *Client) DevicesCount(params *DevicesCountParams, opts ...ClientOption) 
 }
 
 /*
-  DevicesRanOn finds hosts that have observed a given custom i o c for details about those hosts use g e t devices entities devices v1
+DevicesRanOn finds hosts that have observed a given custom i o c for details about those hosts use g e t devices entities devices v1
 */
 func (a *Client) DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) (*DevicesRanOnOK, error) {
 	// TODO: Validate the params before sending
@@ -114,7 +114,7 @@ func (a *Client) DevicesRanOn(params *DevicesRanOnParams, opts ...ClientOption) 
 }
 
 /*
-  ProcessesRanOn searches for processes associated with a custom i o c
+ProcessesRanOn searches for processes associated with a custom i o c
 */
 func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOption) (*ProcessesRanOnOK, error) {
 	// TODO: Validate the params before sending
@@ -151,7 +151,7 @@ func (a *Client) ProcessesRanOn(params *ProcessesRanOnParams, opts ...ClientOpti
 }
 
 /*
-  EntitiesProcesses fors the provided process ID retrieve the process details
+EntitiesProcesses fors the provided process ID retrieve the process details
 */
 func (a *Client) EntitiesProcesses(params *EntitiesProcessesParams, opts ...ClientOption) (*EntitiesProcessesOK, error) {
 	// TODO: Validate the params before sending

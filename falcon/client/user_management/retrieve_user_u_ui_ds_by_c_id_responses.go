@@ -66,7 +66,8 @@ func NewRetrieveUserUUIDsByCIDOK() *RetrieveUserUUIDsByCIDOK {
 	return &RetrieveUserUUIDsByCIDOK{}
 }
 
-/* RetrieveUserUUIDsByCIDOK describes a response with status code 200, with default header values.
+/*
+	RetrieveUserUUIDsByCIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -129,7 +130,8 @@ func NewRetrieveUserUUIDsByCIDBadRequest() *RetrieveUserUUIDsByCIDBadRequest {
 	return &RetrieveUserUUIDsByCIDBadRequest{}
 }
 
-/* RetrieveUserUUIDsByCIDBadRequest describes a response with status code 400, with default header values.
+/*
+	RetrieveUserUUIDsByCIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -192,7 +194,8 @@ func NewRetrieveUserUUIDsByCIDForbidden() *RetrieveUserUUIDsByCIDForbidden {
 	return &RetrieveUserUUIDsByCIDForbidden{}
 }
 
-/* RetrieveUserUUIDsByCIDForbidden describes a response with status code 403, with default header values.
+/*
+	RetrieveUserUUIDsByCIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -255,7 +258,8 @@ func NewRetrieveUserUUIDsByCIDTooManyRequests() *RetrieveUserUUIDsByCIDTooManyRe
 	return &RetrieveUserUUIDsByCIDTooManyRequests{}
 }
 
-/* RetrieveUserUUIDsByCIDTooManyRequests describes a response with status code 429, with default header values.
+/*
+	RetrieveUserUUIDsByCIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -335,7 +339,8 @@ func NewRetrieveUserUUIDsByCIDDefault(code int) *RetrieveUserUUIDsByCIDDefault {
 	}
 }
 
-/* RetrieveUserUUIDsByCIDDefault describes a response with status code -1, with default header values.
+/*
+	RetrieveUserUUIDsByCIDDefault describes a response with status code -1, with default header values.
 
 OK
 */
