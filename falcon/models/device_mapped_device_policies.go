@@ -27,6 +27,9 @@ type DeviceMappedDevicePolicies struct {
 	// device control
 	DeviceControl *DeviceDevicePolicy `json:"device_control,omitempty"`
 
+	// fim
+	Fim *DeviceDevicePolicy `json:"fim,omitempty"`
+
 	// firewall
 	Firewall *DeviceDevicePolicy `json:"firewall,omitempty"`
 
@@ -35,6 +38,9 @@ type DeviceMappedDevicePolicies struct {
 
 	// identity protection
 	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
+
+	// jumpcloud
+	Jumpcloud *DeviceDevicePolicy `json:"jumpcloud,omitempty"`
 
 	// mobile
 	Mobile *DeviceDevicePolicy `json:"mobile,omitempty"`
@@ -68,6 +74,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateFim(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFirewall(formats); err != nil {
 		res = append(res, err)
 	}
@@ -77,6 +87,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIdentityProtection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateJumpcloud(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,6 +177,25 @@ func (m *DeviceMappedDevicePolicies) validateDeviceControl(formats strfmt.Regist
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateFim(formats strfmt.Registry) error {
+	if swag.IsZero(m.Fim) { // not required
+		return nil
+	}
+
+	if m.Fim != nil {
+		if err := m.Fim.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fim")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fim")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateFirewall(formats strfmt.Registry) error {
 	if swag.IsZero(m.Firewall) { // not required
 		return nil
@@ -212,6 +245,25 @@ func (m *DeviceMappedDevicePolicies) validateIdentityProtection(formats strfmt.R
 				return ve.ValidateName("identity-protection")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("identity-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateJumpcloud(formats strfmt.Registry) error {
+	if swag.IsZero(m.Jumpcloud) { // not required
+		return nil
+	}
+
+	if m.Jumpcloud != nil {
+		if err := m.Jumpcloud.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("jumpcloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jumpcloud")
 			}
 			return err
 		}
@@ -331,6 +383,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateFim(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFirewall(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -340,6 +396,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJumpcloud(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -417,6 +477,22 @@ func (m *DeviceMappedDevicePolicies) contextValidateDeviceControl(ctx context.Co
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) contextValidateFim(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Fim != nil {
+		if err := m.Fim.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fim")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fim")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) contextValidateFirewall(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Firewall != nil {
@@ -457,6 +533,22 @@ func (m *DeviceMappedDevicePolicies) contextValidateIdentityProtection(ctx conte
 				return ve.ValidateName("identity-protection")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("identity-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateJumpcloud(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Jumpcloud != nil {
+		if err := m.Jumpcloud.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("jumpcloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jumpcloud")
 			}
 			return err
 		}

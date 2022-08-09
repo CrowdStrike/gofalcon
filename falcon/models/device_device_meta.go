@@ -19,6 +19,9 @@ type DeviceDeviceMeta struct {
 
 	// version
 	Version string `json:"version,omitempty"`
+
+	// version string
+	VersionString string `json:"version_string,omitempty"`
 }
 
 // Validate validates this device device meta

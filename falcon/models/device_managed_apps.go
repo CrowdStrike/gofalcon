@@ -27,6 +27,9 @@ type DeviceManagedApps struct {
 	// identity protection
 	IdentityProtection *DeviceManagedApp `json:"identity-protection,omitempty"`
 
+	// jumpcloud
+	Jumpcloud *DeviceManagedApp `json:"jumpcloud,omitempty"`
+
 	// netskope
 	Netskope *DeviceManagedApp `json:"netskope,omitempty"`
 }
@@ -44,6 +47,10 @@ func (m *DeviceManagedApps) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIdentityProtection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateJumpcloud(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,6 +121,25 @@ func (m *DeviceManagedApps) validateIdentityProtection(formats strfmt.Registry) 
 	return nil
 }
 
+func (m *DeviceManagedApps) validateJumpcloud(formats strfmt.Registry) error {
+	if swag.IsZero(m.Jumpcloud) { // not required
+		return nil
+	}
+
+	if m.Jumpcloud != nil {
+		if err := m.Jumpcloud.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("jumpcloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jumpcloud")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceManagedApps) validateNetskope(formats strfmt.Registry) error {
 	if swag.IsZero(m.Netskope) { // not required
 		return nil
@@ -146,6 +172,10 @@ func (m *DeviceManagedApps) ContextValidate(ctx context.Context, formats strfmt.
 	}
 
 	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJumpcloud(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -199,6 +229,22 @@ func (m *DeviceManagedApps) contextValidateIdentityProtection(ctx context.Contex
 				return ve.ValidateName("identity-protection")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("identity-protection")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceManagedApps) contextValidateJumpcloud(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Jumpcloud != nil {
+		if err := m.Jumpcloud.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("jumpcloud")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jumpcloud")
 			}
 			return err
 		}
