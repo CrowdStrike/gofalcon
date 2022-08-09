@@ -30,6 +30,9 @@ type DeviceDevicePolicy struct {
 	// Format: date-time
 	AssignedDate strfmt.DateTime `json:"assigned_date,omitempty"`
 
+	// exempt
+	Exempt bool `json:"exempt,omitempty"`
+
 	// policy id
 	// Required: true
 	PolicyID *string `json:"policy_id"`
