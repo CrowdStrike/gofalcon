@@ -73,7 +73,7 @@ Falcon Client Secret`)
 	}
 }
 
-func visualizeHost(host *models.DomainDeviceSwagger) {
+func visualizeHost(host *models.DeviceapiDeviceSwagger) {
 	cloud := "NoCloud"
 	if host.ServiceProvider != "" {
 		cloud = host.ServiceProvider
@@ -156,7 +156,7 @@ func visualizeHost(host *models.DomainDeviceSwagger) {
 	fmt.Printf("%s - %s %s %s (%s) (life_span=%s) (%s) \n", *host.DeviceID, cloud, platform, typ, name, lifeSpan, active)
 }
 
-func debug(host *models.DomainDeviceSwagger) {
+func debug(host *models.DeviceapiDeviceSwagger) {
 	json, err := falcon_util.PrettyJson(host)
 	if err != nil {
 		panic(err)
@@ -164,7 +164,7 @@ func debug(host *models.DomainDeviceSwagger) {
 	fmt.Println(json)
 }
 
-func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.DomainDeviceSwagger, dryRun bool, limit int) error {
+func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.DeviceapiDeviceSwagger, dryRun bool, limit int) error {
 	dryRunString := ""
 	if dryRun {
 		dryRunString = "(DRY-RUN) "
@@ -185,7 +185,7 @@ func hideHosts(client *client.CrowdStrikeAPISpecification, hosts []*models.Domai
 	return nil
 }
 
-func hideHostsInternal(client *client.CrowdStrikeAPISpecification, hostList []*models.DomainDeviceSwagger) error {
+func hideHostsInternal(client *client.CrowdStrikeAPISpecification, hostList []*models.DeviceapiDeviceSwagger) error {
 	hostIds := []string{}
 	for _, host := range hostList {
 		hostIds = append(hostIds, *host.DeviceID)
@@ -205,8 +205,8 @@ func hideHostsInternal(client *client.CrowdStrikeAPISpecification, hostList []*m
 	return falcon.AssertNoError(response.Payload.Errors)
 }
 
-func getAllHostDetails(client *client.CrowdStrikeAPISpecification, filter *string) []*models.DomainDeviceSwagger {
-	result := []*models.DomainDeviceSwagger{}
+func getAllHostDetails(client *client.CrowdStrikeAPISpecification, filter *string) []*models.DeviceapiDeviceSwagger {
+	result := []*models.DeviceapiDeviceSwagger{}
 
 	for hostIdBatch := range getHostIds(client, filter) {
 		if len(hostIdBatch) == 0 {
@@ -218,8 +218,8 @@ func getAllHostDetails(client *client.CrowdStrikeAPISpecification, filter *strin
 	return result
 }
 
-func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []string) []*models.DomainDeviceSwagger {
-	response, err := client.Hosts.GetDeviceDetails(&hosts.GetDeviceDetailsParams{
+func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []string) []*models.DeviceapiDeviceSwagger {
+	response, err := client.Hosts.GetDeviceDetailsV2(&hosts.GetDeviceDetailsV2Params{
 		Ids:     hostIds,
 		Context: context.Background(),
 	})
@@ -264,7 +264,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 	return hostIds
 }
 
-func chunkBy(items []*models.DomainDeviceSwagger, chunkSize int) (chunks [][]*models.DomainDeviceSwagger) {
+func chunkBy(items []*models.DeviceapiDeviceSwagger, chunkSize int) (chunks [][]*models.DeviceapiDeviceSwagger) {
 	for chunkSize < len(items) {
 		items, chunks = items[chunkSize:], append(chunks, items[0:chunkSize:chunkSize])
 	}
