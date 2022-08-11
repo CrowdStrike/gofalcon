@@ -28,7 +28,7 @@ type RequestsCreateGroupV1 struct {
 
 	// The type of device group to create
 	// Required: true
-	// Enum: [static dynamic]
+	// Enum: [static dynamic staticByID]
 	GroupType *string `json:"group_type"`
 
 	// The name of the group
@@ -58,7 +58,7 @@ var requestsCreateGroupV1TypeGroupTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["static","dynamic"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["static","dynamic","staticByID"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -73,6 +73,9 @@ const (
 
 	// RequestsCreateGroupV1GroupTypeDynamic captures enum value "dynamic"
 	RequestsCreateGroupV1GroupTypeDynamic string = "dynamic"
+
+	// RequestsCreateGroupV1GroupTypeStaticByID captures enum value "staticByID"
+	RequestsCreateGroupV1GroupTypeStaticByID string = "staticByID"
 )
 
 // prop value enum

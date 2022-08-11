@@ -17,7 +17,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
-	"github.com/crowdstrike/gofalcon/falcon/client/devices"
 	"github.com/crowdstrike/gofalcon/falcon/client/discover"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
@@ -111,7 +110,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
-	cli.Devices = devices.New(transport, formats)
 	cli.Discover = discover.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
@@ -212,8 +210,6 @@ type CrowdStrikeAPISpecification struct {
 
 	DeviceControlPolicies device_control_policies.ClientService
 
-	Devices devices.ClientService
-
 	Discover discover.ClientService
 
 	EventStreams event_streams.ClientService
@@ -311,7 +307,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.D4cRegistration.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
-	c.Devices.SetTransport(transport)
 	c.Discover.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)

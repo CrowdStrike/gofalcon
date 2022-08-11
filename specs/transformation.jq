@@ -18,6 +18,14 @@
   | .definitions."domain.RuleMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
   # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
   | del(.definitions."msaspec.MetaInfo")
+
+  # A patch until DeviceDetails v1 gets removed
+  | .definitions."domain.DeviceDetailsResponseSwagger" = .definitions."deviceapi.DeviceDetailsResponseSwagger"
+  | .paths."/devices/entities/devices/v1".get.responses."200".schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
+  | .paths."/devices/entities/devices/v1".get.responses.default.schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
+  | .definitions."domain.DeviceSwagger" = .definitions."deviceapi.DeviceSwagger"
+  | .definitions."domain.DeviceDetailsResponseSwagger".properties.resources.items."$ref" = "#/definitions/domain.DeviceSwagger"
+
   # Misc fixes
   | .paths."/intel/entities/rules-latest-files/v1".get.parameters |= . + [{type: "string", description: "Download Only if changed since", name: "If-Modified-Since", "in": "header"}]
   | .paths."/intel/entities/rules-latest-files/v1".get.responses."304" = {description: "Not Modified"}

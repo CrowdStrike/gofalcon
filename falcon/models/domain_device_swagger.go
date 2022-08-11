@@ -91,6 +91,12 @@ type DomainDeviceSwagger struct {
 	// instance id
 	InstanceID string `json:"instance_id,omitempty"`
 
+	// internet exposure
+	InternetExposure string `json:"internet_exposure,omitempty"`
+
+	// kernel version
+	KernelVersion string `json:"kernel_version,omitempty"`
+
 	// last login timestamp
 	LastLoginTimestamp string `json:"last_login_timestamp,omitempty"`
 
@@ -123,6 +129,9 @@ type DomainDeviceSwagger struct {
 
 	// notes
 	Notes []string `json:"notes"`
+
+	// os build
+	OsBuild string `json:"os_build,omitempty"`
 
 	// os version
 	OsVersion string `json:"os_version,omitempty"`
@@ -207,9 +216,6 @@ type DomainDeviceSwagger struct {
 
 	// site name
 	SiteName string `json:"site_name,omitempty"`
-
-	// slow changing modified timestamp
-	SlowChangingModifiedTimestamp string `json:"slow_changing_modified_timestamp,omitempty"`
 
 	// status
 	Status string `json:"status,omitempty"`
