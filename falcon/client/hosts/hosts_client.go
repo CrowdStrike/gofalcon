@@ -32,9 +32,13 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error)
 
+	GetDeviceDetailsV2(params *GetDeviceDetailsV2Params, opts ...ClientOption) (*GetDeviceDetailsV2OK, error)
+
 	GetOnlineStateV1(params *GetOnlineStateV1Params, opts ...ClientOption) (*GetOnlineStateV1OK, error)
 
 	PerformActionV2(params *PerformActionV2Params, opts ...ClientOption) (*PerformActionV2Accepted, error)
+
+	PostDeviceDetailsV2(params *PostDeviceDetailsV2Params, opts ...ClientOption) (*PostDeviceDetailsV2OK, error)
 
 	QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error)
 
@@ -54,7 +58,7 @@ type ClientService interface {
 }
 
 /*
-GetDeviceDetails gets details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
+GetDeviceDetails deprecateds please use new g e t or p o s t devices entities devices v2 endpoints this endpoint will be removed on or sometime after february 9 2023 get details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
 */
 func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -87,6 +91,43 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...Client
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetDeviceDetailsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetDeviceDetailsV2 gets details on one or more hosts by providing host i ds as a query parameter supports up to a maximum 100 i ds
+*/
+func (a *Client) GetDeviceDetailsV2(params *GetDeviceDetailsV2Params, opts ...ClientOption) (*GetDeviceDetailsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDeviceDetailsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDeviceDetailsV2",
+		Method:             "GET",
+		PathPattern:        "/devices/entities/devices/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDeviceDetailsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDeviceDetailsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetDeviceDetailsV2Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -163,6 +204,43 @@ func (a *Client) PerformActionV2(params *PerformActionV2Params, opts ...ClientOp
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for PerformActionV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
+}
+
+/*
+PostDeviceDetailsV2 gets details on one or more hosts by providing host i ds in a p o s t body supports up to a maximum 5000 i ds
+*/
+func (a *Client) PostDeviceDetailsV2(params *PostDeviceDetailsV2Params, opts ...ClientOption) (*PostDeviceDetailsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostDeviceDetailsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostDeviceDetailsV2",
+		Method:             "POST",
+		PathPattern:        "/devices/entities/devices/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostDeviceDetailsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostDeviceDetailsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*PostDeviceDetailsV2Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*

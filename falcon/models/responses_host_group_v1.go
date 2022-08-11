@@ -37,7 +37,7 @@ type ResponsesHostGroupV1 struct {
 	Description *string `json:"description"`
 
 	// The method by which this host group is managed
-	// Enum: [static dynamic]
+	// Enum: [static dynamic staticByID]
 	GroupType string `json:"group_type,omitempty"`
 
 	// The identifier of this host group
@@ -135,7 +135,7 @@ var responsesHostGroupV1TypeGroupTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["static","dynamic"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["static","dynamic","staticByID"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -150,6 +150,9 @@ const (
 
 	// ResponsesHostGroupV1GroupTypeDynamic captures enum value "dynamic"
 	ResponsesHostGroupV1GroupTypeDynamic string = "dynamic"
+
+	// ResponsesHostGroupV1GroupTypeStaticByID captures enum value "staticByID"
+	ResponsesHostGroupV1GroupTypeStaticByID string = "staticByID"
 )
 
 // prop value enum
