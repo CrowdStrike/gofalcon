@@ -84,8 +84,8 @@ func hideHost(client *client.CrowdStrikeAPISpecification, id string) error {
 	return falcon.AssertNoError(response.Payload.Errors)
 }
 
-func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *models.DomainDeviceSwagger {
-	response, err := client.Hosts.GetDeviceDetails(&hosts.GetDeviceDetailsParams{
+func getHostDetails(client *client.CrowdStrikeAPISpecification, hostId string) *models.DeviceapiDeviceSwagger {
+	response, err := client.Hosts.GetDeviceDetailsV2(&hosts.GetDeviceDetailsV2Params{
 		Ids:     []string{hostId},
 		Context: context.Background(),
 	})
