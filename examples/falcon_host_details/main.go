@@ -88,7 +88,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 	hostIds := make(chan []string)
 
 	go func() {
-		limit := int64(500)
+		limit := int64(100)
 		for offset := ""; ; {
 			response, err := client.Hosts.QueryDevicesByFilterScroll(&hosts.QueryDevicesByFilterScrollParams{
 				Context: context.Background(),
