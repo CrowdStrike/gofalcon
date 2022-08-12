@@ -70,8 +70,8 @@ Falcon Client Secret`)
 }
 
 func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []string) []*models.DeviceapiDeviceSwagger {
-	response, err := client.Hosts.GetDeviceDetailsV2(&hosts.GetDeviceDetailsV2Params{
-		Ids:     hostIds,
+	response, err := client.Hosts.PostDeviceDetailsV2(&hosts.PostDeviceDetailsV2Params{
+		Body:    &models.MsaIdsRequest{Ids: hostIds},
 		Context: context.Background(),
 	})
 	if err != nil {
@@ -88,7 +88,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 	hostIds := make(chan []string)
 
 	go func() {
-		limit := int64(100)
+		limit := int64(5000)
 		for offset := ""; ; {
 			response, err := client.Hosts.QueryDevicesByFilterScroll(&hosts.QueryDevicesByFilterScrollParams{
 				Context: context.Background(),
