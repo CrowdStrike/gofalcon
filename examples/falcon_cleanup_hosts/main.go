@@ -219,8 +219,8 @@ func getAllHostDetails(client *client.CrowdStrikeAPISpecification, filter *strin
 }
 
 func getHostsDetails(client *client.CrowdStrikeAPISpecification, hostIds []string) []*models.DeviceapiDeviceSwagger {
-	response, err := client.Hosts.GetDeviceDetailsV2(&hosts.GetDeviceDetailsV2Params{
-		Ids:     hostIds,
+	response, err := client.Hosts.PostDeviceDetailsV2(&hosts.PostDeviceDetailsV2Params{
+		Body:    &models.MsaIdsRequest{Ids: hostIds},
 		Context: context.Background(),
 	})
 	if err != nil {
@@ -237,7 +237,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 	hostIds := make(chan []string)
 
 	go func() {
-		limit := int64(500)
+		limit := int64(5000)
 		for offset := int64(0); ; {
 			response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
 				Limit:   &limit,
