@@ -84,11 +84,19 @@ type BatchCmdParams struct {
 	- `reg query`
 
 	**`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands.
-	**`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`.
+	**`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`.
 	**`command_string`** Full command string for the command. For example  `cd C:\some_directory`
 	**`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 	*/
 	Body *models.DomainBatchExecuteCommandRequest
+
+	/* HostTimeoutDuration.
+
+	   Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.
+
+	   Default: "tiny bit less than overall request timeout"
+	*/
+	HostTimeoutDuration *string
 
 	/* Timeout.
 
@@ -100,7 +108,7 @@ type BatchCmdParams struct {
 
 	/* TimeoutDuration.
 
-	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
 	   Default: "30s"
 	*/
@@ -124,14 +132,17 @@ func (o *BatchCmdParams) WithDefaults() *BatchCmdParams {
 // All values with no default are reset to their zero value.
 func (o *BatchCmdParams) SetDefaults() {
 	var (
+		hostTimeoutDurationDefault = string("tiny bit less than overall request timeout")
+
 		timeoutDefault = int64(30)
 
 		timeoutDurationDefault = string("30s")
 	)
 
 	val := BatchCmdParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
+		HostTimeoutDuration: &hostTimeoutDurationDefault,
+		Timeout:             &timeoutDefault,
+		TimeoutDuration:     &timeoutDurationDefault,
 	}
 
 	val.requestTimeout = o.requestTimeout
@@ -184,6 +195,17 @@ func (o *BatchCmdParams) SetBody(body *models.DomainBatchExecuteCommandRequest) 
 	o.Body = body
 }
 
+// WithHostTimeoutDuration adds the hostTimeoutDuration to the batch cmd params
+func (o *BatchCmdParams) WithHostTimeoutDuration(hostTimeoutDuration *string) *BatchCmdParams {
+	o.SetHostTimeoutDuration(hostTimeoutDuration)
+	return o
+}
+
+// SetHostTimeoutDuration adds the hostTimeoutDuration to the batch cmd params
+func (o *BatchCmdParams) SetHostTimeoutDuration(hostTimeoutDuration *string) {
+	o.HostTimeoutDuration = hostTimeoutDuration
+}
+
 // WithTimeout adds the timeout to the batch cmd params
 func (o *BatchCmdParams) WithTimeout(timeout *int64) *BatchCmdParams {
 	o.SetTimeout(timeout)
@@ -216,6 +238,23 @@ func (o *BatchCmdParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.HostTimeoutDuration != nil {
+
+		// query param host_timeout_duration
+		var qrHostTimeoutDuration string
+
+		if o.HostTimeoutDuration != nil {
+			qrHostTimeoutDuration = *o.HostTimeoutDuration
+		}
+		qHostTimeoutDuration := qrHostTimeoutDuration
+		if qHostTimeoutDuration != "" {
+
+			if err := r.SetQueryParam("host_timeout_duration", qHostTimeoutDuration); err != nil {
+				return err
+			}
 		}
 	}
 

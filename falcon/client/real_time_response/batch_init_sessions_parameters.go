@@ -66,10 +66,19 @@ type BatchInitSessionsParams struct {
 
 	/* Body.
 
-	     **`host_ids`** List of host agent ID's to initialize a RTR session on
+	     **`host_ids`** List of host agent ID's to initialize a RTR session on. A maximum of 10000 hosts can be in a single batch session.
 	**`existing_batch_id`** Optional batch ID. Use an existing batch ID if you want to initialize new hosts and add them to the existing batch
+	**`queue_offline`** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online.
 	*/
 	Body *models.DomainBatchInitSessionRequest
+
+	/* HostTimeoutDuration.
+
+	   Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.
+
+	   Default: "tiny bit less than overall request timeout"
+	*/
+	HostTimeoutDuration *string
 
 	/* Timeout.
 
@@ -81,7 +90,7 @@ type BatchInitSessionsParams struct {
 
 	/* TimeoutDuration.
 
-	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
 
 	   Default: "30s"
 	*/
@@ -105,14 +114,17 @@ func (o *BatchInitSessionsParams) WithDefaults() *BatchInitSessionsParams {
 // All values with no default are reset to their zero value.
 func (o *BatchInitSessionsParams) SetDefaults() {
 	var (
+		hostTimeoutDurationDefault = string("tiny bit less than overall request timeout")
+
 		timeoutDefault = int64(30)
 
 		timeoutDurationDefault = string("30s")
 	)
 
 	val := BatchInitSessionsParams{
-		Timeout:         &timeoutDefault,
-		TimeoutDuration: &timeoutDurationDefault,
+		HostTimeoutDuration: &hostTimeoutDurationDefault,
+		Timeout:             &timeoutDefault,
+		TimeoutDuration:     &timeoutDurationDefault,
 	}
 
 	val.requestTimeout = o.requestTimeout
@@ -165,6 +177,17 @@ func (o *BatchInitSessionsParams) SetBody(body *models.DomainBatchInitSessionReq
 	o.Body = body
 }
 
+// WithHostTimeoutDuration adds the hostTimeoutDuration to the batch init sessions params
+func (o *BatchInitSessionsParams) WithHostTimeoutDuration(hostTimeoutDuration *string) *BatchInitSessionsParams {
+	o.SetHostTimeoutDuration(hostTimeoutDuration)
+	return o
+}
+
+// SetHostTimeoutDuration adds the hostTimeoutDuration to the batch init sessions params
+func (o *BatchInitSessionsParams) SetHostTimeoutDuration(hostTimeoutDuration *string) {
+	o.HostTimeoutDuration = hostTimeoutDuration
+}
+
 // WithTimeout adds the timeout to the batch init sessions params
 func (o *BatchInitSessionsParams) WithTimeout(timeout *int64) *BatchInitSessionsParams {
 	o.SetTimeout(timeout)
@@ -197,6 +220,23 @@ func (o *BatchInitSessionsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.HostTimeoutDuration != nil {
+
+		// query param host_timeout_duration
+		var qrHostTimeoutDuration string
+
+		if o.HostTimeoutDuration != nil {
+			qrHostTimeoutDuration = *o.HostTimeoutDuration
+		}
+		qHostTimeoutDuration := qrHostTimeoutDuration
+		if qHostTimeoutDuration != "" {
+
+			if err := r.SetQueryParam("host_timeout_duration", qHostTimeoutDuration); err != nil {
+				return err
+			}
 		}
 	}
 
