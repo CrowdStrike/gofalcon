@@ -69,7 +69,7 @@ type GetArtifactsParams struct {
 
 	/* ID.
 
-	   ID of an artifact, such as an IOC pack, PCAP file, or actor image. Find an artifact ID in a report or summary.
+	   ID of an artifact, such as an IOC pack, PCAP file, memory dump, or actor image. Find an artifact ID in a report or summary.
 	*/
 	ID string
 
