@@ -110,7 +110,7 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 
 			hostIds <- hosts
 
-			if *response.Payload.Meta.Pagination.Offset == "" {
+			if *response.Payload.Meta.Pagination.Offset == "" || int64(len(hosts)) < limit {
 				break // no more next page indicates we are done
 			}
 
