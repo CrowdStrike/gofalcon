@@ -133,7 +133,7 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, opts ...ClientOpti
 }
 
 /*
-GetArtifacts downloads i o c packs p c a p files and other analysis artifacts
+GetArtifacts downloads i o c packs p c a p files memory dumps and other analysis artifacts
 */
 func (a *Client) GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
