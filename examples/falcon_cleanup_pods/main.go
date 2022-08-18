@@ -108,7 +108,7 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 		fmt.Printf("Querying Pods that has not been active since %s\n", cutOffDate)
 
 		one := int64(1)
-		response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
+		response, err := client.Hosts.QueryDevicesByFilterScroll(&hosts.QueryDevicesByFilterScrollParams{
 			Filter:  &filter,
 			Limit:   &one,
 			Context: context.Background(),
@@ -122,9 +122,9 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 		podCount := *response.Payload.Meta.Pagination.Total
 		fmt.Printf("Found %d pods that have been inactive\n", podCount)
 
-		limit := int64(100)
-		for offset := int64(0); ; {
-			response, err := client.Hosts.QueryDevicesByFilter(&hosts.QueryDevicesByFilterParams{
+		limit := int64(5000)
+		for offset := ""; ; {
+			response, err := client.Hosts.QueryDevicesByFilterScroll(&hosts.QueryDevicesByFilterScrollParams{
 				Filter:  &filter,
 				Limit:   &limit,
 				Offset:  &offset,
@@ -136,15 +136,19 @@ func getInactivePodIds(client *client.CrowdStrikeAPISpecification, inactiveDays 
 			if err = falcon.AssertNoError(response.Payload.Errors); err != nil {
 				panic(err)
 			}
-
 			hosts := response.Payload.Resources
+			if len(hosts) == 0 {
+				break
+			}
 			for _, host := range hosts {
 				hostIds <- host
 			}
-			offset = offset + int64(len(hosts))
-			if offset >= *response.Payload.Meta.Pagination.Total {
-				break
+
+			if *response.Payload.Meta.Pagination.Offset == "" || int64(len(hosts)) < limit {
+				break // no more next page indicates we are done
 			}
+
+			offset = *response.Payload.Meta.Pagination.Offset
 		}
 		close(hostIds)
 	}()
