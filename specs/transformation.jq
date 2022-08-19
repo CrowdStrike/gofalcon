@@ -35,3 +35,6 @@
   | .paths."/policy/queries/sensor-update-kernels/{distinct_field}/v1".get.parameters[0].name = "distinct_field"
   | .paths."/cloud-connect-azure/entities/download-certificate/v1".get.parameters[1].default = "false"
   | .paths."/cloud-connect-cspm-azure/entities/download-certificate/v1".get.parameters[1].default = "false"
+
+  # Needed by rusty-falcon (stricter typing)
+  | .definitions."deviceapi.DeviceDetailsResponseSwagger".properties.errors."x-nullable" = true
