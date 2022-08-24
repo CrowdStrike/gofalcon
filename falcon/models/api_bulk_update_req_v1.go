@@ -35,8 +35,14 @@ type APIBulkUpdateReqV1 struct {
 	// filter
 	Filter string `json:"filter,omitempty"`
 
+	// from parent
+	FromParent bool `json:"from_parent,omitempty"`
+
 	// host groups
 	HostGroups []string `json:"host_groups"`
+
+	// metadata
+	Metadata *APIMetadataReqV1 `json:"metadata,omitempty"`
 
 	// mobile action
 	MobileAction string `json:"mobile_action,omitempty"`
@@ -62,6 +68,10 @@ func (m *APIBulkUpdateReqV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -80,8 +90,52 @@ func (m *APIBulkUpdateReqV1) validateExpiration(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this api bulk update req v1 based on context it is used
+func (m *APIBulkUpdateReqV1) validateMetadata(formats strfmt.Registry) error {
+	if swag.IsZero(m.Metadata) { // not required
+		return nil
+	}
+
+	if m.Metadata != nil {
+		if err := m.Metadata.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this api bulk update req v1 based on the context it is used
 func (m *APIBulkUpdateReqV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *APIBulkUpdateReqV1) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
