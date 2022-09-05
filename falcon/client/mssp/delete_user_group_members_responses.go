@@ -90,9 +90,39 @@ type DeleteUserGroupMembersOK struct {
 	Payload *models.DomainUserGroupMembersResponseV1
 }
 
+// IsSuccess returns true when this delete user group members o k response has a 2xx status code
+func (o *DeleteUserGroupMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user group members o k response has a 3xx status code
+func (o *DeleteUserGroupMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user group members o k response has a 4xx status code
+func (o *DeleteUserGroupMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user group members o k response has a 5xx status code
+func (o *DeleteUserGroupMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user group members o k response a status code equal to that given
+func (o *DeleteUserGroupMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteUserGroupMembersOK) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersOK) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersOK) GetPayload() *models.DomainUserGroupMembersResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteUserGroupMembersMultiStatus struct {
 	Payload *models.DomainUserGroupMembersResponseV1
 }
 
+// IsSuccess returns true when this delete user group members multi status response has a 2xx status code
+func (o *DeleteUserGroupMembersMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user group members multi status response has a 3xx status code
+func (o *DeleteUserGroupMembersMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user group members multi status response has a 4xx status code
+func (o *DeleteUserGroupMembersMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user group members multi status response has a 5xx status code
+func (o *DeleteUserGroupMembersMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user group members multi status response a status code equal to that given
+func (o *DeleteUserGroupMembersMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *DeleteUserGroupMembersMultiStatus) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersMultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersMultiStatus) GetPayload() *models.DomainUserGroupMembersResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteUserGroupMembersBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete user group members bad request response has a 2xx status code
+func (o *DeleteUserGroupMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user group members bad request response has a 3xx status code
+func (o *DeleteUserGroupMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user group members bad request response has a 4xx status code
+func (o *DeleteUserGroupMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user group members bad request response has a 5xx status code
+func (o *DeleteUserGroupMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user group members bad request response a status code equal to that given
+func (o *DeleteUserGroupMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteUserGroupMembersBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type DeleteUserGroupMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete user group members forbidden response has a 2xx status code
+func (o *DeleteUserGroupMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user group members forbidden response has a 3xx status code
+func (o *DeleteUserGroupMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user group members forbidden response has a 4xx status code
+func (o *DeleteUserGroupMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user group members forbidden response has a 5xx status code
+func (o *DeleteUserGroupMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user group members forbidden response a status code equal to that given
+func (o *DeleteUserGroupMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteUserGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersForbidden) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type DeleteUserGroupMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user group members too many requests response has a 2xx status code
+func (o *DeleteUserGroupMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user group members too many requests response has a 3xx status code
+func (o *DeleteUserGroupMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user group members too many requests response has a 4xx status code
+func (o *DeleteUserGroupMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user group members too many requests response has a 5xx status code
+func (o *DeleteUserGroupMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user group members too many requests response a status code equal to that given
+func (o *DeleteUserGroupMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteUserGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteUserGroupMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete user group members default response has a 2xx status code
+func (o *DeleteUserGroupMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete user group members default response has a 3xx status code
+func (o *DeleteUserGroupMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete user group members default response has a 4xx status code
+func (o *DeleteUserGroupMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete user group members default response has a 5xx status code
+func (o *DeleteUserGroupMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete user group members default response a status code equal to that given
+func (o *DeleteUserGroupMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteUserGroupMembersDefault) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteUserGroupMembersDefault) String() string {
+	return fmt.Sprintf("[DELETE /mssp/entities/user-group-members/v1][%d] deleteUserGroupMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteUserGroupMembersDefault) GetPayload() *models.DomainUserGroupMembersResponseV1 {
 	return o.Payload
 }

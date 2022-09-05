@@ -94,9 +94,39 @@ type QueryHostsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query hosts o k response has a 2xx status code
+func (o *QueryHostsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query hosts o k response has a 3xx status code
+func (o *QueryHostsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hosts o k response has a 4xx status code
+func (o *QueryHostsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query hosts o k response has a 5xx status code
+func (o *QueryHostsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hosts o k response a status code equal to that given
+func (o *QueryHostsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryHostsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryHostsOK) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryHostsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryHostsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hosts bad request response has a 2xx status code
+func (o *QueryHostsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hosts bad request response has a 3xx status code
+func (o *QueryHostsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hosts bad request response has a 4xx status code
+func (o *QueryHostsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query hosts bad request response has a 5xx status code
+func (o *QueryHostsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hosts bad request response a status code equal to that given
+func (o *QueryHostsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryHostsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryHostsBadRequest) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryHostsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryHostsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hosts forbidden response has a 2xx status code
+func (o *QueryHostsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hosts forbidden response has a 3xx status code
+func (o *QueryHostsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hosts forbidden response has a 4xx status code
+func (o *QueryHostsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query hosts forbidden response has a 5xx status code
+func (o *QueryHostsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hosts forbidden response a status code equal to that given
+func (o *QueryHostsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryHostsForbidden) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryHostsForbidden) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryHostsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hosts too many requests response has a 2xx status code
+func (o *QueryHostsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hosts too many requests response has a 3xx status code
+func (o *QueryHostsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hosts too many requests response has a 4xx status code
+func (o *QueryHostsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query hosts too many requests response has a 5xx status code
+func (o *QueryHostsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hosts too many requests response a status code equal to that given
+func (o *QueryHostsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryHostsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryHostsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryHostsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hosts internal server error response has a 2xx status code
+func (o *QueryHostsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hosts internal server error response has a 3xx status code
+func (o *QueryHostsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hosts internal server error response has a 4xx status code
+func (o *QueryHostsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query hosts internal server error response has a 5xx status code
+func (o *QueryHostsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query hosts internal server error response a status code equal to that given
+func (o *QueryHostsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryHostsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryHostsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryHostsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryHostsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query hosts default response has a 2xx status code
+func (o *QueryHostsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query hosts default response has a 3xx status code
+func (o *QueryHostsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query hosts default response has a 4xx status code
+func (o *QueryHostsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query hosts default response has a 5xx status code
+func (o *QueryHostsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query hosts default response a status code equal to that given
+func (o *QueryHostsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryHostsDefault) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] query-hosts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryHostsDefault) String() string {
+	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] query-hosts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryHostsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

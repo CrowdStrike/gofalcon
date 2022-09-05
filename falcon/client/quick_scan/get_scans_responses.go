@@ -96,9 +96,39 @@ type GetScansOK struct {
 	Payload *models.MlscannerScanV1Response
 }
 
+// IsSuccess returns true when this get scans o k response has a 2xx status code
+func (o *GetScansOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scans o k response has a 3xx status code
+func (o *GetScansOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans o k response has a 4xx status code
+func (o *GetScansOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scans o k response has a 5xx status code
+func (o *GetScansOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans o k response a status code equal to that given
+func (o *GetScansOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScansOK) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
 }
+
+func (o *GetScansOK) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
+}
+
 func (o *GetScansOK) GetPayload() *models.MlscannerScanV1Response {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetScansBadRequest struct {
 	Payload *models.MlscannerScanV1Response
 }
 
+// IsSuccess returns true when this get scans bad request response has a 2xx status code
+func (o *GetScansBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans bad request response has a 3xx status code
+func (o *GetScansBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans bad request response has a 4xx status code
+func (o *GetScansBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans bad request response has a 5xx status code
+func (o *GetScansBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans bad request response a status code equal to that given
+func (o *GetScansBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScansBadRequest) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetScansBadRequest) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetScansBadRequest) GetPayload() *models.MlscannerScanV1Response {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetScansForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get scans forbidden response has a 2xx status code
+func (o *GetScansForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans forbidden response has a 3xx status code
+func (o *GetScansForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans forbidden response has a 4xx status code
+func (o *GetScansForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans forbidden response has a 5xx status code
+func (o *GetScansForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans forbidden response a status code equal to that given
+func (o *GetScansForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScansForbidden) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetScansForbidden) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetScansNotFound struct {
 	Payload *models.MlscannerScanV1Response
 }
 
+// IsSuccess returns true when this get scans not found response has a 2xx status code
+func (o *GetScansNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans not found response has a 3xx status code
+func (o *GetScansNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans not found response has a 4xx status code
+func (o *GetScansNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans not found response has a 5xx status code
+func (o *GetScansNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans not found response a status code equal to that given
+func (o *GetScansNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScansNotFound) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetScansNotFound) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetScansNotFound) GetPayload() *models.MlscannerScanV1Response {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetScansTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get scans too many requests response has a 2xx status code
+func (o *GetScansTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans too many requests response has a 3xx status code
+func (o *GetScansTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans too many requests response has a 4xx status code
+func (o *GetScansTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans too many requests response has a 5xx status code
+func (o *GetScansTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans too many requests response a status code equal to that given
+func (o *GetScansTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScansTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetScansTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetScansInternalServerError struct {
 	Payload *models.MlscannerScanV1Response
 }
 
+// IsSuccess returns true when this get scans internal server error response has a 2xx status code
+func (o *GetScansInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans internal server error response has a 3xx status code
+func (o *GetScansInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans internal server error response has a 4xx status code
+func (o *GetScansInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scans internal server error response has a 5xx status code
+func (o *GetScansInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scans internal server error response a status code equal to that given
+func (o *GetScansInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScansInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetScansInternalServerError) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetScansInternalServerError) GetPayload() *models.MlscannerScanV1Response {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetScansDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get scans default response has a 2xx status code
+func (o *GetScansDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get scans default response has a 3xx status code
+func (o *GetScansDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get scans default response has a 4xx status code
+func (o *GetScansDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get scans default response has a 5xx status code
+func (o *GetScansDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get scans default response a status code equal to that given
+func (o *GetScansDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetScansDefault) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] GetScans default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetScansDefault) String() string {
+	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] GetScans default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetScansDefault) GetPayload() *models.MlscannerScanV1Response {
 	return o.Payload
 }

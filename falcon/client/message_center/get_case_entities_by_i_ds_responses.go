@@ -94,9 +94,39 @@ type GetCaseEntitiesByIDsOK struct {
 	Payload *models.APIMessageCenterCasesResponse
 }
 
+// IsSuccess returns true when this get case entities by i ds o k response has a 2xx status code
+func (o *GetCaseEntitiesByIDsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get case entities by i ds o k response has a 3xx status code
+func (o *GetCaseEntitiesByIDsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get case entities by i ds o k response has a 4xx status code
+func (o *GetCaseEntitiesByIDsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get case entities by i ds o k response has a 5xx status code
+func (o *GetCaseEntitiesByIDsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get case entities by i ds o k response a status code equal to that given
+func (o *GetCaseEntitiesByIDsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCaseEntitiesByIDsOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsOK) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsOK) GetPayload() *models.APIMessageCenterCasesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetCaseEntitiesByIDsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get case entities by i ds bad request response has a 2xx status code
+func (o *GetCaseEntitiesByIDsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get case entities by i ds bad request response has a 3xx status code
+func (o *GetCaseEntitiesByIDsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get case entities by i ds bad request response has a 4xx status code
+func (o *GetCaseEntitiesByIDsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get case entities by i ds bad request response has a 5xx status code
+func (o *GetCaseEntitiesByIDsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get case entities by i ds bad request response a status code equal to that given
+func (o *GetCaseEntitiesByIDsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCaseEntitiesByIDsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsBadRequest) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetCaseEntitiesByIDsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get case entities by i ds forbidden response has a 2xx status code
+func (o *GetCaseEntitiesByIDsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get case entities by i ds forbidden response has a 3xx status code
+func (o *GetCaseEntitiesByIDsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get case entities by i ds forbidden response has a 4xx status code
+func (o *GetCaseEntitiesByIDsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get case entities by i ds forbidden response has a 5xx status code
+func (o *GetCaseEntitiesByIDsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get case entities by i ds forbidden response a status code equal to that given
+func (o *GetCaseEntitiesByIDsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCaseEntitiesByIDsForbidden) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsForbidden) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetCaseEntitiesByIDsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get case entities by i ds too many requests response has a 2xx status code
+func (o *GetCaseEntitiesByIDsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get case entities by i ds too many requests response has a 3xx status code
+func (o *GetCaseEntitiesByIDsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get case entities by i ds too many requests response has a 4xx status code
+func (o *GetCaseEntitiesByIDsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get case entities by i ds too many requests response has a 5xx status code
+func (o *GetCaseEntitiesByIDsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get case entities by i ds too many requests response a status code equal to that given
+func (o *GetCaseEntitiesByIDsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCaseEntitiesByIDsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetCaseEntitiesByIDsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get case entities by i ds internal server error response has a 2xx status code
+func (o *GetCaseEntitiesByIDsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get case entities by i ds internal server error response has a 3xx status code
+func (o *GetCaseEntitiesByIDsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get case entities by i ds internal server error response has a 4xx status code
+func (o *GetCaseEntitiesByIDsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get case entities by i ds internal server error response has a 5xx status code
+func (o *GetCaseEntitiesByIDsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get case entities by i ds internal server error response a status code equal to that given
+func (o *GetCaseEntitiesByIDsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCaseEntitiesByIDsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] getCaseEntitiesByIDsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetCaseEntitiesByIDsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get case entities by i ds default response has a 2xx status code
+func (o *GetCaseEntitiesByIDsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get case entities by i ds default response has a 3xx status code
+func (o *GetCaseEntitiesByIDsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get case entities by i ds default response has a 4xx status code
+func (o *GetCaseEntitiesByIDsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get case entities by i ds default response has a 5xx status code
+func (o *GetCaseEntitiesByIDsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get case entities by i ds default response a status code equal to that given
+func (o *GetCaseEntitiesByIDsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCaseEntitiesByIDsDefault) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] GetCaseEntitiesByIDs default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCaseEntitiesByIDsDefault) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] GetCaseEntitiesByIDs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCaseEntitiesByIDsDefault) GetPayload() *models.APIMessageCenterCasesResponse {
 	return o.Payload
 }

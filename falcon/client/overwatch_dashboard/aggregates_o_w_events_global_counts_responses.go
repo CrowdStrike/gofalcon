@@ -78,9 +78,39 @@ type AggregatesOWEventsGlobalCountsOK struct {
 	Payload *models.MsaFacetsResponse
 }
 
+// IsSuccess returns true when this aggregates o w events global counts o k response has a 2xx status code
+func (o *AggregatesOWEventsGlobalCountsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregates o w events global counts o k response has a 3xx status code
+func (o *AggregatesOWEventsGlobalCountsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates o w events global counts o k response has a 4xx status code
+func (o *AggregatesOWEventsGlobalCountsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregates o w events global counts o k response has a 5xx status code
+func (o *AggregatesOWEventsGlobalCountsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates o w events global counts o k response a status code equal to that given
+func (o *AggregatesOWEventsGlobalCountsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregatesOWEventsGlobalCountsOK) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregatesOWEventsGlobalCountsOK) String() string {
+	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregatesOWEventsGlobalCountsOK) GetPayload() *models.MsaFacetsResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregatesOWEventsGlobalCountsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregates o w events global counts forbidden response has a 2xx status code
+func (o *AggregatesOWEventsGlobalCountsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregates o w events global counts forbidden response has a 3xx status code
+func (o *AggregatesOWEventsGlobalCountsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates o w events global counts forbidden response has a 4xx status code
+func (o *AggregatesOWEventsGlobalCountsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregates o w events global counts forbidden response has a 5xx status code
+func (o *AggregatesOWEventsGlobalCountsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates o w events global counts forbidden response a status code equal to that given
+func (o *AggregatesOWEventsGlobalCountsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregatesOWEventsGlobalCountsForbidden) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregatesOWEventsGlobalCountsForbidden) String() string {
+	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregatesOWEventsGlobalCountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregatesOWEventsGlobalCountsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregates o w events global counts too many requests response has a 2xx status code
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregates o w events global counts too many requests response has a 3xx status code
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates o w events global counts too many requests response has a 4xx status code
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregates o w events global counts too many requests response has a 5xx status code
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates o w events global counts too many requests response a status code equal to that given
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregatesOWEventsGlobalCountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregatesOWEventsGlobalCountsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] aggregatesOWEventsGlobalCountsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregatesOWEventsGlobalCountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregatesOWEventsGlobalCountsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregates o w events global counts default response has a 2xx status code
+func (o *AggregatesOWEventsGlobalCountsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregates o w events global counts default response has a 3xx status code
+func (o *AggregatesOWEventsGlobalCountsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregates o w events global counts default response has a 4xx status code
+func (o *AggregatesOWEventsGlobalCountsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregates o w events global counts default response has a 5xx status code
+func (o *AggregatesOWEventsGlobalCountsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregates o w events global counts default response a status code equal to that given
+func (o *AggregatesOWEventsGlobalCountsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregatesOWEventsGlobalCountsDefault) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] AggregatesOWEventsGlobalCounts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregatesOWEventsGlobalCountsDefault) String() string {
+	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/ow-events-global-counts/v1][%d] AggregatesOWEventsGlobalCounts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregatesOWEventsGlobalCountsDefault) GetPayload() *models.MsaFacetsResponse {
 	return o.Payload
 }

@@ -94,9 +94,39 @@ type GetChildrenOK struct {
 	Payload *models.DomainChildrenResponseV1
 }
 
+// IsSuccess returns true when this get children o k response has a 2xx status code
+func (o *GetChildrenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get children o k response has a 3xx status code
+func (o *GetChildrenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get children o k response has a 4xx status code
+func (o *GetChildrenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get children o k response has a 5xx status code
+func (o *GetChildrenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get children o k response a status code equal to that given
+func (o *GetChildrenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetChildrenOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenOK  %+v", 200, o.Payload)
 }
+
+func (o *GetChildrenOK) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenOK  %+v", 200, o.Payload)
+}
+
 func (o *GetChildrenOK) GetPayload() *models.DomainChildrenResponseV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetChildrenMultiStatus struct {
 	Payload *models.DomainChildrenResponseV1
 }
 
+// IsSuccess returns true when this get children multi status response has a 2xx status code
+func (o *GetChildrenMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get children multi status response has a 3xx status code
+func (o *GetChildrenMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get children multi status response has a 4xx status code
+func (o *GetChildrenMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get children multi status response has a 5xx status code
+func (o *GetChildrenMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get children multi status response a status code equal to that given
+func (o *GetChildrenMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetChildrenMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetChildrenMultiStatus) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetChildrenMultiStatus) GetPayload() *models.DomainChildrenResponseV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetChildrenBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get children bad request response has a 2xx status code
+func (o *GetChildrenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get children bad request response has a 3xx status code
+func (o *GetChildrenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get children bad request response has a 4xx status code
+func (o *GetChildrenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get children bad request response has a 5xx status code
+func (o *GetChildrenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get children bad request response a status code equal to that given
+func (o *GetChildrenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetChildrenBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetChildrenBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetChildrenBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -319,9 +409,39 @@ type GetChildrenForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get children forbidden response has a 2xx status code
+func (o *GetChildrenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get children forbidden response has a 3xx status code
+func (o *GetChildrenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get children forbidden response has a 4xx status code
+func (o *GetChildrenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get children forbidden response has a 5xx status code
+func (o *GetChildrenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get children forbidden response a status code equal to that given
+func (o *GetChildrenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetChildrenForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetChildrenForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetChildrenForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -398,9 +518,39 @@ type GetChildrenTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get children too many requests response has a 2xx status code
+func (o *GetChildrenTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get children too many requests response has a 3xx status code
+func (o *GetChildrenTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get children too many requests response has a 4xx status code
+func (o *GetChildrenTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get children too many requests response has a 5xx status code
+func (o *GetChildrenTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get children too many requests response a status code equal to that given
+func (o *GetChildrenTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetChildrenTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetChildrenTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetChildrenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetChildrenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get children default response has a 2xx status code
+func (o *GetChildrenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get children default response has a 3xx status code
+func (o *GetChildrenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get children default response has a 4xx status code
+func (o *GetChildrenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get children default response has a 5xx status code
+func (o *GetChildrenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get children default response a status code equal to that given
+func (o *GetChildrenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetChildrenDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildren default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetChildrenDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildren default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetChildrenDefault) GetPayload() *models.DomainChildrenResponseV1 {
 	return o.Payload
 }

@@ -96,9 +96,39 @@ type BatchGetCmdStatusOK struct {
 	Payload *models.DomainBatchGetCmdStatusResponse
 }
 
+// IsSuccess returns true when this batch get cmd status o k response has a 2xx status code
+func (o *BatchGetCmdStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this batch get cmd status o k response has a 3xx status code
+func (o *BatchGetCmdStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status o k response has a 4xx status code
+func (o *BatchGetCmdStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this batch get cmd status o k response has a 5xx status code
+func (o *BatchGetCmdStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch get cmd status o k response a status code equal to that given
+func (o *BatchGetCmdStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *BatchGetCmdStatusOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusOK  %+v", 200, o.Payload)
 }
+
+func (o *BatchGetCmdStatusOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusOK  %+v", 200, o.Payload)
+}
+
 func (o *BatchGetCmdStatusOK) GetPayload() *models.DomainBatchGetCmdStatusResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type BatchGetCmdStatusBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this batch get cmd status bad request response has a 2xx status code
+func (o *BatchGetCmdStatusBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch get cmd status bad request response has a 3xx status code
+func (o *BatchGetCmdStatusBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status bad request response has a 4xx status code
+func (o *BatchGetCmdStatusBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch get cmd status bad request response has a 5xx status code
+func (o *BatchGetCmdStatusBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch get cmd status bad request response a status code equal to that given
+func (o *BatchGetCmdStatusBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *BatchGetCmdStatusBadRequest) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *BatchGetCmdStatusBadRequest) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *BatchGetCmdStatusBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type BatchGetCmdStatusForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this batch get cmd status forbidden response has a 2xx status code
+func (o *BatchGetCmdStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch get cmd status forbidden response has a 3xx status code
+func (o *BatchGetCmdStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status forbidden response has a 4xx status code
+func (o *BatchGetCmdStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch get cmd status forbidden response has a 5xx status code
+func (o *BatchGetCmdStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch get cmd status forbidden response a status code equal to that given
+func (o *BatchGetCmdStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *BatchGetCmdStatusForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusForbidden  %+v", 403, o.Payload)
 }
+
+func (o *BatchGetCmdStatusForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusForbidden  %+v", 403, o.Payload)
+}
+
 func (o *BatchGetCmdStatusForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type BatchGetCmdStatusNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this batch get cmd status not found response has a 2xx status code
+func (o *BatchGetCmdStatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch get cmd status not found response has a 3xx status code
+func (o *BatchGetCmdStatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status not found response has a 4xx status code
+func (o *BatchGetCmdStatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch get cmd status not found response has a 5xx status code
+func (o *BatchGetCmdStatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch get cmd status not found response a status code equal to that given
+func (o *BatchGetCmdStatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *BatchGetCmdStatusNotFound) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusNotFound  %+v", 404, o.Payload)
 }
+
+func (o *BatchGetCmdStatusNotFound) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusNotFound  %+v", 404, o.Payload)
+}
+
 func (o *BatchGetCmdStatusNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type BatchGetCmdStatusTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this batch get cmd status too many requests response has a 2xx status code
+func (o *BatchGetCmdStatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch get cmd status too many requests response has a 3xx status code
+func (o *BatchGetCmdStatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status too many requests response has a 4xx status code
+func (o *BatchGetCmdStatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch get cmd status too many requests response has a 5xx status code
+func (o *BatchGetCmdStatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch get cmd status too many requests response a status code equal to that given
+func (o *BatchGetCmdStatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *BatchGetCmdStatusTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *BatchGetCmdStatusTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *BatchGetCmdStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type BatchGetCmdStatusInternalServerError struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this batch get cmd status internal server error response has a 2xx status code
+func (o *BatchGetCmdStatusInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch get cmd status internal server error response has a 3xx status code
+func (o *BatchGetCmdStatusInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch get cmd status internal server error response has a 4xx status code
+func (o *BatchGetCmdStatusInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this batch get cmd status internal server error response has a 5xx status code
+func (o *BatchGetCmdStatusInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this batch get cmd status internal server error response a status code equal to that given
+func (o *BatchGetCmdStatusInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *BatchGetCmdStatusInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *BatchGetCmdStatusInternalServerError) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdStatusInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *BatchGetCmdStatusInternalServerError) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *BatchGetCmdStatusDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this batch get cmd status default response has a 2xx status code
+func (o *BatchGetCmdStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this batch get cmd status default response has a 3xx status code
+func (o *BatchGetCmdStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this batch get cmd status default response has a 4xx status code
+func (o *BatchGetCmdStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this batch get cmd status default response has a 5xx status code
+func (o *BatchGetCmdStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this batch get cmd status default response a status code equal to that given
+func (o *BatchGetCmdStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *BatchGetCmdStatusDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] BatchGetCmdStatus default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *BatchGetCmdStatusDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] BatchGetCmdStatus default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *BatchGetCmdStatusDefault) GetPayload() *models.DomainBatchGetCmdStatusResponse {
 	return o.Payload
 }

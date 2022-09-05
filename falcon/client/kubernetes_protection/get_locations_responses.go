@@ -100,9 +100,39 @@ type GetLocationsOK struct {
 	Payload *models.K8sregGetLocationsResp
 }
 
+// IsSuccess returns true when this get locations o k response has a 2xx status code
+func (o *GetLocationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get locations o k response has a 3xx status code
+func (o *GetLocationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations o k response has a 4xx status code
+func (o *GetLocationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get locations o k response has a 5xx status code
+func (o *GetLocationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get locations o k response a status code equal to that given
+func (o *GetLocationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLocationsOK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetLocationsOK) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetLocationsOK) GetPayload() *models.K8sregGetLocationsResp {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type GetLocationsMultiStatus struct {
 	Payload *models.K8sregGetLocationsResp
 }
 
+// IsSuccess returns true when this get locations multi status response has a 2xx status code
+func (o *GetLocationsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get locations multi status response has a 3xx status code
+func (o *GetLocationsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations multi status response has a 4xx status code
+func (o *GetLocationsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get locations multi status response has a 5xx status code
+func (o *GetLocationsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get locations multi status response a status code equal to that given
+func (o *GetLocationsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetLocationsMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetLocationsMultiStatus) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetLocationsMultiStatus) GetPayload() *models.K8sregGetLocationsResp {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type GetLocationsBadRequest struct {
 	Payload *models.K8sregGetLocationsResp
 }
 
+// IsSuccess returns true when this get locations bad request response has a 2xx status code
+func (o *GetLocationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get locations bad request response has a 3xx status code
+func (o *GetLocationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations bad request response has a 4xx status code
+func (o *GetLocationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get locations bad request response has a 5xx status code
+func (o *GetLocationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get locations bad request response a status code equal to that given
+func (o *GetLocationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetLocationsBadRequest) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetLocationsBadRequest) GetPayload() *models.K8sregGetLocationsResp {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type GetLocationsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get locations forbidden response has a 2xx status code
+func (o *GetLocationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get locations forbidden response has a 3xx status code
+func (o *GetLocationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations forbidden response has a 4xx status code
+func (o *GetLocationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get locations forbidden response has a 5xx status code
+func (o *GetLocationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get locations forbidden response a status code equal to that given
+func (o *GetLocationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLocationsForbidden) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetLocationsForbidden) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetLocationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type GetLocationsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get locations too many requests response has a 2xx status code
+func (o *GetLocationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get locations too many requests response has a 3xx status code
+func (o *GetLocationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations too many requests response has a 4xx status code
+func (o *GetLocationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get locations too many requests response has a 5xx status code
+func (o *GetLocationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get locations too many requests response a status code equal to that given
+func (o *GetLocationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLocationsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetLocationsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetLocationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type GetLocationsInternalServerError struct {
 	Payload *models.K8sregGetLocationsResp
 }
 
+// IsSuccess returns true when this get locations internal server error response has a 2xx status code
+func (o *GetLocationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get locations internal server error response has a 3xx status code
+func (o *GetLocationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get locations internal server error response has a 4xx status code
+func (o *GetLocationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get locations internal server error response has a 5xx status code
+func (o *GetLocationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get locations internal server error response a status code equal to that given
+func (o *GetLocationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLocationsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetLocationsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetLocationsInternalServerError) GetPayload() *models.K8sregGetLocationsResp {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *GetLocationsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get locations default response has a 2xx status code
+func (o *GetLocationsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get locations default response has a 3xx status code
+func (o *GetLocationsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get locations default response has a 4xx status code
+func (o *GetLocationsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get locations default response has a 5xx status code
+func (o *GetLocationsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get locations default response a status code equal to that given
+func (o *GetLocationsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetLocationsDefault) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] GetLocations default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetLocationsDefault) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] GetLocations default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetLocationsDefault) GetPayload() *models.K8sregGetLocationsResp {
 	return o.Payload
 }

@@ -94,9 +94,39 @@ type QueryActivityByCaseIDOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query activity by case Id o k response has a 2xx status code
+func (o *QueryActivityByCaseIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query activity by case Id o k response has a 3xx status code
+func (o *QueryActivityByCaseIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query activity by case Id o k response has a 4xx status code
+func (o *QueryActivityByCaseIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query activity by case Id o k response has a 5xx status code
+func (o *QueryActivityByCaseIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query activity by case Id o k response a status code equal to that given
+func (o *QueryActivityByCaseIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryActivityByCaseIDOK) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDOK) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryActivityByCaseIDBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query activity by case Id bad request response has a 2xx status code
+func (o *QueryActivityByCaseIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query activity by case Id bad request response has a 3xx status code
+func (o *QueryActivityByCaseIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query activity by case Id bad request response has a 4xx status code
+func (o *QueryActivityByCaseIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query activity by case Id bad request response has a 5xx status code
+func (o *QueryActivityByCaseIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query activity by case Id bad request response a status code equal to that given
+func (o *QueryActivityByCaseIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryActivityByCaseIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryActivityByCaseIDForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query activity by case Id forbidden response has a 2xx status code
+func (o *QueryActivityByCaseIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query activity by case Id forbidden response has a 3xx status code
+func (o *QueryActivityByCaseIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query activity by case Id forbidden response has a 4xx status code
+func (o *QueryActivityByCaseIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query activity by case Id forbidden response has a 5xx status code
+func (o *QueryActivityByCaseIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query activity by case Id forbidden response a status code equal to that given
+func (o *QueryActivityByCaseIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryActivityByCaseIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDForbidden) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryActivityByCaseIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query activity by case Id too many requests response has a 2xx status code
+func (o *QueryActivityByCaseIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query activity by case Id too many requests response has a 3xx status code
+func (o *QueryActivityByCaseIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query activity by case Id too many requests response has a 4xx status code
+func (o *QueryActivityByCaseIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query activity by case Id too many requests response has a 5xx status code
+func (o *QueryActivityByCaseIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query activity by case Id too many requests response a status code equal to that given
+func (o *QueryActivityByCaseIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryActivityByCaseIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryActivityByCaseIDInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query activity by case Id internal server error response has a 2xx status code
+func (o *QueryActivityByCaseIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query activity by case Id internal server error response has a 3xx status code
+func (o *QueryActivityByCaseIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query activity by case Id internal server error response has a 4xx status code
+func (o *QueryActivityByCaseIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query activity by case Id internal server error response has a 5xx status code
+func (o *QueryActivityByCaseIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query activity by case Id internal server error response a status code equal to that given
+func (o *QueryActivityByCaseIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryActivityByCaseIDInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDInternalServerError) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryActivityByCaseIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query activity by case ID default response has a 2xx status code
+func (o *QueryActivityByCaseIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query activity by case ID default response has a 3xx status code
+func (o *QueryActivityByCaseIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query activity by case ID default response has a 4xx status code
+func (o *QueryActivityByCaseIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query activity by case ID default response has a 5xx status code
+func (o *QueryActivityByCaseIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query activity by case ID default response a status code equal to that given
+func (o *QueryActivityByCaseIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryActivityByCaseIDDefault) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] QueryActivityByCaseID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryActivityByCaseIDDefault) String() string {
+	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] QueryActivityByCaseID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryActivityByCaseIDDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

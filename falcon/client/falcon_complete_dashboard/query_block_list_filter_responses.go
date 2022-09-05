@@ -78,9 +78,39 @@ type QueryBlockListFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query block list filter o k response has a 2xx status code
+func (o *QueryBlockListFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query block list filter o k response has a 3xx status code
+func (o *QueryBlockListFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query block list filter o k response has a 4xx status code
+func (o *QueryBlockListFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query block list filter o k response has a 5xx status code
+func (o *QueryBlockListFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query block list filter o k response a status code equal to that given
+func (o *QueryBlockListFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryBlockListFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryBlockListFilterOK) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryBlockListFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryBlockListFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query block list filter forbidden response has a 2xx status code
+func (o *QueryBlockListFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query block list filter forbidden response has a 3xx status code
+func (o *QueryBlockListFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query block list filter forbidden response has a 4xx status code
+func (o *QueryBlockListFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query block list filter forbidden response has a 5xx status code
+func (o *QueryBlockListFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query block list filter forbidden response a status code equal to that given
+func (o *QueryBlockListFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryBlockListFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryBlockListFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryBlockListFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryBlockListFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query block list filter too many requests response has a 2xx status code
+func (o *QueryBlockListFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query block list filter too many requests response has a 3xx status code
+func (o *QueryBlockListFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query block list filter too many requests response has a 4xx status code
+func (o *QueryBlockListFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query block list filter too many requests response has a 5xx status code
+func (o *QueryBlockListFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query block list filter too many requests response a status code equal to that given
+func (o *QueryBlockListFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryBlockListFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryBlockListFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryBlockListFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryBlockListFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query block list filter default response has a 2xx status code
+func (o *QueryBlockListFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query block list filter default response has a 3xx status code
+func (o *QueryBlockListFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query block list filter default response has a 4xx status code
+func (o *QueryBlockListFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query block list filter default response has a 5xx status code
+func (o *QueryBlockListFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query block list filter default response a status code equal to that given
+func (o *QueryBlockListFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryBlockListFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] QueryBlockListFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryBlockListFilterDefault) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] QueryBlockListFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryBlockListFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

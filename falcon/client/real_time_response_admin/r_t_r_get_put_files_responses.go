@@ -90,9 +90,39 @@ type RTRGetPutFilesOK struct {
 	Payload *models.BinservclientMsaPFResponse
 }
 
+// IsSuccess returns true when this r t r get put files o k response has a 2xx status code
+func (o *RTRGetPutFilesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r get put files o k response has a 3xx status code
+func (o *RTRGetPutFilesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get put files o k response has a 4xx status code
+func (o *RTRGetPutFilesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r get put files o k response has a 5xx status code
+func (o *RTRGetPutFilesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get put files o k response a status code equal to that given
+func (o *RTRGetPutFilesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRGetPutFilesOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRGetPutFilesOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRGetPutFilesOK) GetPayload() *models.BinservclientMsaPFResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRGetPutFilesBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get put files bad request response has a 2xx status code
+func (o *RTRGetPutFilesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get put files bad request response has a 3xx status code
+func (o *RTRGetPutFilesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get put files bad request response has a 4xx status code
+func (o *RTRGetPutFilesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get put files bad request response has a 5xx status code
+func (o *RTRGetPutFilesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get put files bad request response a status code equal to that given
+func (o *RTRGetPutFilesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRGetPutFilesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRGetPutFilesBadRequest) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRGetPutFilesBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRGetPutFilesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get put files forbidden response has a 2xx status code
+func (o *RTRGetPutFilesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get put files forbidden response has a 3xx status code
+func (o *RTRGetPutFilesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get put files forbidden response has a 4xx status code
+func (o *RTRGetPutFilesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get put files forbidden response has a 5xx status code
+func (o *RTRGetPutFilesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get put files forbidden response a status code equal to that given
+func (o *RTRGetPutFilesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRGetPutFilesForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRGetPutFilesForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRGetPutFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRGetPutFilesNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get put files not found response has a 2xx status code
+func (o *RTRGetPutFilesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get put files not found response has a 3xx status code
+func (o *RTRGetPutFilesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get put files not found response has a 4xx status code
+func (o *RTRGetPutFilesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get put files not found response has a 5xx status code
+func (o *RTRGetPutFilesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get put files not found response a status code equal to that given
+func (o *RTRGetPutFilesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRGetPutFilesNotFound) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRGetPutFilesNotFound) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRGetPutFilesNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRGetPutFilesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get put files too many requests response has a 2xx status code
+func (o *RTRGetPutFilesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get put files too many requests response has a 3xx status code
+func (o *RTRGetPutFilesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get put files too many requests response has a 4xx status code
+func (o *RTRGetPutFilesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get put files too many requests response has a 5xx status code
+func (o *RTRGetPutFilesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get put files too many requests response a status code equal to that given
+func (o *RTRGetPutFilesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRGetPutFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRGetPutFilesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRGetPutFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRGetPutFilesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r get put files default response has a 2xx status code
+func (o *RTRGetPutFilesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r get put files default response has a 3xx status code
+func (o *RTRGetPutFilesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r get put files default response has a 4xx status code
+func (o *RTRGetPutFilesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r get put files default response has a 5xx status code
+func (o *RTRGetPutFilesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r get put files default response a status code equal to that given
+func (o *RTRGetPutFilesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRGetPutFilesDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] RTR-GetPut-Files default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRGetPutFilesDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] RTR-GetPut-Files default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRGetPutFilesDefault) GetPayload() *models.BinservclientMsaPFResponse {
 	return o.Payload
 }

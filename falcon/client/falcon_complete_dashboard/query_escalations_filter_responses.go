@@ -78,9 +78,39 @@ type QueryEscalationsFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query escalations filter o k response has a 2xx status code
+func (o *QueryEscalationsFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query escalations filter o k response has a 3xx status code
+func (o *QueryEscalationsFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query escalations filter o k response has a 4xx status code
+func (o *QueryEscalationsFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query escalations filter o k response has a 5xx status code
+func (o *QueryEscalationsFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query escalations filter o k response a status code equal to that given
+func (o *QueryEscalationsFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryEscalationsFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryEscalationsFilterOK) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryEscalationsFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryEscalationsFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query escalations filter forbidden response has a 2xx status code
+func (o *QueryEscalationsFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query escalations filter forbidden response has a 3xx status code
+func (o *QueryEscalationsFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query escalations filter forbidden response has a 4xx status code
+func (o *QueryEscalationsFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query escalations filter forbidden response has a 5xx status code
+func (o *QueryEscalationsFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query escalations filter forbidden response a status code equal to that given
+func (o *QueryEscalationsFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryEscalationsFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryEscalationsFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryEscalationsFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryEscalationsFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query escalations filter too many requests response has a 2xx status code
+func (o *QueryEscalationsFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query escalations filter too many requests response has a 3xx status code
+func (o *QueryEscalationsFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query escalations filter too many requests response has a 4xx status code
+func (o *QueryEscalationsFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query escalations filter too many requests response has a 5xx status code
+func (o *QueryEscalationsFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query escalations filter too many requests response a status code equal to that given
+func (o *QueryEscalationsFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryEscalationsFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryEscalationsFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryEscalationsFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryEscalationsFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query escalations filter default response has a 2xx status code
+func (o *QueryEscalationsFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query escalations filter default response has a 3xx status code
+func (o *QueryEscalationsFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query escalations filter default response has a 4xx status code
+func (o *QueryEscalationsFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query escalations filter default response has a 5xx status code
+func (o *QueryEscalationsFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query escalations filter default response a status code equal to that given
+func (o *QueryEscalationsFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryEscalationsFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] QueryEscalationsFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryEscalationsFilterDefault) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] QueryEscalationsFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryEscalationsFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

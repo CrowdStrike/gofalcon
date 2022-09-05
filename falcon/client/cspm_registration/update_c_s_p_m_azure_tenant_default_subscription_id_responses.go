@@ -87,9 +87,39 @@ type UpdateCSPMAzureTenantDefaultSubscriptionIDCreated struct {
 	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure tenant default subscription Id created response has a 2xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update c s p m azure tenant default subscription Id created response has a 3xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure tenant default subscription Id created response has a 4xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c s p m azure tenant default subscription Id created response has a 5xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure tenant default subscription Id created response a status code equal to that given
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
 }
+
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest struct {
 	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure tenant default subscription Id bad request response has a 2xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure tenant default subscription Id bad request response has a 3xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure tenant default subscription Id bad request response has a 4xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure tenant default subscription Id bad request response has a 5xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure tenant default subscription Id bad request response a status code equal to that given
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }
@@ -237,9 +297,39 @@ type UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update c s p m azure tenant default subscription Id forbidden response has a 2xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure tenant default subscription Id forbidden response has a 3xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure tenant default subscription Id forbidden response has a 4xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure tenant default subscription Id forbidden response has a 5xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure tenant default subscription Id forbidden response a status code equal to that given
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -316,9 +406,39 @@ type UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update c s p m azure tenant default subscription Id too many requests response has a 2xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure tenant default subscription Id too many requests response has a 3xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure tenant default subscription Id too many requests response has a 4xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure tenant default subscription Id too many requests response has a 5xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure tenant default subscription Id too many requests response a status code equal to that given
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError struct {
 	Payload *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure tenant default subscription Id internal server error response has a 2xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure tenant default subscription Id internal server error response has a 3xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure tenant default subscription Id internal server error response has a 4xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c s p m azure tenant default subscription Id internal server error response has a 5xx status code
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update c s p m azure tenant default subscription Id internal server error response a status code equal to that given
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) GetPayload() *models.RegistrationAzureTenantDefaultSubscriptionIDResponseV1 {
 	return o.Payload
 }

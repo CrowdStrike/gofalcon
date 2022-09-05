@@ -94,9 +94,39 @@ type GetHostsOK struct {
 	Payload *models.DomainDiscoverAPIHostEntitiesResponse
 }
 
+// IsSuccess returns true when this get hosts o k response has a 2xx status code
+func (o *GetHostsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get hosts o k response has a 3xx status code
+func (o *GetHostsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get hosts o k response has a 4xx status code
+func (o *GetHostsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get hosts o k response has a 5xx status code
+func (o *GetHostsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get hosts o k response a status code equal to that given
+func (o *GetHostsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetHostsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetHostsOK) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetHostsOK) GetPayload() *models.DomainDiscoverAPIHostEntitiesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetHostsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get hosts bad request response has a 2xx status code
+func (o *GetHostsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get hosts bad request response has a 3xx status code
+func (o *GetHostsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get hosts bad request response has a 4xx status code
+func (o *GetHostsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get hosts bad request response has a 5xx status code
+func (o *GetHostsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get hosts bad request response a status code equal to that given
+func (o *GetHostsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetHostsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetHostsBadRequest) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetHostsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetHostsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get hosts forbidden response has a 2xx status code
+func (o *GetHostsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get hosts forbidden response has a 3xx status code
+func (o *GetHostsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get hosts forbidden response has a 4xx status code
+func (o *GetHostsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get hosts forbidden response has a 5xx status code
+func (o *GetHostsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get hosts forbidden response a status code equal to that given
+func (o *GetHostsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetHostsForbidden) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetHostsForbidden) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetHostsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetHostsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get hosts too many requests response has a 2xx status code
+func (o *GetHostsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get hosts too many requests response has a 3xx status code
+func (o *GetHostsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get hosts too many requests response has a 4xx status code
+func (o *GetHostsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get hosts too many requests response has a 5xx status code
+func (o *GetHostsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get hosts too many requests response a status code equal to that given
+func (o *GetHostsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetHostsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetHostsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetHostsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetHostsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get hosts internal server error response has a 2xx status code
+func (o *GetHostsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get hosts internal server error response has a 3xx status code
+func (o *GetHostsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get hosts internal server error response has a 4xx status code
+func (o *GetHostsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get hosts internal server error response has a 5xx status code
+func (o *GetHostsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get hosts internal server error response a status code equal to that given
+func (o *GetHostsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetHostsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetHostsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetHostsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetHostsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get hosts default response has a 2xx status code
+func (o *GetHostsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get hosts default response has a 3xx status code
+func (o *GetHostsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get hosts default response has a 4xx status code
+func (o *GetHostsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get hosts default response has a 5xx status code
+func (o *GetHostsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get hosts default response a status code equal to that given
+func (o *GetHostsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetHostsDefault) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] get-hosts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetHostsDefault) String() string {
+	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] get-hosts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetHostsDefault) GetPayload() *models.DomainDiscoverAPIHostEntitiesResponse {
 	return o.Payload
 }

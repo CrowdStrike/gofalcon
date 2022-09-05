@@ -84,9 +84,39 @@ type RetrieveEmailsByCIDOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve emails by c Id o k response has a 2xx status code
+func (o *RetrieveEmailsByCIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this retrieve emails by c Id o k response has a 3xx status code
+func (o *RetrieveEmailsByCIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve emails by c Id o k response has a 4xx status code
+func (o *RetrieveEmailsByCIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this retrieve emails by c Id o k response has a 5xx status code
+func (o *RetrieveEmailsByCIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve emails by c Id o k response a status code equal to that given
+func (o *RetrieveEmailsByCIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RetrieveEmailsByCIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK  %+v", 200, o.Payload)
 }
+
+func (o *RetrieveEmailsByCIDOK) String() string {
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK  %+v", 200, o.Payload)
+}
+
 func (o *RetrieveEmailsByCIDOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RetrieveEmailsByCIDBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve emails by c Id bad request response has a 2xx status code
+func (o *RetrieveEmailsByCIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve emails by c Id bad request response has a 3xx status code
+func (o *RetrieveEmailsByCIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve emails by c Id bad request response has a 4xx status code
+func (o *RetrieveEmailsByCIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve emails by c Id bad request response has a 5xx status code
+func (o *RetrieveEmailsByCIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve emails by c Id bad request response a status code equal to that given
+func (o *RetrieveEmailsByCIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RetrieveEmailsByCIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RetrieveEmailsByCIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RetrieveEmailsByCIDBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RetrieveEmailsByCIDForbidden struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve emails by c Id forbidden response has a 2xx status code
+func (o *RetrieveEmailsByCIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve emails by c Id forbidden response has a 3xx status code
+func (o *RetrieveEmailsByCIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve emails by c Id forbidden response has a 4xx status code
+func (o *RetrieveEmailsByCIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve emails by c Id forbidden response has a 5xx status code
+func (o *RetrieveEmailsByCIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve emails by c Id forbidden response a status code equal to that given
+func (o *RetrieveEmailsByCIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RetrieveEmailsByCIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RetrieveEmailsByCIDForbidden) String() string {
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RetrieveEmailsByCIDForbidden) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RetrieveEmailsByCIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this retrieve emails by c Id too many requests response has a 2xx status code
+func (o *RetrieveEmailsByCIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve emails by c Id too many requests response has a 3xx status code
+func (o *RetrieveEmailsByCIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve emails by c Id too many requests response has a 4xx status code
+func (o *RetrieveEmailsByCIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve emails by c Id too many requests response has a 5xx status code
+func (o *RetrieveEmailsByCIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve emails by c Id too many requests response a status code equal to that given
+func (o *RetrieveEmailsByCIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RetrieveEmailsByCIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RetrieveEmailsByCIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RetrieveEmailsByCIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RetrieveEmailsByCIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this retrieve emails by c ID default response has a 2xx status code
+func (o *RetrieveEmailsByCIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this retrieve emails by c ID default response has a 3xx status code
+func (o *RetrieveEmailsByCIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this retrieve emails by c ID default response has a 4xx status code
+func (o *RetrieveEmailsByCIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this retrieve emails by c ID default response has a 5xx status code
+func (o *RetrieveEmailsByCIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this retrieve emails by c ID default response a status code equal to that given
+func (o *RetrieveEmailsByCIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RetrieveEmailsByCIDDefault) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] RetrieveEmailsByCID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RetrieveEmailsByCIDDefault) String() string {
+	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] RetrieveEmailsByCID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RetrieveEmailsByCIDDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

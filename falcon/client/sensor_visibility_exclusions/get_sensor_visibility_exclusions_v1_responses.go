@@ -90,9 +90,39 @@ type GetSensorVisibilityExclusionsV1OK struct {
 	Payload *models.ResponsesSvExclusionRespV1
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 o k response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 o k response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 o k response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 o k response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 o k response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSensorVisibilityExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1OK) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1OK) GetPayload() *models.ResponsesSvExclusionRespV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetSensorVisibilityExclusionsV1BadRequest struct {
 	Payload *models.ResponsesSvExclusionRespV1
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 bad request response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 bad request response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 bad request response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 bad request response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 bad request response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSensorVisibilityExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.ResponsesSvExclusionRespV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetSensorVisibilityExclusionsV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 forbidden response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 forbidden response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 forbidden response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 forbidden response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 forbidden response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSensorVisibilityExclusionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetSensorVisibilityExclusionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 too many requests response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 too many requests response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 too many requests response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 too many requests response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 too many requests response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSensorVisibilityExclusionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetSensorVisibilityExclusionsV1InternalServerError struct {
 	Payload *models.ResponsesSvExclusionRespV1
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 internal server error response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 internal server error response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 internal server error response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 internal server error response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 internal server error response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSensorVisibilityExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.ResponsesSvExclusionRespV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetSensorVisibilityExclusionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get sensor visibility exclusions v1 default response has a 2xx status code
+func (o *GetSensorVisibilityExclusionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get sensor visibility exclusions v1 default response has a 3xx status code
+func (o *GetSensorVisibilityExclusionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get sensor visibility exclusions v1 default response has a 4xx status code
+func (o *GetSensorVisibilityExclusionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get sensor visibility exclusions v1 default response has a 5xx status code
+func (o *GetSensorVisibilityExclusionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get sensor visibility exclusions v1 default response a status code equal to that given
+func (o *GetSensorVisibilityExclusionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSensorVisibilityExclusionsV1Default) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSensorVisibilityExclusionsV1Default) String() string {
+	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSensorVisibilityExclusionsV1Default) GetPayload() *models.ResponsesSvExclusionRespV1 {
 	return o.Payload
 }

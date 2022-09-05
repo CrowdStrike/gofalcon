@@ -94,9 +94,39 @@ type QueryEvaluationLogicOK struct {
 	Payload *models.DomainSPAPIQueryResponse
 }
 
+// IsSuccess returns true when this query evaluation logic o k response has a 2xx status code
+func (o *QueryEvaluationLogicOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query evaluation logic o k response has a 3xx status code
+func (o *QueryEvaluationLogicOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query evaluation logic o k response has a 4xx status code
+func (o *QueryEvaluationLogicOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query evaluation logic o k response has a 5xx status code
+func (o *QueryEvaluationLogicOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query evaluation logic o k response a status code equal to that given
+func (o *QueryEvaluationLogicOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryEvaluationLogicOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryEvaluationLogicOK) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryEvaluationLogicOK) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
@@ -167,7 +197,36 @@ type QueryEvaluationLogicBadRequest struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this query evaluation logic bad request response has a 2xx status code
+func (o *QueryEvaluationLogicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query evaluation logic bad request response has a 3xx status code
+func (o *QueryEvaluationLogicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query evaluation logic bad request response has a 4xx status code
+func (o *QueryEvaluationLogicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query evaluation logic bad request response has a 5xx status code
+func (o *QueryEvaluationLogicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query evaluation logic bad request response a status code equal to that given
+func (o *QueryEvaluationLogicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryEvaluationLogicBadRequest) Error() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicBadRequest ", 400)
+}
+
+func (o *QueryEvaluationLogicBadRequest) String() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicBadRequest ", 400)
 }
 
@@ -232,9 +291,39 @@ type QueryEvaluationLogicForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query evaluation logic forbidden response has a 2xx status code
+func (o *QueryEvaluationLogicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query evaluation logic forbidden response has a 3xx status code
+func (o *QueryEvaluationLogicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query evaluation logic forbidden response has a 4xx status code
+func (o *QueryEvaluationLogicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query evaluation logic forbidden response has a 5xx status code
+func (o *QueryEvaluationLogicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query evaluation logic forbidden response a status code equal to that given
+func (o *QueryEvaluationLogicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryEvaluationLogicForbidden) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryEvaluationLogicForbidden) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryEvaluationLogicForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -311,9 +400,39 @@ type QueryEvaluationLogicTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query evaluation logic too many requests response has a 2xx status code
+func (o *QueryEvaluationLogicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query evaluation logic too many requests response has a 3xx status code
+func (o *QueryEvaluationLogicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query evaluation logic too many requests response has a 4xx status code
+func (o *QueryEvaluationLogicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query evaluation logic too many requests response has a 5xx status code
+func (o *QueryEvaluationLogicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query evaluation logic too many requests response a status code equal to that given
+func (o *QueryEvaluationLogicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryEvaluationLogicTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryEvaluationLogicTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryEvaluationLogicTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -395,7 +514,36 @@ type QueryEvaluationLogicInternalServerError struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this query evaluation logic internal server error response has a 2xx status code
+func (o *QueryEvaluationLogicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query evaluation logic internal server error response has a 3xx status code
+func (o *QueryEvaluationLogicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query evaluation logic internal server error response has a 4xx status code
+func (o *QueryEvaluationLogicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query evaluation logic internal server error response has a 5xx status code
+func (o *QueryEvaluationLogicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query evaluation logic internal server error response a status code equal to that given
+func (o *QueryEvaluationLogicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryEvaluationLogicInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicInternalServerError ", 500)
+}
+
+func (o *QueryEvaluationLogicInternalServerError) String() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogicInternalServerError ", 500)
 }
 
@@ -456,9 +604,39 @@ func (o *QueryEvaluationLogicDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query evaluation logic default response has a 2xx status code
+func (o *QueryEvaluationLogicDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query evaluation logic default response has a 3xx status code
+func (o *QueryEvaluationLogicDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query evaluation logic default response has a 4xx status code
+func (o *QueryEvaluationLogicDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query evaluation logic default response has a 5xx status code
+func (o *QueryEvaluationLogicDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query evaluation logic default response a status code equal to that given
+func (o *QueryEvaluationLogicDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryEvaluationLogicDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogic default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryEvaluationLogicDefault) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogic default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryEvaluationLogicDefault) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }

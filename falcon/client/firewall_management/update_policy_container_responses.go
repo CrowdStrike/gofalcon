@@ -94,9 +94,39 @@ type UpdatePolicyContainerOK struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update policy container o k response has a 2xx status code
+func (o *UpdatePolicyContainerOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update policy container o k response has a 3xx status code
+func (o *UpdatePolicyContainerOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update policy container o k response has a 4xx status code
+func (o *UpdatePolicyContainerOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update policy container o k response has a 5xx status code
+func (o *UpdatePolicyContainerOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update policy container o k response a status code equal to that given
+func (o *UpdatePolicyContainerOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdatePolicyContainerOK) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdatePolicyContainerOK) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdatePolicyContainerOK) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type UpdatePolicyContainerCreated struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update policy container created response has a 2xx status code
+func (o *UpdatePolicyContainerCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update policy container created response has a 3xx status code
+func (o *UpdatePolicyContainerCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update policy container created response has a 4xx status code
+func (o *UpdatePolicyContainerCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update policy container created response has a 5xx status code
+func (o *UpdatePolicyContainerCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update policy container created response a status code equal to that given
+func (o *UpdatePolicyContainerCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *UpdatePolicyContainerCreated) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
 }
+
+func (o *UpdatePolicyContainerCreated) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
+}
+
 func (o *UpdatePolicyContainerCreated) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type UpdatePolicyContainerBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update policy container bad request response has a 2xx status code
+func (o *UpdatePolicyContainerBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update policy container bad request response has a 3xx status code
+func (o *UpdatePolicyContainerBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update policy container bad request response has a 4xx status code
+func (o *UpdatePolicyContainerBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update policy container bad request response has a 5xx status code
+func (o *UpdatePolicyContainerBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update policy container bad request response a status code equal to that given
+func (o *UpdatePolicyContainerBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdatePolicyContainerBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdatePolicyContainerBadRequest) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdatePolicyContainerBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -319,9 +409,39 @@ type UpdatePolicyContainerForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update policy container forbidden response has a 2xx status code
+func (o *UpdatePolicyContainerForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update policy container forbidden response has a 3xx status code
+func (o *UpdatePolicyContainerForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update policy container forbidden response has a 4xx status code
+func (o *UpdatePolicyContainerForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update policy container forbidden response has a 5xx status code
+func (o *UpdatePolicyContainerForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update policy container forbidden response a status code equal to that given
+func (o *UpdatePolicyContainerForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdatePolicyContainerForbidden) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdatePolicyContainerForbidden) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdatePolicyContainerForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -398,9 +518,39 @@ type UpdatePolicyContainerTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update policy container too many requests response has a 2xx status code
+func (o *UpdatePolicyContainerTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update policy container too many requests response has a 3xx status code
+func (o *UpdatePolicyContainerTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update policy container too many requests response has a 4xx status code
+func (o *UpdatePolicyContainerTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update policy container too many requests response has a 5xx status code
+func (o *UpdatePolicyContainerTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update policy container too many requests response a status code equal to that given
+func (o *UpdatePolicyContainerTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdatePolicyContainerTooManyRequests) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdatePolicyContainerTooManyRequests) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdatePolicyContainerTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *UpdatePolicyContainerDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update policy container default response has a 2xx status code
+func (o *UpdatePolicyContainerDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update policy container default response has a 3xx status code
+func (o *UpdatePolicyContainerDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update policy container default response has a 4xx status code
+func (o *UpdatePolicyContainerDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update policy container default response has a 5xx status code
+func (o *UpdatePolicyContainerDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update policy container default response a status code equal to that given
+func (o *UpdatePolicyContainerDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdatePolicyContainerDefault) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdatePolicyContainerDefault) String() string {
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdatePolicyContainerDefault) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }

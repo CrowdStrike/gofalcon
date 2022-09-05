@@ -100,9 +100,39 @@ type UpdateAWSAccountOK struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this update a w s account o k response has a 2xx status code
+func (o *UpdateAWSAccountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update a w s account o k response has a 3xx status code
+func (o *UpdateAWSAccountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account o k response has a 4xx status code
+func (o *UpdateAWSAccountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update a w s account o k response has a 5xx status code
+func (o *UpdateAWSAccountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s account o k response a status code equal to that given
+func (o *UpdateAWSAccountOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateAWSAccountOK) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateAWSAccountOK) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateAWSAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type UpdateAWSAccountMultiStatus struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this update a w s account multi status response has a 2xx status code
+func (o *UpdateAWSAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update a w s account multi status response has a 3xx status code
+func (o *UpdateAWSAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account multi status response has a 4xx status code
+func (o *UpdateAWSAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update a w s account multi status response has a 5xx status code
+func (o *UpdateAWSAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s account multi status response a status code equal to that given
+func (o *UpdateAWSAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *UpdateAWSAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *UpdateAWSAccountMultiStatus) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *UpdateAWSAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type UpdateAWSAccountBadRequest struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this update a w s account bad request response has a 2xx status code
+func (o *UpdateAWSAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s account bad request response has a 3xx status code
+func (o *UpdateAWSAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account bad request response has a 4xx status code
+func (o *UpdateAWSAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s account bad request response has a 5xx status code
+func (o *UpdateAWSAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s account bad request response a status code equal to that given
+func (o *UpdateAWSAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateAWSAccountBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateAWSAccountBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateAWSAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type UpdateAWSAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update a w s account forbidden response has a 2xx status code
+func (o *UpdateAWSAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s account forbidden response has a 3xx status code
+func (o *UpdateAWSAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account forbidden response has a 4xx status code
+func (o *UpdateAWSAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s account forbidden response has a 5xx status code
+func (o *UpdateAWSAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s account forbidden response a status code equal to that given
+func (o *UpdateAWSAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateAWSAccountForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateAWSAccountForbidden) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateAWSAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type UpdateAWSAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update a w s account too many requests response has a 2xx status code
+func (o *UpdateAWSAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s account too many requests response has a 3xx status code
+func (o *UpdateAWSAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account too many requests response has a 4xx status code
+func (o *UpdateAWSAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s account too many requests response has a 5xx status code
+func (o *UpdateAWSAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s account too many requests response a status code equal to that given
+func (o *UpdateAWSAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateAWSAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateAWSAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateAWSAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type UpdateAWSAccountInternalServerError struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this update a w s account internal server error response has a 2xx status code
+func (o *UpdateAWSAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s account internal server error response has a 3xx status code
+func (o *UpdateAWSAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s account internal server error response has a 4xx status code
+func (o *UpdateAWSAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update a w s account internal server error response has a 5xx status code
+func (o *UpdateAWSAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update a w s account internal server error response a status code equal to that given
+func (o *UpdateAWSAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateAWSAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateAWSAccountInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] updateAWSAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateAWSAccountInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *UpdateAWSAccountDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update a w s account default response has a 2xx status code
+func (o *UpdateAWSAccountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update a w s account default response has a 3xx status code
+func (o *UpdateAWSAccountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update a w s account default response has a 4xx status code
+func (o *UpdateAWSAccountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update a w s account default response has a 5xx status code
+func (o *UpdateAWSAccountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update a w s account default response a status code equal to that given
+func (o *UpdateAWSAccountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateAWSAccountDefault) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] UpdateAWSAccount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateAWSAccountDefault) String() string {
+	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] UpdateAWSAccount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateAWSAccountDefault) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }

@@ -78,9 +78,39 @@ type QueryRuleTypesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query rule types o k response has a 2xx status code
+func (o *QueryRuleTypesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query rule types o k response has a 3xx status code
+func (o *QueryRuleTypesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule types o k response has a 4xx status code
+func (o *QueryRuleTypesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query rule types o k response has a 5xx status code
+func (o *QueryRuleTypesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule types o k response a status code equal to that given
+func (o *QueryRuleTypesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRuleTypesOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRuleTypesOK) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRuleTypesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryRuleTypesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule types forbidden response has a 2xx status code
+func (o *QueryRuleTypesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule types forbidden response has a 3xx status code
+func (o *QueryRuleTypesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule types forbidden response has a 4xx status code
+func (o *QueryRuleTypesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule types forbidden response has a 5xx status code
+func (o *QueryRuleTypesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule types forbidden response a status code equal to that given
+func (o *QueryRuleTypesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRuleTypesForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRuleTypesForbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRuleTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryRuleTypesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule types too many requests response has a 2xx status code
+func (o *QueryRuleTypesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule types too many requests response has a 3xx status code
+func (o *QueryRuleTypesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule types too many requests response has a 4xx status code
+func (o *QueryRuleTypesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule types too many requests response has a 5xx status code
+func (o *QueryRuleTypesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule types too many requests response a status code equal to that given
+func (o *QueryRuleTypesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRuleTypesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRuleTypesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRuleTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryRuleTypesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query rule types default response has a 2xx status code
+func (o *QueryRuleTypesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query rule types default response has a 3xx status code
+func (o *QueryRuleTypesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query rule types default response has a 4xx status code
+func (o *QueryRuleTypesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query rule types default response has a 5xx status code
+func (o *QueryRuleTypesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query rule types default response a status code equal to that given
+func (o *QueryRuleTypesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRuleTypesDefault) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] query-rule-types default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRuleTypesDefault) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] query-rule-types default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRuleTypesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

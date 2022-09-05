@@ -96,9 +96,39 @@ type TokensDeleteOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens delete o k response has a 2xx status code
+func (o *TokensDeleteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tokens delete o k response has a 3xx status code
+func (o *TokensDeleteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete o k response has a 4xx status code
+func (o *TokensDeleteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens delete o k response has a 5xx status code
+func (o *TokensDeleteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens delete o k response a status code equal to that given
+func (o *TokensDeleteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *TokensDeleteOK) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
 }
+
+func (o *TokensDeleteOK) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
+}
+
 func (o *TokensDeleteOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type TokensDeleteBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens delete bad request response has a 2xx status code
+func (o *TokensDeleteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens delete bad request response has a 3xx status code
+func (o *TokensDeleteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete bad request response has a 4xx status code
+func (o *TokensDeleteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens delete bad request response has a 5xx status code
+func (o *TokensDeleteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens delete bad request response a status code equal to that given
+func (o *TokensDeleteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TokensDeleteBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TokensDeleteBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TokensDeleteBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type TokensDeleteForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens delete forbidden response has a 2xx status code
+func (o *TokensDeleteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens delete forbidden response has a 3xx status code
+func (o *TokensDeleteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete forbidden response has a 4xx status code
+func (o *TokensDeleteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens delete forbidden response has a 5xx status code
+func (o *TokensDeleteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens delete forbidden response a status code equal to that given
+func (o *TokensDeleteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TokensDeleteForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TokensDeleteForbidden) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TokensDeleteForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type TokensDeleteNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this tokens delete not found response has a 2xx status code
+func (o *TokensDeleteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens delete not found response has a 3xx status code
+func (o *TokensDeleteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete not found response has a 4xx status code
+func (o *TokensDeleteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens delete not found response has a 5xx status code
+func (o *TokensDeleteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens delete not found response a status code equal to that given
+func (o *TokensDeleteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *TokensDeleteNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound  %+v", 404, o.Payload)
 }
+
+func (o *TokensDeleteNotFound) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound  %+v", 404, o.Payload)
+}
+
 func (o *TokensDeleteNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type TokensDeleteTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens delete too many requests response has a 2xx status code
+func (o *TokensDeleteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens delete too many requests response has a 3xx status code
+func (o *TokensDeleteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete too many requests response has a 4xx status code
+func (o *TokensDeleteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens delete too many requests response has a 5xx status code
+func (o *TokensDeleteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens delete too many requests response a status code equal to that given
+func (o *TokensDeleteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TokensDeleteTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TokensDeleteTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TokensDeleteTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type TokensDeleteInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens delete internal server error response has a 2xx status code
+func (o *TokensDeleteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens delete internal server error response has a 3xx status code
+func (o *TokensDeleteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens delete internal server error response has a 4xx status code
+func (o *TokensDeleteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens delete internal server error response has a 5xx status code
+func (o *TokensDeleteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this tokens delete internal server error response a status code equal to that given
+func (o *TokensDeleteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TokensDeleteInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TokensDeleteInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TokensDeleteInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *TokensDeleteDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this tokens delete default response has a 2xx status code
+func (o *TokensDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tokens delete default response has a 3xx status code
+func (o *TokensDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tokens delete default response has a 4xx status code
+func (o *TokensDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tokens delete default response has a 5xx status code
+func (o *TokensDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tokens delete default response a status code equal to that given
+func (o *TokensDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *TokensDeleteDefault) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokens-delete default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TokensDeleteDefault) String() string {
+	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokens-delete default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TokensDeleteDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

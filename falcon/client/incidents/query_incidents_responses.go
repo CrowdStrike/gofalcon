@@ -90,9 +90,39 @@ type QueryIncidentsOK struct {
 	Payload *models.APIMsaIncidentQueryResponse
 }
 
+// IsSuccess returns true when this query incidents o k response has a 2xx status code
+func (o *QueryIncidentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query incidents o k response has a 3xx status code
+func (o *QueryIncidentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query incidents o k response has a 4xx status code
+func (o *QueryIncidentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query incidents o k response has a 5xx status code
+func (o *QueryIncidentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query incidents o k response a status code equal to that given
+func (o *QueryIncidentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryIncidentsOK) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryIncidentsOK) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryIncidentsOK) GetPayload() *models.APIMsaIncidentQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryIncidentsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query incidents bad request response has a 2xx status code
+func (o *QueryIncidentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query incidents bad request response has a 3xx status code
+func (o *QueryIncidentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query incidents bad request response has a 4xx status code
+func (o *QueryIncidentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query incidents bad request response has a 5xx status code
+func (o *QueryIncidentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query incidents bad request response a status code equal to that given
+func (o *QueryIncidentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryIncidentsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryIncidentsBadRequest) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryIncidentsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryIncidentsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query incidents forbidden response has a 2xx status code
+func (o *QueryIncidentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query incidents forbidden response has a 3xx status code
+func (o *QueryIncidentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query incidents forbidden response has a 4xx status code
+func (o *QueryIncidentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query incidents forbidden response has a 5xx status code
+func (o *QueryIncidentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query incidents forbidden response a status code equal to that given
+func (o *QueryIncidentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryIncidentsForbidden) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryIncidentsForbidden) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryIncidentsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query incidents too many requests response has a 2xx status code
+func (o *QueryIncidentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query incidents too many requests response has a 3xx status code
+func (o *QueryIncidentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query incidents too many requests response has a 4xx status code
+func (o *QueryIncidentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query incidents too many requests response has a 5xx status code
+func (o *QueryIncidentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query incidents too many requests response a status code equal to that given
+func (o *QueryIncidentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryIncidentsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryIncidentsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryIncidentsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query incidents internal server error response has a 2xx status code
+func (o *QueryIncidentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query incidents internal server error response has a 3xx status code
+func (o *QueryIncidentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query incidents internal server error response has a 4xx status code
+func (o *QueryIncidentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query incidents internal server error response has a 5xx status code
+func (o *QueryIncidentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query incidents internal server error response a status code equal to that given
+func (o *QueryIncidentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryIncidentsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryIncidentsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryIncidentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryIncidentsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query incidents default response has a 2xx status code
+func (o *QueryIncidentsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query incidents default response has a 3xx status code
+func (o *QueryIncidentsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query incidents default response has a 4xx status code
+func (o *QueryIncidentsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query incidents default response has a 5xx status code
+func (o *QueryIncidentsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query incidents default response a status code equal to that given
+func (o *QueryIncidentsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryIncidentsDefault) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] QueryIncidents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryIncidentsDefault) String() string {
+	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] QueryIncidents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryIncidentsDefault) GetPayload() *models.APIMsaIncidentQueryResponse {
 	return o.Payload
 }

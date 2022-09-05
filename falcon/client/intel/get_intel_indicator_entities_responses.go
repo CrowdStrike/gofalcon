@@ -88,9 +88,39 @@ type GetIntelIndicatorEntitiesOK struct {
 	Payload *models.DomainPublicIndicatorsV3Response
 }
 
+// IsSuccess returns true when this get intel indicator entities o k response has a 2xx status code
+func (o *GetIntelIndicatorEntitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get intel indicator entities o k response has a 3xx status code
+func (o *GetIntelIndicatorEntitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel indicator entities o k response has a 4xx status code
+func (o *GetIntelIndicatorEntitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel indicator entities o k response has a 5xx status code
+func (o *GetIntelIndicatorEntitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel indicator entities o k response a status code equal to that given
+func (o *GetIntelIndicatorEntitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntelIndicatorEntitiesOK) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIntelIndicatorEntitiesOK) String() string {
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIntelIndicatorEntitiesOK) GetPayload() *models.DomainPublicIndicatorsV3Response {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type GetIntelIndicatorEntitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel indicator entities forbidden response has a 2xx status code
+func (o *GetIntelIndicatorEntitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel indicator entities forbidden response has a 3xx status code
+func (o *GetIntelIndicatorEntitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel indicator entities forbidden response has a 4xx status code
+func (o *GetIntelIndicatorEntitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel indicator entities forbidden response has a 5xx status code
+func (o *GetIntelIndicatorEntitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel indicator entities forbidden response a status code equal to that given
+func (o *GetIntelIndicatorEntitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntelIndicatorEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIntelIndicatorEntitiesForbidden) String() string {
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIntelIndicatorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -242,9 +302,39 @@ type GetIntelIndicatorEntitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel indicator entities too many requests response has a 2xx status code
+func (o *GetIntelIndicatorEntitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel indicator entities too many requests response has a 3xx status code
+func (o *GetIntelIndicatorEntitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel indicator entities too many requests response has a 4xx status code
+func (o *GetIntelIndicatorEntitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel indicator entities too many requests response has a 5xx status code
+func (o *GetIntelIndicatorEntitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel indicator entities too many requests response a status code equal to that given
+func (o *GetIntelIndicatorEntitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntelIndicatorEntitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIntelIndicatorEntitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIntelIndicatorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -328,9 +418,39 @@ type GetIntelIndicatorEntitiesInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel indicator entities internal server error response has a 2xx status code
+func (o *GetIntelIndicatorEntitiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel indicator entities internal server error response has a 3xx status code
+func (o *GetIntelIndicatorEntitiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel indicator entities internal server error response has a 4xx status code
+func (o *GetIntelIndicatorEntitiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel indicator entities internal server error response has a 5xx status code
+func (o *GetIntelIndicatorEntitiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get intel indicator entities internal server error response a status code equal to that given
+func (o *GetIntelIndicatorEntitiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntelIndicatorEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIntelIndicatorEntitiesInternalServerError) String() string {
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIntelIndicatorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *GetIntelIndicatorEntitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get intel indicator entities default response has a 2xx status code
+func (o *GetIntelIndicatorEntitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get intel indicator entities default response has a 3xx status code
+func (o *GetIntelIndicatorEntitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get intel indicator entities default response has a 4xx status code
+func (o *GetIntelIndicatorEntitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get intel indicator entities default response has a 5xx status code
+func (o *GetIntelIndicatorEntitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get intel indicator entities default response a status code equal to that given
+func (o *GetIntelIndicatorEntitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIntelIndicatorEntitiesDefault) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] GetIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetIntelIndicatorEntitiesDefault) String() string {
+	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] GetIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetIntelIndicatorEntitiesDefault) GetPayload() *models.DomainPublicIndicatorsV3Response {
 	return o.Payload
 }

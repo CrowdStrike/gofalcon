@@ -90,9 +90,39 @@ type GetSubmissionsOK struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this get submissions o k response has a 2xx status code
+func (o *GetSubmissionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get submissions o k response has a 3xx status code
+func (o *GetSubmissionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get submissions o k response has a 4xx status code
+func (o *GetSubmissionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get submissions o k response has a 5xx status code
+func (o *GetSubmissionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get submissions o k response a status code equal to that given
+func (o *GetSubmissionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSubmissionsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSubmissionsOK) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSubmissionsOK) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetSubmissionsBadRequest struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this get submissions bad request response has a 2xx status code
+func (o *GetSubmissionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get submissions bad request response has a 3xx status code
+func (o *GetSubmissionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get submissions bad request response has a 4xx status code
+func (o *GetSubmissionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get submissions bad request response has a 5xx status code
+func (o *GetSubmissionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get submissions bad request response a status code equal to that given
+func (o *GetSubmissionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSubmissionsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSubmissionsBadRequest) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSubmissionsBadRequest) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetSubmissionsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get submissions forbidden response has a 2xx status code
+func (o *GetSubmissionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get submissions forbidden response has a 3xx status code
+func (o *GetSubmissionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get submissions forbidden response has a 4xx status code
+func (o *GetSubmissionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get submissions forbidden response has a 5xx status code
+func (o *GetSubmissionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get submissions forbidden response a status code equal to that given
+func (o *GetSubmissionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSubmissionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSubmissionsForbidden) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSubmissionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetSubmissionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get submissions too many requests response has a 2xx status code
+func (o *GetSubmissionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get submissions too many requests response has a 3xx status code
+func (o *GetSubmissionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get submissions too many requests response has a 4xx status code
+func (o *GetSubmissionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get submissions too many requests response has a 5xx status code
+func (o *GetSubmissionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get submissions too many requests response a status code equal to that given
+func (o *GetSubmissionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSubmissionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSubmissionsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSubmissionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetSubmissionsInternalServerError struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this get submissions internal server error response has a 2xx status code
+func (o *GetSubmissionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get submissions internal server error response has a 3xx status code
+func (o *GetSubmissionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get submissions internal server error response has a 4xx status code
+func (o *GetSubmissionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get submissions internal server error response has a 5xx status code
+func (o *GetSubmissionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get submissions internal server error response a status code equal to that given
+func (o *GetSubmissionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSubmissionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetSubmissionsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] getSubmissionsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetSubmissionsInternalServerError) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetSubmissionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get submissions default response has a 2xx status code
+func (o *GetSubmissionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get submissions default response has a 3xx status code
+func (o *GetSubmissionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get submissions default response has a 4xx status code
+func (o *GetSubmissionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get submissions default response has a 5xx status code
+func (o *GetSubmissionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get submissions default response a status code equal to that given
+func (o *GetSubmissionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSubmissionsDefault) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] GetSubmissions default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSubmissionsDefault) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] GetSubmissions default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSubmissionsDefault) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }

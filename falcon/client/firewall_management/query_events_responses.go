@@ -84,9 +84,39 @@ type QueryEventsOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this query events o k response has a 2xx status code
+func (o *QueryEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query events o k response has a 3xx status code
+func (o *QueryEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query events o k response has a 4xx status code
+func (o *QueryEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query events o k response has a 5xx status code
+func (o *QueryEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query events o k response a status code equal to that given
+func (o *QueryEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryEventsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryEventsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryEventsOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryEventsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query events bad request response has a 2xx status code
+func (o *QueryEventsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query events bad request response has a 3xx status code
+func (o *QueryEventsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query events bad request response has a 4xx status code
+func (o *QueryEventsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query events bad request response has a 5xx status code
+func (o *QueryEventsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query events bad request response a status code equal to that given
+func (o *QueryEventsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryEventsBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryEventsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryEventsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query events forbidden response has a 2xx status code
+func (o *QueryEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query events forbidden response has a 3xx status code
+func (o *QueryEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query events forbidden response has a 4xx status code
+func (o *QueryEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query events forbidden response has a 5xx status code
+func (o *QueryEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query events forbidden response a status code equal to that given
+func (o *QueryEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryEventsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryEventsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query events too many requests response has a 2xx status code
+func (o *QueryEventsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query events too many requests response has a 3xx status code
+func (o *QueryEventsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query events too many requests response has a 4xx status code
+func (o *QueryEventsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query events too many requests response has a 5xx status code
+func (o *QueryEventsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query events too many requests response a status code equal to that given
+func (o *QueryEventsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryEventsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryEventsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query events default response has a 2xx status code
+func (o *QueryEventsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query events default response has a 3xx status code
+func (o *QueryEventsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query events default response has a 4xx status code
+func (o *QueryEventsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query events default response has a 5xx status code
+func (o *QueryEventsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query events default response a status code equal to that given
+func (o *QueryEventsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryEventsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] query-events default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryEventsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] query-events default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryEventsDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

@@ -75,9 +75,39 @@ type IndicatorCreateV1Created struct {
 	Payload *models.APIIndicatorRespV1
 }
 
+// IsSuccess returns true when this indicator create v1 created response has a 2xx status code
+func (o *IndicatorCreateV1Created) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this indicator create v1 created response has a 3xx status code
+func (o *IndicatorCreateV1Created) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this indicator create v1 created response has a 4xx status code
+func (o *IndicatorCreateV1Created) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this indicator create v1 created response has a 5xx status code
+func (o *IndicatorCreateV1Created) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this indicator create v1 created response a status code equal to that given
+func (o *IndicatorCreateV1Created) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *IndicatorCreateV1Created) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1Created  %+v", 201, o.Payload)
 }
+
+func (o *IndicatorCreateV1Created) String() string {
+	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1Created  %+v", 201, o.Payload)
+}
+
 func (o *IndicatorCreateV1Created) GetPayload() *models.APIIndicatorRespV1 {
 	return o.Payload
 }
@@ -150,9 +180,39 @@ type IndicatorCreateV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this indicator create v1 forbidden response has a 2xx status code
+func (o *IndicatorCreateV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this indicator create v1 forbidden response has a 3xx status code
+func (o *IndicatorCreateV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this indicator create v1 forbidden response has a 4xx status code
+func (o *IndicatorCreateV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this indicator create v1 forbidden response has a 5xx status code
+func (o *IndicatorCreateV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this indicator create v1 forbidden response a status code equal to that given
+func (o *IndicatorCreateV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *IndicatorCreateV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *IndicatorCreateV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *IndicatorCreateV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -229,9 +289,39 @@ type IndicatorCreateV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this indicator create v1 too many requests response has a 2xx status code
+func (o *IndicatorCreateV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this indicator create v1 too many requests response has a 3xx status code
+func (o *IndicatorCreateV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this indicator create v1 too many requests response has a 4xx status code
+func (o *IndicatorCreateV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this indicator create v1 too many requests response has a 5xx status code
+func (o *IndicatorCreateV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this indicator create v1 too many requests response a status code equal to that given
+func (o *IndicatorCreateV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *IndicatorCreateV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *IndicatorCreateV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *IndicatorCreateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

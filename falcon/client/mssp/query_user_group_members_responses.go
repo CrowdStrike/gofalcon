@@ -78,9 +78,39 @@ type QueryUserGroupMembersOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query user group members o k response has a 2xx status code
+func (o *QueryUserGroupMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query user group members o k response has a 3xx status code
+func (o *QueryUserGroupMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user group members o k response has a 4xx status code
+func (o *QueryUserGroupMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query user group members o k response has a 5xx status code
+func (o *QueryUserGroupMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user group members o k response a status code equal to that given
+func (o *QueryUserGroupMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryUserGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryUserGroupMembersOK) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryUserGroupMembersOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryUserGroupMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query user group members forbidden response has a 2xx status code
+func (o *QueryUserGroupMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user group members forbidden response has a 3xx status code
+func (o *QueryUserGroupMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user group members forbidden response has a 4xx status code
+func (o *QueryUserGroupMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user group members forbidden response has a 5xx status code
+func (o *QueryUserGroupMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user group members forbidden response a status code equal to that given
+func (o *QueryUserGroupMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryUserGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryUserGroupMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryUserGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryUserGroupMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query user group members too many requests response has a 2xx status code
+func (o *QueryUserGroupMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user group members too many requests response has a 3xx status code
+func (o *QueryUserGroupMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user group members too many requests response has a 4xx status code
+func (o *QueryUserGroupMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user group members too many requests response has a 5xx status code
+func (o *QueryUserGroupMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user group members too many requests response a status code equal to that given
+func (o *QueryUserGroupMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryUserGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryUserGroupMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryUserGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryUserGroupMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query user group members default response has a 2xx status code
+func (o *QueryUserGroupMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query user group members default response has a 3xx status code
+func (o *QueryUserGroupMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query user group members default response has a 4xx status code
+func (o *QueryUserGroupMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query user group members default response has a 5xx status code
+func (o *QueryUserGroupMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query user group members default response a status code equal to that given
+func (o *QueryUserGroupMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryUserGroupMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryUserGroupMembersDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-group-members/v1][%d] queryUserGroupMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryUserGroupMembersDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

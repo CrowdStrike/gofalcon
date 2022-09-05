@@ -78,9 +78,39 @@ type Oauth2AccessTokenCreated struct {
 	Payload *models.DomainAccessTokenResponseV1
 }
 
+// IsSuccess returns true when this oauth2 access token created response has a 2xx status code
+func (o *Oauth2AccessTokenCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this oauth2 access token created response has a 3xx status code
+func (o *Oauth2AccessTokenCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this oauth2 access token created response has a 4xx status code
+func (o *Oauth2AccessTokenCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this oauth2 access token created response has a 5xx status code
+func (o *Oauth2AccessTokenCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this oauth2 access token created response a status code equal to that given
+func (o *Oauth2AccessTokenCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *Oauth2AccessTokenCreated) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated  %+v", 201, o.Payload)
 }
+
+func (o *Oauth2AccessTokenCreated) String() string {
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated  %+v", 201, o.Payload)
+}
+
 func (o *Oauth2AccessTokenCreated) GetPayload() *models.DomainAccessTokenResponseV1 {
 	return o.Payload
 }
@@ -149,9 +179,39 @@ type Oauth2AccessTokenBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this oauth2 access token bad request response has a 2xx status code
+func (o *Oauth2AccessTokenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this oauth2 access token bad request response has a 3xx status code
+func (o *Oauth2AccessTokenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this oauth2 access token bad request response has a 4xx status code
+func (o *Oauth2AccessTokenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this oauth2 access token bad request response has a 5xx status code
+func (o *Oauth2AccessTokenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this oauth2 access token bad request response a status code equal to that given
+func (o *Oauth2AccessTokenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *Oauth2AccessTokenBadRequest) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *Oauth2AccessTokenBadRequest) String() string {
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *Oauth2AccessTokenBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -213,9 +273,39 @@ type Oauth2AccessTokenForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this oauth2 access token forbidden response has a 2xx status code
+func (o *Oauth2AccessTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this oauth2 access token forbidden response has a 3xx status code
+func (o *Oauth2AccessTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this oauth2 access token forbidden response has a 4xx status code
+func (o *Oauth2AccessTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this oauth2 access token forbidden response has a 5xx status code
+func (o *Oauth2AccessTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this oauth2 access token forbidden response a status code equal to that given
+func (o *Oauth2AccessTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *Oauth2AccessTokenForbidden) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *Oauth2AccessTokenForbidden) String() string {
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *Oauth2AccessTokenForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -277,9 +367,39 @@ type Oauth2AccessTokenInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this oauth2 access token internal server error response has a 2xx status code
+func (o *Oauth2AccessTokenInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this oauth2 access token internal server error response has a 3xx status code
+func (o *Oauth2AccessTokenInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this oauth2 access token internal server error response has a 4xx status code
+func (o *Oauth2AccessTokenInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this oauth2 access token internal server error response has a 5xx status code
+func (o *Oauth2AccessTokenInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this oauth2 access token internal server error response a status code equal to that given
+func (o *Oauth2AccessTokenInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *Oauth2AccessTokenInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *Oauth2AccessTokenInternalServerError) String() string {
+	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *Oauth2AccessTokenInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

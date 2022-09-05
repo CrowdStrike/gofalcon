@@ -90,9 +90,39 @@ type UpdateDetectsByIdsV2OK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update detects by ids v2 o k response has a 2xx status code
+func (o *UpdateDetectsByIdsV2OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update detects by ids v2 o k response has a 3xx status code
+func (o *UpdateDetectsByIdsV2OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update detects by ids v2 o k response has a 4xx status code
+func (o *UpdateDetectsByIdsV2OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update detects by ids v2 o k response has a 5xx status code
+func (o *UpdateDetectsByIdsV2OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update detects by ids v2 o k response a status code equal to that given
+func (o *UpdateDetectsByIdsV2OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateDetectsByIdsV2OK) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2OK) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2OK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type UpdateDetectsByIdsV2BadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update detects by ids v2 bad request response has a 2xx status code
+func (o *UpdateDetectsByIdsV2BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update detects by ids v2 bad request response has a 3xx status code
+func (o *UpdateDetectsByIdsV2BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update detects by ids v2 bad request response has a 4xx status code
+func (o *UpdateDetectsByIdsV2BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update detects by ids v2 bad request response has a 5xx status code
+func (o *UpdateDetectsByIdsV2BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update detects by ids v2 bad request response a status code equal to that given
+func (o *UpdateDetectsByIdsV2BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateDetectsByIdsV2BadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2BadRequest) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2BadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type UpdateDetectsByIdsV2Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update detects by ids v2 forbidden response has a 2xx status code
+func (o *UpdateDetectsByIdsV2Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update detects by ids v2 forbidden response has a 3xx status code
+func (o *UpdateDetectsByIdsV2Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update detects by ids v2 forbidden response has a 4xx status code
+func (o *UpdateDetectsByIdsV2Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update detects by ids v2 forbidden response has a 5xx status code
+func (o *UpdateDetectsByIdsV2Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update detects by ids v2 forbidden response a status code equal to that given
+func (o *UpdateDetectsByIdsV2Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateDetectsByIdsV2Forbidden) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2Forbidden) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type UpdateDetectsByIdsV2TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update detects by ids v2 too many requests response has a 2xx status code
+func (o *UpdateDetectsByIdsV2TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update detects by ids v2 too many requests response has a 3xx status code
+func (o *UpdateDetectsByIdsV2TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update detects by ids v2 too many requests response has a 4xx status code
+func (o *UpdateDetectsByIdsV2TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update detects by ids v2 too many requests response has a 5xx status code
+func (o *UpdateDetectsByIdsV2TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update detects by ids v2 too many requests response a status code equal to that given
+func (o *UpdateDetectsByIdsV2TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateDetectsByIdsV2TooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2TooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type UpdateDetectsByIdsV2InternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update detects by ids v2 internal server error response has a 2xx status code
+func (o *UpdateDetectsByIdsV2InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update detects by ids v2 internal server error response has a 3xx status code
+func (o *UpdateDetectsByIdsV2InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update detects by ids v2 internal server error response has a 4xx status code
+func (o *UpdateDetectsByIdsV2InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update detects by ids v2 internal server error response has a 5xx status code
+func (o *UpdateDetectsByIdsV2InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update detects by ids v2 internal server error response a status code equal to that given
+func (o *UpdateDetectsByIdsV2InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateDetectsByIdsV2InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2InternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *UpdateDetectsByIdsV2Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update detects by ids v2 default response has a 2xx status code
+func (o *UpdateDetectsByIdsV2Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update detects by ids v2 default response has a 3xx status code
+func (o *UpdateDetectsByIdsV2Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update detects by ids v2 default response has a 4xx status code
+func (o *UpdateDetectsByIdsV2Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update detects by ids v2 default response has a 5xx status code
+func (o *UpdateDetectsByIdsV2Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update detects by ids v2 default response a status code equal to that given
+func (o *UpdateDetectsByIdsV2Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateDetectsByIdsV2Default) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] UpdateDetectsByIdsV2 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateDetectsByIdsV2Default) String() string {
+	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] UpdateDetectsByIdsV2 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateDetectsByIdsV2Default) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

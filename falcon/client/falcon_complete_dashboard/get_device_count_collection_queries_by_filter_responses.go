@@ -78,9 +78,39 @@ type GetDeviceCountCollectionQueriesByFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get device count collection queries by filter o k response has a 2xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get device count collection queries by filter o k response has a 3xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device count collection queries by filter o k response has a 4xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get device count collection queries by filter o k response has a 5xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device count collection queries by filter o k response a status code equal to that given
+func (o *GetDeviceCountCollectionQueriesByFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *GetDeviceCountCollectionQueriesByFilterOK) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type GetDeviceCountCollectionQueriesByFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get device count collection queries by filter forbidden response has a 2xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get device count collection queries by filter forbidden response has a 3xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device count collection queries by filter forbidden response has a 4xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get device count collection queries by filter forbidden response has a 5xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device count collection queries by filter forbidden response a status code equal to that given
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetDeviceCountCollectionQueriesByFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type GetDeviceCountCollectionQueriesByFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get device count collection queries by filter too many requests response has a 2xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get device count collection queries by filter too many requests response has a 3xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device count collection queries by filter too many requests response has a 4xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get device count collection queries by filter too many requests response has a 5xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device count collection queries by filter too many requests response a status code equal to that given
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] getDeviceCountCollectionQueriesByFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *GetDeviceCountCollectionQueriesByFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get device count collection queries by filter default response has a 2xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get device count collection queries by filter default response has a 3xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get device count collection queries by filter default response has a 4xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get device count collection queries by filter default response has a 5xx status code
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get device count collection queries by filter default response a status code equal to that given
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] GetDeviceCountCollectionQueriesByFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetDeviceCountCollectionQueriesByFilterDefault) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] GetDeviceCountCollectionQueriesByFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetDeviceCountCollectionQueriesByFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

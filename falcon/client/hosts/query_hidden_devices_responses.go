@@ -78,9 +78,39 @@ type QueryHiddenDevicesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query hidden devices o k response has a 2xx status code
+func (o *QueryHiddenDevicesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query hidden devices o k response has a 3xx status code
+func (o *QueryHiddenDevicesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hidden devices o k response has a 4xx status code
+func (o *QueryHiddenDevicesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query hidden devices o k response has a 5xx status code
+func (o *QueryHiddenDevicesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hidden devices o k response a status code equal to that given
+func (o *QueryHiddenDevicesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryHiddenDevicesOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryHiddenDevicesOK) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryHiddenDevicesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryHiddenDevicesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hidden devices forbidden response has a 2xx status code
+func (o *QueryHiddenDevicesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hidden devices forbidden response has a 3xx status code
+func (o *QueryHiddenDevicesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hidden devices forbidden response has a 4xx status code
+func (o *QueryHiddenDevicesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query hidden devices forbidden response has a 5xx status code
+func (o *QueryHiddenDevicesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hidden devices forbidden response a status code equal to that given
+func (o *QueryHiddenDevicesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryHiddenDevicesForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryHiddenDevicesForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryHiddenDevicesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryHiddenDevicesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query hidden devices too many requests response has a 2xx status code
+func (o *QueryHiddenDevicesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query hidden devices too many requests response has a 3xx status code
+func (o *QueryHiddenDevicesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query hidden devices too many requests response has a 4xx status code
+func (o *QueryHiddenDevicesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query hidden devices too many requests response has a 5xx status code
+func (o *QueryHiddenDevicesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query hidden devices too many requests response a status code equal to that given
+func (o *QueryHiddenDevicesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryHiddenDevicesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryHiddenDevicesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryHiddenDevicesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryHiddenDevicesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query hidden devices default response has a 2xx status code
+func (o *QueryHiddenDevicesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query hidden devices default response has a 3xx status code
+func (o *QueryHiddenDevicesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query hidden devices default response has a 4xx status code
+func (o *QueryHiddenDevicesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query hidden devices default response has a 5xx status code
+func (o *QueryHiddenDevicesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query hidden devices default response a status code equal to that given
+func (o *QueryHiddenDevicesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryHiddenDevicesDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] QueryHiddenDevices default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryHiddenDevicesDefault) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] QueryHiddenDevices default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryHiddenDevicesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type SetFirewallPoliciesPrecedenceOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set firewall policies precedence o k response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set firewall policies precedence o k response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set firewall policies precedence o k response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set firewall policies precedence o k response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set firewall policies precedence o k response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SetFirewallPoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK  %+v", 200, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type SetFirewallPoliciesPrecedenceBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set firewall policies precedence bad request response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set firewall policies precedence bad request response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set firewall policies precedence bad request response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set firewall policies precedence bad request response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set firewall policies precedence bad request response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SetFirewallPoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type SetFirewallPoliciesPrecedenceForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this set firewall policies precedence forbidden response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set firewall policies precedence forbidden response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set firewall policies precedence forbidden response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set firewall policies precedence forbidden response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set firewall policies precedence forbidden response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SetFirewallPoliciesPrecedenceForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type SetFirewallPoliciesPrecedenceTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this set firewall policies precedence too many requests response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set firewall policies precedence too many requests response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set firewall policies precedence too many requests response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set firewall policies precedence too many requests response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set firewall policies precedence too many requests response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type SetFirewallPoliciesPrecedenceInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set firewall policies precedence internal server error response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set firewall policies precedence internal server error response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set firewall policies precedence internal server error response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set firewall policies precedence internal server error response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this set firewall policies precedence internal server error response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *SetFirewallPoliciesPrecedenceDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this set firewall policies precedence default response has a 2xx status code
+func (o *SetFirewallPoliciesPrecedenceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this set firewall policies precedence default response has a 3xx status code
+func (o *SetFirewallPoliciesPrecedenceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this set firewall policies precedence default response has a 4xx status code
+func (o *SetFirewallPoliciesPrecedenceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this set firewall policies precedence default response has a 5xx status code
+func (o *SetFirewallPoliciesPrecedenceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this set firewall policies precedence default response a status code equal to that given
+func (o *SetFirewallPoliciesPrecedenceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SetFirewallPoliciesPrecedenceDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SetFirewallPoliciesPrecedenceDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SetFirewallPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

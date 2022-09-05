@@ -72,6 +72,10 @@ Created
 */
 type RTRInitSessionCreated struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -83,14 +87,51 @@ type RTRInitSessionCreated struct {
 	Payload *models.DomainInitResponseWrapper
 }
 
+// IsSuccess returns true when this r t r init session created response has a 2xx status code
+func (o *RTRInitSessionCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r init session created response has a 3xx status code
+func (o *RTRInitSessionCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r init session created response has a 4xx status code
+func (o *RTRInitSessionCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r init session created response has a 5xx status code
+func (o *RTRInitSessionCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r init session created response a status code equal to that given
+func (o *RTRInitSessionCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *RTRInitSessionCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionCreated  %+v", 201, o.Payload)
 }
+
+func (o *RTRInitSessionCreated) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionCreated  %+v", 201, o.Payload)
+}
+
 func (o *RTRInitSessionCreated) GetPayload() *models.DomainInitResponseWrapper {
 	return o.Payload
 }
 
 func (o *RTRInitSessionCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -136,6 +177,10 @@ Bad Request
 */
 type RTRInitSessionBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -147,14 +192,51 @@ type RTRInitSessionBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r init session bad request response has a 2xx status code
+func (o *RTRInitSessionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r init session bad request response has a 3xx status code
+func (o *RTRInitSessionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r init session bad request response has a 4xx status code
+func (o *RTRInitSessionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r init session bad request response has a 5xx status code
+func (o *RTRInitSessionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r init session bad request response a status code equal to that given
+func (o *RTRInitSessionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRInitSessionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRInitSessionBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRInitSessionBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
 
 func (o *RTRInitSessionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -200,6 +282,10 @@ Forbidden
 */
 type RTRInitSessionForbidden struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -211,14 +297,51 @@ type RTRInitSessionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r init session forbidden response has a 2xx status code
+func (o *RTRInitSessionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r init session forbidden response has a 3xx status code
+func (o *RTRInitSessionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r init session forbidden response has a 4xx status code
+func (o *RTRInitSessionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r init session forbidden response has a 5xx status code
+func (o *RTRInitSessionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r init session forbidden response a status code equal to that given
+func (o *RTRInitSessionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRInitSessionForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRInitSessionForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRInitSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *RTRInitSessionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -264,6 +387,10 @@ Too Many Requests
 */
 type RTRInitSessionTooManyRequests struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -279,14 +406,51 @@ type RTRInitSessionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r init session too many requests response has a 2xx status code
+func (o *RTRInitSessionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r init session too many requests response has a 3xx status code
+func (o *RTRInitSessionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r init session too many requests response has a 4xx status code
+func (o *RTRInitSessionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r init session too many requests response has a 5xx status code
+func (o *RTRInitSessionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r init session too many requests response a status code equal to that given
+func (o *RTRInitSessionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRInitSessionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRInitSessionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRInitSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
 func (o *RTRInitSessionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -343,6 +507,10 @@ Internal Server Error
 */
 type RTRInitSessionInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -354,14 +522,51 @@ type RTRInitSessionInternalServerError struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r init session internal server error response has a 2xx status code
+func (o *RTRInitSessionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r init session internal server error response has a 3xx status code
+func (o *RTRInitSessionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r init session internal server error response has a 4xx status code
+func (o *RTRInitSessionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r init session internal server error response has a 5xx status code
+func (o *RTRInitSessionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this r t r init session internal server error response a status code equal to that given
+func (o *RTRInitSessionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RTRInitSessionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RTRInitSessionInternalServerError) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RTRInitSessionInternalServerError) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
 
 func (o *RTRInitSessionInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

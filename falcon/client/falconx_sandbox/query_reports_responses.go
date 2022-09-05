@@ -90,9 +90,39 @@ type QueryReportsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query reports o k response has a 2xx status code
+func (o *QueryReportsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query reports o k response has a 3xx status code
+func (o *QueryReportsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query reports o k response has a 4xx status code
+func (o *QueryReportsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query reports o k response has a 5xx status code
+func (o *QueryReportsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query reports o k response a status code equal to that given
+func (o *QueryReportsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryReportsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryReportsOK) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryReportsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryReportsBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query reports bad request response has a 2xx status code
+func (o *QueryReportsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query reports bad request response has a 3xx status code
+func (o *QueryReportsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query reports bad request response has a 4xx status code
+func (o *QueryReportsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query reports bad request response has a 5xx status code
+func (o *QueryReportsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query reports bad request response a status code equal to that given
+func (o *QueryReportsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryReportsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryReportsBadRequest) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryReportsBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryReportsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query reports forbidden response has a 2xx status code
+func (o *QueryReportsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query reports forbidden response has a 3xx status code
+func (o *QueryReportsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query reports forbidden response has a 4xx status code
+func (o *QueryReportsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query reports forbidden response has a 5xx status code
+func (o *QueryReportsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query reports forbidden response a status code equal to that given
+func (o *QueryReportsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryReportsForbidden) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryReportsForbidden) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryReportsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryReportsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query reports too many requests response has a 2xx status code
+func (o *QueryReportsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query reports too many requests response has a 3xx status code
+func (o *QueryReportsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query reports too many requests response has a 4xx status code
+func (o *QueryReportsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query reports too many requests response has a 5xx status code
+func (o *QueryReportsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query reports too many requests response a status code equal to that given
+func (o *QueryReportsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryReportsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryReportsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryReportsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryReportsInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query reports internal server error response has a 2xx status code
+func (o *QueryReportsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query reports internal server error response has a 3xx status code
+func (o *QueryReportsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query reports internal server error response has a 4xx status code
+func (o *QueryReportsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query reports internal server error response has a 5xx status code
+func (o *QueryReportsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query reports internal server error response a status code equal to that given
+func (o *QueryReportsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryReportsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryReportsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryReportsInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryReportsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query reports default response has a 2xx status code
+func (o *QueryReportsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query reports default response has a 3xx status code
+func (o *QueryReportsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query reports default response has a 4xx status code
+func (o *QueryReportsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query reports default response has a 5xx status code
+func (o *QueryReportsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query reports default response a status code equal to that given
+func (o *QueryReportsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryReportsDefault) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] QueryReports default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryReportsDefault) String() string {
+	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] QueryReports default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryReportsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

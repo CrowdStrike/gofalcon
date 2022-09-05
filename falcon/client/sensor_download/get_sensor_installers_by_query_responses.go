@@ -84,9 +84,39 @@ type GetSensorInstallersByQueryOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get sensor installers by query o k response has a 2xx status code
+func (o *GetSensorInstallersByQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get sensor installers by query o k response has a 3xx status code
+func (o *GetSensorInstallersByQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers by query o k response has a 4xx status code
+func (o *GetSensorInstallersByQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sensor installers by query o k response has a 5xx status code
+func (o *GetSensorInstallersByQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers by query o k response a status code equal to that given
+func (o *GetSensorInstallersByQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSensorInstallersByQueryOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSensorInstallersByQueryOK) String() string {
+	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSensorInstallersByQueryOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetSensorInstallersByQueryBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get sensor installers by query bad request response has a 2xx status code
+func (o *GetSensorInstallersByQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers by query bad request response has a 3xx status code
+func (o *GetSensorInstallersByQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers by query bad request response has a 4xx status code
+func (o *GetSensorInstallersByQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers by query bad request response has a 5xx status code
+func (o *GetSensorInstallersByQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers by query bad request response a status code equal to that given
+func (o *GetSensorInstallersByQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSensorInstallersByQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSensorInstallersByQueryBadRequest) String() string {
+	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSensorInstallersByQueryBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GetSensorInstallersByQueryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sensor installers by query forbidden response has a 2xx status code
+func (o *GetSensorInstallersByQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers by query forbidden response has a 3xx status code
+func (o *GetSensorInstallersByQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers by query forbidden response has a 4xx status code
+func (o *GetSensorInstallersByQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers by query forbidden response has a 5xx status code
+func (o *GetSensorInstallersByQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers by query forbidden response a status code equal to that given
+func (o *GetSensorInstallersByQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSensorInstallersByQueryForbidden) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSensorInstallersByQueryForbidden) String() string {
+	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSensorInstallersByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GetSensorInstallersByQueryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sensor installers by query too many requests response has a 2xx status code
+func (o *GetSensorInstallersByQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers by query too many requests response has a 3xx status code
+func (o *GetSensorInstallersByQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers by query too many requests response has a 4xx status code
+func (o *GetSensorInstallersByQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers by query too many requests response has a 5xx status code
+func (o *GetSensorInstallersByQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers by query too many requests response a status code equal to that given
+func (o *GetSensorInstallersByQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSensorInstallersByQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSensorInstallersByQueryTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSensorInstallersByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetSensorInstallersByQueryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get sensor installers by query default response has a 2xx status code
+func (o *GetSensorInstallersByQueryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get sensor installers by query default response has a 3xx status code
+func (o *GetSensorInstallersByQueryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get sensor installers by query default response has a 4xx status code
+func (o *GetSensorInstallersByQueryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get sensor installers by query default response has a 5xx status code
+func (o *GetSensorInstallersByQueryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get sensor installers by query default response a status code equal to that given
+func (o *GetSensorInstallersByQueryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSensorInstallersByQueryDefault) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] GetSensorInstallersByQuery default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSensorInstallersByQueryDefault) String() string {
+	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] GetSensorInstallersByQuery default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSensorInstallersByQueryDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

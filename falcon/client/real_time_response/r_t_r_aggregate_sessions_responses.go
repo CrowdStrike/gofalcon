@@ -90,9 +90,39 @@ type RTRAggregateSessionsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this r t r aggregate sessions o k response has a 2xx status code
+func (o *RTRAggregateSessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r aggregate sessions o k response has a 3xx status code
+func (o *RTRAggregateSessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r aggregate sessions o k response has a 4xx status code
+func (o *RTRAggregateSessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r aggregate sessions o k response has a 5xx status code
+func (o *RTRAggregateSessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r aggregate sessions o k response a status code equal to that given
+func (o *RTRAggregateSessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRAggregateSessionsOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRAggregateSessionsOK) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRAggregateSessionsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRAggregateSessionsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r aggregate sessions bad request response has a 2xx status code
+func (o *RTRAggregateSessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r aggregate sessions bad request response has a 3xx status code
+func (o *RTRAggregateSessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r aggregate sessions bad request response has a 4xx status code
+func (o *RTRAggregateSessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r aggregate sessions bad request response has a 5xx status code
+func (o *RTRAggregateSessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r aggregate sessions bad request response a status code equal to that given
+func (o *RTRAggregateSessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRAggregateSessionsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRAggregateSessionsBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRAggregateSessionsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRAggregateSessionsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r aggregate sessions forbidden response has a 2xx status code
+func (o *RTRAggregateSessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r aggregate sessions forbidden response has a 3xx status code
+func (o *RTRAggregateSessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r aggregate sessions forbidden response has a 4xx status code
+func (o *RTRAggregateSessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r aggregate sessions forbidden response has a 5xx status code
+func (o *RTRAggregateSessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r aggregate sessions forbidden response a status code equal to that given
+func (o *RTRAggregateSessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRAggregateSessionsForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRAggregateSessionsForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRAggregateSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRAggregateSessionsNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r aggregate sessions not found response has a 2xx status code
+func (o *RTRAggregateSessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r aggregate sessions not found response has a 3xx status code
+func (o *RTRAggregateSessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r aggregate sessions not found response has a 4xx status code
+func (o *RTRAggregateSessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r aggregate sessions not found response has a 5xx status code
+func (o *RTRAggregateSessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r aggregate sessions not found response a status code equal to that given
+func (o *RTRAggregateSessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRAggregateSessionsNotFound) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRAggregateSessionsNotFound) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRAggregateSessionsNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRAggregateSessionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r aggregate sessions too many requests response has a 2xx status code
+func (o *RTRAggregateSessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r aggregate sessions too many requests response has a 3xx status code
+func (o *RTRAggregateSessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r aggregate sessions too many requests response has a 4xx status code
+func (o *RTRAggregateSessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r aggregate sessions too many requests response has a 5xx status code
+func (o *RTRAggregateSessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r aggregate sessions too many requests response a status code equal to that given
+func (o *RTRAggregateSessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRAggregateSessionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRAggregateSessionsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] rTRAggregateSessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRAggregateSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRAggregateSessionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r aggregate sessions default response has a 2xx status code
+func (o *RTRAggregateSessionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r aggregate sessions default response has a 3xx status code
+func (o *RTRAggregateSessionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r aggregate sessions default response has a 4xx status code
+func (o *RTRAggregateSessionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r aggregate sessions default response has a 5xx status code
+func (o *RTRAggregateSessionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r aggregate sessions default response a status code equal to that given
+func (o *RTRAggregateSessionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRAggregateSessionsDefault) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] RTR-AggregateSessions default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRAggregateSessionsDefault) String() string {
+	return fmt.Sprintf("[POST /real-time-response/aggregates/sessions/GET/v1][%d] RTR-AggregateSessions default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRAggregateSessionsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

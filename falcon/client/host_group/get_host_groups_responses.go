@@ -96,9 +96,39 @@ type GetHostGroupsOK struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this get host groups o k response has a 2xx status code
+func (o *GetHostGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get host groups o k response has a 3xx status code
+func (o *GetHostGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups o k response has a 4xx status code
+func (o *GetHostGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get host groups o k response has a 5xx status code
+func (o *GetHostGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get host groups o k response a status code equal to that given
+func (o *GetHostGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetHostGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetHostGroupsOK) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetHostGroupsOK) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetHostGroupsBadRequest struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this get host groups bad request response has a 2xx status code
+func (o *GetHostGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get host groups bad request response has a 3xx status code
+func (o *GetHostGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups bad request response has a 4xx status code
+func (o *GetHostGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get host groups bad request response has a 5xx status code
+func (o *GetHostGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get host groups bad request response a status code equal to that given
+func (o *GetHostGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetHostGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetHostGroupsBadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetHostGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get host groups forbidden response has a 2xx status code
+func (o *GetHostGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get host groups forbidden response has a 3xx status code
+func (o *GetHostGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups forbidden response has a 4xx status code
+func (o *GetHostGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get host groups forbidden response has a 5xx status code
+func (o *GetHostGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get host groups forbidden response a status code equal to that given
+func (o *GetHostGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetHostGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetHostGroupsNotFound struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this get host groups not found response has a 2xx status code
+func (o *GetHostGroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get host groups not found response has a 3xx status code
+func (o *GetHostGroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups not found response has a 4xx status code
+func (o *GetHostGroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get host groups not found response has a 5xx status code
+func (o *GetHostGroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get host groups not found response a status code equal to that given
+func (o *GetHostGroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetHostGroupsNotFound) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetHostGroupsNotFound) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetHostGroupsNotFound) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetHostGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get host groups too many requests response has a 2xx status code
+func (o *GetHostGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get host groups too many requests response has a 3xx status code
+func (o *GetHostGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups too many requests response has a 4xx status code
+func (o *GetHostGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get host groups too many requests response has a 5xx status code
+func (o *GetHostGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get host groups too many requests response a status code equal to that given
+func (o *GetHostGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetHostGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetHostGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetHostGroupsInternalServerError struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this get host groups internal server error response has a 2xx status code
+func (o *GetHostGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get host groups internal server error response has a 3xx status code
+func (o *GetHostGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get host groups internal server error response has a 4xx status code
+func (o *GetHostGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get host groups internal server error response has a 5xx status code
+func (o *GetHostGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get host groups internal server error response a status code equal to that given
+func (o *GetHostGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetHostGroupsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetHostGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get host groups default response has a 2xx status code
+func (o *GetHostGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get host groups default response has a 3xx status code
+func (o *GetHostGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get host groups default response has a 4xx status code
+func (o *GetHostGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get host groups default response has a 5xx status code
+func (o *GetHostGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get host groups default response a status code equal to that given
+func (o *GetHostGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetHostGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetHostGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetHostGroupsDefault) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }

@@ -96,9 +96,39 @@ type PostMalQueryExactSearchV1OK struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query exact search v1 o k response has a 2xx status code
+func (o *PostMalQueryExactSearchV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post mal query exact search v1 o k response has a 3xx status code
+func (o *PostMalQueryExactSearchV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 o k response has a 4xx status code
+func (o *PostMalQueryExactSearchV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query exact search v1 o k response has a 5xx status code
+func (o *PostMalQueryExactSearchV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query exact search v1 o k response a status code equal to that given
+func (o *PostMalQueryExactSearchV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostMalQueryExactSearchV1OK) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK  %+v", 200, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1OK) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1OK  %+v", 200, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type PostMalQueryExactSearchV1BadRequest struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query exact search v1 bad request response has a 2xx status code
+func (o *PostMalQueryExactSearchV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query exact search v1 bad request response has a 3xx status code
+func (o *PostMalQueryExactSearchV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 bad request response has a 4xx status code
+func (o *PostMalQueryExactSearchV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query exact search v1 bad request response has a 5xx status code
+func (o *PostMalQueryExactSearchV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query exact search v1 bad request response a status code equal to that given
+func (o *PostMalQueryExactSearchV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostMalQueryExactSearchV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type PostMalQueryExactSearchV1Unauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query exact search v1 unauthorized response has a 2xx status code
+func (o *PostMalQueryExactSearchV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query exact search v1 unauthorized response has a 3xx status code
+func (o *PostMalQueryExactSearchV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 unauthorized response has a 4xx status code
+func (o *PostMalQueryExactSearchV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query exact search v1 unauthorized response has a 5xx status code
+func (o *PostMalQueryExactSearchV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query exact search v1 unauthorized response a status code equal to that given
+func (o *PostMalQueryExactSearchV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostMalQueryExactSearchV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type PostMalQueryExactSearchV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query exact search v1 forbidden response has a 2xx status code
+func (o *PostMalQueryExactSearchV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query exact search v1 forbidden response has a 3xx status code
+func (o *PostMalQueryExactSearchV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 forbidden response has a 4xx status code
+func (o *PostMalQueryExactSearchV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query exact search v1 forbidden response has a 5xx status code
+func (o *PostMalQueryExactSearchV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query exact search v1 forbidden response a status code equal to that given
+func (o *PostMalQueryExactSearchV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostMalQueryExactSearchV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type PostMalQueryExactSearchV1TooManyRequests struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query exact search v1 too many requests response has a 2xx status code
+func (o *PostMalQueryExactSearchV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query exact search v1 too many requests response has a 3xx status code
+func (o *PostMalQueryExactSearchV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 too many requests response has a 4xx status code
+func (o *PostMalQueryExactSearchV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query exact search v1 too many requests response has a 5xx status code
+func (o *PostMalQueryExactSearchV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query exact search v1 too many requests response a status code equal to that given
+func (o *PostMalQueryExactSearchV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostMalQueryExactSearchV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type PostMalQueryExactSearchV1InternalServerError struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query exact search v1 internal server error response has a 2xx status code
+func (o *PostMalQueryExactSearchV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query exact search v1 internal server error response has a 3xx status code
+func (o *PostMalQueryExactSearchV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query exact search v1 internal server error response has a 4xx status code
+func (o *PostMalQueryExactSearchV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query exact search v1 internal server error response has a 5xx status code
+func (o *PostMalQueryExactSearchV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mal query exact search v1 internal server error response a status code equal to that given
+func (o *PostMalQueryExactSearchV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostMalQueryExactSearchV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] postMalQueryExactSearchV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *PostMalQueryExactSearchV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post mal query exact search v1 default response has a 2xx status code
+func (o *PostMalQueryExactSearchV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post mal query exact search v1 default response has a 3xx status code
+func (o *PostMalQueryExactSearchV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post mal query exact search v1 default response has a 4xx status code
+func (o *PostMalQueryExactSearchV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post mal query exact search v1 default response has a 5xx status code
+func (o *PostMalQueryExactSearchV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post mal query exact search v1 default response a status code equal to that given
+func (o *PostMalQueryExactSearchV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostMalQueryExactSearchV1Default) Error() string {
 	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] PostMalQueryExactSearchV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PostMalQueryExactSearchV1Default) String() string {
+	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] PostMalQueryExactSearchV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PostMalQueryExactSearchV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }

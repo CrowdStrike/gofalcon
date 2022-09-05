@@ -84,9 +84,39 @@ type GetRuleGroupsOK struct {
 	Payload *models.FwmgrAPIRuleGroupsResponse
 }
 
+// IsSuccess returns true when this get rule groups o k response has a 2xx status code
+func (o *GetRuleGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get rule groups o k response has a 3xx status code
+func (o *GetRuleGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule groups o k response has a 4xx status code
+func (o *GetRuleGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get rule groups o k response has a 5xx status code
+func (o *GetRuleGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule groups o k response a status code equal to that given
+func (o *GetRuleGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRuleGroupsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRuleGroupsOK) GetPayload() *models.FwmgrAPIRuleGroupsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetRuleGroupsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule groups bad request response has a 2xx status code
+func (o *GetRuleGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule groups bad request response has a 3xx status code
+func (o *GetRuleGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule groups bad request response has a 4xx status code
+func (o *GetRuleGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule groups bad request response has a 5xx status code
+func (o *GetRuleGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule groups bad request response a status code equal to that given
+func (o *GetRuleGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetRuleGroupsBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GetRuleGroupsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule groups forbidden response has a 2xx status code
+func (o *GetRuleGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule groups forbidden response has a 3xx status code
+func (o *GetRuleGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule groups forbidden response has a 4xx status code
+func (o *GetRuleGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule groups forbidden response has a 5xx status code
+func (o *GetRuleGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule groups forbidden response a status code equal to that given
+func (o *GetRuleGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRuleGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRuleGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GetRuleGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule groups too many requests response has a 2xx status code
+func (o *GetRuleGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule groups too many requests response has a 3xx status code
+func (o *GetRuleGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule groups too many requests response has a 4xx status code
+func (o *GetRuleGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule groups too many requests response has a 5xx status code
+func (o *GetRuleGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule groups too many requests response a status code equal to that given
+func (o *GetRuleGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetRuleGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetRuleGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get rule groups default response has a 2xx status code
+func (o *GetRuleGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get rule groups default response has a 3xx status code
+func (o *GetRuleGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get rule groups default response has a 4xx status code
+func (o *GetRuleGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get rule groups default response has a 5xx status code
+func (o *GetRuleGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get rule groups default response a status code equal to that given
+func (o *GetRuleGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRuleGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] get-rule-groups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRuleGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] get-rule-groups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRuleGroupsDefault) GetPayload() *models.FwmgrAPIRuleGroupsResponse {
 	return o.Payload
 }

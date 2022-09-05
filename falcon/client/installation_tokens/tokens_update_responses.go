@@ -96,9 +96,39 @@ type TokensUpdateOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this tokens update o k response has a 2xx status code
+func (o *TokensUpdateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tokens update o k response has a 3xx status code
+func (o *TokensUpdateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update o k response has a 4xx status code
+func (o *TokensUpdateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens update o k response has a 5xx status code
+func (o *TokensUpdateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update o k response a status code equal to that given
+func (o *TokensUpdateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *TokensUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
 }
+
+func (o *TokensUpdateOK) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
+}
+
 func (o *TokensUpdateOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type TokensUpdateBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens update bad request response has a 2xx status code
+func (o *TokensUpdateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update bad request response has a 3xx status code
+func (o *TokensUpdateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update bad request response has a 4xx status code
+func (o *TokensUpdateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens update bad request response has a 5xx status code
+func (o *TokensUpdateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update bad request response a status code equal to that given
+func (o *TokensUpdateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TokensUpdateBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TokensUpdateBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TokensUpdateBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type TokensUpdateForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens update forbidden response has a 2xx status code
+func (o *TokensUpdateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update forbidden response has a 3xx status code
+func (o *TokensUpdateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update forbidden response has a 4xx status code
+func (o *TokensUpdateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens update forbidden response has a 5xx status code
+func (o *TokensUpdateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update forbidden response a status code equal to that given
+func (o *TokensUpdateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TokensUpdateForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TokensUpdateForbidden) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TokensUpdateForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type TokensUpdateNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this tokens update not found response has a 2xx status code
+func (o *TokensUpdateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update not found response has a 3xx status code
+func (o *TokensUpdateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update not found response has a 4xx status code
+func (o *TokensUpdateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens update not found response has a 5xx status code
+func (o *TokensUpdateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update not found response a status code equal to that given
+func (o *TokensUpdateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *TokensUpdateNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound  %+v", 404, o.Payload)
 }
+
+func (o *TokensUpdateNotFound) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound  %+v", 404, o.Payload)
+}
+
 func (o *TokensUpdateNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type TokensUpdateTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens update too many requests response has a 2xx status code
+func (o *TokensUpdateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update too many requests response has a 3xx status code
+func (o *TokensUpdateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update too many requests response has a 4xx status code
+func (o *TokensUpdateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens update too many requests response has a 5xx status code
+func (o *TokensUpdateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens update too many requests response a status code equal to that given
+func (o *TokensUpdateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TokensUpdateTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TokensUpdateTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TokensUpdateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type TokensUpdateInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens update internal server error response has a 2xx status code
+func (o *TokensUpdateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens update internal server error response has a 3xx status code
+func (o *TokensUpdateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens update internal server error response has a 4xx status code
+func (o *TokensUpdateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens update internal server error response has a 5xx status code
+func (o *TokensUpdateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this tokens update internal server error response a status code equal to that given
+func (o *TokensUpdateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TokensUpdateInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TokensUpdateInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TokensUpdateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *TokensUpdateDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this tokens update default response has a 2xx status code
+func (o *TokensUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tokens update default response has a 3xx status code
+func (o *TokensUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tokens update default response has a 4xx status code
+func (o *TokensUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tokens update default response has a 5xx status code
+func (o *TokensUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tokens update default response a status code equal to that given
+func (o *TokensUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *TokensUpdateDefault) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokens-update default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TokensUpdateDefault) String() string {
+	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokens-update default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TokensUpdateDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -78,9 +78,39 @@ type QueryDevicesByFilterScrollOK struct {
 	Payload *models.DomainDeviceResponse
 }
 
+// IsSuccess returns true when this query devices by filter scroll o k response has a 2xx status code
+func (o *QueryDevicesByFilterScrollOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query devices by filter scroll o k response has a 3xx status code
+func (o *QueryDevicesByFilterScrollOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter scroll o k response has a 4xx status code
+func (o *QueryDevicesByFilterScrollOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query devices by filter scroll o k response has a 5xx status code
+func (o *QueryDevicesByFilterScrollOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter scroll o k response a status code equal to that given
+func (o *QueryDevicesByFilterScrollOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDevicesByFilterScrollOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDevicesByFilterScrollOK) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDevicesByFilterScrollOK) GetPayload() *models.DomainDeviceResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryDevicesByFilterScrollForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query devices by filter scroll forbidden response has a 2xx status code
+func (o *QueryDevicesByFilterScrollForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query devices by filter scroll forbidden response has a 3xx status code
+func (o *QueryDevicesByFilterScrollForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter scroll forbidden response has a 4xx status code
+func (o *QueryDevicesByFilterScrollForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query devices by filter scroll forbidden response has a 5xx status code
+func (o *QueryDevicesByFilterScrollForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter scroll forbidden response a status code equal to that given
+func (o *QueryDevicesByFilterScrollForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDevicesByFilterScrollForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDevicesByFilterScrollForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDevicesByFilterScrollForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryDevicesByFilterScrollTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query devices by filter scroll too many requests response has a 2xx status code
+func (o *QueryDevicesByFilterScrollTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query devices by filter scroll too many requests response has a 3xx status code
+func (o *QueryDevicesByFilterScrollTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter scroll too many requests response has a 4xx status code
+func (o *QueryDevicesByFilterScrollTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query devices by filter scroll too many requests response has a 5xx status code
+func (o *QueryDevicesByFilterScrollTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter scroll too many requests response a status code equal to that given
+func (o *QueryDevicesByFilterScrollTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDevicesByFilterScrollTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDevicesByFilterScrollTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDevicesByFilterScrollTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryDevicesByFilterScrollDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query devices by filter scroll default response has a 2xx status code
+func (o *QueryDevicesByFilterScrollDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query devices by filter scroll default response has a 3xx status code
+func (o *QueryDevicesByFilterScrollDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query devices by filter scroll default response has a 4xx status code
+func (o *QueryDevicesByFilterScrollDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query devices by filter scroll default response has a 5xx status code
+func (o *QueryDevicesByFilterScrollDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query devices by filter scroll default response a status code equal to that given
+func (o *QueryDevicesByFilterScrollDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDevicesByFilterScrollDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] QueryDevicesByFilterScroll default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDevicesByFilterScrollDefault) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] QueryDevicesByFilterScroll default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDevicesByFilterScrollDefault) GetPayload() *models.DomainDeviceResponse {
 	return o.Payload
 }

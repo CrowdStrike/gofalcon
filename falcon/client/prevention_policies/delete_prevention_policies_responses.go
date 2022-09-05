@@ -94,9 +94,39 @@ type DeletePreventionPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete prevention policies o k response has a 2xx status code
+func (o *DeletePreventionPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete prevention policies o k response has a 3xx status code
+func (o *DeletePreventionPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete prevention policies o k response has a 4xx status code
+func (o *DeletePreventionPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete prevention policies o k response has a 5xx status code
+func (o *DeletePreventionPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete prevention policies o k response a status code equal to that given
+func (o *DeletePreventionPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeletePreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesOK) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type DeletePreventionPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete prevention policies forbidden response has a 2xx status code
+func (o *DeletePreventionPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete prevention policies forbidden response has a 3xx status code
+func (o *DeletePreventionPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete prevention policies forbidden response has a 4xx status code
+func (o *DeletePreventionPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete prevention policies forbidden response has a 5xx status code
+func (o *DeletePreventionPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete prevention policies forbidden response a status code equal to that given
+func (o *DeletePreventionPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeletePreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type DeletePreventionPoliciesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete prevention policies not found response has a 2xx status code
+func (o *DeletePreventionPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete prevention policies not found response has a 3xx status code
+func (o *DeletePreventionPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete prevention policies not found response has a 4xx status code
+func (o *DeletePreventionPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete prevention policies not found response has a 5xx status code
+func (o *DeletePreventionPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete prevention policies not found response a status code equal to that given
+func (o *DeletePreventionPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeletePreventionPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type DeletePreventionPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete prevention policies too many requests response has a 2xx status code
+func (o *DeletePreventionPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete prevention policies too many requests response has a 3xx status code
+func (o *DeletePreventionPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete prevention policies too many requests response has a 4xx status code
+func (o *DeletePreventionPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete prevention policies too many requests response has a 5xx status code
+func (o *DeletePreventionPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete prevention policies too many requests response a status code equal to that given
+func (o *DeletePreventionPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeletePreventionPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type DeletePreventionPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete prevention policies internal server error response has a 2xx status code
+func (o *DeletePreventionPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete prevention policies internal server error response has a 3xx status code
+func (o *DeletePreventionPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete prevention policies internal server error response has a 4xx status code
+func (o *DeletePreventionPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete prevention policies internal server error response has a 5xx status code
+func (o *DeletePreventionPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete prevention policies internal server error response a status code equal to that given
+func (o *DeletePreventionPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeletePreventionPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *DeletePreventionPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete prevention policies default response has a 2xx status code
+func (o *DeletePreventionPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete prevention policies default response has a 3xx status code
+func (o *DeletePreventionPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete prevention policies default response has a 4xx status code
+func (o *DeletePreventionPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete prevention policies default response has a 5xx status code
+func (o *DeletePreventionPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete prevention policies default response a status code equal to that given
+func (o *DeletePreventionPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeletePreventionPoliciesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeletePreventionPoliciesDefault) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeletePreventionPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

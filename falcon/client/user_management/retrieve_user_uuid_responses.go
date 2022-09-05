@@ -90,9 +90,39 @@ type RetrieveUserUUIDOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user Uuid o k response has a 2xx status code
+func (o *RetrieveUserUUIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this retrieve user Uuid o k response has a 3xx status code
+func (o *RetrieveUserUUIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user Uuid o k response has a 4xx status code
+func (o *RetrieveUserUUIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this retrieve user Uuid o k response has a 5xx status code
+func (o *RetrieveUserUUIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user Uuid o k response a status code equal to that given
+func (o *RetrieveUserUUIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RetrieveUserUUIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK  %+v", 200, o.Payload)
 }
+
+func (o *RetrieveUserUUIDOK) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK  %+v", 200, o.Payload)
+}
+
 func (o *RetrieveUserUUIDOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RetrieveUserUUIDBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user Uuid bad request response has a 2xx status code
+func (o *RetrieveUserUUIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user Uuid bad request response has a 3xx status code
+func (o *RetrieveUserUUIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user Uuid bad request response has a 4xx status code
+func (o *RetrieveUserUUIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user Uuid bad request response has a 5xx status code
+func (o *RetrieveUserUUIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user Uuid bad request response a status code equal to that given
+func (o *RetrieveUserUUIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RetrieveUserUUIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RetrieveUserUUIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RetrieveUserUUIDBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RetrieveUserUUIDForbidden struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user Uuid forbidden response has a 2xx status code
+func (o *RetrieveUserUUIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user Uuid forbidden response has a 3xx status code
+func (o *RetrieveUserUUIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user Uuid forbidden response has a 4xx status code
+func (o *RetrieveUserUUIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user Uuid forbidden response has a 5xx status code
+func (o *RetrieveUserUUIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user Uuid forbidden response a status code equal to that given
+func (o *RetrieveUserUUIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RetrieveUserUUIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RetrieveUserUUIDForbidden) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RetrieveUserUUIDForbidden) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RetrieveUserUUIDNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user Uuid not found response has a 2xx status code
+func (o *RetrieveUserUUIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user Uuid not found response has a 3xx status code
+func (o *RetrieveUserUUIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user Uuid not found response has a 4xx status code
+func (o *RetrieveUserUUIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user Uuid not found response has a 5xx status code
+func (o *RetrieveUserUUIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user Uuid not found response a status code equal to that given
+func (o *RetrieveUserUUIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RetrieveUserUUIDNotFound) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RetrieveUserUUIDNotFound) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RetrieveUserUUIDNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RetrieveUserUUIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this retrieve user Uuid too many requests response has a 2xx status code
+func (o *RetrieveUserUUIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user Uuid too many requests response has a 3xx status code
+func (o *RetrieveUserUUIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user Uuid too many requests response has a 4xx status code
+func (o *RetrieveUserUUIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user Uuid too many requests response has a 5xx status code
+func (o *RetrieveUserUUIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user Uuid too many requests response a status code equal to that given
+func (o *RetrieveUserUUIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RetrieveUserUUIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RetrieveUserUUIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RetrieveUserUUIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RetrieveUserUUIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this retrieve user UUID default response has a 2xx status code
+func (o *RetrieveUserUUIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this retrieve user UUID default response has a 3xx status code
+func (o *RetrieveUserUUIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this retrieve user UUID default response has a 4xx status code
+func (o *RetrieveUserUUIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this retrieve user UUID default response has a 5xx status code
+func (o *RetrieveUserUUIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this retrieve user UUID default response a status code equal to that given
+func (o *RetrieveUserUUIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RetrieveUserUUIDDefault) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] RetrieveUserUUID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RetrieveUserUUIDDefault) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] RetrieveUserUUID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RetrieveUserUUIDDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -83,9 +83,39 @@ type RTRDeleteSessionNoContent struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete session no content response has a 2xx status code
+func (o *RTRDeleteSessionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r delete session no content response has a 3xx status code
+func (o *RTRDeleteSessionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete session no content response has a 4xx status code
+func (o *RTRDeleteSessionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r delete session no content response has a 5xx status code
+func (o *RTRDeleteSessionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete session no content response a status code equal to that given
+func (o *RTRDeleteSessionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *RTRDeleteSessionNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *RTRDeleteSessionNoContent) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *RTRDeleteSessionNoContent) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type RTRDeleteSessionBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete session bad request response has a 2xx status code
+func (o *RTRDeleteSessionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete session bad request response has a 3xx status code
+func (o *RTRDeleteSessionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete session bad request response has a 4xx status code
+func (o *RTRDeleteSessionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete session bad request response has a 5xx status code
+func (o *RTRDeleteSessionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete session bad request response a status code equal to that given
+func (o *RTRDeleteSessionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRDeleteSessionBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRDeleteSessionBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRDeleteSessionBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type RTRDeleteSessionUnauthorized struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete session unauthorized response has a 2xx status code
+func (o *RTRDeleteSessionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete session unauthorized response has a 3xx status code
+func (o *RTRDeleteSessionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete session unauthorized response has a 4xx status code
+func (o *RTRDeleteSessionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete session unauthorized response has a 5xx status code
+func (o *RTRDeleteSessionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete session unauthorized response a status code equal to that given
+func (o *RTRDeleteSessionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *RTRDeleteSessionUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *RTRDeleteSessionUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *RTRDeleteSessionUnauthorized) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -275,9 +365,39 @@ type RTRDeleteSessionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete session forbidden response has a 2xx status code
+func (o *RTRDeleteSessionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete session forbidden response has a 3xx status code
+func (o *RTRDeleteSessionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete session forbidden response has a 4xx status code
+func (o *RTRDeleteSessionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete session forbidden response has a 5xx status code
+func (o *RTRDeleteSessionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete session forbidden response a status code equal to that given
+func (o *RTRDeleteSessionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRDeleteSessionForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRDeleteSessionForbidden) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRDeleteSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -343,9 +463,39 @@ type RTRDeleteSessionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete session too many requests response has a 2xx status code
+func (o *RTRDeleteSessionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete session too many requests response has a 3xx status code
+func (o *RTRDeleteSessionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete session too many requests response has a 4xx status code
+func (o *RTRDeleteSessionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete session too many requests response has a 5xx status code
+func (o *RTRDeleteSessionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete session too many requests response a status code equal to that given
+func (o *RTRDeleteSessionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRDeleteSessionTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRDeleteSessionTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRDeleteSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

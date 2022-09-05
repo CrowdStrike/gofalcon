@@ -94,9 +94,39 @@ type CreateIOAExclusionsV1OK struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 o k response has a 2xx status code
+func (o *CreateIOAExclusionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 o k response has a 3xx status code
+func (o *CreateIOAExclusionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create i o a exclusions v1 o k response has a 4xx status code
+func (o *CreateIOAExclusionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create i o a exclusions v1 o k response has a 5xx status code
+func (o *CreateIOAExclusionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create i o a exclusions v1 o k response a status code equal to that given
+func (o *CreateIOAExclusionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateIOAExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1OK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1OK) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type CreateIOAExclusionsV1BadRequest struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 bad request response has a 2xx status code
+func (o *CreateIOAExclusionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 bad request response has a 3xx status code
+func (o *CreateIOAExclusionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create i o a exclusions v1 bad request response has a 4xx status code
+func (o *CreateIOAExclusionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create i o a exclusions v1 bad request response has a 5xx status code
+func (o *CreateIOAExclusionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create i o a exclusions v1 bad request response a status code equal to that given
+func (o *CreateIOAExclusionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateIOAExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1BadRequest) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type CreateIOAExclusionsV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 forbidden response has a 2xx status code
+func (o *CreateIOAExclusionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 forbidden response has a 3xx status code
+func (o *CreateIOAExclusionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create i o a exclusions v1 forbidden response has a 4xx status code
+func (o *CreateIOAExclusionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create i o a exclusions v1 forbidden response has a 5xx status code
+func (o *CreateIOAExclusionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create i o a exclusions v1 forbidden response a status code equal to that given
+func (o *CreateIOAExclusionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateIOAExclusionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CreateIOAExclusionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 too many requests response has a 2xx status code
+func (o *CreateIOAExclusionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 too many requests response has a 3xx status code
+func (o *CreateIOAExclusionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create i o a exclusions v1 too many requests response has a 4xx status code
+func (o *CreateIOAExclusionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create i o a exclusions v1 too many requests response has a 5xx status code
+func (o *CreateIOAExclusionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create i o a exclusions v1 too many requests response a status code equal to that given
+func (o *CreateIOAExclusionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateIOAExclusionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type CreateIOAExclusionsV1InternalServerError struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 internal server error response has a 2xx status code
+func (o *CreateIOAExclusionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 internal server error response has a 3xx status code
+func (o *CreateIOAExclusionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create i o a exclusions v1 internal server error response has a 4xx status code
+func (o *CreateIOAExclusionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create i o a exclusions v1 internal server error response has a 5xx status code
+func (o *CreateIOAExclusionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create i o a exclusions v1 internal server error response a status code equal to that given
+func (o *CreateIOAExclusionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateIOAExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1InternalServerError) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *CreateIOAExclusionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create i o a exclusions v1 default response has a 2xx status code
+func (o *CreateIOAExclusionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create i o a exclusions v1 default response has a 3xx status code
+func (o *CreateIOAExclusionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create i o a exclusions v1 default response has a 4xx status code
+func (o *CreateIOAExclusionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create i o a exclusions v1 default response has a 5xx status code
+func (o *CreateIOAExclusionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create i o a exclusions v1 default response a status code equal to that given
+func (o *CreateIOAExclusionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateIOAExclusionsV1Default) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateIOAExclusionsV1Default) String() string {
+	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateIOAExclusionsV1Default) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type GetSampleV2OK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this get sample v2 o k response has a 2xx status code
+func (o *GetSampleV2OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get sample v2 o k response has a 3xx status code
+func (o *GetSampleV2OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 o k response has a 4xx status code
+func (o *GetSampleV2OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sample v2 o k response has a 5xx status code
+func (o *GetSampleV2OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sample v2 o k response a status code equal to that given
+func (o *GetSampleV2OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSampleV2OK) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2OK  %+v", 200, o.Payload)
 }
+
+func (o *GetSampleV2OK) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2OK  %+v", 200, o.Payload)
+}
+
 func (o *GetSampleV2OK) GetPayload() string {
 	return o.Payload
 }
@@ -173,9 +203,39 @@ type GetSampleV2BadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sample v2 bad request response has a 2xx status code
+func (o *GetSampleV2BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sample v2 bad request response has a 3xx status code
+func (o *GetSampleV2BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 bad request response has a 4xx status code
+func (o *GetSampleV2BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sample v2 bad request response has a 5xx status code
+func (o *GetSampleV2BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sample v2 bad request response a status code equal to that given
+func (o *GetSampleV2BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSampleV2BadRequest) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSampleV2BadRequest) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSampleV2BadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -248,9 +308,39 @@ type GetSampleV2Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sample v2 forbidden response has a 2xx status code
+func (o *GetSampleV2Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sample v2 forbidden response has a 3xx status code
+func (o *GetSampleV2Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 forbidden response has a 4xx status code
+func (o *GetSampleV2Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sample v2 forbidden response has a 5xx status code
+func (o *GetSampleV2Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sample v2 forbidden response a status code equal to that given
+func (o *GetSampleV2Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSampleV2Forbidden) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSampleV2Forbidden) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSampleV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetSampleV2NotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sample v2 not found response has a 2xx status code
+func (o *GetSampleV2NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sample v2 not found response has a 3xx status code
+func (o *GetSampleV2NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 not found response has a 4xx status code
+func (o *GetSampleV2NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sample v2 not found response has a 5xx status code
+func (o *GetSampleV2NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sample v2 not found response a status code equal to that given
+func (o *GetSampleV2NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSampleV2NotFound) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2NotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetSampleV2NotFound) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2NotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetSampleV2NotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type GetSampleV2TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sample v2 too many requests response has a 2xx status code
+func (o *GetSampleV2TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sample v2 too many requests response has a 3xx status code
+func (o *GetSampleV2TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 too many requests response has a 4xx status code
+func (o *GetSampleV2TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sample v2 too many requests response has a 5xx status code
+func (o *GetSampleV2TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sample v2 too many requests response a status code equal to that given
+func (o *GetSampleV2TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSampleV2TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSampleV2TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSampleV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -488,9 +638,39 @@ type GetSampleV2InternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sample v2 internal server error response has a 2xx status code
+func (o *GetSampleV2InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sample v2 internal server error response has a 3xx status code
+func (o *GetSampleV2InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sample v2 internal server error response has a 4xx status code
+func (o *GetSampleV2InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sample v2 internal server error response has a 5xx status code
+func (o *GetSampleV2InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get sample v2 internal server error response a status code equal to that given
+func (o *GetSampleV2InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSampleV2InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetSampleV2InternalServerError) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] getSampleV2InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetSampleV2InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -559,9 +739,39 @@ func (o *GetSampleV2Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get sample v2 default response has a 2xx status code
+func (o *GetSampleV2Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get sample v2 default response has a 3xx status code
+func (o *GetSampleV2Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get sample v2 default response has a 4xx status code
+func (o *GetSampleV2Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get sample v2 default response has a 5xx status code
+func (o *GetSampleV2Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get sample v2 default response a status code equal to that given
+func (o *GetSampleV2Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSampleV2Default) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] GetSampleV2 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSampleV2Default) String() string {
+	return fmt.Sprintf("[GET /samples/entities/samples/v2][%d] GetSampleV2 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSampleV2Default) GetPayload() string {
 	return o.Payload
 }

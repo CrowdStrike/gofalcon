@@ -94,9 +94,39 @@ type ReportExecutionsDownloadGetOK struct {
 	Payload []int64
 }
 
+// IsSuccess returns true when this report executions download get o k response has a 2xx status code
+func (o *ReportExecutionsDownloadGetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this report executions download get o k response has a 3xx status code
+func (o *ReportExecutionsDownloadGetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions download get o k response has a 4xx status code
+func (o *ReportExecutionsDownloadGetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this report executions download get o k response has a 5xx status code
+func (o *ReportExecutionsDownloadGetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions download get o k response a status code equal to that given
+func (o *ReportExecutionsDownloadGetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ReportExecutionsDownloadGetOK) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetOK) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetOK) GetPayload() []int64 {
 	return o.Payload
 }
@@ -167,9 +197,39 @@ type ReportExecutionsDownloadGetBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions download get bad request response has a 2xx status code
+func (o *ReportExecutionsDownloadGetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions download get bad request response has a 3xx status code
+func (o *ReportExecutionsDownloadGetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions download get bad request response has a 4xx status code
+func (o *ReportExecutionsDownloadGetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions download get bad request response has a 5xx status code
+func (o *ReportExecutionsDownloadGetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions download get bad request response a status code equal to that given
+func (o *ReportExecutionsDownloadGetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ReportExecutionsDownloadGetBadRequest) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetBadRequest) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -242,9 +302,39 @@ type ReportExecutionsDownloadGetForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions download get forbidden response has a 2xx status code
+func (o *ReportExecutionsDownloadGetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions download get forbidden response has a 3xx status code
+func (o *ReportExecutionsDownloadGetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions download get forbidden response has a 4xx status code
+func (o *ReportExecutionsDownloadGetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions download get forbidden response has a 5xx status code
+func (o *ReportExecutionsDownloadGetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions download get forbidden response a status code equal to that given
+func (o *ReportExecutionsDownloadGetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ReportExecutionsDownloadGetForbidden) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetForbidden) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -321,9 +411,39 @@ type ReportExecutionsDownloadGetTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions download get too many requests response has a 2xx status code
+func (o *ReportExecutionsDownloadGetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions download get too many requests response has a 3xx status code
+func (o *ReportExecutionsDownloadGetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions download get too many requests response has a 4xx status code
+func (o *ReportExecutionsDownloadGetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions download get too many requests response has a 5xx status code
+func (o *ReportExecutionsDownloadGetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions download get too many requests response a status code equal to that given
+func (o *ReportExecutionsDownloadGetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ReportExecutionsDownloadGetTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -407,9 +527,39 @@ type ReportExecutionsDownloadGetInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions download get internal server error response has a 2xx status code
+func (o *ReportExecutionsDownloadGetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions download get internal server error response has a 3xx status code
+func (o *ReportExecutionsDownloadGetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions download get internal server error response has a 4xx status code
+func (o *ReportExecutionsDownloadGetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this report executions download get internal server error response has a 5xx status code
+func (o *ReportExecutionsDownloadGetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this report executions download get internal server error response a status code equal to that given
+func (o *ReportExecutionsDownloadGetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *ReportExecutionsDownloadGetInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetInternalServerError) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -478,9 +628,39 @@ func (o *ReportExecutionsDownloadGetDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this report executions download get default response has a 2xx status code
+func (o *ReportExecutionsDownloadGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this report executions download get default response has a 3xx status code
+func (o *ReportExecutionsDownloadGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this report executions download get default response has a 4xx status code
+func (o *ReportExecutionsDownloadGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this report executions download get default response has a 5xx status code
+func (o *ReportExecutionsDownloadGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this report executions download get default response a status code equal to that given
+func (o *ReportExecutionsDownloadGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ReportExecutionsDownloadGetDefault) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] report-executions-download.get default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ReportExecutionsDownloadGetDefault) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] report-executions-download.get default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ReportExecutionsDownloadGetDefault) GetPayload() []int64 {
 	return o.Payload
 }

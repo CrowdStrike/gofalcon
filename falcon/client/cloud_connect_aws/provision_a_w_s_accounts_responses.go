@@ -83,9 +83,39 @@ type ProvisionAWSAccountsCreated struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this provision a w s accounts created response has a 2xx status code
+func (o *ProvisionAWSAccountsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this provision a w s accounts created response has a 3xx status code
+func (o *ProvisionAWSAccountsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision a w s accounts created response has a 4xx status code
+func (o *ProvisionAWSAccountsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this provision a w s accounts created response has a 5xx status code
+func (o *ProvisionAWSAccountsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this provision a w s accounts created response a status code equal to that given
+func (o *ProvisionAWSAccountsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *ProvisionAWSAccountsCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated  %+v", 201, o.Payload)
 }
+
+func (o *ProvisionAWSAccountsCreated) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated  %+v", 201, o.Payload)
+}
+
 func (o *ProvisionAWSAccountsCreated) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type ProvisionAWSAccountsBadRequest struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this provision a w s accounts bad request response has a 2xx status code
+func (o *ProvisionAWSAccountsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this provision a w s accounts bad request response has a 3xx status code
+func (o *ProvisionAWSAccountsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision a w s accounts bad request response has a 4xx status code
+func (o *ProvisionAWSAccountsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this provision a w s accounts bad request response has a 5xx status code
+func (o *ProvisionAWSAccountsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this provision a w s accounts bad request response a status code equal to that given
+func (o *ProvisionAWSAccountsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ProvisionAWSAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ProvisionAWSAccountsBadRequest) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ProvisionAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type ProvisionAWSAccountsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this provision a w s accounts forbidden response has a 2xx status code
+func (o *ProvisionAWSAccountsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this provision a w s accounts forbidden response has a 3xx status code
+func (o *ProvisionAWSAccountsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision a w s accounts forbidden response has a 4xx status code
+func (o *ProvisionAWSAccountsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this provision a w s accounts forbidden response has a 5xx status code
+func (o *ProvisionAWSAccountsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this provision a w s accounts forbidden response a status code equal to that given
+func (o *ProvisionAWSAccountsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ProvisionAWSAccountsForbidden) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ProvisionAWSAccountsForbidden) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ProvisionAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -279,9 +369,39 @@ type ProvisionAWSAccountsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this provision a w s accounts too many requests response has a 2xx status code
+func (o *ProvisionAWSAccountsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this provision a w s accounts too many requests response has a 3xx status code
+func (o *ProvisionAWSAccountsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision a w s accounts too many requests response has a 4xx status code
+func (o *ProvisionAWSAccountsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this provision a w s accounts too many requests response has a 5xx status code
+func (o *ProvisionAWSAccountsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this provision a w s accounts too many requests response a status code equal to that given
+func (o *ProvisionAWSAccountsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ProvisionAWSAccountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ProvisionAWSAccountsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ProvisionAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -354,9 +474,39 @@ type ProvisionAWSAccountsInternalServerError struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this provision a w s accounts internal server error response has a 2xx status code
+func (o *ProvisionAWSAccountsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this provision a w s accounts internal server error response has a 3xx status code
+func (o *ProvisionAWSAccountsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this provision a w s accounts internal server error response has a 4xx status code
+func (o *ProvisionAWSAccountsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this provision a w s accounts internal server error response has a 5xx status code
+func (o *ProvisionAWSAccountsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this provision a w s accounts internal server error response a status code equal to that given
+func (o *ProvisionAWSAccountsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *ProvisionAWSAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *ProvisionAWSAccountsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *ProvisionAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }

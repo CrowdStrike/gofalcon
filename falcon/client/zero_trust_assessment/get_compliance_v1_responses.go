@@ -88,9 +88,39 @@ type GetComplianceV1OK struct {
 	Payload *models.DomainComplianceResponse
 }
 
+// IsSuccess returns true when this get compliance v1 o k response has a 2xx status code
+func (o *GetComplianceV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get compliance v1 o k response has a 3xx status code
+func (o *GetComplianceV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get compliance v1 o k response has a 4xx status code
+func (o *GetComplianceV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get compliance v1 o k response has a 5xx status code
+func (o *GetComplianceV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get compliance v1 o k response a status code equal to that given
+func (o *GetComplianceV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetComplianceV1OK) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetComplianceV1OK) String() string {
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetComplianceV1OK) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type GetComplianceV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get compliance v1 forbidden response has a 2xx status code
+func (o *GetComplianceV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get compliance v1 forbidden response has a 3xx status code
+func (o *GetComplianceV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get compliance v1 forbidden response has a 4xx status code
+func (o *GetComplianceV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get compliance v1 forbidden response has a 5xx status code
+func (o *GetComplianceV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get compliance v1 forbidden response a status code equal to that given
+func (o *GetComplianceV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetComplianceV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetComplianceV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetComplianceV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type GetComplianceV1NotFound struct {
 	Payload *models.DomainComplianceResponse
 }
 
+// IsSuccess returns true when this get compliance v1 not found response has a 2xx status code
+func (o *GetComplianceV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get compliance v1 not found response has a 3xx status code
+func (o *GetComplianceV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get compliance v1 not found response has a 4xx status code
+func (o *GetComplianceV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get compliance v1 not found response has a 5xx status code
+func (o *GetComplianceV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get compliance v1 not found response a status code equal to that given
+func (o *GetComplianceV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetComplianceV1NotFound) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1NotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetComplianceV1NotFound) String() string {
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1NotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetComplianceV1NotFound) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type GetComplianceV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get compliance v1 too many requests response has a 2xx status code
+func (o *GetComplianceV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get compliance v1 too many requests response has a 3xx status code
+func (o *GetComplianceV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get compliance v1 too many requests response has a 4xx status code
+func (o *GetComplianceV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get compliance v1 too many requests response has a 5xx status code
+func (o *GetComplianceV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get compliance v1 too many requests response a status code equal to that given
+func (o *GetComplianceV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetComplianceV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetComplianceV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetComplianceV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *GetComplianceV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get compliance v1 default response has a 2xx status code
+func (o *GetComplianceV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get compliance v1 default response has a 3xx status code
+func (o *GetComplianceV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get compliance v1 default response has a 4xx status code
+func (o *GetComplianceV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get compliance v1 default response has a 5xx status code
+func (o *GetComplianceV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get compliance v1 default response a status code equal to that given
+func (o *GetComplianceV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetComplianceV1Default) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetComplianceV1Default) String() string {
+	return fmt.Sprintf("[GET /zero-trust-assessment/entities/audit/v1][%d] getComplianceV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetComplianceV1Default) GetPayload() *models.DomainComplianceResponse {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type GetCredentialsOK struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get credentials o k response has a 2xx status code
+func (o *GetCredentialsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get credentials o k response has a 3xx status code
+func (o *GetCredentialsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials o k response has a 4xx status code
+func (o *GetCredentialsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get credentials o k response has a 5xx status code
+func (o *GetCredentialsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get credentials o k response a status code equal to that given
+func (o *GetCredentialsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCredentialsOK) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCredentialsOK) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCredentialsOK) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type GetCredentialsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get credentials bad request response has a 2xx status code
+func (o *GetCredentialsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get credentials bad request response has a 3xx status code
+func (o *GetCredentialsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials bad request response has a 4xx status code
+func (o *GetCredentialsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get credentials bad request response has a 5xx status code
+func (o *GetCredentialsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get credentials bad request response a status code equal to that given
+func (o *GetCredentialsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCredentialsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCredentialsBadRequest) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCredentialsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type GetCredentialsUnauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get credentials unauthorized response has a 2xx status code
+func (o *GetCredentialsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get credentials unauthorized response has a 3xx status code
+func (o *GetCredentialsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials unauthorized response has a 4xx status code
+func (o *GetCredentialsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get credentials unauthorized response has a 5xx status code
+func (o *GetCredentialsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get credentials unauthorized response a status code equal to that given
+func (o *GetCredentialsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetCredentialsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *GetCredentialsUnauthorized) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *GetCredentialsUnauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type GetCredentialsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get credentials forbidden response has a 2xx status code
+func (o *GetCredentialsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get credentials forbidden response has a 3xx status code
+func (o *GetCredentialsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials forbidden response has a 4xx status code
+func (o *GetCredentialsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get credentials forbidden response has a 5xx status code
+func (o *GetCredentialsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get credentials forbidden response a status code equal to that given
+func (o *GetCredentialsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCredentialsForbidden) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCredentialsForbidden) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCredentialsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type GetCredentialsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get credentials too many requests response has a 2xx status code
+func (o *GetCredentialsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get credentials too many requests response has a 3xx status code
+func (o *GetCredentialsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials too many requests response has a 4xx status code
+func (o *GetCredentialsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get credentials too many requests response has a 5xx status code
+func (o *GetCredentialsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get credentials too many requests response a status code equal to that given
+func (o *GetCredentialsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCredentialsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCredentialsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCredentialsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type GetCredentialsInternalServerError struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get credentials internal server error response has a 2xx status code
+func (o *GetCredentialsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get credentials internal server error response has a 3xx status code
+func (o *GetCredentialsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get credentials internal server error response has a 4xx status code
+func (o *GetCredentialsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get credentials internal server error response has a 5xx status code
+func (o *GetCredentialsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get credentials internal server error response a status code equal to that given
+func (o *GetCredentialsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCredentialsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCredentialsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] getCredentialsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCredentialsInternalServerError) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *GetCredentialsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get credentials default response has a 2xx status code
+func (o *GetCredentialsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get credentials default response has a 3xx status code
+func (o *GetCredentialsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get credentials default response has a 4xx status code
+func (o *GetCredentialsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get credentials default response has a 5xx status code
+func (o *GetCredentialsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get credentials default response a status code equal to that given
+func (o *GetCredentialsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCredentialsDefault) Error() string {
 	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] GetCredentials default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCredentialsDefault) String() string {
+	return fmt.Sprintf("[GET /container-security/entities/image-registry-credentials/v1][%d] GetCredentials default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCredentialsDefault) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }

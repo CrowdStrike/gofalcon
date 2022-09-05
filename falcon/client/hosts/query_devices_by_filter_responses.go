@@ -78,9 +78,39 @@ type QueryDevicesByFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query devices by filter o k response has a 2xx status code
+func (o *QueryDevicesByFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query devices by filter o k response has a 3xx status code
+func (o *QueryDevicesByFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter o k response has a 4xx status code
+func (o *QueryDevicesByFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query devices by filter o k response has a 5xx status code
+func (o *QueryDevicesByFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter o k response a status code equal to that given
+func (o *QueryDevicesByFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDevicesByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDevicesByFilterOK) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDevicesByFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryDevicesByFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query devices by filter forbidden response has a 2xx status code
+func (o *QueryDevicesByFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query devices by filter forbidden response has a 3xx status code
+func (o *QueryDevicesByFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter forbidden response has a 4xx status code
+func (o *QueryDevicesByFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query devices by filter forbidden response has a 5xx status code
+func (o *QueryDevicesByFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter forbidden response a status code equal to that given
+func (o *QueryDevicesByFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDevicesByFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDevicesByFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDevicesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryDevicesByFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query devices by filter too many requests response has a 2xx status code
+func (o *QueryDevicesByFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query devices by filter too many requests response has a 3xx status code
+func (o *QueryDevicesByFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query devices by filter too many requests response has a 4xx status code
+func (o *QueryDevicesByFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query devices by filter too many requests response has a 5xx status code
+func (o *QueryDevicesByFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query devices by filter too many requests response a status code equal to that given
+func (o *QueryDevicesByFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDevicesByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDevicesByFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDevicesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryDevicesByFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query devices by filter default response has a 2xx status code
+func (o *QueryDevicesByFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query devices by filter default response has a 3xx status code
+func (o *QueryDevicesByFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query devices by filter default response has a 4xx status code
+func (o *QueryDevicesByFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query devices by filter default response has a 5xx status code
+func (o *QueryDevicesByFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query devices by filter default response a status code equal to that given
+func (o *QueryDevicesByFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDevicesByFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] QueryDevicesByFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDevicesByFilterDefault) String() string {
+	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] QueryDevicesByFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDevicesByFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

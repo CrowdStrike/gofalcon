@@ -94,9 +94,39 @@ type GetQueriesAlertsV1OK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get queries alerts v1 o k response has a 2xx status code
+func (o *GetQueriesAlertsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get queries alerts v1 o k response has a 3xx status code
+func (o *GetQueriesAlertsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get queries alerts v1 o k response has a 4xx status code
+func (o *GetQueriesAlertsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get queries alerts v1 o k response has a 5xx status code
+func (o *GetQueriesAlertsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get queries alerts v1 o k response a status code equal to that given
+func (o *GetQueriesAlertsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQueriesAlertsV1OK) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1OK) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1OK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetQueriesAlertsV1BadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get queries alerts v1 bad request response has a 2xx status code
+func (o *GetQueriesAlertsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get queries alerts v1 bad request response has a 3xx status code
+func (o *GetQueriesAlertsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get queries alerts v1 bad request response has a 4xx status code
+func (o *GetQueriesAlertsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get queries alerts v1 bad request response has a 5xx status code
+func (o *GetQueriesAlertsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get queries alerts v1 bad request response a status code equal to that given
+func (o *GetQueriesAlertsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQueriesAlertsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1BadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetQueriesAlertsV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get queries alerts v1 forbidden response has a 2xx status code
+func (o *GetQueriesAlertsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get queries alerts v1 forbidden response has a 3xx status code
+func (o *GetQueriesAlertsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get queries alerts v1 forbidden response has a 4xx status code
+func (o *GetQueriesAlertsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get queries alerts v1 forbidden response has a 5xx status code
+func (o *GetQueriesAlertsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get queries alerts v1 forbidden response a status code equal to that given
+func (o *GetQueriesAlertsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQueriesAlertsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetQueriesAlertsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get queries alerts v1 too many requests response has a 2xx status code
+func (o *GetQueriesAlertsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get queries alerts v1 too many requests response has a 3xx status code
+func (o *GetQueriesAlertsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get queries alerts v1 too many requests response has a 4xx status code
+func (o *GetQueriesAlertsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get queries alerts v1 too many requests response has a 5xx status code
+func (o *GetQueriesAlertsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get queries alerts v1 too many requests response a status code equal to that given
+func (o *GetQueriesAlertsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQueriesAlertsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetQueriesAlertsV1InternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get queries alerts v1 internal server error response has a 2xx status code
+func (o *GetQueriesAlertsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get queries alerts v1 internal server error response has a 3xx status code
+func (o *GetQueriesAlertsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get queries alerts v1 internal server error response has a 4xx status code
+func (o *GetQueriesAlertsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get queries alerts v1 internal server error response has a 5xx status code
+func (o *GetQueriesAlertsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get queries alerts v1 internal server error response a status code equal to that given
+func (o *GetQueriesAlertsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQueriesAlertsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1InternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetQueriesAlertsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get queries alerts v1 default response has a 2xx status code
+func (o *GetQueriesAlertsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get queries alerts v1 default response has a 3xx status code
+func (o *GetQueriesAlertsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get queries alerts v1 default response has a 4xx status code
+func (o *GetQueriesAlertsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get queries alerts v1 default response has a 5xx status code
+func (o *GetQueriesAlertsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get queries alerts v1 default response a status code equal to that given
+func (o *GetQueriesAlertsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetQueriesAlertsV1Default) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] GetQueriesAlertsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetQueriesAlertsV1Default) String() string {
+	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] GetQueriesAlertsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetQueriesAlertsV1Default) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

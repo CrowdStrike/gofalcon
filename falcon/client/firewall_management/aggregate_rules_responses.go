@@ -84,9 +84,39 @@ type AggregateRulesOK struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate rules o k response has a 2xx status code
+func (o *AggregateRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate rules o k response has a 3xx status code
+func (o *AggregateRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate rules o k response has a 4xx status code
+func (o *AggregateRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate rules o k response has a 5xx status code
+func (o *AggregateRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate rules o k response a status code equal to that given
+func (o *AggregateRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateRulesOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateRulesOK) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateRulesOK) GetPayload() *models.FwmgrAPIAggregatesResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type AggregateRulesBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate rules bad request response has a 2xx status code
+func (o *AggregateRulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate rules bad request response has a 3xx status code
+func (o *AggregateRulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate rules bad request response has a 4xx status code
+func (o *AggregateRulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate rules bad request response has a 5xx status code
+func (o *AggregateRulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate rules bad request response a status code equal to that given
+func (o *AggregateRulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *AggregateRulesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *AggregateRulesBadRequest) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *AggregateRulesBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type AggregateRulesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate rules forbidden response has a 2xx status code
+func (o *AggregateRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate rules forbidden response has a 3xx status code
+func (o *AggregateRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate rules forbidden response has a 4xx status code
+func (o *AggregateRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate rules forbidden response has a 5xx status code
+func (o *AggregateRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate rules forbidden response a status code equal to that given
+func (o *AggregateRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateRulesForbidden) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateRulesForbidden) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type AggregateRulesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate rules too many requests response has a 2xx status code
+func (o *AggregateRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate rules too many requests response has a 3xx status code
+func (o *AggregateRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate rules too many requests response has a 4xx status code
+func (o *AggregateRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate rules too many requests response has a 5xx status code
+func (o *AggregateRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate rules too many requests response a status code equal to that given
+func (o *AggregateRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *AggregateRulesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate rules default response has a 2xx status code
+func (o *AggregateRulesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate rules default response has a 3xx status code
+func (o *AggregateRulesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate rules default response has a 4xx status code
+func (o *AggregateRulesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate rules default response has a 5xx status code
+func (o *AggregateRulesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate rules default response a status code equal to that given
+func (o *AggregateRulesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateRulesDefault) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregate-rules default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateRulesDefault) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregate-rules default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateRulesDefault) GetPayload() *models.FwmgrAPIAggregatesResponse {
 	return o.Payload
 }

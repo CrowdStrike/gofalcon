@@ -90,9 +90,39 @@ type UpdateIOAExclusionsV1OK struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 o k response has a 2xx status code
+func (o *UpdateIOAExclusionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 o k response has a 3xx status code
+func (o *UpdateIOAExclusionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update i o a exclusions v1 o k response has a 4xx status code
+func (o *UpdateIOAExclusionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update i o a exclusions v1 o k response has a 5xx status code
+func (o *UpdateIOAExclusionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update i o a exclusions v1 o k response a status code equal to that given
+func (o *UpdateIOAExclusionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateIOAExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1OK) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1OK) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type UpdateIOAExclusionsV1BadRequest struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 bad request response has a 2xx status code
+func (o *UpdateIOAExclusionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 bad request response has a 3xx status code
+func (o *UpdateIOAExclusionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update i o a exclusions v1 bad request response has a 4xx status code
+func (o *UpdateIOAExclusionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update i o a exclusions v1 bad request response has a 5xx status code
+func (o *UpdateIOAExclusionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update i o a exclusions v1 bad request response a status code equal to that given
+func (o *UpdateIOAExclusionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateIOAExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1BadRequest) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1BadRequest) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type UpdateIOAExclusionsV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 forbidden response has a 2xx status code
+func (o *UpdateIOAExclusionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 forbidden response has a 3xx status code
+func (o *UpdateIOAExclusionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update i o a exclusions v1 forbidden response has a 4xx status code
+func (o *UpdateIOAExclusionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update i o a exclusions v1 forbidden response has a 5xx status code
+func (o *UpdateIOAExclusionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update i o a exclusions v1 forbidden response a status code equal to that given
+func (o *UpdateIOAExclusionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateIOAExclusionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1Forbidden) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type UpdateIOAExclusionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 too many requests response has a 2xx status code
+func (o *UpdateIOAExclusionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 too many requests response has a 3xx status code
+func (o *UpdateIOAExclusionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update i o a exclusions v1 too many requests response has a 4xx status code
+func (o *UpdateIOAExclusionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update i o a exclusions v1 too many requests response has a 5xx status code
+func (o *UpdateIOAExclusionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update i o a exclusions v1 too many requests response a status code equal to that given
+func (o *UpdateIOAExclusionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateIOAExclusionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type UpdateIOAExclusionsV1InternalServerError struct {
 	Payload *models.ResponsesIoaExclusionRespV1
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 internal server error response has a 2xx status code
+func (o *UpdateIOAExclusionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 internal server error response has a 3xx status code
+func (o *UpdateIOAExclusionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update i o a exclusions v1 internal server error response has a 4xx status code
+func (o *UpdateIOAExclusionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update i o a exclusions v1 internal server error response has a 5xx status code
+func (o *UpdateIOAExclusionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update i o a exclusions v1 internal server error response a status code equal to that given
+func (o *UpdateIOAExclusionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateIOAExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1InternalServerError) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *UpdateIOAExclusionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update i o a exclusions v1 default response has a 2xx status code
+func (o *UpdateIOAExclusionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update i o a exclusions v1 default response has a 3xx status code
+func (o *UpdateIOAExclusionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update i o a exclusions v1 default response has a 4xx status code
+func (o *UpdateIOAExclusionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update i o a exclusions v1 default response has a 5xx status code
+func (o *UpdateIOAExclusionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update i o a exclusions v1 default response a status code equal to that given
+func (o *UpdateIOAExclusionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateIOAExclusionsV1Default) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateIOAExclusionsV1Default) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/ioa-exclusions/v1][%d] updateIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateIOAExclusionsV1Default) GetPayload() *models.ResponsesIoaExclusionRespV1 {
 	return o.Payload
 }

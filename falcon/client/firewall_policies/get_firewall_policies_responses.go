@@ -90,9 +90,39 @@ type GetFirewallPoliciesOK struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this get firewall policies o k response has a 2xx status code
+func (o *GetFirewallPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get firewall policies o k response has a 3xx status code
+func (o *GetFirewallPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall policies o k response has a 4xx status code
+func (o *GetFirewallPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get firewall policies o k response has a 5xx status code
+func (o *GetFirewallPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall policies o k response a status code equal to that given
+func (o *GetFirewallPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetFirewallPoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetFirewallPoliciesOK) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetFirewallPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get firewall policies forbidden response has a 2xx status code
+func (o *GetFirewallPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall policies forbidden response has a 3xx status code
+func (o *GetFirewallPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall policies forbidden response has a 4xx status code
+func (o *GetFirewallPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get firewall policies forbidden response has a 5xx status code
+func (o *GetFirewallPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall policies forbidden response a status code equal to that given
+func (o *GetFirewallPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetFirewallPoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetFirewallPoliciesNotFound struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this get firewall policies not found response has a 2xx status code
+func (o *GetFirewallPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall policies not found response has a 3xx status code
+func (o *GetFirewallPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall policies not found response has a 4xx status code
+func (o *GetFirewallPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get firewall policies not found response has a 5xx status code
+func (o *GetFirewallPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall policies not found response a status code equal to that given
+func (o *GetFirewallPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFirewallPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetFirewallPoliciesNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetFirewallPoliciesNotFound) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetFirewallPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get firewall policies too many requests response has a 2xx status code
+func (o *GetFirewallPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall policies too many requests response has a 3xx status code
+func (o *GetFirewallPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall policies too many requests response has a 4xx status code
+func (o *GetFirewallPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get firewall policies too many requests response has a 5xx status code
+func (o *GetFirewallPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall policies too many requests response a status code equal to that given
+func (o *GetFirewallPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFirewallPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetFirewallPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetFirewallPoliciesInternalServerError struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this get firewall policies internal server error response has a 2xx status code
+func (o *GetFirewallPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall policies internal server error response has a 3xx status code
+func (o *GetFirewallPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall policies internal server error response has a 4xx status code
+func (o *GetFirewallPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get firewall policies internal server error response has a 5xx status code
+func (o *GetFirewallPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get firewall policies internal server error response a status code equal to that given
+func (o *GetFirewallPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetFirewallPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetFirewallPoliciesInternalServerError) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetFirewallPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get firewall policies default response has a 2xx status code
+func (o *GetFirewallPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get firewall policies default response has a 3xx status code
+func (o *GetFirewallPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get firewall policies default response has a 4xx status code
+func (o *GetFirewallPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get firewall policies default response has a 5xx status code
+func (o *GetFirewallPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get firewall policies default response a status code equal to that given
+func (o *GetFirewallPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetFirewallPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetFirewallPoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetFirewallPoliciesDefault) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }

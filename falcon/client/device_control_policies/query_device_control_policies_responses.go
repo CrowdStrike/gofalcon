@@ -90,9 +90,39 @@ type QueryDeviceControlPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query device control policies o k response has a 2xx status code
+func (o *QueryDeviceControlPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query device control policies o k response has a 3xx status code
+func (o *QueryDeviceControlPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device control policies o k response has a 4xx status code
+func (o *QueryDeviceControlPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query device control policies o k response has a 5xx status code
+func (o *QueryDeviceControlPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device control policies o k response a status code equal to that given
+func (o *QueryDeviceControlPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryDeviceControlPoliciesBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query device control policies bad request response has a 2xx status code
+func (o *QueryDeviceControlPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device control policies bad request response has a 3xx status code
+func (o *QueryDeviceControlPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device control policies bad request response has a 4xx status code
+func (o *QueryDeviceControlPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query device control policies bad request response has a 5xx status code
+func (o *QueryDeviceControlPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device control policies bad request response a status code equal to that given
+func (o *QueryDeviceControlPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryDeviceControlPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryDeviceControlPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query device control policies forbidden response has a 2xx status code
+func (o *QueryDeviceControlPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device control policies forbidden response has a 3xx status code
+func (o *QueryDeviceControlPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device control policies forbidden response has a 4xx status code
+func (o *QueryDeviceControlPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query device control policies forbidden response has a 5xx status code
+func (o *QueryDeviceControlPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device control policies forbidden response a status code equal to that given
+func (o *QueryDeviceControlPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryDeviceControlPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query device control policies too many requests response has a 2xx status code
+func (o *QueryDeviceControlPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device control policies too many requests response has a 3xx status code
+func (o *QueryDeviceControlPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device control policies too many requests response has a 4xx status code
+func (o *QueryDeviceControlPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query device control policies too many requests response has a 5xx status code
+func (o *QueryDeviceControlPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device control policies too many requests response a status code equal to that given
+func (o *QueryDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDeviceControlPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryDeviceControlPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query device control policies internal server error response has a 2xx status code
+func (o *QueryDeviceControlPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device control policies internal server error response has a 3xx status code
+func (o *QueryDeviceControlPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device control policies internal server error response has a 4xx status code
+func (o *QueryDeviceControlPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query device control policies internal server error response has a 5xx status code
+func (o *QueryDeviceControlPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query device control policies internal server error response a status code equal to that given
+func (o *QueryDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryDeviceControlPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query device control policies default response has a 2xx status code
+func (o *QueryDeviceControlPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query device control policies default response has a 3xx status code
+func (o *QueryDeviceControlPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query device control policies default response has a 4xx status code
+func (o *QueryDeviceControlPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query device control policies default response has a 5xx status code
+func (o *QueryDeviceControlPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query device control policies default response a status code equal to that given
+func (o *QueryDeviceControlPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDeviceControlPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDeviceControlPoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/queries/device-control/v1][%d] queryDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDeviceControlPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

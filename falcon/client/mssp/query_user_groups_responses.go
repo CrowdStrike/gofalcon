@@ -84,9 +84,39 @@ type QueryUserGroupsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query user groups o k response has a 2xx status code
+func (o *QueryUserGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query user groups o k response has a 3xx status code
+func (o *QueryUserGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user groups o k response has a 4xx status code
+func (o *QueryUserGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query user groups o k response has a 5xx status code
+func (o *QueryUserGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user groups o k response a status code equal to that given
+func (o *QueryUserGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryUserGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryUserGroupsOK) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryUserGroupsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryUserGroupsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query user groups bad request response has a 2xx status code
+func (o *QueryUserGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user groups bad request response has a 3xx status code
+func (o *QueryUserGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user groups bad request response has a 4xx status code
+func (o *QueryUserGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user groups bad request response has a 5xx status code
+func (o *QueryUserGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user groups bad request response a status code equal to that given
+func (o *QueryUserGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryUserGroupsBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryUserGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query user groups forbidden response has a 2xx status code
+func (o *QueryUserGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user groups forbidden response has a 3xx status code
+func (o *QueryUserGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user groups forbidden response has a 4xx status code
+func (o *QueryUserGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user groups forbidden response has a 5xx status code
+func (o *QueryUserGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user groups forbidden response a status code equal to that given
+func (o *QueryUserGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryUserGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryUserGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryUserGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query user groups too many requests response has a 2xx status code
+func (o *QueryUserGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query user groups too many requests response has a 3xx status code
+func (o *QueryUserGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query user groups too many requests response has a 4xx status code
+func (o *QueryUserGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query user groups too many requests response has a 5xx status code
+func (o *QueryUserGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query user groups too many requests response a status code equal to that given
+func (o *QueryUserGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryUserGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryUserGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query user groups default response has a 2xx status code
+func (o *QueryUserGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query user groups default response has a 3xx status code
+func (o *QueryUserGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query user groups default response has a 4xx status code
+func (o *QueryUserGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query user groups default response has a 5xx status code
+func (o *QueryUserGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query user groups default response a status code equal to that given
+func (o *QueryUserGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryUserGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryUserGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryUserGroupsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

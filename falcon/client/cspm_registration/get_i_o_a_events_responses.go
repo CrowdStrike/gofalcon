@@ -94,9 +94,39 @@ type GetIOAEventsOK struct {
 	Payload *models.RegistrationExternalIOAEventResponse
 }
 
+// IsSuccess returns true when this get i o a events o k response has a 2xx status code
+func (o *GetIOAEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get i o a events o k response has a 3xx status code
+func (o *GetIOAEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a events o k response has a 4xx status code
+func (o *GetIOAEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get i o a events o k response has a 5xx status code
+func (o *GetIOAEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a events o k response a status code equal to that given
+func (o *GetIOAEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIOAEventsOK) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIOAEventsOK) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIOAEventsOK) GetPayload() *models.RegistrationExternalIOAEventResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetIOAEventsBadRequest struct {
 	Payload *models.RegistrationExternalIOAEventResponse
 }
 
+// IsSuccess returns true when this get i o a events bad request response has a 2xx status code
+func (o *GetIOAEventsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a events bad request response has a 3xx status code
+func (o *GetIOAEventsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a events bad request response has a 4xx status code
+func (o *GetIOAEventsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a events bad request response has a 5xx status code
+func (o *GetIOAEventsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a events bad request response a status code equal to that given
+func (o *GetIOAEventsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIOAEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetIOAEventsBadRequest) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetIOAEventsBadRequest) GetPayload() *models.RegistrationExternalIOAEventResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetIOAEventsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get i o a events forbidden response has a 2xx status code
+func (o *GetIOAEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a events forbidden response has a 3xx status code
+func (o *GetIOAEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a events forbidden response has a 4xx status code
+func (o *GetIOAEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a events forbidden response has a 5xx status code
+func (o *GetIOAEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a events forbidden response a status code equal to that given
+func (o *GetIOAEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIOAEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIOAEventsForbidden) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIOAEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetIOAEventsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get i o a events too many requests response has a 2xx status code
+func (o *GetIOAEventsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a events too many requests response has a 3xx status code
+func (o *GetIOAEventsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a events too many requests response has a 4xx status code
+func (o *GetIOAEventsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a events too many requests response has a 5xx status code
+func (o *GetIOAEventsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a events too many requests response a status code equal to that given
+func (o *GetIOAEventsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIOAEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIOAEventsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIOAEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetIOAEventsInternalServerError struct {
 	Payload *models.RegistrationExternalIOAEventResponse
 }
 
+// IsSuccess returns true when this get i o a events internal server error response has a 2xx status code
+func (o *GetIOAEventsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a events internal server error response has a 3xx status code
+func (o *GetIOAEventsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a events internal server error response has a 4xx status code
+func (o *GetIOAEventsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get i o a events internal server error response has a 5xx status code
+func (o *GetIOAEventsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get i o a events internal server error response a status code equal to that given
+func (o *GetIOAEventsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIOAEventsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIOAEventsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIOAEventsInternalServerError) GetPayload() *models.RegistrationExternalIOAEventResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetIOAEventsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get i o a events default response has a 2xx status code
+func (o *GetIOAEventsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get i o a events default response has a 3xx status code
+func (o *GetIOAEventsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get i o a events default response has a 4xx status code
+func (o *GetIOAEventsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get i o a events default response has a 5xx status code
+func (o *GetIOAEventsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get i o a events default response a status code equal to that given
+func (o *GetIOAEventsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIOAEventsDefault) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] GetIOAEvents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetIOAEventsDefault) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] GetIOAEvents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetIOAEventsDefault) GetPayload() *models.RegistrationExternalIOAEventResponse {
 	return o.Payload
 }

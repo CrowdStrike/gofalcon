@@ -78,9 +78,39 @@ type AggregateAllowListOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate allow list o k response has a 2xx status code
+func (o *AggregateAllowListOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate allow list o k response has a 3xx status code
+func (o *AggregateAllowListOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate allow list o k response has a 4xx status code
+func (o *AggregateAllowListOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate allow list o k response has a 5xx status code
+func (o *AggregateAllowListOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate allow list o k response a status code equal to that given
+func (o *AggregateAllowListOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateAllowListOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateAllowListOK) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateAllowListOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregateAllowListForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate allow list forbidden response has a 2xx status code
+func (o *AggregateAllowListForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate allow list forbidden response has a 3xx status code
+func (o *AggregateAllowListForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate allow list forbidden response has a 4xx status code
+func (o *AggregateAllowListForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate allow list forbidden response has a 5xx status code
+func (o *AggregateAllowListForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate allow list forbidden response a status code equal to that given
+func (o *AggregateAllowListForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateAllowListForbidden) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateAllowListForbidden) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateAllowListForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregateAllowListTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate allow list too many requests response has a 2xx status code
+func (o *AggregateAllowListTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate allow list too many requests response has a 3xx status code
+func (o *AggregateAllowListTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate allow list too many requests response has a 4xx status code
+func (o *AggregateAllowListTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate allow list too many requests response has a 5xx status code
+func (o *AggregateAllowListTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate allow list too many requests response a status code equal to that given
+func (o *AggregateAllowListTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateAllowListTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateAllowListTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] aggregateAllowListTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateAllowListTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregateAllowListDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate allow list default response has a 2xx status code
+func (o *AggregateAllowListDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate allow list default response has a 3xx status code
+func (o *AggregateAllowListDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate allow list default response has a 4xx status code
+func (o *AggregateAllowListDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate allow list default response has a 5xx status code
+func (o *AggregateAllowListDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate allow list default response a status code equal to that given
+func (o *AggregateAllowListDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateAllowListDefault) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] AggregateAllowList default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateAllowListDefault) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] AggregateAllowList default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateAllowListDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

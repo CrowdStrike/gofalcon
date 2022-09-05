@@ -88,9 +88,39 @@ type UpdateRuleGroupOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this update rule group o k response has a 2xx status code
+func (o *UpdateRuleGroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update rule group o k response has a 3xx status code
+func (o *UpdateRuleGroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group o k response has a 4xx status code
+func (o *UpdateRuleGroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update rule group o k response has a 5xx status code
+func (o *UpdateRuleGroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group o k response a status code equal to that given
+func (o *UpdateRuleGroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateRuleGroupOK) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateRuleGroupOK) String() string {
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateRuleGroupOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type UpdateRuleGroupBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group bad request response has a 2xx status code
+func (o *UpdateRuleGroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group bad request response has a 3xx status code
+func (o *UpdateRuleGroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group bad request response has a 4xx status code
+func (o *UpdateRuleGroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group bad request response has a 5xx status code
+func (o *UpdateRuleGroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group bad request response a status code equal to that given
+func (o *UpdateRuleGroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateRuleGroupBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateRuleGroupBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateRuleGroupBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type UpdateRuleGroupForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group forbidden response has a 2xx status code
+func (o *UpdateRuleGroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group forbidden response has a 3xx status code
+func (o *UpdateRuleGroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group forbidden response has a 4xx status code
+func (o *UpdateRuleGroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group forbidden response has a 5xx status code
+func (o *UpdateRuleGroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group forbidden response a status code equal to that given
+func (o *UpdateRuleGroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateRuleGroupForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateRuleGroupForbidden) String() string {
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateRuleGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type UpdateRuleGroupTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group too many requests response has a 2xx status code
+func (o *UpdateRuleGroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group too many requests response has a 3xx status code
+func (o *UpdateRuleGroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group too many requests response has a 4xx status code
+func (o *UpdateRuleGroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group too many requests response has a 5xx status code
+func (o *UpdateRuleGroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group too many requests response a status code equal to that given
+func (o *UpdateRuleGroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateRuleGroupTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateRuleGroupTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] updateRuleGroupTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateRuleGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *UpdateRuleGroupDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update rule group default response has a 2xx status code
+func (o *UpdateRuleGroupDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update rule group default response has a 3xx status code
+func (o *UpdateRuleGroupDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update rule group default response has a 4xx status code
+func (o *UpdateRuleGroupDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update rule group default response has a 5xx status code
+func (o *UpdateRuleGroupDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update rule group default response a status code equal to that given
+func (o *UpdateRuleGroupDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateRuleGroupDefault) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] update-rule-group default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateRuleGroupDefault) String() string {
+	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/v1][%d] update-rule-group default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateRuleGroupDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

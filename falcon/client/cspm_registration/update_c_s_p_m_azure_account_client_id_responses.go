@@ -83,9 +83,39 @@ type UpdateCSPMAzureAccountClientIDCreated struct {
 	Payload *models.RegistrationAzureServicePrincipalResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure account client Id created response has a 2xx status code
+func (o *UpdateCSPMAzureAccountClientIDCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update c s p m azure account client Id created response has a 3xx status code
+func (o *UpdateCSPMAzureAccountClientIDCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure account client Id created response has a 4xx status code
+func (o *UpdateCSPMAzureAccountClientIDCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c s p m azure account client Id created response has a 5xx status code
+func (o *UpdateCSPMAzureAccountClientIDCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure account client Id created response a status code equal to that given
+func (o *UpdateCSPMAzureAccountClientIDCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *UpdateCSPMAzureAccountClientIDCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated  %+v", 201, o.Payload)
 }
+
+func (o *UpdateCSPMAzureAccountClientIDCreated) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated  %+v", 201, o.Payload)
+}
+
 func (o *UpdateCSPMAzureAccountClientIDCreated) GetPayload() *models.RegistrationAzureServicePrincipalResponseV1 {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type UpdateCSPMAzureAccountClientIDBadRequest struct {
 	Payload *models.RegistrationAzureServicePrincipalResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure account client Id bad request response has a 2xx status code
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure account client Id bad request response has a 3xx status code
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure account client Id bad request response has a 4xx status code
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure account client Id bad request response has a 5xx status code
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure account client Id bad request response a status code equal to that given
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) GetPayload() *models.RegistrationAzureServicePrincipalResponseV1 {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type UpdateCSPMAzureAccountClientIDForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update c s p m azure account client Id forbidden response has a 2xx status code
+func (o *UpdateCSPMAzureAccountClientIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure account client Id forbidden response has a 3xx status code
+func (o *UpdateCSPMAzureAccountClientIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure account client Id forbidden response has a 4xx status code
+func (o *UpdateCSPMAzureAccountClientIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure account client Id forbidden response has a 5xx status code
+func (o *UpdateCSPMAzureAccountClientIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure account client Id forbidden response a status code equal to that given
+func (o *UpdateCSPMAzureAccountClientIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateCSPMAzureAccountClientIDForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateCSPMAzureAccountClientIDForbidden) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateCSPMAzureAccountClientIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -279,9 +369,39 @@ type UpdateCSPMAzureAccountClientIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update c s p m azure account client Id too many requests response has a 2xx status code
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure account client Id too many requests response has a 3xx status code
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure account client Id too many requests response has a 4xx status code
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c s p m azure account client Id too many requests response has a 5xx status code
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c s p m azure account client Id too many requests response a status code equal to that given
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -354,9 +474,39 @@ type UpdateCSPMAzureAccountClientIDInternalServerError struct {
 	Payload *models.RegistrationAzureServicePrincipalResponseV1
 }
 
+// IsSuccess returns true when this update c s p m azure account client Id internal server error response has a 2xx status code
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c s p m azure account client Id internal server error response has a 3xx status code
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c s p m azure account client Id internal server error response has a 4xx status code
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c s p m azure account client Id internal server error response has a 5xx status code
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update c s p m azure account client Id internal server error response a status code equal to that given
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) GetPayload() *models.RegistrationAzureServicePrincipalResponseV1 {
 	return o.Payload
 }

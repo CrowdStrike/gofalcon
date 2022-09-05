@@ -100,9 +100,39 @@ type QueryActionsV1OK struct {
 	Payload *models.DomainQueryResponse
 }
 
+// IsSuccess returns true when this query actions v1 o k response has a 2xx status code
+func (o *QueryActionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query actions v1 o k response has a 3xx status code
+func (o *QueryActionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 o k response has a 4xx status code
+func (o *QueryActionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query actions v1 o k response has a 5xx status code
+func (o *QueryActionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query actions v1 o k response a status code equal to that given
+func (o *QueryActionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryActionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *QueryActionsV1OK) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *QueryActionsV1OK) GetPayload() *models.DomainQueryResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type QueryActionsV1BadRequest struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query actions v1 bad request response has a 2xx status code
+func (o *QueryActionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query actions v1 bad request response has a 3xx status code
+func (o *QueryActionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 bad request response has a 4xx status code
+func (o *QueryActionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query actions v1 bad request response has a 5xx status code
+func (o *QueryActionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query actions v1 bad request response a status code equal to that given
+func (o *QueryActionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryActionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryActionsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryActionsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type QueryActionsV1Unauthorized struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query actions v1 unauthorized response has a 2xx status code
+func (o *QueryActionsV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query actions v1 unauthorized response has a 3xx status code
+func (o *QueryActionsV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 unauthorized response has a 4xx status code
+func (o *QueryActionsV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query actions v1 unauthorized response has a 5xx status code
+func (o *QueryActionsV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query actions v1 unauthorized response a status code equal to that given
+func (o *QueryActionsV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *QueryActionsV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *QueryActionsV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *QueryActionsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type QueryActionsV1Forbidden struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query actions v1 forbidden response has a 2xx status code
+func (o *QueryActionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query actions v1 forbidden response has a 3xx status code
+func (o *QueryActionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 forbidden response has a 4xx status code
+func (o *QueryActionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query actions v1 forbidden response has a 5xx status code
+func (o *QueryActionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query actions v1 forbidden response a status code equal to that given
+func (o *QueryActionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryActionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryActionsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryActionsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type QueryActionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query actions v1 too many requests response has a 2xx status code
+func (o *QueryActionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query actions v1 too many requests response has a 3xx status code
+func (o *QueryActionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 too many requests response has a 4xx status code
+func (o *QueryActionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query actions v1 too many requests response has a 5xx status code
+func (o *QueryActionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query actions v1 too many requests response a status code equal to that given
+func (o *QueryActionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryActionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryActionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryActionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type QueryActionsV1InternalServerError struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query actions v1 internal server error response has a 2xx status code
+func (o *QueryActionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query actions v1 internal server error response has a 3xx status code
+func (o *QueryActionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query actions v1 internal server error response has a 4xx status code
+func (o *QueryActionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query actions v1 internal server error response has a 5xx status code
+func (o *QueryActionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query actions v1 internal server error response a status code equal to that given
+func (o *QueryActionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryActionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryActionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] queryActionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryActionsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *QueryActionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query actions v1 default response has a 2xx status code
+func (o *QueryActionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query actions v1 default response has a 3xx status code
+func (o *QueryActionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query actions v1 default response has a 4xx status code
+func (o *QueryActionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query actions v1 default response has a 5xx status code
+func (o *QueryActionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query actions v1 default response a status code equal to that given
+func (o *QueryActionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryActionsV1Default) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] QueryActionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryActionsV1Default) String() string {
+	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] QueryActionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryActionsV1Default) GetPayload() *models.DomainQueryResponse {
 	return o.Payload
 }

@@ -82,9 +82,39 @@ type GetVulnerabilitiesOK struct {
 	Payload *models.DomainSPAPIVulnerabilitiesEntitiesResponseV2
 }
 
+// IsSuccess returns true when this get vulnerabilities o k response has a 2xx status code
+func (o *GetVulnerabilitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get vulnerabilities o k response has a 3xx status code
+func (o *GetVulnerabilitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get vulnerabilities o k response has a 4xx status code
+func (o *GetVulnerabilitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get vulnerabilities o k response has a 5xx status code
+func (o *GetVulnerabilitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get vulnerabilities o k response a status code equal to that given
+func (o *GetVulnerabilitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetVulnerabilitiesOK) String() string {
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetVulnerabilitiesOK) GetPayload() *models.DomainSPAPIVulnerabilitiesEntitiesResponseV2 {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type GetVulnerabilitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get vulnerabilities forbidden response has a 2xx status code
+func (o *GetVulnerabilitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get vulnerabilities forbidden response has a 3xx status code
+func (o *GetVulnerabilitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get vulnerabilities forbidden response has a 4xx status code
+func (o *GetVulnerabilitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get vulnerabilities forbidden response has a 5xx status code
+func (o *GetVulnerabilitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get vulnerabilities forbidden response a status code equal to that given
+func (o *GetVulnerabilitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetVulnerabilitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetVulnerabilitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type GetVulnerabilitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get vulnerabilities too many requests response has a 2xx status code
+func (o *GetVulnerabilitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get vulnerabilities too many requests response has a 3xx status code
+func (o *GetVulnerabilitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get vulnerabilities too many requests response has a 4xx status code
+func (o *GetVulnerabilitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get vulnerabilities too many requests response has a 5xx status code
+func (o *GetVulnerabilitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get vulnerabilities too many requests response a status code equal to that given
+func (o *GetVulnerabilitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetVulnerabilitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetVulnerabilitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *GetVulnerabilitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get vulnerabilities default response has a 2xx status code
+func (o *GetVulnerabilitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get vulnerabilities default response has a 3xx status code
+func (o *GetVulnerabilitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get vulnerabilities default response has a 4xx status code
+func (o *GetVulnerabilitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get vulnerabilities default response has a 5xx status code
+func (o *GetVulnerabilitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get vulnerabilities default response a status code equal to that given
+func (o *GetVulnerabilitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetVulnerabilitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetVulnerabilitiesDefault) String() string {
+	return fmt.Sprintf("[GET /spotlight/entities/vulnerabilities/v2][%d] getVulnerabilities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetVulnerabilitiesDefault) GetPayload() *models.DomainSPAPIVulnerabilitiesEntitiesResponseV2 {
 	return o.Payload
 }

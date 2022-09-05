@@ -77,9 +77,39 @@ type CreateRuleGroupMixin0Created struct {
 	Payload *models.APIRuleGroupsResponse
 }
 
+// IsSuccess returns true when this create rule group mixin0 created response has a 2xx status code
+func (o *CreateRuleGroupMixin0Created) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create rule group mixin0 created response has a 3xx status code
+func (o *CreateRuleGroupMixin0Created) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group mixin0 created response has a 4xx status code
+func (o *CreateRuleGroupMixin0Created) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create rule group mixin0 created response has a 5xx status code
+func (o *CreateRuleGroupMixin0Created) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group mixin0 created response a status code equal to that given
+func (o *CreateRuleGroupMixin0Created) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateRuleGroupMixin0Created) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Created  %+v", 201, o.Payload)
 }
+
+func (o *CreateRuleGroupMixin0Created) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Created  %+v", 201, o.Payload)
+}
+
 func (o *CreateRuleGroupMixin0Created) GetPayload() *models.APIRuleGroupsResponse {
 	return o.Payload
 }
@@ -141,9 +171,39 @@ type CreateRuleGroupMixin0Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group mixin0 forbidden response has a 2xx status code
+func (o *CreateRuleGroupMixin0Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group mixin0 forbidden response has a 3xx status code
+func (o *CreateRuleGroupMixin0Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group mixin0 forbidden response has a 4xx status code
+func (o *CreateRuleGroupMixin0Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group mixin0 forbidden response has a 5xx status code
+func (o *CreateRuleGroupMixin0Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group mixin0 forbidden response a status code equal to that given
+func (o *CreateRuleGroupMixin0Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRuleGroupMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRuleGroupMixin0Forbidden) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRuleGroupMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -205,9 +265,39 @@ type CreateRuleGroupMixin0NotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group mixin0 not found response has a 2xx status code
+func (o *CreateRuleGroupMixin0NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group mixin0 not found response has a 3xx status code
+func (o *CreateRuleGroupMixin0NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group mixin0 not found response has a 4xx status code
+func (o *CreateRuleGroupMixin0NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group mixin0 not found response has a 5xx status code
+func (o *CreateRuleGroupMixin0NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group mixin0 not found response a status code equal to that given
+func (o *CreateRuleGroupMixin0NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateRuleGroupMixin0NotFound) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0NotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateRuleGroupMixin0NotFound) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0NotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateRuleGroupMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -273,9 +363,39 @@ type CreateRuleGroupMixin0TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group mixin0 too many requests response has a 2xx status code
+func (o *CreateRuleGroupMixin0TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group mixin0 too many requests response has a 3xx status code
+func (o *CreateRuleGroupMixin0TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group mixin0 too many requests response has a 4xx status code
+func (o *CreateRuleGroupMixin0TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group mixin0 too many requests response has a 5xx status code
+func (o *CreateRuleGroupMixin0TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group mixin0 too many requests response a status code equal to that given
+func (o *CreateRuleGroupMixin0TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateRuleGroupMixin0TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateRuleGroupMixin0TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateRuleGroupMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

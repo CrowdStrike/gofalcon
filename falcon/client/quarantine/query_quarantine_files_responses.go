@@ -82,9 +82,39 @@ type QueryQuarantineFilesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query quarantine files o k response has a 2xx status code
+func (o *QueryQuarantineFilesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query quarantine files o k response has a 3xx status code
+func (o *QueryQuarantineFilesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query quarantine files o k response has a 4xx status code
+func (o *QueryQuarantineFilesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query quarantine files o k response has a 5xx status code
+func (o *QueryQuarantineFilesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query quarantine files o k response a status code equal to that given
+func (o *QueryQuarantineFilesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryQuarantineFilesOK) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryQuarantineFilesOK) String() string {
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryQuarantineFilesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type QueryQuarantineFilesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query quarantine files forbidden response has a 2xx status code
+func (o *QueryQuarantineFilesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query quarantine files forbidden response has a 3xx status code
+func (o *QueryQuarantineFilesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query quarantine files forbidden response has a 4xx status code
+func (o *QueryQuarantineFilesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query quarantine files forbidden response has a 5xx status code
+func (o *QueryQuarantineFilesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query quarantine files forbidden response a status code equal to that given
+func (o *QueryQuarantineFilesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryQuarantineFilesForbidden) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryQuarantineFilesForbidden) String() string {
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryQuarantineFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type QueryQuarantineFilesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query quarantine files too many requests response has a 2xx status code
+func (o *QueryQuarantineFilesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query quarantine files too many requests response has a 3xx status code
+func (o *QueryQuarantineFilesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query quarantine files too many requests response has a 4xx status code
+func (o *QueryQuarantineFilesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query quarantine files too many requests response has a 5xx status code
+func (o *QueryQuarantineFilesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query quarantine files too many requests response a status code equal to that given
+func (o *QueryQuarantineFilesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryQuarantineFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryQuarantineFilesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryQuarantineFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *QueryQuarantineFilesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query quarantine files default response has a 2xx status code
+func (o *QueryQuarantineFilesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query quarantine files default response has a 3xx status code
+func (o *QueryQuarantineFilesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query quarantine files default response has a 4xx status code
+func (o *QueryQuarantineFilesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query quarantine files default response has a 5xx status code
+func (o *QueryQuarantineFilesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query quarantine files default response a status code equal to that given
+func (o *QueryQuarantineFilesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryQuarantineFilesDefault) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] QueryQuarantineFiles default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryQuarantineFilesDefault) String() string {
+	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] QueryQuarantineFiles default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryQuarantineFilesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

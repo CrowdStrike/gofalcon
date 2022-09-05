@@ -78,9 +78,39 @@ type DevicesRanOnOK struct {
 	Payload *models.APIMsaReplyDevicesRanOn
 }
 
+// IsSuccess returns true when this devices ran on o k response has a 2xx status code
+func (o *DevicesRanOnOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this devices ran on o k response has a 3xx status code
+func (o *DevicesRanOnOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices ran on o k response has a 4xx status code
+func (o *DevicesRanOnOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this devices ran on o k response has a 5xx status code
+func (o *DevicesRanOnOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices ran on o k response a status code equal to that given
+func (o *DevicesRanOnOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DevicesRanOnOK) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK  %+v", 200, o.Payload)
 }
+
+func (o *DevicesRanOnOK) String() string {
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK  %+v", 200, o.Payload)
+}
+
 func (o *DevicesRanOnOK) GetPayload() *models.APIMsaReplyDevicesRanOn {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type DevicesRanOnForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this devices ran on forbidden response has a 2xx status code
+func (o *DevicesRanOnForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this devices ran on forbidden response has a 3xx status code
+func (o *DevicesRanOnForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices ran on forbidden response has a 4xx status code
+func (o *DevicesRanOnForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this devices ran on forbidden response has a 5xx status code
+func (o *DevicesRanOnForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices ran on forbidden response a status code equal to that given
+func (o *DevicesRanOnForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DevicesRanOnForbidden) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DevicesRanOnForbidden) String() string {
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DevicesRanOnForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type DevicesRanOnTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this devices ran on too many requests response has a 2xx status code
+func (o *DevicesRanOnTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this devices ran on too many requests response has a 3xx status code
+func (o *DevicesRanOnTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices ran on too many requests response has a 4xx status code
+func (o *DevicesRanOnTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this devices ran on too many requests response has a 5xx status code
+func (o *DevicesRanOnTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices ran on too many requests response a status code equal to that given
+func (o *DevicesRanOnTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DevicesRanOnTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DevicesRanOnTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DevicesRanOnTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *DevicesRanOnDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this devices ran on default response has a 2xx status code
+func (o *DevicesRanOnDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this devices ran on default response has a 3xx status code
+func (o *DevicesRanOnDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this devices ran on default response has a 4xx status code
+func (o *DevicesRanOnDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this devices ran on default response has a 5xx status code
+func (o *DevicesRanOnDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this devices ran on default response a status code equal to that given
+func (o *DevicesRanOnDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DevicesRanOnDefault) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] DevicesRanOn default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DevicesRanOnDefault) String() string {
+	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] DevicesRanOn default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DevicesRanOnDefault) GetPayload() *models.APIMsaReplyDevicesRanOn {
 	return o.Payload
 }

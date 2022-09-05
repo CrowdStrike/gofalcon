@@ -84,9 +84,39 @@ type DeleteRulesOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rules o k response has a 2xx status code
+func (o *DeleteRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete rules o k response has a 3xx status code
+func (o *DeleteRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rules o k response has a 4xx status code
+func (o *DeleteRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete rules o k response has a 5xx status code
+func (o *DeleteRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rules o k response a status code equal to that given
+func (o *DeleteRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRulesOK) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteRulesOK) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteRulesOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type DeleteRulesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rules forbidden response has a 2xx status code
+func (o *DeleteRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rules forbidden response has a 3xx status code
+func (o *DeleteRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rules forbidden response has a 4xx status code
+func (o *DeleteRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rules forbidden response has a 5xx status code
+func (o *DeleteRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rules forbidden response a status code equal to that given
+func (o *DeleteRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRulesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteRulesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type DeleteRulesNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rules not found response has a 2xx status code
+func (o *DeleteRulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rules not found response has a 3xx status code
+func (o *DeleteRulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rules not found response has a 4xx status code
+func (o *DeleteRulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rules not found response has a 5xx status code
+func (o *DeleteRulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rules not found response a status code equal to that given
+func (o *DeleteRulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRulesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteRulesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteRulesNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type DeleteRulesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rules too many requests response has a 2xx status code
+func (o *DeleteRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rules too many requests response has a 3xx status code
+func (o *DeleteRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rules too many requests response has a 4xx status code
+func (o *DeleteRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rules too many requests response has a 5xx status code
+func (o *DeleteRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rules too many requests response a status code equal to that given
+func (o *DeleteRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *DeleteRulesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete rules default response has a 2xx status code
+func (o *DeleteRulesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete rules default response has a 3xx status code
+func (o *DeleteRulesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete rules default response has a 4xx status code
+func (o *DeleteRulesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete rules default response has a 5xx status code
+func (o *DeleteRulesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete rules default response a status code equal to that given
+func (o *DeleteRulesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteRulesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] delete-rules default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteRulesDefault) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] delete-rules default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteRulesDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type DeleteDeviceControlPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete device control policies o k response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete device control policies o k response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete device control policies o k response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete device control policies o k response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete device control policies o k response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesOK) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteDeviceControlPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete device control policies forbidden response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete device control policies forbidden response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete device control policies forbidden response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete device control policies forbidden response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete device control policies forbidden response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteDeviceControlPoliciesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete device control policies not found response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete device control policies not found response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete device control policies not found response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete device control policies not found response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete device control policies not found response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteDeviceControlPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type DeleteDeviceControlPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete device control policies too many requests response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete device control policies too many requests response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete device control policies too many requests response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete device control policies too many requests response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete device control policies too many requests response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteDeviceControlPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type DeleteDeviceControlPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete device control policies internal server error response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete device control policies internal server error response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete device control policies internal server error response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete device control policies internal server error response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete device control policies internal server error response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteDeviceControlPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete device control policies default response has a 2xx status code
+func (o *DeleteDeviceControlPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete device control policies default response has a 3xx status code
+func (o *DeleteDeviceControlPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete device control policies default response has a 4xx status code
+func (o *DeleteDeviceControlPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete device control policies default response has a 5xx status code
+func (o *DeleteDeviceControlPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete device control policies default response a status code equal to that given
+func (o *DeleteDeviceControlPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteDeviceControlPoliciesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteDeviceControlPoliciesDefault) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteDeviceControlPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

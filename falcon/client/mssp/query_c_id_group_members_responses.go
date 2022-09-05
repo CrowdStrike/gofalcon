@@ -82,9 +82,39 @@ type QueryCIDGroupMembersOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query c Id group members o k response has a 2xx status code
+func (o *QueryCIDGroupMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query c Id group members o k response has a 3xx status code
+func (o *QueryCIDGroupMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id group members o k response has a 4xx status code
+func (o *QueryCIDGroupMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query c Id group members o k response has a 5xx status code
+func (o *QueryCIDGroupMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id group members o k response a status code equal to that given
+func (o *QueryCIDGroupMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCIDGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCIDGroupMembersOK) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCIDGroupMembersOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type QueryCIDGroupMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query c Id group members forbidden response has a 2xx status code
+func (o *QueryCIDGroupMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query c Id group members forbidden response has a 3xx status code
+func (o *QueryCIDGroupMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id group members forbidden response has a 4xx status code
+func (o *QueryCIDGroupMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query c Id group members forbidden response has a 5xx status code
+func (o *QueryCIDGroupMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id group members forbidden response a status code equal to that given
+func (o *QueryCIDGroupMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCIDGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCIDGroupMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCIDGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type QueryCIDGroupMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query c Id group members too many requests response has a 2xx status code
+func (o *QueryCIDGroupMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query c Id group members too many requests response has a 3xx status code
+func (o *QueryCIDGroupMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id group members too many requests response has a 4xx status code
+func (o *QueryCIDGroupMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query c Id group members too many requests response has a 5xx status code
+func (o *QueryCIDGroupMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id group members too many requests response a status code equal to that given
+func (o *QueryCIDGroupMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCIDGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCIDGroupMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCIDGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *QueryCIDGroupMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query c ID group members default response has a 2xx status code
+func (o *QueryCIDGroupMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query c ID group members default response has a 3xx status code
+func (o *QueryCIDGroupMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query c ID group members default response has a 4xx status code
+func (o *QueryCIDGroupMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query c ID group members default response has a 5xx status code
+func (o *QueryCIDGroupMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query c ID group members default response a status code equal to that given
+func (o *QueryCIDGroupMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCIDGroupMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIDGroupMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCIDGroupMembersDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIDGroupMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCIDGroupMembersDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -88,7 +88,36 @@ type GetMalQueryEntitiesSamplesFetchV1OK struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 o k response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 o k response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 o k response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 o k response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 o k response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1OK) Error() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1OK ", 200)
+}
+
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1OK ", 200)
 }
 
@@ -142,9 +171,39 @@ type GetMalQueryEntitiesSamplesFetchV1Unauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 unauthorized response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 unauthorized response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 unauthorized response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 unauthorized response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 unauthorized response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -206,9 +265,39 @@ type GetMalQueryEntitiesSamplesFetchV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 forbidden response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 forbidden response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 forbidden response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 forbidden response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 forbidden response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -274,9 +363,39 @@ type GetMalQueryEntitiesSamplesFetchV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 too many requests response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 too many requests response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 too many requests response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 too many requests response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 too many requests response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -349,9 +468,39 @@ type GetMalQueryEntitiesSamplesFetchV1InternalServerError struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 internal server error response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 internal server error response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 internal server error response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 internal server error response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 internal server error response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -411,7 +560,36 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get mal query entities samples fetch v1 default response has a 2xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get mal query entities samples fetch v1 default response has a 3xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get mal query entities samples fetch v1 default response has a 4xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get mal query entities samples fetch v1 default response has a 5xx status code
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get mal query entities samples fetch v1 default response a status code equal to that given
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1Default) Error() string {
+	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] GetMalQueryEntitiesSamplesFetchV1 default ", o._statusCode)
+}
+
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) String() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] GetMalQueryEntitiesSamplesFetchV1 default ", o._statusCode)
 }
 

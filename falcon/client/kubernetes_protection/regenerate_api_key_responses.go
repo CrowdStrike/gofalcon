@@ -100,9 +100,39 @@ type RegenerateAPIKeyOK struct {
 	Payload *models.K8sregRegenAPIKeyResp
 }
 
+// IsSuccess returns true when this regenerate Api key o k response has a 2xx status code
+func (o *RegenerateAPIKeyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this regenerate Api key o k response has a 3xx status code
+func (o *RegenerateAPIKeyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key o k response has a 4xx status code
+func (o *RegenerateAPIKeyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this regenerate Api key o k response has a 5xx status code
+func (o *RegenerateAPIKeyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this regenerate Api key o k response a status code equal to that given
+func (o *RegenerateAPIKeyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RegenerateAPIKeyOK) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK  %+v", 200, o.Payload)
 }
+
+func (o *RegenerateAPIKeyOK) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK  %+v", 200, o.Payload)
+}
+
 func (o *RegenerateAPIKeyOK) GetPayload() *models.K8sregRegenAPIKeyResp {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type RegenerateAPIKeyMultiStatus struct {
 	Payload *models.K8sregRegenAPIKeyResp
 }
 
+// IsSuccess returns true when this regenerate Api key multi status response has a 2xx status code
+func (o *RegenerateAPIKeyMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this regenerate Api key multi status response has a 3xx status code
+func (o *RegenerateAPIKeyMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key multi status response has a 4xx status code
+func (o *RegenerateAPIKeyMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this regenerate Api key multi status response has a 5xx status code
+func (o *RegenerateAPIKeyMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this regenerate Api key multi status response a status code equal to that given
+func (o *RegenerateAPIKeyMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *RegenerateAPIKeyMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *RegenerateAPIKeyMultiStatus) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *RegenerateAPIKeyMultiStatus) GetPayload() *models.K8sregRegenAPIKeyResp {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type RegenerateAPIKeyBadRequest struct {
 	Payload *models.K8sregRegenAPIKeyResp
 }
 
+// IsSuccess returns true when this regenerate Api key bad request response has a 2xx status code
+func (o *RegenerateAPIKeyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this regenerate Api key bad request response has a 3xx status code
+func (o *RegenerateAPIKeyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key bad request response has a 4xx status code
+func (o *RegenerateAPIKeyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this regenerate Api key bad request response has a 5xx status code
+func (o *RegenerateAPIKeyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this regenerate Api key bad request response a status code equal to that given
+func (o *RegenerateAPIKeyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RegenerateAPIKeyBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RegenerateAPIKeyBadRequest) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RegenerateAPIKeyBadRequest) GetPayload() *models.K8sregRegenAPIKeyResp {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type RegenerateAPIKeyForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this regenerate Api key forbidden response has a 2xx status code
+func (o *RegenerateAPIKeyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this regenerate Api key forbidden response has a 3xx status code
+func (o *RegenerateAPIKeyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key forbidden response has a 4xx status code
+func (o *RegenerateAPIKeyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this regenerate Api key forbidden response has a 5xx status code
+func (o *RegenerateAPIKeyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this regenerate Api key forbidden response a status code equal to that given
+func (o *RegenerateAPIKeyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RegenerateAPIKeyForbidden) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RegenerateAPIKeyForbidden) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RegenerateAPIKeyForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type RegenerateAPIKeyTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this regenerate Api key too many requests response has a 2xx status code
+func (o *RegenerateAPIKeyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this regenerate Api key too many requests response has a 3xx status code
+func (o *RegenerateAPIKeyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key too many requests response has a 4xx status code
+func (o *RegenerateAPIKeyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this regenerate Api key too many requests response has a 5xx status code
+func (o *RegenerateAPIKeyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this regenerate Api key too many requests response a status code equal to that given
+func (o *RegenerateAPIKeyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RegenerateAPIKeyTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RegenerateAPIKeyTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RegenerateAPIKeyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type RegenerateAPIKeyInternalServerError struct {
 	Payload *models.K8sregRegenAPIKeyResp
 }
 
+// IsSuccess returns true when this regenerate Api key internal server error response has a 2xx status code
+func (o *RegenerateAPIKeyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this regenerate Api key internal server error response has a 3xx status code
+func (o *RegenerateAPIKeyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this regenerate Api key internal server error response has a 4xx status code
+func (o *RegenerateAPIKeyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this regenerate Api key internal server error response has a 5xx status code
+func (o *RegenerateAPIKeyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this regenerate Api key internal server error response a status code equal to that given
+func (o *RegenerateAPIKeyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RegenerateAPIKeyInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RegenerateAPIKeyInternalServerError) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RegenerateAPIKeyInternalServerError) GetPayload() *models.K8sregRegenAPIKeyResp {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *RegenerateAPIKeyDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this regenerate API key default response has a 2xx status code
+func (o *RegenerateAPIKeyDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this regenerate API key default response has a 3xx status code
+func (o *RegenerateAPIKeyDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this regenerate API key default response has a 4xx status code
+func (o *RegenerateAPIKeyDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this regenerate API key default response has a 5xx status code
+func (o *RegenerateAPIKeyDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this regenerate API key default response a status code equal to that given
+func (o *RegenerateAPIKeyDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RegenerateAPIKeyDefault) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] RegenerateAPIKey default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RegenerateAPIKeyDefault) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] RegenerateAPIKey default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RegenerateAPIKeyDefault) GetPayload() *models.K8sregRegenAPIKeyResp {
 	return o.Payload
 }

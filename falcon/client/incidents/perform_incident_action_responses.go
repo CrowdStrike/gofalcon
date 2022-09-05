@@ -96,9 +96,39 @@ type PerformIncidentActionOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action o k response has a 2xx status code
+func (o *PerformIncidentActionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this perform incident action o k response has a 3xx status code
+func (o *PerformIncidentActionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action o k response has a 4xx status code
+func (o *PerformIncidentActionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform incident action o k response has a 5xx status code
+func (o *PerformIncidentActionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform incident action o k response a status code equal to that given
+func (o *PerformIncidentActionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PerformIncidentActionOK) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
 }
+
+func (o *PerformIncidentActionOK) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
+}
+
 func (o *PerformIncidentActionOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type PerformIncidentActionBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action bad request response has a 2xx status code
+func (o *PerformIncidentActionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform incident action bad request response has a 3xx status code
+func (o *PerformIncidentActionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action bad request response has a 4xx status code
+func (o *PerformIncidentActionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform incident action bad request response has a 5xx status code
+func (o *PerformIncidentActionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform incident action bad request response a status code equal to that given
+func (o *PerformIncidentActionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PerformIncidentActionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PerformIncidentActionBadRequest) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PerformIncidentActionBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type PerformIncidentActionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action forbidden response has a 2xx status code
+func (o *PerformIncidentActionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform incident action forbidden response has a 3xx status code
+func (o *PerformIncidentActionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action forbidden response has a 4xx status code
+func (o *PerformIncidentActionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform incident action forbidden response has a 5xx status code
+func (o *PerformIncidentActionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform incident action forbidden response a status code equal to that given
+func (o *PerformIncidentActionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PerformIncidentActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PerformIncidentActionForbidden) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PerformIncidentActionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type PerformIncidentActionConflict struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action conflict response has a 2xx status code
+func (o *PerformIncidentActionConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform incident action conflict response has a 3xx status code
+func (o *PerformIncidentActionConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action conflict response has a 4xx status code
+func (o *PerformIncidentActionConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform incident action conflict response has a 5xx status code
+func (o *PerformIncidentActionConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform incident action conflict response a status code equal to that given
+func (o *PerformIncidentActionConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PerformIncidentActionConflict) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict  %+v", 409, o.Payload)
 }
+
+func (o *PerformIncidentActionConflict) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionConflict  %+v", 409, o.Payload)
+}
+
 func (o *PerformIncidentActionConflict) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type PerformIncidentActionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action too many requests response has a 2xx status code
+func (o *PerformIncidentActionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform incident action too many requests response has a 3xx status code
+func (o *PerformIncidentActionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action too many requests response has a 4xx status code
+func (o *PerformIncidentActionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform incident action too many requests response has a 5xx status code
+func (o *PerformIncidentActionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform incident action too many requests response a status code equal to that given
+func (o *PerformIncidentActionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PerformIncidentActionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PerformIncidentActionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PerformIncidentActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type PerformIncidentActionInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform incident action internal server error response has a 2xx status code
+func (o *PerformIncidentActionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform incident action internal server error response has a 3xx status code
+func (o *PerformIncidentActionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform incident action internal server error response has a 4xx status code
+func (o *PerformIncidentActionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform incident action internal server error response has a 5xx status code
+func (o *PerformIncidentActionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this perform incident action internal server error response a status code equal to that given
+func (o *PerformIncidentActionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PerformIncidentActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PerformIncidentActionInternalServerError) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PerformIncidentActionInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *PerformIncidentActionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this perform incident action default response has a 2xx status code
+func (o *PerformIncidentActionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this perform incident action default response has a 3xx status code
+func (o *PerformIncidentActionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this perform incident action default response has a 4xx status code
+func (o *PerformIncidentActionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this perform incident action default response has a 5xx status code
+func (o *PerformIncidentActionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this perform incident action default response a status code equal to that given
+func (o *PerformIncidentActionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PerformIncidentActionDefault) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] PerformIncidentAction default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PerformIncidentActionDefault) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] PerformIncidentAction default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PerformIncidentActionDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

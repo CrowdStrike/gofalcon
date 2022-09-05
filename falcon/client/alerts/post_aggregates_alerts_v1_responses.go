@@ -94,9 +94,39 @@ type PostAggregatesAlertsV1OK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 o k response has a 2xx status code
+func (o *PostAggregatesAlertsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 o k response has a 3xx status code
+func (o *PostAggregatesAlertsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post aggregates alerts v1 o k response has a 4xx status code
+func (o *PostAggregatesAlertsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post aggregates alerts v1 o k response has a 5xx status code
+func (o *PostAggregatesAlertsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post aggregates alerts v1 o k response a status code equal to that given
+func (o *PostAggregatesAlertsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAggregatesAlertsV1OK) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1OK) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1OK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type PostAggregatesAlertsV1BadRequest struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 bad request response has a 2xx status code
+func (o *PostAggregatesAlertsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 bad request response has a 3xx status code
+func (o *PostAggregatesAlertsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post aggregates alerts v1 bad request response has a 4xx status code
+func (o *PostAggregatesAlertsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post aggregates alerts v1 bad request response has a 5xx status code
+func (o *PostAggregatesAlertsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post aggregates alerts v1 bad request response a status code equal to that given
+func (o *PostAggregatesAlertsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAggregatesAlertsV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type PostAggregatesAlertsV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 forbidden response has a 2xx status code
+func (o *PostAggregatesAlertsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 forbidden response has a 3xx status code
+func (o *PostAggregatesAlertsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post aggregates alerts v1 forbidden response has a 4xx status code
+func (o *PostAggregatesAlertsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post aggregates alerts v1 forbidden response has a 5xx status code
+func (o *PostAggregatesAlertsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post aggregates alerts v1 forbidden response a status code equal to that given
+func (o *PostAggregatesAlertsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAggregatesAlertsV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type PostAggregatesAlertsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 too many requests response has a 2xx status code
+func (o *PostAggregatesAlertsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 too many requests response has a 3xx status code
+func (o *PostAggregatesAlertsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post aggregates alerts v1 too many requests response has a 4xx status code
+func (o *PostAggregatesAlertsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post aggregates alerts v1 too many requests response has a 5xx status code
+func (o *PostAggregatesAlertsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post aggregates alerts v1 too many requests response a status code equal to that given
+func (o *PostAggregatesAlertsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAggregatesAlertsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type PostAggregatesAlertsV1InternalServerError struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 internal server error response has a 2xx status code
+func (o *PostAggregatesAlertsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 internal server error response has a 3xx status code
+func (o *PostAggregatesAlertsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post aggregates alerts v1 internal server error response has a 4xx status code
+func (o *PostAggregatesAlertsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post aggregates alerts v1 internal server error response has a 5xx status code
+func (o *PostAggregatesAlertsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post aggregates alerts v1 internal server error response a status code equal to that given
+func (o *PostAggregatesAlertsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAggregatesAlertsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *PostAggregatesAlertsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post aggregates alerts v1 default response has a 2xx status code
+func (o *PostAggregatesAlertsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post aggregates alerts v1 default response has a 3xx status code
+func (o *PostAggregatesAlertsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post aggregates alerts v1 default response has a 4xx status code
+func (o *PostAggregatesAlertsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post aggregates alerts v1 default response has a 5xx status code
+func (o *PostAggregatesAlertsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post aggregates alerts v1 default response a status code equal to that given
+func (o *PostAggregatesAlertsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostAggregatesAlertsV1Default) Error() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] PostAggregatesAlertsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PostAggregatesAlertsV1Default) String() string {
+	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] PostAggregatesAlertsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PostAggregatesAlertsV1Default) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

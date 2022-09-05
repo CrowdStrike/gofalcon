@@ -78,9 +78,39 @@ type EntitiesProcessesOK struct {
 	Payload *models.APIMsaProcessDetailResponse
 }
 
+// IsSuccess returns true when this entities processes o k response has a 2xx status code
+func (o *EntitiesProcessesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities processes o k response has a 3xx status code
+func (o *EntitiesProcessesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities processes o k response has a 4xx status code
+func (o *EntitiesProcessesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities processes o k response has a 5xx status code
+func (o *EntitiesProcessesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities processes o k response a status code equal to that given
+func (o *EntitiesProcessesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *EntitiesProcessesOK) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK  %+v", 200, o.Payload)
 }
+
+func (o *EntitiesProcessesOK) String() string {
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK  %+v", 200, o.Payload)
+}
+
 func (o *EntitiesProcessesOK) GetPayload() *models.APIMsaProcessDetailResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type EntitiesProcessesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this entities processes forbidden response has a 2xx status code
+func (o *EntitiesProcessesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities processes forbidden response has a 3xx status code
+func (o *EntitiesProcessesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities processes forbidden response has a 4xx status code
+func (o *EntitiesProcessesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities processes forbidden response has a 5xx status code
+func (o *EntitiesProcessesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities processes forbidden response a status code equal to that given
+func (o *EntitiesProcessesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *EntitiesProcessesForbidden) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *EntitiesProcessesForbidden) String() string {
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *EntitiesProcessesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type EntitiesProcessesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this entities processes too many requests response has a 2xx status code
+func (o *EntitiesProcessesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities processes too many requests response has a 3xx status code
+func (o *EntitiesProcessesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities processes too many requests response has a 4xx status code
+func (o *EntitiesProcessesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities processes too many requests response has a 5xx status code
+func (o *EntitiesProcessesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities processes too many requests response a status code equal to that given
+func (o *EntitiesProcessesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *EntitiesProcessesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *EntitiesProcessesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *EntitiesProcessesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *EntitiesProcessesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this entities processes default response has a 2xx status code
+func (o *EntitiesProcessesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this entities processes default response has a 3xx status code
+func (o *EntitiesProcessesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this entities processes default response has a 4xx status code
+func (o *EntitiesProcessesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this entities processes default response has a 5xx status code
+func (o *EntitiesProcessesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this entities processes default response a status code equal to that given
+func (o *EntitiesProcessesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *EntitiesProcessesDefault) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entities.processes default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *EntitiesProcessesDefault) String() string {
+	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entities.processes default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *EntitiesProcessesDefault) GetPayload() *models.APIMsaProcessDetailResponse {
 	return o.Payload
 }

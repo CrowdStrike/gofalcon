@@ -90,9 +90,39 @@ type QueryCombinedHostGroupsOK struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this query combined host groups o k response has a 2xx status code
+func (o *QueryCombinedHostGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined host groups o k response has a 3xx status code
+func (o *QueryCombinedHostGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined host groups o k response has a 4xx status code
+func (o *QueryCombinedHostGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined host groups o k response has a 5xx status code
+func (o *QueryCombinedHostGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined host groups o k response a status code equal to that given
+func (o *QueryCombinedHostGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedHostGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsOK) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsOK) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryCombinedHostGroupsBadRequest struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this query combined host groups bad request response has a 2xx status code
+func (o *QueryCombinedHostGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined host groups bad request response has a 3xx status code
+func (o *QueryCombinedHostGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined host groups bad request response has a 4xx status code
+func (o *QueryCombinedHostGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined host groups bad request response has a 5xx status code
+func (o *QueryCombinedHostGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined host groups bad request response a status code equal to that given
+func (o *QueryCombinedHostGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedHostGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsBadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryCombinedHostGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined host groups forbidden response has a 2xx status code
+func (o *QueryCombinedHostGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined host groups forbidden response has a 3xx status code
+func (o *QueryCombinedHostGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined host groups forbidden response has a 4xx status code
+func (o *QueryCombinedHostGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined host groups forbidden response has a 5xx status code
+func (o *QueryCombinedHostGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined host groups forbidden response a status code equal to that given
+func (o *QueryCombinedHostGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryCombinedHostGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined host groups too many requests response has a 2xx status code
+func (o *QueryCombinedHostGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined host groups too many requests response has a 3xx status code
+func (o *QueryCombinedHostGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined host groups too many requests response has a 4xx status code
+func (o *QueryCombinedHostGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined host groups too many requests response has a 5xx status code
+func (o *QueryCombinedHostGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined host groups too many requests response a status code equal to that given
+func (o *QueryCombinedHostGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedHostGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryCombinedHostGroupsInternalServerError struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this query combined host groups internal server error response has a 2xx status code
+func (o *QueryCombinedHostGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined host groups internal server error response has a 3xx status code
+func (o *QueryCombinedHostGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined host groups internal server error response has a 4xx status code
+func (o *QueryCombinedHostGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined host groups internal server error response has a 5xx status code
+func (o *QueryCombinedHostGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined host groups internal server error response a status code equal to that given
+func (o *QueryCombinedHostGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryCombinedHostGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined host groups default response has a 2xx status code
+func (o *QueryCombinedHostGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined host groups default response has a 3xx status code
+func (o *QueryCombinedHostGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined host groups default response has a 4xx status code
+func (o *QueryCombinedHostGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined host groups default response has a 5xx status code
+func (o *QueryCombinedHostGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined host groups default response a status code equal to that given
+func (o *QueryCombinedHostGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedHostGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedHostGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-groups/v1][%d] queryCombinedHostGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedHostGroupsDefault) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }

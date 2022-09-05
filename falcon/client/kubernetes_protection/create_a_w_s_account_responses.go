@@ -93,9 +93,39 @@ type CreateAWSAccountCreated struct {
 	Payload *models.K8sregCreateAWSAccReq
 }
 
+// IsSuccess returns true when this create a w s account created response has a 2xx status code
+func (o *CreateAWSAccountCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create a w s account created response has a 3xx status code
+func (o *CreateAWSAccountCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account created response has a 4xx status code
+func (o *CreateAWSAccountCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create a w s account created response has a 5xx status code
+func (o *CreateAWSAccountCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create a w s account created response a status code equal to that given
+func (o *CreateAWSAccountCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateAWSAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateAWSAccountCreated) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateAWSAccountCreated) GetPayload() *models.K8sregCreateAWSAccReq {
 	return o.Payload
 }
@@ -168,9 +198,39 @@ type CreateAWSAccountMultiStatus struct {
 	Payload *models.K8sregCreateAWSAccReq
 }
 
+// IsSuccess returns true when this create a w s account multi status response has a 2xx status code
+func (o *CreateAWSAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create a w s account multi status response has a 3xx status code
+func (o *CreateAWSAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account multi status response has a 4xx status code
+func (o *CreateAWSAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create a w s account multi status response has a 5xx status code
+func (o *CreateAWSAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create a w s account multi status response a status code equal to that given
+func (o *CreateAWSAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *CreateAWSAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *CreateAWSAccountMultiStatus) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *CreateAWSAccountMultiStatus) GetPayload() *models.K8sregCreateAWSAccReq {
 	return o.Payload
 }
@@ -243,9 +303,39 @@ type CreateAWSAccountBadRequest struct {
 	Payload *models.K8sregCreateAWSAccReq
 }
 
+// IsSuccess returns true when this create a w s account bad request response has a 2xx status code
+func (o *CreateAWSAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create a w s account bad request response has a 3xx status code
+func (o *CreateAWSAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account bad request response has a 4xx status code
+func (o *CreateAWSAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create a w s account bad request response has a 5xx status code
+func (o *CreateAWSAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create a w s account bad request response a status code equal to that given
+func (o *CreateAWSAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateAWSAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateAWSAccountBadRequest) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateAWSAccountBadRequest) GetPayload() *models.K8sregCreateAWSAccReq {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ type CreateAWSAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create a w s account forbidden response has a 2xx status code
+func (o *CreateAWSAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create a w s account forbidden response has a 3xx status code
+func (o *CreateAWSAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account forbidden response has a 4xx status code
+func (o *CreateAWSAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create a w s account forbidden response has a 5xx status code
+func (o *CreateAWSAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create a w s account forbidden response a status code equal to that given
+func (o *CreateAWSAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateAWSAccountForbidden) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateAWSAccountForbidden) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateAWSAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -397,9 +517,39 @@ type CreateAWSAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create a w s account too many requests response has a 2xx status code
+func (o *CreateAWSAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create a w s account too many requests response has a 3xx status code
+func (o *CreateAWSAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account too many requests response has a 4xx status code
+func (o *CreateAWSAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create a w s account too many requests response has a 5xx status code
+func (o *CreateAWSAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create a w s account too many requests response a status code equal to that given
+func (o *CreateAWSAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateAWSAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateAWSAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateAWSAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -483,9 +633,39 @@ type CreateAWSAccountInternalServerError struct {
 	Payload *models.K8sregCreateAWSAccReq
 }
 
+// IsSuccess returns true when this create a w s account internal server error response has a 2xx status code
+func (o *CreateAWSAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create a w s account internal server error response has a 3xx status code
+func (o *CreateAWSAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create a w s account internal server error response has a 4xx status code
+func (o *CreateAWSAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create a w s account internal server error response has a 5xx status code
+func (o *CreateAWSAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create a w s account internal server error response a status code equal to that given
+func (o *CreateAWSAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateAWSAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateAWSAccountInternalServerError) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateAWSAccountInternalServerError) GetPayload() *models.K8sregCreateAWSAccReq {
 	return o.Payload
 }

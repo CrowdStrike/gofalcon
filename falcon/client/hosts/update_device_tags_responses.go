@@ -84,9 +84,39 @@ type UpdateDeviceTagsOK struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this update device tags o k response has a 2xx status code
+func (o *UpdateDeviceTagsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update device tags o k response has a 3xx status code
+func (o *UpdateDeviceTagsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device tags o k response has a 4xx status code
+func (o *UpdateDeviceTagsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update device tags o k response has a 5xx status code
+func (o *UpdateDeviceTagsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device tags o k response a status code equal to that given
+func (o *UpdateDeviceTagsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateDeviceTagsOK) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateDeviceTagsOK) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateDeviceTagsOK) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type UpdateDeviceTagsBadRequest struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this update device tags bad request response has a 2xx status code
+func (o *UpdateDeviceTagsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device tags bad request response has a 3xx status code
+func (o *UpdateDeviceTagsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device tags bad request response has a 4xx status code
+func (o *UpdateDeviceTagsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device tags bad request response has a 5xx status code
+func (o *UpdateDeviceTagsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device tags bad request response a status code equal to that given
+func (o *UpdateDeviceTagsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateDeviceTagsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateDeviceTagsBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateDeviceTagsBadRequest) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type UpdateDeviceTagsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update device tags forbidden response has a 2xx status code
+func (o *UpdateDeviceTagsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device tags forbidden response has a 3xx status code
+func (o *UpdateDeviceTagsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device tags forbidden response has a 4xx status code
+func (o *UpdateDeviceTagsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device tags forbidden response has a 5xx status code
+func (o *UpdateDeviceTagsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device tags forbidden response a status code equal to that given
+func (o *UpdateDeviceTagsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateDeviceTagsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateDeviceTagsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateDeviceTagsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type UpdateDeviceTagsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update device tags too many requests response has a 2xx status code
+func (o *UpdateDeviceTagsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device tags too many requests response has a 3xx status code
+func (o *UpdateDeviceTagsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device tags too many requests response has a 4xx status code
+func (o *UpdateDeviceTagsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device tags too many requests response has a 5xx status code
+func (o *UpdateDeviceTagsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device tags too many requests response a status code equal to that given
+func (o *UpdateDeviceTagsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateDeviceTagsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateDeviceTagsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateDeviceTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *UpdateDeviceTagsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update device tags default response has a 2xx status code
+func (o *UpdateDeviceTagsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update device tags default response has a 3xx status code
+func (o *UpdateDeviceTagsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update device tags default response has a 4xx status code
+func (o *UpdateDeviceTagsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update device tags default response has a 5xx status code
+func (o *UpdateDeviceTagsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update device tags default response a status code equal to that given
+func (o *UpdateDeviceTagsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateDeviceTagsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] UpdateDeviceTags default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateDeviceTagsDefault) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] UpdateDeviceTags default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateDeviceTagsDefault) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }

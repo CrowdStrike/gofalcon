@@ -94,9 +94,39 @@ type UserActionV1OK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this user action v1 o k response has a 2xx status code
+func (o *UserActionV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this user action v1 o k response has a 3xx status code
+func (o *UserActionV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this user action v1 o k response has a 4xx status code
+func (o *UserActionV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this user action v1 o k response has a 5xx status code
+func (o *UserActionV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this user action v1 o k response a status code equal to that given
+func (o *UserActionV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UserActionV1OK) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1OK  %+v", 200, o.Payload)
 }
+
+func (o *UserActionV1OK) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1OK  %+v", 200, o.Payload)
+}
+
 func (o *UserActionV1OK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type UserActionV1BadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this user action v1 bad request response has a 2xx status code
+func (o *UserActionV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this user action v1 bad request response has a 3xx status code
+func (o *UserActionV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this user action v1 bad request response has a 4xx status code
+func (o *UserActionV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this user action v1 bad request response has a 5xx status code
+func (o *UserActionV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this user action v1 bad request response a status code equal to that given
+func (o *UserActionV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UserActionV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UserActionV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UserActionV1BadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type UserActionV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this user action v1 forbidden response has a 2xx status code
+func (o *UserActionV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this user action v1 forbidden response has a 3xx status code
+func (o *UserActionV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this user action v1 forbidden response has a 4xx status code
+func (o *UserActionV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this user action v1 forbidden response has a 5xx status code
+func (o *UserActionV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this user action v1 forbidden response a status code equal to that given
+func (o *UserActionV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UserActionV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *UserActionV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *UserActionV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type UserActionV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this user action v1 too many requests response has a 2xx status code
+func (o *UserActionV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this user action v1 too many requests response has a 3xx status code
+func (o *UserActionV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this user action v1 too many requests response has a 4xx status code
+func (o *UserActionV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this user action v1 too many requests response has a 5xx status code
+func (o *UserActionV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this user action v1 too many requests response a status code equal to that given
+func (o *UserActionV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UserActionV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UserActionV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UserActionV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type UserActionV1InternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this user action v1 internal server error response has a 2xx status code
+func (o *UserActionV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this user action v1 internal server error response has a 3xx status code
+func (o *UserActionV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this user action v1 internal server error response has a 4xx status code
+func (o *UserActionV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this user action v1 internal server error response has a 5xx status code
+func (o *UserActionV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this user action v1 internal server error response a status code equal to that given
+func (o *UserActionV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UserActionV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UserActionV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UserActionV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *UserActionV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this user action v1 default response has a 2xx status code
+func (o *UserActionV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this user action v1 default response has a 3xx status code
+func (o *UserActionV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this user action v1 default response has a 4xx status code
+func (o *UserActionV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this user action v1 default response has a 5xx status code
+func (o *UserActionV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this user action v1 default response a status code equal to that given
+func (o *UserActionV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UserActionV1Default) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UserActionV1Default) String() string {
+	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UserActionV1Default) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

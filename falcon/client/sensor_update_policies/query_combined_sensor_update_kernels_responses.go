@@ -94,9 +94,39 @@ type QueryCombinedSensorUpdateKernelsOK struct {
 	Payload *models.ResponsesSensorUpdateKernelsV1
 }
 
+// IsSuccess returns true when this query combined sensor update kernels o k response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined sensor update kernels o k response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined sensor update kernels o k response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined sensor update kernels o k response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined sensor update kernels o k response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedSensorUpdateKernelsOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsOK) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsOK) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryCombinedSensorUpdateKernelsBadRequest struct {
 	Payload *models.ResponsesSensorUpdateKernelsV1
 }
 
+// IsSuccess returns true when this query combined sensor update kernels bad request response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined sensor update kernels bad request response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined sensor update kernels bad request response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined sensor update kernels bad request response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined sensor update kernels bad request response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedSensorUpdateKernelsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsBadRequest) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryCombinedSensorUpdateKernelsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined sensor update kernels forbidden response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined sensor update kernels forbidden response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined sensor update kernels forbidden response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined sensor update kernels forbidden response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined sensor update kernels forbidden response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedSensorUpdateKernelsForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryCombinedSensorUpdateKernelsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined sensor update kernels too many requests response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined sensor update kernels too many requests response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined sensor update kernels too many requests response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined sensor update kernels too many requests response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined sensor update kernels too many requests response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryCombinedSensorUpdateKernelsInternalServerError struct {
 	Payload *models.ResponsesSensorUpdateKernelsV1
 }
 
+// IsSuccess returns true when this query combined sensor update kernels internal server error response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined sensor update kernels internal server error response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined sensor update kernels internal server error response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined sensor update kernels internal server error response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined sensor update kernels internal server error response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedSensorUpdateKernelsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsInternalServerError) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryCombinedSensorUpdateKernelsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined sensor update kernels default response has a 2xx status code
+func (o *QueryCombinedSensorUpdateKernelsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined sensor update kernels default response has a 3xx status code
+func (o *QueryCombinedSensorUpdateKernelsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined sensor update kernels default response has a 4xx status code
+func (o *QueryCombinedSensorUpdateKernelsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined sensor update kernels default response has a 5xx status code
+func (o *QueryCombinedSensorUpdateKernelsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined sensor update kernels default response a status code equal to that given
+func (o *QueryCombinedSensorUpdateKernelsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedSensorUpdateKernelsDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernels default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedSensorUpdateKernelsDefault) String() string {
+	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernels default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedSensorUpdateKernelsDefault) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
 	return o.Payload
 }

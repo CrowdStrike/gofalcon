@@ -90,9 +90,39 @@ type DeleteUserOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user o k response has a 2xx status code
+func (o *DeleteUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user o k response has a 3xx status code
+func (o *DeleteUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user o k response has a 4xx status code
+func (o *DeleteUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user o k response has a 5xx status code
+func (o *DeleteUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user o k response a status code equal to that given
+func (o *DeleteUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteUserOK) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteUserOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteUserBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user bad request response has a 2xx status code
+func (o *DeleteUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user bad request response has a 3xx status code
+func (o *DeleteUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user bad request response has a 4xx status code
+func (o *DeleteUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user bad request response has a 5xx status code
+func (o *DeleteUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user bad request response a status code equal to that given
+func (o *DeleteUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteUserBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteUserBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteUserBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteUserForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user forbidden response has a 2xx status code
+func (o *DeleteUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user forbidden response has a 3xx status code
+func (o *DeleteUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user forbidden response has a 4xx status code
+func (o *DeleteUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user forbidden response has a 5xx status code
+func (o *DeleteUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user forbidden response a status code equal to that given
+func (o *DeleteUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteUserForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteUserForbidden) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteUserForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type DeleteUserNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user not found response has a 2xx status code
+func (o *DeleteUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user not found response has a 3xx status code
+func (o *DeleteUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user not found response has a 4xx status code
+func (o *DeleteUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user not found response has a 5xx status code
+func (o *DeleteUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user not found response a status code equal to that given
+func (o *DeleteUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteUserNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteUserNotFound) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteUserNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type DeleteUserTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete user too many requests response has a 2xx status code
+func (o *DeleteUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user too many requests response has a 3xx status code
+func (o *DeleteUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user too many requests response has a 4xx status code
+func (o *DeleteUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user too many requests response has a 5xx status code
+func (o *DeleteUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user too many requests response a status code equal to that given
+func (o *DeleteUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteUserTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteUserDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete user default response has a 2xx status code
+func (o *DeleteUserDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete user default response has a 3xx status code
+func (o *DeleteUserDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete user default response has a 4xx status code
+func (o *DeleteUserDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete user default response has a 5xx status code
+func (o *DeleteUserDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete user default response a status code equal to that given
+func (o *DeleteUserDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteUserDefault) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] DeleteUser default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteUserDefault) String() string {
+	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] DeleteUser default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteUserDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

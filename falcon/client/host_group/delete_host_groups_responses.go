@@ -90,9 +90,39 @@ type DeleteHostGroupsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete host groups o k response has a 2xx status code
+func (o *DeleteHostGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete host groups o k response has a 3xx status code
+func (o *DeleteHostGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete host groups o k response has a 4xx status code
+func (o *DeleteHostGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete host groups o k response has a 5xx status code
+func (o *DeleteHostGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete host groups o k response a status code equal to that given
+func (o *DeleteHostGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteHostGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteHostGroupsOK) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteHostGroupsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteHostGroupsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete host groups forbidden response has a 2xx status code
+func (o *DeleteHostGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete host groups forbidden response has a 3xx status code
+func (o *DeleteHostGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete host groups forbidden response has a 4xx status code
+func (o *DeleteHostGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete host groups forbidden response has a 5xx status code
+func (o *DeleteHostGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete host groups forbidden response a status code equal to that given
+func (o *DeleteHostGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteHostGroupsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteHostGroupsNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete host groups not found response has a 2xx status code
+func (o *DeleteHostGroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete host groups not found response has a 3xx status code
+func (o *DeleteHostGroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete host groups not found response has a 4xx status code
+func (o *DeleteHostGroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete host groups not found response has a 5xx status code
+func (o *DeleteHostGroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete host groups not found response a status code equal to that given
+func (o *DeleteHostGroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteHostGroupsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteHostGroupsNotFound) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteHostGroupsNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type DeleteHostGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete host groups too many requests response has a 2xx status code
+func (o *DeleteHostGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete host groups too many requests response has a 3xx status code
+func (o *DeleteHostGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete host groups too many requests response has a 4xx status code
+func (o *DeleteHostGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete host groups too many requests response has a 5xx status code
+func (o *DeleteHostGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete host groups too many requests response a status code equal to that given
+func (o *DeleteHostGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteHostGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteHostGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type DeleteHostGroupsInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete host groups internal server error response has a 2xx status code
+func (o *DeleteHostGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete host groups internal server error response has a 3xx status code
+func (o *DeleteHostGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete host groups internal server error response has a 4xx status code
+func (o *DeleteHostGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete host groups internal server error response has a 5xx status code
+func (o *DeleteHostGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete host groups internal server error response a status code equal to that given
+func (o *DeleteHostGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteHostGroupsInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteHostGroupsInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteHostGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete host groups default response has a 2xx status code
+func (o *DeleteHostGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete host groups default response has a 3xx status code
+func (o *DeleteHostGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete host groups default response has a 4xx status code
+func (o *DeleteHostGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete host groups default response has a 5xx status code
+func (o *DeleteHostGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete host groups default response a status code equal to that given
+func (o *DeleteHostGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteHostGroupsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteHostGroupsDefault) String() string {
+	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteHostGroupsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -84,9 +84,39 @@ type RetrieveUserUUIDsByCIDOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user u Ui ds by c Id o k response has a 2xx status code
+func (o *RetrieveUserUUIDsByCIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this retrieve user u Ui ds by c Id o k response has a 3xx status code
+func (o *RetrieveUserUUIDsByCIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user u Ui ds by c Id o k response has a 4xx status code
+func (o *RetrieveUserUUIDsByCIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this retrieve user u Ui ds by c Id o k response has a 5xx status code
+func (o *RetrieveUserUUIDsByCIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user u Ui ds by c Id o k response a status code equal to that given
+func (o *RetrieveUserUUIDsByCIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RetrieveUserUUIDsByCIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK  %+v", 200, o.Payload)
 }
+
+func (o *RetrieveUserUUIDsByCIDOK) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK  %+v", 200, o.Payload)
+}
+
 func (o *RetrieveUserUUIDsByCIDOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RetrieveUserUUIDsByCIDBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user u Ui ds by c Id bad request response has a 2xx status code
+func (o *RetrieveUserUUIDsByCIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user u Ui ds by c Id bad request response has a 3xx status code
+func (o *RetrieveUserUUIDsByCIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user u Ui ds by c Id bad request response has a 4xx status code
+func (o *RetrieveUserUUIDsByCIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user u Ui ds by c Id bad request response has a 5xx status code
+func (o *RetrieveUserUUIDsByCIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user u Ui ds by c Id bad request response a status code equal to that given
+func (o *RetrieveUserUUIDsByCIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RetrieveUserUUIDsByCIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RetrieveUserUUIDsByCIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RetrieveUserUUIDsByCIDBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RetrieveUserUUIDsByCIDForbidden struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this retrieve user u Ui ds by c Id forbidden response has a 2xx status code
+func (o *RetrieveUserUUIDsByCIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user u Ui ds by c Id forbidden response has a 3xx status code
+func (o *RetrieveUserUUIDsByCIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user u Ui ds by c Id forbidden response has a 4xx status code
+func (o *RetrieveUserUUIDsByCIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user u Ui ds by c Id forbidden response has a 5xx status code
+func (o *RetrieveUserUUIDsByCIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user u Ui ds by c Id forbidden response a status code equal to that given
+func (o *RetrieveUserUUIDsByCIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RetrieveUserUUIDsByCIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RetrieveUserUUIDsByCIDForbidden) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RetrieveUserUUIDsByCIDForbidden) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RetrieveUserUUIDsByCIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this retrieve user u Ui ds by c Id too many requests response has a 2xx status code
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user u Ui ds by c Id too many requests response has a 3xx status code
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user u Ui ds by c Id too many requests response has a 4xx status code
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user u Ui ds by c Id too many requests response has a 5xx status code
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user u Ui ds by c Id too many requests response a status code equal to that given
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RetrieveUserUUIDsByCIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this retrieve user u UI ds by c ID default response has a 2xx status code
+func (o *RetrieveUserUUIDsByCIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this retrieve user u UI ds by c ID default response has a 3xx status code
+func (o *RetrieveUserUUIDsByCIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this retrieve user u UI ds by c ID default response has a 4xx status code
+func (o *RetrieveUserUUIDsByCIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this retrieve user u UI ds by c ID default response has a 5xx status code
+func (o *RetrieveUserUUIDsByCIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this retrieve user u UI ds by c ID default response a status code equal to that given
+func (o *RetrieveUserUUIDsByCIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RetrieveUserUUIDsByCIDDefault) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] RetrieveUserUUIDsByCID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RetrieveUserUUIDsByCIDDefault) String() string {
+	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] RetrieveUserUUIDsByCID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RetrieveUserUUIDsByCIDDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

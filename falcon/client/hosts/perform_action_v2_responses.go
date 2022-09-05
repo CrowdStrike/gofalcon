@@ -89,9 +89,39 @@ type PerformActionV2Accepted struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this perform action v2 accepted response has a 2xx status code
+func (o *PerformActionV2Accepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this perform action v2 accepted response has a 3xx status code
+func (o *PerformActionV2Accepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 accepted response has a 4xx status code
+func (o *PerformActionV2Accepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform action v2 accepted response has a 5xx status code
+func (o *PerformActionV2Accepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform action v2 accepted response a status code equal to that given
+func (o *PerformActionV2Accepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PerformActionV2Accepted) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted  %+v", 202, o.Payload)
 }
+
+func (o *PerformActionV2Accepted) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted  %+v", 202, o.Payload)
+}
+
 func (o *PerformActionV2Accepted) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -153,9 +183,39 @@ type PerformActionV2BadRequest struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this perform action v2 bad request response has a 2xx status code
+func (o *PerformActionV2BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform action v2 bad request response has a 3xx status code
+func (o *PerformActionV2BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 bad request response has a 4xx status code
+func (o *PerformActionV2BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform action v2 bad request response has a 5xx status code
+func (o *PerformActionV2BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform action v2 bad request response a status code equal to that given
+func (o *PerformActionV2BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PerformActionV2BadRequest) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PerformActionV2BadRequest) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PerformActionV2BadRequest) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -217,9 +277,39 @@ type PerformActionV2Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform action v2 forbidden response has a 2xx status code
+func (o *PerformActionV2Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform action v2 forbidden response has a 3xx status code
+func (o *PerformActionV2Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 forbidden response has a 4xx status code
+func (o *PerformActionV2Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform action v2 forbidden response has a 5xx status code
+func (o *PerformActionV2Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform action v2 forbidden response a status code equal to that given
+func (o *PerformActionV2Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PerformActionV2Forbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PerformActionV2Forbidden) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PerformActionV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -281,9 +371,39 @@ type PerformActionV2Conflict struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this perform action v2 conflict response has a 2xx status code
+func (o *PerformActionV2Conflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform action v2 conflict response has a 3xx status code
+func (o *PerformActionV2Conflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 conflict response has a 4xx status code
+func (o *PerformActionV2Conflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform action v2 conflict response has a 5xx status code
+func (o *PerformActionV2Conflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform action v2 conflict response a status code equal to that given
+func (o *PerformActionV2Conflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PerformActionV2Conflict) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict  %+v", 409, o.Payload)
 }
+
+func (o *PerformActionV2Conflict) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Conflict  %+v", 409, o.Payload)
+}
+
 func (o *PerformActionV2Conflict) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -349,9 +469,39 @@ type PerformActionV2TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform action v2 too many requests response has a 2xx status code
+func (o *PerformActionV2TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform action v2 too many requests response has a 3xx status code
+func (o *PerformActionV2TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 too many requests response has a 4xx status code
+func (o *PerformActionV2TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform action v2 too many requests response has a 5xx status code
+func (o *PerformActionV2TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform action v2 too many requests response a status code equal to that given
+func (o *PerformActionV2TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PerformActionV2TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PerformActionV2TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PerformActionV2TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -424,9 +574,39 @@ type PerformActionV2InternalServerError struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this perform action v2 internal server error response has a 2xx status code
+func (o *PerformActionV2InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform action v2 internal server error response has a 3xx status code
+func (o *PerformActionV2InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform action v2 internal server error response has a 4xx status code
+func (o *PerformActionV2InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform action v2 internal server error response has a 5xx status code
+func (o *PerformActionV2InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this perform action v2 internal server error response a status code equal to that given
+func (o *PerformActionV2InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PerformActionV2InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PerformActionV2InternalServerError) String() string {
+	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PerformActionV2InternalServerError) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }

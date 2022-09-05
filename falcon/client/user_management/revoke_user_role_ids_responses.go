@@ -84,9 +84,39 @@ type RevokeUserRoleIdsOK struct {
 	Payload *models.DomainUserRoleIDsResponse
 }
 
+// IsSuccess returns true when this revoke user role ids o k response has a 2xx status code
+func (o *RevokeUserRoleIdsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this revoke user role ids o k response has a 3xx status code
+func (o *RevokeUserRoleIdsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this revoke user role ids o k response has a 4xx status code
+func (o *RevokeUserRoleIdsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this revoke user role ids o k response has a 5xx status code
+func (o *RevokeUserRoleIdsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this revoke user role ids o k response a status code equal to that given
+func (o *RevokeUserRoleIdsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RevokeUserRoleIdsOK) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
 }
+
+func (o *RevokeUserRoleIdsOK) String() string {
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
+}
+
 func (o *RevokeUserRoleIdsOK) GetPayload() *models.DomainUserRoleIDsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RevokeUserRoleIdsBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this revoke user role ids bad request response has a 2xx status code
+func (o *RevokeUserRoleIdsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this revoke user role ids bad request response has a 3xx status code
+func (o *RevokeUserRoleIdsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this revoke user role ids bad request response has a 4xx status code
+func (o *RevokeUserRoleIdsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this revoke user role ids bad request response has a 5xx status code
+func (o *RevokeUserRoleIdsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this revoke user role ids bad request response a status code equal to that given
+func (o *RevokeUserRoleIdsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RevokeUserRoleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RevokeUserRoleIdsBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RevokeUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RevokeUserRoleIdsForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this revoke user role ids forbidden response has a 2xx status code
+func (o *RevokeUserRoleIdsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this revoke user role ids forbidden response has a 3xx status code
+func (o *RevokeUserRoleIdsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this revoke user role ids forbidden response has a 4xx status code
+func (o *RevokeUserRoleIdsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this revoke user role ids forbidden response has a 5xx status code
+func (o *RevokeUserRoleIdsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this revoke user role ids forbidden response a status code equal to that given
+func (o *RevokeUserRoleIdsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RevokeUserRoleIdsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RevokeUserRoleIdsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RevokeUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RevokeUserRoleIdsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this revoke user role ids too many requests response has a 2xx status code
+func (o *RevokeUserRoleIdsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this revoke user role ids too many requests response has a 3xx status code
+func (o *RevokeUserRoleIdsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this revoke user role ids too many requests response has a 4xx status code
+func (o *RevokeUserRoleIdsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this revoke user role ids too many requests response has a 5xx status code
+func (o *RevokeUserRoleIdsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this revoke user role ids too many requests response a status code equal to that given
+func (o *RevokeUserRoleIdsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RevokeUserRoleIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RevokeUserRoleIdsTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RevokeUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RevokeUserRoleIdsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this revoke user role ids default response has a 2xx status code
+func (o *RevokeUserRoleIdsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this revoke user role ids default response has a 3xx status code
+func (o *RevokeUserRoleIdsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this revoke user role ids default response has a 4xx status code
+func (o *RevokeUserRoleIdsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this revoke user role ids default response has a 5xx status code
+func (o *RevokeUserRoleIdsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this revoke user role ids default response a status code equal to that given
+func (o *RevokeUserRoleIdsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RevokeUserRoleIdsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] RevokeUserRoleIds default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RevokeUserRoleIdsDefault) String() string {
+	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] RevokeUserRoleIds default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RevokeUserRoleIdsDefault) GetPayload() *models.DomainUserRoleIDsResponse {
 	return o.Payload
 }

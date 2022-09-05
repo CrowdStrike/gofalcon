@@ -94,9 +94,39 @@ type SetPreventionPoliciesPrecedenceOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set prevention policies precedence o k response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set prevention policies precedence o k response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set prevention policies precedence o k response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set prevention policies precedence o k response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set prevention policies precedence o k response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SetPreventionPoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceOK  %+v", 200, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type SetPreventionPoliciesPrecedenceBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set prevention policies precedence bad request response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set prevention policies precedence bad request response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set prevention policies precedence bad request response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set prevention policies precedence bad request response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set prevention policies precedence bad request response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SetPreventionPoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type SetPreventionPoliciesPrecedenceForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this set prevention policies precedence forbidden response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set prevention policies precedence forbidden response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set prevention policies precedence forbidden response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set prevention policies precedence forbidden response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set prevention policies precedence forbidden response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SetPreventionPoliciesPrecedenceForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type SetPreventionPoliciesPrecedenceTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this set prevention policies precedence too many requests response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set prevention policies precedence too many requests response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set prevention policies precedence too many requests response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set prevention policies precedence too many requests response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set prevention policies precedence too many requests response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SetPreventionPoliciesPrecedenceTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type SetPreventionPoliciesPrecedenceInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set prevention policies precedence internal server error response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set prevention policies precedence internal server error response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set prevention policies precedence internal server error response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set prevention policies precedence internal server error response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this set prevention policies precedence internal server error response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SetPreventionPoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *SetPreventionPoliciesPrecedenceDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this set prevention policies precedence default response has a 2xx status code
+func (o *SetPreventionPoliciesPrecedenceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this set prevention policies precedence default response has a 3xx status code
+func (o *SetPreventionPoliciesPrecedenceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this set prevention policies precedence default response has a 4xx status code
+func (o *SetPreventionPoliciesPrecedenceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this set prevention policies precedence default response has a 5xx status code
+func (o *SetPreventionPoliciesPrecedenceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this set prevention policies precedence default response a status code equal to that given
+func (o *SetPreventionPoliciesPrecedenceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SetPreventionPoliciesPrecedenceDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SetPreventionPoliciesPrecedenceDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SetPreventionPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

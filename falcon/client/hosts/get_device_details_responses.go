@@ -82,9 +82,39 @@ type GetDeviceDetailsOK struct {
 	Payload *models.DomainDeviceDetailsResponseSwagger
 }
 
+// IsSuccess returns true when this get device details o k response has a 2xx status code
+func (o *GetDeviceDetailsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get device details o k response has a 3xx status code
+func (o *GetDeviceDetailsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device details o k response has a 4xx status code
+func (o *GetDeviceDetailsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get device details o k response has a 5xx status code
+func (o *GetDeviceDetailsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device details o k response a status code equal to that given
+func (o *GetDeviceDetailsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDeviceDetailsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetDeviceDetailsOK) String() string {
+	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetDeviceDetailsOK) GetPayload() *models.DomainDeviceDetailsResponseSwagger {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type GetDeviceDetailsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get device details forbidden response has a 2xx status code
+func (o *GetDeviceDetailsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get device details forbidden response has a 3xx status code
+func (o *GetDeviceDetailsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device details forbidden response has a 4xx status code
+func (o *GetDeviceDetailsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get device details forbidden response has a 5xx status code
+func (o *GetDeviceDetailsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device details forbidden response a status code equal to that given
+func (o *GetDeviceDetailsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDeviceDetailsForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetDeviceDetailsForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetDeviceDetailsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type GetDeviceDetailsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get device details too many requests response has a 2xx status code
+func (o *GetDeviceDetailsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get device details too many requests response has a 3xx status code
+func (o *GetDeviceDetailsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get device details too many requests response has a 4xx status code
+func (o *GetDeviceDetailsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get device details too many requests response has a 5xx status code
+func (o *GetDeviceDetailsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get device details too many requests response a status code equal to that given
+func (o *GetDeviceDetailsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDeviceDetailsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetDeviceDetailsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetDeviceDetailsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *GetDeviceDetailsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get device details default response has a 2xx status code
+func (o *GetDeviceDetailsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get device details default response has a 3xx status code
+func (o *GetDeviceDetailsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get device details default response has a 4xx status code
+func (o *GetDeviceDetailsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get device details default response has a 5xx status code
+func (o *GetDeviceDetailsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get device details default response a status code equal to that given
+func (o *GetDeviceDetailsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetDeviceDetailsDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetDeviceDetailsDefault) String() string {
+	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetDeviceDetailsDefault) GetPayload() *models.DomainDeviceDetailsResponseSwagger {
 	return o.Payload
 }

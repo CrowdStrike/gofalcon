@@ -90,9 +90,39 @@ type RTRListScriptsOK struct {
 	Payload *models.BinservclientMsaPutFileResponse
 }
 
+// IsSuccess returns true when this r t r list scripts o k response has a 2xx status code
+func (o *RTRListScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r list scripts o k response has a 3xx status code
+func (o *RTRListScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list scripts o k response has a 4xx status code
+func (o *RTRListScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r list scripts o k response has a 5xx status code
+func (o *RTRListScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list scripts o k response a status code equal to that given
+func (o *RTRListScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRListScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRListScriptsOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRListScriptsOK) GetPayload() *models.BinservclientMsaPutFileResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRListScriptsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r list scripts bad request response has a 2xx status code
+func (o *RTRListScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list scripts bad request response has a 3xx status code
+func (o *RTRListScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list scripts bad request response has a 4xx status code
+func (o *RTRListScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list scripts bad request response has a 5xx status code
+func (o *RTRListScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list scripts bad request response a status code equal to that given
+func (o *RTRListScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRListScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRListScriptsBadRequest) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRListScriptsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRListScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r list scripts forbidden response has a 2xx status code
+func (o *RTRListScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list scripts forbidden response has a 3xx status code
+func (o *RTRListScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list scripts forbidden response has a 4xx status code
+func (o *RTRListScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list scripts forbidden response has a 5xx status code
+func (o *RTRListScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list scripts forbidden response a status code equal to that given
+func (o *RTRListScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRListScriptsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRListScriptsForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRListScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRListScriptsNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r list scripts not found response has a 2xx status code
+func (o *RTRListScriptsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list scripts not found response has a 3xx status code
+func (o *RTRListScriptsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list scripts not found response has a 4xx status code
+func (o *RTRListScriptsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list scripts not found response has a 5xx status code
+func (o *RTRListScriptsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list scripts not found response a status code equal to that given
+func (o *RTRListScriptsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRListScriptsNotFound) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRListScriptsNotFound) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRListScriptsNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRListScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r list scripts too many requests response has a 2xx status code
+func (o *RTRListScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list scripts too many requests response has a 3xx status code
+func (o *RTRListScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list scripts too many requests response has a 4xx status code
+func (o *RTRListScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list scripts too many requests response has a 5xx status code
+func (o *RTRListScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list scripts too many requests response a status code equal to that given
+func (o *RTRListScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRListScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRListScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRListScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRListScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r list scripts default response has a 2xx status code
+func (o *RTRListScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r list scripts default response has a 3xx status code
+func (o *RTRListScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r list scripts default response has a 4xx status code
+func (o *RTRListScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r list scripts default response has a 5xx status code
+func (o *RTRListScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r list scripts default response a status code equal to that given
+func (o *RTRListScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRListScriptsDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] RTR-ListScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRListScriptsDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] RTR-ListScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRListScriptsDefault) GetPayload() *models.BinservclientMsaPutFileResponse {
 	return o.Payload
 }

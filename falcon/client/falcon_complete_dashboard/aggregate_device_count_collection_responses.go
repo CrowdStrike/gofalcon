@@ -78,9 +78,39 @@ type AggregateDeviceCountCollectionOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate device count collection o k response has a 2xx status code
+func (o *AggregateDeviceCountCollectionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate device count collection o k response has a 3xx status code
+func (o *AggregateDeviceCountCollectionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate device count collection o k response has a 4xx status code
+func (o *AggregateDeviceCountCollectionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate device count collection o k response has a 5xx status code
+func (o *AggregateDeviceCountCollectionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate device count collection o k response a status code equal to that given
+func (o *AggregateDeviceCountCollectionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateDeviceCountCollectionOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateDeviceCountCollectionOK) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateDeviceCountCollectionOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregateDeviceCountCollectionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate device count collection forbidden response has a 2xx status code
+func (o *AggregateDeviceCountCollectionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate device count collection forbidden response has a 3xx status code
+func (o *AggregateDeviceCountCollectionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate device count collection forbidden response has a 4xx status code
+func (o *AggregateDeviceCountCollectionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate device count collection forbidden response has a 5xx status code
+func (o *AggregateDeviceCountCollectionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate device count collection forbidden response a status code equal to that given
+func (o *AggregateDeviceCountCollectionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateDeviceCountCollectionForbidden) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateDeviceCountCollectionForbidden) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateDeviceCountCollectionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregateDeviceCountCollectionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate device count collection too many requests response has a 2xx status code
+func (o *AggregateDeviceCountCollectionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate device count collection too many requests response has a 3xx status code
+func (o *AggregateDeviceCountCollectionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate device count collection too many requests response has a 4xx status code
+func (o *AggregateDeviceCountCollectionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate device count collection too many requests response has a 5xx status code
+func (o *AggregateDeviceCountCollectionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate device count collection too many requests response a status code equal to that given
+func (o *AggregateDeviceCountCollectionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateDeviceCountCollectionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateDeviceCountCollectionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateDeviceCountCollectionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregateDeviceCountCollectionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate device count collection default response has a 2xx status code
+func (o *AggregateDeviceCountCollectionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate device count collection default response has a 3xx status code
+func (o *AggregateDeviceCountCollectionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate device count collection default response has a 4xx status code
+func (o *AggregateDeviceCountCollectionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate device count collection default response has a 5xx status code
+func (o *AggregateDeviceCountCollectionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate device count collection default response a status code equal to that given
+func (o *AggregateDeviceCountCollectionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateDeviceCountCollectionDefault) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] AggregateDeviceCountCollection default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateDeviceCountCollectionDefault) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] AggregateDeviceCountCollection default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateDeviceCountCollectionDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

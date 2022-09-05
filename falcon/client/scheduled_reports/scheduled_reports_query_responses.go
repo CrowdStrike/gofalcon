@@ -88,9 +88,39 @@ type ScheduledReportsQueryOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this scheduled reports query o k response has a 2xx status code
+func (o *ScheduledReportsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this scheduled reports query o k response has a 3xx status code
+func (o *ScheduledReportsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports query o k response has a 4xx status code
+func (o *ScheduledReportsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this scheduled reports query o k response has a 5xx status code
+func (o *ScheduledReportsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports query o k response a status code equal to that given
+func (o *ScheduledReportsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ScheduledReportsQueryOK) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryOK  %+v", 200, o.Payload)
 }
+
+func (o *ScheduledReportsQueryOK) String() string {
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryOK  %+v", 200, o.Payload)
+}
+
 func (o *ScheduledReportsQueryOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type ScheduledReportsQueryBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports query bad request response has a 2xx status code
+func (o *ScheduledReportsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports query bad request response has a 3xx status code
+func (o *ScheduledReportsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports query bad request response has a 4xx status code
+func (o *ScheduledReportsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports query bad request response has a 5xx status code
+func (o *ScheduledReportsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports query bad request response a status code equal to that given
+func (o *ScheduledReportsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ScheduledReportsQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ScheduledReportsQueryBadRequest) String() string {
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ScheduledReportsQueryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type ScheduledReportsQueryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports query forbidden response has a 2xx status code
+func (o *ScheduledReportsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports query forbidden response has a 3xx status code
+func (o *ScheduledReportsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports query forbidden response has a 4xx status code
+func (o *ScheduledReportsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports query forbidden response has a 5xx status code
+func (o *ScheduledReportsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports query forbidden response a status code equal to that given
+func (o *ScheduledReportsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ScheduledReportsQueryForbidden) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ScheduledReportsQueryForbidden) String() string {
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ScheduledReportsQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type ScheduledReportsQueryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports query too many requests response has a 2xx status code
+func (o *ScheduledReportsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports query too many requests response has a 3xx status code
+func (o *ScheduledReportsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports query too many requests response has a 4xx status code
+func (o *ScheduledReportsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports query too many requests response has a 5xx status code
+func (o *ScheduledReportsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports query too many requests response a status code equal to that given
+func (o *ScheduledReportsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ScheduledReportsQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ScheduledReportsQueryTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ScheduledReportsQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *ScheduledReportsQueryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this scheduled reports query default response has a 2xx status code
+func (o *ScheduledReportsQueryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this scheduled reports query default response has a 3xx status code
+func (o *ScheduledReportsQueryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this scheduled reports query default response has a 4xx status code
+func (o *ScheduledReportsQueryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this scheduled reports query default response has a 5xx status code
+func (o *ScheduledReportsQueryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this scheduled reports query default response a status code equal to that given
+func (o *ScheduledReportsQueryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ScheduledReportsQueryDefault) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduled-reports.query default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ScheduledReportsQueryDefault) String() string {
+	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduled-reports.query default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ScheduledReportsQueryDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

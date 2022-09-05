@@ -94,9 +94,39 @@ type QueryLoginsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query logins o k response has a 2xx status code
+func (o *QueryLoginsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query logins o k response has a 3xx status code
+func (o *QueryLoginsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query logins o k response has a 4xx status code
+func (o *QueryLoginsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query logins o k response has a 5xx status code
+func (o *QueryLoginsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query logins o k response a status code equal to that given
+func (o *QueryLoginsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryLoginsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryLoginsOK) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryLoginsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryLoginsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query logins bad request response has a 2xx status code
+func (o *QueryLoginsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query logins bad request response has a 3xx status code
+func (o *QueryLoginsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query logins bad request response has a 4xx status code
+func (o *QueryLoginsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query logins bad request response has a 5xx status code
+func (o *QueryLoginsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query logins bad request response a status code equal to that given
+func (o *QueryLoginsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryLoginsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryLoginsBadRequest) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryLoginsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryLoginsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query logins forbidden response has a 2xx status code
+func (o *QueryLoginsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query logins forbidden response has a 3xx status code
+func (o *QueryLoginsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query logins forbidden response has a 4xx status code
+func (o *QueryLoginsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query logins forbidden response has a 5xx status code
+func (o *QueryLoginsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query logins forbidden response a status code equal to that given
+func (o *QueryLoginsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryLoginsForbidden) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryLoginsForbidden) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryLoginsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryLoginsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query logins too many requests response has a 2xx status code
+func (o *QueryLoginsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query logins too many requests response has a 3xx status code
+func (o *QueryLoginsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query logins too many requests response has a 4xx status code
+func (o *QueryLoginsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query logins too many requests response has a 5xx status code
+func (o *QueryLoginsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query logins too many requests response a status code equal to that given
+func (o *QueryLoginsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryLoginsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryLoginsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryLoginsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryLoginsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query logins internal server error response has a 2xx status code
+func (o *QueryLoginsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query logins internal server error response has a 3xx status code
+func (o *QueryLoginsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query logins internal server error response has a 4xx status code
+func (o *QueryLoginsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query logins internal server error response has a 5xx status code
+func (o *QueryLoginsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query logins internal server error response a status code equal to that given
+func (o *QueryLoginsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryLoginsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryLoginsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryLoginsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryLoginsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query logins default response has a 2xx status code
+func (o *QueryLoginsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query logins default response has a 3xx status code
+func (o *QueryLoginsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query logins default response has a 4xx status code
+func (o *QueryLoginsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query logins default response has a 5xx status code
+func (o *QueryLoginsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query logins default response a status code equal to that given
+func (o *QueryLoginsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryLoginsDefault) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] query-logins default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryLoginsDefault) String() string {
+	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] query-logins default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryLoginsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

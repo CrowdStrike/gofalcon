@@ -90,9 +90,39 @@ type GetSummaryReportsOK struct {
 	Payload *models.FalconxSummaryReportV1Response
 }
 
+// IsSuccess returns true when this get summary reports o k response has a 2xx status code
+func (o *GetSummaryReportsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get summary reports o k response has a 3xx status code
+func (o *GetSummaryReportsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get summary reports o k response has a 4xx status code
+func (o *GetSummaryReportsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get summary reports o k response has a 5xx status code
+func (o *GetSummaryReportsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get summary reports o k response a status code equal to that given
+func (o *GetSummaryReportsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSummaryReportsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSummaryReportsOK) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSummaryReportsOK) GetPayload() *models.FalconxSummaryReportV1Response {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetSummaryReportsBadRequest struct {
 	Payload *models.FalconxSummaryReportV1Response
 }
 
+// IsSuccess returns true when this get summary reports bad request response has a 2xx status code
+func (o *GetSummaryReportsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get summary reports bad request response has a 3xx status code
+func (o *GetSummaryReportsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get summary reports bad request response has a 4xx status code
+func (o *GetSummaryReportsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get summary reports bad request response has a 5xx status code
+func (o *GetSummaryReportsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get summary reports bad request response a status code equal to that given
+func (o *GetSummaryReportsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSummaryReportsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSummaryReportsBadRequest) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSummaryReportsBadRequest) GetPayload() *models.FalconxSummaryReportV1Response {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetSummaryReportsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get summary reports forbidden response has a 2xx status code
+func (o *GetSummaryReportsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get summary reports forbidden response has a 3xx status code
+func (o *GetSummaryReportsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get summary reports forbidden response has a 4xx status code
+func (o *GetSummaryReportsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get summary reports forbidden response has a 5xx status code
+func (o *GetSummaryReportsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get summary reports forbidden response a status code equal to that given
+func (o *GetSummaryReportsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSummaryReportsForbidden) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSummaryReportsForbidden) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSummaryReportsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetSummaryReportsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get summary reports too many requests response has a 2xx status code
+func (o *GetSummaryReportsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get summary reports too many requests response has a 3xx status code
+func (o *GetSummaryReportsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get summary reports too many requests response has a 4xx status code
+func (o *GetSummaryReportsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get summary reports too many requests response has a 5xx status code
+func (o *GetSummaryReportsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get summary reports too many requests response a status code equal to that given
+func (o *GetSummaryReportsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSummaryReportsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSummaryReportsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSummaryReportsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetSummaryReportsInternalServerError struct {
 	Payload *models.FalconxSummaryReportV1Response
 }
 
+// IsSuccess returns true when this get summary reports internal server error response has a 2xx status code
+func (o *GetSummaryReportsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get summary reports internal server error response has a 3xx status code
+func (o *GetSummaryReportsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get summary reports internal server error response has a 4xx status code
+func (o *GetSummaryReportsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get summary reports internal server error response has a 5xx status code
+func (o *GetSummaryReportsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get summary reports internal server error response a status code equal to that given
+func (o *GetSummaryReportsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSummaryReportsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetSummaryReportsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] getSummaryReportsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetSummaryReportsInternalServerError) GetPayload() *models.FalconxSummaryReportV1Response {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetSummaryReportsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get summary reports default response has a 2xx status code
+func (o *GetSummaryReportsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get summary reports default response has a 3xx status code
+func (o *GetSummaryReportsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get summary reports default response has a 4xx status code
+func (o *GetSummaryReportsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get summary reports default response has a 5xx status code
+func (o *GetSummaryReportsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get summary reports default response a status code equal to that given
+func (o *GetSummaryReportsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSummaryReportsDefault) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] GetSummaryReports default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSummaryReportsDefault) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/report-summaries/v1][%d] GetSummaryReports default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSummaryReportsDefault) GetPayload() *models.FalconxSummaryReportV1Response {
 	return o.Payload
 }

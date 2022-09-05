@@ -94,9 +94,39 @@ type CombinedQueryVulnerabilitiesOK struct {
 	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
 }
 
+// IsSuccess returns true when this combined query vulnerabilities o k response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this combined query vulnerabilities o k response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities o k response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this combined query vulnerabilities o k response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query vulnerabilities o k response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CombinedQueryVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesOK) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type CombinedQueryVulnerabilitiesBadRequest struct {
 	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
 }
 
+// IsSuccess returns true when this combined query vulnerabilities bad request response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query vulnerabilities bad request response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities bad request response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query vulnerabilities bad request response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query vulnerabilities bad request response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CombinedQueryVulnerabilitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesBadRequest) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type CombinedQueryVulnerabilitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this combined query vulnerabilities forbidden response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query vulnerabilities forbidden response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities forbidden response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query vulnerabilities forbidden response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query vulnerabilities forbidden response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CombinedQueryVulnerabilitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CombinedQueryVulnerabilitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this combined query vulnerabilities too many requests response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query vulnerabilities too many requests response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities too many requests response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query vulnerabilities too many requests response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query vulnerabilities too many requests response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type CombinedQueryVulnerabilitiesInternalServerError struct {
 	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
 }
 
+// IsSuccess returns true when this combined query vulnerabilities internal server error response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query vulnerabilities internal server error response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query vulnerabilities internal server error response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this combined query vulnerabilities internal server error response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this combined query vulnerabilities internal server error response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CombinedQueryVulnerabilitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *CombinedQueryVulnerabilitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this combined query vulnerabilities default response has a 2xx status code
+func (o *CombinedQueryVulnerabilitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this combined query vulnerabilities default response has a 3xx status code
+func (o *CombinedQueryVulnerabilitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this combined query vulnerabilities default response has a 4xx status code
+func (o *CombinedQueryVulnerabilitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this combined query vulnerabilities default response has a 5xx status code
+func (o *CombinedQueryVulnerabilitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this combined query vulnerabilities default response a status code equal to that given
+func (o *CombinedQueryVulnerabilitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CombinedQueryVulnerabilitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CombinedQueryVulnerabilitiesDefault) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CombinedQueryVulnerabilitiesDefault) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
 	return o.Payload
 }

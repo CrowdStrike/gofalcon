@@ -102,9 +102,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1OK struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 o k response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 o k response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 o k response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 o k response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 o k response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK  %+v", 200, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1OK  %+v", 200, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -166,9 +196,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1BadRequest struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 bad request response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 bad request response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 bad request response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 bad request response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 bad request response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -230,9 +290,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 unauthorized response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 unauthorized response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 unauthorized response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 unauthorized response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 unauthorized response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -294,9 +384,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 forbidden response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 forbidden response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 forbidden response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 forbidden response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 forbidden response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -358,9 +478,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1NotFound struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 not found response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 not found response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 not found response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 not found response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 not found response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound  %+v", 404, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1NotFound  %+v", 404, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -426,9 +576,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 too many requests response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 too many requests response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 too many requests response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 too many requests response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 too many requests response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -501,9 +681,39 @@ type PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError struct {
 	Payload *models.MalqueryExternalQueryResponse
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 internal server error response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 internal server error response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 internal server error response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 internal server error response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 internal server error response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] postMalQueryEntitiesSamplesMultidownloadV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }
@@ -565,9 +775,39 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post mal query entities samples multidownload v1 default response has a 2xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post mal query entities samples multidownload v1 default response has a 3xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post mal query entities samples multidownload v1 default response has a 4xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post mal query entities samples multidownload v1 default response has a 5xx status code
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post mal query entities samples multidownload v1 default response a status code equal to that given
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Error() string {
 	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] PostMalQueryEntitiesSamplesMultidownloadV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) String() string {
+	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] PostMalQueryEntitiesSamplesMultidownloadV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
 	return o.Payload
 }

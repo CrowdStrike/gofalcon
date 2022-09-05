@@ -90,9 +90,39 @@ type VerifyAWSAccountAccessOK struct {
 	Payload *models.ModelsVerifyAccessResponseV1
 }
 
+// IsSuccess returns true when this verify a w s account access o k response has a 2xx status code
+func (o *VerifyAWSAccountAccessOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this verify a w s account access o k response has a 3xx status code
+func (o *VerifyAWSAccountAccessOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this verify a w s account access o k response has a 4xx status code
+func (o *VerifyAWSAccountAccessOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this verify a w s account access o k response has a 5xx status code
+func (o *VerifyAWSAccountAccessOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this verify a w s account access o k response a status code equal to that given
+func (o *VerifyAWSAccountAccessOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *VerifyAWSAccountAccessOK) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK  %+v", 200, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessOK) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessOK  %+v", 200, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessOK) GetPayload() *models.ModelsVerifyAccessResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type VerifyAWSAccountAccessBadRequest struct {
 	Payload *models.ModelsVerifyAccessResponseV1
 }
 
+// IsSuccess returns true when this verify a w s account access bad request response has a 2xx status code
+func (o *VerifyAWSAccountAccessBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this verify a w s account access bad request response has a 3xx status code
+func (o *VerifyAWSAccountAccessBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this verify a w s account access bad request response has a 4xx status code
+func (o *VerifyAWSAccountAccessBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this verify a w s account access bad request response has a 5xx status code
+func (o *VerifyAWSAccountAccessBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this verify a w s account access bad request response a status code equal to that given
+func (o *VerifyAWSAccountAccessBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *VerifyAWSAccountAccessBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessBadRequest) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessBadRequest) GetPayload() *models.ModelsVerifyAccessResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type VerifyAWSAccountAccessForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this verify a w s account access forbidden response has a 2xx status code
+func (o *VerifyAWSAccountAccessForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this verify a w s account access forbidden response has a 3xx status code
+func (o *VerifyAWSAccountAccessForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this verify a w s account access forbidden response has a 4xx status code
+func (o *VerifyAWSAccountAccessForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this verify a w s account access forbidden response has a 5xx status code
+func (o *VerifyAWSAccountAccessForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this verify a w s account access forbidden response a status code equal to that given
+func (o *VerifyAWSAccountAccessForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *VerifyAWSAccountAccessForbidden) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden  %+v", 403, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessForbidden) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessForbidden  %+v", 403, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type VerifyAWSAccountAccessTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this verify a w s account access too many requests response has a 2xx status code
+func (o *VerifyAWSAccountAccessTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this verify a w s account access too many requests response has a 3xx status code
+func (o *VerifyAWSAccountAccessTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this verify a w s account access too many requests response has a 4xx status code
+func (o *VerifyAWSAccountAccessTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this verify a w s account access too many requests response has a 5xx status code
+func (o *VerifyAWSAccountAccessTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this verify a w s account access too many requests response a status code equal to that given
+func (o *VerifyAWSAccountAccessTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *VerifyAWSAccountAccessTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type VerifyAWSAccountAccessInternalServerError struct {
 	Payload *models.ModelsVerifyAccessResponseV1
 }
 
+// IsSuccess returns true when this verify a w s account access internal server error response has a 2xx status code
+func (o *VerifyAWSAccountAccessInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this verify a w s account access internal server error response has a 3xx status code
+func (o *VerifyAWSAccountAccessInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this verify a w s account access internal server error response has a 4xx status code
+func (o *VerifyAWSAccountAccessInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this verify a w s account access internal server error response has a 5xx status code
+func (o *VerifyAWSAccountAccessInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this verify a w s account access internal server error response a status code equal to that given
+func (o *VerifyAWSAccountAccessInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *VerifyAWSAccountAccessInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessInternalServerError) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] verifyAWSAccountAccessInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessInternalServerError) GetPayload() *models.ModelsVerifyAccessResponseV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *VerifyAWSAccountAccessDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this verify a w s account access default response has a 2xx status code
+func (o *VerifyAWSAccountAccessDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this verify a w s account access default response has a 3xx status code
+func (o *VerifyAWSAccountAccessDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this verify a w s account access default response has a 4xx status code
+func (o *VerifyAWSAccountAccessDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this verify a w s account access default response has a 5xx status code
+func (o *VerifyAWSAccountAccessDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this verify a w s account access default response a status code equal to that given
+func (o *VerifyAWSAccountAccessDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *VerifyAWSAccountAccessDefault) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] VerifyAWSAccountAccess default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *VerifyAWSAccountAccessDefault) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] VerifyAWSAccountAccess default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *VerifyAWSAccountAccessDefault) GetPayload() *models.ModelsVerifyAccessResponseV1 {
 	return o.Payload
 }

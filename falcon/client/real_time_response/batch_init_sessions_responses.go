@@ -87,9 +87,39 @@ type BatchInitSessionsCreated struct {
 	Payload *models.DomainBatchInitSessionResponse
 }
 
+// IsSuccess returns true when this batch init sessions created response has a 2xx status code
+func (o *BatchInitSessionsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this batch init sessions created response has a 3xx status code
+func (o *BatchInitSessionsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch init sessions created response has a 4xx status code
+func (o *BatchInitSessionsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this batch init sessions created response has a 5xx status code
+func (o *BatchInitSessionsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch init sessions created response a status code equal to that given
+func (o *BatchInitSessionsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *BatchInitSessionsCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated  %+v", 201, o.Payload)
 }
+
+func (o *BatchInitSessionsCreated) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated  %+v", 201, o.Payload)
+}
+
 func (o *BatchInitSessionsCreated) GetPayload() *models.DomainBatchInitSessionResponse {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type BatchInitSessionsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this batch init sessions bad request response has a 2xx status code
+func (o *BatchInitSessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch init sessions bad request response has a 3xx status code
+func (o *BatchInitSessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch init sessions bad request response has a 4xx status code
+func (o *BatchInitSessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch init sessions bad request response has a 5xx status code
+func (o *BatchInitSessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch init sessions bad request response a status code equal to that given
+func (o *BatchInitSessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *BatchInitSessionsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *BatchInitSessionsBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *BatchInitSessionsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -237,9 +297,39 @@ type BatchInitSessionsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this batch init sessions forbidden response has a 2xx status code
+func (o *BatchInitSessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch init sessions forbidden response has a 3xx status code
+func (o *BatchInitSessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch init sessions forbidden response has a 4xx status code
+func (o *BatchInitSessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch init sessions forbidden response has a 5xx status code
+func (o *BatchInitSessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch init sessions forbidden response a status code equal to that given
+func (o *BatchInitSessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *BatchInitSessionsForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *BatchInitSessionsForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *BatchInitSessionsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -316,9 +406,39 @@ type BatchInitSessionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this batch init sessions too many requests response has a 2xx status code
+func (o *BatchInitSessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch init sessions too many requests response has a 3xx status code
+func (o *BatchInitSessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch init sessions too many requests response has a 4xx status code
+func (o *BatchInitSessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this batch init sessions too many requests response has a 5xx status code
+func (o *BatchInitSessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this batch init sessions too many requests response a status code equal to that given
+func (o *BatchInitSessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *BatchInitSessionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *BatchInitSessionsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *BatchInitSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type BatchInitSessionsInternalServerError struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this batch init sessions internal server error response has a 2xx status code
+func (o *BatchInitSessionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this batch init sessions internal server error response has a 3xx status code
+func (o *BatchInitSessionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this batch init sessions internal server error response has a 4xx status code
+func (o *BatchInitSessionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this batch init sessions internal server error response has a 5xx status code
+func (o *BatchInitSessionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this batch init sessions internal server error response a status code equal to that given
+func (o *BatchInitSessionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *BatchInitSessionsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *BatchInitSessionsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *BatchInitSessionsInternalServerError) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }

@@ -82,9 +82,39 @@ type UpdateQfByQueryOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update qf by query o k response has a 2xx status code
+func (o *UpdateQfByQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update qf by query o k response has a 3xx status code
+func (o *UpdateQfByQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update qf by query o k response has a 4xx status code
+func (o *UpdateQfByQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update qf by query o k response has a 5xx status code
+func (o *UpdateQfByQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update qf by query o k response a status code equal to that given
+func (o *UpdateQfByQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateQfByQueryOK) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateQfByQueryOK) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateQfByQueryOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type UpdateQfByQueryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update qf by query forbidden response has a 2xx status code
+func (o *UpdateQfByQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update qf by query forbidden response has a 3xx status code
+func (o *UpdateQfByQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update qf by query forbidden response has a 4xx status code
+func (o *UpdateQfByQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update qf by query forbidden response has a 5xx status code
+func (o *UpdateQfByQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update qf by query forbidden response a status code equal to that given
+func (o *UpdateQfByQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateQfByQueryForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateQfByQueryForbidden) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateQfByQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type UpdateQfByQueryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update qf by query too many requests response has a 2xx status code
+func (o *UpdateQfByQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update qf by query too many requests response has a 3xx status code
+func (o *UpdateQfByQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update qf by query too many requests response has a 4xx status code
+func (o *UpdateQfByQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update qf by query too many requests response has a 5xx status code
+func (o *UpdateQfByQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update qf by query too many requests response a status code equal to that given
+func (o *UpdateQfByQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateQfByQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateQfByQueryTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateQfByQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *UpdateQfByQueryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update qf by query default response has a 2xx status code
+func (o *UpdateQfByQueryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update qf by query default response has a 3xx status code
+func (o *UpdateQfByQueryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update qf by query default response has a 4xx status code
+func (o *UpdateQfByQueryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update qf by query default response has a 5xx status code
+func (o *UpdateQfByQueryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update qf by query default response a status code equal to that given
+func (o *UpdateQfByQueryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateQfByQueryDefault) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] UpdateQfByQuery default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateQfByQueryDefault) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] UpdateQfByQuery default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateQfByQueryDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

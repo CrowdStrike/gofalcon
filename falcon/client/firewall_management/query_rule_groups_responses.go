@@ -84,9 +84,39 @@ type QueryRuleGroupsOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this query rule groups o k response has a 2xx status code
+func (o *QueryRuleGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query rule groups o k response has a 3xx status code
+func (o *QueryRuleGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups o k response has a 4xx status code
+func (o *QueryRuleGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query rule groups o k response has a 5xx status code
+func (o *QueryRuleGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups o k response a status code equal to that given
+func (o *QueryRuleGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRuleGroupsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRuleGroupsOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryRuleGroupsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups bad request response has a 2xx status code
+func (o *QueryRuleGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups bad request response has a 3xx status code
+func (o *QueryRuleGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups bad request response has a 4xx status code
+func (o *QueryRuleGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups bad request response has a 5xx status code
+func (o *QueryRuleGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups bad request response a status code equal to that given
+func (o *QueryRuleGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryRuleGroupsBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryRuleGroupsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups forbidden response has a 2xx status code
+func (o *QueryRuleGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups forbidden response has a 3xx status code
+func (o *QueryRuleGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups forbidden response has a 4xx status code
+func (o *QueryRuleGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups forbidden response has a 5xx status code
+func (o *QueryRuleGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups forbidden response a status code equal to that given
+func (o *QueryRuleGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRuleGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRuleGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryRuleGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups too many requests response has a 2xx status code
+func (o *QueryRuleGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups too many requests response has a 3xx status code
+func (o *QueryRuleGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups too many requests response has a 4xx status code
+func (o *QueryRuleGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups too many requests response has a 5xx status code
+func (o *QueryRuleGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups too many requests response a status code equal to that given
+func (o *QueryRuleGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRuleGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryRuleGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query rule groups default response has a 2xx status code
+func (o *QueryRuleGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query rule groups default response has a 3xx status code
+func (o *QueryRuleGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query rule groups default response has a 4xx status code
+func (o *QueryRuleGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query rule groups default response has a 5xx status code
+func (o *QueryRuleGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query rule groups default response a status code equal to that given
+func (o *QueryRuleGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRuleGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] query-rule-groups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRuleGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] query-rule-groups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRuleGroupsDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

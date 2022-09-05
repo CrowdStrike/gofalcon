@@ -90,9 +90,39 @@ type QuerySensorUpdatePoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sensor update policies o k response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query sensor update policies o k response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sensor update policies o k response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query sensor update policies o k response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sensor update policies o k response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QuerySensorUpdatePoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QuerySensorUpdatePoliciesBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sensor update policies bad request response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sensor update policies bad request response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sensor update policies bad request response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sensor update policies bad request response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sensor update policies bad request response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QuerySensorUpdatePoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QuerySensorUpdatePoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query sensor update policies forbidden response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sensor update policies forbidden response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sensor update policies forbidden response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sensor update policies forbidden response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sensor update policies forbidden response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QuerySensorUpdatePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QuerySensorUpdatePoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query sensor update policies too many requests response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sensor update policies too many requests response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sensor update policies too many requests response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sensor update policies too many requests response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sensor update policies too many requests response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QuerySensorUpdatePoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QuerySensorUpdatePoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sensor update policies internal server error response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sensor update policies internal server error response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sensor update policies internal server error response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query sensor update policies internal server error response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query sensor update policies internal server error response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QuerySensorUpdatePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QuerySensorUpdatePoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query sensor update policies default response has a 2xx status code
+func (o *QuerySensorUpdatePoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query sensor update policies default response has a 3xx status code
+func (o *QuerySensorUpdatePoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query sensor update policies default response has a 4xx status code
+func (o *QuerySensorUpdatePoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query sensor update policies default response has a 5xx status code
+func (o *QuerySensorUpdatePoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query sensor update policies default response a status code equal to that given
+func (o *QuerySensorUpdatePoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QuerySensorUpdatePoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QuerySensorUpdatePoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/queries/sensor-update/v1][%d] querySensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QuerySensorUpdatePoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

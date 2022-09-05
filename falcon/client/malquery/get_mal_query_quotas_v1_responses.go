@@ -102,9 +102,39 @@ type GetMalQueryQuotasV1OK struct {
 	Payload *models.MalqueryRateLimitsResponse
 }
 
+// IsSuccess returns true when this get mal query quotas v1 o k response has a 2xx status code
+func (o *GetMalQueryQuotasV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get mal query quotas v1 o k response has a 3xx status code
+func (o *GetMalQueryQuotasV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 o k response has a 4xx status code
+func (o *GetMalQueryQuotasV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mal query quotas v1 o k response has a 5xx status code
+func (o *GetMalQueryQuotasV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 o k response a status code equal to that given
+func (o *GetMalQueryQuotasV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMalQueryQuotasV1OK) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1OK) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1OK) GetPayload() *models.MalqueryRateLimitsResponse {
 	return o.Payload
 }
@@ -166,9 +196,39 @@ type GetMalQueryQuotasV1BadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get mal query quotas v1 bad request response has a 2xx status code
+func (o *GetMalQueryQuotasV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 bad request response has a 3xx status code
+func (o *GetMalQueryQuotasV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 bad request response has a 4xx status code
+func (o *GetMalQueryQuotasV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query quotas v1 bad request response has a 5xx status code
+func (o *GetMalQueryQuotasV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 bad request response a status code equal to that given
+func (o *GetMalQueryQuotasV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetMalQueryQuotasV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1BadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -230,9 +290,39 @@ type GetMalQueryQuotasV1Unauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get mal query quotas v1 unauthorized response has a 2xx status code
+func (o *GetMalQueryQuotasV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 unauthorized response has a 3xx status code
+func (o *GetMalQueryQuotasV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 unauthorized response has a 4xx status code
+func (o *GetMalQueryQuotasV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query quotas v1 unauthorized response has a 5xx status code
+func (o *GetMalQueryQuotasV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 unauthorized response a status code equal to that given
+func (o *GetMalQueryQuotasV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetMalQueryQuotasV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -294,9 +384,39 @@ type GetMalQueryQuotasV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get mal query quotas v1 forbidden response has a 2xx status code
+func (o *GetMalQueryQuotasV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 forbidden response has a 3xx status code
+func (o *GetMalQueryQuotasV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 forbidden response has a 4xx status code
+func (o *GetMalQueryQuotasV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query quotas v1 forbidden response has a 5xx status code
+func (o *GetMalQueryQuotasV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 forbidden response a status code equal to that given
+func (o *GetMalQueryQuotasV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMalQueryQuotasV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -358,9 +478,39 @@ type GetMalQueryQuotasV1NotFound struct {
 	Payload *models.MalqueryRateLimitsResponse
 }
 
+// IsSuccess returns true when this get mal query quotas v1 not found response has a 2xx status code
+func (o *GetMalQueryQuotasV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 not found response has a 3xx status code
+func (o *GetMalQueryQuotasV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 not found response has a 4xx status code
+func (o *GetMalQueryQuotasV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query quotas v1 not found response has a 5xx status code
+func (o *GetMalQueryQuotasV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 not found response a status code equal to that given
+func (o *GetMalQueryQuotasV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetMalQueryQuotasV1NotFound) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1NotFound) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1NotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1NotFound) GetPayload() *models.MalqueryRateLimitsResponse {
 	return o.Payload
 }
@@ -426,9 +576,39 @@ type GetMalQueryQuotasV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get mal query quotas v1 too many requests response has a 2xx status code
+func (o *GetMalQueryQuotasV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 too many requests response has a 3xx status code
+func (o *GetMalQueryQuotasV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 too many requests response has a 4xx status code
+func (o *GetMalQueryQuotasV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mal query quotas v1 too many requests response has a 5xx status code
+func (o *GetMalQueryQuotasV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mal query quotas v1 too many requests response a status code equal to that given
+func (o *GetMalQueryQuotasV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetMalQueryQuotasV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -501,9 +681,39 @@ type GetMalQueryQuotasV1InternalServerError struct {
 	Payload *models.MalqueryRateLimitsResponse
 }
 
+// IsSuccess returns true when this get mal query quotas v1 internal server error response has a 2xx status code
+func (o *GetMalQueryQuotasV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mal query quotas v1 internal server error response has a 3xx status code
+func (o *GetMalQueryQuotasV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mal query quotas v1 internal server error response has a 4xx status code
+func (o *GetMalQueryQuotasV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mal query quotas v1 internal server error response has a 5xx status code
+func (o *GetMalQueryQuotasV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get mal query quotas v1 internal server error response a status code equal to that given
+func (o *GetMalQueryQuotasV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetMalQueryQuotasV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1InternalServerError) GetPayload() *models.MalqueryRateLimitsResponse {
 	return o.Payload
 }
@@ -565,9 +775,39 @@ func (o *GetMalQueryQuotasV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get mal query quotas v1 default response has a 2xx status code
+func (o *GetMalQueryQuotasV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get mal query quotas v1 default response has a 3xx status code
+func (o *GetMalQueryQuotasV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get mal query quotas v1 default response has a 4xx status code
+func (o *GetMalQueryQuotasV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get mal query quotas v1 default response has a 5xx status code
+func (o *GetMalQueryQuotasV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get mal query quotas v1 default response a status code equal to that given
+func (o *GetMalQueryQuotasV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetMalQueryQuotasV1Default) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] GetMalQueryQuotasV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetMalQueryQuotasV1Default) String() string {
+	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] GetMalQueryQuotasV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetMalQueryQuotasV1Default) GetPayload() *models.MalqueryRateLimitsResponse {
 	return o.Payload
 }

@@ -84,9 +84,39 @@ type ValidateOK struct {
 	Payload *models.APIValidationResponseV1
 }
 
+// IsSuccess returns true when this validate o k response has a 2xx status code
+func (o *ValidateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this validate o k response has a 3xx status code
+func (o *ValidateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate o k response has a 4xx status code
+func (o *ValidateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this validate o k response has a 5xx status code
+func (o *ValidateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this validate o k response a status code equal to that given
+func (o *ValidateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ValidateOK) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK  %+v", 200, o.Payload)
 }
+
+func (o *ValidateOK) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK  %+v", 200, o.Payload)
+}
+
 func (o *ValidateOK) GetPayload() *models.APIValidationResponseV1 {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type ValidateForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this validate forbidden response has a 2xx status code
+func (o *ValidateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this validate forbidden response has a 3xx status code
+func (o *ValidateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate forbidden response has a 4xx status code
+func (o *ValidateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this validate forbidden response has a 5xx status code
+func (o *ValidateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this validate forbidden response a status code equal to that given
+func (o *ValidateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ValidateForbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ValidateForbidden) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ValidateForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type ValidateNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this validate not found response has a 2xx status code
+func (o *ValidateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this validate not found response has a 3xx status code
+func (o *ValidateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate not found response has a 4xx status code
+func (o *ValidateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this validate not found response has a 5xx status code
+func (o *ValidateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this validate not found response a status code equal to that given
+func (o *ValidateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ValidateNotFound) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ValidateNotFound) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ValidateNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type ValidateTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this validate too many requests response has a 2xx status code
+func (o *ValidateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this validate too many requests response has a 3xx status code
+func (o *ValidateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this validate too many requests response has a 4xx status code
+func (o *ValidateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this validate too many requests response has a 5xx status code
+func (o *ValidateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this validate too many requests response a status code equal to that given
+func (o *ValidateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ValidateTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ValidateTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ValidateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *ValidateDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this validate default response has a 2xx status code
+func (o *ValidateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this validate default response has a 3xx status code
+func (o *ValidateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this validate default response has a 4xx status code
+func (o *ValidateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this validate default response has a 5xx status code
+func (o *ValidateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this validate default response a status code equal to that given
+func (o *ValidateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ValidateDefault) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validate default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ValidateDefault) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validate default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ValidateDefault) GetPayload() *models.APIValidationResponseV1 {
 	return o.Payload
 }

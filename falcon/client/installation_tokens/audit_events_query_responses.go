@@ -90,9 +90,39 @@ type AuditEventsQueryOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this audit events query o k response has a 2xx status code
+func (o *AuditEventsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this audit events query o k response has a 3xx status code
+func (o *AuditEventsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this audit events query o k response has a 4xx status code
+func (o *AuditEventsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this audit events query o k response has a 5xx status code
+func (o *AuditEventsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this audit events query o k response a status code equal to that given
+func (o *AuditEventsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AuditEventsQueryOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryOK  %+v", 200, o.Payload)
 }
+
+func (o *AuditEventsQueryOK) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryOK  %+v", 200, o.Payload)
+}
+
 func (o *AuditEventsQueryOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type AuditEventsQueryBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this audit events query bad request response has a 2xx status code
+func (o *AuditEventsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this audit events query bad request response has a 3xx status code
+func (o *AuditEventsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this audit events query bad request response has a 4xx status code
+func (o *AuditEventsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this audit events query bad request response has a 5xx status code
+func (o *AuditEventsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this audit events query bad request response a status code equal to that given
+func (o *AuditEventsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *AuditEventsQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *AuditEventsQueryBadRequest) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *AuditEventsQueryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type AuditEventsQueryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this audit events query forbidden response has a 2xx status code
+func (o *AuditEventsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this audit events query forbidden response has a 3xx status code
+func (o *AuditEventsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this audit events query forbidden response has a 4xx status code
+func (o *AuditEventsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this audit events query forbidden response has a 5xx status code
+func (o *AuditEventsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this audit events query forbidden response a status code equal to that given
+func (o *AuditEventsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AuditEventsQueryForbidden) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AuditEventsQueryForbidden) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AuditEventsQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type AuditEventsQueryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this audit events query too many requests response has a 2xx status code
+func (o *AuditEventsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this audit events query too many requests response has a 3xx status code
+func (o *AuditEventsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this audit events query too many requests response has a 4xx status code
+func (o *AuditEventsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this audit events query too many requests response has a 5xx status code
+func (o *AuditEventsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this audit events query too many requests response a status code equal to that given
+func (o *AuditEventsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AuditEventsQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AuditEventsQueryTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AuditEventsQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type AuditEventsQueryInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this audit events query internal server error response has a 2xx status code
+func (o *AuditEventsQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this audit events query internal server error response has a 3xx status code
+func (o *AuditEventsQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this audit events query internal server error response has a 4xx status code
+func (o *AuditEventsQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this audit events query internal server error response has a 5xx status code
+func (o *AuditEventsQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this audit events query internal server error response a status code equal to that given
+func (o *AuditEventsQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *AuditEventsQueryInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *AuditEventsQueryInternalServerError) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] auditEventsQueryInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *AuditEventsQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *AuditEventsQueryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this audit events query default response has a 2xx status code
+func (o *AuditEventsQueryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this audit events query default response has a 3xx status code
+func (o *AuditEventsQueryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this audit events query default response has a 4xx status code
+func (o *AuditEventsQueryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this audit events query default response has a 5xx status code
+func (o *AuditEventsQueryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this audit events query default response a status code equal to that given
+func (o *AuditEventsQueryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AuditEventsQueryDefault) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] audit-events-query default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AuditEventsQueryDefault) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/audit-events/v1][%d] audit-events-query default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AuditEventsQueryDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

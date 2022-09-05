@@ -94,9 +94,39 @@ type SubmitOK struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this submit o k response has a 2xx status code
+func (o *SubmitOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this submit o k response has a 3xx status code
+func (o *SubmitOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this submit o k response has a 4xx status code
+func (o *SubmitOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this submit o k response has a 5xx status code
+func (o *SubmitOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this submit o k response a status code equal to that given
+func (o *SubmitOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SubmitOK) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK  %+v", 200, o.Payload)
 }
+
+func (o *SubmitOK) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK  %+v", 200, o.Payload)
+}
+
 func (o *SubmitOK) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type SubmitBadRequest struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this submit bad request response has a 2xx status code
+func (o *SubmitBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this submit bad request response has a 3xx status code
+func (o *SubmitBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this submit bad request response has a 4xx status code
+func (o *SubmitBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this submit bad request response has a 5xx status code
+func (o *SubmitBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this submit bad request response a status code equal to that given
+func (o *SubmitBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SubmitBadRequest) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SubmitBadRequest) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SubmitBadRequest) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type SubmitForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this submit forbidden response has a 2xx status code
+func (o *SubmitForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this submit forbidden response has a 3xx status code
+func (o *SubmitForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this submit forbidden response has a 4xx status code
+func (o *SubmitForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this submit forbidden response has a 5xx status code
+func (o *SubmitForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this submit forbidden response a status code equal to that given
+func (o *SubmitForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SubmitForbidden) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SubmitForbidden) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SubmitForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type SubmitTooManyRequests struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this submit too many requests response has a 2xx status code
+func (o *SubmitTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this submit too many requests response has a 3xx status code
+func (o *SubmitTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this submit too many requests response has a 4xx status code
+func (o *SubmitTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this submit too many requests response has a 5xx status code
+func (o *SubmitTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this submit too many requests response a status code equal to that given
+func (o *SubmitTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SubmitTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SubmitTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SubmitTooManyRequests) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type SubmitInternalServerError struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
+// IsSuccess returns true when this submit internal server error response has a 2xx status code
+func (o *SubmitInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this submit internal server error response has a 3xx status code
+func (o *SubmitInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this submit internal server error response has a 4xx status code
+func (o *SubmitInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this submit internal server error response has a 5xx status code
+func (o *SubmitInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this submit internal server error response a status code equal to that given
+func (o *SubmitInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SubmitInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SubmitInternalServerError) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SubmitInternalServerError) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *SubmitDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this submit default response has a 2xx status code
+func (o *SubmitDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this submit default response has a 3xx status code
+func (o *SubmitDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this submit default response has a 4xx status code
+func (o *SubmitDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this submit default response has a 5xx status code
+func (o *SubmitDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this submit default response a status code equal to that given
+func (o *SubmitDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SubmitDefault) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] Submit default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SubmitDefault) String() string {
+	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] Submit default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SubmitDefault) GetPayload() *models.FalconxSubmissionV1Response {
 	return o.Payload
 }

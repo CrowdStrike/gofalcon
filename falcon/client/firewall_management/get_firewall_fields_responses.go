@@ -78,9 +78,39 @@ type GetFirewallFieldsOK struct {
 	Payload *models.FwmgrAPIFirewallFieldsResponse
 }
 
+// IsSuccess returns true when this get firewall fields o k response has a 2xx status code
+func (o *GetFirewallFieldsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get firewall fields o k response has a 3xx status code
+func (o *GetFirewallFieldsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall fields o k response has a 4xx status code
+func (o *GetFirewallFieldsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get firewall fields o k response has a 5xx status code
+func (o *GetFirewallFieldsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall fields o k response a status code equal to that given
+func (o *GetFirewallFieldsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFirewallFieldsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetFirewallFieldsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetFirewallFieldsOK) GetPayload() *models.FwmgrAPIFirewallFieldsResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type GetFirewallFieldsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get firewall fields forbidden response has a 2xx status code
+func (o *GetFirewallFieldsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall fields forbidden response has a 3xx status code
+func (o *GetFirewallFieldsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall fields forbidden response has a 4xx status code
+func (o *GetFirewallFieldsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get firewall fields forbidden response has a 5xx status code
+func (o *GetFirewallFieldsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall fields forbidden response a status code equal to that given
+func (o *GetFirewallFieldsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFirewallFieldsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetFirewallFieldsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetFirewallFieldsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type GetFirewallFieldsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get firewall fields too many requests response has a 2xx status code
+func (o *GetFirewallFieldsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get firewall fields too many requests response has a 3xx status code
+func (o *GetFirewallFieldsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get firewall fields too many requests response has a 4xx status code
+func (o *GetFirewallFieldsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get firewall fields too many requests response has a 5xx status code
+func (o *GetFirewallFieldsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get firewall fields too many requests response a status code equal to that given
+func (o *GetFirewallFieldsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFirewallFieldsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetFirewallFieldsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] getFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetFirewallFieldsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *GetFirewallFieldsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get firewall fields default response has a 2xx status code
+func (o *GetFirewallFieldsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get firewall fields default response has a 3xx status code
+func (o *GetFirewallFieldsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get firewall fields default response has a 4xx status code
+func (o *GetFirewallFieldsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get firewall fields default response has a 5xx status code
+func (o *GetFirewallFieldsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get firewall fields default response a status code equal to that given
+func (o *GetFirewallFieldsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetFirewallFieldsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] get-firewall-fields default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetFirewallFieldsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/firewall-fields/v1][%d] get-firewall-fields default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetFirewallFieldsDefault) GetPayload() *models.FwmgrAPIFirewallFieldsResponse {
 	return o.Payload
 }

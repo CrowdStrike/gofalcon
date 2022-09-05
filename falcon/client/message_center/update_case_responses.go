@@ -94,9 +94,39 @@ type UpdateCaseOK struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this update case o k response has a 2xx status code
+func (o *UpdateCaseOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update case o k response has a 3xx status code
+func (o *UpdateCaseOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update case o k response has a 4xx status code
+func (o *UpdateCaseOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update case o k response has a 5xx status code
+func (o *UpdateCaseOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update case o k response a status code equal to that given
+func (o *UpdateCaseOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateCaseOK) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateCaseOK) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateCaseOK) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type UpdateCaseBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update case bad request response has a 2xx status code
+func (o *UpdateCaseBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update case bad request response has a 3xx status code
+func (o *UpdateCaseBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update case bad request response has a 4xx status code
+func (o *UpdateCaseBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update case bad request response has a 5xx status code
+func (o *UpdateCaseBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update case bad request response a status code equal to that given
+func (o *UpdateCaseBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateCaseBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateCaseBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateCaseBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type UpdateCaseForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update case forbidden response has a 2xx status code
+func (o *UpdateCaseForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update case forbidden response has a 3xx status code
+func (o *UpdateCaseForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update case forbidden response has a 4xx status code
+func (o *UpdateCaseForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update case forbidden response has a 5xx status code
+func (o *UpdateCaseForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update case forbidden response a status code equal to that given
+func (o *UpdateCaseForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateCaseForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateCaseForbidden) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateCaseForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type UpdateCaseTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update case too many requests response has a 2xx status code
+func (o *UpdateCaseTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update case too many requests response has a 3xx status code
+func (o *UpdateCaseTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update case too many requests response has a 4xx status code
+func (o *UpdateCaseTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update case too many requests response has a 5xx status code
+func (o *UpdateCaseTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update case too many requests response a status code equal to that given
+func (o *UpdateCaseTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateCaseTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateCaseTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateCaseTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type UpdateCaseInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update case internal server error response has a 2xx status code
+func (o *UpdateCaseInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update case internal server error response has a 3xx status code
+func (o *UpdateCaseInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update case internal server error response has a 4xx status code
+func (o *UpdateCaseInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update case internal server error response has a 5xx status code
+func (o *UpdateCaseInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update case internal server error response a status code equal to that given
+func (o *UpdateCaseInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateCaseInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateCaseInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateCaseInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *UpdateCaseDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update case default response has a 2xx status code
+func (o *UpdateCaseDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update case default response has a 3xx status code
+func (o *UpdateCaseDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update case default response has a 4xx status code
+func (o *UpdateCaseDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update case default response has a 5xx status code
+func (o *UpdateCaseDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update case default response a status code equal to that given
+func (o *UpdateCaseDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateCaseDefault) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] UpdateCase default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateCaseDefault) String() string {
+	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] UpdateCase default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateCaseDefault) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }

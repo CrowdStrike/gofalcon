@@ -94,9 +94,39 @@ type AzureDownloadCertificateOK struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this azure download certificate o k response has a 2xx status code
+func (o *AzureDownloadCertificateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this azure download certificate o k response has a 3xx status code
+func (o *AzureDownloadCertificateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate o k response has a 4xx status code
+func (o *AzureDownloadCertificateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this azure download certificate o k response has a 5xx status code
+func (o *AzureDownloadCertificateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this azure download certificate o k response a status code equal to that given
+func (o *AzureDownloadCertificateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AzureDownloadCertificateOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK  %+v", 200, o.Payload)
 }
+
+func (o *AzureDownloadCertificateOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateOK  %+v", 200, o.Payload)
+}
+
 func (o *AzureDownloadCertificateOK) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type AzureDownloadCertificateBadRequest struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this azure download certificate bad request response has a 2xx status code
+func (o *AzureDownloadCertificateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this azure download certificate bad request response has a 3xx status code
+func (o *AzureDownloadCertificateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate bad request response has a 4xx status code
+func (o *AzureDownloadCertificateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this azure download certificate bad request response has a 5xx status code
+func (o *AzureDownloadCertificateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this azure download certificate bad request response a status code equal to that given
+func (o *AzureDownloadCertificateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *AzureDownloadCertificateBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *AzureDownloadCertificateBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *AzureDownloadCertificateBadRequest) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type AzureDownloadCertificateForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this azure download certificate forbidden response has a 2xx status code
+func (o *AzureDownloadCertificateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this azure download certificate forbidden response has a 3xx status code
+func (o *AzureDownloadCertificateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate forbidden response has a 4xx status code
+func (o *AzureDownloadCertificateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this azure download certificate forbidden response has a 5xx status code
+func (o *AzureDownloadCertificateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this azure download certificate forbidden response a status code equal to that given
+func (o *AzureDownloadCertificateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AzureDownloadCertificateForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AzureDownloadCertificateForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AzureDownloadCertificateForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type AzureDownloadCertificateTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this azure download certificate too many requests response has a 2xx status code
+func (o *AzureDownloadCertificateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this azure download certificate too many requests response has a 3xx status code
+func (o *AzureDownloadCertificateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate too many requests response has a 4xx status code
+func (o *AzureDownloadCertificateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this azure download certificate too many requests response has a 5xx status code
+func (o *AzureDownloadCertificateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this azure download certificate too many requests response a status code equal to that given
+func (o *AzureDownloadCertificateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AzureDownloadCertificateTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AzureDownloadCertificateTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AzureDownloadCertificateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type AzureDownloadCertificateInternalServerError struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this azure download certificate internal server error response has a 2xx status code
+func (o *AzureDownloadCertificateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this azure download certificate internal server error response has a 3xx status code
+func (o *AzureDownloadCertificateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this azure download certificate internal server error response has a 4xx status code
+func (o *AzureDownloadCertificateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this azure download certificate internal server error response has a 5xx status code
+func (o *AzureDownloadCertificateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this azure download certificate internal server error response a status code equal to that given
+func (o *AzureDownloadCertificateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *AzureDownloadCertificateInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *AzureDownloadCertificateInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] azureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *AzureDownloadCertificateInternalServerError) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *AzureDownloadCertificateDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this azure download certificate default response has a 2xx status code
+func (o *AzureDownloadCertificateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this azure download certificate default response has a 3xx status code
+func (o *AzureDownloadCertificateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this azure download certificate default response has a 4xx status code
+func (o *AzureDownloadCertificateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this azure download certificate default response has a 5xx status code
+func (o *AzureDownloadCertificateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this azure download certificate default response a status code equal to that given
+func (o *AzureDownloadCertificateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AzureDownloadCertificateDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] AzureDownloadCertificate default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AzureDownloadCertificateDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/download-certificate/v1][%d] AzureDownloadCertificate default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AzureDownloadCertificateDefault) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }

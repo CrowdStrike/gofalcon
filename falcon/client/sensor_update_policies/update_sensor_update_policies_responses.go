@@ -96,9 +96,39 @@ type UpdateSensorUpdatePoliciesOK struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
+// IsSuccess returns true when this update sensor update policies o k response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update sensor update policies o k response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies o k response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update sensor update policies o k response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update sensor update policies o k response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateSensorUpdatePoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesOK) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesOK) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type UpdateSensorUpdatePoliciesBadRequest struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
+// IsSuccess returns true when this update sensor update policies bad request response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update sensor update policies bad request response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies bad request response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update sensor update policies bad request response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update sensor update policies bad request response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateSensorUpdatePoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesBadRequest) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type UpdateSensorUpdatePoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update sensor update policies forbidden response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update sensor update policies forbidden response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies forbidden response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update sensor update policies forbidden response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update sensor update policies forbidden response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateSensorUpdatePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesForbidden) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type UpdateSensorUpdatePoliciesNotFound struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
+// IsSuccess returns true when this update sensor update policies not found response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update sensor update policies not found response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies not found response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update sensor update policies not found response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update sensor update policies not found response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateSensorUpdatePoliciesNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesNotFound) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesNotFound) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type UpdateSensorUpdatePoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update sensor update policies too many requests response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update sensor update policies too many requests response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies too many requests response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update sensor update policies too many requests response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update sensor update policies too many requests response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateSensorUpdatePoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type UpdateSensorUpdatePoliciesInternalServerError struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
+// IsSuccess returns true when this update sensor update policies internal server error response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update sensor update policies internal server error response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update sensor update policies internal server error response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update sensor update policies internal server error response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update sensor update policies internal server error response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateSensorUpdatePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesInternalServerError) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *UpdateSensorUpdatePoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update sensor update policies default response has a 2xx status code
+func (o *UpdateSensorUpdatePoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update sensor update policies default response has a 3xx status code
+func (o *UpdateSensorUpdatePoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update sensor update policies default response has a 4xx status code
+func (o *UpdateSensorUpdatePoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update sensor update policies default response has a 5xx status code
+func (o *UpdateSensorUpdatePoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update sensor update policies default response a status code equal to that given
+func (o *UpdateSensorUpdatePoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateSensorUpdatePoliciesDefault) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateSensorUpdatePoliciesDefault) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateSensorUpdatePoliciesDefault) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
 	return o.Payload
 }

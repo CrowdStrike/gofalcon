@@ -84,9 +84,39 @@ type UpdateRuleGroupMixin0OK struct {
 	Payload *models.APIRuleGroupsResponse
 }
 
+// IsSuccess returns true when this update rule group mixin0 o k response has a 2xx status code
+func (o *UpdateRuleGroupMixin0OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update rule group mixin0 o k response has a 3xx status code
+func (o *UpdateRuleGroupMixin0OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group mixin0 o k response has a 4xx status code
+func (o *UpdateRuleGroupMixin0OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update rule group mixin0 o k response has a 5xx status code
+func (o *UpdateRuleGroupMixin0OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group mixin0 o k response a status code equal to that given
+func (o *UpdateRuleGroupMixin0OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateRuleGroupMixin0OK) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateRuleGroupMixin0OK) String() string {
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateRuleGroupMixin0OK) GetPayload() *models.APIRuleGroupsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type UpdateRuleGroupMixin0Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group mixin0 forbidden response has a 2xx status code
+func (o *UpdateRuleGroupMixin0Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group mixin0 forbidden response has a 3xx status code
+func (o *UpdateRuleGroupMixin0Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group mixin0 forbidden response has a 4xx status code
+func (o *UpdateRuleGroupMixin0Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group mixin0 forbidden response has a 5xx status code
+func (o *UpdateRuleGroupMixin0Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group mixin0 forbidden response a status code equal to that given
+func (o *UpdateRuleGroupMixin0Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateRuleGroupMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateRuleGroupMixin0Forbidden) String() string {
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateRuleGroupMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type UpdateRuleGroupMixin0NotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group mixin0 not found response has a 2xx status code
+func (o *UpdateRuleGroupMixin0NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group mixin0 not found response has a 3xx status code
+func (o *UpdateRuleGroupMixin0NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group mixin0 not found response has a 4xx status code
+func (o *UpdateRuleGroupMixin0NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group mixin0 not found response has a 5xx status code
+func (o *UpdateRuleGroupMixin0NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group mixin0 not found response a status code equal to that given
+func (o *UpdateRuleGroupMixin0NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateRuleGroupMixin0NotFound) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateRuleGroupMixin0NotFound) String() string {
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0NotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateRuleGroupMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type UpdateRuleGroupMixin0TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update rule group mixin0 too many requests response has a 2xx status code
+func (o *UpdateRuleGroupMixin0TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update rule group mixin0 too many requests response has a 3xx status code
+func (o *UpdateRuleGroupMixin0TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update rule group mixin0 too many requests response has a 4xx status code
+func (o *UpdateRuleGroupMixin0TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update rule group mixin0 too many requests response has a 5xx status code
+func (o *UpdateRuleGroupMixin0TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update rule group mixin0 too many requests response a status code equal to that given
+func (o *UpdateRuleGroupMixin0TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateRuleGroupMixin0TooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateRuleGroupMixin0TooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateRuleGroupMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *UpdateRuleGroupMixin0Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update rule group mixin0 default response has a 2xx status code
+func (o *UpdateRuleGroupMixin0Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update rule group mixin0 default response has a 3xx status code
+func (o *UpdateRuleGroupMixin0Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update rule group mixin0 default response has a 4xx status code
+func (o *UpdateRuleGroupMixin0Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update rule group mixin0 default response has a 5xx status code
+func (o *UpdateRuleGroupMixin0Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update rule group mixin0 default response a status code equal to that given
+func (o *UpdateRuleGroupMixin0Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateRuleGroupMixin0Default) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] update-rule-groupMixin0 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateRuleGroupMixin0Default) String() string {
+	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] update-rule-groupMixin0 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateRuleGroupMixin0Default) GetPayload() *models.APIRuleGroupsResponse {
 	return o.Payload
 }

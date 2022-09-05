@@ -78,9 +78,39 @@ type QueryPlatformsOK struct {
 	Payload *models.FwmgrMsaQueryResponse
 }
 
+// IsSuccess returns true when this query platforms o k response has a 2xx status code
+func (o *QueryPlatformsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query platforms o k response has a 3xx status code
+func (o *QueryPlatformsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query platforms o k response has a 4xx status code
+func (o *QueryPlatformsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query platforms o k response has a 5xx status code
+func (o *QueryPlatformsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query platforms o k response a status code equal to that given
+func (o *QueryPlatformsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryPlatformsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryPlatformsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryPlatformsOK) GetPayload() *models.FwmgrMsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryPlatformsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query platforms forbidden response has a 2xx status code
+func (o *QueryPlatformsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query platforms forbidden response has a 3xx status code
+func (o *QueryPlatformsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query platforms forbidden response has a 4xx status code
+func (o *QueryPlatformsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query platforms forbidden response has a 5xx status code
+func (o *QueryPlatformsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query platforms forbidden response a status code equal to that given
+func (o *QueryPlatformsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryPlatformsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryPlatformsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryPlatformsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryPlatformsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query platforms too many requests response has a 2xx status code
+func (o *QueryPlatformsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query platforms too many requests response has a 3xx status code
+func (o *QueryPlatformsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query platforms too many requests response has a 4xx status code
+func (o *QueryPlatformsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query platforms too many requests response has a 5xx status code
+func (o *QueryPlatformsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query platforms too many requests response a status code equal to that given
+func (o *QueryPlatformsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryPlatformsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryPlatformsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryPlatformsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryPlatformsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query platforms default response has a 2xx status code
+func (o *QueryPlatformsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query platforms default response has a 3xx status code
+func (o *QueryPlatformsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query platforms default response has a 4xx status code
+func (o *QueryPlatformsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query platforms default response has a 5xx status code
+func (o *QueryPlatformsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query platforms default response a status code equal to that given
+func (o *QueryPlatformsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryPlatformsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] query-platforms default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryPlatformsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] query-platforms default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryPlatformsDefault) GetPayload() *models.FwmgrMsaQueryResponse {
 	return o.Payload
 }

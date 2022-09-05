@@ -96,9 +96,39 @@ type GetRolesOK struct {
 	Payload *models.DomainUserRoleResponse
 }
 
+// IsSuccess returns true when this get roles o k response has a 2xx status code
+func (o *GetRolesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get roles o k response has a 3xx status code
+func (o *GetRolesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles o k response has a 4xx status code
+func (o *GetRolesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get roles o k response has a 5xx status code
+func (o *GetRolesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles o k response a status code equal to that given
+func (o *GetRolesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRolesOK) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRolesOK) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRolesOK) GetPayload() *models.DomainUserRoleResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetRolesBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get roles bad request response has a 2xx status code
+func (o *GetRolesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles bad request response has a 3xx status code
+func (o *GetRolesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles bad request response has a 4xx status code
+func (o *GetRolesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles bad request response has a 5xx status code
+func (o *GetRolesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles bad request response a status code equal to that given
+func (o *GetRolesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRolesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetRolesBadRequest) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetRolesBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetRolesForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get roles forbidden response has a 2xx status code
+func (o *GetRolesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles forbidden response has a 3xx status code
+func (o *GetRolesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles forbidden response has a 4xx status code
+func (o *GetRolesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles forbidden response has a 5xx status code
+func (o *GetRolesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles forbidden response a status code equal to that given
+func (o *GetRolesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRolesForbidden) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRolesForbidden) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRolesForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetRolesNotFound struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get roles not found response has a 2xx status code
+func (o *GetRolesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles not found response has a 3xx status code
+func (o *GetRolesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles not found response has a 4xx status code
+func (o *GetRolesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles not found response has a 5xx status code
+func (o *GetRolesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles not found response a status code equal to that given
+func (o *GetRolesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRolesNotFound) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRolesNotFound) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRolesNotFound) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetRolesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get roles too many requests response has a 2xx status code
+func (o *GetRolesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles too many requests response has a 3xx status code
+func (o *GetRolesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles too many requests response has a 4xx status code
+func (o *GetRolesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles too many requests response has a 5xx status code
+func (o *GetRolesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles too many requests response a status code equal to that given
+func (o *GetRolesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRolesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetRolesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetRolesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetRolesInternalServerError struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this get roles internal server error response has a 2xx status code
+func (o *GetRolesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles internal server error response has a 3xx status code
+func (o *GetRolesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles internal server error response has a 4xx status code
+func (o *GetRolesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get roles internal server error response has a 5xx status code
+func (o *GetRolesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get roles internal server error response a status code equal to that given
+func (o *GetRolesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRolesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetRolesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetRolesInternalServerError) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetRolesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get roles default response has a 2xx status code
+func (o *GetRolesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get roles default response has a 3xx status code
+func (o *GetRolesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get roles default response has a 4xx status code
+func (o *GetRolesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get roles default response has a 5xx status code
+func (o *GetRolesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get roles default response a status code equal to that given
+func (o *GetRolesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRolesDefault) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] GetRoles default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRolesDefault) String() string {
+	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] GetRoles default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRolesDefault) GetPayload() *models.DomainUserRoleResponse {
 	return o.Payload
 }

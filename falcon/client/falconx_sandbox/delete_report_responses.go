@@ -89,9 +89,39 @@ type DeleteReportAccepted struct {
 	Payload *models.FalconxQueryResponse
 }
 
+// IsSuccess returns true when this delete report accepted response has a 2xx status code
+func (o *DeleteReportAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete report accepted response has a 3xx status code
+func (o *DeleteReportAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report accepted response has a 4xx status code
+func (o *DeleteReportAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete report accepted response has a 5xx status code
+func (o *DeleteReportAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete report accepted response a status code equal to that given
+func (o *DeleteReportAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *DeleteReportAccepted) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted  %+v", 202, o.Payload)
 }
+
+func (o *DeleteReportAccepted) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted  %+v", 202, o.Payload)
+}
+
 func (o *DeleteReportAccepted) GetPayload() *models.FalconxQueryResponse {
 	return o.Payload
 }
@@ -153,9 +183,39 @@ type DeleteReportBadRequest struct {
 	Payload *models.FalconxErrorsOnly
 }
 
+// IsSuccess returns true when this delete report bad request response has a 2xx status code
+func (o *DeleteReportBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete report bad request response has a 3xx status code
+func (o *DeleteReportBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report bad request response has a 4xx status code
+func (o *DeleteReportBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete report bad request response has a 5xx status code
+func (o *DeleteReportBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete report bad request response a status code equal to that given
+func (o *DeleteReportBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteReportBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteReportBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteReportBadRequest) GetPayload() *models.FalconxErrorsOnly {
 	return o.Payload
 }
@@ -217,9 +277,39 @@ type DeleteReportForbidden struct {
 	Payload *models.FalconxErrorsOnly
 }
 
+// IsSuccess returns true when this delete report forbidden response has a 2xx status code
+func (o *DeleteReportForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete report forbidden response has a 3xx status code
+func (o *DeleteReportForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report forbidden response has a 4xx status code
+func (o *DeleteReportForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete report forbidden response has a 5xx status code
+func (o *DeleteReportForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete report forbidden response a status code equal to that given
+func (o *DeleteReportForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteReportForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteReportForbidden) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteReportForbidden) GetPayload() *models.FalconxErrorsOnly {
 	return o.Payload
 }
@@ -281,9 +371,39 @@ type DeleteReportNotFound struct {
 	Payload *models.FalconxErrorsOnly
 }
 
+// IsSuccess returns true when this delete report not found response has a 2xx status code
+func (o *DeleteReportNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete report not found response has a 3xx status code
+func (o *DeleteReportNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report not found response has a 4xx status code
+func (o *DeleteReportNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete report not found response has a 5xx status code
+func (o *DeleteReportNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete report not found response a status code equal to that given
+func (o *DeleteReportNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteReportNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteReportNotFound) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteReportNotFound) GetPayload() *models.FalconxErrorsOnly {
 	return o.Payload
 }
@@ -349,9 +469,39 @@ type DeleteReportTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete report too many requests response has a 2xx status code
+func (o *DeleteReportTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete report too many requests response has a 3xx status code
+func (o *DeleteReportTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report too many requests response has a 4xx status code
+func (o *DeleteReportTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete report too many requests response has a 5xx status code
+func (o *DeleteReportTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete report too many requests response a status code equal to that given
+func (o *DeleteReportTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteReportTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteReportTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteReportTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -424,9 +574,39 @@ type DeleteReportInternalServerError struct {
 	Payload *models.FalconxErrorsOnly
 }
 
+// IsSuccess returns true when this delete report internal server error response has a 2xx status code
+func (o *DeleteReportInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete report internal server error response has a 3xx status code
+func (o *DeleteReportInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete report internal server error response has a 4xx status code
+func (o *DeleteReportInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete report internal server error response has a 5xx status code
+func (o *DeleteReportInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete report internal server error response a status code equal to that given
+func (o *DeleteReportInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteReportInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteReportInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteReportInternalServerError) GetPayload() *models.FalconxErrorsOnly {
 	return o.Payload
 }

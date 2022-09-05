@@ -96,9 +96,39 @@ type DeleteCSPMAzureAccountOK struct {
 	Payload *models.RegistrationBaseResponseV1
 }
 
+// IsSuccess returns true when this delete c s p m azure account o k response has a 2xx status code
+func (o *DeleteCSPMAzureAccountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete c s p m azure account o k response has a 3xx status code
+func (o *DeleteCSPMAzureAccountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account o k response has a 4xx status code
+func (o *DeleteCSPMAzureAccountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete c s p m azure account o k response has a 5xx status code
+func (o *DeleteCSPMAzureAccountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete c s p m azure account o k response a status code equal to that given
+func (o *DeleteCSPMAzureAccountOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteCSPMAzureAccountOK) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountOK) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountOK) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type DeleteCSPMAzureAccountMultiStatus struct {
 	Payload *models.RegistrationBaseResponseV1
 }
 
+// IsSuccess returns true when this delete c s p m azure account multi status response has a 2xx status code
+func (o *DeleteCSPMAzureAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete c s p m azure account multi status response has a 3xx status code
+func (o *DeleteCSPMAzureAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account multi status response has a 4xx status code
+func (o *DeleteCSPMAzureAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete c s p m azure account multi status response has a 5xx status code
+func (o *DeleteCSPMAzureAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete c s p m azure account multi status response a status code equal to that given
+func (o *DeleteCSPMAzureAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *DeleteCSPMAzureAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountMultiStatus) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountMultiStatus) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type DeleteCSPMAzureAccountBadRequest struct {
 	Payload *models.RegistrationBaseResponseV1
 }
 
+// IsSuccess returns true when this delete c s p m azure account bad request response has a 2xx status code
+func (o *DeleteCSPMAzureAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete c s p m azure account bad request response has a 3xx status code
+func (o *DeleteCSPMAzureAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account bad request response has a 4xx status code
+func (o *DeleteCSPMAzureAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete c s p m azure account bad request response has a 5xx status code
+func (o *DeleteCSPMAzureAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete c s p m azure account bad request response a status code equal to that given
+func (o *DeleteCSPMAzureAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteCSPMAzureAccountBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountBadRequest) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type DeleteCSPMAzureAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete c s p m azure account forbidden response has a 2xx status code
+func (o *DeleteCSPMAzureAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete c s p m azure account forbidden response has a 3xx status code
+func (o *DeleteCSPMAzureAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account forbidden response has a 4xx status code
+func (o *DeleteCSPMAzureAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete c s p m azure account forbidden response has a 5xx status code
+func (o *DeleteCSPMAzureAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete c s p m azure account forbidden response a status code equal to that given
+func (o *DeleteCSPMAzureAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteCSPMAzureAccountForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountForbidden) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type DeleteCSPMAzureAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete c s p m azure account too many requests response has a 2xx status code
+func (o *DeleteCSPMAzureAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete c s p m azure account too many requests response has a 3xx status code
+func (o *DeleteCSPMAzureAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account too many requests response has a 4xx status code
+func (o *DeleteCSPMAzureAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete c s p m azure account too many requests response has a 5xx status code
+func (o *DeleteCSPMAzureAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete c s p m azure account too many requests response a status code equal to that given
+func (o *DeleteCSPMAzureAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteCSPMAzureAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type DeleteCSPMAzureAccountInternalServerError struct {
 	Payload *models.RegistrationAzureAccountResponseV1
 }
 
+// IsSuccess returns true when this delete c s p m azure account internal server error response has a 2xx status code
+func (o *DeleteCSPMAzureAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete c s p m azure account internal server error response has a 3xx status code
+func (o *DeleteCSPMAzureAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete c s p m azure account internal server error response has a 4xx status code
+func (o *DeleteCSPMAzureAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete c s p m azure account internal server error response has a 5xx status code
+func (o *DeleteCSPMAzureAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete c s p m azure account internal server error response a status code equal to that given
+func (o *DeleteCSPMAzureAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteCSPMAzureAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountInternalServerError) GetPayload() *models.RegistrationAzureAccountResponseV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *DeleteCSPMAzureAccountDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete c s p m azure account default response has a 2xx status code
+func (o *DeleteCSPMAzureAccountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete c s p m azure account default response has a 3xx status code
+func (o *DeleteCSPMAzureAccountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete c s p m azure account default response has a 4xx status code
+func (o *DeleteCSPMAzureAccountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete c s p m azure account default response has a 5xx status code
+func (o *DeleteCSPMAzureAccountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete c s p m azure account default response a status code equal to that given
+func (o *DeleteCSPMAzureAccountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteCSPMAzureAccountDefault) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] DeleteCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteCSPMAzureAccountDefault) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] DeleteCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteCSPMAzureAccountDefault) GetPayload() *models.RegistrationBaseResponseV1 {
 	return o.Payload
 }

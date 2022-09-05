@@ -88,9 +88,39 @@ type ReportExecutionsGetOK struct {
 	Payload *models.APIReportExecutionsResponseV1
 }
 
+// IsSuccess returns true when this report executions get o k response has a 2xx status code
+func (o *ReportExecutionsGetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this report executions get o k response has a 3xx status code
+func (o *ReportExecutionsGetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions get o k response has a 4xx status code
+func (o *ReportExecutionsGetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this report executions get o k response has a 5xx status code
+func (o *ReportExecutionsGetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions get o k response a status code equal to that given
+func (o *ReportExecutionsGetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ReportExecutionsGetOK) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK  %+v", 200, o.Payload)
 }
+
+func (o *ReportExecutionsGetOK) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetOK  %+v", 200, o.Payload)
+}
+
 func (o *ReportExecutionsGetOK) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type ReportExecutionsGetBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions get bad request response has a 2xx status code
+func (o *ReportExecutionsGetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions get bad request response has a 3xx status code
+func (o *ReportExecutionsGetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions get bad request response has a 4xx status code
+func (o *ReportExecutionsGetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions get bad request response has a 5xx status code
+func (o *ReportExecutionsGetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions get bad request response a status code equal to that given
+func (o *ReportExecutionsGetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ReportExecutionsGetBadRequest) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ReportExecutionsGetBadRequest) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ReportExecutionsGetBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type ReportExecutionsGetForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions get forbidden response has a 2xx status code
+func (o *ReportExecutionsGetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions get forbidden response has a 3xx status code
+func (o *ReportExecutionsGetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions get forbidden response has a 4xx status code
+func (o *ReportExecutionsGetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions get forbidden response has a 5xx status code
+func (o *ReportExecutionsGetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions get forbidden response a status code equal to that given
+func (o *ReportExecutionsGetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ReportExecutionsGetForbidden) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ReportExecutionsGetForbidden) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ReportExecutionsGetForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type ReportExecutionsGetTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions get too many requests response has a 2xx status code
+func (o *ReportExecutionsGetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions get too many requests response has a 3xx status code
+func (o *ReportExecutionsGetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions get too many requests response has a 4xx status code
+func (o *ReportExecutionsGetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions get too many requests response has a 5xx status code
+func (o *ReportExecutionsGetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions get too many requests response a status code equal to that given
+func (o *ReportExecutionsGetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ReportExecutionsGetTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ReportExecutionsGetTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] reportExecutionsGetTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ReportExecutionsGetTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *ReportExecutionsGetDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this report executions get default response has a 2xx status code
+func (o *ReportExecutionsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this report executions get default response has a 3xx status code
+func (o *ReportExecutionsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this report executions get default response has a 4xx status code
+func (o *ReportExecutionsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this report executions get default response has a 5xx status code
+func (o *ReportExecutionsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this report executions get default response a status code equal to that given
+func (o *ReportExecutionsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ReportExecutionsGetDefault) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] report-executions.get default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ReportExecutionsGetDefault) String() string {
+	return fmt.Sprintf("[GET /reports/entities/report-executions/v1][%d] report-executions.get default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ReportExecutionsGetDefault) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type GetAWSSettingsOK struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this get a w s settings o k response has a 2xx status code
+func (o *GetAWSSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get a w s settings o k response has a 3xx status code
+func (o *GetAWSSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get a w s settings o k response has a 4xx status code
+func (o *GetAWSSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get a w s settings o k response has a 5xx status code
+func (o *GetAWSSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get a w s settings o k response a status code equal to that given
+func (o *GetAWSSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAWSSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetAWSSettingsOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetAWSSettingsOK) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetAWSSettingsBadRequest struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this get a w s settings bad request response has a 2xx status code
+func (o *GetAWSSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get a w s settings bad request response has a 3xx status code
+func (o *GetAWSSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get a w s settings bad request response has a 4xx status code
+func (o *GetAWSSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get a w s settings bad request response has a 5xx status code
+func (o *GetAWSSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get a w s settings bad request response a status code equal to that given
+func (o *GetAWSSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAWSSettingsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetAWSSettingsBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetAWSSettingsBadRequest) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetAWSSettingsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get a w s settings forbidden response has a 2xx status code
+func (o *GetAWSSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get a w s settings forbidden response has a 3xx status code
+func (o *GetAWSSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get a w s settings forbidden response has a 4xx status code
+func (o *GetAWSSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get a w s settings forbidden response has a 5xx status code
+func (o *GetAWSSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get a w s settings forbidden response a status code equal to that given
+func (o *GetAWSSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAWSSettingsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetAWSSettingsForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetAWSSettingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetAWSSettingsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get a w s settings too many requests response has a 2xx status code
+func (o *GetAWSSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get a w s settings too many requests response has a 3xx status code
+func (o *GetAWSSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get a w s settings too many requests response has a 4xx status code
+func (o *GetAWSSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get a w s settings too many requests response has a 5xx status code
+func (o *GetAWSSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get a w s settings too many requests response a status code equal to that given
+func (o *GetAWSSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAWSSettingsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetAWSSettingsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetAWSSettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetAWSSettingsInternalServerError struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this get a w s settings internal server error response has a 2xx status code
+func (o *GetAWSSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get a w s settings internal server error response has a 3xx status code
+func (o *GetAWSSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get a w s settings internal server error response has a 4xx status code
+func (o *GetAWSSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get a w s settings internal server error response has a 5xx status code
+func (o *GetAWSSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get a w s settings internal server error response a status code equal to that given
+func (o *GetAWSSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAWSSettingsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetAWSSettingsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] getAWSSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetAWSSettingsInternalServerError) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetAWSSettingsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get a w s settings default response has a 2xx status code
+func (o *GetAWSSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get a w s settings default response has a 3xx status code
+func (o *GetAWSSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get a w s settings default response has a 4xx status code
+func (o *GetAWSSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get a w s settings default response has a 5xx status code
+func (o *GetAWSSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get a w s settings default response a status code equal to that given
+func (o *GetAWSSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetAWSSettingsDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] GetAWSSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetAWSSettingsDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/combined/settings/v1][%d] GetAWSSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetAWSSettingsDefault) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }

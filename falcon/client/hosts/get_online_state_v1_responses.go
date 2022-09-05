@@ -82,9 +82,39 @@ type GetOnlineStateV1OK struct {
 	Payload *models.StateOnlineStateRespV1
 }
 
+// IsSuccess returns true when this get online state v1 o k response has a 2xx status code
+func (o *GetOnlineStateV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get online state v1 o k response has a 3xx status code
+func (o *GetOnlineStateV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get online state v1 o k response has a 4xx status code
+func (o *GetOnlineStateV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get online state v1 o k response has a 5xx status code
+func (o *GetOnlineStateV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get online state v1 o k response a status code equal to that given
+func (o *GetOnlineStateV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOnlineStateV1OK) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetOnlineStateV1OK) String() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetOnlineStateV1OK) GetPayload() *models.StateOnlineStateRespV1 {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type GetOnlineStateV1Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get online state v1 forbidden response has a 2xx status code
+func (o *GetOnlineStateV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get online state v1 forbidden response has a 3xx status code
+func (o *GetOnlineStateV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get online state v1 forbidden response has a 4xx status code
+func (o *GetOnlineStateV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get online state v1 forbidden response has a 5xx status code
+func (o *GetOnlineStateV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get online state v1 forbidden response a status code equal to that given
+func (o *GetOnlineStateV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOnlineStateV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetOnlineStateV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetOnlineStateV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type GetOnlineStateV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get online state v1 too many requests response has a 2xx status code
+func (o *GetOnlineStateV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get online state v1 too many requests response has a 3xx status code
+func (o *GetOnlineStateV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get online state v1 too many requests response has a 4xx status code
+func (o *GetOnlineStateV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get online state v1 too many requests response has a 5xx status code
+func (o *GetOnlineStateV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get online state v1 too many requests response a status code equal to that given
+func (o *GetOnlineStateV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOnlineStateV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetOnlineStateV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetOnlineStateV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *GetOnlineStateV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get online state v1 default response has a 2xx status code
+func (o *GetOnlineStateV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get online state v1 default response has a 3xx status code
+func (o *GetOnlineStateV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get online state v1 default response has a 4xx status code
+func (o *GetOnlineStateV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get online state v1 default response has a 5xx status code
+func (o *GetOnlineStateV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get online state v1 default response a status code equal to that given
+func (o *GetOnlineStateV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetOnlineStateV1Default) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] GetOnlineState.V1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetOnlineStateV1Default) String() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] GetOnlineState.V1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetOnlineStateV1Default) GetPayload() *models.StateOnlineStateRespV1 {
 	return o.Payload
 }

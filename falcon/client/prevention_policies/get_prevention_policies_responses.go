@@ -94,9 +94,39 @@ type GetPreventionPoliciesOK struct {
 	Payload *models.ResponsesPreventionPoliciesV1
 }
 
+// IsSuccess returns true when this get prevention policies o k response has a 2xx status code
+func (o *GetPreventionPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get prevention policies o k response has a 3xx status code
+func (o *GetPreventionPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get prevention policies o k response has a 4xx status code
+func (o *GetPreventionPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get prevention policies o k response has a 5xx status code
+func (o *GetPreventionPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get prevention policies o k response a status code equal to that given
+func (o *GetPreventionPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetPreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetPreventionPoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetPreventionPoliciesOK) GetPayload() *models.ResponsesPreventionPoliciesV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetPreventionPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get prevention policies forbidden response has a 2xx status code
+func (o *GetPreventionPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get prevention policies forbidden response has a 3xx status code
+func (o *GetPreventionPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get prevention policies forbidden response has a 4xx status code
+func (o *GetPreventionPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get prevention policies forbidden response has a 5xx status code
+func (o *GetPreventionPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get prevention policies forbidden response a status code equal to that given
+func (o *GetPreventionPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetPreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetPreventionPoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetPreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetPreventionPoliciesNotFound struct {
 	Payload *models.ResponsesPreventionPoliciesV1
 }
 
+// IsSuccess returns true when this get prevention policies not found response has a 2xx status code
+func (o *GetPreventionPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get prevention policies not found response has a 3xx status code
+func (o *GetPreventionPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get prevention policies not found response has a 4xx status code
+func (o *GetPreventionPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get prevention policies not found response has a 5xx status code
+func (o *GetPreventionPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get prevention policies not found response a status code equal to that given
+func (o *GetPreventionPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetPreventionPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetPreventionPoliciesNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetPreventionPoliciesNotFound) GetPayload() *models.ResponsesPreventionPoliciesV1 {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetPreventionPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get prevention policies too many requests response has a 2xx status code
+func (o *GetPreventionPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get prevention policies too many requests response has a 3xx status code
+func (o *GetPreventionPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get prevention policies too many requests response has a 4xx status code
+func (o *GetPreventionPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get prevention policies too many requests response has a 5xx status code
+func (o *GetPreventionPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get prevention policies too many requests response a status code equal to that given
+func (o *GetPreventionPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetPreventionPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetPreventionPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetPreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetPreventionPoliciesInternalServerError struct {
 	Payload *models.ResponsesPreventionPoliciesV1
 }
 
+// IsSuccess returns true when this get prevention policies internal server error response has a 2xx status code
+func (o *GetPreventionPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get prevention policies internal server error response has a 3xx status code
+func (o *GetPreventionPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get prevention policies internal server error response has a 4xx status code
+func (o *GetPreventionPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get prevention policies internal server error response has a 5xx status code
+func (o *GetPreventionPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get prevention policies internal server error response a status code equal to that given
+func (o *GetPreventionPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetPreventionPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetPreventionPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetPreventionPoliciesInternalServerError) GetPayload() *models.ResponsesPreventionPoliciesV1 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetPreventionPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get prevention policies default response has a 2xx status code
+func (o *GetPreventionPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get prevention policies default response has a 3xx status code
+func (o *GetPreventionPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get prevention policies default response has a 4xx status code
+func (o *GetPreventionPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get prevention policies default response has a 5xx status code
+func (o *GetPreventionPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get prevention policies default response a status code equal to that given
+func (o *GetPreventionPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetPreventionPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetPreventionPoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetPreventionPoliciesDefault) GetPayload() *models.ResponsesPreventionPoliciesV1 {
 	return o.Payload
 }

@@ -78,9 +78,39 @@ type QueryFirewallFieldsOK struct {
 	Payload *models.FwmgrMsaQueryResponse
 }
 
+// IsSuccess returns true when this query firewall fields o k response has a 2xx status code
+func (o *QueryFirewallFieldsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query firewall fields o k response has a 3xx status code
+func (o *QueryFirewallFieldsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall fields o k response has a 4xx status code
+func (o *QueryFirewallFieldsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query firewall fields o k response has a 5xx status code
+func (o *QueryFirewallFieldsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall fields o k response a status code equal to that given
+func (o *QueryFirewallFieldsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryFirewallFieldsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryFirewallFieldsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryFirewallFieldsOK) GetPayload() *models.FwmgrMsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryFirewallFieldsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query firewall fields forbidden response has a 2xx status code
+func (o *QueryFirewallFieldsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall fields forbidden response has a 3xx status code
+func (o *QueryFirewallFieldsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall fields forbidden response has a 4xx status code
+func (o *QueryFirewallFieldsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query firewall fields forbidden response has a 5xx status code
+func (o *QueryFirewallFieldsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall fields forbidden response a status code equal to that given
+func (o *QueryFirewallFieldsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryFirewallFieldsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryFirewallFieldsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryFirewallFieldsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryFirewallFieldsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query firewall fields too many requests response has a 2xx status code
+func (o *QueryFirewallFieldsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall fields too many requests response has a 3xx status code
+func (o *QueryFirewallFieldsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall fields too many requests response has a 4xx status code
+func (o *QueryFirewallFieldsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query firewall fields too many requests response has a 5xx status code
+func (o *QueryFirewallFieldsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall fields too many requests response a status code equal to that given
+func (o *QueryFirewallFieldsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryFirewallFieldsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryFirewallFieldsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryFirewallFieldsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryFirewallFieldsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query firewall fields default response has a 2xx status code
+func (o *QueryFirewallFieldsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query firewall fields default response has a 3xx status code
+func (o *QueryFirewallFieldsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query firewall fields default response has a 4xx status code
+func (o *QueryFirewallFieldsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query firewall fields default response has a 5xx status code
+func (o *QueryFirewallFieldsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query firewall fields default response a status code equal to that given
+func (o *QueryFirewallFieldsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryFirewallFieldsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] query-firewall-fields default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryFirewallFieldsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] query-firewall-fields default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryFirewallFieldsDefault) GetPayload() *models.FwmgrMsaQueryResponse {
 	return o.Payload
 }

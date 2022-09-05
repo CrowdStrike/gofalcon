@@ -96,9 +96,39 @@ type PostMalQueryFuzzySearchV1OK struct {
 	Payload *models.MalqueryFuzzySearchResponse
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 o k response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 o k response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 o k response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 o k response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 o k response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostMalQueryFuzzySearchV1OK) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK  %+v", 200, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1OK) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK  %+v", 200, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1OK) GetPayload() *models.MalqueryFuzzySearchResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type PostMalQueryFuzzySearchV1BadRequest struct {
 	Payload *models.MalqueryFuzzySearchResponse
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 bad request response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 bad request response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 bad request response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 bad request response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 bad request response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostMalQueryFuzzySearchV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1BadRequest) GetPayload() *models.MalqueryFuzzySearchResponse {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type PostMalQueryFuzzySearchV1Unauthorized struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 unauthorized response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 unauthorized response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 unauthorized response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 unauthorized response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 unauthorized response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostMalQueryFuzzySearchV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type PostMalQueryFuzzySearchV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 forbidden response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 forbidden response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 forbidden response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 forbidden response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 forbidden response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostMalQueryFuzzySearchV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type PostMalQueryFuzzySearchV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 too many requests response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 too many requests response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 too many requests response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 too many requests response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 too many requests response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type PostMalQueryFuzzySearchV1InternalServerError struct {
 	Payload *models.MalqueryFuzzySearchResponse
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 internal server error response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 internal server error response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 internal server error response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 internal server error response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 internal server error response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostMalQueryFuzzySearchV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1InternalServerError) GetPayload() *models.MalqueryFuzzySearchResponse {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *PostMalQueryFuzzySearchV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post mal query fuzzy search v1 default response has a 2xx status code
+func (o *PostMalQueryFuzzySearchV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post mal query fuzzy search v1 default response has a 3xx status code
+func (o *PostMalQueryFuzzySearchV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post mal query fuzzy search v1 default response has a 4xx status code
+func (o *PostMalQueryFuzzySearchV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post mal query fuzzy search v1 default response has a 5xx status code
+func (o *PostMalQueryFuzzySearchV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post mal query fuzzy search v1 default response a status code equal to that given
+func (o *PostMalQueryFuzzySearchV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostMalQueryFuzzySearchV1Default) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] PostMalQueryFuzzySearchV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PostMalQueryFuzzySearchV1Default) String() string {
+	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] PostMalQueryFuzzySearchV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PostMalQueryFuzzySearchV1Default) GetPayload() *models.MalqueryFuzzySearchResponse {
 	return o.Payload
 }

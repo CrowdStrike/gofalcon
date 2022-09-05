@@ -90,9 +90,39 @@ type CrowdScoreOK struct {
 	Payload *models.APIMsaEnvironmentScoreResponse
 }
 
+// IsSuccess returns true when this crowd score o k response has a 2xx status code
+func (o *CrowdScoreOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this crowd score o k response has a 3xx status code
+func (o *CrowdScoreOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this crowd score o k response has a 4xx status code
+func (o *CrowdScoreOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this crowd score o k response has a 5xx status code
+func (o *CrowdScoreOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this crowd score o k response a status code equal to that given
+func (o *CrowdScoreOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CrowdScoreOK) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK  %+v", 200, o.Payload)
 }
+
+func (o *CrowdScoreOK) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreOK  %+v", 200, o.Payload)
+}
+
 func (o *CrowdScoreOK) GetPayload() *models.APIMsaEnvironmentScoreResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type CrowdScoreBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this crowd score bad request response has a 2xx status code
+func (o *CrowdScoreBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this crowd score bad request response has a 3xx status code
+func (o *CrowdScoreBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this crowd score bad request response has a 4xx status code
+func (o *CrowdScoreBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this crowd score bad request response has a 5xx status code
+func (o *CrowdScoreBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this crowd score bad request response a status code equal to that given
+func (o *CrowdScoreBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CrowdScoreBadRequest) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CrowdScoreBadRequest) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CrowdScoreBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type CrowdScoreForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this crowd score forbidden response has a 2xx status code
+func (o *CrowdScoreForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this crowd score forbidden response has a 3xx status code
+func (o *CrowdScoreForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this crowd score forbidden response has a 4xx status code
+func (o *CrowdScoreForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this crowd score forbidden response has a 5xx status code
+func (o *CrowdScoreForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this crowd score forbidden response a status code equal to that given
+func (o *CrowdScoreForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CrowdScoreForbidden) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CrowdScoreForbidden) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CrowdScoreForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type CrowdScoreTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this crowd score too many requests response has a 2xx status code
+func (o *CrowdScoreTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this crowd score too many requests response has a 3xx status code
+func (o *CrowdScoreTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this crowd score too many requests response has a 4xx status code
+func (o *CrowdScoreTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this crowd score too many requests response has a 5xx status code
+func (o *CrowdScoreTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this crowd score too many requests response a status code equal to that given
+func (o *CrowdScoreTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CrowdScoreTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CrowdScoreTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CrowdScoreTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type CrowdScoreInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this crowd score internal server error response has a 2xx status code
+func (o *CrowdScoreInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this crowd score internal server error response has a 3xx status code
+func (o *CrowdScoreInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this crowd score internal server error response has a 4xx status code
+func (o *CrowdScoreInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this crowd score internal server error response has a 5xx status code
+func (o *CrowdScoreInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this crowd score internal server error response a status code equal to that given
+func (o *CrowdScoreInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CrowdScoreInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CrowdScoreInternalServerError) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] crowdScoreInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CrowdScoreInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *CrowdScoreDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this crowd score default response has a 2xx status code
+func (o *CrowdScoreDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this crowd score default response has a 3xx status code
+func (o *CrowdScoreDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this crowd score default response has a 4xx status code
+func (o *CrowdScoreDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this crowd score default response has a 5xx status code
+func (o *CrowdScoreDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this crowd score default response a status code equal to that given
+func (o *CrowdScoreDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CrowdScoreDefault) Error() string {
 	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] CrowdScore default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CrowdScoreDefault) String() string {
+	return fmt.Sprintf("[GET /incidents/combined/crowdscores/v1][%d] CrowdScore default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CrowdScoreDefault) GetPayload() *models.APIMsaEnvironmentScoreResponse {
 	return o.Payload
 }

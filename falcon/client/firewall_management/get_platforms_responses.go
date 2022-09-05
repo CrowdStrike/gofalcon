@@ -78,9 +78,39 @@ type GetPlatformsOK struct {
 	Payload *models.FwmgrAPIPlatformsResponse
 }
 
+// IsSuccess returns true when this get platforms o k response has a 2xx status code
+func (o *GetPlatformsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get platforms o k response has a 3xx status code
+func (o *GetPlatformsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms o k response has a 4xx status code
+func (o *GetPlatformsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get platforms o k response has a 5xx status code
+func (o *GetPlatformsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms o k response a status code equal to that given
+func (o *GetPlatformsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetPlatformsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetPlatformsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetPlatformsOK) GetPayload() *models.FwmgrAPIPlatformsResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type GetPlatformsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get platforms forbidden response has a 2xx status code
+func (o *GetPlatformsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get platforms forbidden response has a 3xx status code
+func (o *GetPlatformsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms forbidden response has a 4xx status code
+func (o *GetPlatformsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get platforms forbidden response has a 5xx status code
+func (o *GetPlatformsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms forbidden response a status code equal to that given
+func (o *GetPlatformsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetPlatformsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetPlatformsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetPlatformsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type GetPlatformsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get platforms too many requests response has a 2xx status code
+func (o *GetPlatformsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get platforms too many requests response has a 3xx status code
+func (o *GetPlatformsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms too many requests response has a 4xx status code
+func (o *GetPlatformsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get platforms too many requests response has a 5xx status code
+func (o *GetPlatformsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms too many requests response a status code equal to that given
+func (o *GetPlatformsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetPlatformsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetPlatformsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetPlatformsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *GetPlatformsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get platforms default response has a 2xx status code
+func (o *GetPlatformsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get platforms default response has a 3xx status code
+func (o *GetPlatformsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get platforms default response has a 4xx status code
+func (o *GetPlatformsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get platforms default response has a 5xx status code
+func (o *GetPlatformsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get platforms default response a status code equal to that given
+func (o *GetPlatformsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetPlatformsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] get-platforms default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetPlatformsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] get-platforms default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetPlatformsDefault) GetPayload() *models.FwmgrAPIPlatformsResponse {
 	return o.Payload
 }

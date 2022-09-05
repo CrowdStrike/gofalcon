@@ -94,9 +94,39 @@ type DownloadSensorInstallerByIDOK struct {
 	Payload io.Writer
 }
 
+// IsSuccess returns true when this download sensor installer by Id o k response has a 2xx status code
+func (o *DownloadSensorInstallerByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this download sensor installer by Id o k response has a 3xx status code
+func (o *DownloadSensorInstallerByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download sensor installer by Id o k response has a 4xx status code
+func (o *DownloadSensorInstallerByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this download sensor installer by Id o k response has a 5xx status code
+func (o *DownloadSensorInstallerByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download sensor installer by Id o k response a status code equal to that given
+func (o *DownloadSensorInstallerByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DownloadSensorInstallerByIDOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDOK) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -156,9 +186,39 @@ type DownloadSensorInstallerByIDBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this download sensor installer by Id bad request response has a 2xx status code
+func (o *DownloadSensorInstallerByIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this download sensor installer by Id bad request response has a 3xx status code
+func (o *DownloadSensorInstallerByIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download sensor installer by Id bad request response has a 4xx status code
+func (o *DownloadSensorInstallerByIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this download sensor installer by Id bad request response has a 5xx status code
+func (o *DownloadSensorInstallerByIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download sensor installer by Id bad request response a status code equal to that given
+func (o *DownloadSensorInstallerByIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DownloadSensorInstallerByIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -220,9 +280,39 @@ type DownloadSensorInstallerByIDForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this download sensor installer by Id forbidden response has a 2xx status code
+func (o *DownloadSensorInstallerByIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this download sensor installer by Id forbidden response has a 3xx status code
+func (o *DownloadSensorInstallerByIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download sensor installer by Id forbidden response has a 4xx status code
+func (o *DownloadSensorInstallerByIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this download sensor installer by Id forbidden response has a 5xx status code
+func (o *DownloadSensorInstallerByIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download sensor installer by Id forbidden response a status code equal to that given
+func (o *DownloadSensorInstallerByIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DownloadSensorInstallerByIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDForbidden) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -284,9 +374,39 @@ type DownloadSensorInstallerByIDNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this download sensor installer by Id not found response has a 2xx status code
+func (o *DownloadSensorInstallerByIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this download sensor installer by Id not found response has a 3xx status code
+func (o *DownloadSensorInstallerByIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download sensor installer by Id not found response has a 4xx status code
+func (o *DownloadSensorInstallerByIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this download sensor installer by Id not found response has a 5xx status code
+func (o *DownloadSensorInstallerByIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download sensor installer by Id not found response a status code equal to that given
+func (o *DownloadSensorInstallerByIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DownloadSensorInstallerByIDNotFound) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDNotFound) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -352,9 +472,39 @@ type DownloadSensorInstallerByIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this download sensor installer by Id too many requests response has a 2xx status code
+func (o *DownloadSensorInstallerByIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this download sensor installer by Id too many requests response has a 3xx status code
+func (o *DownloadSensorInstallerByIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this download sensor installer by Id too many requests response has a 4xx status code
+func (o *DownloadSensorInstallerByIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this download sensor installer by Id too many requests response has a 5xx status code
+func (o *DownloadSensorInstallerByIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this download sensor installer by Id too many requests response a status code equal to that given
+func (o *DownloadSensorInstallerByIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DownloadSensorInstallerByIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -429,9 +579,39 @@ func (o *DownloadSensorInstallerByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this download sensor installer by Id default response has a 2xx status code
+func (o *DownloadSensorInstallerByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this download sensor installer by Id default response has a 3xx status code
+func (o *DownloadSensorInstallerByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this download sensor installer by Id default response has a 4xx status code
+func (o *DownloadSensorInstallerByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this download sensor installer by Id default response has a 5xx status code
+func (o *DownloadSensorInstallerByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this download sensor installer by Id default response a status code equal to that given
+func (o *DownloadSensorInstallerByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DownloadSensorInstallerByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] DownloadSensorInstallerById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DownloadSensorInstallerByIDDefault) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] DownloadSensorInstallerById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DownloadSensorInstallerByIDDefault) GetPayload() io.Writer {
 	return o.Payload
 }

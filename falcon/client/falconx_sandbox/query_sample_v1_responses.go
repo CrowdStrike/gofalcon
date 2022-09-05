@@ -94,9 +94,39 @@ type QuerySampleV1OK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sample v1 o k response has a 2xx status code
+func (o *QuerySampleV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query sample v1 o k response has a 3xx status code
+func (o *QuerySampleV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sample v1 o k response has a 4xx status code
+func (o *QuerySampleV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query sample v1 o k response has a 5xx status code
+func (o *QuerySampleV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sample v1 o k response a status code equal to that given
+func (o *QuerySampleV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QuerySampleV1OK) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1OK  %+v", 200, o.Payload)
 }
+
+func (o *QuerySampleV1OK) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1OK  %+v", 200, o.Payload)
+}
+
 func (o *QuerySampleV1OK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QuerySampleV1BadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sample v1 bad request response has a 2xx status code
+func (o *QuerySampleV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sample v1 bad request response has a 3xx status code
+func (o *QuerySampleV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sample v1 bad request response has a 4xx status code
+func (o *QuerySampleV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sample v1 bad request response has a 5xx status code
+func (o *QuerySampleV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sample v1 bad request response a status code equal to that given
+func (o *QuerySampleV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QuerySampleV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QuerySampleV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QuerySampleV1BadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QuerySampleV1Forbidden struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sample v1 forbidden response has a 2xx status code
+func (o *QuerySampleV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sample v1 forbidden response has a 3xx status code
+func (o *QuerySampleV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sample v1 forbidden response has a 4xx status code
+func (o *QuerySampleV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sample v1 forbidden response has a 5xx status code
+func (o *QuerySampleV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sample v1 forbidden response a status code equal to that given
+func (o *QuerySampleV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QuerySampleV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *QuerySampleV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *QuerySampleV1Forbidden) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QuerySampleV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query sample v1 too many requests response has a 2xx status code
+func (o *QuerySampleV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sample v1 too many requests response has a 3xx status code
+func (o *QuerySampleV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sample v1 too many requests response has a 4xx status code
+func (o *QuerySampleV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query sample v1 too many requests response has a 5xx status code
+func (o *QuerySampleV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query sample v1 too many requests response a status code equal to that given
+func (o *QuerySampleV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QuerySampleV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QuerySampleV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QuerySampleV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QuerySampleV1InternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query sample v1 internal server error response has a 2xx status code
+func (o *QuerySampleV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query sample v1 internal server error response has a 3xx status code
+func (o *QuerySampleV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query sample v1 internal server error response has a 4xx status code
+func (o *QuerySampleV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query sample v1 internal server error response has a 5xx status code
+func (o *QuerySampleV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query sample v1 internal server error response a status code equal to that given
+func (o *QuerySampleV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QuerySampleV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QuerySampleV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] querySampleV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QuerySampleV1InternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QuerySampleV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query sample v1 default response has a 2xx status code
+func (o *QuerySampleV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query sample v1 default response has a 3xx status code
+func (o *QuerySampleV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query sample v1 default response has a 4xx status code
+func (o *QuerySampleV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query sample v1 default response has a 5xx status code
+func (o *QuerySampleV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query sample v1 default response a status code equal to that given
+func (o *QuerySampleV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QuerySampleV1Default) Error() string {
 	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] QuerySampleV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QuerySampleV1Default) String() string {
+	return fmt.Sprintf("[POST /samples/queries/samples/GET/v1][%d] QuerySampleV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QuerySampleV1Default) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -78,9 +78,39 @@ type AggregatesEventsCollectionsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregates events collections o k response has a 2xx status code
+func (o *AggregatesEventsCollectionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregates events collections o k response has a 3xx status code
+func (o *AggregatesEventsCollectionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates events collections o k response has a 4xx status code
+func (o *AggregatesEventsCollectionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregates events collections o k response has a 5xx status code
+func (o *AggregatesEventsCollectionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates events collections o k response a status code equal to that given
+func (o *AggregatesEventsCollectionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregatesEventsCollectionsOK) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregatesEventsCollectionsOK) String() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregatesEventsCollectionsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregatesEventsCollectionsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregates events collections forbidden response has a 2xx status code
+func (o *AggregatesEventsCollectionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregates events collections forbidden response has a 3xx status code
+func (o *AggregatesEventsCollectionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates events collections forbidden response has a 4xx status code
+func (o *AggregatesEventsCollectionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregates events collections forbidden response has a 5xx status code
+func (o *AggregatesEventsCollectionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates events collections forbidden response a status code equal to that given
+func (o *AggregatesEventsCollectionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregatesEventsCollectionsForbidden) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregatesEventsCollectionsForbidden) String() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregatesEventsCollectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregatesEventsCollectionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregates events collections too many requests response has a 2xx status code
+func (o *AggregatesEventsCollectionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregates events collections too many requests response has a 3xx status code
+func (o *AggregatesEventsCollectionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregates events collections too many requests response has a 4xx status code
+func (o *AggregatesEventsCollectionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregates events collections too many requests response has a 5xx status code
+func (o *AggregatesEventsCollectionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregates events collections too many requests response a status code equal to that given
+func (o *AggregatesEventsCollectionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregatesEventsCollectionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregatesEventsCollectionsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregatesEventsCollectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregatesEventsCollectionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregates events collections default response has a 2xx status code
+func (o *AggregatesEventsCollectionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregates events collections default response has a 3xx status code
+func (o *AggregatesEventsCollectionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregates events collections default response has a 4xx status code
+func (o *AggregatesEventsCollectionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregates events collections default response has a 5xx status code
+func (o *AggregatesEventsCollectionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregates events collections default response a status code equal to that given
+func (o *AggregatesEventsCollectionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregatesEventsCollectionsDefault) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] AggregatesEventsCollections default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregatesEventsCollectionsDefault) String() string {
+	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] AggregatesEventsCollections default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregatesEventsCollectionsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

@@ -87,9 +87,39 @@ type GetArtifactsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get artifacts bad request response has a 2xx status code
+func (o *GetArtifactsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get artifacts bad request response has a 3xx status code
+func (o *GetArtifactsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get artifacts bad request response has a 4xx status code
+func (o *GetArtifactsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get artifacts bad request response has a 5xx status code
+func (o *GetArtifactsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get artifacts bad request response a status code equal to that given
+func (o *GetArtifactsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArtifactsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetArtifactsBadRequest) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetArtifactsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type GetArtifactsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get artifacts forbidden response has a 2xx status code
+func (o *GetArtifactsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get artifacts forbidden response has a 3xx status code
+func (o *GetArtifactsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get artifacts forbidden response has a 4xx status code
+func (o *GetArtifactsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get artifacts forbidden response has a 5xx status code
+func (o *GetArtifactsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get artifacts forbidden response a status code equal to that given
+func (o *GetArtifactsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArtifactsForbidden) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetArtifactsForbidden) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetArtifactsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -237,9 +297,39 @@ type GetArtifactsNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get artifacts not found response has a 2xx status code
+func (o *GetArtifactsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get artifacts not found response has a 3xx status code
+func (o *GetArtifactsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get artifacts not found response has a 4xx status code
+func (o *GetArtifactsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get artifacts not found response has a 5xx status code
+func (o *GetArtifactsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get artifacts not found response a status code equal to that given
+func (o *GetArtifactsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArtifactsNotFound) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetArtifactsNotFound) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetArtifactsNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -316,9 +406,39 @@ type GetArtifactsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get artifacts too many requests response has a 2xx status code
+func (o *GetArtifactsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get artifacts too many requests response has a 3xx status code
+func (o *GetArtifactsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get artifacts too many requests response has a 4xx status code
+func (o *GetArtifactsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get artifacts too many requests response has a 5xx status code
+func (o *GetArtifactsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get artifacts too many requests response a status code equal to that given
+func (o *GetArtifactsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArtifactsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetArtifactsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetArtifactsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type GetArtifactsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get artifacts internal server error response has a 2xx status code
+func (o *GetArtifactsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get artifacts internal server error response has a 3xx status code
+func (o *GetArtifactsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get artifacts internal server error response has a 4xx status code
+func (o *GetArtifactsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get artifacts internal server error response has a 5xx status code
+func (o *GetArtifactsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get artifacts internal server error response a status code equal to that given
+func (o *GetArtifactsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArtifactsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetArtifactsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetArtifactsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type RTRDeleteScriptsOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete scripts o k response has a 2xx status code
+func (o *RTRDeleteScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r delete scripts o k response has a 3xx status code
+func (o *RTRDeleteScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete scripts o k response has a 4xx status code
+func (o *RTRDeleteScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r delete scripts o k response has a 5xx status code
+func (o *RTRDeleteScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete scripts o k response a status code equal to that given
+func (o *RTRDeleteScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRDeleteScriptsOK) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRDeleteScriptsOK) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRDeleteScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRDeleteScriptsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete scripts bad request response has a 2xx status code
+func (o *RTRDeleteScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete scripts bad request response has a 3xx status code
+func (o *RTRDeleteScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete scripts bad request response has a 4xx status code
+func (o *RTRDeleteScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete scripts bad request response has a 5xx status code
+func (o *RTRDeleteScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete scripts bad request response a status code equal to that given
+func (o *RTRDeleteScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRDeleteScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRDeleteScriptsBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRDeleteScriptsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRDeleteScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete scripts forbidden response has a 2xx status code
+func (o *RTRDeleteScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete scripts forbidden response has a 3xx status code
+func (o *RTRDeleteScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete scripts forbidden response has a 4xx status code
+func (o *RTRDeleteScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete scripts forbidden response has a 5xx status code
+func (o *RTRDeleteScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete scripts forbidden response a status code equal to that given
+func (o *RTRDeleteScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRDeleteScriptsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRDeleteScriptsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRDeleteScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRDeleteScriptsNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete scripts not found response has a 2xx status code
+func (o *RTRDeleteScriptsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete scripts not found response has a 3xx status code
+func (o *RTRDeleteScriptsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete scripts not found response has a 4xx status code
+func (o *RTRDeleteScriptsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete scripts not found response has a 5xx status code
+func (o *RTRDeleteScriptsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete scripts not found response a status code equal to that given
+func (o *RTRDeleteScriptsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRDeleteScriptsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRDeleteScriptsNotFound) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRDeleteScriptsNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRDeleteScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete scripts too many requests response has a 2xx status code
+func (o *RTRDeleteScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete scripts too many requests response has a 3xx status code
+func (o *RTRDeleteScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete scripts too many requests response has a 4xx status code
+func (o *RTRDeleteScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete scripts too many requests response has a 5xx status code
+func (o *RTRDeleteScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete scripts too many requests response a status code equal to that given
+func (o *RTRDeleteScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRDeleteScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRDeleteScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] rTRDeleteScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRDeleteScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRDeleteScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r delete scripts default response has a 2xx status code
+func (o *RTRDeleteScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r delete scripts default response has a 3xx status code
+func (o *RTRDeleteScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r delete scripts default response has a 4xx status code
+func (o *RTRDeleteScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r delete scripts default response has a 5xx status code
+func (o *RTRDeleteScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r delete scripts default response a status code equal to that given
+func (o *RTRDeleteScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRDeleteScriptsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] RTR-DeleteScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRDeleteScriptsDefault) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/scripts/v1][%d] RTR-DeleteScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRDeleteScriptsDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

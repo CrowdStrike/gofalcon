@@ -84,9 +84,39 @@ type AggregateEventsOK struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate events o k response has a 2xx status code
+func (o *AggregateEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate events o k response has a 3xx status code
+func (o *AggregateEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate events o k response has a 4xx status code
+func (o *AggregateEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate events o k response has a 5xx status code
+func (o *AggregateEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate events o k response a status code equal to that given
+func (o *AggregateEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateEventsOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateEventsOK) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateEventsOK) GetPayload() *models.FwmgrAPIAggregatesResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type AggregateEventsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate events bad request response has a 2xx status code
+func (o *AggregateEventsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate events bad request response has a 3xx status code
+func (o *AggregateEventsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate events bad request response has a 4xx status code
+func (o *AggregateEventsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate events bad request response has a 5xx status code
+func (o *AggregateEventsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate events bad request response a status code equal to that given
+func (o *AggregateEventsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *AggregateEventsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *AggregateEventsBadRequest) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *AggregateEventsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type AggregateEventsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate events forbidden response has a 2xx status code
+func (o *AggregateEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate events forbidden response has a 3xx status code
+func (o *AggregateEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate events forbidden response has a 4xx status code
+func (o *AggregateEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate events forbidden response has a 5xx status code
+func (o *AggregateEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate events forbidden response a status code equal to that given
+func (o *AggregateEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateEventsForbidden) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateEventsForbidden) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type AggregateEventsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate events too many requests response has a 2xx status code
+func (o *AggregateEventsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate events too many requests response has a 3xx status code
+func (o *AggregateEventsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate events too many requests response has a 4xx status code
+func (o *AggregateEventsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate events too many requests response has a 5xx status code
+func (o *AggregateEventsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate events too many requests response a status code equal to that given
+func (o *AggregateEventsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateEventsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *AggregateEventsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate events default response has a 2xx status code
+func (o *AggregateEventsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate events default response has a 3xx status code
+func (o *AggregateEventsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate events default response has a 4xx status code
+func (o *AggregateEventsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate events default response has a 5xx status code
+func (o *AggregateEventsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate events default response a status code equal to that given
+func (o *AggregateEventsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateEventsDefault) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregate-events default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateEventsDefault) String() string {
+	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregate-events default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateEventsDefault) GetPayload() *models.FwmgrAPIAggregatesResponse {
 	return o.Payload
 }
