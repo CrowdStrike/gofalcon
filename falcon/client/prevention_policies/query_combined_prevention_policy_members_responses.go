@@ -100,9 +100,39 @@ type QueryCombinedPreventionPolicyMembersOK struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined prevention policy members o k response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined prevention policy members o k response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members o k response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined prevention policy members o k response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined prevention policy members o k response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedPreventionPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersOK) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersOK) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type QueryCombinedPreventionPolicyMembersBadRequest struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined prevention policy members bad request response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined prevention policy members bad request response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members bad request response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined prevention policy members bad request response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined prevention policy members bad request response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type QueryCombinedPreventionPolicyMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined prevention policy members forbidden response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined prevention policy members forbidden response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members forbidden response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined prevention policy members forbidden response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined prevention policy members forbidden response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedPreventionPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type QueryCombinedPreventionPolicyMembersNotFound struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined prevention policy members not found response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined prevention policy members not found response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members not found response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined prevention policy members not found response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined prevention policy members not found response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryCombinedPreventionPolicyMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersNotFound) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type QueryCombinedPreventionPolicyMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined prevention policy members too many requests response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined prevention policy members too many requests response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members too many requests response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined prevention policy members too many requests response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined prevention policy members too many requests response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type QueryCombinedPreventionPolicyMembersInternalServerError struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined prevention policy members internal server error response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined prevention policy members internal server error response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined prevention policy members internal server error response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined prevention policy members internal server error response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined prevention policy members internal server error response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *QueryCombinedPreventionPolicyMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined prevention policy members default response has a 2xx status code
+func (o *QueryCombinedPreventionPolicyMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined prevention policy members default response has a 3xx status code
+func (o *QueryCombinedPreventionPolicyMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined prevention policy members default response has a 4xx status code
+func (o *QueryCombinedPreventionPolicyMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined prevention policy members default response has a 5xx status code
+func (o *QueryCombinedPreventionPolicyMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined prevention policy members default response a status code equal to that given
+func (o *QueryCombinedPreventionPolicyMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedPreventionPolicyMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedPreventionPolicyMembersDefault) String() string {
+	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedPreventionPolicyMembersDefault) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }

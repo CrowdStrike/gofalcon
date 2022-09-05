@@ -90,9 +90,39 @@ type UpdateUserOK struct {
 	Payload *models.DomainUserMetaDataResponse
 }
 
+// IsSuccess returns true when this update user o k response has a 2xx status code
+func (o *UpdateUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update user o k response has a 3xx status code
+func (o *UpdateUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user o k response has a 4xx status code
+func (o *UpdateUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update user o k response has a 5xx status code
+func (o *UpdateUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user o k response a status code equal to that given
+func (o *UpdateUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateUserOK) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateUserOK) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateUserOK) GetPayload() *models.DomainUserMetaDataResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type UpdateUserBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this update user bad request response has a 2xx status code
+func (o *UpdateUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user bad request response has a 3xx status code
+func (o *UpdateUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user bad request response has a 4xx status code
+func (o *UpdateUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user bad request response has a 5xx status code
+func (o *UpdateUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user bad request response a status code equal to that given
+func (o *UpdateUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateUserBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateUserBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type UpdateUserForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this update user forbidden response has a 2xx status code
+func (o *UpdateUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user forbidden response has a 3xx status code
+func (o *UpdateUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user forbidden response has a 4xx status code
+func (o *UpdateUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user forbidden response has a 5xx status code
+func (o *UpdateUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user forbidden response a status code equal to that given
+func (o *UpdateUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateUserForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateUserForbidden) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type UpdateUserNotFound struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this update user not found response has a 2xx status code
+func (o *UpdateUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user not found response has a 3xx status code
+func (o *UpdateUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user not found response has a 4xx status code
+func (o *UpdateUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user not found response has a 5xx status code
+func (o *UpdateUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user not found response a status code equal to that given
+func (o *UpdateUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateUserNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateUserNotFound) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateUserNotFound) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type UpdateUserTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update user too many requests response has a 2xx status code
+func (o *UpdateUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user too many requests response has a 3xx status code
+func (o *UpdateUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user too many requests response has a 4xx status code
+func (o *UpdateUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user too many requests response has a 5xx status code
+func (o *UpdateUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user too many requests response a status code equal to that given
+func (o *UpdateUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateUserTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *UpdateUserDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update user default response has a 2xx status code
+func (o *UpdateUserDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update user default response has a 3xx status code
+func (o *UpdateUserDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update user default response has a 4xx status code
+func (o *UpdateUserDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update user default response has a 5xx status code
+func (o *UpdateUserDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update user default response a status code equal to that given
+func (o *UpdateUserDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateUserDefault) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] UpdateUser default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateUserDefault) String() string {
+	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] UpdateUser default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateUserDefault) GetPayload() *models.DomainUserMetaDataResponse {
 	return o.Payload
 }

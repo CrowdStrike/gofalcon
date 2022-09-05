@@ -88,9 +88,39 @@ type ReportExecutionsRetryOK struct {
 	Payload *models.APIReportExecutionsResponseV1
 }
 
+// IsSuccess returns true when this report executions retry o k response has a 2xx status code
+func (o *ReportExecutionsRetryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this report executions retry o k response has a 3xx status code
+func (o *ReportExecutionsRetryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions retry o k response has a 4xx status code
+func (o *ReportExecutionsRetryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this report executions retry o k response has a 5xx status code
+func (o *ReportExecutionsRetryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions retry o k response a status code equal to that given
+func (o *ReportExecutionsRetryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ReportExecutionsRetryOK) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
 }
+
+func (o *ReportExecutionsRetryOK) String() string {
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
+}
+
 func (o *ReportExecutionsRetryOK) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type ReportExecutionsRetryBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions retry bad request response has a 2xx status code
+func (o *ReportExecutionsRetryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions retry bad request response has a 3xx status code
+func (o *ReportExecutionsRetryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions retry bad request response has a 4xx status code
+func (o *ReportExecutionsRetryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions retry bad request response has a 5xx status code
+func (o *ReportExecutionsRetryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions retry bad request response a status code equal to that given
+func (o *ReportExecutionsRetryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ReportExecutionsRetryBadRequest) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ReportExecutionsRetryBadRequest) String() string {
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ReportExecutionsRetryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type ReportExecutionsRetryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions retry forbidden response has a 2xx status code
+func (o *ReportExecutionsRetryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions retry forbidden response has a 3xx status code
+func (o *ReportExecutionsRetryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions retry forbidden response has a 4xx status code
+func (o *ReportExecutionsRetryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions retry forbidden response has a 5xx status code
+func (o *ReportExecutionsRetryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions retry forbidden response a status code equal to that given
+func (o *ReportExecutionsRetryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ReportExecutionsRetryForbidden) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ReportExecutionsRetryForbidden) String() string {
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ReportExecutionsRetryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type ReportExecutionsRetryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this report executions retry too many requests response has a 2xx status code
+func (o *ReportExecutionsRetryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this report executions retry too many requests response has a 3xx status code
+func (o *ReportExecutionsRetryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this report executions retry too many requests response has a 4xx status code
+func (o *ReportExecutionsRetryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this report executions retry too many requests response has a 5xx status code
+func (o *ReportExecutionsRetryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this report executions retry too many requests response a status code equal to that given
+func (o *ReportExecutionsRetryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ReportExecutionsRetryTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ReportExecutionsRetryTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ReportExecutionsRetryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *ReportExecutionsRetryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this report executions retry default response has a 2xx status code
+func (o *ReportExecutionsRetryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this report executions retry default response has a 3xx status code
+func (o *ReportExecutionsRetryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this report executions retry default response has a 4xx status code
+func (o *ReportExecutionsRetryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this report executions retry default response has a 5xx status code
+func (o *ReportExecutionsRetryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this report executions retry default response a status code equal to that given
+func (o *ReportExecutionsRetryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ReportExecutionsRetryDefault) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] report-executions.retry default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ReportExecutionsRetryDefault) String() string {
+	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] report-executions.retry default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ReportExecutionsRetryDefault) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }

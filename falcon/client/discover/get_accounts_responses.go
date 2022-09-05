@@ -94,9 +94,39 @@ type GetAccountsOK struct {
 	Payload *models.DomainDiscoverAPIAccountEntitiesResponse
 }
 
+// IsSuccess returns true when this get accounts o k response has a 2xx status code
+func (o *GetAccountsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get accounts o k response has a 3xx status code
+func (o *GetAccountsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get accounts o k response has a 4xx status code
+func (o *GetAccountsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get accounts o k response has a 5xx status code
+func (o *GetAccountsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get accounts o k response a status code equal to that given
+func (o *GetAccountsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAccountsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetAccountsOK) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetAccountsOK) GetPayload() *models.DomainDiscoverAPIAccountEntitiesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetAccountsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get accounts bad request response has a 2xx status code
+func (o *GetAccountsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get accounts bad request response has a 3xx status code
+func (o *GetAccountsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get accounts bad request response has a 4xx status code
+func (o *GetAccountsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get accounts bad request response has a 5xx status code
+func (o *GetAccountsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get accounts bad request response a status code equal to that given
+func (o *GetAccountsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetAccountsBadRequest) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetAccountsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetAccountsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get accounts forbidden response has a 2xx status code
+func (o *GetAccountsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get accounts forbidden response has a 3xx status code
+func (o *GetAccountsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get accounts forbidden response has a 4xx status code
+func (o *GetAccountsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get accounts forbidden response has a 5xx status code
+func (o *GetAccountsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get accounts forbidden response a status code equal to that given
+func (o *GetAccountsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAccountsForbidden) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetAccountsForbidden) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetAccountsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get accounts too many requests response has a 2xx status code
+func (o *GetAccountsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get accounts too many requests response has a 3xx status code
+func (o *GetAccountsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get accounts too many requests response has a 4xx status code
+func (o *GetAccountsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get accounts too many requests response has a 5xx status code
+func (o *GetAccountsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get accounts too many requests response a status code equal to that given
+func (o *GetAccountsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAccountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetAccountsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetAccountsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get accounts internal server error response has a 2xx status code
+func (o *GetAccountsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get accounts internal server error response has a 3xx status code
+func (o *GetAccountsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get accounts internal server error response has a 4xx status code
+func (o *GetAccountsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get accounts internal server error response has a 5xx status code
+func (o *GetAccountsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get accounts internal server error response a status code equal to that given
+func (o *GetAccountsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetAccountsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] getAccountsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetAccountsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetAccountsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get accounts default response has a 2xx status code
+func (o *GetAccountsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get accounts default response has a 3xx status code
+func (o *GetAccountsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get accounts default response has a 4xx status code
+func (o *GetAccountsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get accounts default response has a 5xx status code
+func (o *GetAccountsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get accounts default response a status code equal to that given
+func (o *GetAccountsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetAccountsDefault) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] get-accounts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetAccountsDefault) String() string {
+	return fmt.Sprintf("[GET /discover/entities/accounts/v1][%d] get-accounts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetAccountsDefault) GetPayload() *models.DomainDiscoverAPIAccountEntitiesResponse {
 	return o.Payload
 }

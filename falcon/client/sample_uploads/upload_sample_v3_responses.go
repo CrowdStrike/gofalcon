@@ -94,9 +94,39 @@ type UploadSampleV3OK struct {
 	Payload *models.ClientSampleMetadataResponseV2
 }
 
+// IsSuccess returns true when this upload sample v3 o k response has a 2xx status code
+func (o *UploadSampleV3OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this upload sample v3 o k response has a 3xx status code
+func (o *UploadSampleV3OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 o k response has a 4xx status code
+func (o *UploadSampleV3OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upload sample v3 o k response has a 5xx status code
+func (o *UploadSampleV3OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload sample v3 o k response a status code equal to that given
+func (o *UploadSampleV3OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UploadSampleV3OK) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK  %+v", 200, o.Payload)
 }
+
+func (o *UploadSampleV3OK) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3OK  %+v", 200, o.Payload)
+}
+
 func (o *UploadSampleV3OK) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type UploadSampleV3BadRequest struct {
 	Payload *models.ClientSampleMetadataResponseV2
 }
 
+// IsSuccess returns true when this upload sample v3 bad request response has a 2xx status code
+func (o *UploadSampleV3BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload sample v3 bad request response has a 3xx status code
+func (o *UploadSampleV3BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 bad request response has a 4xx status code
+func (o *UploadSampleV3BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload sample v3 bad request response has a 5xx status code
+func (o *UploadSampleV3BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload sample v3 bad request response a status code equal to that given
+func (o *UploadSampleV3BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UploadSampleV3BadRequest) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UploadSampleV3BadRequest) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UploadSampleV3BadRequest) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type UploadSampleV3Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this upload sample v3 forbidden response has a 2xx status code
+func (o *UploadSampleV3Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload sample v3 forbidden response has a 3xx status code
+func (o *UploadSampleV3Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 forbidden response has a 4xx status code
+func (o *UploadSampleV3Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload sample v3 forbidden response has a 5xx status code
+func (o *UploadSampleV3Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload sample v3 forbidden response a status code equal to that given
+func (o *UploadSampleV3Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UploadSampleV3Forbidden) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *UploadSampleV3Forbidden) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *UploadSampleV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type UploadSampleV3TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this upload sample v3 too many requests response has a 2xx status code
+func (o *UploadSampleV3TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload sample v3 too many requests response has a 3xx status code
+func (o *UploadSampleV3TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 too many requests response has a 4xx status code
+func (o *UploadSampleV3TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload sample v3 too many requests response has a 5xx status code
+func (o *UploadSampleV3TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload sample v3 too many requests response a status code equal to that given
+func (o *UploadSampleV3TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UploadSampleV3TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UploadSampleV3TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UploadSampleV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type UploadSampleV3InternalServerError struct {
 	Payload *models.ClientSampleMetadataResponseV2
 }
 
+// IsSuccess returns true when this upload sample v3 internal server error response has a 2xx status code
+func (o *UploadSampleV3InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload sample v3 internal server error response has a 3xx status code
+func (o *UploadSampleV3InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload sample v3 internal server error response has a 4xx status code
+func (o *UploadSampleV3InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upload sample v3 internal server error response has a 5xx status code
+func (o *UploadSampleV3InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this upload sample v3 internal server error response a status code equal to that given
+func (o *UploadSampleV3InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UploadSampleV3InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UploadSampleV3InternalServerError) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] uploadSampleV3InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UploadSampleV3InternalServerError) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *UploadSampleV3Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this upload sample v3 default response has a 2xx status code
+func (o *UploadSampleV3Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this upload sample v3 default response has a 3xx status code
+func (o *UploadSampleV3Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this upload sample v3 default response has a 4xx status code
+func (o *UploadSampleV3Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this upload sample v3 default response has a 5xx status code
+func (o *UploadSampleV3Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this upload sample v3 default response a status code equal to that given
+func (o *UploadSampleV3Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UploadSampleV3Default) Error() string {
 	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] UploadSampleV3 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UploadSampleV3Default) String() string {
+	return fmt.Sprintf("[POST /samples/entities/samples/v3][%d] UploadSampleV3 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UploadSampleV3Default) GetPayload() *models.ClientSampleMetadataResponseV2 {
 	return o.Payload
 }

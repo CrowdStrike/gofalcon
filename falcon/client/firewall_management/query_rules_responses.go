@@ -84,9 +84,39 @@ type QueryRulesOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this query rules o k response has a 2xx status code
+func (o *QueryRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query rules o k response has a 3xx status code
+func (o *QueryRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rules o k response has a 4xx status code
+func (o *QueryRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query rules o k response has a 5xx status code
+func (o *QueryRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rules o k response a status code equal to that given
+func (o *QueryRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRulesOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRulesOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryRulesBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rules bad request response has a 2xx status code
+func (o *QueryRulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rules bad request response has a 3xx status code
+func (o *QueryRulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rules bad request response has a 4xx status code
+func (o *QueryRulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rules bad request response has a 5xx status code
+func (o *QueryRulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rules bad request response a status code equal to that given
+func (o *QueryRulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryRulesBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryRulesBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryRulesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rules forbidden response has a 2xx status code
+func (o *QueryRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rules forbidden response has a 3xx status code
+func (o *QueryRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rules forbidden response has a 4xx status code
+func (o *QueryRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rules forbidden response has a 5xx status code
+func (o *QueryRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rules forbidden response a status code equal to that given
+func (o *QueryRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRulesForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRulesForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryRulesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rules too many requests response has a 2xx status code
+func (o *QueryRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rules too many requests response has a 3xx status code
+func (o *QueryRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rules too many requests response has a 4xx status code
+func (o *QueryRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rules too many requests response has a 5xx status code
+func (o *QueryRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rules too many requests response a status code equal to that given
+func (o *QueryRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryRulesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query rules default response has a 2xx status code
+func (o *QueryRulesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query rules default response has a 3xx status code
+func (o *QueryRulesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query rules default response has a 4xx status code
+func (o *QueryRulesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query rules default response has a 5xx status code
+func (o *QueryRulesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query rules default response a status code equal to that given
+func (o *QueryRulesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRulesDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] query-rules default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRulesDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] query-rules default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRulesDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

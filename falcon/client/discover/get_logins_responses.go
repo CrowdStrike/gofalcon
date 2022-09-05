@@ -94,9 +94,39 @@ type GetLoginsOK struct {
 	Payload *models.DomainDiscoverAPILoginEntitiesResponse
 }
 
+// IsSuccess returns true when this get logins o k response has a 2xx status code
+func (o *GetLoginsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get logins o k response has a 3xx status code
+func (o *GetLoginsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logins o k response has a 4xx status code
+func (o *GetLoginsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get logins o k response has a 5xx status code
+func (o *GetLoginsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get logins o k response a status code equal to that given
+func (o *GetLoginsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLoginsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetLoginsOK) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetLoginsOK) GetPayload() *models.DomainDiscoverAPILoginEntitiesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetLoginsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get logins bad request response has a 2xx status code
+func (o *GetLoginsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get logins bad request response has a 3xx status code
+func (o *GetLoginsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logins bad request response has a 4xx status code
+func (o *GetLoginsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get logins bad request response has a 5xx status code
+func (o *GetLoginsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get logins bad request response a status code equal to that given
+func (o *GetLoginsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLoginsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetLoginsBadRequest) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetLoginsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetLoginsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get logins forbidden response has a 2xx status code
+func (o *GetLoginsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get logins forbidden response has a 3xx status code
+func (o *GetLoginsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logins forbidden response has a 4xx status code
+func (o *GetLoginsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get logins forbidden response has a 5xx status code
+func (o *GetLoginsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get logins forbidden response a status code equal to that given
+func (o *GetLoginsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLoginsForbidden) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetLoginsForbidden) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetLoginsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetLoginsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get logins too many requests response has a 2xx status code
+func (o *GetLoginsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get logins too many requests response has a 3xx status code
+func (o *GetLoginsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logins too many requests response has a 4xx status code
+func (o *GetLoginsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get logins too many requests response has a 5xx status code
+func (o *GetLoginsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get logins too many requests response a status code equal to that given
+func (o *GetLoginsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLoginsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetLoginsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetLoginsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetLoginsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get logins internal server error response has a 2xx status code
+func (o *GetLoginsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get logins internal server error response has a 3xx status code
+func (o *GetLoginsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logins internal server error response has a 4xx status code
+func (o *GetLoginsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get logins internal server error response has a 5xx status code
+func (o *GetLoginsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get logins internal server error response a status code equal to that given
+func (o *GetLoginsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLoginsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetLoginsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetLoginsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetLoginsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get logins default response has a 2xx status code
+func (o *GetLoginsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get logins default response has a 3xx status code
+func (o *GetLoginsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get logins default response has a 4xx status code
+func (o *GetLoginsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get logins default response has a 5xx status code
+func (o *GetLoginsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get logins default response a status code equal to that given
+func (o *GetLoginsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetLoginsDefault) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] get-logins default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetLoginsDefault) String() string {
+	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] get-logins default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetLoginsDefault) GetPayload() *models.DomainDiscoverAPILoginEntitiesResponse {
 	return o.Payload
 }

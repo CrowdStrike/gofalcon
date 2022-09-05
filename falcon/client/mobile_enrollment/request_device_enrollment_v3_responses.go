@@ -94,9 +94,39 @@ type RequestDeviceEnrollmentV3OK struct {
 	Payload *models.APIPostEnrollmentDetailsResponse
 }
 
+// IsSuccess returns true when this request device enrollment v3 o k response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this request device enrollment v3 o k response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this request device enrollment v3 o k response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this request device enrollment v3 o k response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this request device enrollment v3 o k response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RequestDeviceEnrollmentV3OK) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3OK  %+v", 200, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3OK) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3OK  %+v", 200, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3OK) GetPayload() *models.APIPostEnrollmentDetailsResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type RequestDeviceEnrollmentV3BadRequest struct {
 	Payload *models.MsaspecResponseFields
 }
 
+// IsSuccess returns true when this request device enrollment v3 bad request response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this request device enrollment v3 bad request response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this request device enrollment v3 bad request response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this request device enrollment v3 bad request response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this request device enrollment v3 bad request response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RequestDeviceEnrollmentV3BadRequest) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3BadRequest) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type RequestDeviceEnrollmentV3Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this request device enrollment v3 forbidden response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this request device enrollment v3 forbidden response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this request device enrollment v3 forbidden response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this request device enrollment v3 forbidden response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this request device enrollment v3 forbidden response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RequestDeviceEnrollmentV3Forbidden) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3Forbidden) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type RequestDeviceEnrollmentV3TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this request device enrollment v3 too many requests response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this request device enrollment v3 too many requests response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this request device enrollment v3 too many requests response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this request device enrollment v3 too many requests response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this request device enrollment v3 too many requests response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RequestDeviceEnrollmentV3TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type RequestDeviceEnrollmentV3InternalServerError struct {
 	Payload *models.MsaspecResponseFields
 }
 
+// IsSuccess returns true when this request device enrollment v3 internal server error response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this request device enrollment v3 internal server error response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this request device enrollment v3 internal server error response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this request device enrollment v3 internal server error response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this request device enrollment v3 internal server error response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RequestDeviceEnrollmentV3InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3InternalServerError) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *RequestDeviceEnrollmentV3Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this request device enrollment v3 default response has a 2xx status code
+func (o *RequestDeviceEnrollmentV3Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this request device enrollment v3 default response has a 3xx status code
+func (o *RequestDeviceEnrollmentV3Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this request device enrollment v3 default response has a 4xx status code
+func (o *RequestDeviceEnrollmentV3Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this request device enrollment v3 default response has a 5xx status code
+func (o *RequestDeviceEnrollmentV3Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this request device enrollment v3 default response a status code equal to that given
+func (o *RequestDeviceEnrollmentV3Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RequestDeviceEnrollmentV3Default) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] RequestDeviceEnrollmentV3 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RequestDeviceEnrollmentV3Default) String() string {
+	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] RequestDeviceEnrollmentV3 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RequestDeviceEnrollmentV3Default) GetPayload() *models.APIPostEnrollmentDetailsResponse {
 	return o.Payload
 }

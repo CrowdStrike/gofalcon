@@ -78,9 +78,39 @@ type QueryDetectionIdsByFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query detection ids by filter o k response has a 2xx status code
+func (o *QueryDetectionIdsByFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query detection ids by filter o k response has a 3xx status code
+func (o *QueryDetectionIdsByFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detection ids by filter o k response has a 4xx status code
+func (o *QueryDetectionIdsByFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query detection ids by filter o k response has a 5xx status code
+func (o *QueryDetectionIdsByFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detection ids by filter o k response a status code equal to that given
+func (o *QueryDetectionIdsByFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDetectionIdsByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDetectionIdsByFilterOK) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDetectionIdsByFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryDetectionIdsByFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query detection ids by filter forbidden response has a 2xx status code
+func (o *QueryDetectionIdsByFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detection ids by filter forbidden response has a 3xx status code
+func (o *QueryDetectionIdsByFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detection ids by filter forbidden response has a 4xx status code
+func (o *QueryDetectionIdsByFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query detection ids by filter forbidden response has a 5xx status code
+func (o *QueryDetectionIdsByFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detection ids by filter forbidden response a status code equal to that given
+func (o *QueryDetectionIdsByFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDetectionIdsByFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDetectionIdsByFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDetectionIdsByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryDetectionIdsByFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query detection ids by filter too many requests response has a 2xx status code
+func (o *QueryDetectionIdsByFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detection ids by filter too many requests response has a 3xx status code
+func (o *QueryDetectionIdsByFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detection ids by filter too many requests response has a 4xx status code
+func (o *QueryDetectionIdsByFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query detection ids by filter too many requests response has a 5xx status code
+func (o *QueryDetectionIdsByFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detection ids by filter too many requests response a status code equal to that given
+func (o *QueryDetectionIdsByFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDetectionIdsByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDetectionIdsByFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDetectionIdsByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryDetectionIdsByFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query detection ids by filter default response has a 2xx status code
+func (o *QueryDetectionIdsByFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query detection ids by filter default response has a 3xx status code
+func (o *QueryDetectionIdsByFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query detection ids by filter default response has a 4xx status code
+func (o *QueryDetectionIdsByFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query detection ids by filter default response has a 5xx status code
+func (o *QueryDetectionIdsByFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query detection ids by filter default response a status code equal to that given
+func (o *QueryDetectionIdsByFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDetectionIdsByFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] QueryDetectionIdsByFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDetectionIdsByFilterDefault) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] QueryDetectionIdsByFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDetectionIdsByFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

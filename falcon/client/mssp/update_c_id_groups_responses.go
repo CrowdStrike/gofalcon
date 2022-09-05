@@ -90,9 +90,39 @@ type UpdateCIDGroupsOK struct {
 	Payload *models.DomainCIDGroupsResponseV1
 }
 
+// IsSuccess returns true when this update c Id groups o k response has a 2xx status code
+func (o *UpdateCIDGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update c Id groups o k response has a 3xx status code
+func (o *UpdateCIDGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c Id groups o k response has a 4xx status code
+func (o *UpdateCIDGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c Id groups o k response has a 5xx status code
+func (o *UpdateCIDGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c Id groups o k response a status code equal to that given
+func (o *UpdateCIDGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateCIDGroupsOK) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateCIDGroupsOK) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateCIDGroupsOK) GetPayload() *models.DomainCIDGroupsResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type UpdateCIDGroupsMultiStatus struct {
 	Payload *models.DomainCIDGroupsResponseV1
 }
 
+// IsSuccess returns true when this update c Id groups multi status response has a 2xx status code
+func (o *UpdateCIDGroupsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update c Id groups multi status response has a 3xx status code
+func (o *UpdateCIDGroupsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c Id groups multi status response has a 4xx status code
+func (o *UpdateCIDGroupsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update c Id groups multi status response has a 5xx status code
+func (o *UpdateCIDGroupsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c Id groups multi status response a status code equal to that given
+func (o *UpdateCIDGroupsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *UpdateCIDGroupsMultiStatus) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *UpdateCIDGroupsMultiStatus) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *UpdateCIDGroupsMultiStatus) GetPayload() *models.DomainCIDGroupsResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type UpdateCIDGroupsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update c Id groups bad request response has a 2xx status code
+func (o *UpdateCIDGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c Id groups bad request response has a 3xx status code
+func (o *UpdateCIDGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c Id groups bad request response has a 4xx status code
+func (o *UpdateCIDGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c Id groups bad request response has a 5xx status code
+func (o *UpdateCIDGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c Id groups bad request response a status code equal to that given
+func (o *UpdateCIDGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateCIDGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateCIDGroupsBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateCIDGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type UpdateCIDGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update c Id groups forbidden response has a 2xx status code
+func (o *UpdateCIDGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c Id groups forbidden response has a 3xx status code
+func (o *UpdateCIDGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c Id groups forbidden response has a 4xx status code
+func (o *UpdateCIDGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c Id groups forbidden response has a 5xx status code
+func (o *UpdateCIDGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c Id groups forbidden response a status code equal to that given
+func (o *UpdateCIDGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateCIDGroupsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateCIDGroupsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type UpdateCIDGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update c Id groups too many requests response has a 2xx status code
+func (o *UpdateCIDGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update c Id groups too many requests response has a 3xx status code
+func (o *UpdateCIDGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update c Id groups too many requests response has a 4xx status code
+func (o *UpdateCIDGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update c Id groups too many requests response has a 5xx status code
+func (o *UpdateCIDGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update c Id groups too many requests response a status code equal to that given
+func (o *UpdateCIDGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateCIDGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateCIDGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *UpdateCIDGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update c ID groups default response has a 2xx status code
+func (o *UpdateCIDGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update c ID groups default response has a 3xx status code
+func (o *UpdateCIDGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update c ID groups default response has a 4xx status code
+func (o *UpdateCIDGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update c ID groups default response has a 5xx status code
+func (o *UpdateCIDGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update c ID groups default response a status code equal to that given
+func (o *UpdateCIDGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateCIDGroupsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIDGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateCIDGroupsDefault) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIDGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateCIDGroupsDefault) GetPayload() *models.DomainCIDGroupsResponseV1 {
 	return o.Payload
 }

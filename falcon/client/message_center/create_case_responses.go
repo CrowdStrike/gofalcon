@@ -94,9 +94,39 @@ type CreateCaseOK struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
+// IsSuccess returns true when this create case o k response has a 2xx status code
+func (o *CreateCaseOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create case o k response has a 3xx status code
+func (o *CreateCaseOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create case o k response has a 4xx status code
+func (o *CreateCaseOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create case o k response has a 5xx status code
+func (o *CreateCaseOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create case o k response a status code equal to that given
+func (o *CreateCaseOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateCaseOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateCaseOK) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateCaseOK) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type CreateCaseBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create case bad request response has a 2xx status code
+func (o *CreateCaseBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create case bad request response has a 3xx status code
+func (o *CreateCaseBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create case bad request response has a 4xx status code
+func (o *CreateCaseBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create case bad request response has a 5xx status code
+func (o *CreateCaseBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create case bad request response a status code equal to that given
+func (o *CreateCaseBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateCaseBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateCaseBadRequest) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateCaseBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type CreateCaseForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create case forbidden response has a 2xx status code
+func (o *CreateCaseForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create case forbidden response has a 3xx status code
+func (o *CreateCaseForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create case forbidden response has a 4xx status code
+func (o *CreateCaseForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create case forbidden response has a 5xx status code
+func (o *CreateCaseForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create case forbidden response a status code equal to that given
+func (o *CreateCaseForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateCaseForbidden) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateCaseForbidden) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateCaseForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CreateCaseTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create case too many requests response has a 2xx status code
+func (o *CreateCaseTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create case too many requests response has a 3xx status code
+func (o *CreateCaseTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create case too many requests response has a 4xx status code
+func (o *CreateCaseTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create case too many requests response has a 5xx status code
+func (o *CreateCaseTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create case too many requests response a status code equal to that given
+func (o *CreateCaseTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateCaseTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateCaseTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateCaseTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type CreateCaseInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create case internal server error response has a 2xx status code
+func (o *CreateCaseInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create case internal server error response has a 3xx status code
+func (o *CreateCaseInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create case internal server error response has a 4xx status code
+func (o *CreateCaseInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create case internal server error response has a 5xx status code
+func (o *CreateCaseInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create case internal server error response a status code equal to that given
+func (o *CreateCaseInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateCaseInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateCaseInternalServerError) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateCaseInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *CreateCaseDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create case default response has a 2xx status code
+func (o *CreateCaseDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create case default response has a 3xx status code
+func (o *CreateCaseDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create case default response has a 4xx status code
+func (o *CreateCaseDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create case default response has a 5xx status code
+func (o *CreateCaseDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create case default response a status code equal to that given
+func (o *CreateCaseDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateCaseDefault) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] CreateCase default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateCaseDefault) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] CreateCase default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateCaseDefault) GetPayload() *models.MsaReplyAffectedEntities {
 	return o.Payload
 }

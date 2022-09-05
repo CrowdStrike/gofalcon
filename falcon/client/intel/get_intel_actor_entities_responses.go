@@ -84,9 +84,39 @@ type GetIntelActorEntitiesOK struct {
 	Payload *models.DomainActorsResponse
 }
 
+// IsSuccess returns true when this get intel actor entities o k response has a 2xx status code
+func (o *GetIntelActorEntitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get intel actor entities o k response has a 3xx status code
+func (o *GetIntelActorEntitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel actor entities o k response has a 4xx status code
+func (o *GetIntelActorEntitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel actor entities o k response has a 5xx status code
+func (o *GetIntelActorEntitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel actor entities o k response a status code equal to that given
+func (o *GetIntelActorEntitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntelActorEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIntelActorEntitiesOK) String() string {
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIntelActorEntitiesOK) GetPayload() *models.DomainActorsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetIntelActorEntitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel actor entities forbidden response has a 2xx status code
+func (o *GetIntelActorEntitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel actor entities forbidden response has a 3xx status code
+func (o *GetIntelActorEntitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel actor entities forbidden response has a 4xx status code
+func (o *GetIntelActorEntitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel actor entities forbidden response has a 5xx status code
+func (o *GetIntelActorEntitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel actor entities forbidden response a status code equal to that given
+func (o *GetIntelActorEntitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntelActorEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIntelActorEntitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIntelActorEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -216,9 +276,39 @@ type GetIntelActorEntitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel actor entities too many requests response has a 2xx status code
+func (o *GetIntelActorEntitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel actor entities too many requests response has a 3xx status code
+func (o *GetIntelActorEntitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel actor entities too many requests response has a 4xx status code
+func (o *GetIntelActorEntitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel actor entities too many requests response has a 5xx status code
+func (o *GetIntelActorEntitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel actor entities too many requests response a status code equal to that given
+func (o *GetIntelActorEntitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntelActorEntitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIntelActorEntitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIntelActorEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -291,9 +381,39 @@ type GetIntelActorEntitiesInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel actor entities internal server error response has a 2xx status code
+func (o *GetIntelActorEntitiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel actor entities internal server error response has a 3xx status code
+func (o *GetIntelActorEntitiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel actor entities internal server error response has a 4xx status code
+func (o *GetIntelActorEntitiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel actor entities internal server error response has a 5xx status code
+func (o *GetIntelActorEntitiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get intel actor entities internal server error response a status code equal to that given
+func (o *GetIntelActorEntitiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntelActorEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIntelActorEntitiesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIntelActorEntitiesInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetIntelActorEntitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get intel actor entities default response has a 2xx status code
+func (o *GetIntelActorEntitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get intel actor entities default response has a 3xx status code
+func (o *GetIntelActorEntitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get intel actor entities default response has a 4xx status code
+func (o *GetIntelActorEntitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get intel actor entities default response has a 5xx status code
+func (o *GetIntelActorEntitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get intel actor entities default response a status code equal to that given
+func (o *GetIntelActorEntitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIntelActorEntitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] GetIntelActorEntities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetIntelActorEntitiesDefault) String() string {
+	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] GetIntelActorEntities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetIntelActorEntitiesDefault) GetPayload() *models.DomainActorsResponse {
 	return o.Payload
 }

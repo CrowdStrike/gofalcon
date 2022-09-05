@@ -90,9 +90,39 @@ type GetRolesByIDOK struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
+// IsSuccess returns true when this get roles by Id o k response has a 2xx status code
+func (o *GetRolesByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get roles by Id o k response has a 3xx status code
+func (o *GetRolesByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles by Id o k response has a 4xx status code
+func (o *GetRolesByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get roles by Id o k response has a 5xx status code
+func (o *GetRolesByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles by Id o k response a status code equal to that given
+func (o *GetRolesByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRolesByIDOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRolesByIDOK) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRolesByIDOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetRolesByIDMultiStatus struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
+// IsSuccess returns true when this get roles by Id multi status response has a 2xx status code
+func (o *GetRolesByIDMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get roles by Id multi status response has a 3xx status code
+func (o *GetRolesByIDMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles by Id multi status response has a 4xx status code
+func (o *GetRolesByIDMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get roles by Id multi status response has a 5xx status code
+func (o *GetRolesByIDMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles by Id multi status response a status code equal to that given
+func (o *GetRolesByIDMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetRolesByIDMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetRolesByIDMultiStatus) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetRolesByIDMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetRolesByIDBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get roles by Id bad request response has a 2xx status code
+func (o *GetRolesByIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles by Id bad request response has a 3xx status code
+func (o *GetRolesByIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles by Id bad request response has a 4xx status code
+func (o *GetRolesByIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles by Id bad request response has a 5xx status code
+func (o *GetRolesByIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles by Id bad request response a status code equal to that given
+func (o *GetRolesByIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRolesByIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetRolesByIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetRolesByIDBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type GetRolesByIDForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get roles by Id forbidden response has a 2xx status code
+func (o *GetRolesByIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles by Id forbidden response has a 3xx status code
+func (o *GetRolesByIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles by Id forbidden response has a 4xx status code
+func (o *GetRolesByIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles by Id forbidden response has a 5xx status code
+func (o *GetRolesByIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles by Id forbidden response a status code equal to that given
+func (o *GetRolesByIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRolesByIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRolesByIDForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRolesByIDForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type GetRolesByIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get roles by Id too many requests response has a 2xx status code
+func (o *GetRolesByIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get roles by Id too many requests response has a 3xx status code
+func (o *GetRolesByIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get roles by Id too many requests response has a 4xx status code
+func (o *GetRolesByIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get roles by Id too many requests response has a 5xx status code
+func (o *GetRolesByIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get roles by Id too many requests response a status code equal to that given
+func (o *GetRolesByIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRolesByIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetRolesByIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetRolesByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetRolesByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get roles by ID default response has a 2xx status code
+func (o *GetRolesByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get roles by ID default response has a 3xx status code
+func (o *GetRolesByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get roles by ID default response has a 4xx status code
+func (o *GetRolesByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get roles by ID default response has a 5xx status code
+func (o *GetRolesByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get roles by ID default response a status code equal to that given
+func (o *GetRolesByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRolesByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRolesByIDDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/mssp-roles/v1][%d] getRolesByID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRolesByIDDefault) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }

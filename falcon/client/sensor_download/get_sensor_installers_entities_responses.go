@@ -96,9 +96,39 @@ type GetSensorInstallersEntitiesOK struct {
 	Payload *models.DomainSensorInstallersV1
 }
 
+// IsSuccess returns true when this get sensor installers entities o k response has a 2xx status code
+func (o *GetSensorInstallersEntitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get sensor installers entities o k response has a 3xx status code
+func (o *GetSensorInstallersEntitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities o k response has a 4xx status code
+func (o *GetSensorInstallersEntitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sensor installers entities o k response has a 5xx status code
+func (o *GetSensorInstallersEntitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities o k response a status code equal to that given
+func (o *GetSensorInstallersEntitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSensorInstallersEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesOK) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesOK) GetPayload() *models.DomainSensorInstallersV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetSensorInstallersEntitiesMultiStatus struct {
 	Payload *models.DomainSensorInstallersV1
 }
 
+// IsSuccess returns true when this get sensor installers entities multi status response has a 2xx status code
+func (o *GetSensorInstallersEntitiesMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get sensor installers entities multi status response has a 3xx status code
+func (o *GetSensorInstallersEntitiesMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities multi status response has a 4xx status code
+func (o *GetSensorInstallersEntitiesMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get sensor installers entities multi status response has a 5xx status code
+func (o *GetSensorInstallersEntitiesMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities multi status response a status code equal to that given
+func (o *GetSensorInstallersEntitiesMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetSensorInstallersEntitiesMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesMultiStatus) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesMultiStatus) GetPayload() *models.DomainSensorInstallersV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetSensorInstallersEntitiesBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get sensor installers entities bad request response has a 2xx status code
+func (o *GetSensorInstallersEntitiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers entities bad request response has a 3xx status code
+func (o *GetSensorInstallersEntitiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities bad request response has a 4xx status code
+func (o *GetSensorInstallersEntitiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers entities bad request response has a 5xx status code
+func (o *GetSensorInstallersEntitiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities bad request response a status code equal to that given
+func (o *GetSensorInstallersEntitiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSensorInstallersEntitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesBadRequest) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetSensorInstallersEntitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sensor installers entities forbidden response has a 2xx status code
+func (o *GetSensorInstallersEntitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers entities forbidden response has a 3xx status code
+func (o *GetSensorInstallersEntitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities forbidden response has a 4xx status code
+func (o *GetSensorInstallersEntitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers entities forbidden response has a 5xx status code
+func (o *GetSensorInstallersEntitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities forbidden response a status code equal to that given
+func (o *GetSensorInstallersEntitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSensorInstallersEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -352,9 +472,39 @@ type GetSensorInstallersEntitiesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get sensor installers entities not found response has a 2xx status code
+func (o *GetSensorInstallersEntitiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers entities not found response has a 3xx status code
+func (o *GetSensorInstallersEntitiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities not found response has a 4xx status code
+func (o *GetSensorInstallersEntitiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers entities not found response has a 5xx status code
+func (o *GetSensorInstallersEntitiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities not found response a status code equal to that given
+func (o *GetSensorInstallersEntitiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSensorInstallersEntitiesNotFound) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesNotFound) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -420,9 +570,39 @@ type GetSensorInstallersEntitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get sensor installers entities too many requests response has a 2xx status code
+func (o *GetSensorInstallersEntitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get sensor installers entities too many requests response has a 3xx status code
+func (o *GetSensorInstallersEntitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get sensor installers entities too many requests response has a 4xx status code
+func (o *GetSensorInstallersEntitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get sensor installers entities too many requests response has a 5xx status code
+func (o *GetSensorInstallersEntitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get sensor installers entities too many requests response a status code equal to that given
+func (o *GetSensorInstallersEntitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSensorInstallersEntitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetSensorInstallersEntitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get sensor installers entities default response has a 2xx status code
+func (o *GetSensorInstallersEntitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get sensor installers entities default response has a 3xx status code
+func (o *GetSensorInstallersEntitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get sensor installers entities default response has a 4xx status code
+func (o *GetSensorInstallersEntitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get sensor installers entities default response has a 5xx status code
+func (o *GetSensorInstallersEntitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get sensor installers entities default response a status code equal to that given
+func (o *GetSensorInstallersEntitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSensorInstallersEntitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] GetSensorInstallersEntities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSensorInstallersEntitiesDefault) String() string {
+	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] GetSensorInstallersEntities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSensorInstallersEntitiesDefault) GetPayload() *models.DomainSensorInstallersV1 {
 	return o.Payload
 }

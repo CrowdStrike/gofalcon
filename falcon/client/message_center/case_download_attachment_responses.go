@@ -100,9 +100,39 @@ type CaseDownloadAttachmentOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this case download attachment o k response has a 2xx status code
+func (o *CaseDownloadAttachmentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this case download attachment o k response has a 3xx status code
+func (o *CaseDownloadAttachmentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment o k response has a 4xx status code
+func (o *CaseDownloadAttachmentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case download attachment o k response has a 5xx status code
+func (o *CaseDownloadAttachmentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case download attachment o k response a status code equal to that given
+func (o *CaseDownloadAttachmentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CaseDownloadAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK  %+v", 200, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentOK) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK  %+v", 200, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentOK) GetPayload() string {
 	return o.Payload
 }
@@ -173,9 +203,39 @@ type CaseDownloadAttachmentBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case download attachment bad request response has a 2xx status code
+func (o *CaseDownloadAttachmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case download attachment bad request response has a 3xx status code
+func (o *CaseDownloadAttachmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment bad request response has a 4xx status code
+func (o *CaseDownloadAttachmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case download attachment bad request response has a 5xx status code
+func (o *CaseDownloadAttachmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case download attachment bad request response a status code equal to that given
+func (o *CaseDownloadAttachmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CaseDownloadAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentBadRequest) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -248,9 +308,39 @@ type CaseDownloadAttachmentForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case download attachment forbidden response has a 2xx status code
+func (o *CaseDownloadAttachmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case download attachment forbidden response has a 3xx status code
+func (o *CaseDownloadAttachmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment forbidden response has a 4xx status code
+func (o *CaseDownloadAttachmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case download attachment forbidden response has a 5xx status code
+func (o *CaseDownloadAttachmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case download attachment forbidden response a status code equal to that given
+func (o *CaseDownloadAttachmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CaseDownloadAttachmentForbidden) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentForbidden) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CaseDownloadAttachmentNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case download attachment not found response has a 2xx status code
+func (o *CaseDownloadAttachmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case download attachment not found response has a 3xx status code
+func (o *CaseDownloadAttachmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment not found response has a 4xx status code
+func (o *CaseDownloadAttachmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case download attachment not found response has a 5xx status code
+func (o *CaseDownloadAttachmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case download attachment not found response a status code equal to that given
+func (o *CaseDownloadAttachmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CaseDownloadAttachmentNotFound) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentNotFound) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type CaseDownloadAttachmentTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case download attachment too many requests response has a 2xx status code
+func (o *CaseDownloadAttachmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case download attachment too many requests response has a 3xx status code
+func (o *CaseDownloadAttachmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment too many requests response has a 4xx status code
+func (o *CaseDownloadAttachmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case download attachment too many requests response has a 5xx status code
+func (o *CaseDownloadAttachmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case download attachment too many requests response a status code equal to that given
+func (o *CaseDownloadAttachmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CaseDownloadAttachmentTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -488,9 +638,39 @@ type CaseDownloadAttachmentInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case download attachment internal server error response has a 2xx status code
+func (o *CaseDownloadAttachmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case download attachment internal server error response has a 3xx status code
+func (o *CaseDownloadAttachmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case download attachment internal server error response has a 4xx status code
+func (o *CaseDownloadAttachmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case download attachment internal server error response has a 5xx status code
+func (o *CaseDownloadAttachmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this case download attachment internal server error response a status code equal to that given
+func (o *CaseDownloadAttachmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CaseDownloadAttachmentInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentInternalServerError) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -559,9 +739,39 @@ func (o *CaseDownloadAttachmentDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this case download attachment default response has a 2xx status code
+func (o *CaseDownloadAttachmentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this case download attachment default response has a 3xx status code
+func (o *CaseDownloadAttachmentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this case download attachment default response has a 4xx status code
+func (o *CaseDownloadAttachmentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this case download attachment default response has a 5xx status code
+func (o *CaseDownloadAttachmentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this case download attachment default response a status code equal to that given
+func (o *CaseDownloadAttachmentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CaseDownloadAttachmentDefault) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] CaseDownloadAttachment default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CaseDownloadAttachmentDefault) String() string {
+	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] CaseDownloadAttachment default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CaseDownloadAttachmentDefault) GetPayload() string {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type TokensReadOK struct {
 	Payload *models.APITokenDetailsResponseV1
 }
 
+// IsSuccess returns true when this tokens read o k response has a 2xx status code
+func (o *TokensReadOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tokens read o k response has a 3xx status code
+func (o *TokensReadOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens read o k response has a 4xx status code
+func (o *TokensReadOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens read o k response has a 5xx status code
+func (o *TokensReadOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens read o k response a status code equal to that given
+func (o *TokensReadOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *TokensReadOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK  %+v", 200, o.Payload)
 }
+
+func (o *TokensReadOK) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK  %+v", 200, o.Payload)
+}
+
 func (o *TokensReadOK) GetPayload() *models.APITokenDetailsResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type TokensReadBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens read bad request response has a 2xx status code
+func (o *TokensReadBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens read bad request response has a 3xx status code
+func (o *TokensReadBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens read bad request response has a 4xx status code
+func (o *TokensReadBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens read bad request response has a 5xx status code
+func (o *TokensReadBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens read bad request response a status code equal to that given
+func (o *TokensReadBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TokensReadBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TokensReadBadRequest) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TokensReadBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type TokensReadForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens read forbidden response has a 2xx status code
+func (o *TokensReadForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens read forbidden response has a 3xx status code
+func (o *TokensReadForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens read forbidden response has a 4xx status code
+func (o *TokensReadForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens read forbidden response has a 5xx status code
+func (o *TokensReadForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens read forbidden response a status code equal to that given
+func (o *TokensReadForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TokensReadForbidden) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TokensReadForbidden) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TokensReadForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type TokensReadTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens read too many requests response has a 2xx status code
+func (o *TokensReadTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens read too many requests response has a 3xx status code
+func (o *TokensReadTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens read too many requests response has a 4xx status code
+func (o *TokensReadTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens read too many requests response has a 5xx status code
+func (o *TokensReadTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens read too many requests response a status code equal to that given
+func (o *TokensReadTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TokensReadTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TokensReadTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TokensReadTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type TokensReadInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens read internal server error response has a 2xx status code
+func (o *TokensReadInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens read internal server error response has a 3xx status code
+func (o *TokensReadInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens read internal server error response has a 4xx status code
+func (o *TokensReadInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens read internal server error response has a 5xx status code
+func (o *TokensReadInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this tokens read internal server error response a status code equal to that given
+func (o *TokensReadInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TokensReadInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TokensReadInternalServerError) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TokensReadInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *TokensReadDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this tokens read default response has a 2xx status code
+func (o *TokensReadDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tokens read default response has a 3xx status code
+func (o *TokensReadDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tokens read default response has a 4xx status code
+func (o *TokensReadDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tokens read default response has a 5xx status code
+func (o *TokensReadDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tokens read default response a status code equal to that given
+func (o *TokensReadDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *TokensReadDefault) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokens-read default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TokensReadDefault) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokens-read default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TokensReadDefault) GetPayload() *models.APITokenDetailsResponseV1 {
 	return o.Payload
 }

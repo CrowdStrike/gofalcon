@@ -90,9 +90,39 @@ type QueryDetectsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query detects o k response has a 2xx status code
+func (o *QueryDetectsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query detects o k response has a 3xx status code
+func (o *QueryDetectsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detects o k response has a 4xx status code
+func (o *QueryDetectsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query detects o k response has a 5xx status code
+func (o *QueryDetectsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detects o k response a status code equal to that given
+func (o *QueryDetectsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDetectsOK) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDetectsOK) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDetectsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryDetectsBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query detects bad request response has a 2xx status code
+func (o *QueryDetectsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detects bad request response has a 3xx status code
+func (o *QueryDetectsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detects bad request response has a 4xx status code
+func (o *QueryDetectsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query detects bad request response has a 5xx status code
+func (o *QueryDetectsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detects bad request response a status code equal to that given
+func (o *QueryDetectsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryDetectsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryDetectsBadRequest) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryDetectsBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryDetectsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query detects forbidden response has a 2xx status code
+func (o *QueryDetectsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detects forbidden response has a 3xx status code
+func (o *QueryDetectsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detects forbidden response has a 4xx status code
+func (o *QueryDetectsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query detects forbidden response has a 5xx status code
+func (o *QueryDetectsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detects forbidden response a status code equal to that given
+func (o *QueryDetectsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDetectsForbidden) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDetectsForbidden) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDetectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryDetectsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query detects too many requests response has a 2xx status code
+func (o *QueryDetectsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detects too many requests response has a 3xx status code
+func (o *QueryDetectsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detects too many requests response has a 4xx status code
+func (o *QueryDetectsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query detects too many requests response has a 5xx status code
+func (o *QueryDetectsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query detects too many requests response a status code equal to that given
+func (o *QueryDetectsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDetectsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDetectsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDetectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryDetectsInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query detects internal server error response has a 2xx status code
+func (o *QueryDetectsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query detects internal server error response has a 3xx status code
+func (o *QueryDetectsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query detects internal server error response has a 4xx status code
+func (o *QueryDetectsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query detects internal server error response has a 5xx status code
+func (o *QueryDetectsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query detects internal server error response a status code equal to that given
+func (o *QueryDetectsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryDetectsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryDetectsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryDetectsInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryDetectsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query detects default response has a 2xx status code
+func (o *QueryDetectsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query detects default response has a 3xx status code
+func (o *QueryDetectsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query detects default response has a 4xx status code
+func (o *QueryDetectsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query detects default response has a 5xx status code
+func (o *QueryDetectsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query detects default response a status code equal to that given
+func (o *QueryDetectsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDetectsDefault) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] QueryDetects default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDetectsDefault) String() string {
+	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] QueryDetects default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDetectsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

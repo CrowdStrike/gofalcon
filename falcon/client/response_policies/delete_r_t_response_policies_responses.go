@@ -94,9 +94,39 @@ type DeleteRTResponsePoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete r t response policies o k response has a 2xx status code
+func (o *DeleteRTResponsePoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete r t response policies o k response has a 3xx status code
+func (o *DeleteRTResponsePoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete r t response policies o k response has a 4xx status code
+func (o *DeleteRTResponsePoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete r t response policies o k response has a 5xx status code
+func (o *DeleteRTResponsePoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete r t response policies o k response a status code equal to that given
+func (o *DeleteRTResponsePoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRTResponsePoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesOK) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type DeleteRTResponsePoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete r t response policies forbidden response has a 2xx status code
+func (o *DeleteRTResponsePoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete r t response policies forbidden response has a 3xx status code
+func (o *DeleteRTResponsePoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete r t response policies forbidden response has a 4xx status code
+func (o *DeleteRTResponsePoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete r t response policies forbidden response has a 5xx status code
+func (o *DeleteRTResponsePoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete r t response policies forbidden response a status code equal to that given
+func (o *DeleteRTResponsePoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRTResponsePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type DeleteRTResponsePoliciesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete r t response policies not found response has a 2xx status code
+func (o *DeleteRTResponsePoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete r t response policies not found response has a 3xx status code
+func (o *DeleteRTResponsePoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete r t response policies not found response has a 4xx status code
+func (o *DeleteRTResponsePoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete r t response policies not found response has a 5xx status code
+func (o *DeleteRTResponsePoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete r t response policies not found response a status code equal to that given
+func (o *DeleteRTResponsePoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRTResponsePoliciesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type DeleteRTResponsePoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete r t response policies too many requests response has a 2xx status code
+func (o *DeleteRTResponsePoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete r t response policies too many requests response has a 3xx status code
+func (o *DeleteRTResponsePoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete r t response policies too many requests response has a 4xx status code
+func (o *DeleteRTResponsePoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete r t response policies too many requests response has a 5xx status code
+func (o *DeleteRTResponsePoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete r t response policies too many requests response a status code equal to that given
+func (o *DeleteRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRTResponsePoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type DeleteRTResponsePoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete r t response policies internal server error response has a 2xx status code
+func (o *DeleteRTResponsePoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete r t response policies internal server error response has a 3xx status code
+func (o *DeleteRTResponsePoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete r t response policies internal server error response has a 4xx status code
+func (o *DeleteRTResponsePoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete r t response policies internal server error response has a 5xx status code
+func (o *DeleteRTResponsePoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete r t response policies internal server error response a status code equal to that given
+func (o *DeleteRTResponsePoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRTResponsePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *DeleteRTResponsePoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete r t response policies default response has a 2xx status code
+func (o *DeleteRTResponsePoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete r t response policies default response has a 3xx status code
+func (o *DeleteRTResponsePoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete r t response policies default response has a 4xx status code
+func (o *DeleteRTResponsePoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete r t response policies default response has a 5xx status code
+func (o *DeleteRTResponsePoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete r t response policies default response a status code equal to that given
+func (o *DeleteRTResponsePoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteRTResponsePoliciesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteRTResponsePoliciesDefault) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteRTResponsePoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

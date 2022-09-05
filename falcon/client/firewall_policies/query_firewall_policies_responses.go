@@ -90,9 +90,39 @@ type QueryFirewallPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query firewall policies o k response has a 2xx status code
+func (o *QueryFirewallPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query firewall policies o k response has a 3xx status code
+func (o *QueryFirewallPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall policies o k response has a 4xx status code
+func (o *QueryFirewallPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query firewall policies o k response has a 5xx status code
+func (o *QueryFirewallPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall policies o k response a status code equal to that given
+func (o *QueryFirewallPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryFirewallPoliciesBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query firewall policies bad request response has a 2xx status code
+func (o *QueryFirewallPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall policies bad request response has a 3xx status code
+func (o *QueryFirewallPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall policies bad request response has a 4xx status code
+func (o *QueryFirewallPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query firewall policies bad request response has a 5xx status code
+func (o *QueryFirewallPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall policies bad request response a status code equal to that given
+func (o *QueryFirewallPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryFirewallPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryFirewallPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query firewall policies forbidden response has a 2xx status code
+func (o *QueryFirewallPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall policies forbidden response has a 3xx status code
+func (o *QueryFirewallPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall policies forbidden response has a 4xx status code
+func (o *QueryFirewallPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query firewall policies forbidden response has a 5xx status code
+func (o *QueryFirewallPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall policies forbidden response a status code equal to that given
+func (o *QueryFirewallPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryFirewallPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query firewall policies too many requests response has a 2xx status code
+func (o *QueryFirewallPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall policies too many requests response has a 3xx status code
+func (o *QueryFirewallPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall policies too many requests response has a 4xx status code
+func (o *QueryFirewallPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query firewall policies too many requests response has a 5xx status code
+func (o *QueryFirewallPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query firewall policies too many requests response a status code equal to that given
+func (o *QueryFirewallPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryFirewallPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryFirewallPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query firewall policies internal server error response has a 2xx status code
+func (o *QueryFirewallPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query firewall policies internal server error response has a 3xx status code
+func (o *QueryFirewallPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query firewall policies internal server error response has a 4xx status code
+func (o *QueryFirewallPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query firewall policies internal server error response has a 5xx status code
+func (o *QueryFirewallPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query firewall policies internal server error response a status code equal to that given
+func (o *QueryFirewallPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryFirewallPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query firewall policies default response has a 2xx status code
+func (o *QueryFirewallPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query firewall policies default response has a 3xx status code
+func (o *QueryFirewallPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query firewall policies default response has a 4xx status code
+func (o *QueryFirewallPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query firewall policies default response has a 5xx status code
+func (o *QueryFirewallPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query firewall policies default response a status code equal to that given
+func (o *QueryFirewallPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryFirewallPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryFirewallPoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryFirewallPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

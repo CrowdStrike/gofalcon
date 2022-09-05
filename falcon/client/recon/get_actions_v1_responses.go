@@ -100,9 +100,39 @@ type GetActionsV1OK struct {
 	Payload *models.DomainActionEntitiesResponseV1
 }
 
+// IsSuccess returns true when this get actions v1 o k response has a 2xx status code
+func (o *GetActionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get actions v1 o k response has a 3xx status code
+func (o *GetActionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 o k response has a 4xx status code
+func (o *GetActionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get actions v1 o k response has a 5xx status code
+func (o *GetActionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get actions v1 o k response a status code equal to that given
+func (o *GetActionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetActionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetActionsV1OK) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetActionsV1OK) GetPayload() *models.DomainActionEntitiesResponseV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type GetActionsV1BadRequest struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this get actions v1 bad request response has a 2xx status code
+func (o *GetActionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get actions v1 bad request response has a 3xx status code
+func (o *GetActionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 bad request response has a 4xx status code
+func (o *GetActionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get actions v1 bad request response has a 5xx status code
+func (o *GetActionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get actions v1 bad request response a status code equal to that given
+func (o *GetActionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetActionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetActionsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetActionsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type GetActionsV1Unauthorized struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this get actions v1 unauthorized response has a 2xx status code
+func (o *GetActionsV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get actions v1 unauthorized response has a 3xx status code
+func (o *GetActionsV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 unauthorized response has a 4xx status code
+func (o *GetActionsV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get actions v1 unauthorized response has a 5xx status code
+func (o *GetActionsV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get actions v1 unauthorized response a status code equal to that given
+func (o *GetActionsV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetActionsV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *GetActionsV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *GetActionsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type GetActionsV1Forbidden struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this get actions v1 forbidden response has a 2xx status code
+func (o *GetActionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get actions v1 forbidden response has a 3xx status code
+func (o *GetActionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 forbidden response has a 4xx status code
+func (o *GetActionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get actions v1 forbidden response has a 5xx status code
+func (o *GetActionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get actions v1 forbidden response a status code equal to that given
+func (o *GetActionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetActionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetActionsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetActionsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type GetActionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get actions v1 too many requests response has a 2xx status code
+func (o *GetActionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get actions v1 too many requests response has a 3xx status code
+func (o *GetActionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 too many requests response has a 4xx status code
+func (o *GetActionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get actions v1 too many requests response has a 5xx status code
+func (o *GetActionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get actions v1 too many requests response a status code equal to that given
+func (o *GetActionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetActionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetActionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetActionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type GetActionsV1InternalServerError struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this get actions v1 internal server error response has a 2xx status code
+func (o *GetActionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get actions v1 internal server error response has a 3xx status code
+func (o *GetActionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get actions v1 internal server error response has a 4xx status code
+func (o *GetActionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get actions v1 internal server error response has a 5xx status code
+func (o *GetActionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get actions v1 internal server error response a status code equal to that given
+func (o *GetActionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetActionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetActionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] getActionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetActionsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *GetActionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get actions v1 default response has a 2xx status code
+func (o *GetActionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get actions v1 default response has a 3xx status code
+func (o *GetActionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get actions v1 default response has a 4xx status code
+func (o *GetActionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get actions v1 default response has a 5xx status code
+func (o *GetActionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get actions v1 default response a status code equal to that given
+func (o *GetActionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetActionsV1Default) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] GetActionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetActionsV1Default) String() string {
+	return fmt.Sprintf("[GET /recon/entities/actions/v1][%d] GetActionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetActionsV1Default) GetPayload() *models.DomainActionEntitiesResponseV1 {
 	return o.Payload
 }

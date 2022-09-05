@@ -78,9 +78,39 @@ type AggregateEscalationsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate escalations o k response has a 2xx status code
+func (o *AggregateEscalationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate escalations o k response has a 3xx status code
+func (o *AggregateEscalationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate escalations o k response has a 4xx status code
+func (o *AggregateEscalationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate escalations o k response has a 5xx status code
+func (o *AggregateEscalationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate escalations o k response a status code equal to that given
+func (o *AggregateEscalationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateEscalationsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateEscalationsOK) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateEscalationsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregateEscalationsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate escalations forbidden response has a 2xx status code
+func (o *AggregateEscalationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate escalations forbidden response has a 3xx status code
+func (o *AggregateEscalationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate escalations forbidden response has a 4xx status code
+func (o *AggregateEscalationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate escalations forbidden response has a 5xx status code
+func (o *AggregateEscalationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate escalations forbidden response a status code equal to that given
+func (o *AggregateEscalationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateEscalationsForbidden) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateEscalationsForbidden) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateEscalationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregateEscalationsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate escalations too many requests response has a 2xx status code
+func (o *AggregateEscalationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate escalations too many requests response has a 3xx status code
+func (o *AggregateEscalationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate escalations too many requests response has a 4xx status code
+func (o *AggregateEscalationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate escalations too many requests response has a 5xx status code
+func (o *AggregateEscalationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate escalations too many requests response a status code equal to that given
+func (o *AggregateEscalationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateEscalationsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateEscalationsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateEscalationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregateEscalationsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate escalations default response has a 2xx status code
+func (o *AggregateEscalationsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate escalations default response has a 3xx status code
+func (o *AggregateEscalationsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate escalations default response has a 4xx status code
+func (o *AggregateEscalationsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate escalations default response has a 5xx status code
+func (o *AggregateEscalationsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate escalations default response a status code equal to that given
+func (o *AggregateEscalationsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateEscalationsDefault) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] AggregateEscalations default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateEscalationsDefault) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] AggregateEscalations default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateEscalationsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

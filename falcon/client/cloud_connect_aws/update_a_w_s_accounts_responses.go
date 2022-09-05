@@ -96,9 +96,39 @@ type UpdateAWSAccountsOK struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this update a w s accounts o k response has a 2xx status code
+func (o *UpdateAWSAccountsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update a w s accounts o k response has a 3xx status code
+func (o *UpdateAWSAccountsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts o k response has a 4xx status code
+func (o *UpdateAWSAccountsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update a w s accounts o k response has a 5xx status code
+func (o *UpdateAWSAccountsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s accounts o k response a status code equal to that given
+func (o *UpdateAWSAccountsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateAWSAccountsOK) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateAWSAccountsOK) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateAWSAccountsOK) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type UpdateAWSAccountsBadRequest struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this update a w s accounts bad request response has a 2xx status code
+func (o *UpdateAWSAccountsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s accounts bad request response has a 3xx status code
+func (o *UpdateAWSAccountsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts bad request response has a 4xx status code
+func (o *UpdateAWSAccountsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s accounts bad request response has a 5xx status code
+func (o *UpdateAWSAccountsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s accounts bad request response a status code equal to that given
+func (o *UpdateAWSAccountsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateAWSAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateAWSAccountsBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type UpdateAWSAccountsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update a w s accounts forbidden response has a 2xx status code
+func (o *UpdateAWSAccountsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s accounts forbidden response has a 3xx status code
+func (o *UpdateAWSAccountsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts forbidden response has a 4xx status code
+func (o *UpdateAWSAccountsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s accounts forbidden response has a 5xx status code
+func (o *UpdateAWSAccountsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s accounts forbidden response a status code equal to that given
+func (o *UpdateAWSAccountsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateAWSAccountsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateAWSAccountsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type UpdateAWSAccountsNotFound struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this update a w s accounts not found response has a 2xx status code
+func (o *UpdateAWSAccountsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s accounts not found response has a 3xx status code
+func (o *UpdateAWSAccountsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts not found response has a 4xx status code
+func (o *UpdateAWSAccountsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s accounts not found response has a 5xx status code
+func (o *UpdateAWSAccountsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s accounts not found response a status code equal to that given
+func (o *UpdateAWSAccountsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateAWSAccountsNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateAWSAccountsNotFound) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateAWSAccountsNotFound) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type UpdateAWSAccountsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update a w s accounts too many requests response has a 2xx status code
+func (o *UpdateAWSAccountsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s accounts too many requests response has a 3xx status code
+func (o *UpdateAWSAccountsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts too many requests response has a 4xx status code
+func (o *UpdateAWSAccountsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update a w s accounts too many requests response has a 5xx status code
+func (o *UpdateAWSAccountsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update a w s accounts too many requests response a status code equal to that given
+func (o *UpdateAWSAccountsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateAWSAccountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateAWSAccountsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type UpdateAWSAccountsInternalServerError struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
+// IsSuccess returns true when this update a w s accounts internal server error response has a 2xx status code
+func (o *UpdateAWSAccountsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update a w s accounts internal server error response has a 3xx status code
+func (o *UpdateAWSAccountsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update a w s accounts internal server error response has a 4xx status code
+func (o *UpdateAWSAccountsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update a w s accounts internal server error response has a 5xx status code
+func (o *UpdateAWSAccountsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update a w s accounts internal server error response a status code equal to that given
+func (o *UpdateAWSAccountsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateAWSAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateAWSAccountsInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *UpdateAWSAccountsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update a w s accounts default response has a 2xx status code
+func (o *UpdateAWSAccountsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update a w s accounts default response has a 3xx status code
+func (o *UpdateAWSAccountsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update a w s accounts default response has a 4xx status code
+func (o *UpdateAWSAccountsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update a w s accounts default response has a 5xx status code
+func (o *UpdateAWSAccountsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update a w s accounts default response a status code equal to that given
+func (o *UpdateAWSAccountsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateAWSAccountsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] UpdateAWSAccounts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateAWSAccountsDefault) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] UpdateAWSAccounts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateAWSAccountsDefault) GetPayload() *models.ModelsAWSAccountsV1 {
 	return o.Payload
 }

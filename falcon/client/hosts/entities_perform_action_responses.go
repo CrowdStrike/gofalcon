@@ -82,9 +82,39 @@ type EntitiesPerformActionOK struct {
 	Payload *models.DeviceapiGroupsResponseV1
 }
 
+// IsSuccess returns true when this entities perform action o k response has a 2xx status code
+func (o *EntitiesPerformActionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this entities perform action o k response has a 3xx status code
+func (o *EntitiesPerformActionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities perform action o k response has a 4xx status code
+func (o *EntitiesPerformActionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this entities perform action o k response has a 5xx status code
+func (o *EntitiesPerformActionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities perform action o k response a status code equal to that given
+func (o *EntitiesPerformActionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *EntitiesPerformActionOK) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionOK  %+v", 200, o.Payload)
 }
+
+func (o *EntitiesPerformActionOK) String() string {
+	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionOK  %+v", 200, o.Payload)
+}
+
 func (o *EntitiesPerformActionOK) GetPayload() *models.DeviceapiGroupsResponseV1 {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type EntitiesPerformActionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this entities perform action forbidden response has a 2xx status code
+func (o *EntitiesPerformActionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities perform action forbidden response has a 3xx status code
+func (o *EntitiesPerformActionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities perform action forbidden response has a 4xx status code
+func (o *EntitiesPerformActionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities perform action forbidden response has a 5xx status code
+func (o *EntitiesPerformActionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities perform action forbidden response a status code equal to that given
+func (o *EntitiesPerformActionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *EntitiesPerformActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *EntitiesPerformActionForbidden) String() string {
+	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *EntitiesPerformActionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type EntitiesPerformActionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this entities perform action too many requests response has a 2xx status code
+func (o *EntitiesPerformActionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this entities perform action too many requests response has a 3xx status code
+func (o *EntitiesPerformActionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this entities perform action too many requests response has a 4xx status code
+func (o *EntitiesPerformActionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this entities perform action too many requests response has a 5xx status code
+func (o *EntitiesPerformActionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this entities perform action too many requests response a status code equal to that given
+func (o *EntitiesPerformActionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *EntitiesPerformActionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *EntitiesPerformActionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *EntitiesPerformActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *EntitiesPerformActionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this entities perform action default response has a 2xx status code
+func (o *EntitiesPerformActionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this entities perform action default response has a 3xx status code
+func (o *EntitiesPerformActionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this entities perform action default response has a 4xx status code
+func (o *EntitiesPerformActionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this entities perform action default response has a 5xx status code
+func (o *EntitiesPerformActionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this entities perform action default response a status code equal to that given
+func (o *EntitiesPerformActionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *EntitiesPerformActionDefault) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entities.perform_action default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *EntitiesPerformActionDefault) String() string {
+	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entities.perform_action default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *EntitiesPerformActionDefault) GetPayload() *models.DeviceapiGroupsResponseV1 {
 	return o.Payload
 }

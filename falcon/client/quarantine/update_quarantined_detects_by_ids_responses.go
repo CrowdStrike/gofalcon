@@ -82,9 +82,39 @@ type UpdateQuarantinedDetectsByIdsOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update quarantined detects by ids o k response has a 2xx status code
+func (o *UpdateQuarantinedDetectsByIdsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update quarantined detects by ids o k response has a 3xx status code
+func (o *UpdateQuarantinedDetectsByIdsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update quarantined detects by ids o k response has a 4xx status code
+func (o *UpdateQuarantinedDetectsByIdsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update quarantined detects by ids o k response has a 5xx status code
+func (o *UpdateQuarantinedDetectsByIdsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update quarantined detects by ids o k response a status code equal to that given
+func (o *UpdateQuarantinedDetectsByIdsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateQuarantinedDetectsByIdsOK) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateQuarantinedDetectsByIdsOK) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateQuarantinedDetectsByIdsOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type UpdateQuarantinedDetectsByIdsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update quarantined detects by ids forbidden response has a 2xx status code
+func (o *UpdateQuarantinedDetectsByIdsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update quarantined detects by ids forbidden response has a 3xx status code
+func (o *UpdateQuarantinedDetectsByIdsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update quarantined detects by ids forbidden response has a 4xx status code
+func (o *UpdateQuarantinedDetectsByIdsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update quarantined detects by ids forbidden response has a 5xx status code
+func (o *UpdateQuarantinedDetectsByIdsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update quarantined detects by ids forbidden response a status code equal to that given
+func (o *UpdateQuarantinedDetectsByIdsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateQuarantinedDetectsByIdsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateQuarantinedDetectsByIdsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateQuarantinedDetectsByIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type UpdateQuarantinedDetectsByIdsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update quarantined detects by ids too many requests response has a 2xx status code
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update quarantined detects by ids too many requests response has a 3xx status code
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update quarantined detects by ids too many requests response has a 4xx status code
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update quarantined detects by ids too many requests response has a 5xx status code
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update quarantined detects by ids too many requests response a status code equal to that given
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *UpdateQuarantinedDetectsByIdsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update quarantined detects by ids default response has a 2xx status code
+func (o *UpdateQuarantinedDetectsByIdsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update quarantined detects by ids default response has a 3xx status code
+func (o *UpdateQuarantinedDetectsByIdsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update quarantined detects by ids default response has a 4xx status code
+func (o *UpdateQuarantinedDetectsByIdsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update quarantined detects by ids default response has a 5xx status code
+func (o *UpdateQuarantinedDetectsByIdsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update quarantined detects by ids default response a status code equal to that given
+func (o *UpdateQuarantinedDetectsByIdsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateQuarantinedDetectsByIdsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] UpdateQuarantinedDetectsByIds default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateQuarantinedDetectsByIdsDefault) String() string {
+	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] UpdateQuarantinedDetectsByIds default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateQuarantinedDetectsByIdsDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

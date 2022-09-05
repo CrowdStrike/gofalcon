@@ -64,12 +64,6 @@ IndicatorCreateV1Params contains all the parameters to send to the API endpoint
 */
 type IndicatorCreateV1Params struct {
 
-	/* XCSUSERNAME.
-
-	   The username
-	*/
-	XCSUSERNAME *string
-
 	// Body.
 	Body *models.APIIndicatorCreateReqsV1
 
@@ -149,17 +143,6 @@ func (o *IndicatorCreateV1Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERNAME adds the xCSUSERNAME to the indicator create v1 params
-func (o *IndicatorCreateV1Params) WithXCSUSERNAME(xCSUSERNAME *string) *IndicatorCreateV1Params {
-	o.SetXCSUSERNAME(xCSUSERNAME)
-	return o
-}
-
-// SetXCSUSERNAME adds the xCSUSERNAME to the indicator create v1 params
-func (o *IndicatorCreateV1Params) SetXCSUSERNAME(xCSUSERNAME *string) {
-	o.XCSUSERNAME = xCSUSERNAME
-}
-
 // WithBody adds the body to the indicator create v1 params
 func (o *IndicatorCreateV1Params) WithBody(body *models.APIIndicatorCreateReqsV1) *IndicatorCreateV1Params {
 	o.SetBody(body)
@@ -200,14 +183,6 @@ func (o *IndicatorCreateV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
-	if o.XCSUSERNAME != nil {
-
-		// header param X-CS-USERNAME
-		if err := r.SetHeaderParam("X-CS-USERNAME", *o.XCSUSERNAME); err != nil {
-			return err
-		}
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

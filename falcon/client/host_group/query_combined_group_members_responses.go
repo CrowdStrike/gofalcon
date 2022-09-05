@@ -96,9 +96,39 @@ type QueryCombinedGroupMembersOK struct {
 	Payload *models.ResponsesHostGroupMembersV1
 }
 
+// IsSuccess returns true when this query combined group members o k response has a 2xx status code
+func (o *QueryCombinedGroupMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined group members o k response has a 3xx status code
+func (o *QueryCombinedGroupMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members o k response has a 4xx status code
+func (o *QueryCombinedGroupMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined group members o k response has a 5xx status code
+func (o *QueryCombinedGroupMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined group members o k response a status code equal to that given
+func (o *QueryCombinedGroupMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersOK) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersOK) GetPayload() *models.ResponsesHostGroupMembersV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type QueryCombinedGroupMembersBadRequest struct {
 	Payload *models.ResponsesHostGroupMembersV1
 }
 
+// IsSuccess returns true when this query combined group members bad request response has a 2xx status code
+func (o *QueryCombinedGroupMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined group members bad request response has a 3xx status code
+func (o *QueryCombinedGroupMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members bad request response has a 4xx status code
+func (o *QueryCombinedGroupMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined group members bad request response has a 5xx status code
+func (o *QueryCombinedGroupMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined group members bad request response a status code equal to that given
+func (o *QueryCombinedGroupMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedGroupMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersBadRequest) GetPayload() *models.ResponsesHostGroupMembersV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type QueryCombinedGroupMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined group members forbidden response has a 2xx status code
+func (o *QueryCombinedGroupMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined group members forbidden response has a 3xx status code
+func (o *QueryCombinedGroupMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members forbidden response has a 4xx status code
+func (o *QueryCombinedGroupMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined group members forbidden response has a 5xx status code
+func (o *QueryCombinedGroupMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined group members forbidden response a status code equal to that given
+func (o *QueryCombinedGroupMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type QueryCombinedGroupMembersNotFound struct {
 	Payload *models.ResponsesHostGroupMembersV1
 }
 
+// IsSuccess returns true when this query combined group members not found response has a 2xx status code
+func (o *QueryCombinedGroupMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined group members not found response has a 3xx status code
+func (o *QueryCombinedGroupMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members not found response has a 4xx status code
+func (o *QueryCombinedGroupMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined group members not found response has a 5xx status code
+func (o *QueryCombinedGroupMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined group members not found response a status code equal to that given
+func (o *QueryCombinedGroupMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryCombinedGroupMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersNotFound) GetPayload() *models.ResponsesHostGroupMembersV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type QueryCombinedGroupMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined group members too many requests response has a 2xx status code
+func (o *QueryCombinedGroupMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined group members too many requests response has a 3xx status code
+func (o *QueryCombinedGroupMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members too many requests response has a 4xx status code
+func (o *QueryCombinedGroupMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined group members too many requests response has a 5xx status code
+func (o *QueryCombinedGroupMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined group members too many requests response a status code equal to that given
+func (o *QueryCombinedGroupMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type QueryCombinedGroupMembersInternalServerError struct {
 	Payload *models.ResponsesHostGroupMembersV1
 }
 
+// IsSuccess returns true when this query combined group members internal server error response has a 2xx status code
+func (o *QueryCombinedGroupMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined group members internal server error response has a 3xx status code
+func (o *QueryCombinedGroupMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined group members internal server error response has a 4xx status code
+func (o *QueryCombinedGroupMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined group members internal server error response has a 5xx status code
+func (o *QueryCombinedGroupMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined group members internal server error response a status code equal to that given
+func (o *QueryCombinedGroupMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedGroupMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersInternalServerError) GetPayload() *models.ResponsesHostGroupMembersV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *QueryCombinedGroupMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined group members default response has a 2xx status code
+func (o *QueryCombinedGroupMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined group members default response has a 3xx status code
+func (o *QueryCombinedGroupMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined group members default response has a 4xx status code
+func (o *QueryCombinedGroupMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined group members default response has a 5xx status code
+func (o *QueryCombinedGroupMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined group members default response a status code equal to that given
+func (o *QueryCombinedGroupMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedGroupMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedGroupMembersDefault) String() string {
+	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedGroupMembersDefault) GetPayload() *models.ResponsesHostGroupMembersV1 {
 	return o.Payload
 }

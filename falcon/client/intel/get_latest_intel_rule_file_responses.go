@@ -106,9 +106,39 @@ type GetLatestIntelRuleFileOK struct {
 	Payload io.Writer
 }
 
+// IsSuccess returns true when this get latest intel rule file o k response has a 2xx status code
+func (o *GetLatestIntelRuleFileOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get latest intel rule file o k response has a 3xx status code
+func (o *GetLatestIntelRuleFileOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file o k response has a 4xx status code
+func (o *GetLatestIntelRuleFileOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get latest intel rule file o k response has a 5xx status code
+func (o *GetLatestIntelRuleFileOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file o k response a status code equal to that given
+func (o *GetLatestIntelRuleFileOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLatestIntelRuleFileOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileOK) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -158,7 +188,36 @@ Not Modified
 type GetLatestIntelRuleFileNotModified struct {
 }
 
+// IsSuccess returns true when this get latest intel rule file not modified response has a 2xx status code
+func (o *GetLatestIntelRuleFileNotModified) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file not modified response has a 3xx status code
+func (o *GetLatestIntelRuleFileNotModified) IsRedirect() bool {
+	return true
+}
+
+// IsClientError returns true when this get latest intel rule file not modified response has a 4xx status code
+func (o *GetLatestIntelRuleFileNotModified) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get latest intel rule file not modified response has a 5xx status code
+func (o *GetLatestIntelRuleFileNotModified) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file not modified response a status code equal to that given
+func (o *GetLatestIntelRuleFileNotModified) IsCode(code int) bool {
+	return code == 304
+}
+
 func (o *GetLatestIntelRuleFileNotModified) Error() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
+}
+
+func (o *GetLatestIntelRuleFileNotModified) String() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
 }
 
@@ -190,9 +249,39 @@ type GetLatestIntelRuleFileBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get latest intel rule file bad request response has a 2xx status code
+func (o *GetLatestIntelRuleFileBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file bad request response has a 3xx status code
+func (o *GetLatestIntelRuleFileBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file bad request response has a 4xx status code
+func (o *GetLatestIntelRuleFileBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get latest intel rule file bad request response has a 5xx status code
+func (o *GetLatestIntelRuleFileBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file bad request response a status code equal to that given
+func (o *GetLatestIntelRuleFileBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLatestIntelRuleFileBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileBadRequest) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -254,9 +343,39 @@ type GetLatestIntelRuleFileForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get latest intel rule file forbidden response has a 2xx status code
+func (o *GetLatestIntelRuleFileForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file forbidden response has a 3xx status code
+func (o *GetLatestIntelRuleFileForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file forbidden response has a 4xx status code
+func (o *GetLatestIntelRuleFileForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get latest intel rule file forbidden response has a 5xx status code
+func (o *GetLatestIntelRuleFileForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file forbidden response a status code equal to that given
+func (o *GetLatestIntelRuleFileForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLatestIntelRuleFileForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileForbidden) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +437,39 @@ type GetLatestIntelRuleFileNotFound struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get latest intel rule file not found response has a 2xx status code
+func (o *GetLatestIntelRuleFileNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file not found response has a 3xx status code
+func (o *GetLatestIntelRuleFileNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file not found response has a 4xx status code
+func (o *GetLatestIntelRuleFileNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get latest intel rule file not found response has a 5xx status code
+func (o *GetLatestIntelRuleFileNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file not found response a status code equal to that given
+func (o *GetLatestIntelRuleFileNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLatestIntelRuleFileNotFound) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileNotFound) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileNotFound) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -386,9 +535,39 @@ type GetLatestIntelRuleFileTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get latest intel rule file too many requests response has a 2xx status code
+func (o *GetLatestIntelRuleFileTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file too many requests response has a 3xx status code
+func (o *GetLatestIntelRuleFileTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file too many requests response has a 4xx status code
+func (o *GetLatestIntelRuleFileTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get latest intel rule file too many requests response has a 5xx status code
+func (o *GetLatestIntelRuleFileTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get latest intel rule file too many requests response a status code equal to that given
+func (o *GetLatestIntelRuleFileTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLatestIntelRuleFileTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -461,9 +640,39 @@ type GetLatestIntelRuleFileInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get latest intel rule file internal server error response has a 2xx status code
+func (o *GetLatestIntelRuleFileInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get latest intel rule file internal server error response has a 3xx status code
+func (o *GetLatestIntelRuleFileInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get latest intel rule file internal server error response has a 4xx status code
+func (o *GetLatestIntelRuleFileInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get latest intel rule file internal server error response has a 5xx status code
+func (o *GetLatestIntelRuleFileInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get latest intel rule file internal server error response a status code equal to that given
+func (o *GetLatestIntelRuleFileInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLatestIntelRuleFileInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetLatestIntelRuleFileInternalServerError) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetLatestIntelRuleFileInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -523,7 +732,36 @@ func (o *GetLatestIntelRuleFileDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get latest intel rule file default response has a 2xx status code
+func (o *GetLatestIntelRuleFileDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get latest intel rule file default response has a 3xx status code
+func (o *GetLatestIntelRuleFileDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get latest intel rule file default response has a 4xx status code
+func (o *GetLatestIntelRuleFileDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get latest intel rule file default response has a 5xx status code
+func (o *GetLatestIntelRuleFileDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get latest intel rule file default response a status code equal to that given
+func (o *GetLatestIntelRuleFileDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetLatestIntelRuleFileDefault) Error() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] GetLatestIntelRuleFile default ", o._statusCode)
+}
+
+func (o *GetLatestIntelRuleFileDefault) String() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] GetLatestIntelRuleFile default ", o._statusCode)
 }
 

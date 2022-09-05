@@ -94,9 +94,39 @@ type CombinedQueryEvaluationLogicOK struct {
 	Payload *models.DomainSPAPIEvaluationLogicCombinedResponseV1
 }
 
+// IsSuccess returns true when this combined query evaluation logic o k response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this combined query evaluation logic o k response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic o k response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this combined query evaluation logic o k response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query evaluation logic o k response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CombinedQueryEvaluationLogicOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK  %+v", 200, o.Payload)
 }
+
+func (o *CombinedQueryEvaluationLogicOK) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK  %+v", 200, o.Payload)
+}
+
 func (o *CombinedQueryEvaluationLogicOK) GetPayload() *models.DomainSPAPIEvaluationLogicCombinedResponseV1 {
 	return o.Payload
 }
@@ -167,7 +197,36 @@ type CombinedQueryEvaluationLogicBadRequest struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this combined query evaluation logic bad request response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query evaluation logic bad request response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic bad request response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query evaluation logic bad request response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query evaluation logic bad request response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CombinedQueryEvaluationLogicBadRequest) Error() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest ", 400)
+}
+
+func (o *CombinedQueryEvaluationLogicBadRequest) String() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest ", 400)
 }
 
@@ -232,9 +291,39 @@ type CombinedQueryEvaluationLogicForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this combined query evaluation logic forbidden response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query evaluation logic forbidden response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic forbidden response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query evaluation logic forbidden response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query evaluation logic forbidden response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CombinedQueryEvaluationLogicForbidden) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CombinedQueryEvaluationLogicForbidden) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CombinedQueryEvaluationLogicForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -311,9 +400,39 @@ type CombinedQueryEvaluationLogicTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this combined query evaluation logic too many requests response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query evaluation logic too many requests response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic too many requests response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this combined query evaluation logic too many requests response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this combined query evaluation logic too many requests response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CombinedQueryEvaluationLogicTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CombinedQueryEvaluationLogicTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CombinedQueryEvaluationLogicTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -395,7 +514,36 @@ type CombinedQueryEvaluationLogicInternalServerError struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this combined query evaluation logic internal server error response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query evaluation logic internal server error response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic internal server error response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this combined query evaluation logic internal server error response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this combined query evaluation logic internal server error response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CombinedQueryEvaluationLogicInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError ", 500)
+}
+
+func (o *CombinedQueryEvaluationLogicInternalServerError) String() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError ", 500)
 }
 
@@ -456,9 +604,39 @@ func (o *CombinedQueryEvaluationLogicDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this combined query evaluation logic default response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this combined query evaluation logic default response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this combined query evaluation logic default response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this combined query evaluation logic default response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this combined query evaluation logic default response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CombinedQueryEvaluationLogicDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogic default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CombinedQueryEvaluationLogicDefault) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogic default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CombinedQueryEvaluationLogicDefault) GetPayload() *models.DomainSPAPIEvaluationLogicCombinedResponseV1 {
 	return o.Payload
 }

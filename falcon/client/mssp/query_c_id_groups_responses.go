@@ -78,9 +78,39 @@ type QueryCIDGroupsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query c Id groups o k response has a 2xx status code
+func (o *QueryCIDGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query c Id groups o k response has a 3xx status code
+func (o *QueryCIDGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id groups o k response has a 4xx status code
+func (o *QueryCIDGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query c Id groups o k response has a 5xx status code
+func (o *QueryCIDGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id groups o k response a status code equal to that given
+func (o *QueryCIDGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCIDGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCIDGroupsOK) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCIDGroupsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryCIDGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query c Id groups forbidden response has a 2xx status code
+func (o *QueryCIDGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query c Id groups forbidden response has a 3xx status code
+func (o *QueryCIDGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id groups forbidden response has a 4xx status code
+func (o *QueryCIDGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query c Id groups forbidden response has a 5xx status code
+func (o *QueryCIDGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id groups forbidden response a status code equal to that given
+func (o *QueryCIDGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCIDGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCIDGroupsForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryCIDGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query c Id groups too many requests response has a 2xx status code
+func (o *QueryCIDGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query c Id groups too many requests response has a 3xx status code
+func (o *QueryCIDGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query c Id groups too many requests response has a 4xx status code
+func (o *QueryCIDGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query c Id groups too many requests response has a 5xx status code
+func (o *QueryCIDGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query c Id groups too many requests response a status code equal to that given
+func (o *QueryCIDGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCIDGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCIDGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryCIDGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query c ID groups default response has a 2xx status code
+func (o *QueryCIDGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query c ID groups default response has a 3xx status code
+func (o *QueryCIDGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query c ID groups default response has a 4xx status code
+func (o *QueryCIDGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query c ID groups default response has a 5xx status code
+func (o *QueryCIDGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query c ID groups default response a status code equal to that given
+func (o *QueryCIDGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCIDGroupsDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIDGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCIDGroupsDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIDGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCIDGroupsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

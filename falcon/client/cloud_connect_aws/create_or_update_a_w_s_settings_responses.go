@@ -83,9 +83,39 @@ type CreateOrUpdateAWSSettingsCreated struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this create or update a w s settings created response has a 2xx status code
+func (o *CreateOrUpdateAWSSettingsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create or update a w s settings created response has a 3xx status code
+func (o *CreateOrUpdateAWSSettingsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create or update a w s settings created response has a 4xx status code
+func (o *CreateOrUpdateAWSSettingsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create or update a w s settings created response has a 5xx status code
+func (o *CreateOrUpdateAWSSettingsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create or update a w s settings created response a status code equal to that given
+func (o *CreateOrUpdateAWSSettingsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateOrUpdateAWSSettingsCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateOrUpdateAWSSettingsCreated) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateOrUpdateAWSSettingsCreated) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type CreateOrUpdateAWSSettingsBadRequest struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this create or update a w s settings bad request response has a 2xx status code
+func (o *CreateOrUpdateAWSSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create or update a w s settings bad request response has a 3xx status code
+func (o *CreateOrUpdateAWSSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create or update a w s settings bad request response has a 4xx status code
+func (o *CreateOrUpdateAWSSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create or update a w s settings bad request response has a 5xx status code
+func (o *CreateOrUpdateAWSSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create or update a w s settings bad request response a status code equal to that given
+func (o *CreateOrUpdateAWSSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateOrUpdateAWSSettingsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateOrUpdateAWSSettingsBadRequest) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateOrUpdateAWSSettingsBadRequest) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type CreateOrUpdateAWSSettingsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create or update a w s settings forbidden response has a 2xx status code
+func (o *CreateOrUpdateAWSSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create or update a w s settings forbidden response has a 3xx status code
+func (o *CreateOrUpdateAWSSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create or update a w s settings forbidden response has a 4xx status code
+func (o *CreateOrUpdateAWSSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create or update a w s settings forbidden response has a 5xx status code
+func (o *CreateOrUpdateAWSSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create or update a w s settings forbidden response a status code equal to that given
+func (o *CreateOrUpdateAWSSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateOrUpdateAWSSettingsForbidden) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateOrUpdateAWSSettingsForbidden) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateOrUpdateAWSSettingsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -279,9 +369,39 @@ type CreateOrUpdateAWSSettingsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create or update a w s settings too many requests response has a 2xx status code
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create or update a w s settings too many requests response has a 3xx status code
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create or update a w s settings too many requests response has a 4xx status code
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create or update a w s settings too many requests response has a 5xx status code
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create or update a w s settings too many requests response a status code equal to that given
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -354,9 +474,39 @@ type CreateOrUpdateAWSSettingsInternalServerError struct {
 	Payload *models.ModelsCustomerConfigurationsV1
 }
 
+// IsSuccess returns true when this create or update a w s settings internal server error response has a 2xx status code
+func (o *CreateOrUpdateAWSSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create or update a w s settings internal server error response has a 3xx status code
+func (o *CreateOrUpdateAWSSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create or update a w s settings internal server error response has a 4xx status code
+func (o *CreateOrUpdateAWSSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create or update a w s settings internal server error response has a 5xx status code
+func (o *CreateOrUpdateAWSSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create or update a w s settings internal server error response a status code equal to that given
+func (o *CreateOrUpdateAWSSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateOrUpdateAWSSettingsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateOrUpdateAWSSettingsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateOrUpdateAWSSettingsInternalServerError) GetPayload() *models.ModelsCustomerConfigurationsV1 {
 	return o.Payload
 }

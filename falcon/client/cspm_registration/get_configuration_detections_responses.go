@@ -94,9 +94,39 @@ type GetConfigurationDetectionsOK struct {
 	Payload *models.RegistrationExternalIOMEventResponse
 }
 
+// IsSuccess returns true when this get configuration detections o k response has a 2xx status code
+func (o *GetConfigurationDetectionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get configuration detections o k response has a 3xx status code
+func (o *GetConfigurationDetectionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration detections o k response has a 4xx status code
+func (o *GetConfigurationDetectionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration detections o k response has a 5xx status code
+func (o *GetConfigurationDetectionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration detections o k response a status code equal to that given
+func (o *GetConfigurationDetectionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConfigurationDetectionsOK) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsOK) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsOK) GetPayload() *models.RegistrationExternalIOMEventResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetConfigurationDetectionsBadRequest struct {
 	Payload *models.RegistrationExternalIOMEventResponse
 }
 
+// IsSuccess returns true when this get configuration detections bad request response has a 2xx status code
+func (o *GetConfigurationDetectionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration detections bad request response has a 3xx status code
+func (o *GetConfigurationDetectionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration detections bad request response has a 4xx status code
+func (o *GetConfigurationDetectionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration detections bad request response has a 5xx status code
+func (o *GetConfigurationDetectionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration detections bad request response a status code equal to that given
+func (o *GetConfigurationDetectionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConfigurationDetectionsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsBadRequest) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsBadRequest) GetPayload() *models.RegistrationExternalIOMEventResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetConfigurationDetectionsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get configuration detections forbidden response has a 2xx status code
+func (o *GetConfigurationDetectionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration detections forbidden response has a 3xx status code
+func (o *GetConfigurationDetectionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration detections forbidden response has a 4xx status code
+func (o *GetConfigurationDetectionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration detections forbidden response has a 5xx status code
+func (o *GetConfigurationDetectionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration detections forbidden response a status code equal to that given
+func (o *GetConfigurationDetectionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConfigurationDetectionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsForbidden) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetConfigurationDetectionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get configuration detections too many requests response has a 2xx status code
+func (o *GetConfigurationDetectionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration detections too many requests response has a 3xx status code
+func (o *GetConfigurationDetectionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration detections too many requests response has a 4xx status code
+func (o *GetConfigurationDetectionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration detections too many requests response has a 5xx status code
+func (o *GetConfigurationDetectionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration detections too many requests response a status code equal to that given
+func (o *GetConfigurationDetectionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConfigurationDetectionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetConfigurationDetectionsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get configuration detections internal server error response has a 2xx status code
+func (o *GetConfigurationDetectionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration detections internal server error response has a 3xx status code
+func (o *GetConfigurationDetectionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration detections internal server error response has a 4xx status code
+func (o *GetConfigurationDetectionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration detections internal server error response has a 5xx status code
+func (o *GetConfigurationDetectionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get configuration detections internal server error response a status code equal to that given
+func (o *GetConfigurationDetectionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConfigurationDetectionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetConfigurationDetectionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get configuration detections default response has a 2xx status code
+func (o *GetConfigurationDetectionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get configuration detections default response has a 3xx status code
+func (o *GetConfigurationDetectionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get configuration detections default response has a 4xx status code
+func (o *GetConfigurationDetectionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get configuration detections default response has a 5xx status code
+func (o *GetConfigurationDetectionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get configuration detections default response a status code equal to that given
+func (o *GetConfigurationDetectionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetConfigurationDetectionsDefault) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] GetConfigurationDetections default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetConfigurationDetectionsDefault) String() string {
+	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] GetConfigurationDetections default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetConfigurationDetectionsDefault) GetPayload() *models.RegistrationExternalIOMEventResponse {
 	return o.Payload
 }

@@ -93,9 +93,39 @@ type PatchCSPMAwsAccountCreated struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this patch c s p m aws account created response has a 2xx status code
+func (o *PatchCSPMAwsAccountCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch c s p m aws account created response has a 3xx status code
+func (o *PatchCSPMAwsAccountCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account created response has a 4xx status code
+func (o *PatchCSPMAwsAccountCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch c s p m aws account created response has a 5xx status code
+func (o *PatchCSPMAwsAccountCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch c s p m aws account created response a status code equal to that given
+func (o *PatchCSPMAwsAccountCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PatchCSPMAwsAccountCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountCreated  %+v", 201, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountCreated) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountCreated  %+v", 201, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -168,9 +198,39 @@ type PatchCSPMAwsAccountMultiStatus struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this patch c s p m aws account multi status response has a 2xx status code
+func (o *PatchCSPMAwsAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch c s p m aws account multi status response has a 3xx status code
+func (o *PatchCSPMAwsAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account multi status response has a 4xx status code
+func (o *PatchCSPMAwsAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch c s p m aws account multi status response has a 5xx status code
+func (o *PatchCSPMAwsAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch c s p m aws account multi status response a status code equal to that given
+func (o *PatchCSPMAwsAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *PatchCSPMAwsAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountMultiStatus) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -243,9 +303,39 @@ type PatchCSPMAwsAccountBadRequest struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this patch c s p m aws account bad request response has a 2xx status code
+func (o *PatchCSPMAwsAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch c s p m aws account bad request response has a 3xx status code
+func (o *PatchCSPMAwsAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account bad request response has a 4xx status code
+func (o *PatchCSPMAwsAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch c s p m aws account bad request response has a 5xx status code
+func (o *PatchCSPMAwsAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch c s p m aws account bad request response a status code equal to that given
+func (o *PatchCSPMAwsAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchCSPMAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ type PatchCSPMAwsAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this patch c s p m aws account forbidden response has a 2xx status code
+func (o *PatchCSPMAwsAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch c s p m aws account forbidden response has a 3xx status code
+func (o *PatchCSPMAwsAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account forbidden response has a 4xx status code
+func (o *PatchCSPMAwsAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch c s p m aws account forbidden response has a 5xx status code
+func (o *PatchCSPMAwsAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch c s p m aws account forbidden response a status code equal to that given
+func (o *PatchCSPMAwsAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchCSPMAwsAccountForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountForbidden) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -397,9 +517,39 @@ type PatchCSPMAwsAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this patch c s p m aws account too many requests response has a 2xx status code
+func (o *PatchCSPMAwsAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch c s p m aws account too many requests response has a 3xx status code
+func (o *PatchCSPMAwsAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account too many requests response has a 4xx status code
+func (o *PatchCSPMAwsAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch c s p m aws account too many requests response has a 5xx status code
+func (o *PatchCSPMAwsAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch c s p m aws account too many requests response a status code equal to that given
+func (o *PatchCSPMAwsAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchCSPMAwsAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -483,9 +633,39 @@ type PatchCSPMAwsAccountInternalServerError struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this patch c s p m aws account internal server error response has a 2xx status code
+func (o *PatchCSPMAwsAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch c s p m aws account internal server error response has a 3xx status code
+func (o *PatchCSPMAwsAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch c s p m aws account internal server error response has a 4xx status code
+func (o *PatchCSPMAwsAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch c s p m aws account internal server error response has a 5xx status code
+func (o *PatchCSPMAwsAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch c s p m aws account internal server error response a status code equal to that given
+func (o *PatchCSPMAwsAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchCSPMAwsAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PatchCSPMAwsAccountInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PatchCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type QueryRTResponsePolicyMembersOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query r t response policy members o k response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query r t response policy members o k response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members o k response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query r t response policy members o k response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query r t response policy members o k response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRTResponsePolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersOK) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type QueryRTResponsePolicyMembersBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query r t response policy members bad request response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query r t response policy members bad request response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members bad request response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query r t response policy members bad request response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query r t response policy members bad request response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryRTResponsePolicyMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type QueryRTResponsePolicyMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query r t response policy members forbidden response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query r t response policy members forbidden response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members forbidden response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query r t response policy members forbidden response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query r t response policy members forbidden response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRTResponsePolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type QueryRTResponsePolicyMembersNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query r t response policy members not found response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query r t response policy members not found response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members not found response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query r t response policy members not found response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query r t response policy members not found response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryRTResponsePolicyMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type QueryRTResponsePolicyMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query r t response policy members too many requests response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query r t response policy members too many requests response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members too many requests response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query r t response policy members too many requests response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query r t response policy members too many requests response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRTResponsePolicyMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type QueryRTResponsePolicyMembersInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query r t response policy members internal server error response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query r t response policy members internal server error response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query r t response policy members internal server error response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query r t response policy members internal server error response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query r t response policy members internal server error response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryRTResponsePolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *QueryRTResponsePolicyMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query r t response policy members default response has a 2xx status code
+func (o *QueryRTResponsePolicyMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query r t response policy members default response has a 3xx status code
+func (o *QueryRTResponsePolicyMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query r t response policy members default response has a 4xx status code
+func (o *QueryRTResponsePolicyMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query r t response policy members default response has a 5xx status code
+func (o *QueryRTResponsePolicyMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query r t response policy members default response a status code equal to that given
+func (o *QueryRTResponsePolicyMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRTResponsePolicyMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRTResponsePolicyMembersDefault) String() string {
+	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRTResponsePolicyMembersDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

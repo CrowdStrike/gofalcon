@@ -84,9 +84,39 @@ type QueryRuleGroupsFullOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query rule groups full o k response has a 2xx status code
+func (o *QueryRuleGroupsFullOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query rule groups full o k response has a 3xx status code
+func (o *QueryRuleGroupsFullOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups full o k response has a 4xx status code
+func (o *QueryRuleGroupsFullOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query rule groups full o k response has a 5xx status code
+func (o *QueryRuleGroupsFullOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups full o k response a status code equal to that given
+func (o *QueryRuleGroupsFullOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRuleGroupsFullOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRuleGroupsFullOK) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRuleGroupsFullOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryRuleGroupsFullForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups full forbidden response has a 2xx status code
+func (o *QueryRuleGroupsFullForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups full forbidden response has a 3xx status code
+func (o *QueryRuleGroupsFullForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups full forbidden response has a 4xx status code
+func (o *QueryRuleGroupsFullForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups full forbidden response has a 5xx status code
+func (o *QueryRuleGroupsFullForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups full forbidden response a status code equal to that given
+func (o *QueryRuleGroupsFullForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRuleGroupsFullForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRuleGroupsFullForbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRuleGroupsFullForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryRuleGroupsFullNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups full not found response has a 2xx status code
+func (o *QueryRuleGroupsFullNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups full not found response has a 3xx status code
+func (o *QueryRuleGroupsFullNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups full not found response has a 4xx status code
+func (o *QueryRuleGroupsFullNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups full not found response has a 5xx status code
+func (o *QueryRuleGroupsFullNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups full not found response a status code equal to that given
+func (o *QueryRuleGroupsFullNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryRuleGroupsFullNotFound) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryRuleGroupsFullNotFound) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryRuleGroupsFullNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryRuleGroupsFullTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query rule groups full too many requests response has a 2xx status code
+func (o *QueryRuleGroupsFullTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query rule groups full too many requests response has a 3xx status code
+func (o *QueryRuleGroupsFullTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query rule groups full too many requests response has a 4xx status code
+func (o *QueryRuleGroupsFullTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query rule groups full too many requests response has a 5xx status code
+func (o *QueryRuleGroupsFullTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query rule groups full too many requests response a status code equal to that given
+func (o *QueryRuleGroupsFullTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRuleGroupsFullTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRuleGroupsFullTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRuleGroupsFullTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryRuleGroupsFullDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query rule groups full default response has a 2xx status code
+func (o *QueryRuleGroupsFullDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query rule groups full default response has a 3xx status code
+func (o *QueryRuleGroupsFullDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query rule groups full default response has a 4xx status code
+func (o *QueryRuleGroupsFullDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query rule groups full default response has a 5xx status code
+func (o *QueryRuleGroupsFullDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query rule groups full default response a status code equal to that given
+func (o *QueryRuleGroupsFullDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRuleGroupsFullDefault) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] query-rule-groups-full default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRuleGroupsFullDefault) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] query-rule-groups-full default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRuleGroupsFullDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -84,9 +84,39 @@ type RTRUpdateScriptsOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r update scripts o k response has a 2xx status code
+func (o *RTRUpdateScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r update scripts o k response has a 3xx status code
+func (o *RTRUpdateScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r update scripts o k response has a 4xx status code
+func (o *RTRUpdateScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r update scripts o k response has a 5xx status code
+func (o *RTRUpdateScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r update scripts o k response a status code equal to that given
+func (o *RTRUpdateScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRUpdateScriptsOK) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRUpdateScriptsOK) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRUpdateScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RTRUpdateScriptsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r update scripts bad request response has a 2xx status code
+func (o *RTRUpdateScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r update scripts bad request response has a 3xx status code
+func (o *RTRUpdateScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r update scripts bad request response has a 4xx status code
+func (o *RTRUpdateScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r update scripts bad request response has a 5xx status code
+func (o *RTRUpdateScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r update scripts bad request response a status code equal to that given
+func (o *RTRUpdateScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRUpdateScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRUpdateScriptsBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRUpdateScriptsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RTRUpdateScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r update scripts forbidden response has a 2xx status code
+func (o *RTRUpdateScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r update scripts forbidden response has a 3xx status code
+func (o *RTRUpdateScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r update scripts forbidden response has a 4xx status code
+func (o *RTRUpdateScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r update scripts forbidden response has a 5xx status code
+func (o *RTRUpdateScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r update scripts forbidden response a status code equal to that given
+func (o *RTRUpdateScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRUpdateScriptsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRUpdateScriptsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRUpdateScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RTRUpdateScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r update scripts too many requests response has a 2xx status code
+func (o *RTRUpdateScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r update scripts too many requests response has a 3xx status code
+func (o *RTRUpdateScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r update scripts too many requests response has a 4xx status code
+func (o *RTRUpdateScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r update scripts too many requests response has a 5xx status code
+func (o *RTRUpdateScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r update scripts too many requests response a status code equal to that given
+func (o *RTRUpdateScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRUpdateScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRUpdateScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRUpdateScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RTRUpdateScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r update scripts default response has a 2xx status code
+func (o *RTRUpdateScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r update scripts default response has a 3xx status code
+func (o *RTRUpdateScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r update scripts default response has a 4xx status code
+func (o *RTRUpdateScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r update scripts default response has a 5xx status code
+func (o *RTRUpdateScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r update scripts default response a status code equal to that given
+func (o *RTRUpdateScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRUpdateScriptsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] RTR-UpdateScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRUpdateScriptsDefault) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] RTR-UpdateScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRUpdateScriptsDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

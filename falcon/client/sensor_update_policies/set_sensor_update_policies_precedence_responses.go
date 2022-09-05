@@ -90,9 +90,39 @@ type SetSensorUpdatePoliciesPrecedenceOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set sensor update policies precedence o k response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set sensor update policies precedence o k response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set sensor update policies precedence o k response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set sensor update policies precedence o k response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set sensor update policies precedence o k response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceOK  %+v", 200, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type SetSensorUpdatePoliciesPrecedenceBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set sensor update policies precedence bad request response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set sensor update policies precedence bad request response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set sensor update policies precedence bad request response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set sensor update policies precedence bad request response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set sensor update policies precedence bad request response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type SetSensorUpdatePoliciesPrecedenceForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this set sensor update policies precedence forbidden response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set sensor update policies precedence forbidden response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set sensor update policies precedence forbidden response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set sensor update policies precedence forbidden response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set sensor update policies precedence forbidden response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type SetSensorUpdatePoliciesPrecedenceTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this set sensor update policies precedence too many requests response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set sensor update policies precedence too many requests response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set sensor update policies precedence too many requests response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set sensor update policies precedence too many requests response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set sensor update policies precedence too many requests response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type SetSensorUpdatePoliciesPrecedenceInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set sensor update policies precedence internal server error response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set sensor update policies precedence internal server error response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set sensor update policies precedence internal server error response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set sensor update policies precedence internal server error response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this set sensor update policies precedence internal server error response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *SetSensorUpdatePoliciesPrecedenceDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this set sensor update policies precedence default response has a 2xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this set sensor update policies precedence default response has a 3xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this set sensor update policies precedence default response has a 4xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this set sensor update policies precedence default response has a 5xx status code
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this set sensor update policies precedence default response a status code equal to that given
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SetSensorUpdatePoliciesPrecedenceDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/sensor-update-precedence/v1][%d] setSensorUpdatePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SetSensorUpdatePoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

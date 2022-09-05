@@ -90,9 +90,39 @@ type GetDetectSummariesOK struct {
 	Payload *models.DomainMsaDetectSummariesResponse
 }
 
+// IsSuccess returns true when this get detect summaries o k response has a 2xx status code
+func (o *GetDetectSummariesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get detect summaries o k response has a 3xx status code
+func (o *GetDetectSummariesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get detect summaries o k response has a 4xx status code
+func (o *GetDetectSummariesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get detect summaries o k response has a 5xx status code
+func (o *GetDetectSummariesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get detect summaries o k response a status code equal to that given
+func (o *GetDetectSummariesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDetectSummariesOK) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetDetectSummariesOK) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetDetectSummariesOK) GetPayload() *models.DomainMsaDetectSummariesResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetDetectSummariesBadRequest struct {
 	Payload *models.DomainMsaDetectSummariesResponse
 }
 
+// IsSuccess returns true when this get detect summaries bad request response has a 2xx status code
+func (o *GetDetectSummariesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get detect summaries bad request response has a 3xx status code
+func (o *GetDetectSummariesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get detect summaries bad request response has a 4xx status code
+func (o *GetDetectSummariesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get detect summaries bad request response has a 5xx status code
+func (o *GetDetectSummariesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get detect summaries bad request response a status code equal to that given
+func (o *GetDetectSummariesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDetectSummariesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetDetectSummariesBadRequest) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetDetectSummariesBadRequest) GetPayload() *models.DomainMsaDetectSummariesResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetDetectSummariesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get detect summaries forbidden response has a 2xx status code
+func (o *GetDetectSummariesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get detect summaries forbidden response has a 3xx status code
+func (o *GetDetectSummariesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get detect summaries forbidden response has a 4xx status code
+func (o *GetDetectSummariesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get detect summaries forbidden response has a 5xx status code
+func (o *GetDetectSummariesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get detect summaries forbidden response a status code equal to that given
+func (o *GetDetectSummariesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDetectSummariesForbidden) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetDetectSummariesForbidden) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetDetectSummariesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetDetectSummariesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get detect summaries too many requests response has a 2xx status code
+func (o *GetDetectSummariesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get detect summaries too many requests response has a 3xx status code
+func (o *GetDetectSummariesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get detect summaries too many requests response has a 4xx status code
+func (o *GetDetectSummariesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get detect summaries too many requests response has a 5xx status code
+func (o *GetDetectSummariesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get detect summaries too many requests response a status code equal to that given
+func (o *GetDetectSummariesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDetectSummariesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetDetectSummariesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetDetectSummariesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetDetectSummariesInternalServerError struct {
 	Payload *models.DomainMsaDetectSummariesResponse
 }
 
+// IsSuccess returns true when this get detect summaries internal server error response has a 2xx status code
+func (o *GetDetectSummariesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get detect summaries internal server error response has a 3xx status code
+func (o *GetDetectSummariesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get detect summaries internal server error response has a 4xx status code
+func (o *GetDetectSummariesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get detect summaries internal server error response has a 5xx status code
+func (o *GetDetectSummariesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get detect summaries internal server error response a status code equal to that given
+func (o *GetDetectSummariesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDetectSummariesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetDetectSummariesInternalServerError) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetDetectSummariesInternalServerError) GetPayload() *models.DomainMsaDetectSummariesResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetDetectSummariesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get detect summaries default response has a 2xx status code
+func (o *GetDetectSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get detect summaries default response has a 3xx status code
+func (o *GetDetectSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get detect summaries default response has a 4xx status code
+func (o *GetDetectSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get detect summaries default response has a 5xx status code
+func (o *GetDetectSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get detect summaries default response a status code equal to that given
+func (o *GetDetectSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetDetectSummariesDefault) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] GetDetectSummaries default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetDetectSummariesDefault) String() string {
+	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] GetDetectSummaries default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetDetectSummariesDefault) GetPayload() *models.DomainMsaDetectSummariesResponse {
 	return o.Payload
 }

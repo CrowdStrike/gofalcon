@@ -87,9 +87,39 @@ type CreateHostGroupsCreated struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this create host groups created response has a 2xx status code
+func (o *CreateHostGroupsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create host groups created response has a 3xx status code
+func (o *CreateHostGroupsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create host groups created response has a 4xx status code
+func (o *CreateHostGroupsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create host groups created response has a 5xx status code
+func (o *CreateHostGroupsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create host groups created response a status code equal to that given
+func (o *CreateHostGroupsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateHostGroupsCreated) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateHostGroupsCreated) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateHostGroupsCreated) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type CreateHostGroupsBadRequest struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this create host groups bad request response has a 2xx status code
+func (o *CreateHostGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create host groups bad request response has a 3xx status code
+func (o *CreateHostGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create host groups bad request response has a 4xx status code
+func (o *CreateHostGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create host groups bad request response has a 5xx status code
+func (o *CreateHostGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create host groups bad request response a status code equal to that given
+func (o *CreateHostGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateHostGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateHostGroupsBadRequest) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -237,9 +297,39 @@ type CreateHostGroupsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create host groups forbidden response has a 2xx status code
+func (o *CreateHostGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create host groups forbidden response has a 3xx status code
+func (o *CreateHostGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create host groups forbidden response has a 4xx status code
+func (o *CreateHostGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create host groups forbidden response has a 5xx status code
+func (o *CreateHostGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create host groups forbidden response a status code equal to that given
+func (o *CreateHostGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateHostGroupsForbidden) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -316,9 +406,39 @@ type CreateHostGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create host groups too many requests response has a 2xx status code
+func (o *CreateHostGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create host groups too many requests response has a 3xx status code
+func (o *CreateHostGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create host groups too many requests response has a 4xx status code
+func (o *CreateHostGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create host groups too many requests response has a 5xx status code
+func (o *CreateHostGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create host groups too many requests response a status code equal to that given
+func (o *CreateHostGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateHostGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateHostGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -402,9 +522,39 @@ type CreateHostGroupsInternalServerError struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this create host groups internal server error response has a 2xx status code
+func (o *CreateHostGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create host groups internal server error response has a 3xx status code
+func (o *CreateHostGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create host groups internal server error response has a 4xx status code
+func (o *CreateHostGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create host groups internal server error response has a 5xx status code
+func (o *CreateHostGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create host groups internal server error response a status code equal to that given
+func (o *CreateHostGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateHostGroupsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }

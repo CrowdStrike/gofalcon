@@ -100,9 +100,39 @@ type GetIntelRuleFileOK struct {
 	Payload io.Writer
 }
 
+// IsSuccess returns true when this get intel rule file o k response has a 2xx status code
+func (o *GetIntelRuleFileOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get intel rule file o k response has a 3xx status code
+func (o *GetIntelRuleFileOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file o k response has a 4xx status code
+func (o *GetIntelRuleFileOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel rule file o k response has a 5xx status code
+func (o *GetIntelRuleFileOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel rule file o k response a status code equal to that given
+func (o *GetIntelRuleFileOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntelRuleFileOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIntelRuleFileOK) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIntelRuleFileOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type GetIntelRuleFileBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel rule file bad request response has a 2xx status code
+func (o *GetIntelRuleFileBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel rule file bad request response has a 3xx status code
+func (o *GetIntelRuleFileBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file bad request response has a 4xx status code
+func (o *GetIntelRuleFileBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel rule file bad request response has a 5xx status code
+func (o *GetIntelRuleFileBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel rule file bad request response a status code equal to that given
+func (o *GetIntelRuleFileBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntelRuleFileBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetIntelRuleFileBadRequest) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetIntelRuleFileBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -226,9 +286,39 @@ type GetIntelRuleFileForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel rule file forbidden response has a 2xx status code
+func (o *GetIntelRuleFileForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel rule file forbidden response has a 3xx status code
+func (o *GetIntelRuleFileForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file forbidden response has a 4xx status code
+func (o *GetIntelRuleFileForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel rule file forbidden response has a 5xx status code
+func (o *GetIntelRuleFileForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel rule file forbidden response a status code equal to that given
+func (o *GetIntelRuleFileForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntelRuleFileForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIntelRuleFileForbidden) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIntelRuleFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -290,9 +380,39 @@ type GetIntelRuleFileNotFound struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel rule file not found response has a 2xx status code
+func (o *GetIntelRuleFileNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel rule file not found response has a 3xx status code
+func (o *GetIntelRuleFileNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file not found response has a 4xx status code
+func (o *GetIntelRuleFileNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel rule file not found response has a 5xx status code
+func (o *GetIntelRuleFileNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel rule file not found response a status code equal to that given
+func (o *GetIntelRuleFileNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntelRuleFileNotFound) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetIntelRuleFileNotFound) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetIntelRuleFileNotFound) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -358,9 +478,39 @@ type GetIntelRuleFileTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel rule file too many requests response has a 2xx status code
+func (o *GetIntelRuleFileTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel rule file too many requests response has a 3xx status code
+func (o *GetIntelRuleFileTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file too many requests response has a 4xx status code
+func (o *GetIntelRuleFileTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel rule file too many requests response has a 5xx status code
+func (o *GetIntelRuleFileTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel rule file too many requests response a status code equal to that given
+func (o *GetIntelRuleFileTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntelRuleFileTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIntelRuleFileTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIntelRuleFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -433,9 +583,39 @@ type GetIntelRuleFileInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel rule file internal server error response has a 2xx status code
+func (o *GetIntelRuleFileInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel rule file internal server error response has a 3xx status code
+func (o *GetIntelRuleFileInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel rule file internal server error response has a 4xx status code
+func (o *GetIntelRuleFileInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel rule file internal server error response has a 5xx status code
+func (o *GetIntelRuleFileInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get intel rule file internal server error response a status code equal to that given
+func (o *GetIntelRuleFileInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntelRuleFileInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIntelRuleFileInternalServerError) String() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIntelRuleFileInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -495,7 +675,36 @@ func (o *GetIntelRuleFileDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get intel rule file default response has a 2xx status code
+func (o *GetIntelRuleFileDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get intel rule file default response has a 3xx status code
+func (o *GetIntelRuleFileDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get intel rule file default response has a 4xx status code
+func (o *GetIntelRuleFileDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get intel rule file default response has a 5xx status code
+func (o *GetIntelRuleFileDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get intel rule file default response a status code equal to that given
+func (o *GetIntelRuleFileDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIntelRuleFileDefault) Error() string {
+	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] GetIntelRuleFile default ", o._statusCode)
+}
+
+func (o *GetIntelRuleFileDefault) String() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] GetIntelRuleFile default ", o._statusCode)
 }
 

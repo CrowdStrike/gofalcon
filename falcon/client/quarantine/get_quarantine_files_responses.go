@@ -82,9 +82,39 @@ type GetQuarantineFilesOK struct {
 	Payload *models.DomainMsaQfResponse
 }
 
+// IsSuccess returns true when this get quarantine files o k response has a 2xx status code
+func (o *GetQuarantineFilesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quarantine files o k response has a 3xx status code
+func (o *GetQuarantineFilesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quarantine files o k response has a 4xx status code
+func (o *GetQuarantineFilesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quarantine files o k response has a 5xx status code
+func (o *GetQuarantineFilesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quarantine files o k response a status code equal to that given
+func (o *GetQuarantineFilesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQuarantineFilesOK) Error() string {
 	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetQuarantineFilesOK) String() string {
+	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetQuarantineFilesOK) GetPayload() *models.DomainMsaQfResponse {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type GetQuarantineFilesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get quarantine files forbidden response has a 2xx status code
+func (o *GetQuarantineFilesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quarantine files forbidden response has a 3xx status code
+func (o *GetQuarantineFilesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quarantine files forbidden response has a 4xx status code
+func (o *GetQuarantineFilesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quarantine files forbidden response has a 5xx status code
+func (o *GetQuarantineFilesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quarantine files forbidden response a status code equal to that given
+func (o *GetQuarantineFilesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQuarantineFilesForbidden) Error() string {
 	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetQuarantineFilesForbidden) String() string {
+	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetQuarantineFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type GetQuarantineFilesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get quarantine files too many requests response has a 2xx status code
+func (o *GetQuarantineFilesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quarantine files too many requests response has a 3xx status code
+func (o *GetQuarantineFilesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quarantine files too many requests response has a 4xx status code
+func (o *GetQuarantineFilesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quarantine files too many requests response has a 5xx status code
+func (o *GetQuarantineFilesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quarantine files too many requests response a status code equal to that given
+func (o *GetQuarantineFilesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQuarantineFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetQuarantineFilesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] getQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetQuarantineFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *GetQuarantineFilesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get quarantine files default response has a 2xx status code
+func (o *GetQuarantineFilesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get quarantine files default response has a 3xx status code
+func (o *GetQuarantineFilesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get quarantine files default response has a 4xx status code
+func (o *GetQuarantineFilesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get quarantine files default response has a 5xx status code
+func (o *GetQuarantineFilesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get quarantine files default response a status code equal to that given
+func (o *GetQuarantineFilesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetQuarantineFilesDefault) Error() string {
 	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] GetQuarantineFiles default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetQuarantineFilesDefault) String() string {
+	return fmt.Sprintf("[POST /quarantine/entities/quarantined-files/GET/v1][%d] GetQuarantineFiles default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetQuarantineFilesDefault) GetPayload() *models.DomainMsaQfResponse {
 	return o.Payload
 }

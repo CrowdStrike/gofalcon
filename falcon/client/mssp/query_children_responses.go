@@ -84,9 +84,39 @@ type QueryChildrenOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query children o k response has a 2xx status code
+func (o *QueryChildrenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query children o k response has a 3xx status code
+func (o *QueryChildrenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query children o k response has a 4xx status code
+func (o *QueryChildrenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query children o k response has a 5xx status code
+func (o *QueryChildrenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query children o k response a status code equal to that given
+func (o *QueryChildrenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryChildrenOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryChildrenOK) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryChildrenOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryChildrenBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query children bad request response has a 2xx status code
+func (o *QueryChildrenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query children bad request response has a 3xx status code
+func (o *QueryChildrenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query children bad request response has a 4xx status code
+func (o *QueryChildrenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query children bad request response has a 5xx status code
+func (o *QueryChildrenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query children bad request response a status code equal to that given
+func (o *QueryChildrenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryChildrenBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryChildrenBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryChildrenBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryChildrenForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query children forbidden response has a 2xx status code
+func (o *QueryChildrenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query children forbidden response has a 3xx status code
+func (o *QueryChildrenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query children forbidden response has a 4xx status code
+func (o *QueryChildrenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query children forbidden response has a 5xx status code
+func (o *QueryChildrenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query children forbidden response a status code equal to that given
+func (o *QueryChildrenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryChildrenForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryChildrenForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryChildrenForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryChildrenTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query children too many requests response has a 2xx status code
+func (o *QueryChildrenTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query children too many requests response has a 3xx status code
+func (o *QueryChildrenTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query children too many requests response has a 4xx status code
+func (o *QueryChildrenTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query children too many requests response has a 5xx status code
+func (o *QueryChildrenTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query children too many requests response a status code equal to that given
+func (o *QueryChildrenTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryChildrenTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryChildrenTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryChildrenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryChildrenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query children default response has a 2xx status code
+func (o *QueryChildrenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query children default response has a 3xx status code
+func (o *QueryChildrenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query children default response has a 4xx status code
+func (o *QueryChildrenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query children default response has a 5xx status code
+func (o *QueryChildrenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query children default response a status code equal to that given
+func (o *QueryChildrenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryChildrenDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildren default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryChildrenDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildren default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryChildrenDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

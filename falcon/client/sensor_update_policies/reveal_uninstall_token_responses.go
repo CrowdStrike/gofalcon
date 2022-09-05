@@ -90,9 +90,39 @@ type RevealUninstallTokenOK struct {
 	Payload *models.ResponsesRevealUninstallTokenRespV1
 }
 
+// IsSuccess returns true when this reveal uninstall token o k response has a 2xx status code
+func (o *RevealUninstallTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this reveal uninstall token o k response has a 3xx status code
+func (o *RevealUninstallTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reveal uninstall token o k response has a 4xx status code
+func (o *RevealUninstallTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reveal uninstall token o k response has a 5xx status code
+func (o *RevealUninstallTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reveal uninstall token o k response a status code equal to that given
+func (o *RevealUninstallTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RevealUninstallTokenOK) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK  %+v", 200, o.Payload)
 }
+
+func (o *RevealUninstallTokenOK) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK  %+v", 200, o.Payload)
+}
+
 func (o *RevealUninstallTokenOK) GetPayload() *models.ResponsesRevealUninstallTokenRespV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RevealUninstallTokenBadRequest struct {
 	Payload *models.ResponsesRevealUninstallTokenRespV1
 }
 
+// IsSuccess returns true when this reveal uninstall token bad request response has a 2xx status code
+func (o *RevealUninstallTokenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reveal uninstall token bad request response has a 3xx status code
+func (o *RevealUninstallTokenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reveal uninstall token bad request response has a 4xx status code
+func (o *RevealUninstallTokenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reveal uninstall token bad request response has a 5xx status code
+func (o *RevealUninstallTokenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reveal uninstall token bad request response a status code equal to that given
+func (o *RevealUninstallTokenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RevealUninstallTokenBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RevealUninstallTokenBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RevealUninstallTokenBadRequest) GetPayload() *models.ResponsesRevealUninstallTokenRespV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RevealUninstallTokenForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this reveal uninstall token forbidden response has a 2xx status code
+func (o *RevealUninstallTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reveal uninstall token forbidden response has a 3xx status code
+func (o *RevealUninstallTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reveal uninstall token forbidden response has a 4xx status code
+func (o *RevealUninstallTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reveal uninstall token forbidden response has a 5xx status code
+func (o *RevealUninstallTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reveal uninstall token forbidden response a status code equal to that given
+func (o *RevealUninstallTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RevealUninstallTokenForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RevealUninstallTokenForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RevealUninstallTokenForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type RevealUninstallTokenTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this reveal uninstall token too many requests response has a 2xx status code
+func (o *RevealUninstallTokenTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reveal uninstall token too many requests response has a 3xx status code
+func (o *RevealUninstallTokenTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reveal uninstall token too many requests response has a 4xx status code
+func (o *RevealUninstallTokenTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reveal uninstall token too many requests response has a 5xx status code
+func (o *RevealUninstallTokenTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reveal uninstall token too many requests response a status code equal to that given
+func (o *RevealUninstallTokenTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RevealUninstallTokenTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RevealUninstallTokenTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RevealUninstallTokenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type RevealUninstallTokenInternalServerError struct {
 	Payload *models.ResponsesRevealUninstallTokenRespV1
 }
 
+// IsSuccess returns true when this reveal uninstall token internal server error response has a 2xx status code
+func (o *RevealUninstallTokenInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reveal uninstall token internal server error response has a 3xx status code
+func (o *RevealUninstallTokenInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reveal uninstall token internal server error response has a 4xx status code
+func (o *RevealUninstallTokenInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reveal uninstall token internal server error response has a 5xx status code
+func (o *RevealUninstallTokenInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this reveal uninstall token internal server error response a status code equal to that given
+func (o *RevealUninstallTokenInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RevealUninstallTokenInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RevealUninstallTokenInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RevealUninstallTokenInternalServerError) GetPayload() *models.ResponsesRevealUninstallTokenRespV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RevealUninstallTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this reveal uninstall token default response has a 2xx status code
+func (o *RevealUninstallTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this reveal uninstall token default response has a 3xx status code
+func (o *RevealUninstallTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this reveal uninstall token default response has a 4xx status code
+func (o *RevealUninstallTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this reveal uninstall token default response has a 5xx status code
+func (o *RevealUninstallTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this reveal uninstall token default response a status code equal to that given
+func (o *RevealUninstallTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RevealUninstallTokenDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RevealUninstallTokenDefault) String() string {
+	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RevealUninstallTokenDefault) GetPayload() *models.ResponsesRevealUninstallTokenRespV1 {
 	return o.Payload
 }

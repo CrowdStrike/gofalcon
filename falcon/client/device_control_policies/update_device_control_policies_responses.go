@@ -100,9 +100,39 @@ type UpdateDeviceControlPoliciesOK struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this update device control policies o k response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update device control policies o k response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies o k response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update device control policies o k response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device control policies o k response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesOK) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesOK) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type UpdateDeviceControlPoliciesBadRequest struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this update device control policies bad request response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device control policies bad request response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies bad request response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device control policies bad request response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device control policies bad request response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateDeviceControlPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesBadRequest) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type UpdateDeviceControlPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update device control policies forbidden response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device control policies forbidden response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies forbidden response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device control policies forbidden response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device control policies forbidden response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesForbidden) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type UpdateDeviceControlPoliciesNotFound struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this update device control policies not found response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device control policies not found response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies not found response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device control policies not found response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device control policies not found response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateDeviceControlPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesNotFound) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesNotFound) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type UpdateDeviceControlPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update device control policies too many requests response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device control policies too many requests response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies too many requests response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update device control policies too many requests response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device control policies too many requests response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateDeviceControlPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type UpdateDeviceControlPoliciesInternalServerError struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this update device control policies internal server error response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update device control policies internal server error response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device control policies internal server error response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update device control policies internal server error response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this update device control policies internal server error response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *UpdateDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesInternalServerError) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *UpdateDeviceControlPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update device control policies default response has a 2xx status code
+func (o *UpdateDeviceControlPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update device control policies default response has a 3xx status code
+func (o *UpdateDeviceControlPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update device control policies default response has a 4xx status code
+func (o *UpdateDeviceControlPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update device control policies default response has a 5xx status code
+func (o *UpdateDeviceControlPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update device control policies default response a status code equal to that given
+func (o *UpdateDeviceControlPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateDeviceControlPoliciesDefault) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateDeviceControlPoliciesDefault) String() string {
+	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateDeviceControlPoliciesDefault) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }

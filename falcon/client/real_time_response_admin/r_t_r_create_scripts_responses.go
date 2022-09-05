@@ -84,9 +84,39 @@ type RTRCreateScriptsOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r create scripts o k response has a 2xx status code
+func (o *RTRCreateScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r create scripts o k response has a 3xx status code
+func (o *RTRCreateScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r create scripts o k response has a 4xx status code
+func (o *RTRCreateScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r create scripts o k response has a 5xx status code
+func (o *RTRCreateScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r create scripts o k response a status code equal to that given
+func (o *RTRCreateScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRCreateScriptsOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRCreateScriptsOK) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRCreateScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RTRCreateScriptsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r create scripts bad request response has a 2xx status code
+func (o *RTRCreateScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r create scripts bad request response has a 3xx status code
+func (o *RTRCreateScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r create scripts bad request response has a 4xx status code
+func (o *RTRCreateScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r create scripts bad request response has a 5xx status code
+func (o *RTRCreateScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r create scripts bad request response a status code equal to that given
+func (o *RTRCreateScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRCreateScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRCreateScriptsBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRCreateScriptsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RTRCreateScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r create scripts forbidden response has a 2xx status code
+func (o *RTRCreateScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r create scripts forbidden response has a 3xx status code
+func (o *RTRCreateScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r create scripts forbidden response has a 4xx status code
+func (o *RTRCreateScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r create scripts forbidden response has a 5xx status code
+func (o *RTRCreateScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r create scripts forbidden response a status code equal to that given
+func (o *RTRCreateScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRCreateScriptsForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRCreateScriptsForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRCreateScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RTRCreateScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r create scripts too many requests response has a 2xx status code
+func (o *RTRCreateScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r create scripts too many requests response has a 3xx status code
+func (o *RTRCreateScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r create scripts too many requests response has a 4xx status code
+func (o *RTRCreateScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r create scripts too many requests response has a 5xx status code
+func (o *RTRCreateScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r create scripts too many requests response a status code equal to that given
+func (o *RTRCreateScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRCreateScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRCreateScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRCreateScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RTRCreateScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r create scripts default response has a 2xx status code
+func (o *RTRCreateScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r create scripts default response has a 3xx status code
+func (o *RTRCreateScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r create scripts default response has a 4xx status code
+func (o *RTRCreateScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r create scripts default response has a 5xx status code
+func (o *RTRCreateScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r create scripts default response a status code equal to that given
+func (o *RTRCreateScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRCreateScriptsDefault) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] RTR-CreateScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRCreateScriptsDefault) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] RTR-CreateScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRCreateScriptsDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type GetAggregateDetectsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this get aggregate detects o k response has a 2xx status code
+func (o *GetAggregateDetectsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get aggregate detects o k response has a 3xx status code
+func (o *GetAggregateDetectsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get aggregate detects o k response has a 4xx status code
+func (o *GetAggregateDetectsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get aggregate detects o k response has a 5xx status code
+func (o *GetAggregateDetectsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get aggregate detects o k response a status code equal to that given
+func (o *GetAggregateDetectsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAggregateDetectsOK) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetAggregateDetectsOK) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetAggregateDetectsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetAggregateDetectsBadRequest struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this get aggregate detects bad request response has a 2xx status code
+func (o *GetAggregateDetectsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get aggregate detects bad request response has a 3xx status code
+func (o *GetAggregateDetectsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get aggregate detects bad request response has a 4xx status code
+func (o *GetAggregateDetectsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get aggregate detects bad request response has a 5xx status code
+func (o *GetAggregateDetectsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get aggregate detects bad request response a status code equal to that given
+func (o *GetAggregateDetectsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAggregateDetectsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetAggregateDetectsBadRequest) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetAggregateDetectsBadRequest) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetAggregateDetectsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get aggregate detects forbidden response has a 2xx status code
+func (o *GetAggregateDetectsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get aggregate detects forbidden response has a 3xx status code
+func (o *GetAggregateDetectsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get aggregate detects forbidden response has a 4xx status code
+func (o *GetAggregateDetectsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get aggregate detects forbidden response has a 5xx status code
+func (o *GetAggregateDetectsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get aggregate detects forbidden response a status code equal to that given
+func (o *GetAggregateDetectsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAggregateDetectsForbidden) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetAggregateDetectsForbidden) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetAggregateDetectsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetAggregateDetectsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get aggregate detects too many requests response has a 2xx status code
+func (o *GetAggregateDetectsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get aggregate detects too many requests response has a 3xx status code
+func (o *GetAggregateDetectsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get aggregate detects too many requests response has a 4xx status code
+func (o *GetAggregateDetectsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get aggregate detects too many requests response has a 5xx status code
+func (o *GetAggregateDetectsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get aggregate detects too many requests response a status code equal to that given
+func (o *GetAggregateDetectsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAggregateDetectsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetAggregateDetectsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetAggregateDetectsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetAggregateDetectsInternalServerError struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this get aggregate detects internal server error response has a 2xx status code
+func (o *GetAggregateDetectsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get aggregate detects internal server error response has a 3xx status code
+func (o *GetAggregateDetectsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get aggregate detects internal server error response has a 4xx status code
+func (o *GetAggregateDetectsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get aggregate detects internal server error response has a 5xx status code
+func (o *GetAggregateDetectsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get aggregate detects internal server error response a status code equal to that given
+func (o *GetAggregateDetectsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAggregateDetectsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetAggregateDetectsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetAggregateDetectsInternalServerError) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetAggregateDetectsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get aggregate detects default response has a 2xx status code
+func (o *GetAggregateDetectsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get aggregate detects default response has a 3xx status code
+func (o *GetAggregateDetectsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get aggregate detects default response has a 4xx status code
+func (o *GetAggregateDetectsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get aggregate detects default response has a 5xx status code
+func (o *GetAggregateDetectsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get aggregate detects default response a status code equal to that given
+func (o *GetAggregateDetectsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetAggregateDetectsDefault) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] GetAggregateDetects default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetAggregateDetectsDefault) String() string {
+	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] GetAggregateDetects default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetAggregateDetectsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

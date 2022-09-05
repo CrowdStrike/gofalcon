@@ -100,9 +100,39 @@ type RTRGetExtractedFileContentsOK struct {
 	Payload io.Writer
 }
 
+// IsSuccess returns true when this r t r get extracted file contents o k response has a 2xx status code
+func (o *RTRGetExtractedFileContentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r get extracted file contents o k response has a 3xx status code
+func (o *RTRGetExtractedFileContentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents o k response has a 4xx status code
+func (o *RTRGetExtractedFileContentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r get extracted file contents o k response has a 5xx status code
+func (o *RTRGetExtractedFileContentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get extracted file contents o k response a status code equal to that given
+func (o *RTRGetExtractedFileContentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRGetExtractedFileContentsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -162,9 +192,39 @@ type RTRGetExtractedFileContentsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get extracted file contents bad request response has a 2xx status code
+func (o *RTRGetExtractedFileContentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get extracted file contents bad request response has a 3xx status code
+func (o *RTRGetExtractedFileContentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents bad request response has a 4xx status code
+func (o *RTRGetExtractedFileContentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get extracted file contents bad request response has a 5xx status code
+func (o *RTRGetExtractedFileContentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get extracted file contents bad request response a status code equal to that given
+func (o *RTRGetExtractedFileContentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRGetExtractedFileContentsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsBadRequest) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -226,9 +286,39 @@ type RTRGetExtractedFileContentsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get extracted file contents forbidden response has a 2xx status code
+func (o *RTRGetExtractedFileContentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get extracted file contents forbidden response has a 3xx status code
+func (o *RTRGetExtractedFileContentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents forbidden response has a 4xx status code
+func (o *RTRGetExtractedFileContentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get extracted file contents forbidden response has a 5xx status code
+func (o *RTRGetExtractedFileContentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get extracted file contents forbidden response a status code equal to that given
+func (o *RTRGetExtractedFileContentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRGetExtractedFileContentsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -290,9 +380,39 @@ type RTRGetExtractedFileContentsNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get extracted file contents not found response has a 2xx status code
+func (o *RTRGetExtractedFileContentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get extracted file contents not found response has a 3xx status code
+func (o *RTRGetExtractedFileContentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents not found response has a 4xx status code
+func (o *RTRGetExtractedFileContentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get extracted file contents not found response has a 5xx status code
+func (o *RTRGetExtractedFileContentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get extracted file contents not found response a status code equal to that given
+func (o *RTRGetExtractedFileContentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRGetExtractedFileContentsNotFound) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsNotFound) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -358,9 +478,39 @@ type RTRGetExtractedFileContentsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get extracted file contents too many requests response has a 2xx status code
+func (o *RTRGetExtractedFileContentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get extracted file contents too many requests response has a 3xx status code
+func (o *RTRGetExtractedFileContentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents too many requests response has a 4xx status code
+func (o *RTRGetExtractedFileContentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get extracted file contents too many requests response has a 5xx status code
+func (o *RTRGetExtractedFileContentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get extracted file contents too many requests response a status code equal to that given
+func (o *RTRGetExtractedFileContentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRGetExtractedFileContentsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -433,9 +583,39 @@ type RTRGetExtractedFileContentsInternalServerError struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get extracted file contents internal server error response has a 2xx status code
+func (o *RTRGetExtractedFileContentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get extracted file contents internal server error response has a 3xx status code
+func (o *RTRGetExtractedFileContentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get extracted file contents internal server error response has a 4xx status code
+func (o *RTRGetExtractedFileContentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r get extracted file contents internal server error response has a 5xx status code
+func (o *RTRGetExtractedFileContentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this r t r get extracted file contents internal server error response a status code equal to that given
+func (o *RTRGetExtractedFileContentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RTRGetExtractedFileContentsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsInternalServerError) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -497,9 +677,39 @@ func (o *RTRGetExtractedFileContentsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r get extracted file contents default response has a 2xx status code
+func (o *RTRGetExtractedFileContentsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r get extracted file contents default response has a 3xx status code
+func (o *RTRGetExtractedFileContentsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r get extracted file contents default response has a 4xx status code
+func (o *RTRGetExtractedFileContentsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r get extracted file contents default response has a 5xx status code
+func (o *RTRGetExtractedFileContentsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r get extracted file contents default response a status code equal to that given
+func (o *RTRGetExtractedFileContentsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRGetExtractedFileContentsDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] RTR-GetExtractedFileContents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRGetExtractedFileContentsDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] RTR-GetExtractedFileContents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRGetExtractedFileContentsDefault) GetPayload() []int64 {
 	return o.Payload
 }

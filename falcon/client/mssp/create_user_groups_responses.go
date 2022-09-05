@@ -90,9 +90,39 @@ type CreateUserGroupsOK struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this create user groups o k response has a 2xx status code
+func (o *CreateUserGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create user groups o k response has a 3xx status code
+func (o *CreateUserGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user groups o k response has a 4xx status code
+func (o *CreateUserGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create user groups o k response has a 5xx status code
+func (o *CreateUserGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user groups o k response a status code equal to that given
+func (o *CreateUserGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateUserGroupsOK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateUserGroupsOK) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateUserGroupsOK) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type CreateUserGroupsMultiStatus struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this create user groups multi status response has a 2xx status code
+func (o *CreateUserGroupsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create user groups multi status response has a 3xx status code
+func (o *CreateUserGroupsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user groups multi status response has a 4xx status code
+func (o *CreateUserGroupsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create user groups multi status response has a 5xx status code
+func (o *CreateUserGroupsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user groups multi status response a status code equal to that given
+func (o *CreateUserGroupsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *CreateUserGroupsMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *CreateUserGroupsMultiStatus) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *CreateUserGroupsMultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type CreateUserGroupsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this create user groups bad request response has a 2xx status code
+func (o *CreateUserGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user groups bad request response has a 3xx status code
+func (o *CreateUserGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user groups bad request response has a 4xx status code
+func (o *CreateUserGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user groups bad request response has a 5xx status code
+func (o *CreateUserGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user groups bad request response a status code equal to that given
+func (o *CreateUserGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateUserGroupsBadRequest) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type CreateUserGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this create user groups forbidden response has a 2xx status code
+func (o *CreateUserGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user groups forbidden response has a 3xx status code
+func (o *CreateUserGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user groups forbidden response has a 4xx status code
+func (o *CreateUserGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user groups forbidden response has a 5xx status code
+func (o *CreateUserGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user groups forbidden response a status code equal to that given
+func (o *CreateUserGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateUserGroupsForbidden) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateUserGroupsForbidden) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type CreateUserGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create user groups too many requests response has a 2xx status code
+func (o *CreateUserGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user groups too many requests response has a 3xx status code
+func (o *CreateUserGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user groups too many requests response has a 4xx status code
+func (o *CreateUserGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user groups too many requests response has a 5xx status code
+func (o *CreateUserGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user groups too many requests response a status code equal to that given
+func (o *CreateUserGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateUserGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *CreateUserGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create user groups default response has a 2xx status code
+func (o *CreateUserGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create user groups default response has a 3xx status code
+func (o *CreateUserGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create user groups default response has a 4xx status code
+func (o *CreateUserGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create user groups default response has a 5xx status code
+func (o *CreateUserGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create user groups default response a status code equal to that given
+func (o *CreateUserGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateUserGroupsDefault) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateUserGroupsDefault) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateUserGroupsDefault) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }

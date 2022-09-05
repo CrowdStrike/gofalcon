@@ -90,9 +90,39 @@ type ScanSamplesOK struct {
 	Payload *models.MlscannerQueryResponse
 }
 
+// IsSuccess returns true when this scan samples o k response has a 2xx status code
+func (o *ScanSamplesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this scan samples o k response has a 3xx status code
+func (o *ScanSamplesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scan samples o k response has a 4xx status code
+func (o *ScanSamplesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this scan samples o k response has a 5xx status code
+func (o *ScanSamplesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scan samples o k response a status code equal to that given
+func (o *ScanSamplesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ScanSamplesOK) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK  %+v", 200, o.Payload)
 }
+
+func (o *ScanSamplesOK) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK  %+v", 200, o.Payload)
+}
+
 func (o *ScanSamplesOK) GetPayload() *models.MlscannerQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type ScanSamplesBadRequest struct {
 	Payload *models.MlscannerQueryResponse
 }
 
+// IsSuccess returns true when this scan samples bad request response has a 2xx status code
+func (o *ScanSamplesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scan samples bad request response has a 3xx status code
+func (o *ScanSamplesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scan samples bad request response has a 4xx status code
+func (o *ScanSamplesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scan samples bad request response has a 5xx status code
+func (o *ScanSamplesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scan samples bad request response a status code equal to that given
+func (o *ScanSamplesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ScanSamplesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ScanSamplesBadRequest) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ScanSamplesBadRequest) GetPayload() *models.MlscannerQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type ScanSamplesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scan samples forbidden response has a 2xx status code
+func (o *ScanSamplesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scan samples forbidden response has a 3xx status code
+func (o *ScanSamplesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scan samples forbidden response has a 4xx status code
+func (o *ScanSamplesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scan samples forbidden response has a 5xx status code
+func (o *ScanSamplesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scan samples forbidden response a status code equal to that given
+func (o *ScanSamplesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ScanSamplesForbidden) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ScanSamplesForbidden) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ScanSamplesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type ScanSamplesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scan samples too many requests response has a 2xx status code
+func (o *ScanSamplesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scan samples too many requests response has a 3xx status code
+func (o *ScanSamplesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scan samples too many requests response has a 4xx status code
+func (o *ScanSamplesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scan samples too many requests response has a 5xx status code
+func (o *ScanSamplesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scan samples too many requests response a status code equal to that given
+func (o *ScanSamplesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ScanSamplesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ScanSamplesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ScanSamplesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type ScanSamplesInternalServerError struct {
 	Payload *models.MlscannerQueryResponse
 }
 
+// IsSuccess returns true when this scan samples internal server error response has a 2xx status code
+func (o *ScanSamplesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scan samples internal server error response has a 3xx status code
+func (o *ScanSamplesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scan samples internal server error response has a 4xx status code
+func (o *ScanSamplesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this scan samples internal server error response has a 5xx status code
+func (o *ScanSamplesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this scan samples internal server error response a status code equal to that given
+func (o *ScanSamplesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *ScanSamplesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *ScanSamplesInternalServerError) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *ScanSamplesInternalServerError) GetPayload() *models.MlscannerQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *ScanSamplesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this scan samples default response has a 2xx status code
+func (o *ScanSamplesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this scan samples default response has a 3xx status code
+func (o *ScanSamplesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this scan samples default response has a 4xx status code
+func (o *ScanSamplesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this scan samples default response has a 5xx status code
+func (o *ScanSamplesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this scan samples default response a status code equal to that given
+func (o *ScanSamplesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ScanSamplesDefault) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] ScanSamples default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ScanSamplesDefault) String() string {
+	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] ScanSamples default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ScanSamplesDefault) GetPayload() *models.MlscannerQueryResponse {
 	return o.Payload
 }

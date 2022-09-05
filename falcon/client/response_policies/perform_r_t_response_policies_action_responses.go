@@ -100,9 +100,39 @@ type PerformRTResponsePoliciesActionOK struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
+// IsSuccess returns true when this perform r t response policies action o k response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this perform r t response policies action o k response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action o k response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform r t response policies action o k response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform r t response policies action o k response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PerformRTResponsePoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionOK) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type PerformRTResponsePoliciesActionBadRequest struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
+// IsSuccess returns true when this perform r t response policies action bad request response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform r t response policies action bad request response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action bad request response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform r t response policies action bad request response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform r t response policies action bad request response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PerformRTResponsePoliciesActionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionBadRequest) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type PerformRTResponsePoliciesActionForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this perform r t response policies action forbidden response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform r t response policies action forbidden response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action forbidden response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform r t response policies action forbidden response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform r t response policies action forbidden response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PerformRTResponsePoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type PerformRTResponsePoliciesActionNotFound struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
+// IsSuccess returns true when this perform r t response policies action not found response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform r t response policies action not found response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action not found response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform r t response policies action not found response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform r t response policies action not found response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PerformRTResponsePoliciesActionNotFound) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionNotFound) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionNotFound) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type PerformRTResponsePoliciesActionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform r t response policies action too many requests response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform r t response policies action too many requests response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action too many requests response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform r t response policies action too many requests response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform r t response policies action too many requests response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PerformRTResponsePoliciesActionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type PerformRTResponsePoliciesActionInternalServerError struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
+// IsSuccess returns true when this perform r t response policies action internal server error response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform r t response policies action internal server error response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform r t response policies action internal server error response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform r t response policies action internal server error response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this perform r t response policies action internal server error response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PerformRTResponsePoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionInternalServerError) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *PerformRTResponsePoliciesActionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this perform r t response policies action default response has a 2xx status code
+func (o *PerformRTResponsePoliciesActionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this perform r t response policies action default response has a 3xx status code
+func (o *PerformRTResponsePoliciesActionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this perform r t response policies action default response has a 4xx status code
+func (o *PerformRTResponsePoliciesActionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this perform r t response policies action default response has a 5xx status code
+func (o *PerformRTResponsePoliciesActionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this perform r t response policies action default response a status code equal to that given
+func (o *PerformRTResponsePoliciesActionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PerformRTResponsePoliciesActionDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesAction default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PerformRTResponsePoliciesActionDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesAction default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PerformRTResponsePoliciesActionDefault) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
 	return o.Payload
 }

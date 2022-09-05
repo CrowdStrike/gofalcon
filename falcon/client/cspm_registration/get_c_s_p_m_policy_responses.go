@@ -96,9 +96,39 @@ type GetCSPMPolicyOK struct {
 	Payload *models.RegistrationPolicyResponseV1
 }
 
+// IsSuccess returns true when this get c s p m policy o k response has a 2xx status code
+func (o *GetCSPMPolicyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m policy o k response has a 3xx status code
+func (o *GetCSPMPolicyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy o k response has a 4xx status code
+func (o *GetCSPMPolicyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m policy o k response has a 5xx status code
+func (o *GetCSPMPolicyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m policy o k response a status code equal to that given
+func (o *GetCSPMPolicyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCSPMPolicyOK) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCSPMPolicyOK) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCSPMPolicyOK) GetPayload() *models.RegistrationPolicyResponseV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetCSPMPolicyMultiStatus struct {
 	Payload *models.RegistrationPolicyResponseV1
 }
 
+// IsSuccess returns true when this get c s p m policy multi status response has a 2xx status code
+func (o *GetCSPMPolicyMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m policy multi status response has a 3xx status code
+func (o *GetCSPMPolicyMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy multi status response has a 4xx status code
+func (o *GetCSPMPolicyMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m policy multi status response has a 5xx status code
+func (o *GetCSPMPolicyMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m policy multi status response a status code equal to that given
+func (o *GetCSPMPolicyMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetCSPMPolicyMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetCSPMPolicyMultiStatus) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetCSPMPolicyMultiStatus) GetPayload() *models.RegistrationPolicyResponseV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetCSPMPolicyBadRequest struct {
 	Payload *models.RegistrationPolicyResponseV1
 }
 
+// IsSuccess returns true when this get c s p m policy bad request response has a 2xx status code
+func (o *GetCSPMPolicyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m policy bad request response has a 3xx status code
+func (o *GetCSPMPolicyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy bad request response has a 4xx status code
+func (o *GetCSPMPolicyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m policy bad request response has a 5xx status code
+func (o *GetCSPMPolicyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m policy bad request response a status code equal to that given
+func (o *GetCSPMPolicyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCSPMPolicyBadRequest) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCSPMPolicyBadRequest) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCSPMPolicyBadRequest) GetPayload() *models.RegistrationPolicyResponseV1 {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetCSPMPolicyForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m policy forbidden response has a 2xx status code
+func (o *GetCSPMPolicyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m policy forbidden response has a 3xx status code
+func (o *GetCSPMPolicyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy forbidden response has a 4xx status code
+func (o *GetCSPMPolicyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m policy forbidden response has a 5xx status code
+func (o *GetCSPMPolicyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m policy forbidden response a status code equal to that given
+func (o *GetCSPMPolicyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCSPMPolicyForbidden) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCSPMPolicyForbidden) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCSPMPolicyForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetCSPMPolicyTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m policy too many requests response has a 2xx status code
+func (o *GetCSPMPolicyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m policy too many requests response has a 3xx status code
+func (o *GetCSPMPolicyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy too many requests response has a 4xx status code
+func (o *GetCSPMPolicyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m policy too many requests response has a 5xx status code
+func (o *GetCSPMPolicyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m policy too many requests response a status code equal to that given
+func (o *GetCSPMPolicyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCSPMPolicyTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCSPMPolicyTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCSPMPolicyTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetCSPMPolicyInternalServerError struct {
 	Payload *models.RegistrationPolicyResponseV1
 }
 
+// IsSuccess returns true when this get c s p m policy internal server error response has a 2xx status code
+func (o *GetCSPMPolicyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m policy internal server error response has a 3xx status code
+func (o *GetCSPMPolicyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m policy internal server error response has a 4xx status code
+func (o *GetCSPMPolicyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m policy internal server error response has a 5xx status code
+func (o *GetCSPMPolicyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get c s p m policy internal server error response a status code equal to that given
+func (o *GetCSPMPolicyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCSPMPolicyInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCSPMPolicyInternalServerError) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCSPMPolicyInternalServerError) GetPayload() *models.RegistrationPolicyResponseV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetCSPMPolicyDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get c s p m policy default response has a 2xx status code
+func (o *GetCSPMPolicyDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get c s p m policy default response has a 3xx status code
+func (o *GetCSPMPolicyDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get c s p m policy default response has a 4xx status code
+func (o *GetCSPMPolicyDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get c s p m policy default response has a 5xx status code
+func (o *GetCSPMPolicyDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get c s p m policy default response a status code equal to that given
+func (o *GetCSPMPolicyDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCSPMPolicyDefault) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] GetCSPMPolicy default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCSPMPolicyDefault) String() string {
+	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] GetCSPMPolicy default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCSPMPolicyDefault) GetPayload() *models.RegistrationPolicyResponseV1 {
 	return o.Payload
 }

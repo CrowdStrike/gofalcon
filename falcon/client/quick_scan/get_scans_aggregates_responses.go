@@ -69,7 +69,36 @@ type GetScansAggregatesOK struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this get scans aggregates o k response has a 2xx status code
+func (o *GetScansAggregatesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scans aggregates o k response has a 3xx status code
+func (o *GetScansAggregatesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans aggregates o k response has a 4xx status code
+func (o *GetScansAggregatesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scans aggregates o k response has a 5xx status code
+func (o *GetScansAggregatesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans aggregates o k response a status code equal to that given
+func (o *GetScansAggregatesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScansAggregatesOK) Error() string {
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK ", 200)
+}
+
+func (o *GetScansAggregatesOK) String() string {
 	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK ", 200)
 }
 
@@ -123,9 +152,39 @@ type GetScansAggregatesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get scans aggregates forbidden response has a 2xx status code
+func (o *GetScansAggregatesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans aggregates forbidden response has a 3xx status code
+func (o *GetScansAggregatesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans aggregates forbidden response has a 4xx status code
+func (o *GetScansAggregatesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans aggregates forbidden response has a 5xx status code
+func (o *GetScansAggregatesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans aggregates forbidden response a status code equal to that given
+func (o *GetScansAggregatesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScansAggregatesForbidden) Error() string {
 	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetScansAggregatesForbidden) String() string {
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetScansAggregatesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -191,9 +250,39 @@ type GetScansAggregatesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get scans aggregates too many requests response has a 2xx status code
+func (o *GetScansAggregatesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scans aggregates too many requests response has a 3xx status code
+func (o *GetScansAggregatesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scans aggregates too many requests response has a 4xx status code
+func (o *GetScansAggregatesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scans aggregates too many requests response has a 5xx status code
+func (o *GetScansAggregatesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scans aggregates too many requests response a status code equal to that given
+func (o *GetScansAggregatesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScansAggregatesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetScansAggregatesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetScansAggregatesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type PerformGroupActionOK struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this perform group action o k response has a 2xx status code
+func (o *PerformGroupActionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this perform group action o k response has a 3xx status code
+func (o *PerformGroupActionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action o k response has a 4xx status code
+func (o *PerformGroupActionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform group action o k response has a 5xx status code
+func (o *PerformGroupActionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform group action o k response a status code equal to that given
+func (o *PerformGroupActionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PerformGroupActionOK) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK  %+v", 200, o.Payload)
 }
+
+func (o *PerformGroupActionOK) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK  %+v", 200, o.Payload)
+}
+
 func (o *PerformGroupActionOK) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type PerformGroupActionBadRequest struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this perform group action bad request response has a 2xx status code
+func (o *PerformGroupActionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform group action bad request response has a 3xx status code
+func (o *PerformGroupActionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action bad request response has a 4xx status code
+func (o *PerformGroupActionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform group action bad request response has a 5xx status code
+func (o *PerformGroupActionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform group action bad request response a status code equal to that given
+func (o *PerformGroupActionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PerformGroupActionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PerformGroupActionBadRequest) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PerformGroupActionBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type PerformGroupActionForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this perform group action forbidden response has a 2xx status code
+func (o *PerformGroupActionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform group action forbidden response has a 3xx status code
+func (o *PerformGroupActionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action forbidden response has a 4xx status code
+func (o *PerformGroupActionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform group action forbidden response has a 5xx status code
+func (o *PerformGroupActionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform group action forbidden response a status code equal to that given
+func (o *PerformGroupActionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PerformGroupActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PerformGroupActionForbidden) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PerformGroupActionForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type PerformGroupActionNotFound struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this perform group action not found response has a 2xx status code
+func (o *PerformGroupActionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform group action not found response has a 3xx status code
+func (o *PerformGroupActionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action not found response has a 4xx status code
+func (o *PerformGroupActionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform group action not found response has a 5xx status code
+func (o *PerformGroupActionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform group action not found response a status code equal to that given
+func (o *PerformGroupActionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PerformGroupActionNotFound) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PerformGroupActionNotFound) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PerformGroupActionNotFound) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type PerformGroupActionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this perform group action too many requests response has a 2xx status code
+func (o *PerformGroupActionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform group action too many requests response has a 3xx status code
+func (o *PerformGroupActionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action too many requests response has a 4xx status code
+func (o *PerformGroupActionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this perform group action too many requests response has a 5xx status code
+func (o *PerformGroupActionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this perform group action too many requests response a status code equal to that given
+func (o *PerformGroupActionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PerformGroupActionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PerformGroupActionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PerformGroupActionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type PerformGroupActionInternalServerError struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
+// IsSuccess returns true when this perform group action internal server error response has a 2xx status code
+func (o *PerformGroupActionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this perform group action internal server error response has a 3xx status code
+func (o *PerformGroupActionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this perform group action internal server error response has a 4xx status code
+func (o *PerformGroupActionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this perform group action internal server error response has a 5xx status code
+func (o *PerformGroupActionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this perform group action internal server error response a status code equal to that given
+func (o *PerformGroupActionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PerformGroupActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PerformGroupActionInternalServerError) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PerformGroupActionInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *PerformGroupActionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this perform group action default response has a 2xx status code
+func (o *PerformGroupActionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this perform group action default response has a 3xx status code
+func (o *PerformGroupActionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this perform group action default response has a 4xx status code
+func (o *PerformGroupActionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this perform group action default response has a 5xx status code
+func (o *PerformGroupActionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this perform group action default response a status code equal to that given
+func (o *PerformGroupActionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PerformGroupActionDefault) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupAction default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PerformGroupActionDefault) String() string {
+	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupAction default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PerformGroupActionDefault) GetPayload() *models.ResponsesHostGroupsV1 {
 	return o.Payload
 }

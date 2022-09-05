@@ -94,9 +94,39 @@ type QueryChangesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query changes o k response has a 2xx status code
+func (o *QueryChangesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query changes o k response has a 3xx status code
+func (o *QueryChangesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query changes o k response has a 4xx status code
+func (o *QueryChangesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query changes o k response has a 5xx status code
+func (o *QueryChangesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query changes o k response a status code equal to that given
+func (o *QueryChangesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryChangesOK) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryChangesOK) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryChangesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryChangesBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query changes bad request response has a 2xx status code
+func (o *QueryChangesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query changes bad request response has a 3xx status code
+func (o *QueryChangesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query changes bad request response has a 4xx status code
+func (o *QueryChangesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query changes bad request response has a 5xx status code
+func (o *QueryChangesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query changes bad request response a status code equal to that given
+func (o *QueryChangesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryChangesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryChangesBadRequest) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryChangesBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryChangesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query changes forbidden response has a 2xx status code
+func (o *QueryChangesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query changes forbidden response has a 3xx status code
+func (o *QueryChangesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query changes forbidden response has a 4xx status code
+func (o *QueryChangesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query changes forbidden response has a 5xx status code
+func (o *QueryChangesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query changes forbidden response a status code equal to that given
+func (o *QueryChangesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryChangesForbidden) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryChangesForbidden) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryChangesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryChangesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query changes too many requests response has a 2xx status code
+func (o *QueryChangesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query changes too many requests response has a 3xx status code
+func (o *QueryChangesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query changes too many requests response has a 4xx status code
+func (o *QueryChangesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query changes too many requests response has a 5xx status code
+func (o *QueryChangesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query changes too many requests response a status code equal to that given
+func (o *QueryChangesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryChangesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryChangesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryChangesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryChangesInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query changes internal server error response has a 2xx status code
+func (o *QueryChangesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query changes internal server error response has a 3xx status code
+func (o *QueryChangesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query changes internal server error response has a 4xx status code
+func (o *QueryChangesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query changes internal server error response has a 5xx status code
+func (o *QueryChangesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query changes internal server error response a status code equal to that given
+func (o *QueryChangesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryChangesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryChangesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryChangesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryChangesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query changes default response has a 2xx status code
+func (o *QueryChangesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query changes default response has a 3xx status code
+func (o *QueryChangesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query changes default response has a 4xx status code
+func (o *QueryChangesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query changes default response has a 5xx status code
+func (o *QueryChangesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query changes default response a status code equal to that given
+func (o *QueryChangesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryChangesDefault) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChanges default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryChangesDefault) String() string {
+	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChanges default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryChangesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

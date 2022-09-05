@@ -84,9 +84,39 @@ type GetRuleTypesOK struct {
 	Payload *models.APIRuleTypesResponse
 }
 
+// IsSuccess returns true when this get rule types o k response has a 2xx status code
+func (o *GetRuleTypesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get rule types o k response has a 3xx status code
+func (o *GetRuleTypesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule types o k response has a 4xx status code
+func (o *GetRuleTypesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get rule types o k response has a 5xx status code
+func (o *GetRuleTypesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule types o k response a status code equal to that given
+func (o *GetRuleTypesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRuleTypesOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRuleTypesOK) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRuleTypesOK) GetPayload() *models.APIRuleTypesResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetRuleTypesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule types forbidden response has a 2xx status code
+func (o *GetRuleTypesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule types forbidden response has a 3xx status code
+func (o *GetRuleTypesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule types forbidden response has a 4xx status code
+func (o *GetRuleTypesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule types forbidden response has a 5xx status code
+func (o *GetRuleTypesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule types forbidden response a status code equal to that given
+func (o *GetRuleTypesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRuleTypesForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRuleTypesForbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRuleTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GetRuleTypesNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule types not found response has a 2xx status code
+func (o *GetRuleTypesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule types not found response has a 3xx status code
+func (o *GetRuleTypesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule types not found response has a 4xx status code
+func (o *GetRuleTypesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule types not found response has a 5xx status code
+func (o *GetRuleTypesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule types not found response a status code equal to that given
+func (o *GetRuleTypesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRuleTypesNotFound) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRuleTypesNotFound) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRuleTypesNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GetRuleTypesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rule types too many requests response has a 2xx status code
+func (o *GetRuleTypesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rule types too many requests response has a 3xx status code
+func (o *GetRuleTypesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rule types too many requests response has a 4xx status code
+func (o *GetRuleTypesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rule types too many requests response has a 5xx status code
+func (o *GetRuleTypesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rule types too many requests response a status code equal to that given
+func (o *GetRuleTypesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRuleTypesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetRuleTypesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetRuleTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetRuleTypesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get rule types default response has a 2xx status code
+func (o *GetRuleTypesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get rule types default response has a 3xx status code
+func (o *GetRuleTypesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get rule types default response has a 4xx status code
+func (o *GetRuleTypesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get rule types default response has a 5xx status code
+func (o *GetRuleTypesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get rule types default response a status code equal to that given
+func (o *GetRuleTypesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRuleTypesDefault) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] get-rule-types default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRuleTypesDefault) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] get-rule-types default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRuleTypesDefault) GetPayload() *models.APIRuleTypesResponse {
 	return o.Payload
 }

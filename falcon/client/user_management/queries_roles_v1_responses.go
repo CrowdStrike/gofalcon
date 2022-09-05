@@ -94,9 +94,39 @@ type QueriesRolesV1OK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this queries roles v1 o k response has a 2xx status code
+func (o *QueriesRolesV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this queries roles v1 o k response has a 3xx status code
+func (o *QueriesRolesV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this queries roles v1 o k response has a 4xx status code
+func (o *QueriesRolesV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this queries roles v1 o k response has a 5xx status code
+func (o *QueriesRolesV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this queries roles v1 o k response a status code equal to that given
+func (o *QueriesRolesV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueriesRolesV1OK) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1OK  %+v", 200, o.Payload)
 }
+
+func (o *QueriesRolesV1OK) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1OK  %+v", 200, o.Payload)
+}
+
 func (o *QueriesRolesV1OK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueriesRolesV1BadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this queries roles v1 bad request response has a 2xx status code
+func (o *QueriesRolesV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this queries roles v1 bad request response has a 3xx status code
+func (o *QueriesRolesV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this queries roles v1 bad request response has a 4xx status code
+func (o *QueriesRolesV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this queries roles v1 bad request response has a 5xx status code
+func (o *QueriesRolesV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this queries roles v1 bad request response a status code equal to that given
+func (o *QueriesRolesV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueriesRolesV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueriesRolesV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueriesRolesV1BadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueriesRolesV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this queries roles v1 forbidden response has a 2xx status code
+func (o *QueriesRolesV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this queries roles v1 forbidden response has a 3xx status code
+func (o *QueriesRolesV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this queries roles v1 forbidden response has a 4xx status code
+func (o *QueriesRolesV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this queries roles v1 forbidden response has a 5xx status code
+func (o *QueriesRolesV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this queries roles v1 forbidden response a status code equal to that given
+func (o *QueriesRolesV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueriesRolesV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueriesRolesV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueriesRolesV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueriesRolesV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this queries roles v1 too many requests response has a 2xx status code
+func (o *QueriesRolesV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this queries roles v1 too many requests response has a 3xx status code
+func (o *QueriesRolesV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this queries roles v1 too many requests response has a 4xx status code
+func (o *QueriesRolesV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this queries roles v1 too many requests response has a 5xx status code
+func (o *QueriesRolesV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this queries roles v1 too many requests response a status code equal to that given
+func (o *QueriesRolesV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueriesRolesV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueriesRolesV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueriesRolesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueriesRolesV1InternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this queries roles v1 internal server error response has a 2xx status code
+func (o *QueriesRolesV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this queries roles v1 internal server error response has a 3xx status code
+func (o *QueriesRolesV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this queries roles v1 internal server error response has a 4xx status code
+func (o *QueriesRolesV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this queries roles v1 internal server error response has a 5xx status code
+func (o *QueriesRolesV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this queries roles v1 internal server error response a status code equal to that given
+func (o *QueriesRolesV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueriesRolesV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueriesRolesV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueriesRolesV1InternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueriesRolesV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this queries roles v1 default response has a 2xx status code
+func (o *QueriesRolesV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this queries roles v1 default response has a 3xx status code
+func (o *QueriesRolesV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this queries roles v1 default response has a 4xx status code
+func (o *QueriesRolesV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this queries roles v1 default response has a 5xx status code
+func (o *QueriesRolesV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this queries roles v1 default response a status code equal to that given
+func (o *QueriesRolesV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueriesRolesV1Default) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueriesRolesV1Default) String() string {
+	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueriesRolesV1Default) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

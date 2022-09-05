@@ -94,9 +94,39 @@ type QueryPreventionPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query prevention policies o k response has a 2xx status code
+func (o *QueryPreventionPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query prevention policies o k response has a 3xx status code
+func (o *QueryPreventionPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query prevention policies o k response has a 4xx status code
+func (o *QueryPreventionPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query prevention policies o k response has a 5xx status code
+func (o *QueryPreventionPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query prevention policies o k response a status code equal to that given
+func (o *QueryPreventionPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryPreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesOK) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryPreventionPoliciesBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query prevention policies bad request response has a 2xx status code
+func (o *QueryPreventionPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query prevention policies bad request response has a 3xx status code
+func (o *QueryPreventionPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query prevention policies bad request response has a 4xx status code
+func (o *QueryPreventionPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query prevention policies bad request response has a 5xx status code
+func (o *QueryPreventionPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query prevention policies bad request response a status code equal to that given
+func (o *QueryPreventionPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryPreventionPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryPreventionPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query prevention policies forbidden response has a 2xx status code
+func (o *QueryPreventionPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query prevention policies forbidden response has a 3xx status code
+func (o *QueryPreventionPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query prevention policies forbidden response has a 4xx status code
+func (o *QueryPreventionPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query prevention policies forbidden response has a 5xx status code
+func (o *QueryPreventionPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query prevention policies forbidden response a status code equal to that given
+func (o *QueryPreventionPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryPreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryPreventionPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query prevention policies too many requests response has a 2xx status code
+func (o *QueryPreventionPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query prevention policies too many requests response has a 3xx status code
+func (o *QueryPreventionPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query prevention policies too many requests response has a 4xx status code
+func (o *QueryPreventionPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query prevention policies too many requests response has a 5xx status code
+func (o *QueryPreventionPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query prevention policies too many requests response a status code equal to that given
+func (o *QueryPreventionPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryPreventionPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryPreventionPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query prevention policies internal server error response has a 2xx status code
+func (o *QueryPreventionPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query prevention policies internal server error response has a 3xx status code
+func (o *QueryPreventionPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query prevention policies internal server error response has a 4xx status code
+func (o *QueryPreventionPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query prevention policies internal server error response has a 5xx status code
+func (o *QueryPreventionPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query prevention policies internal server error response a status code equal to that given
+func (o *QueryPreventionPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryPreventionPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryPreventionPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query prevention policies default response has a 2xx status code
+func (o *QueryPreventionPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query prevention policies default response has a 3xx status code
+func (o *QueryPreventionPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query prevention policies default response has a 4xx status code
+func (o *QueryPreventionPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query prevention policies default response has a 5xx status code
+func (o *QueryPreventionPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query prevention policies default response a status code equal to that given
+func (o *QueryPreventionPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryPreventionPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryPreventionPoliciesDefault) String() string {
+	return fmt.Sprintf("[GET /policy/queries/prevention/v1][%d] queryPreventionPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryPreventionPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -96,9 +96,39 @@ type QueryGroupMembersOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query group members o k response has a 2xx status code
+func (o *QueryGroupMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query group members o k response has a 3xx status code
+func (o *QueryGroupMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members o k response has a 4xx status code
+func (o *QueryGroupMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query group members o k response has a 5xx status code
+func (o *QueryGroupMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query group members o k response a status code equal to that given
+func (o *QueryGroupMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryGroupMembersOK) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryGroupMembersOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type QueryGroupMembersBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query group members bad request response has a 2xx status code
+func (o *QueryGroupMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query group members bad request response has a 3xx status code
+func (o *QueryGroupMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members bad request response has a 4xx status code
+func (o *QueryGroupMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query group members bad request response has a 5xx status code
+func (o *QueryGroupMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query group members bad request response a status code equal to that given
+func (o *QueryGroupMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryGroupMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryGroupMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryGroupMembersBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type QueryGroupMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query group members forbidden response has a 2xx status code
+func (o *QueryGroupMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query group members forbidden response has a 3xx status code
+func (o *QueryGroupMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members forbidden response has a 4xx status code
+func (o *QueryGroupMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query group members forbidden response has a 5xx status code
+func (o *QueryGroupMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query group members forbidden response a status code equal to that given
+func (o *QueryGroupMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryGroupMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type QueryGroupMembersNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query group members not found response has a 2xx status code
+func (o *QueryGroupMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query group members not found response has a 3xx status code
+func (o *QueryGroupMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members not found response has a 4xx status code
+func (o *QueryGroupMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query group members not found response has a 5xx status code
+func (o *QueryGroupMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query group members not found response a status code equal to that given
+func (o *QueryGroupMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryGroupMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryGroupMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryGroupMembersNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type QueryGroupMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query group members too many requests response has a 2xx status code
+func (o *QueryGroupMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query group members too many requests response has a 3xx status code
+func (o *QueryGroupMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members too many requests response has a 4xx status code
+func (o *QueryGroupMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query group members too many requests response has a 5xx status code
+func (o *QueryGroupMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query group members too many requests response a status code equal to that given
+func (o *QueryGroupMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryGroupMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type QueryGroupMembersInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query group members internal server error response has a 2xx status code
+func (o *QueryGroupMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query group members internal server error response has a 3xx status code
+func (o *QueryGroupMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query group members internal server error response has a 4xx status code
+func (o *QueryGroupMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query group members internal server error response has a 5xx status code
+func (o *QueryGroupMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query group members internal server error response a status code equal to that given
+func (o *QueryGroupMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryGroupMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryGroupMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryGroupMembersInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *QueryGroupMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query group members default response has a 2xx status code
+func (o *QueryGroupMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query group members default response has a 3xx status code
+func (o *QueryGroupMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query group members default response has a 4xx status code
+func (o *QueryGroupMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query group members default response has a 5xx status code
+func (o *QueryGroupMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query group members default response a status code equal to that given
+func (o *QueryGroupMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryGroupMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryGroupMembersDefault) String() string {
+	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryGroupMembersDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

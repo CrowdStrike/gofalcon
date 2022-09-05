@@ -82,9 +82,39 @@ type AggregateCasesOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate cases o k response has a 2xx status code
+func (o *AggregateCasesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate cases o k response has a 3xx status code
+func (o *AggregateCasesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate cases o k response has a 4xx status code
+func (o *AggregateCasesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate cases o k response has a 5xx status code
+func (o *AggregateCasesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate cases o k response a status code equal to that given
+func (o *AggregateCasesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateCasesOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateCasesOK) String() string {
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateCasesOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type AggregateCasesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate cases forbidden response has a 2xx status code
+func (o *AggregateCasesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate cases forbidden response has a 3xx status code
+func (o *AggregateCasesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate cases forbidden response has a 4xx status code
+func (o *AggregateCasesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate cases forbidden response has a 5xx status code
+func (o *AggregateCasesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate cases forbidden response a status code equal to that given
+func (o *AggregateCasesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateCasesForbidden) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateCasesForbidden) String() string {
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateCasesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type AggregateCasesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate cases too many requests response has a 2xx status code
+func (o *AggregateCasesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate cases too many requests response has a 3xx status code
+func (o *AggregateCasesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate cases too many requests response has a 4xx status code
+func (o *AggregateCasesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate cases too many requests response has a 5xx status code
+func (o *AggregateCasesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate cases too many requests response a status code equal to that given
+func (o *AggregateCasesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateCasesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateCasesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateCasesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *AggregateCasesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate cases default response has a 2xx status code
+func (o *AggregateCasesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate cases default response has a 3xx status code
+func (o *AggregateCasesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate cases default response has a 4xx status code
+func (o *AggregateCasesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate cases default response has a 5xx status code
+func (o *AggregateCasesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate cases default response a status code equal to that given
+func (o *AggregateCasesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateCasesDefault) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] AggregateCases default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateCasesDefault) String() string {
+	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] AggregateCases default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateCasesDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

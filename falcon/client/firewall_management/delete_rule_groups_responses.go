@@ -88,9 +88,39 @@ type DeleteRuleGroupsOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this delete rule groups o k response has a 2xx status code
+func (o *DeleteRuleGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete rule groups o k response has a 3xx status code
+func (o *DeleteRuleGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups o k response has a 4xx status code
+func (o *DeleteRuleGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete rule groups o k response has a 5xx status code
+func (o *DeleteRuleGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups o k response a status code equal to that given
+func (o *DeleteRuleGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteRuleGroupsOK) String() string {
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteRuleGroupsOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type DeleteRuleGroupsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups bad request response has a 2xx status code
+func (o *DeleteRuleGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups bad request response has a 3xx status code
+func (o *DeleteRuleGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups bad request response has a 4xx status code
+func (o *DeleteRuleGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups bad request response has a 5xx status code
+func (o *DeleteRuleGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups bad request response a status code equal to that given
+func (o *DeleteRuleGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteRuleGroupsBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type DeleteRuleGroupsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups forbidden response has a 2xx status code
+func (o *DeleteRuleGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups forbidden response has a 3xx status code
+func (o *DeleteRuleGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups forbidden response has a 4xx status code
+func (o *DeleteRuleGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups forbidden response has a 5xx status code
+func (o *DeleteRuleGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups forbidden response a status code equal to that given
+func (o *DeleteRuleGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRuleGroupsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteRuleGroupsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteRuleGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type DeleteRuleGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups too many requests response has a 2xx status code
+func (o *DeleteRuleGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups too many requests response has a 3xx status code
+func (o *DeleteRuleGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups too many requests response has a 4xx status code
+func (o *DeleteRuleGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups too many requests response has a 5xx status code
+func (o *DeleteRuleGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups too many requests response a status code equal to that given
+func (o *DeleteRuleGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteRuleGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteRuleGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *DeleteRuleGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete rule groups default response has a 2xx status code
+func (o *DeleteRuleGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete rule groups default response has a 3xx status code
+func (o *DeleteRuleGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete rule groups default response has a 4xx status code
+func (o *DeleteRuleGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete rule groups default response has a 5xx status code
+func (o *DeleteRuleGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete rule groups default response a status code equal to that given
+func (o *DeleteRuleGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteRuleGroupsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] delete-rule-groups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteRuleGroupsDefault) String() string {
+	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] delete-rule-groups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteRuleGroupsDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

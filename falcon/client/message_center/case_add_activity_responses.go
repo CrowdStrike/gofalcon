@@ -94,9 +94,39 @@ type CaseAddActivityOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add activity o k response has a 2xx status code
+func (o *CaseAddActivityOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this case add activity o k response has a 3xx status code
+func (o *CaseAddActivityOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add activity o k response has a 4xx status code
+func (o *CaseAddActivityOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case add activity o k response has a 5xx status code
+func (o *CaseAddActivityOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add activity o k response a status code equal to that given
+func (o *CaseAddActivityOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CaseAddActivityOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
 }
+
+func (o *CaseAddActivityOK) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
+}
+
 func (o *CaseAddActivityOK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type CaseAddActivityBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add activity bad request response has a 2xx status code
+func (o *CaseAddActivityBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add activity bad request response has a 3xx status code
+func (o *CaseAddActivityBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add activity bad request response has a 4xx status code
+func (o *CaseAddActivityBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add activity bad request response has a 5xx status code
+func (o *CaseAddActivityBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add activity bad request response a status code equal to that given
+func (o *CaseAddActivityBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CaseAddActivityBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CaseAddActivityBadRequest) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CaseAddActivityBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type CaseAddActivityForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add activity forbidden response has a 2xx status code
+func (o *CaseAddActivityForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add activity forbidden response has a 3xx status code
+func (o *CaseAddActivityForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add activity forbidden response has a 4xx status code
+func (o *CaseAddActivityForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add activity forbidden response has a 5xx status code
+func (o *CaseAddActivityForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add activity forbidden response a status code equal to that given
+func (o *CaseAddActivityForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CaseAddActivityForbidden) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CaseAddActivityForbidden) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CaseAddActivityForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CaseAddActivityTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add activity too many requests response has a 2xx status code
+func (o *CaseAddActivityTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add activity too many requests response has a 3xx status code
+func (o *CaseAddActivityTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add activity too many requests response has a 4xx status code
+func (o *CaseAddActivityTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add activity too many requests response has a 5xx status code
+func (o *CaseAddActivityTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add activity too many requests response a status code equal to that given
+func (o *CaseAddActivityTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CaseAddActivityTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CaseAddActivityTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CaseAddActivityTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type CaseAddActivityInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add activity internal server error response has a 2xx status code
+func (o *CaseAddActivityInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add activity internal server error response has a 3xx status code
+func (o *CaseAddActivityInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add activity internal server error response has a 4xx status code
+func (o *CaseAddActivityInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case add activity internal server error response has a 5xx status code
+func (o *CaseAddActivityInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this case add activity internal server error response a status code equal to that given
+func (o *CaseAddActivityInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CaseAddActivityInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CaseAddActivityInternalServerError) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CaseAddActivityInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *CaseAddActivityDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this case add activity default response has a 2xx status code
+func (o *CaseAddActivityDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this case add activity default response has a 3xx status code
+func (o *CaseAddActivityDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this case add activity default response has a 4xx status code
+func (o *CaseAddActivityDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this case add activity default response has a 5xx status code
+func (o *CaseAddActivityDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this case add activity default response a status code equal to that given
+func (o *CaseAddActivityDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CaseAddActivityDefault) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] CaseAddActivity default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CaseAddActivityDefault) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] CaseAddActivity default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CaseAddActivityDefault) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

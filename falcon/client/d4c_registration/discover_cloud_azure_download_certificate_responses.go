@@ -94,9 +94,39 @@ type DiscoverCloudAzureDownloadCertificateOK struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate o k response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate o k response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this discover cloud azure download certificate o k response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this discover cloud azure download certificate o k response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this discover cloud azure download certificate o k response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateOK  %+v", 200, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateOK  %+v", 200, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateOK) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type DiscoverCloudAzureDownloadCertificateBadRequest struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate bad request response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate bad request response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this discover cloud azure download certificate bad request response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this discover cloud azure download certificate bad request response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this discover cloud azure download certificate bad request response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateBadRequest) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type DiscoverCloudAzureDownloadCertificateForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate forbidden response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate forbidden response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this discover cloud azure download certificate forbidden response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this discover cloud azure download certificate forbidden response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this discover cloud azure download certificate forbidden response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type DiscoverCloudAzureDownloadCertificateTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate too many requests response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate too many requests response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this discover cloud azure download certificate too many requests response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this discover cloud azure download certificate too many requests response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this discover cloud azure download certificate too many requests response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type DiscoverCloudAzureDownloadCertificateInternalServerError struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate internal server error response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate internal server error response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this discover cloud azure download certificate internal server error response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this discover cloud azure download certificate internal server error response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this discover cloud azure download certificate internal server error response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *DiscoverCloudAzureDownloadCertificateDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this discover cloud azure download certificate default response has a 2xx status code
+func (o *DiscoverCloudAzureDownloadCertificateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this discover cloud azure download certificate default response has a 3xx status code
+func (o *DiscoverCloudAzureDownloadCertificateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this discover cloud azure download certificate default response has a 4xx status code
+func (o *DiscoverCloudAzureDownloadCertificateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this discover cloud azure download certificate default response has a 5xx status code
+func (o *DiscoverCloudAzureDownloadCertificateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this discover cloud azure download certificate default response a status code equal to that given
+func (o *DiscoverCloudAzureDownloadCertificateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] DiscoverCloudAzureDownloadCertificate default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DiscoverCloudAzureDownloadCertificateDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] DiscoverCloudAzureDownloadCertificate default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateDefault) GetPayload() *models.RegistrationAzureDownloadCertificateResponseV1 {
 	return o.Payload
 }

@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -26,7 +27,7 @@ import (
 // To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewRTRInitSessionParams() *RTRInitSessionParams {
 	return &RTRInitSessionParams{
-		timeout: cr.DefaultTimeout,
+		requestTimeout: cr.DefaultTimeout,
 	}
 }
 
@@ -34,7 +35,7 @@ func NewRTRInitSessionParams() *RTRInitSessionParams {
 // with the ability to set a timeout on a request.
 func NewRTRInitSessionParamsWithTimeout(timeout time.Duration) *RTRInitSessionParams {
 	return &RTRInitSessionParams{
-		timeout: timeout,
+		requestTimeout: timeout,
 	}
 }
 
@@ -65,13 +66,30 @@ type RTRInitSessionParams struct {
 
 	/* Body.
 
-	 **`device_id`** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host
-	 */
+	     **`device_id`** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host
+	**`queue_offline`** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online.
+	*/
 	Body *models.DomainInitRequest
 
-	timeout    time.Duration
-	Context    context.Context
-	HTTPClient *http.Client
+	/* Timeout.
+
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+
+	   Default: 30
+	*/
+	Timeout *int64
+
+	/* TimeoutDuration.
+
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+
+	   Default: "30s"
+	*/
+	TimeoutDuration *string
+
+	requestTimeout time.Duration
+	Context        context.Context
+	HTTPClient     *http.Client
 }
 
 // WithDefaults hydrates default values in the r t r init session params (not the query body).
@@ -86,18 +104,32 @@ func (o *RTRInitSessionParams) WithDefaults() *RTRInitSessionParams {
 //
 // All values with no default are reset to their zero value.
 func (o *RTRInitSessionParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		timeoutDefault = int64(30)
+
+		timeoutDurationDefault = string("30s")
+	)
+
+	val := RTRInitSessionParams{
+		Timeout:         &timeoutDefault,
+		TimeoutDuration: &timeoutDurationDefault,
+	}
+
+	val.requestTimeout = o.requestTimeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
-// WithTimeout adds the timeout to the r t r init session params
-func (o *RTRInitSessionParams) WithTimeout(timeout time.Duration) *RTRInitSessionParams {
-	o.SetTimeout(timeout)
+// WithRequestTimeout adds the timeout to the r t r init session params
+func (o *RTRInitSessionParams) WithRequestTimeout(timeout time.Duration) *RTRInitSessionParams {
+	o.SetRequestTimeout(timeout)
 	return o
 }
 
-// SetTimeout adds the timeout to the r t r init session params
-func (o *RTRInitSessionParams) SetTimeout(timeout time.Duration) {
-	o.timeout = timeout
+// SetRequestTimeout adds the timeout to the r t r init session params
+func (o *RTRInitSessionParams) SetRequestTimeout(timeout time.Duration) {
+	o.requestTimeout = timeout
 }
 
 // WithContext adds the context to the r t r init session params
@@ -133,16 +165,72 @@ func (o *RTRInitSessionParams) SetBody(body *models.DomainInitRequest) {
 	o.Body = body
 }
 
+// WithTimeout adds the timeout to the r t r init session params
+func (o *RTRInitSessionParams) WithTimeout(timeout *int64) *RTRInitSessionParams {
+	o.SetTimeout(timeout)
+	return o
+}
+
+// SetTimeout adds the timeout to the r t r init session params
+func (o *RTRInitSessionParams) SetTimeout(timeout *int64) {
+	o.Timeout = timeout
+}
+
+// WithTimeoutDuration adds the timeoutDuration to the r t r init session params
+func (o *RTRInitSessionParams) WithTimeoutDuration(timeoutDuration *string) *RTRInitSessionParams {
+	o.SetTimeoutDuration(timeoutDuration)
+	return o
+}
+
+// SetTimeoutDuration adds the timeoutDuration to the r t r init session params
+func (o *RTRInitSessionParams) SetTimeoutDuration(timeoutDuration *string) {
+	o.TimeoutDuration = timeoutDuration
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *RTRInitSessionParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
-	if err := r.SetTimeout(o.timeout); err != nil {
+	if err := r.SetTimeout(o.requestTimeout); err != nil {
 		return err
 	}
 	var res []error
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.Timeout != nil {
+
+		// query param timeout
+		var qrTimeout int64
+
+		if o.Timeout != nil {
+			qrTimeout = *o.Timeout
+		}
+		qTimeout := swag.FormatInt64(qrTimeout)
+		if qTimeout != "" {
+
+			if err := r.SetQueryParam("timeout", qTimeout); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.TimeoutDuration != nil {
+
+		// query param timeout_duration
+		var qrTimeoutDuration string
+
+		if o.TimeoutDuration != nil {
+			qrTimeoutDuration = *o.TimeoutDuration
+		}
+		qTimeoutDuration := qrTimeoutDuration
+		if qTimeoutDuration != "" {
+
+			if err := r.SetQueryParam("timeout_duration", qTimeoutDuration); err != nil {
+				return err
+			}
 		}
 	}
 

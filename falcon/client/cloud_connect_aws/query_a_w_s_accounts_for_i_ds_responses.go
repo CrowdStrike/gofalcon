@@ -90,9 +90,39 @@ type QueryAWSAccountsForIDsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds o k response has a 2xx status code
+func (o *QueryAWSAccountsForIDsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds o k response has a 3xx status code
+func (o *QueryAWSAccountsForIDsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query a w s accounts for i ds o k response has a 4xx status code
+func (o *QueryAWSAccountsForIDsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query a w s accounts for i ds o k response has a 5xx status code
+func (o *QueryAWSAccountsForIDsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query a w s accounts for i ds o k response a status code equal to that given
+func (o *QueryAWSAccountsForIDsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryAWSAccountsForIDsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type QueryAWSAccountsForIDsBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds bad request response has a 2xx status code
+func (o *QueryAWSAccountsForIDsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds bad request response has a 3xx status code
+func (o *QueryAWSAccountsForIDsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query a w s accounts for i ds bad request response has a 4xx status code
+func (o *QueryAWSAccountsForIDsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query a w s accounts for i ds bad request response has a 5xx status code
+func (o *QueryAWSAccountsForIDsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query a w s accounts for i ds bad request response a status code equal to that given
+func (o *QueryAWSAccountsForIDsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryAWSAccountsForIDsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type QueryAWSAccountsForIDsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds forbidden response has a 2xx status code
+func (o *QueryAWSAccountsForIDsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds forbidden response has a 3xx status code
+func (o *QueryAWSAccountsForIDsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query a w s accounts for i ds forbidden response has a 4xx status code
+func (o *QueryAWSAccountsForIDsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query a w s accounts for i ds forbidden response has a 5xx status code
+func (o *QueryAWSAccountsForIDsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query a w s accounts for i ds forbidden response a status code equal to that given
+func (o *QueryAWSAccountsForIDsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryAWSAccountsForIDsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type QueryAWSAccountsForIDsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds too many requests response has a 2xx status code
+func (o *QueryAWSAccountsForIDsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds too many requests response has a 3xx status code
+func (o *QueryAWSAccountsForIDsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query a w s accounts for i ds too many requests response has a 4xx status code
+func (o *QueryAWSAccountsForIDsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query a w s accounts for i ds too many requests response has a 5xx status code
+func (o *QueryAWSAccountsForIDsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query a w s accounts for i ds too many requests response a status code equal to that given
+func (o *QueryAWSAccountsForIDsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryAWSAccountsForIDsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type QueryAWSAccountsForIDsInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds internal server error response has a 2xx status code
+func (o *QueryAWSAccountsForIDsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds internal server error response has a 3xx status code
+func (o *QueryAWSAccountsForIDsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query a w s accounts for i ds internal server error response has a 4xx status code
+func (o *QueryAWSAccountsForIDsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query a w s accounts for i ds internal server error response has a 5xx status code
+func (o *QueryAWSAccountsForIDsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query a w s accounts for i ds internal server error response a status code equal to that given
+func (o *QueryAWSAccountsForIDsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryAWSAccountsForIDsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] queryAWSAccountsForIDsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *QueryAWSAccountsForIDsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query a w s accounts for i ds default response has a 2xx status code
+func (o *QueryAWSAccountsForIDsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query a w s accounts for i ds default response has a 3xx status code
+func (o *QueryAWSAccountsForIDsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query a w s accounts for i ds default response has a 4xx status code
+func (o *QueryAWSAccountsForIDsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query a w s accounts for i ds default response has a 5xx status code
+func (o *QueryAWSAccountsForIDsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query a w s accounts for i ds default response a status code equal to that given
+func (o *QueryAWSAccountsForIDsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryAWSAccountsForIDsDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] QueryAWSAccountsForIDs default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryAWSAccountsForIDsDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] QueryAWSAccountsForIDs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryAWSAccountsForIDsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

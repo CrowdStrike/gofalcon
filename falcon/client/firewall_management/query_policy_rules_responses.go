@@ -84,9 +84,39 @@ type QueryPolicyRulesOK struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this query policy rules o k response has a 2xx status code
+func (o *QueryPolicyRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query policy rules o k response has a 3xx status code
+func (o *QueryPolicyRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query policy rules o k response has a 4xx status code
+func (o *QueryPolicyRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query policy rules o k response has a 5xx status code
+func (o *QueryPolicyRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query policy rules o k response a status code equal to that given
+func (o *QueryPolicyRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryPolicyRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryPolicyRulesOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryPolicyRulesOK) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type QueryPolicyRulesBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query policy rules bad request response has a 2xx status code
+func (o *QueryPolicyRulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query policy rules bad request response has a 3xx status code
+func (o *QueryPolicyRulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query policy rules bad request response has a 4xx status code
+func (o *QueryPolicyRulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query policy rules bad request response has a 5xx status code
+func (o *QueryPolicyRulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query policy rules bad request response a status code equal to that given
+func (o *QueryPolicyRulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryPolicyRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryPolicyRulesBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryPolicyRulesBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type QueryPolicyRulesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query policy rules forbidden response has a 2xx status code
+func (o *QueryPolicyRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query policy rules forbidden response has a 3xx status code
+func (o *QueryPolicyRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query policy rules forbidden response has a 4xx status code
+func (o *QueryPolicyRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query policy rules forbidden response has a 5xx status code
+func (o *QueryPolicyRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query policy rules forbidden response a status code equal to that given
+func (o *QueryPolicyRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryPolicyRulesForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryPolicyRulesForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryPolicyRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type QueryPolicyRulesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query policy rules too many requests response has a 2xx status code
+func (o *QueryPolicyRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query policy rules too many requests response has a 3xx status code
+func (o *QueryPolicyRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query policy rules too many requests response has a 4xx status code
+func (o *QueryPolicyRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query policy rules too many requests response has a 5xx status code
+func (o *QueryPolicyRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query policy rules too many requests response a status code equal to that given
+func (o *QueryPolicyRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryPolicyRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryPolicyRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryPolicyRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *QueryPolicyRulesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query policy rules default response has a 2xx status code
+func (o *QueryPolicyRulesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query policy rules default response has a 3xx status code
+func (o *QueryPolicyRulesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query policy rules default response has a 4xx status code
+func (o *QueryPolicyRulesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query policy rules default response has a 5xx status code
+func (o *QueryPolicyRulesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query policy rules default response a status code equal to that given
+func (o *QueryPolicyRulesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryPolicyRulesDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] query-policy-rules default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryPolicyRulesDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] query-policy-rules default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryPolicyRulesDefault) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }

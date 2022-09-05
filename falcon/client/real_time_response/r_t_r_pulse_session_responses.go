@@ -83,9 +83,39 @@ type RTRPulseSessionCreated struct {
 	Payload *models.DomainInitResponseWrapper
 }
 
+// IsSuccess returns true when this r t r pulse session created response has a 2xx status code
+func (o *RTRPulseSessionCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r pulse session created response has a 3xx status code
+func (o *RTRPulseSessionCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r pulse session created response has a 4xx status code
+func (o *RTRPulseSessionCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r pulse session created response has a 5xx status code
+func (o *RTRPulseSessionCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r pulse session created response a status code equal to that given
+func (o *RTRPulseSessionCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *RTRPulseSessionCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated  %+v", 201, o.Payload)
 }
+
+func (o *RTRPulseSessionCreated) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated  %+v", 201, o.Payload)
+}
+
 func (o *RTRPulseSessionCreated) GetPayload() *models.DomainInitResponseWrapper {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type RTRPulseSessionBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r pulse session bad request response has a 2xx status code
+func (o *RTRPulseSessionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r pulse session bad request response has a 3xx status code
+func (o *RTRPulseSessionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r pulse session bad request response has a 4xx status code
+func (o *RTRPulseSessionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r pulse session bad request response has a 5xx status code
+func (o *RTRPulseSessionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r pulse session bad request response a status code equal to that given
+func (o *RTRPulseSessionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRPulseSessionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRPulseSessionBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRPulseSessionBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type RTRPulseSessionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r pulse session forbidden response has a 2xx status code
+func (o *RTRPulseSessionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r pulse session forbidden response has a 3xx status code
+func (o *RTRPulseSessionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r pulse session forbidden response has a 4xx status code
+func (o *RTRPulseSessionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r pulse session forbidden response has a 5xx status code
+func (o *RTRPulseSessionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r pulse session forbidden response a status code equal to that given
+func (o *RTRPulseSessionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRPulseSessionForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRPulseSessionForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRPulseSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -279,9 +369,39 @@ type RTRPulseSessionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r pulse session too many requests response has a 2xx status code
+func (o *RTRPulseSessionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r pulse session too many requests response has a 3xx status code
+func (o *RTRPulseSessionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r pulse session too many requests response has a 4xx status code
+func (o *RTRPulseSessionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r pulse session too many requests response has a 5xx status code
+func (o *RTRPulseSessionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r pulse session too many requests response a status code equal to that given
+func (o *RTRPulseSessionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRPulseSessionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRPulseSessionTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRPulseSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -354,9 +474,39 @@ type RTRPulseSessionInternalServerError struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r pulse session internal server error response has a 2xx status code
+func (o *RTRPulseSessionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r pulse session internal server error response has a 3xx status code
+func (o *RTRPulseSessionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r pulse session internal server error response has a 4xx status code
+func (o *RTRPulseSessionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r pulse session internal server error response has a 5xx status code
+func (o *RTRPulseSessionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this r t r pulse session internal server error response a status code equal to that given
+func (o *RTRPulseSessionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *RTRPulseSessionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *RTRPulseSessionInternalServerError) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *RTRPulseSessionInternalServerError) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }

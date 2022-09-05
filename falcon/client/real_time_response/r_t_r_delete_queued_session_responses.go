@@ -83,9 +83,39 @@ type RTRDeleteQueuedSessionNoContent struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete queued session no content response has a 2xx status code
+func (o *RTRDeleteQueuedSessionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r delete queued session no content response has a 3xx status code
+func (o *RTRDeleteQueuedSessionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete queued session no content response has a 4xx status code
+func (o *RTRDeleteQueuedSessionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r delete queued session no content response has a 5xx status code
+func (o *RTRDeleteQueuedSessionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete queued session no content response a status code equal to that given
+func (o *RTRDeleteQueuedSessionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *RTRDeleteQueuedSessionNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *RTRDeleteQueuedSessionNoContent) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *RTRDeleteQueuedSessionNoContent) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type RTRDeleteQueuedSessionBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete queued session bad request response has a 2xx status code
+func (o *RTRDeleteQueuedSessionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete queued session bad request response has a 3xx status code
+func (o *RTRDeleteQueuedSessionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete queued session bad request response has a 4xx status code
+func (o *RTRDeleteQueuedSessionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete queued session bad request response has a 5xx status code
+func (o *RTRDeleteQueuedSessionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete queued session bad request response a status code equal to that given
+func (o *RTRDeleteQueuedSessionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRDeleteQueuedSessionBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRDeleteQueuedSessionBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRDeleteQueuedSessionBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type RTRDeleteQueuedSessionUnauthorized struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete queued session unauthorized response has a 2xx status code
+func (o *RTRDeleteQueuedSessionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete queued session unauthorized response has a 3xx status code
+func (o *RTRDeleteQueuedSessionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete queued session unauthorized response has a 4xx status code
+func (o *RTRDeleteQueuedSessionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete queued session unauthorized response has a 5xx status code
+func (o *RTRDeleteQueuedSessionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete queued session unauthorized response a status code equal to that given
+func (o *RTRDeleteQueuedSessionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *RTRDeleteQueuedSessionUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *RTRDeleteQueuedSessionUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *RTRDeleteQueuedSessionUnauthorized) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -275,9 +365,39 @@ type RTRDeleteQueuedSessionForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete queued session forbidden response has a 2xx status code
+func (o *RTRDeleteQueuedSessionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete queued session forbidden response has a 3xx status code
+func (o *RTRDeleteQueuedSessionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete queued session forbidden response has a 4xx status code
+func (o *RTRDeleteQueuedSessionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete queued session forbidden response has a 5xx status code
+func (o *RTRDeleteQueuedSessionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete queued session forbidden response a status code equal to that given
+func (o *RTRDeleteQueuedSessionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRDeleteQueuedSessionForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRDeleteQueuedSessionForbidden) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRDeleteQueuedSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -343,9 +463,39 @@ type RTRDeleteQueuedSessionTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete queued session too many requests response has a 2xx status code
+func (o *RTRDeleteQueuedSessionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete queued session too many requests response has a 3xx status code
+func (o *RTRDeleteQueuedSessionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete queued session too many requests response has a 4xx status code
+func (o *RTRDeleteQueuedSessionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete queued session too many requests response has a 5xx status code
+func (o *RTRDeleteQueuedSessionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete queued session too many requests response a status code equal to that given
+func (o *RTRDeleteQueuedSessionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRDeleteQueuedSessionTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRDeleteQueuedSessionTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRDeleteQueuedSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type GetCSPMScanScheduleOK struct {
 	Payload *models.RegistrationScanScheduleResponseV1
 }
 
+// IsSuccess returns true when this get c s p m scan schedule o k response has a 2xx status code
+func (o *GetCSPMScanScheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m scan schedule o k response has a 3xx status code
+func (o *GetCSPMScanScheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule o k response has a 4xx status code
+func (o *GetCSPMScanScheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m scan schedule o k response has a 5xx status code
+func (o *GetCSPMScanScheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m scan schedule o k response a status code equal to that given
+func (o *GetCSPMScanScheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCSPMScanScheduleOK) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleOK) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleOK) GetPayload() *models.RegistrationScanScheduleResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetCSPMScanScheduleBadRequest struct {
 	Payload *models.RegistrationScanScheduleResponseV1
 }
 
+// IsSuccess returns true when this get c s p m scan schedule bad request response has a 2xx status code
+func (o *GetCSPMScanScheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m scan schedule bad request response has a 3xx status code
+func (o *GetCSPMScanScheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule bad request response has a 4xx status code
+func (o *GetCSPMScanScheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m scan schedule bad request response has a 5xx status code
+func (o *GetCSPMScanScheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m scan schedule bad request response a status code equal to that given
+func (o *GetCSPMScanScheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCSPMScanScheduleBadRequest) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleBadRequest) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleBadRequest) GetPayload() *models.RegistrationScanScheduleResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetCSPMScanScheduleForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m scan schedule forbidden response has a 2xx status code
+func (o *GetCSPMScanScheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m scan schedule forbidden response has a 3xx status code
+func (o *GetCSPMScanScheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule forbidden response has a 4xx status code
+func (o *GetCSPMScanScheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m scan schedule forbidden response has a 5xx status code
+func (o *GetCSPMScanScheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m scan schedule forbidden response a status code equal to that given
+func (o *GetCSPMScanScheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCSPMScanScheduleForbidden) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleForbidden) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetCSPMScanScheduleTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m scan schedule too many requests response has a 2xx status code
+func (o *GetCSPMScanScheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m scan schedule too many requests response has a 3xx status code
+func (o *GetCSPMScanScheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule too many requests response has a 4xx status code
+func (o *GetCSPMScanScheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m scan schedule too many requests response has a 5xx status code
+func (o *GetCSPMScanScheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m scan schedule too many requests response a status code equal to that given
+func (o *GetCSPMScanScheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCSPMScanScheduleTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetCSPMScanScheduleInternalServerError struct {
 	Payload *models.RegistrationScanScheduleResponseV1
 }
 
+// IsSuccess returns true when this get c s p m scan schedule internal server error response has a 2xx status code
+func (o *GetCSPMScanScheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m scan schedule internal server error response has a 3xx status code
+func (o *GetCSPMScanScheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m scan schedule internal server error response has a 4xx status code
+func (o *GetCSPMScanScheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m scan schedule internal server error response has a 5xx status code
+func (o *GetCSPMScanScheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get c s p m scan schedule internal server error response a status code equal to that given
+func (o *GetCSPMScanScheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCSPMScanScheduleInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleInternalServerError) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] getCSPMScanScheduleInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleInternalServerError) GetPayload() *models.RegistrationScanScheduleResponseV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetCSPMScanScheduleDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get c s p m scan schedule default response has a 2xx status code
+func (o *GetCSPMScanScheduleDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get c s p m scan schedule default response has a 3xx status code
+func (o *GetCSPMScanScheduleDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get c s p m scan schedule default response has a 4xx status code
+func (o *GetCSPMScanScheduleDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get c s p m scan schedule default response has a 5xx status code
+func (o *GetCSPMScanScheduleDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get c s p m scan schedule default response a status code equal to that given
+func (o *GetCSPMScanScheduleDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCSPMScanScheduleDefault) Error() string {
 	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] GetCSPMScanSchedule default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCSPMScanScheduleDefault) String() string {
+	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] GetCSPMScanSchedule default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCSPMScanScheduleDefault) GetPayload() *models.RegistrationScanScheduleResponseV1 {
 	return o.Payload
 }

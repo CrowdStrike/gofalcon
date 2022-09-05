@@ -93,9 +93,39 @@ type TriggerScanCreated struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this trigger scan created response has a 2xx status code
+func (o *TriggerScanCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this trigger scan created response has a 3xx status code
+func (o *TriggerScanCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan created response has a 4xx status code
+func (o *TriggerScanCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this trigger scan created response has a 5xx status code
+func (o *TriggerScanCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this trigger scan created response a status code equal to that given
+func (o *TriggerScanCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *TriggerScanCreated) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated  %+v", 201, o.Payload)
 }
+
+func (o *TriggerScanCreated) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated  %+v", 201, o.Payload)
+}
+
 func (o *TriggerScanCreated) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -168,9 +198,39 @@ type TriggerScanMultiStatus struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this trigger scan multi status response has a 2xx status code
+func (o *TriggerScanMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this trigger scan multi status response has a 3xx status code
+func (o *TriggerScanMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan multi status response has a 4xx status code
+func (o *TriggerScanMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this trigger scan multi status response has a 5xx status code
+func (o *TriggerScanMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this trigger scan multi status response a status code equal to that given
+func (o *TriggerScanMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *TriggerScanMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *TriggerScanMultiStatus) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *TriggerScanMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -243,9 +303,39 @@ type TriggerScanBadRequest struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this trigger scan bad request response has a 2xx status code
+func (o *TriggerScanBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this trigger scan bad request response has a 3xx status code
+func (o *TriggerScanBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan bad request response has a 4xx status code
+func (o *TriggerScanBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this trigger scan bad request response has a 5xx status code
+func (o *TriggerScanBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this trigger scan bad request response a status code equal to that given
+func (o *TriggerScanBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TriggerScanBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TriggerScanBadRequest) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TriggerScanBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ type TriggerScanForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this trigger scan forbidden response has a 2xx status code
+func (o *TriggerScanForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this trigger scan forbidden response has a 3xx status code
+func (o *TriggerScanForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan forbidden response has a 4xx status code
+func (o *TriggerScanForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this trigger scan forbidden response has a 5xx status code
+func (o *TriggerScanForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this trigger scan forbidden response a status code equal to that given
+func (o *TriggerScanForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TriggerScanForbidden) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TriggerScanForbidden) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TriggerScanForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -397,9 +517,39 @@ type TriggerScanTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this trigger scan too many requests response has a 2xx status code
+func (o *TriggerScanTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this trigger scan too many requests response has a 3xx status code
+func (o *TriggerScanTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan too many requests response has a 4xx status code
+func (o *TriggerScanTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this trigger scan too many requests response has a 5xx status code
+func (o *TriggerScanTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this trigger scan too many requests response a status code equal to that given
+func (o *TriggerScanTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TriggerScanTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TriggerScanTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TriggerScanTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -483,9 +633,39 @@ type TriggerScanInternalServerError struct {
 	Payload *models.MsaBaseEntitiesResponse
 }
 
+// IsSuccess returns true when this trigger scan internal server error response has a 2xx status code
+func (o *TriggerScanInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this trigger scan internal server error response has a 3xx status code
+func (o *TriggerScanInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this trigger scan internal server error response has a 4xx status code
+func (o *TriggerScanInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this trigger scan internal server error response has a 5xx status code
+func (o *TriggerScanInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this trigger scan internal server error response a status code equal to that given
+func (o *TriggerScanInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TriggerScanInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TriggerScanInternalServerError) String() string {
+	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TriggerScanInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }

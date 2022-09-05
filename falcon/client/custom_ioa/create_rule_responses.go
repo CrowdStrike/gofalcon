@@ -77,9 +77,39 @@ type CreateRuleCreated struct {
 	Payload *models.APIRulesResponse
 }
 
+// IsSuccess returns true when this create rule created response has a 2xx status code
+func (o *CreateRuleCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create rule created response has a 3xx status code
+func (o *CreateRuleCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule created response has a 4xx status code
+func (o *CreateRuleCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create rule created response has a 5xx status code
+func (o *CreateRuleCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule created response a status code equal to that given
+func (o *CreateRuleCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateRuleCreated) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateRuleCreated) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateRuleCreated) GetPayload() *models.APIRulesResponse {
 	return o.Payload
 }
@@ -141,9 +171,39 @@ type CreateRuleForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule forbidden response has a 2xx status code
+func (o *CreateRuleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule forbidden response has a 3xx status code
+func (o *CreateRuleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule forbidden response has a 4xx status code
+func (o *CreateRuleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule forbidden response has a 5xx status code
+func (o *CreateRuleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule forbidden response a status code equal to that given
+func (o *CreateRuleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRuleForbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRuleForbidden) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRuleForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -205,9 +265,39 @@ type CreateRuleNotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule not found response has a 2xx status code
+func (o *CreateRuleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule not found response has a 3xx status code
+func (o *CreateRuleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule not found response has a 4xx status code
+func (o *CreateRuleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule not found response has a 5xx status code
+func (o *CreateRuleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule not found response a status code equal to that given
+func (o *CreateRuleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateRuleNotFound) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateRuleNotFound) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateRuleNotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -273,9 +363,39 @@ type CreateRuleTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule too many requests response has a 2xx status code
+func (o *CreateRuleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule too many requests response has a 3xx status code
+func (o *CreateRuleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule too many requests response has a 4xx status code
+func (o *CreateRuleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule too many requests response has a 5xx status code
+func (o *CreateRuleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule too many requests response a status code equal to that given
+func (o *CreateRuleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateRuleTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateRuleTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateRuleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

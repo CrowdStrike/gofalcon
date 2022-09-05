@@ -88,9 +88,39 @@ type ScheduledReportsLaunchOK struct {
 	Payload *models.APIReportExecutionsResponseV1
 }
 
+// IsSuccess returns true when this scheduled reports launch o k response has a 2xx status code
+func (o *ScheduledReportsLaunchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this scheduled reports launch o k response has a 3xx status code
+func (o *ScheduledReportsLaunchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports launch o k response has a 4xx status code
+func (o *ScheduledReportsLaunchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this scheduled reports launch o k response has a 5xx status code
+func (o *ScheduledReportsLaunchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports launch o k response a status code equal to that given
+func (o *ScheduledReportsLaunchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ScheduledReportsLaunchOK) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchOK  %+v", 200, o.Payload)
 }
+
+func (o *ScheduledReportsLaunchOK) String() string {
+	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchOK  %+v", 200, o.Payload)
+}
+
 func (o *ScheduledReportsLaunchOK) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }
@@ -163,9 +193,39 @@ type ScheduledReportsLaunchBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports launch bad request response has a 2xx status code
+func (o *ScheduledReportsLaunchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports launch bad request response has a 3xx status code
+func (o *ScheduledReportsLaunchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports launch bad request response has a 4xx status code
+func (o *ScheduledReportsLaunchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports launch bad request response has a 5xx status code
+func (o *ScheduledReportsLaunchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports launch bad request response a status code equal to that given
+func (o *ScheduledReportsLaunchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *ScheduledReportsLaunchBadRequest) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *ScheduledReportsLaunchBadRequest) String() string {
+	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *ScheduledReportsLaunchBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -238,9 +298,39 @@ type ScheduledReportsLaunchForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports launch forbidden response has a 2xx status code
+func (o *ScheduledReportsLaunchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports launch forbidden response has a 3xx status code
+func (o *ScheduledReportsLaunchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports launch forbidden response has a 4xx status code
+func (o *ScheduledReportsLaunchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports launch forbidden response has a 5xx status code
+func (o *ScheduledReportsLaunchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports launch forbidden response a status code equal to that given
+func (o *ScheduledReportsLaunchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ScheduledReportsLaunchForbidden) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ScheduledReportsLaunchForbidden) String() string {
+	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ScheduledReportsLaunchForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -317,9 +407,39 @@ type ScheduledReportsLaunchTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this scheduled reports launch too many requests response has a 2xx status code
+func (o *ScheduledReportsLaunchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this scheduled reports launch too many requests response has a 3xx status code
+func (o *ScheduledReportsLaunchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this scheduled reports launch too many requests response has a 4xx status code
+func (o *ScheduledReportsLaunchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this scheduled reports launch too many requests response has a 5xx status code
+func (o *ScheduledReportsLaunchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this scheduled reports launch too many requests response a status code equal to that given
+func (o *ScheduledReportsLaunchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ScheduledReportsLaunchTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ScheduledReportsLaunchTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ScheduledReportsLaunchTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -399,9 +519,39 @@ func (o *ScheduledReportsLaunchDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this scheduled reports launch default response has a 2xx status code
+func (o *ScheduledReportsLaunchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this scheduled reports launch default response has a 3xx status code
+func (o *ScheduledReportsLaunchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this scheduled reports launch default response has a 4xx status code
+func (o *ScheduledReportsLaunchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this scheduled reports launch default response has a 5xx status code
+func (o *ScheduledReportsLaunchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this scheduled reports launch default response a status code equal to that given
+func (o *ScheduledReportsLaunchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ScheduledReportsLaunchDefault) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduled-reports.launch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ScheduledReportsLaunchDefault) String() string {
+	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduled-reports.launch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ScheduledReportsLaunchDefault) GetPayload() *models.APIReportExecutionsResponseV1 {
 	return o.Payload
 }

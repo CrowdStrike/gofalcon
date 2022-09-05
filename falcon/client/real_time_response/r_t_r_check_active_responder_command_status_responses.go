@@ -84,9 +84,39 @@ type RTRCheckActiveResponderCommandStatusOK struct {
 	Payload *models.DomainStatusResponseWrapper
 }
 
+// IsSuccess returns true when this r t r check active responder command status o k response has a 2xx status code
+func (o *RTRCheckActiveResponderCommandStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r check active responder command status o k response has a 3xx status code
+func (o *RTRCheckActiveResponderCommandStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check active responder command status o k response has a 4xx status code
+func (o *RTRCheckActiveResponderCommandStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r check active responder command status o k response has a 5xx status code
+func (o *RTRCheckActiveResponderCommandStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check active responder command status o k response a status code equal to that given
+func (o *RTRCheckActiveResponderCommandStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRCheckActiveResponderCommandStatusOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRCheckActiveResponderCommandStatusOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRCheckActiveResponderCommandStatusOK) GetPayload() *models.DomainStatusResponseWrapper {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RTRCheckActiveResponderCommandStatusUnauthorized struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r check active responder command status unauthorized response has a 2xx status code
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check active responder command status unauthorized response has a 3xx status code
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check active responder command status unauthorized response has a 4xx status code
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check active responder command status unauthorized response has a 5xx status code
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check active responder command status unauthorized response a status code equal to that given
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RTRCheckActiveResponderCommandStatusForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r check active responder command status forbidden response has a 2xx status code
+func (o *RTRCheckActiveResponderCommandStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check active responder command status forbidden response has a 3xx status code
+func (o *RTRCheckActiveResponderCommandStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check active responder command status forbidden response has a 4xx status code
+func (o *RTRCheckActiveResponderCommandStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check active responder command status forbidden response has a 5xx status code
+func (o *RTRCheckActiveResponderCommandStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check active responder command status forbidden response a status code equal to that given
+func (o *RTRCheckActiveResponderCommandStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRCheckActiveResponderCommandStatusForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRCheckActiveResponderCommandStatusForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRCheckActiveResponderCommandStatusForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RTRCheckActiveResponderCommandStatusTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r check active responder command status too many requests response has a 2xx status code
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check active responder command status too many requests response has a 3xx status code
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check active responder command status too many requests response has a 4xx status code
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check active responder command status too many requests response has a 5xx status code
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check active responder command status too many requests response a status code equal to that given
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RTRCheckActiveResponderCommandStatusDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r check active responder command status default response has a 2xx status code
+func (o *RTRCheckActiveResponderCommandStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r check active responder command status default response has a 3xx status code
+func (o *RTRCheckActiveResponderCommandStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r check active responder command status default response has a 4xx status code
+func (o *RTRCheckActiveResponderCommandStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r check active responder command status default response has a 5xx status code
+func (o *RTRCheckActiveResponderCommandStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r check active responder command status default response a status code equal to that given
+func (o *RTRCheckActiveResponderCommandStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRCheckActiveResponderCommandStatusDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] RTR-CheckActiveResponderCommandStatus default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRCheckActiveResponderCommandStatusDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] RTR-CheckActiveResponderCommandStatus default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRCheckActiveResponderCommandStatusDefault) GetPayload() *models.DomainStatusResponseWrapper {
 	return o.Payload
 }

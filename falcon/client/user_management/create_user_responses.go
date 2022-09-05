@@ -77,9 +77,39 @@ type CreateUserCreated struct {
 	Payload *models.DomainUserMetaDataResponse
 }
 
+// IsSuccess returns true when this create user created response has a 2xx status code
+func (o *CreateUserCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create user created response has a 3xx status code
+func (o *CreateUserCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user created response has a 4xx status code
+func (o *CreateUserCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create user created response has a 5xx status code
+func (o *CreateUserCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user created response a status code equal to that given
+func (o *CreateUserCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateUserCreated) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateUserCreated) String() string {
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateUserCreated) GetPayload() *models.DomainUserMetaDataResponse {
 	return o.Payload
 }
@@ -141,9 +171,39 @@ type CreateUserBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this create user bad request response has a 2xx status code
+func (o *CreateUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user bad request response has a 3xx status code
+func (o *CreateUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user bad request response has a 4xx status code
+func (o *CreateUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user bad request response has a 5xx status code
+func (o *CreateUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user bad request response a status code equal to that given
+func (o *CreateUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateUserBadRequest) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateUserBadRequest) String() string {
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -205,9 +265,39 @@ type CreateUserForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this create user forbidden response has a 2xx status code
+func (o *CreateUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user forbidden response has a 3xx status code
+func (o *CreateUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user forbidden response has a 4xx status code
+func (o *CreateUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user forbidden response has a 5xx status code
+func (o *CreateUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user forbidden response a status code equal to that given
+func (o *CreateUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateUserForbidden) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateUserForbidden) String() string {
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -273,9 +363,39 @@ type CreateUserTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create user too many requests response has a 2xx status code
+func (o *CreateUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create user too many requests response has a 3xx status code
+func (o *CreateUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create user too many requests response has a 4xx status code
+func (o *CreateUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create user too many requests response has a 5xx status code
+func (o *CreateUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create user too many requests response a status code equal to that given
+func (o *CreateUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateUserTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type CreateRulesV1OK struct {
 	Payload *models.DomainRulesEntitiesResponseV1
 }
 
+// IsSuccess returns true when this create rules v1 o k response has a 2xx status code
+func (o *CreateRulesV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create rules v1 o k response has a 3xx status code
+func (o *CreateRulesV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 o k response has a 4xx status code
+func (o *CreateRulesV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create rules v1 o k response has a 5xx status code
+func (o *CreateRulesV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rules v1 o k response a status code equal to that given
+func (o *CreateRulesV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateRulesV1OK) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1OK  %+v", 200, o.Payload)
 }
+
+func (o *CreateRulesV1OK) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1OK  %+v", 200, o.Payload)
+}
+
 func (o *CreateRulesV1OK) GetPayload() *models.DomainRulesEntitiesResponseV1 {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type CreateRulesV1BadRequest struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this create rules v1 bad request response has a 2xx status code
+func (o *CreateRulesV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rules v1 bad request response has a 3xx status code
+func (o *CreateRulesV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 bad request response has a 4xx status code
+func (o *CreateRulesV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rules v1 bad request response has a 5xx status code
+func (o *CreateRulesV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rules v1 bad request response a status code equal to that given
+func (o *CreateRulesV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateRulesV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateRulesV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateRulesV1BadRequest) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type CreateRulesV1Unauthorized struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this create rules v1 unauthorized response has a 2xx status code
+func (o *CreateRulesV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rules v1 unauthorized response has a 3xx status code
+func (o *CreateRulesV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 unauthorized response has a 4xx status code
+func (o *CreateRulesV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rules v1 unauthorized response has a 5xx status code
+func (o *CreateRulesV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rules v1 unauthorized response a status code equal to that given
+func (o *CreateRulesV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *CreateRulesV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *CreateRulesV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *CreateRulesV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type CreateRulesV1Forbidden struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this create rules v1 forbidden response has a 2xx status code
+func (o *CreateRulesV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rules v1 forbidden response has a 3xx status code
+func (o *CreateRulesV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 forbidden response has a 4xx status code
+func (o *CreateRulesV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rules v1 forbidden response has a 5xx status code
+func (o *CreateRulesV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rules v1 forbidden response a status code equal to that given
+func (o *CreateRulesV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRulesV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRulesV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRulesV1Forbidden) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type CreateRulesV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rules v1 too many requests response has a 2xx status code
+func (o *CreateRulesV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rules v1 too many requests response has a 3xx status code
+func (o *CreateRulesV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 too many requests response has a 4xx status code
+func (o *CreateRulesV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rules v1 too many requests response has a 5xx status code
+func (o *CreateRulesV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rules v1 too many requests response a status code equal to that given
+func (o *CreateRulesV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateRulesV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateRulesV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateRulesV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type CreateRulesV1InternalServerError struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this create rules v1 internal server error response has a 2xx status code
+func (o *CreateRulesV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rules v1 internal server error response has a 3xx status code
+func (o *CreateRulesV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rules v1 internal server error response has a 4xx status code
+func (o *CreateRulesV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create rules v1 internal server error response has a 5xx status code
+func (o *CreateRulesV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create rules v1 internal server error response a status code equal to that given
+func (o *CreateRulesV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateRulesV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateRulesV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] createRulesV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateRulesV1InternalServerError) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *CreateRulesV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create rules v1 default response has a 2xx status code
+func (o *CreateRulesV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create rules v1 default response has a 3xx status code
+func (o *CreateRulesV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create rules v1 default response has a 4xx status code
+func (o *CreateRulesV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create rules v1 default response has a 5xx status code
+func (o *CreateRulesV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create rules v1 default response a status code equal to that given
+func (o *CreateRulesV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateRulesV1Default) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] CreateRulesV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateRulesV1Default) String() string {
+	return fmt.Sprintf("[POST /recon/entities/rules/v1][%d] CreateRulesV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateRulesV1Default) GetPayload() *models.DomainRulesEntitiesResponseV1 {
 	return o.Payload
 }

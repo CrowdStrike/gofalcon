@@ -90,9 +90,39 @@ type RTRListSessionsOK struct {
 	Payload *models.DomainSessionResponseWrapper
 }
 
+// IsSuccess returns true when this r t r list sessions o k response has a 2xx status code
+func (o *RTRListSessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r list sessions o k response has a 3xx status code
+func (o *RTRListSessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list sessions o k response has a 4xx status code
+func (o *RTRListSessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r list sessions o k response has a 5xx status code
+func (o *RTRListSessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list sessions o k response a status code equal to that given
+func (o *RTRListSessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRListSessionsOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRListSessionsOK) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRListSessionsOK) GetPayload() *models.DomainSessionResponseWrapper {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRListSessionsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r list sessions bad request response has a 2xx status code
+func (o *RTRListSessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list sessions bad request response has a 3xx status code
+func (o *RTRListSessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list sessions bad request response has a 4xx status code
+func (o *RTRListSessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list sessions bad request response has a 5xx status code
+func (o *RTRListSessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list sessions bad request response a status code equal to that given
+func (o *RTRListSessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRListSessionsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRListSessionsBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRListSessionsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRListSessionsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r list sessions forbidden response has a 2xx status code
+func (o *RTRListSessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list sessions forbidden response has a 3xx status code
+func (o *RTRListSessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list sessions forbidden response has a 4xx status code
+func (o *RTRListSessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list sessions forbidden response has a 5xx status code
+func (o *RTRListSessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list sessions forbidden response a status code equal to that given
+func (o *RTRListSessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRListSessionsForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRListSessionsForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRListSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRListSessionsNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r list sessions not found response has a 2xx status code
+func (o *RTRListSessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list sessions not found response has a 3xx status code
+func (o *RTRListSessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list sessions not found response has a 4xx status code
+func (o *RTRListSessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list sessions not found response has a 5xx status code
+func (o *RTRListSessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list sessions not found response a status code equal to that given
+func (o *RTRListSessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRListSessionsNotFound) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRListSessionsNotFound) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRListSessionsNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRListSessionsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r list sessions too many requests response has a 2xx status code
+func (o *RTRListSessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r list sessions too many requests response has a 3xx status code
+func (o *RTRListSessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r list sessions too many requests response has a 4xx status code
+func (o *RTRListSessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r list sessions too many requests response has a 5xx status code
+func (o *RTRListSessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r list sessions too many requests response a status code equal to that given
+func (o *RTRListSessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRListSessionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRListSessionsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] rTRListSessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRListSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRListSessionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r list sessions default response has a 2xx status code
+func (o *RTRListSessionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r list sessions default response has a 3xx status code
+func (o *RTRListSessionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r list sessions default response has a 4xx status code
+func (o *RTRListSessionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r list sessions default response has a 5xx status code
+func (o *RTRListSessionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r list sessions default response a status code equal to that given
+func (o *RTRListSessionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRListSessionsDefault) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] RTR-ListSessions default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRListSessionsDefault) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/sessions/GET/v1][%d] RTR-ListSessions default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRListSessionsDefault) GetPayload() *models.DomainSessionResponseWrapper {
 	return o.Payload
 }

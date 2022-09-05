@@ -94,9 +94,39 @@ type CaseAddAttachmentOK struct {
 	Payload *models.APIMessageCenterAttachmentUploadResponse
 }
 
+// IsSuccess returns true when this case add attachment o k response has a 2xx status code
+func (o *CaseAddAttachmentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this case add attachment o k response has a 3xx status code
+func (o *CaseAddAttachmentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add attachment o k response has a 4xx status code
+func (o *CaseAddAttachmentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case add attachment o k response has a 5xx status code
+func (o *CaseAddAttachmentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add attachment o k response a status code equal to that given
+func (o *CaseAddAttachmentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CaseAddAttachmentOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK  %+v", 200, o.Payload)
 }
+
+func (o *CaseAddAttachmentOK) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentOK  %+v", 200, o.Payload)
+}
+
 func (o *CaseAddAttachmentOK) GetPayload() *models.APIMessageCenterAttachmentUploadResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type CaseAddAttachmentBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add attachment bad request response has a 2xx status code
+func (o *CaseAddAttachmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add attachment bad request response has a 3xx status code
+func (o *CaseAddAttachmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add attachment bad request response has a 4xx status code
+func (o *CaseAddAttachmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add attachment bad request response has a 5xx status code
+func (o *CaseAddAttachmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add attachment bad request response a status code equal to that given
+func (o *CaseAddAttachmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CaseAddAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CaseAddAttachmentBadRequest) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CaseAddAttachmentBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type CaseAddAttachmentForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add attachment forbidden response has a 2xx status code
+func (o *CaseAddAttachmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add attachment forbidden response has a 3xx status code
+func (o *CaseAddAttachmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add attachment forbidden response has a 4xx status code
+func (o *CaseAddAttachmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add attachment forbidden response has a 5xx status code
+func (o *CaseAddAttachmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add attachment forbidden response a status code equal to that given
+func (o *CaseAddAttachmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CaseAddAttachmentForbidden) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CaseAddAttachmentForbidden) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CaseAddAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type CaseAddAttachmentTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add attachment too many requests response has a 2xx status code
+func (o *CaseAddAttachmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add attachment too many requests response has a 3xx status code
+func (o *CaseAddAttachmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add attachment too many requests response has a 4xx status code
+func (o *CaseAddAttachmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this case add attachment too many requests response has a 5xx status code
+func (o *CaseAddAttachmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this case add attachment too many requests response a status code equal to that given
+func (o *CaseAddAttachmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CaseAddAttachmentTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CaseAddAttachmentTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CaseAddAttachmentTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type CaseAddAttachmentInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this case add attachment internal server error response has a 2xx status code
+func (o *CaseAddAttachmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this case add attachment internal server error response has a 3xx status code
+func (o *CaseAddAttachmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this case add attachment internal server error response has a 4xx status code
+func (o *CaseAddAttachmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this case add attachment internal server error response has a 5xx status code
+func (o *CaseAddAttachmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this case add attachment internal server error response a status code equal to that given
+func (o *CaseAddAttachmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CaseAddAttachmentInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CaseAddAttachmentInternalServerError) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CaseAddAttachmentInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *CaseAddAttachmentDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this case add attachment default response has a 2xx status code
+func (o *CaseAddAttachmentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this case add attachment default response has a 3xx status code
+func (o *CaseAddAttachmentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this case add attachment default response has a 4xx status code
+func (o *CaseAddAttachmentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this case add attachment default response has a 5xx status code
+func (o *CaseAddAttachmentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this case add attachment default response a status code equal to that given
+func (o *CaseAddAttachmentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CaseAddAttachmentDefault) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] CaseAddAttachment default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CaseAddAttachmentDefault) String() string {
+	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] CaseAddAttachment default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CaseAddAttachmentDefault) GetPayload() *models.APIMessageCenterAttachmentUploadResponse {
 	return o.Payload
 }

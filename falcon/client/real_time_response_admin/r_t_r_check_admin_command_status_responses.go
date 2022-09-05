@@ -84,9 +84,39 @@ type RTRCheckAdminCommandStatusOK struct {
 	Payload *models.DomainStatusResponseWrapper
 }
 
+// IsSuccess returns true when this r t r check admin command status o k response has a 2xx status code
+func (o *RTRCheckAdminCommandStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r check admin command status o k response has a 3xx status code
+func (o *RTRCheckAdminCommandStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check admin command status o k response has a 4xx status code
+func (o *RTRCheckAdminCommandStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r check admin command status o k response has a 5xx status code
+func (o *RTRCheckAdminCommandStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check admin command status o k response a status code equal to that given
+func (o *RTRCheckAdminCommandStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRCheckAdminCommandStatusOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRCheckAdminCommandStatusOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRCheckAdminCommandStatusOK) GetPayload() *models.DomainStatusResponseWrapper {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type RTRCheckAdminCommandStatusUnauthorized struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r check admin command status unauthorized response has a 2xx status code
+func (o *RTRCheckAdminCommandStatusUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check admin command status unauthorized response has a 3xx status code
+func (o *RTRCheckAdminCommandStatusUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check admin command status unauthorized response has a 4xx status code
+func (o *RTRCheckAdminCommandStatusUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check admin command status unauthorized response has a 5xx status code
+func (o *RTRCheckAdminCommandStatusUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check admin command status unauthorized response a status code equal to that given
+func (o *RTRCheckAdminCommandStatusUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *RTRCheckAdminCommandStatusUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *RTRCheckAdminCommandStatusUnauthorized) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *RTRCheckAdminCommandStatusUnauthorized) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type RTRCheckAdminCommandStatusForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r check admin command status forbidden response has a 2xx status code
+func (o *RTRCheckAdminCommandStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check admin command status forbidden response has a 3xx status code
+func (o *RTRCheckAdminCommandStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check admin command status forbidden response has a 4xx status code
+func (o *RTRCheckAdminCommandStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check admin command status forbidden response has a 5xx status code
+func (o *RTRCheckAdminCommandStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check admin command status forbidden response a status code equal to that given
+func (o *RTRCheckAdminCommandStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRCheckAdminCommandStatusForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRCheckAdminCommandStatusForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRCheckAdminCommandStatusForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type RTRCheckAdminCommandStatusTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r check admin command status too many requests response has a 2xx status code
+func (o *RTRCheckAdminCommandStatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r check admin command status too many requests response has a 3xx status code
+func (o *RTRCheckAdminCommandStatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r check admin command status too many requests response has a 4xx status code
+func (o *RTRCheckAdminCommandStatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r check admin command status too many requests response has a 5xx status code
+func (o *RTRCheckAdminCommandStatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r check admin command status too many requests response a status code equal to that given
+func (o *RTRCheckAdminCommandStatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRCheckAdminCommandStatusTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRCheckAdminCommandStatusTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] rTRCheckAdminCommandStatusTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRCheckAdminCommandStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *RTRCheckAdminCommandStatusDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r check admin command status default response has a 2xx status code
+func (o *RTRCheckAdminCommandStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r check admin command status default response has a 3xx status code
+func (o *RTRCheckAdminCommandStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r check admin command status default response has a 4xx status code
+func (o *RTRCheckAdminCommandStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r check admin command status default response has a 5xx status code
+func (o *RTRCheckAdminCommandStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r check admin command status default response a status code equal to that given
+func (o *RTRCheckAdminCommandStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRCheckAdminCommandStatusDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] RTR-CheckAdminCommandStatus default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRCheckAdminCommandStatusDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/admin-command/v1][%d] RTR-CheckAdminCommandStatus default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRCheckAdminCommandStatusDefault) GetPayload() *models.DomainStatusResponseWrapper {
 	return o.Payload
 }

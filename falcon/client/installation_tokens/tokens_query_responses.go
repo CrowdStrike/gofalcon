@@ -90,9 +90,39 @@ type TokensQueryOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this tokens query o k response has a 2xx status code
+func (o *TokensQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tokens query o k response has a 3xx status code
+func (o *TokensQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens query o k response has a 4xx status code
+func (o *TokensQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens query o k response has a 5xx status code
+func (o *TokensQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens query o k response a status code equal to that given
+func (o *TokensQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *TokensQueryOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
 }
+
+func (o *TokensQueryOK) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
+}
+
 func (o *TokensQueryOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type TokensQueryBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens query bad request response has a 2xx status code
+func (o *TokensQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens query bad request response has a 3xx status code
+func (o *TokensQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens query bad request response has a 4xx status code
+func (o *TokensQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens query bad request response has a 5xx status code
+func (o *TokensQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens query bad request response a status code equal to that given
+func (o *TokensQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TokensQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TokensQueryBadRequest) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TokensQueryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type TokensQueryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens query forbidden response has a 2xx status code
+func (o *TokensQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens query forbidden response has a 3xx status code
+func (o *TokensQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens query forbidden response has a 4xx status code
+func (o *TokensQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens query forbidden response has a 5xx status code
+func (o *TokensQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens query forbidden response a status code equal to that given
+func (o *TokensQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TokensQueryForbidden) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TokensQueryForbidden) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TokensQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type TokensQueryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens query too many requests response has a 2xx status code
+func (o *TokensQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens query too many requests response has a 3xx status code
+func (o *TokensQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens query too many requests response has a 4xx status code
+func (o *TokensQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens query too many requests response has a 5xx status code
+func (o *TokensQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens query too many requests response a status code equal to that given
+func (o *TokensQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TokensQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TokensQueryTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TokensQueryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type TokensQueryInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens query internal server error response has a 2xx status code
+func (o *TokensQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens query internal server error response has a 3xx status code
+func (o *TokensQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens query internal server error response has a 4xx status code
+func (o *TokensQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens query internal server error response has a 5xx status code
+func (o *TokensQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this tokens query internal server error response a status code equal to that given
+func (o *TokensQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TokensQueryInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TokensQueryInternalServerError) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TokensQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *TokensQueryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this tokens query default response has a 2xx status code
+func (o *TokensQueryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tokens query default response has a 3xx status code
+func (o *TokensQueryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tokens query default response has a 4xx status code
+func (o *TokensQueryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tokens query default response has a 5xx status code
+func (o *TokensQueryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tokens query default response a status code equal to that given
+func (o *TokensQueryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *TokensQueryDefault) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokens-query default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TokensQueryDefault) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokens-query default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TokensQueryDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

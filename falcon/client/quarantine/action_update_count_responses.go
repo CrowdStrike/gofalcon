@@ -82,9 +82,39 @@ type ActionUpdateCountOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this action update count o k response has a 2xx status code
+func (o *ActionUpdateCountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this action update count o k response has a 3xx status code
+func (o *ActionUpdateCountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this action update count o k response has a 4xx status code
+func (o *ActionUpdateCountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this action update count o k response has a 5xx status code
+func (o *ActionUpdateCountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this action update count o k response a status code equal to that given
+func (o *ActionUpdateCountOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ActionUpdateCountOK) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK  %+v", 200, o.Payload)
 }
+
+func (o *ActionUpdateCountOK) String() string {
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK  %+v", 200, o.Payload)
+}
+
 func (o *ActionUpdateCountOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type ActionUpdateCountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this action update count forbidden response has a 2xx status code
+func (o *ActionUpdateCountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this action update count forbidden response has a 3xx status code
+func (o *ActionUpdateCountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this action update count forbidden response has a 4xx status code
+func (o *ActionUpdateCountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this action update count forbidden response has a 5xx status code
+func (o *ActionUpdateCountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this action update count forbidden response a status code equal to that given
+func (o *ActionUpdateCountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ActionUpdateCountForbidden) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ActionUpdateCountForbidden) String() string {
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ActionUpdateCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type ActionUpdateCountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this action update count too many requests response has a 2xx status code
+func (o *ActionUpdateCountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this action update count too many requests response has a 3xx status code
+func (o *ActionUpdateCountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this action update count too many requests response has a 4xx status code
+func (o *ActionUpdateCountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this action update count too many requests response has a 5xx status code
+func (o *ActionUpdateCountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this action update count too many requests response a status code equal to that given
+func (o *ActionUpdateCountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *ActionUpdateCountTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *ActionUpdateCountTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *ActionUpdateCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *ActionUpdateCountDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this action update count default response has a 2xx status code
+func (o *ActionUpdateCountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this action update count default response has a 3xx status code
+func (o *ActionUpdateCountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this action update count default response has a 4xx status code
+func (o *ActionUpdateCountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this action update count default response has a 5xx status code
+func (o *ActionUpdateCountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this action update count default response a status code equal to that given
+func (o *ActionUpdateCountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ActionUpdateCountDefault) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] ActionUpdateCount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ActionUpdateCountDefault) String() string {
+	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] ActionUpdateCount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ActionUpdateCountDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

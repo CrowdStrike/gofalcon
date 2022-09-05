@@ -94,9 +94,39 @@ type GetIOAUsersOK struct {
 	Payload *models.RegistrationIOAUserResponse
 }
 
+// IsSuccess returns true when this get i o a users o k response has a 2xx status code
+func (o *GetIOAUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get i o a users o k response has a 3xx status code
+func (o *GetIOAUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a users o k response has a 4xx status code
+func (o *GetIOAUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get i o a users o k response has a 5xx status code
+func (o *GetIOAUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a users o k response a status code equal to that given
+func (o *GetIOAUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIOAUsersOK) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIOAUsersOK) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIOAUsersOK) GetPayload() *models.RegistrationIOAUserResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetIOAUsersBadRequest struct {
 	Payload *models.RegistrationIOAUserResponse
 }
 
+// IsSuccess returns true when this get i o a users bad request response has a 2xx status code
+func (o *GetIOAUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a users bad request response has a 3xx status code
+func (o *GetIOAUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a users bad request response has a 4xx status code
+func (o *GetIOAUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a users bad request response has a 5xx status code
+func (o *GetIOAUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a users bad request response a status code equal to that given
+func (o *GetIOAUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIOAUsersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetIOAUsersBadRequest) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetIOAUsersBadRequest) GetPayload() *models.RegistrationIOAUserResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetIOAUsersForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get i o a users forbidden response has a 2xx status code
+func (o *GetIOAUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a users forbidden response has a 3xx status code
+func (o *GetIOAUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a users forbidden response has a 4xx status code
+func (o *GetIOAUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a users forbidden response has a 5xx status code
+func (o *GetIOAUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a users forbidden response a status code equal to that given
+func (o *GetIOAUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIOAUsersForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIOAUsersForbidden) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIOAUsersForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetIOAUsersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get i o a users too many requests response has a 2xx status code
+func (o *GetIOAUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a users too many requests response has a 3xx status code
+func (o *GetIOAUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a users too many requests response has a 4xx status code
+func (o *GetIOAUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get i o a users too many requests response has a 5xx status code
+func (o *GetIOAUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get i o a users too many requests response a status code equal to that given
+func (o *GetIOAUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIOAUsersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIOAUsersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIOAUsersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetIOAUsersInternalServerError struct {
 	Payload *models.RegistrationIOAUserResponse
 }
 
+// IsSuccess returns true when this get i o a users internal server error response has a 2xx status code
+func (o *GetIOAUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get i o a users internal server error response has a 3xx status code
+func (o *GetIOAUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get i o a users internal server error response has a 4xx status code
+func (o *GetIOAUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get i o a users internal server error response has a 5xx status code
+func (o *GetIOAUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get i o a users internal server error response a status code equal to that given
+func (o *GetIOAUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIOAUsersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIOAUsersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIOAUsersInternalServerError) GetPayload() *models.RegistrationIOAUserResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetIOAUsersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get i o a users default response has a 2xx status code
+func (o *GetIOAUsersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get i o a users default response has a 3xx status code
+func (o *GetIOAUsersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get i o a users default response has a 4xx status code
+func (o *GetIOAUsersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get i o a users default response has a 5xx status code
+func (o *GetIOAUsersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get i o a users default response a status code equal to that given
+func (o *GetIOAUsersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIOAUsersDefault) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] GetIOAUsers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetIOAUsersDefault) String() string {
+	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] GetIOAUsers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetIOAUsersDefault) GetPayload() *models.RegistrationIOAUserResponse {
 	return o.Payload
 }

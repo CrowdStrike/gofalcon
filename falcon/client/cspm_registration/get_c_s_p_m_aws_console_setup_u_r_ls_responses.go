@@ -96,9 +96,39 @@ type GetCSPMAwsConsoleSetupURLsOK struct {
 	Payload *models.RegistrationAWSAccountConsoleURL
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls o k response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls o k response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls o k response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls o k response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls o k response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsOK) GetPayload() *models.RegistrationAWSAccountConsoleURL {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetCSPMAwsConsoleSetupURLsMultiStatus struct {
 	Payload *models.RegistrationAWSAccountConsoleURL
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls multi status response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls multi status response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls multi status response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls multi status response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls multi status response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsMultiStatus) GetPayload() *models.RegistrationAWSAccountConsoleURL {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetCSPMAwsConsoleSetupURLsBadRequest struct {
 	Payload *models.RegistrationAWSAccountConsoleURL
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls bad request response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls bad request response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls bad request response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls bad request response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls bad request response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsBadRequest) GetPayload() *models.RegistrationAWSAccountConsoleURL {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetCSPMAwsConsoleSetupURLsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls forbidden response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls forbidden response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls forbidden response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls forbidden response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls forbidden response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetCSPMAwsConsoleSetupURLsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls too many requests response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls too many requests response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls too many requests response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls too many requests response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls too many requests response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetCSPMAwsConsoleSetupURLsInternalServerError struct {
 	Payload *models.RegistrationAWSAccountConsoleURL
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls internal server error response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls internal server error response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls internal server error response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls internal server error response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls internal server error response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] getCSPMAwsConsoleSetupURLsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsInternalServerError) GetPayload() *models.RegistrationAWSAccountConsoleURL {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetCSPMAwsConsoleSetupURLsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get c s p m aws console setup u r ls default response has a 2xx status code
+func (o *GetCSPMAwsConsoleSetupURLsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get c s p m aws console setup u r ls default response has a 3xx status code
+func (o *GetCSPMAwsConsoleSetupURLsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get c s p m aws console setup u r ls default response has a 4xx status code
+func (o *GetCSPMAwsConsoleSetupURLsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get c s p m aws console setup u r ls default response has a 5xx status code
+func (o *GetCSPMAwsConsoleSetupURLsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get c s p m aws console setup u r ls default response a status code equal to that given
+func (o *GetCSPMAwsConsoleSetupURLsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] GetCSPMAwsConsoleSetupURLs default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCSPMAwsConsoleSetupURLsDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/console-setup-urls/v1][%d] GetCSPMAwsConsoleSetupURLs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCSPMAwsConsoleSetupURLsDefault) GetPayload() *models.RegistrationAWSAccountConsoleURL {
 	return o.Payload
 }

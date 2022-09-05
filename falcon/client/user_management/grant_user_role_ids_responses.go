@@ -84,9 +84,39 @@ type GrantUserRoleIdsOK struct {
 	Payload *models.DomainUserRoleIDsResponse
 }
 
+// IsSuccess returns true when this grant user role ids o k response has a 2xx status code
+func (o *GrantUserRoleIdsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this grant user role ids o k response has a 3xx status code
+func (o *GrantUserRoleIdsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this grant user role ids o k response has a 4xx status code
+func (o *GrantUserRoleIdsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this grant user role ids o k response has a 5xx status code
+func (o *GrantUserRoleIdsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this grant user role ids o k response a status code equal to that given
+func (o *GrantUserRoleIdsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GrantUserRoleIdsOK) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
 }
+
+func (o *GrantUserRoleIdsOK) String() string {
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
+}
+
 func (o *GrantUserRoleIdsOK) GetPayload() *models.DomainUserRoleIDsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GrantUserRoleIdsBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this grant user role ids bad request response has a 2xx status code
+func (o *GrantUserRoleIdsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this grant user role ids bad request response has a 3xx status code
+func (o *GrantUserRoleIdsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this grant user role ids bad request response has a 4xx status code
+func (o *GrantUserRoleIdsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this grant user role ids bad request response has a 5xx status code
+func (o *GrantUserRoleIdsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this grant user role ids bad request response a status code equal to that given
+func (o *GrantUserRoleIdsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GrantUserRoleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GrantUserRoleIdsBadRequest) String() string {
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GrantUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GrantUserRoleIdsForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this grant user role ids forbidden response has a 2xx status code
+func (o *GrantUserRoleIdsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this grant user role ids forbidden response has a 3xx status code
+func (o *GrantUserRoleIdsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this grant user role ids forbidden response has a 4xx status code
+func (o *GrantUserRoleIdsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this grant user role ids forbidden response has a 5xx status code
+func (o *GrantUserRoleIdsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this grant user role ids forbidden response a status code equal to that given
+func (o *GrantUserRoleIdsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GrantUserRoleIdsForbidden) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GrantUserRoleIdsForbidden) String() string {
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GrantUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GrantUserRoleIdsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this grant user role ids too many requests response has a 2xx status code
+func (o *GrantUserRoleIdsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this grant user role ids too many requests response has a 3xx status code
+func (o *GrantUserRoleIdsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this grant user role ids too many requests response has a 4xx status code
+func (o *GrantUserRoleIdsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this grant user role ids too many requests response has a 5xx status code
+func (o *GrantUserRoleIdsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this grant user role ids too many requests response a status code equal to that given
+func (o *GrantUserRoleIdsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GrantUserRoleIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GrantUserRoleIdsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GrantUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GrantUserRoleIdsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this grant user role ids default response has a 2xx status code
+func (o *GrantUserRoleIdsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this grant user role ids default response has a 3xx status code
+func (o *GrantUserRoleIdsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this grant user role ids default response has a 4xx status code
+func (o *GrantUserRoleIdsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this grant user role ids default response has a 5xx status code
+func (o *GrantUserRoleIdsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this grant user role ids default response a status code equal to that given
+func (o *GrantUserRoleIdsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GrantUserRoleIdsDefault) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] GrantUserRoleIds default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GrantUserRoleIdsDefault) String() string {
+	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] GrantUserRoleIds default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GrantUserRoleIdsDefault) GetPayload() *models.DomainUserRoleIDsResponse {
 	return o.Payload
 }

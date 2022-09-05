@@ -77,9 +77,39 @@ type RTRExecuteAdminCommandCreated struct {
 	Payload *models.DomainCommandExecuteResponseWrapper
 }
 
+// IsSuccess returns true when this r t r execute admin command created response has a 2xx status code
+func (o *RTRExecuteAdminCommandCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r execute admin command created response has a 3xx status code
+func (o *RTRExecuteAdminCommandCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r execute admin command created response has a 4xx status code
+func (o *RTRExecuteAdminCommandCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r execute admin command created response has a 5xx status code
+func (o *RTRExecuteAdminCommandCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r execute admin command created response a status code equal to that given
+func (o *RTRExecuteAdminCommandCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *RTRExecuteAdminCommandCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated  %+v", 201, o.Payload)
 }
+
+func (o *RTRExecuteAdminCommandCreated) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated  %+v", 201, o.Payload)
+}
+
 func (o *RTRExecuteAdminCommandCreated) GetPayload() *models.DomainCommandExecuteResponseWrapper {
 	return o.Payload
 }
@@ -141,9 +171,39 @@ type RTRExecuteAdminCommandBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r execute admin command bad request response has a 2xx status code
+func (o *RTRExecuteAdminCommandBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r execute admin command bad request response has a 3xx status code
+func (o *RTRExecuteAdminCommandBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r execute admin command bad request response has a 4xx status code
+func (o *RTRExecuteAdminCommandBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r execute admin command bad request response has a 5xx status code
+func (o *RTRExecuteAdminCommandBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r execute admin command bad request response a status code equal to that given
+func (o *RTRExecuteAdminCommandBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRExecuteAdminCommandBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRExecuteAdminCommandBadRequest) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRExecuteAdminCommandBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -205,9 +265,39 @@ type RTRExecuteAdminCommandForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r execute admin command forbidden response has a 2xx status code
+func (o *RTRExecuteAdminCommandForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r execute admin command forbidden response has a 3xx status code
+func (o *RTRExecuteAdminCommandForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r execute admin command forbidden response has a 4xx status code
+func (o *RTRExecuteAdminCommandForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r execute admin command forbidden response has a 5xx status code
+func (o *RTRExecuteAdminCommandForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r execute admin command forbidden response a status code equal to that given
+func (o *RTRExecuteAdminCommandForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRExecuteAdminCommandForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRExecuteAdminCommandForbidden) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRExecuteAdminCommandForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -273,9 +363,39 @@ type RTRExecuteAdminCommandTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r execute admin command too many requests response has a 2xx status code
+func (o *RTRExecuteAdminCommandTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r execute admin command too many requests response has a 3xx status code
+func (o *RTRExecuteAdminCommandTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r execute admin command too many requests response has a 4xx status code
+func (o *RTRExecuteAdminCommandTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r execute admin command too many requests response has a 5xx status code
+func (o *RTRExecuteAdminCommandTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r execute admin command too many requests response a status code equal to that given
+func (o *RTRExecuteAdminCommandTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRExecuteAdminCommandTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRExecuteAdminCommandTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRExecuteAdminCommandTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

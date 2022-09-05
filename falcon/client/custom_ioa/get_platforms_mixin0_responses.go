@@ -78,9 +78,39 @@ type GetPlatformsMixin0OK struct {
 	Payload *models.APIPlatformsResponse
 }
 
+// IsSuccess returns true when this get platforms mixin0 o k response has a 2xx status code
+func (o *GetPlatformsMixin0OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get platforms mixin0 o k response has a 3xx status code
+func (o *GetPlatformsMixin0OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms mixin0 o k response has a 4xx status code
+func (o *GetPlatformsMixin0OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get platforms mixin0 o k response has a 5xx status code
+func (o *GetPlatformsMixin0OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms mixin0 o k response a status code equal to that given
+func (o *GetPlatformsMixin0OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetPlatformsMixin0OK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0OK  %+v", 200, o.Payload)
 }
+
+func (o *GetPlatformsMixin0OK) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0OK  %+v", 200, o.Payload)
+}
+
 func (o *GetPlatformsMixin0OK) GetPayload() *models.APIPlatformsResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type GetPlatformsMixin0Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get platforms mixin0 forbidden response has a 2xx status code
+func (o *GetPlatformsMixin0Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get platforms mixin0 forbidden response has a 3xx status code
+func (o *GetPlatformsMixin0Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms mixin0 forbidden response has a 4xx status code
+func (o *GetPlatformsMixin0Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get platforms mixin0 forbidden response has a 5xx status code
+func (o *GetPlatformsMixin0Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms mixin0 forbidden response a status code equal to that given
+func (o *GetPlatformsMixin0Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetPlatformsMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetPlatformsMixin0Forbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetPlatformsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type GetPlatformsMixin0TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get platforms mixin0 too many requests response has a 2xx status code
+func (o *GetPlatformsMixin0TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get platforms mixin0 too many requests response has a 3xx status code
+func (o *GetPlatformsMixin0TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get platforms mixin0 too many requests response has a 4xx status code
+func (o *GetPlatformsMixin0TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get platforms mixin0 too many requests response has a 5xx status code
+func (o *GetPlatformsMixin0TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get platforms mixin0 too many requests response a status code equal to that given
+func (o *GetPlatformsMixin0TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetPlatformsMixin0TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetPlatformsMixin0TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] getPlatformsMixin0TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetPlatformsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *GetPlatformsMixin0Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get platforms mixin0 default response has a 2xx status code
+func (o *GetPlatformsMixin0Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get platforms mixin0 default response has a 3xx status code
+func (o *GetPlatformsMixin0Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get platforms mixin0 default response has a 4xx status code
+func (o *GetPlatformsMixin0Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get platforms mixin0 default response has a 5xx status code
+func (o *GetPlatformsMixin0Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get platforms mixin0 default response a status code equal to that given
+func (o *GetPlatformsMixin0Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetPlatformsMixin0Default) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] get-platformsMixin0 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetPlatformsMixin0Default) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/platforms/v1][%d] get-platformsMixin0 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetPlatformsMixin0Default) GetPayload() *models.APIPlatformsResponse {
 	return o.Payload
 }

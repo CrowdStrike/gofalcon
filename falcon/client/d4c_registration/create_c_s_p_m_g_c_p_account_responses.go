@@ -89,9 +89,39 @@ type CreateCSPMGCPAccountCreated struct {
 	Payload *models.RegistrationGCPAccountResponseV1
 }
 
+// IsSuccess returns true when this create c s p m g c p account created response has a 2xx status code
+func (o *CreateCSPMGCPAccountCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create c s p m g c p account created response has a 3xx status code
+func (o *CreateCSPMGCPAccountCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account created response has a 4xx status code
+func (o *CreateCSPMGCPAccountCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m g c p account created response has a 5xx status code
+func (o *CreateCSPMGCPAccountCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m g c p account created response a status code equal to that given
+func (o *CreateCSPMGCPAccountCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateCSPMGCPAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountCreated) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountCreated) GetPayload() *models.RegistrationGCPAccountResponseV1 {
 	return o.Payload
 }
@@ -153,9 +183,39 @@ type CreateCSPMGCPAccountMultiStatus struct {
 	Payload *models.RegistrationGCPAccountResponseV1
 }
 
+// IsSuccess returns true when this create c s p m g c p account multi status response has a 2xx status code
+func (o *CreateCSPMGCPAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create c s p m g c p account multi status response has a 3xx status code
+func (o *CreateCSPMGCPAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account multi status response has a 4xx status code
+func (o *CreateCSPMGCPAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m g c p account multi status response has a 5xx status code
+func (o *CreateCSPMGCPAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m g c p account multi status response a status code equal to that given
+func (o *CreateCSPMGCPAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *CreateCSPMGCPAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountMultiStatus) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountMultiStatus) GetPayload() *models.RegistrationGCPAccountResponseV1 {
 	return o.Payload
 }
@@ -217,9 +277,39 @@ type CreateCSPMGCPAccountBadRequest struct {
 	Payload *models.RegistrationGCPAccountResponseV1
 }
 
+// IsSuccess returns true when this create c s p m g c p account bad request response has a 2xx status code
+func (o *CreateCSPMGCPAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m g c p account bad request response has a 3xx status code
+func (o *CreateCSPMGCPAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account bad request response has a 4xx status code
+func (o *CreateCSPMGCPAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m g c p account bad request response has a 5xx status code
+func (o *CreateCSPMGCPAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m g c p account bad request response a status code equal to that given
+func (o *CreateCSPMGCPAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateCSPMGCPAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountBadRequest) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountBadRequest) GetPayload() *models.RegistrationGCPAccountResponseV1 {
 	return o.Payload
 }
@@ -281,9 +371,39 @@ type CreateCSPMGCPAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create c s p m g c p account forbidden response has a 2xx status code
+func (o *CreateCSPMGCPAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m g c p account forbidden response has a 3xx status code
+func (o *CreateCSPMGCPAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account forbidden response has a 4xx status code
+func (o *CreateCSPMGCPAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m g c p account forbidden response has a 5xx status code
+func (o *CreateCSPMGCPAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m g c p account forbidden response a status code equal to that given
+func (o *CreateCSPMGCPAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateCSPMGCPAccountForbidden) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountForbidden) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -349,9 +469,39 @@ type CreateCSPMGCPAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create c s p m g c p account too many requests response has a 2xx status code
+func (o *CreateCSPMGCPAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m g c p account too many requests response has a 3xx status code
+func (o *CreateCSPMGCPAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account too many requests response has a 4xx status code
+func (o *CreateCSPMGCPAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m g c p account too many requests response has a 5xx status code
+func (o *CreateCSPMGCPAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m g c p account too many requests response a status code equal to that given
+func (o *CreateCSPMGCPAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateCSPMGCPAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -424,9 +574,39 @@ type CreateCSPMGCPAccountInternalServerError struct {
 	Payload *models.RegistrationGCPAccountResponseV1
 }
 
+// IsSuccess returns true when this create c s p m g c p account internal server error response has a 2xx status code
+func (o *CreateCSPMGCPAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m g c p account internal server error response has a 3xx status code
+func (o *CreateCSPMGCPAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m g c p account internal server error response has a 4xx status code
+func (o *CreateCSPMGCPAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m g c p account internal server error response has a 5xx status code
+func (o *CreateCSPMGCPAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create c s p m g c p account internal server error response a status code equal to that given
+func (o *CreateCSPMGCPAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateCSPMGCPAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateCSPMGCPAccountInternalServerError) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateCSPMGCPAccountInternalServerError) GetPayload() *models.RegistrationGCPAccountResponseV1 {
 	return o.Payload
 }

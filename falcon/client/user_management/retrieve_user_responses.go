@@ -90,9 +90,39 @@ type RetrieveUserOK struct {
 	Payload *models.DomainUserMetaDataResponse
 }
 
+// IsSuccess returns true when this retrieve user o k response has a 2xx status code
+func (o *RetrieveUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this retrieve user o k response has a 3xx status code
+func (o *RetrieveUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user o k response has a 4xx status code
+func (o *RetrieveUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this retrieve user o k response has a 5xx status code
+func (o *RetrieveUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user o k response a status code equal to that given
+func (o *RetrieveUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RetrieveUserOK) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
 }
+
+func (o *RetrieveUserOK) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
+}
+
 func (o *RetrieveUserOK) GetPayload() *models.DomainUserMetaDataResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RetrieveUserBadRequest struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this retrieve user bad request response has a 2xx status code
+func (o *RetrieveUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user bad request response has a 3xx status code
+func (o *RetrieveUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user bad request response has a 4xx status code
+func (o *RetrieveUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user bad request response has a 5xx status code
+func (o *RetrieveUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user bad request response a status code equal to that given
+func (o *RetrieveUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RetrieveUserBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RetrieveUserBadRequest) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RetrieveUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RetrieveUserForbidden struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this retrieve user forbidden response has a 2xx status code
+func (o *RetrieveUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user forbidden response has a 3xx status code
+func (o *RetrieveUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user forbidden response has a 4xx status code
+func (o *RetrieveUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user forbidden response has a 5xx status code
+func (o *RetrieveUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user forbidden response a status code equal to that given
+func (o *RetrieveUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RetrieveUserForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RetrieveUserForbidden) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RetrieveUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RetrieveUserNotFound struct {
 	Payload *models.MsaEntitiesResponse
 }
 
+// IsSuccess returns true when this retrieve user not found response has a 2xx status code
+func (o *RetrieveUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user not found response has a 3xx status code
+func (o *RetrieveUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user not found response has a 4xx status code
+func (o *RetrieveUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user not found response has a 5xx status code
+func (o *RetrieveUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user not found response a status code equal to that given
+func (o *RetrieveUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RetrieveUserNotFound) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RetrieveUserNotFound) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RetrieveUserNotFound) GetPayload() *models.MsaEntitiesResponse {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RetrieveUserTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this retrieve user too many requests response has a 2xx status code
+func (o *RetrieveUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this retrieve user too many requests response has a 3xx status code
+func (o *RetrieveUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this retrieve user too many requests response has a 4xx status code
+func (o *RetrieveUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this retrieve user too many requests response has a 5xx status code
+func (o *RetrieveUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this retrieve user too many requests response a status code equal to that given
+func (o *RetrieveUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RetrieveUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RetrieveUserTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RetrieveUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RetrieveUserDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this retrieve user default response has a 2xx status code
+func (o *RetrieveUserDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this retrieve user default response has a 3xx status code
+func (o *RetrieveUserDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this retrieve user default response has a 4xx status code
+func (o *RetrieveUserDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this retrieve user default response has a 5xx status code
+func (o *RetrieveUserDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this retrieve user default response a status code equal to that given
+func (o *RetrieveUserDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RetrieveUserDefault) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] RetrieveUser default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RetrieveUserDefault) String() string {
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] RetrieveUser default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RetrieveUserDefault) GetPayload() *models.DomainUserMetaDataResponse {
 	return o.Payload
 }

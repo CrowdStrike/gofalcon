@@ -94,9 +94,39 @@ type QueryVulnerabilitiesOK struct {
 	Payload *models.DomainSPAPIQueryResponse
 }
 
+// IsSuccess returns true when this query vulnerabilities o k response has a 2xx status code
+func (o *QueryVulnerabilitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query vulnerabilities o k response has a 3xx status code
+func (o *QueryVulnerabilitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities o k response has a 4xx status code
+func (o *QueryVulnerabilitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query vulnerabilities o k response has a 5xx status code
+func (o *QueryVulnerabilitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query vulnerabilities o k response a status code equal to that given
+func (o *QueryVulnerabilitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesOK) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesOK) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type QueryVulnerabilitiesBadRequest struct {
 	Payload *models.DomainSPAPIQueryResponse
 }
 
+// IsSuccess returns true when this query vulnerabilities bad request response has a 2xx status code
+func (o *QueryVulnerabilitiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query vulnerabilities bad request response has a 3xx status code
+func (o *QueryVulnerabilitiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities bad request response has a 4xx status code
+func (o *QueryVulnerabilitiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query vulnerabilities bad request response has a 5xx status code
+func (o *QueryVulnerabilitiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query vulnerabilities bad request response a status code equal to that given
+func (o *QueryVulnerabilitiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryVulnerabilitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesBadRequest) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesBadRequest) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type QueryVulnerabilitiesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query vulnerabilities forbidden response has a 2xx status code
+func (o *QueryVulnerabilitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query vulnerabilities forbidden response has a 3xx status code
+func (o *QueryVulnerabilitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities forbidden response has a 4xx status code
+func (o *QueryVulnerabilitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query vulnerabilities forbidden response has a 5xx status code
+func (o *QueryVulnerabilitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query vulnerabilities forbidden response a status code equal to that given
+func (o *QueryVulnerabilitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryVulnerabilitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type QueryVulnerabilitiesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query vulnerabilities too many requests response has a 2xx status code
+func (o *QueryVulnerabilitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query vulnerabilities too many requests response has a 3xx status code
+func (o *QueryVulnerabilitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities too many requests response has a 4xx status code
+func (o *QueryVulnerabilitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query vulnerabilities too many requests response has a 5xx status code
+func (o *QueryVulnerabilitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query vulnerabilities too many requests response a status code equal to that given
+func (o *QueryVulnerabilitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryVulnerabilitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type QueryVulnerabilitiesInternalServerError struct {
 	Payload *models.DomainSPAPIQueryResponse
 }
 
+// IsSuccess returns true when this query vulnerabilities internal server error response has a 2xx status code
+func (o *QueryVulnerabilitiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query vulnerabilities internal server error response has a 3xx status code
+func (o *QueryVulnerabilitiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities internal server error response has a 4xx status code
+func (o *QueryVulnerabilitiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query vulnerabilities internal server error response has a 5xx status code
+func (o *QueryVulnerabilitiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query vulnerabilities internal server error response a status code equal to that given
+func (o *QueryVulnerabilitiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryVulnerabilitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *QueryVulnerabilitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query vulnerabilities default response has a 2xx status code
+func (o *QueryVulnerabilitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query vulnerabilities default response has a 3xx status code
+func (o *QueryVulnerabilitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query vulnerabilities default response has a 4xx status code
+func (o *QueryVulnerabilitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query vulnerabilities default response has a 5xx status code
+func (o *QueryVulnerabilitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query vulnerabilities default response a status code equal to that given
+func (o *QueryVulnerabilitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryVulnerabilitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryVulnerabilitiesDefault) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryVulnerabilitiesDefault) GetPayload() *models.DomainSPAPIQueryResponse {
 	return o.Payload
 }

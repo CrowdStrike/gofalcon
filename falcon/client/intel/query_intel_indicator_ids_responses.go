@@ -98,9 +98,39 @@ type QueryIntelIndicatorIdsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query intel indicator ids o k response has a 2xx status code
+func (o *QueryIntelIndicatorIdsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query intel indicator ids o k response has a 3xx status code
+func (o *QueryIntelIndicatorIdsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query intel indicator ids o k response has a 4xx status code
+func (o *QueryIntelIndicatorIdsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query intel indicator ids o k response has a 5xx status code
+func (o *QueryIntelIndicatorIdsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query intel indicator ids o k response a status code equal to that given
+func (o *QueryIntelIndicatorIdsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryIntelIndicatorIdsOK) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsOK) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -180,9 +210,39 @@ type QueryIntelIndicatorIdsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query intel indicator ids bad request response has a 2xx status code
+func (o *QueryIntelIndicatorIdsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query intel indicator ids bad request response has a 3xx status code
+func (o *QueryIntelIndicatorIdsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query intel indicator ids bad request response has a 4xx status code
+func (o *QueryIntelIndicatorIdsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query intel indicator ids bad request response has a 5xx status code
+func (o *QueryIntelIndicatorIdsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query intel indicator ids bad request response a status code equal to that given
+func (o *QueryIntelIndicatorIdsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryIntelIndicatorIdsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsBadRequest) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -255,9 +315,39 @@ type QueryIntelIndicatorIdsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query intel indicator ids forbidden response has a 2xx status code
+func (o *QueryIntelIndicatorIdsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query intel indicator ids forbidden response has a 3xx status code
+func (o *QueryIntelIndicatorIdsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query intel indicator ids forbidden response has a 4xx status code
+func (o *QueryIntelIndicatorIdsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query intel indicator ids forbidden response has a 5xx status code
+func (o *QueryIntelIndicatorIdsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query intel indicator ids forbidden response a status code equal to that given
+func (o *QueryIntelIndicatorIdsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryIntelIndicatorIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsForbidden) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -334,9 +424,39 @@ type QueryIntelIndicatorIdsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query intel indicator ids too many requests response has a 2xx status code
+func (o *QueryIntelIndicatorIdsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query intel indicator ids too many requests response has a 3xx status code
+func (o *QueryIntelIndicatorIdsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query intel indicator ids too many requests response has a 4xx status code
+func (o *QueryIntelIndicatorIdsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query intel indicator ids too many requests response has a 5xx status code
+func (o *QueryIntelIndicatorIdsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query intel indicator ids too many requests response a status code equal to that given
+func (o *QueryIntelIndicatorIdsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryIntelIndicatorIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -420,9 +540,39 @@ type QueryIntelIndicatorIdsInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query intel indicator ids internal server error response has a 2xx status code
+func (o *QueryIntelIndicatorIdsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query intel indicator ids internal server error response has a 3xx status code
+func (o *QueryIntelIndicatorIdsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query intel indicator ids internal server error response has a 4xx status code
+func (o *QueryIntelIndicatorIdsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query intel indicator ids internal server error response has a 5xx status code
+func (o *QueryIntelIndicatorIdsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query intel indicator ids internal server error response a status code equal to that given
+func (o *QueryIntelIndicatorIdsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryIntelIndicatorIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -495,9 +645,39 @@ func (o *QueryIntelIndicatorIdsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query intel indicator ids default response has a 2xx status code
+func (o *QueryIntelIndicatorIdsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query intel indicator ids default response has a 3xx status code
+func (o *QueryIntelIndicatorIdsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query intel indicator ids default response has a 4xx status code
+func (o *QueryIntelIndicatorIdsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query intel indicator ids default response has a 5xx status code
+func (o *QueryIntelIndicatorIdsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query intel indicator ids default response a status code equal to that given
+func (o *QueryIntelIndicatorIdsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryIntelIndicatorIdsDefault) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] QueryIntelIndicatorIds default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryIntelIndicatorIdsDefault) String() string {
+	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] QueryIntelIndicatorIds default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryIntelIndicatorIdsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

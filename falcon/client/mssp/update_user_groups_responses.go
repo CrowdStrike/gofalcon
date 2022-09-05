@@ -90,9 +90,39 @@ type UpdateUserGroupsOK struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this update user groups o k response has a 2xx status code
+func (o *UpdateUserGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update user groups o k response has a 3xx status code
+func (o *UpdateUserGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user groups o k response has a 4xx status code
+func (o *UpdateUserGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update user groups o k response has a 5xx status code
+func (o *UpdateUserGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user groups o k response a status code equal to that given
+func (o *UpdateUserGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateUserGroupsOK) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateUserGroupsOK) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateUserGroupsOK) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type UpdateUserGroupsMultiStatus struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this update user groups multi status response has a 2xx status code
+func (o *UpdateUserGroupsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update user groups multi status response has a 3xx status code
+func (o *UpdateUserGroupsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user groups multi status response has a 4xx status code
+func (o *UpdateUserGroupsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update user groups multi status response has a 5xx status code
+func (o *UpdateUserGroupsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user groups multi status response a status code equal to that given
+func (o *UpdateUserGroupsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *UpdateUserGroupsMultiStatus) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *UpdateUserGroupsMultiStatus) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *UpdateUserGroupsMultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type UpdateUserGroupsBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update user groups bad request response has a 2xx status code
+func (o *UpdateUserGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user groups bad request response has a 3xx status code
+func (o *UpdateUserGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user groups bad request response has a 4xx status code
+func (o *UpdateUserGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user groups bad request response has a 5xx status code
+func (o *UpdateUserGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user groups bad request response a status code equal to that given
+func (o *UpdateUserGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *UpdateUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *UpdateUserGroupsBadRequest) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *UpdateUserGroupsBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type UpdateUserGroupsForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this update user groups forbidden response has a 2xx status code
+func (o *UpdateUserGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user groups forbidden response has a 3xx status code
+func (o *UpdateUserGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user groups forbidden response has a 4xx status code
+func (o *UpdateUserGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user groups forbidden response has a 5xx status code
+func (o *UpdateUserGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user groups forbidden response a status code equal to that given
+func (o *UpdateUserGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateUserGroupsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateUserGroupsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateUserGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type UpdateUserGroupsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this update user groups too many requests response has a 2xx status code
+func (o *UpdateUserGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update user groups too many requests response has a 3xx status code
+func (o *UpdateUserGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update user groups too many requests response has a 4xx status code
+func (o *UpdateUserGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update user groups too many requests response has a 5xx status code
+func (o *UpdateUserGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update user groups too many requests response a status code equal to that given
+func (o *UpdateUserGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *UpdateUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *UpdateUserGroupsTooManyRequests) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *UpdateUserGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *UpdateUserGroupsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update user groups default response has a 2xx status code
+func (o *UpdateUserGroupsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update user groups default response has a 3xx status code
+func (o *UpdateUserGroupsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update user groups default response has a 4xx status code
+func (o *UpdateUserGroupsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update user groups default response has a 5xx status code
+func (o *UpdateUserGroupsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update user groups default response a status code equal to that given
+func (o *UpdateUserGroupsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateUserGroupsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroups default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateUserGroupsDefault) String() string {
+	return fmt.Sprintf("[PATCH /mssp/entities/user-groups/v1][%d] updateUserGroups default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateUserGroupsDefault) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }

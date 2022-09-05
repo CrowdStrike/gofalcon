@@ -81,9 +81,39 @@ type CreateRuleGroupCreated struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
+// IsSuccess returns true when this create rule group created response has a 2xx status code
+func (o *CreateRuleGroupCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create rule group created response has a 3xx status code
+func (o *CreateRuleGroupCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group created response has a 4xx status code
+func (o *CreateRuleGroupCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create rule group created response has a 5xx status code
+func (o *CreateRuleGroupCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group created response a status code equal to that given
+func (o *CreateRuleGroupCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateRuleGroupCreated) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateRuleGroupCreated) String() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateRuleGroupCreated) GetPayload() *models.FwmgrAPIQueryResponse {
 	return o.Payload
 }
@@ -156,9 +186,39 @@ type CreateRuleGroupBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group bad request response has a 2xx status code
+func (o *CreateRuleGroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group bad request response has a 3xx status code
+func (o *CreateRuleGroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group bad request response has a 4xx status code
+func (o *CreateRuleGroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group bad request response has a 5xx status code
+func (o *CreateRuleGroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group bad request response a status code equal to that given
+func (o *CreateRuleGroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateRuleGroupBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateRuleGroupBadRequest) String() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateRuleGroupBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -231,9 +291,39 @@ type CreateRuleGroupForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group forbidden response has a 2xx status code
+func (o *CreateRuleGroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group forbidden response has a 3xx status code
+func (o *CreateRuleGroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group forbidden response has a 4xx status code
+func (o *CreateRuleGroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group forbidden response has a 5xx status code
+func (o *CreateRuleGroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group forbidden response a status code equal to that given
+func (o *CreateRuleGroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRuleGroupForbidden) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRuleGroupForbidden) String() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRuleGroupForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -310,9 +400,39 @@ type CreateRuleGroupTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create rule group too many requests response has a 2xx status code
+func (o *CreateRuleGroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create rule group too many requests response has a 3xx status code
+func (o *CreateRuleGroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create rule group too many requests response has a 4xx status code
+func (o *CreateRuleGroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create rule group too many requests response has a 5xx status code
+func (o *CreateRuleGroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create rule group too many requests response a status code equal to that given
+func (o *CreateRuleGroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateRuleGroupTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateRuleGroupTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateRuleGroupTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

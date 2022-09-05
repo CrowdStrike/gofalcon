@@ -94,9 +94,39 @@ type SetRTResponsePoliciesPrecedenceOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set r t response policies precedence o k response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set r t response policies precedence o k response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set r t response policies precedence o k response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set r t response policies precedence o k response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set r t response policies precedence o k response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SetRTResponsePoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceOK  %+v", 200, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type SetRTResponsePoliciesPrecedenceBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set r t response policies precedence bad request response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set r t response policies precedence bad request response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set r t response policies precedence bad request response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set r t response policies precedence bad request response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set r t response policies precedence bad request response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SetRTResponsePoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type SetRTResponsePoliciesPrecedenceForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this set r t response policies precedence forbidden response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set r t response policies precedence forbidden response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set r t response policies precedence forbidden response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set r t response policies precedence forbidden response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set r t response policies precedence forbidden response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SetRTResponsePoliciesPrecedenceForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type SetRTResponsePoliciesPrecedenceTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this set r t response policies precedence too many requests response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set r t response policies precedence too many requests response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set r t response policies precedence too many requests response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set r t response policies precedence too many requests response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set r t response policies precedence too many requests response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type SetRTResponsePoliciesPrecedenceInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set r t response policies precedence internal server error response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set r t response policies precedence internal server error response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set r t response policies precedence internal server error response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set r t response policies precedence internal server error response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this set r t response policies precedence internal server error response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SetRTResponsePoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *SetRTResponsePoliciesPrecedenceDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this set r t response policies precedence default response has a 2xx status code
+func (o *SetRTResponsePoliciesPrecedenceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this set r t response policies precedence default response has a 3xx status code
+func (o *SetRTResponsePoliciesPrecedenceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this set r t response policies precedence default response has a 4xx status code
+func (o *SetRTResponsePoliciesPrecedenceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this set r t response policies precedence default response has a 5xx status code
+func (o *SetRTResponsePoliciesPrecedenceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this set r t response policies precedence default response a status code equal to that given
+func (o *SetRTResponsePoliciesPrecedenceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SetRTResponsePoliciesPrecedenceDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SetRTResponsePoliciesPrecedenceDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SetRTResponsePoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

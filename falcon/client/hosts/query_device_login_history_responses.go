@@ -82,9 +82,39 @@ type QueryDeviceLoginHistoryOK struct {
 	Payload *models.DeviceapiLoginHistoryResponseV1
 }
 
+// IsSuccess returns true when this query device login history o k response has a 2xx status code
+func (o *QueryDeviceLoginHistoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query device login history o k response has a 3xx status code
+func (o *QueryDeviceLoginHistoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device login history o k response has a 4xx status code
+func (o *QueryDeviceLoginHistoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query device login history o k response has a 5xx status code
+func (o *QueryDeviceLoginHistoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device login history o k response a status code equal to that given
+func (o *QueryDeviceLoginHistoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryDeviceLoginHistoryOK) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryDeviceLoginHistoryOK) String() string {
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryDeviceLoginHistoryOK) GetPayload() *models.DeviceapiLoginHistoryResponseV1 {
 	return o.Payload
 }
@@ -157,9 +187,39 @@ type QueryDeviceLoginHistoryForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query device login history forbidden response has a 2xx status code
+func (o *QueryDeviceLoginHistoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device login history forbidden response has a 3xx status code
+func (o *QueryDeviceLoginHistoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device login history forbidden response has a 4xx status code
+func (o *QueryDeviceLoginHistoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query device login history forbidden response has a 5xx status code
+func (o *QueryDeviceLoginHistoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device login history forbidden response a status code equal to that given
+func (o *QueryDeviceLoginHistoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryDeviceLoginHistoryForbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryDeviceLoginHistoryForbidden) String() string {
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryDeviceLoginHistoryForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -236,9 +296,39 @@ type QueryDeviceLoginHistoryTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query device login history too many requests response has a 2xx status code
+func (o *QueryDeviceLoginHistoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query device login history too many requests response has a 3xx status code
+func (o *QueryDeviceLoginHistoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query device login history too many requests response has a 4xx status code
+func (o *QueryDeviceLoginHistoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query device login history too many requests response has a 5xx status code
+func (o *QueryDeviceLoginHistoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query device login history too many requests response a status code equal to that given
+func (o *QueryDeviceLoginHistoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryDeviceLoginHistoryTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryDeviceLoginHistoryTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryDeviceLoginHistoryTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ func (o *QueryDeviceLoginHistoryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query device login history default response has a 2xx status code
+func (o *QueryDeviceLoginHistoryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query device login history default response has a 3xx status code
+func (o *QueryDeviceLoginHistoryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query device login history default response has a 4xx status code
+func (o *QueryDeviceLoginHistoryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query device login history default response has a 5xx status code
+func (o *QueryDeviceLoginHistoryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query device login history default response a status code equal to that given
+func (o *QueryDeviceLoginHistoryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryDeviceLoginHistoryDefault) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] QueryDeviceLoginHistory default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryDeviceLoginHistoryDefault) String() string {
+	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] QueryDeviceLoginHistory default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryDeviceLoginHistoryDefault) GetPayload() *models.DeviceapiLoginHistoryResponseV1 {
 	return o.Payload
 }

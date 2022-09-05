@@ -84,9 +84,39 @@ type DeleteRuleGroupsMixin0OK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups mixin0 o k response has a 2xx status code
+func (o *DeleteRuleGroupsMixin0OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete rule groups mixin0 o k response has a 3xx status code
+func (o *DeleteRuleGroupsMixin0OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups mixin0 o k response has a 4xx status code
+func (o *DeleteRuleGroupsMixin0OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete rule groups mixin0 o k response has a 5xx status code
+func (o *DeleteRuleGroupsMixin0OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups mixin0 o k response a status code equal to that given
+func (o *DeleteRuleGroupsMixin0OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRuleGroupsMixin0OK) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteRuleGroupsMixin0OK) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteRuleGroupsMixin0OK) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type DeleteRuleGroupsMixin0Forbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups mixin0 forbidden response has a 2xx status code
+func (o *DeleteRuleGroupsMixin0Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups mixin0 forbidden response has a 3xx status code
+func (o *DeleteRuleGroupsMixin0Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups mixin0 forbidden response has a 4xx status code
+func (o *DeleteRuleGroupsMixin0Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups mixin0 forbidden response has a 5xx status code
+func (o *DeleteRuleGroupsMixin0Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups mixin0 forbidden response a status code equal to that given
+func (o *DeleteRuleGroupsMixin0Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRuleGroupsMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteRuleGroupsMixin0Forbidden) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteRuleGroupsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type DeleteRuleGroupsMixin0NotFound struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups mixin0 not found response has a 2xx status code
+func (o *DeleteRuleGroupsMixin0NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups mixin0 not found response has a 3xx status code
+func (o *DeleteRuleGroupsMixin0NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups mixin0 not found response has a 4xx status code
+func (o *DeleteRuleGroupsMixin0NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups mixin0 not found response has a 5xx status code
+func (o *DeleteRuleGroupsMixin0NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups mixin0 not found response a status code equal to that given
+func (o *DeleteRuleGroupsMixin0NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRuleGroupsMixin0NotFound) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteRuleGroupsMixin0NotFound) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0NotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteRuleGroupsMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type DeleteRuleGroupsMixin0TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete rule groups mixin0 too many requests response has a 2xx status code
+func (o *DeleteRuleGroupsMixin0TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete rule groups mixin0 too many requests response has a 3xx status code
+func (o *DeleteRuleGroupsMixin0TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete rule groups mixin0 too many requests response has a 4xx status code
+func (o *DeleteRuleGroupsMixin0TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete rule groups mixin0 too many requests response has a 5xx status code
+func (o *DeleteRuleGroupsMixin0TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete rule groups mixin0 too many requests response a status code equal to that given
+func (o *DeleteRuleGroupsMixin0TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRuleGroupsMixin0TooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteRuleGroupsMixin0TooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteRuleGroupsMixin0TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *DeleteRuleGroupsMixin0Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete rule groups mixin0 default response has a 2xx status code
+func (o *DeleteRuleGroupsMixin0Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete rule groups mixin0 default response has a 3xx status code
+func (o *DeleteRuleGroupsMixin0Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete rule groups mixin0 default response has a 4xx status code
+func (o *DeleteRuleGroupsMixin0Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete rule groups mixin0 default response has a 5xx status code
+func (o *DeleteRuleGroupsMixin0Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete rule groups mixin0 default response a status code equal to that given
+func (o *DeleteRuleGroupsMixin0Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteRuleGroupsMixin0Default) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] delete-rule-groupsMixin0 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteRuleGroupsMixin0Default) String() string {
+	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] delete-rule-groupsMixin0 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteRuleGroupsMixin0Default) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

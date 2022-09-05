@@ -78,9 +78,39 @@ type AggregateRemediationsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate remediations o k response has a 2xx status code
+func (o *AggregateRemediationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate remediations o k response has a 3xx status code
+func (o *AggregateRemediationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate remediations o k response has a 4xx status code
+func (o *AggregateRemediationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate remediations o k response has a 5xx status code
+func (o *AggregateRemediationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate remediations o k response a status code equal to that given
+func (o *AggregateRemediationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateRemediationsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateRemediationsOK) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateRemediationsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregateRemediationsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate remediations forbidden response has a 2xx status code
+func (o *AggregateRemediationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate remediations forbidden response has a 3xx status code
+func (o *AggregateRemediationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate remediations forbidden response has a 4xx status code
+func (o *AggregateRemediationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate remediations forbidden response has a 5xx status code
+func (o *AggregateRemediationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate remediations forbidden response a status code equal to that given
+func (o *AggregateRemediationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateRemediationsForbidden) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateRemediationsForbidden) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateRemediationsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregateRemediationsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate remediations too many requests response has a 2xx status code
+func (o *AggregateRemediationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate remediations too many requests response has a 3xx status code
+func (o *AggregateRemediationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate remediations too many requests response has a 4xx status code
+func (o *AggregateRemediationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate remediations too many requests response has a 5xx status code
+func (o *AggregateRemediationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate remediations too many requests response a status code equal to that given
+func (o *AggregateRemediationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateRemediationsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateRemediationsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateRemediationsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregateRemediationsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate remediations default response has a 2xx status code
+func (o *AggregateRemediationsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate remediations default response has a 3xx status code
+func (o *AggregateRemediationsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate remediations default response has a 4xx status code
+func (o *AggregateRemediationsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate remediations default response has a 5xx status code
+func (o *AggregateRemediationsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate remediations default response a status code equal to that given
+func (o *AggregateRemediationsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateRemediationsDefault) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] AggregateRemediations default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateRemediationsDefault) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] AggregateRemediations default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateRemediationsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

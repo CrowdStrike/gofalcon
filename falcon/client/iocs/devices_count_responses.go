@@ -78,9 +78,39 @@ type DevicesCountOK struct {
 	Payload *models.APIMsaReplyIOCDevicesCount
 }
 
+// IsSuccess returns true when this devices count o k response has a 2xx status code
+func (o *DevicesCountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this devices count o k response has a 3xx status code
+func (o *DevicesCountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices count o k response has a 4xx status code
+func (o *DevicesCountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this devices count o k response has a 5xx status code
+func (o *DevicesCountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices count o k response a status code equal to that given
+func (o *DevicesCountOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DevicesCountOK) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountOK  %+v", 200, o.Payload)
 }
+
+func (o *DevicesCountOK) String() string {
+	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountOK  %+v", 200, o.Payload)
+}
+
 func (o *DevicesCountOK) GetPayload() *models.APIMsaReplyIOCDevicesCount {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type DevicesCountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this devices count forbidden response has a 2xx status code
+func (o *DevicesCountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this devices count forbidden response has a 3xx status code
+func (o *DevicesCountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices count forbidden response has a 4xx status code
+func (o *DevicesCountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this devices count forbidden response has a 5xx status code
+func (o *DevicesCountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices count forbidden response a status code equal to that given
+func (o *DevicesCountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DevicesCountForbidden) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DevicesCountForbidden) String() string {
+	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DevicesCountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type DevicesCountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this devices count too many requests response has a 2xx status code
+func (o *DevicesCountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this devices count too many requests response has a 3xx status code
+func (o *DevicesCountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this devices count too many requests response has a 4xx status code
+func (o *DevicesCountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this devices count too many requests response has a 5xx status code
+func (o *DevicesCountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this devices count too many requests response a status code equal to that given
+func (o *DevicesCountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DevicesCountTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DevicesCountTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DevicesCountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *DevicesCountDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this devices count default response has a 2xx status code
+func (o *DevicesCountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this devices count default response has a 3xx status code
+func (o *DevicesCountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this devices count default response has a 4xx status code
+func (o *DevicesCountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this devices count default response has a 5xx status code
+func (o *DevicesCountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this devices count default response a status code equal to that given
+func (o *DevicesCountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DevicesCountDefault) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] DevicesCount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DevicesCountDefault) String() string {
+	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] DevicesCount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DevicesCountDefault) GetPayload() *models.APIMsaReplyIOCDevicesCount {
 	return o.Payload
 }

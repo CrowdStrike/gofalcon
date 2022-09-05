@@ -90,9 +90,39 @@ type DeleteSensorUpdatePoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete sensor update policies o k response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete sensor update policies o k response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete sensor update policies o k response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete sensor update policies o k response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete sensor update policies o k response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteSensorUpdatePoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesOK) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteSensorUpdatePoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete sensor update policies forbidden response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete sensor update policies forbidden response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete sensor update policies forbidden response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete sensor update policies forbidden response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete sensor update policies forbidden response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteSensorUpdatePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteSensorUpdatePoliciesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete sensor update policies not found response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete sensor update policies not found response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete sensor update policies not found response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete sensor update policies not found response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete sensor update policies not found response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteSensorUpdatePoliciesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type DeleteSensorUpdatePoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete sensor update policies too many requests response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete sensor update policies too many requests response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete sensor update policies too many requests response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete sensor update policies too many requests response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete sensor update policies too many requests response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type DeleteSensorUpdatePoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete sensor update policies internal server error response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete sensor update policies internal server error response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete sensor update policies internal server error response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete sensor update policies internal server error response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete sensor update policies internal server error response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteSensorUpdatePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteSensorUpdatePoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete sensor update policies default response has a 2xx status code
+func (o *DeleteSensorUpdatePoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete sensor update policies default response has a 3xx status code
+func (o *DeleteSensorUpdatePoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete sensor update policies default response has a 4xx status code
+func (o *DeleteSensorUpdatePoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete sensor update policies default response has a 5xx status code
+func (o *DeleteSensorUpdatePoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete sensor update policies default response a status code equal to that given
+func (o *DeleteSensorUpdatePoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteSensorUpdatePoliciesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteSensorUpdatePoliciesDefault) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteSensorUpdatePoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

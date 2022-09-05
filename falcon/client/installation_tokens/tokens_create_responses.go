@@ -83,9 +83,39 @@ type TokensCreateCreated struct {
 	Payload *models.APITokenDetailsResponseV1
 }
 
+// IsSuccess returns true when this tokens create created response has a 2xx status code
+func (o *TokensCreateCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tokens create created response has a 3xx status code
+func (o *TokensCreateCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens create created response has a 4xx status code
+func (o *TokensCreateCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens create created response has a 5xx status code
+func (o *TokensCreateCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens create created response a status code equal to that given
+func (o *TokensCreateCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *TokensCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated  %+v", 201, o.Payload)
 }
+
+func (o *TokensCreateCreated) String() string {
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated  %+v", 201, o.Payload)
+}
+
 func (o *TokensCreateCreated) GetPayload() *models.APITokenDetailsResponseV1 {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type TokensCreateBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens create bad request response has a 2xx status code
+func (o *TokensCreateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens create bad request response has a 3xx status code
+func (o *TokensCreateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens create bad request response has a 4xx status code
+func (o *TokensCreateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens create bad request response has a 5xx status code
+func (o *TokensCreateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens create bad request response a status code equal to that given
+func (o *TokensCreateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *TokensCreateBadRequest) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *TokensCreateBadRequest) String() string {
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *TokensCreateBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type TokensCreateForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens create forbidden response has a 2xx status code
+func (o *TokensCreateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens create forbidden response has a 3xx status code
+func (o *TokensCreateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens create forbidden response has a 4xx status code
+func (o *TokensCreateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens create forbidden response has a 5xx status code
+func (o *TokensCreateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens create forbidden response a status code equal to that given
+func (o *TokensCreateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TokensCreateForbidden) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TokensCreateForbidden) String() string {
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TokensCreateForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -279,9 +369,39 @@ type TokensCreateTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens create too many requests response has a 2xx status code
+func (o *TokensCreateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens create too many requests response has a 3xx status code
+func (o *TokensCreateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens create too many requests response has a 4xx status code
+func (o *TokensCreateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tokens create too many requests response has a 5xx status code
+func (o *TokensCreateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tokens create too many requests response a status code equal to that given
+func (o *TokensCreateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *TokensCreateTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *TokensCreateTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *TokensCreateTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -354,9 +474,39 @@ type TokensCreateInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this tokens create internal server error response has a 2xx status code
+func (o *TokensCreateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tokens create internal server error response has a 3xx status code
+func (o *TokensCreateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tokens create internal server error response has a 4xx status code
+func (o *TokensCreateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tokens create internal server error response has a 5xx status code
+func (o *TokensCreateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this tokens create internal server error response a status code equal to that given
+func (o *TokensCreateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *TokensCreateInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *TokensCreateInternalServerError) String() string {
+	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *TokensCreateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

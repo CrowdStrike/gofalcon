@@ -89,9 +89,39 @@ type CreateDeviceControlPoliciesCreated struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this create device control policies created response has a 2xx status code
+func (o *CreateDeviceControlPoliciesCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create device control policies created response has a 3xx status code
+func (o *CreateDeviceControlPoliciesCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies created response has a 4xx status code
+func (o *CreateDeviceControlPoliciesCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create device control policies created response has a 5xx status code
+func (o *CreateDeviceControlPoliciesCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create device control policies created response a status code equal to that given
+func (o *CreateDeviceControlPoliciesCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateDeviceControlPoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesCreated) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesCreated) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -153,9 +183,39 @@ type CreateDeviceControlPoliciesBadRequest struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this create device control policies bad request response has a 2xx status code
+func (o *CreateDeviceControlPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create device control policies bad request response has a 3xx status code
+func (o *CreateDeviceControlPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies bad request response has a 4xx status code
+func (o *CreateDeviceControlPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create device control policies bad request response has a 5xx status code
+func (o *CreateDeviceControlPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create device control policies bad request response a status code equal to that given
+func (o *CreateDeviceControlPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateDeviceControlPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesBadRequest) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -217,9 +277,39 @@ type CreateDeviceControlPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this create device control policies forbidden response has a 2xx status code
+func (o *CreateDeviceControlPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create device control policies forbidden response has a 3xx status code
+func (o *CreateDeviceControlPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies forbidden response has a 4xx status code
+func (o *CreateDeviceControlPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create device control policies forbidden response has a 5xx status code
+func (o *CreateDeviceControlPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create device control policies forbidden response a status code equal to that given
+func (o *CreateDeviceControlPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -281,9 +371,39 @@ type CreateDeviceControlPoliciesNotFound struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this create device control policies not found response has a 2xx status code
+func (o *CreateDeviceControlPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create device control policies not found response has a 3xx status code
+func (o *CreateDeviceControlPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies not found response has a 4xx status code
+func (o *CreateDeviceControlPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create device control policies not found response has a 5xx status code
+func (o *CreateDeviceControlPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create device control policies not found response a status code equal to that given
+func (o *CreateDeviceControlPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateDeviceControlPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesNotFound) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesNotFound) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }
@@ -349,9 +469,39 @@ type CreateDeviceControlPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create device control policies too many requests response has a 2xx status code
+func (o *CreateDeviceControlPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create device control policies too many requests response has a 3xx status code
+func (o *CreateDeviceControlPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies too many requests response has a 4xx status code
+func (o *CreateDeviceControlPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create device control policies too many requests response has a 5xx status code
+func (o *CreateDeviceControlPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create device control policies too many requests response a status code equal to that given
+func (o *CreateDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateDeviceControlPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -424,9 +574,39 @@ type CreateDeviceControlPoliciesInternalServerError struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
+// IsSuccess returns true when this create device control policies internal server error response has a 2xx status code
+func (o *CreateDeviceControlPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create device control policies internal server error response has a 3xx status code
+func (o *CreateDeviceControlPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create device control policies internal server error response has a 4xx status code
+func (o *CreateDeviceControlPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create device control policies internal server error response has a 5xx status code
+func (o *CreateDeviceControlPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create device control policies internal server error response a status code equal to that given
+func (o *CreateDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateDeviceControlPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateDeviceControlPoliciesInternalServerError) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
 	return o.Payload
 }

@@ -84,9 +84,39 @@ type GetEventsOK struct {
 	Payload *models.FwmgrAPIEventsResponse
 }
 
+// IsSuccess returns true when this get events o k response has a 2xx status code
+func (o *GetEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get events o k response has a 3xx status code
+func (o *GetEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get events o k response has a 4xx status code
+func (o *GetEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get events o k response has a 5xx status code
+func (o *GetEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get events o k response a status code equal to that given
+func (o *GetEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetEventsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetEventsOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetEventsOK) GetPayload() *models.FwmgrAPIEventsResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetEventsBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get events bad request response has a 2xx status code
+func (o *GetEventsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get events bad request response has a 3xx status code
+func (o *GetEventsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get events bad request response has a 4xx status code
+func (o *GetEventsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get events bad request response has a 5xx status code
+func (o *GetEventsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get events bad request response a status code equal to that given
+func (o *GetEventsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetEventsBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetEventsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GetEventsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get events forbidden response has a 2xx status code
+func (o *GetEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get events forbidden response has a 3xx status code
+func (o *GetEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get events forbidden response has a 4xx status code
+func (o *GetEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get events forbidden response has a 5xx status code
+func (o *GetEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get events forbidden response a status code equal to that given
+func (o *GetEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetEventsForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetEventsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GetEventsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get events too many requests response has a 2xx status code
+func (o *GetEventsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get events too many requests response has a 3xx status code
+func (o *GetEventsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get events too many requests response has a 4xx status code
+func (o *GetEventsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get events too many requests response has a 5xx status code
+func (o *GetEventsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get events too many requests response a status code equal to that given
+func (o *GetEventsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetEventsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetEventsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetEventsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get events default response has a 2xx status code
+func (o *GetEventsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get events default response has a 3xx status code
+func (o *GetEventsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get events default response has a 4xx status code
+func (o *GetEventsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get events default response has a 5xx status code
+func (o *GetEventsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get events default response a status code equal to that given
+func (o *GetEventsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetEventsDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] get-events default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetEventsDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] get-events default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetEventsDefault) GetPayload() *models.FwmgrAPIEventsResponse {
 	return o.Payload
 }

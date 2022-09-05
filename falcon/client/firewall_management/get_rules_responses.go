@@ -84,9 +84,39 @@ type GetRulesOK struct {
 	Payload *models.FwmgrAPIRulesResponse
 }
 
+// IsSuccess returns true when this get rules o k response has a 2xx status code
+func (o *GetRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get rules o k response has a 3xx status code
+func (o *GetRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rules o k response has a 4xx status code
+func (o *GetRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get rules o k response has a 5xx status code
+func (o *GetRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rules o k response a status code equal to that given
+func (o *GetRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRulesOK) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRulesOK) GetPayload() *models.FwmgrAPIRulesResponse {
 	return o.Payload
 }
@@ -148,9 +178,39 @@ type GetRulesBadRequest struct {
 	Payload *models.FwmgrMsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rules bad request response has a 2xx status code
+func (o *GetRulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rules bad request response has a 3xx status code
+func (o *GetRulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rules bad request response has a 4xx status code
+func (o *GetRulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rules bad request response has a 5xx status code
+func (o *GetRulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rules bad request response a status code equal to that given
+func (o *GetRulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetRulesBadRequest) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetRulesBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
 	return o.Payload
 }
@@ -212,9 +272,39 @@ type GetRulesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rules forbidden response has a 2xx status code
+func (o *GetRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rules forbidden response has a 3xx status code
+func (o *GetRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rules forbidden response has a 4xx status code
+func (o *GetRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rules forbidden response has a 5xx status code
+func (o *GetRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rules forbidden response a status code equal to that given
+func (o *GetRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRulesForbidden) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRulesForbidden) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -280,9 +370,39 @@ type GetRulesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get rules too many requests response has a 2xx status code
+func (o *GetRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get rules too many requests response has a 3xx status code
+func (o *GetRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get rules too many requests response has a 4xx status code
+func (o *GetRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get rules too many requests response has a 5xx status code
+func (o *GetRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get rules too many requests response a status code equal to that given
+func (o *GetRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetRulesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -355,9 +475,39 @@ func (o *GetRulesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get rules default response has a 2xx status code
+func (o *GetRulesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get rules default response has a 3xx status code
+func (o *GetRulesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get rules default response has a 4xx status code
+func (o *GetRulesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get rules default response has a 5xx status code
+func (o *GetRulesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get rules default response a status code equal to that given
+func (o *GetRulesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRulesDefault) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] get-rules default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRulesDefault) String() string {
+	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] get-rules default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRulesDefault) GetPayload() *models.FwmgrAPIRulesResponse {
 	return o.Payload
 }

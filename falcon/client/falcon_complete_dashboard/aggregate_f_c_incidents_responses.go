@@ -78,9 +78,39 @@ type AggregateFCIncidentsOK struct {
 	Payload *models.MsaAggregatesResponse
 }
 
+// IsSuccess returns true when this aggregate f c incidents o k response has a 2xx status code
+func (o *AggregateFCIncidentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this aggregate f c incidents o k response has a 3xx status code
+func (o *AggregateFCIncidentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate f c incidents o k response has a 4xx status code
+func (o *AggregateFCIncidentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this aggregate f c incidents o k response has a 5xx status code
+func (o *AggregateFCIncidentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate f c incidents o k response a status code equal to that given
+func (o *AggregateFCIncidentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AggregateFCIncidentsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsOK  %+v", 200, o.Payload)
 }
+
+func (o *AggregateFCIncidentsOK) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsOK  %+v", 200, o.Payload)
+}
+
 func (o *AggregateFCIncidentsOK) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type AggregateFCIncidentsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate f c incidents forbidden response has a 2xx status code
+func (o *AggregateFCIncidentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate f c incidents forbidden response has a 3xx status code
+func (o *AggregateFCIncidentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate f c incidents forbidden response has a 4xx status code
+func (o *AggregateFCIncidentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate f c incidents forbidden response has a 5xx status code
+func (o *AggregateFCIncidentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate f c incidents forbidden response a status code equal to that given
+func (o *AggregateFCIncidentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AggregateFCIncidentsForbidden) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AggregateFCIncidentsForbidden) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AggregateFCIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type AggregateFCIncidentsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this aggregate f c incidents too many requests response has a 2xx status code
+func (o *AggregateFCIncidentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this aggregate f c incidents too many requests response has a 3xx status code
+func (o *AggregateFCIncidentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this aggregate f c incidents too many requests response has a 4xx status code
+func (o *AggregateFCIncidentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this aggregate f c incidents too many requests response has a 5xx status code
+func (o *AggregateFCIncidentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this aggregate f c incidents too many requests response a status code equal to that given
+func (o *AggregateFCIncidentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AggregateFCIncidentsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AggregateFCIncidentsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AggregateFCIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *AggregateFCIncidentsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this aggregate f c incidents default response has a 2xx status code
+func (o *AggregateFCIncidentsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this aggregate f c incidents default response has a 3xx status code
+func (o *AggregateFCIncidentsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this aggregate f c incidents default response has a 4xx status code
+func (o *AggregateFCIncidentsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this aggregate f c incidents default response has a 5xx status code
+func (o *AggregateFCIncidentsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this aggregate f c incidents default response a status code equal to that given
+func (o *AggregateFCIncidentsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AggregateFCIncidentsDefault) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] AggregateFCIncidents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AggregateFCIncidentsDefault) String() string {
+	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] AggregateFCIncidents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AggregateFCIncidentsDefault) GetPayload() *models.MsaAggregatesResponse {
 	return o.Payload
 }

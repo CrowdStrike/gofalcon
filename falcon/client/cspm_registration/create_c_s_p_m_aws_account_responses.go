@@ -93,9 +93,39 @@ type CreateCSPMAwsAccountCreated struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this create c s p m aws account created response has a 2xx status code
+func (o *CreateCSPMAwsAccountCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create c s p m aws account created response has a 3xx status code
+func (o *CreateCSPMAwsAccountCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account created response has a 4xx status code
+func (o *CreateCSPMAwsAccountCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m aws account created response has a 5xx status code
+func (o *CreateCSPMAwsAccountCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account created response a status code equal to that given
+func (o *CreateCSPMAwsAccountCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateCSPMAwsAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountCreated) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountCreated) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -168,9 +198,39 @@ type CreateCSPMAwsAccountMultiStatus struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this create c s p m aws account multi status response has a 2xx status code
+func (o *CreateCSPMAwsAccountMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create c s p m aws account multi status response has a 3xx status code
+func (o *CreateCSPMAwsAccountMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account multi status response has a 4xx status code
+func (o *CreateCSPMAwsAccountMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m aws account multi status response has a 5xx status code
+func (o *CreateCSPMAwsAccountMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account multi status response a status code equal to that given
+func (o *CreateCSPMAwsAccountMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *CreateCSPMAwsAccountMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountMultiStatus) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountMultiStatus) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -243,9 +303,39 @@ type CreateCSPMAwsAccountBadRequest struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this create c s p m aws account bad request response has a 2xx status code
+func (o *CreateCSPMAwsAccountBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m aws account bad request response has a 3xx status code
+func (o *CreateCSPMAwsAccountBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account bad request response has a 4xx status code
+func (o *CreateCSPMAwsAccountBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m aws account bad request response has a 5xx status code
+func (o *CreateCSPMAwsAccountBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account bad request response a status code equal to that given
+func (o *CreateCSPMAwsAccountBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateCSPMAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountBadRequest) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }
@@ -318,9 +408,39 @@ type CreateCSPMAwsAccountForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create c s p m aws account forbidden response has a 2xx status code
+func (o *CreateCSPMAwsAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m aws account forbidden response has a 3xx status code
+func (o *CreateCSPMAwsAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account forbidden response has a 4xx status code
+func (o *CreateCSPMAwsAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m aws account forbidden response has a 5xx status code
+func (o *CreateCSPMAwsAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account forbidden response a status code equal to that given
+func (o *CreateCSPMAwsAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateCSPMAwsAccountForbidden) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountForbidden) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -397,9 +517,39 @@ type CreateCSPMAwsAccountTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create c s p m aws account too many requests response has a 2xx status code
+func (o *CreateCSPMAwsAccountTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m aws account too many requests response has a 3xx status code
+func (o *CreateCSPMAwsAccountTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account too many requests response has a 4xx status code
+func (o *CreateCSPMAwsAccountTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m aws account too many requests response has a 5xx status code
+func (o *CreateCSPMAwsAccountTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m aws account too many requests response a status code equal to that given
+func (o *CreateCSPMAwsAccountTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateCSPMAwsAccountTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -483,9 +633,39 @@ type CreateCSPMAwsAccountInternalServerError struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
+// IsSuccess returns true when this create c s p m aws account internal server error response has a 2xx status code
+func (o *CreateCSPMAwsAccountInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m aws account internal server error response has a 3xx status code
+func (o *CreateCSPMAwsAccountInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m aws account internal server error response has a 4xx status code
+func (o *CreateCSPMAwsAccountInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create c s p m aws account internal server error response has a 5xx status code
+func (o *CreateCSPMAwsAccountInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create c s p m aws account internal server error response a status code equal to that given
+func (o *CreateCSPMAwsAccountInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateCSPMAwsAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateCSPMAwsAccountInternalServerError) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationAWSAccountResponseV2 {
 	return o.Payload
 }

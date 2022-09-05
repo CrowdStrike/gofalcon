@@ -90,9 +90,39 @@ type GetMLExclusionsV1OK struct {
 	Payload *models.ResponsesMlExclusionRespV1
 }
 
+// IsSuccess returns true when this get m l exclusions v1 o k response has a 2xx status code
+func (o *GetMLExclusionsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get m l exclusions v1 o k response has a 3xx status code
+func (o *GetMLExclusionsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get m l exclusions v1 o k response has a 4xx status code
+func (o *GetMLExclusionsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get m l exclusions v1 o k response has a 5xx status code
+func (o *GetMLExclusionsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get m l exclusions v1 o k response a status code equal to that given
+func (o *GetMLExclusionsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMLExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *GetMLExclusionsV1OK) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *GetMLExclusionsV1OK) GetPayload() *models.ResponsesMlExclusionRespV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetMLExclusionsV1BadRequest struct {
 	Payload *models.ResponsesMlExclusionRespV1
 }
 
+// IsSuccess returns true when this get m l exclusions v1 bad request response has a 2xx status code
+func (o *GetMLExclusionsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get m l exclusions v1 bad request response has a 3xx status code
+func (o *GetMLExclusionsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get m l exclusions v1 bad request response has a 4xx status code
+func (o *GetMLExclusionsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get m l exclusions v1 bad request response has a 5xx status code
+func (o *GetMLExclusionsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get m l exclusions v1 bad request response a status code equal to that given
+func (o *GetMLExclusionsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetMLExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetMLExclusionsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetMLExclusionsV1BadRequest) GetPayload() *models.ResponsesMlExclusionRespV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetMLExclusionsV1Forbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get m l exclusions v1 forbidden response has a 2xx status code
+func (o *GetMLExclusionsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get m l exclusions v1 forbidden response has a 3xx status code
+func (o *GetMLExclusionsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get m l exclusions v1 forbidden response has a 4xx status code
+func (o *GetMLExclusionsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get m l exclusions v1 forbidden response has a 5xx status code
+func (o *GetMLExclusionsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get m l exclusions v1 forbidden response a status code equal to that given
+func (o *GetMLExclusionsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMLExclusionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetMLExclusionsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetMLExclusionsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get m l exclusions v1 too many requests response has a 2xx status code
+func (o *GetMLExclusionsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get m l exclusions v1 too many requests response has a 3xx status code
+func (o *GetMLExclusionsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get m l exclusions v1 too many requests response has a 4xx status code
+func (o *GetMLExclusionsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get m l exclusions v1 too many requests response has a 5xx status code
+func (o *GetMLExclusionsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get m l exclusions v1 too many requests response a status code equal to that given
+func (o *GetMLExclusionsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetMLExclusionsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetMLExclusionsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetMLExclusionsV1InternalServerError struct {
 	Payload *models.ResponsesMlExclusionRespV1
 }
 
+// IsSuccess returns true when this get m l exclusions v1 internal server error response has a 2xx status code
+func (o *GetMLExclusionsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get m l exclusions v1 internal server error response has a 3xx status code
+func (o *GetMLExclusionsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get m l exclusions v1 internal server error response has a 4xx status code
+func (o *GetMLExclusionsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get m l exclusions v1 internal server error response has a 5xx status code
+func (o *GetMLExclusionsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get m l exclusions v1 internal server error response a status code equal to that given
+func (o *GetMLExclusionsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetMLExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetMLExclusionsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetMLExclusionsV1InternalServerError) GetPayload() *models.ResponsesMlExclusionRespV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetMLExclusionsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get m l exclusions v1 default response has a 2xx status code
+func (o *GetMLExclusionsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get m l exclusions v1 default response has a 3xx status code
+func (o *GetMLExclusionsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get m l exclusions v1 default response has a 4xx status code
+func (o *GetMLExclusionsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get m l exclusions v1 default response has a 5xx status code
+func (o *GetMLExclusionsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get m l exclusions v1 default response a status code equal to that given
+func (o *GetMLExclusionsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetMLExclusionsV1Default) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetMLExclusionsV1Default) String() string {
+	return fmt.Sprintf("[GET /policy/entities/ml-exclusions/v1][%d] getMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetMLExclusionsV1Default) GetPayload() *models.ResponsesMlExclusionRespV1 {
 	return o.Payload
 }

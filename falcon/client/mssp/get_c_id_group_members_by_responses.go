@@ -94,9 +94,39 @@ type GetCIDGroupMembersByOK struct {
 	Payload *models.DomainCIDGroupMembersResponseV1
 }
 
+// IsSuccess returns true when this get c Id group members by o k response has a 2xx status code
+func (o *GetCIDGroupMembersByOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c Id group members by o k response has a 3xx status code
+func (o *GetCIDGroupMembersByOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c Id group members by o k response has a 4xx status code
+func (o *GetCIDGroupMembersByOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c Id group members by o k response has a 5xx status code
+func (o *GetCIDGroupMembersByOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c Id group members by o k response a status code equal to that given
+func (o *GetCIDGroupMembersByOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCIDGroupMembersByOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByOK) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByOK) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetCIDGroupMembersByMultiStatus struct {
 	Payload *models.DomainCIDGroupMembersResponseV1
 }
 
+// IsSuccess returns true when this get c Id group members by multi status response has a 2xx status code
+func (o *GetCIDGroupMembersByMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c Id group members by multi status response has a 3xx status code
+func (o *GetCIDGroupMembersByMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c Id group members by multi status response has a 4xx status code
+func (o *GetCIDGroupMembersByMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c Id group members by multi status response has a 5xx status code
+func (o *GetCIDGroupMembersByMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c Id group members by multi status response a status code equal to that given
+func (o *GetCIDGroupMembersByMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetCIDGroupMembersByMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByMultiStatus) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByMultiStatus) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetCIDGroupMembersByBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get c Id group members by bad request response has a 2xx status code
+func (o *GetCIDGroupMembersByBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c Id group members by bad request response has a 3xx status code
+func (o *GetCIDGroupMembersByBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c Id group members by bad request response has a 4xx status code
+func (o *GetCIDGroupMembersByBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c Id group members by bad request response has a 5xx status code
+func (o *GetCIDGroupMembersByBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c Id group members by bad request response a status code equal to that given
+func (o *GetCIDGroupMembersByBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCIDGroupMembersByBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -319,9 +409,39 @@ type GetCIDGroupMembersByForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get c Id group members by forbidden response has a 2xx status code
+func (o *GetCIDGroupMembersByForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c Id group members by forbidden response has a 3xx status code
+func (o *GetCIDGroupMembersByForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c Id group members by forbidden response has a 4xx status code
+func (o *GetCIDGroupMembersByForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c Id group members by forbidden response has a 5xx status code
+func (o *GetCIDGroupMembersByForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c Id group members by forbidden response a status code equal to that given
+func (o *GetCIDGroupMembersByForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCIDGroupMembersByForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -398,9 +518,39 @@ type GetCIDGroupMembersByTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c Id group members by too many requests response has a 2xx status code
+func (o *GetCIDGroupMembersByTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c Id group members by too many requests response has a 3xx status code
+func (o *GetCIDGroupMembersByTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c Id group members by too many requests response has a 4xx status code
+func (o *GetCIDGroupMembersByTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c Id group members by too many requests response has a 5xx status code
+func (o *GetCIDGroupMembersByTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c Id group members by too many requests response a status code equal to that given
+func (o *GetCIDGroupMembersByTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCIDGroupMembersByTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetCIDGroupMembersByDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get c ID group members by default response has a 2xx status code
+func (o *GetCIDGroupMembersByDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get c ID group members by default response has a 3xx status code
+func (o *GetCIDGroupMembersByDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get c ID group members by default response has a 4xx status code
+func (o *GetCIDGroupMembersByDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get c ID group members by default response has a 5xx status code
+func (o *GetCIDGroupMembersByDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get c ID group members by default response a status code equal to that given
+func (o *GetCIDGroupMembersByDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCIDGroupMembersByDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIDGroupMembersBy default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCIDGroupMembersByDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIDGroupMembersBy default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCIDGroupMembersByDefault) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
 	return o.Payload
 }

@@ -94,9 +94,39 @@ type GetIntelReportPDFOK struct {
 	Payload io.Writer
 }
 
+// IsSuccess returns true when this get intel report p d f o k response has a 2xx status code
+func (o *GetIntelReportPDFOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get intel report p d f o k response has a 3xx status code
+func (o *GetIntelReportPDFOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel report p d f o k response has a 4xx status code
+func (o *GetIntelReportPDFOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel report p d f o k response has a 5xx status code
+func (o *GetIntelReportPDFOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel report p d f o k response a status code equal to that given
+func (o *GetIntelReportPDFOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntelReportPDFOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIntelReportPDFOK) String() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIntelReportPDFOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -156,9 +186,39 @@ type GetIntelReportPDFBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel report p d f bad request response has a 2xx status code
+func (o *GetIntelReportPDFBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel report p d f bad request response has a 3xx status code
+func (o *GetIntelReportPDFBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel report p d f bad request response has a 4xx status code
+func (o *GetIntelReportPDFBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel report p d f bad request response has a 5xx status code
+func (o *GetIntelReportPDFBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel report p d f bad request response a status code equal to that given
+func (o *GetIntelReportPDFBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntelReportPDFBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetIntelReportPDFBadRequest) String() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetIntelReportPDFBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -220,9 +280,39 @@ type GetIntelReportPDFForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel report p d f forbidden response has a 2xx status code
+func (o *GetIntelReportPDFForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel report p d f forbidden response has a 3xx status code
+func (o *GetIntelReportPDFForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel report p d f forbidden response has a 4xx status code
+func (o *GetIntelReportPDFForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel report p d f forbidden response has a 5xx status code
+func (o *GetIntelReportPDFForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel report p d f forbidden response a status code equal to that given
+func (o *GetIntelReportPDFForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntelReportPDFForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIntelReportPDFForbidden) String() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIntelReportPDFForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetIntelReportPDFTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get intel report p d f too many requests response has a 2xx status code
+func (o *GetIntelReportPDFTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel report p d f too many requests response has a 3xx status code
+func (o *GetIntelReportPDFTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel report p d f too many requests response has a 4xx status code
+func (o *GetIntelReportPDFTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get intel report p d f too many requests response has a 5xx status code
+func (o *GetIntelReportPDFTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get intel report p d f too many requests response a status code equal to that given
+func (o *GetIntelReportPDFTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntelReportPDFTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIntelReportPDFTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIntelReportPDFTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -363,9 +483,39 @@ type GetIntelReportPDFInternalServerError struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get intel report p d f internal server error response has a 2xx status code
+func (o *GetIntelReportPDFInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get intel report p d f internal server error response has a 3xx status code
+func (o *GetIntelReportPDFInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get intel report p d f internal server error response has a 4xx status code
+func (o *GetIntelReportPDFInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get intel report p d f internal server error response has a 5xx status code
+func (o *GetIntelReportPDFInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get intel report p d f internal server error response a status code equal to that given
+func (o *GetIntelReportPDFInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntelReportPDFInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIntelReportPDFInternalServerError) String() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] getIntelReportPDFInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIntelReportPDFInternalServerError) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -425,7 +575,36 @@ func (o *GetIntelReportPDFDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get intel report p d f default response has a 2xx status code
+func (o *GetIntelReportPDFDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get intel report p d f default response has a 3xx status code
+func (o *GetIntelReportPDFDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get intel report p d f default response has a 4xx status code
+func (o *GetIntelReportPDFDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get intel report p d f default response has a 5xx status code
+func (o *GetIntelReportPDFDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get intel report p d f default response a status code equal to that given
+func (o *GetIntelReportPDFDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIntelReportPDFDefault) Error() string {
+	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] GetIntelReportPDF default ", o._statusCode)
+}
+
+func (o *GetIntelReportPDFDefault) String() string {
 	return fmt.Sprintf("[GET /intel/entities/report-files/v1][%d] GetIntelReportPDF default ", o._statusCode)
 }
 

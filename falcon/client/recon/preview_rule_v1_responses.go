@@ -100,9 +100,39 @@ type PreviewRuleV1OK struct {
 	Payload *models.DomainAggregatesResponse
 }
 
+// IsSuccess returns true when this preview rule v1 o k response has a 2xx status code
+func (o *PreviewRuleV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this preview rule v1 o k response has a 3xx status code
+func (o *PreviewRuleV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 o k response has a 4xx status code
+func (o *PreviewRuleV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this preview rule v1 o k response has a 5xx status code
+func (o *PreviewRuleV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this preview rule v1 o k response a status code equal to that given
+func (o *PreviewRuleV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PreviewRuleV1OK) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK  %+v", 200, o.Payload)
 }
+
+func (o *PreviewRuleV1OK) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK  %+v", 200, o.Payload)
+}
+
 func (o *PreviewRuleV1OK) GetPayload() *models.DomainAggregatesResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type PreviewRuleV1BadRequest struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this preview rule v1 bad request response has a 2xx status code
+func (o *PreviewRuleV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this preview rule v1 bad request response has a 3xx status code
+func (o *PreviewRuleV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 bad request response has a 4xx status code
+func (o *PreviewRuleV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this preview rule v1 bad request response has a 5xx status code
+func (o *PreviewRuleV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this preview rule v1 bad request response a status code equal to that given
+func (o *PreviewRuleV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PreviewRuleV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *PreviewRuleV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *PreviewRuleV1BadRequest) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type PreviewRuleV1Unauthorized struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this preview rule v1 unauthorized response has a 2xx status code
+func (o *PreviewRuleV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this preview rule v1 unauthorized response has a 3xx status code
+func (o *PreviewRuleV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 unauthorized response has a 4xx status code
+func (o *PreviewRuleV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this preview rule v1 unauthorized response has a 5xx status code
+func (o *PreviewRuleV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this preview rule v1 unauthorized response a status code equal to that given
+func (o *PreviewRuleV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PreviewRuleV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *PreviewRuleV1Unauthorized) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *PreviewRuleV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type PreviewRuleV1Forbidden struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this preview rule v1 forbidden response has a 2xx status code
+func (o *PreviewRuleV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this preview rule v1 forbidden response has a 3xx status code
+func (o *PreviewRuleV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 forbidden response has a 4xx status code
+func (o *PreviewRuleV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this preview rule v1 forbidden response has a 5xx status code
+func (o *PreviewRuleV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this preview rule v1 forbidden response a status code equal to that given
+func (o *PreviewRuleV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PreviewRuleV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *PreviewRuleV1Forbidden) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *PreviewRuleV1Forbidden) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type PreviewRuleV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this preview rule v1 too many requests response has a 2xx status code
+func (o *PreviewRuleV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this preview rule v1 too many requests response has a 3xx status code
+func (o *PreviewRuleV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 too many requests response has a 4xx status code
+func (o *PreviewRuleV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this preview rule v1 too many requests response has a 5xx status code
+func (o *PreviewRuleV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this preview rule v1 too many requests response a status code equal to that given
+func (o *PreviewRuleV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PreviewRuleV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *PreviewRuleV1TooManyRequests) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *PreviewRuleV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type PreviewRuleV1InternalServerError struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this preview rule v1 internal server error response has a 2xx status code
+func (o *PreviewRuleV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this preview rule v1 internal server error response has a 3xx status code
+func (o *PreviewRuleV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this preview rule v1 internal server error response has a 4xx status code
+func (o *PreviewRuleV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this preview rule v1 internal server error response has a 5xx status code
+func (o *PreviewRuleV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this preview rule v1 internal server error response a status code equal to that given
+func (o *PreviewRuleV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PreviewRuleV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *PreviewRuleV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *PreviewRuleV1InternalServerError) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *PreviewRuleV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this preview rule v1 default response has a 2xx status code
+func (o *PreviewRuleV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this preview rule v1 default response has a 3xx status code
+func (o *PreviewRuleV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this preview rule v1 default response has a 4xx status code
+func (o *PreviewRuleV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this preview rule v1 default response has a 5xx status code
+func (o *PreviewRuleV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this preview rule v1 default response a status code equal to that given
+func (o *PreviewRuleV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PreviewRuleV1Default) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] PreviewRuleV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PreviewRuleV1Default) String() string {
+	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] PreviewRuleV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PreviewRuleV1Default) GetPayload() *models.DomainAggregatesResponse {
 	return o.Payload
 }

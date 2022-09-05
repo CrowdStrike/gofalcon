@@ -89,9 +89,39 @@ type CreateFirewallPoliciesCreated struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this create firewall policies created response has a 2xx status code
+func (o *CreateFirewallPoliciesCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create firewall policies created response has a 3xx status code
+func (o *CreateFirewallPoliciesCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies created response has a 4xx status code
+func (o *CreateFirewallPoliciesCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create firewall policies created response has a 5xx status code
+func (o *CreateFirewallPoliciesCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create firewall policies created response a status code equal to that given
+func (o *CreateFirewallPoliciesCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateFirewallPoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesCreated) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesCreated) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -153,9 +183,39 @@ type CreateFirewallPoliciesBadRequest struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this create firewall policies bad request response has a 2xx status code
+func (o *CreateFirewallPoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create firewall policies bad request response has a 3xx status code
+func (o *CreateFirewallPoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies bad request response has a 4xx status code
+func (o *CreateFirewallPoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create firewall policies bad request response has a 5xx status code
+func (o *CreateFirewallPoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create firewall policies bad request response a status code equal to that given
+func (o *CreateFirewallPoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CreateFirewallPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesBadRequest) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -217,9 +277,39 @@ type CreateFirewallPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this create firewall policies forbidden response has a 2xx status code
+func (o *CreateFirewallPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create firewall policies forbidden response has a 3xx status code
+func (o *CreateFirewallPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies forbidden response has a 4xx status code
+func (o *CreateFirewallPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create firewall policies forbidden response has a 5xx status code
+func (o *CreateFirewallPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create firewall policies forbidden response a status code equal to that given
+func (o *CreateFirewallPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -281,9 +371,39 @@ type CreateFirewallPoliciesNotFound struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this create firewall policies not found response has a 2xx status code
+func (o *CreateFirewallPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create firewall policies not found response has a 3xx status code
+func (o *CreateFirewallPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies not found response has a 4xx status code
+func (o *CreateFirewallPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create firewall policies not found response has a 5xx status code
+func (o *CreateFirewallPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create firewall policies not found response a status code equal to that given
+func (o *CreateFirewallPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateFirewallPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesNotFound) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesNotFound) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }
@@ -349,9 +469,39 @@ type CreateFirewallPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this create firewall policies too many requests response has a 2xx status code
+func (o *CreateFirewallPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create firewall policies too many requests response has a 3xx status code
+func (o *CreateFirewallPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies too many requests response has a 4xx status code
+func (o *CreateFirewallPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create firewall policies too many requests response has a 5xx status code
+func (o *CreateFirewallPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create firewall policies too many requests response a status code equal to that given
+func (o *CreateFirewallPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CreateFirewallPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -424,9 +574,39 @@ type CreateFirewallPoliciesInternalServerError struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
+// IsSuccess returns true when this create firewall policies internal server error response has a 2xx status code
+func (o *CreateFirewallPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create firewall policies internal server error response has a 3xx status code
+func (o *CreateFirewallPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create firewall policies internal server error response has a 4xx status code
+func (o *CreateFirewallPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create firewall policies internal server error response has a 5xx status code
+func (o *CreateFirewallPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create firewall policies internal server error response a status code equal to that given
+func (o *CreateFirewallPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CreateFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CreateFirewallPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CreateFirewallPoliciesInternalServerError) GetPayload() *models.ResponsesFirewallPoliciesV1 {
 	return o.Payload
 }

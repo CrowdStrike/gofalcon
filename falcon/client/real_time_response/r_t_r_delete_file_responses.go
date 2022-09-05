@@ -83,9 +83,39 @@ type RTRDeleteFileNoContent struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete file no content response has a 2xx status code
+func (o *RTRDeleteFileNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r delete file no content response has a 3xx status code
+func (o *RTRDeleteFileNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file no content response has a 4xx status code
+func (o *RTRDeleteFileNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r delete file no content response has a 5xx status code
+func (o *RTRDeleteFileNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file no content response a status code equal to that given
+func (o *RTRDeleteFileNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *RTRDeleteFileNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileNoContent  %+v", 204, o.Payload)
 }
+
+func (o *RTRDeleteFileNoContent) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileNoContent  %+v", 204, o.Payload)
+}
+
 func (o *RTRDeleteFileNoContent) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -147,9 +177,39 @@ type RTRDeleteFileBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete file bad request response has a 2xx status code
+func (o *RTRDeleteFileBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete file bad request response has a 3xx status code
+func (o *RTRDeleteFileBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file bad request response has a 4xx status code
+func (o *RTRDeleteFileBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete file bad request response has a 5xx status code
+func (o *RTRDeleteFileBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file bad request response a status code equal to that given
+func (o *RTRDeleteFileBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRDeleteFileBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRDeleteFileBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRDeleteFileBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -211,9 +271,39 @@ type RTRDeleteFileForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete file forbidden response has a 2xx status code
+func (o *RTRDeleteFileForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete file forbidden response has a 3xx status code
+func (o *RTRDeleteFileForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file forbidden response has a 4xx status code
+func (o *RTRDeleteFileForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete file forbidden response has a 5xx status code
+func (o *RTRDeleteFileForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file forbidden response a status code equal to that given
+func (o *RTRDeleteFileForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRDeleteFileForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRDeleteFileForbidden) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRDeleteFileForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -275,9 +365,39 @@ type RTRDeleteFileNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r delete file not found response has a 2xx status code
+func (o *RTRDeleteFileNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete file not found response has a 3xx status code
+func (o *RTRDeleteFileNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file not found response has a 4xx status code
+func (o *RTRDeleteFileNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete file not found response has a 5xx status code
+func (o *RTRDeleteFileNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file not found response a status code equal to that given
+func (o *RTRDeleteFileNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRDeleteFileNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRDeleteFileNotFound) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRDeleteFileNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -343,9 +463,39 @@ type RTRDeleteFileTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r delete file too many requests response has a 2xx status code
+func (o *RTRDeleteFileTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r delete file too many requests response has a 3xx status code
+func (o *RTRDeleteFileTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r delete file too many requests response has a 4xx status code
+func (o *RTRDeleteFileTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r delete file too many requests response has a 5xx status code
+func (o *RTRDeleteFileTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r delete file too many requests response a status code equal to that given
+func (o *RTRDeleteFileTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRDeleteFileTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRDeleteFileTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v1][%d] rTRDeleteFileTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRDeleteFileTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }

@@ -90,9 +90,39 @@ type DeleteAWSAccountsOK struct {
 	Payload *models.ModelsBaseResponseV1
 }
 
+// IsSuccess returns true when this delete a w s accounts o k response has a 2xx status code
+func (o *DeleteAWSAccountsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete a w s accounts o k response has a 3xx status code
+func (o *DeleteAWSAccountsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete a w s accounts o k response has a 4xx status code
+func (o *DeleteAWSAccountsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete a w s accounts o k response has a 5xx status code
+func (o *DeleteAWSAccountsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete a w s accounts o k response a status code equal to that given
+func (o *DeleteAWSAccountsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteAWSAccountsOK) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteAWSAccountsOK) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteAWSAccountsOK) GetPayload() *models.ModelsBaseResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteAWSAccountsBadRequest struct {
 	Payload *models.ModelsBaseResponseV1
 }
 
+// IsSuccess returns true when this delete a w s accounts bad request response has a 2xx status code
+func (o *DeleteAWSAccountsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete a w s accounts bad request response has a 3xx status code
+func (o *DeleteAWSAccountsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete a w s accounts bad request response has a 4xx status code
+func (o *DeleteAWSAccountsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete a w s accounts bad request response has a 5xx status code
+func (o *DeleteAWSAccountsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete a w s accounts bad request response a status code equal to that given
+func (o *DeleteAWSAccountsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAWSAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *DeleteAWSAccountsBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *DeleteAWSAccountsBadRequest) GetPayload() *models.ModelsBaseResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteAWSAccountsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete a w s accounts forbidden response has a 2xx status code
+func (o *DeleteAWSAccountsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete a w s accounts forbidden response has a 3xx status code
+func (o *DeleteAWSAccountsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete a w s accounts forbidden response has a 4xx status code
+func (o *DeleteAWSAccountsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete a w s accounts forbidden response has a 5xx status code
+func (o *DeleteAWSAccountsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete a w s accounts forbidden response a status code equal to that given
+func (o *DeleteAWSAccountsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAWSAccountsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteAWSAccountsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type DeleteAWSAccountsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete a w s accounts too many requests response has a 2xx status code
+func (o *DeleteAWSAccountsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete a w s accounts too many requests response has a 3xx status code
+func (o *DeleteAWSAccountsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete a w s accounts too many requests response has a 4xx status code
+func (o *DeleteAWSAccountsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete a w s accounts too many requests response has a 5xx status code
+func (o *DeleteAWSAccountsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete a w s accounts too many requests response a status code equal to that given
+func (o *DeleteAWSAccountsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAWSAccountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteAWSAccountsTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type DeleteAWSAccountsInternalServerError struct {
 	Payload *models.ModelsBaseResponseV1
 }
 
+// IsSuccess returns true when this delete a w s accounts internal server error response has a 2xx status code
+func (o *DeleteAWSAccountsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete a w s accounts internal server error response has a 3xx status code
+func (o *DeleteAWSAccountsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete a w s accounts internal server error response has a 4xx status code
+func (o *DeleteAWSAccountsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete a w s accounts internal server error response has a 5xx status code
+func (o *DeleteAWSAccountsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete a w s accounts internal server error response a status code equal to that given
+func (o *DeleteAWSAccountsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAWSAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteAWSAccountsInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] deleteAWSAccountsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteAWSAccountsInternalServerError) GetPayload() *models.ModelsBaseResponseV1 {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteAWSAccountsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete a w s accounts default response has a 2xx status code
+func (o *DeleteAWSAccountsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete a w s accounts default response has a 3xx status code
+func (o *DeleteAWSAccountsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete a w s accounts default response has a 4xx status code
+func (o *DeleteAWSAccountsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete a w s accounts default response has a 5xx status code
+func (o *DeleteAWSAccountsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete a w s accounts default response a status code equal to that given
+func (o *DeleteAWSAccountsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteAWSAccountsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] DeleteAWSAccounts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteAWSAccountsDefault) String() string {
+	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] DeleteAWSAccounts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteAWSAccountsDefault) GetPayload() *models.ModelsBaseResponseV1 {
 	return o.Payload
 }

@@ -94,9 +94,39 @@ type GetChangesOK struct {
 	Payload *models.ExternalGetChangesResponse
 }
 
+// IsSuccess returns true when this get changes o k response has a 2xx status code
+func (o *GetChangesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get changes o k response has a 3xx status code
+func (o *GetChangesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get changes o k response has a 4xx status code
+func (o *GetChangesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get changes o k response has a 5xx status code
+func (o *GetChangesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get changes o k response a status code equal to that given
+func (o *GetChangesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetChangesOK) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetChangesOK) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetChangesOK) GetPayload() *models.ExternalGetChangesResponse {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetChangesBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get changes bad request response has a 2xx status code
+func (o *GetChangesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get changes bad request response has a 3xx status code
+func (o *GetChangesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get changes bad request response has a 4xx status code
+func (o *GetChangesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get changes bad request response has a 5xx status code
+func (o *GetChangesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get changes bad request response a status code equal to that given
+func (o *GetChangesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetChangesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetChangesBadRequest) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetChangesBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetChangesForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get changes forbidden response has a 2xx status code
+func (o *GetChangesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get changes forbidden response has a 3xx status code
+func (o *GetChangesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get changes forbidden response has a 4xx status code
+func (o *GetChangesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get changes forbidden response has a 5xx status code
+func (o *GetChangesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get changes forbidden response a status code equal to that given
+func (o *GetChangesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetChangesForbidden) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetChangesForbidden) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetChangesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -323,9 +413,39 @@ type GetChangesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get changes too many requests response has a 2xx status code
+func (o *GetChangesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get changes too many requests response has a 3xx status code
+func (o *GetChangesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get changes too many requests response has a 4xx status code
+func (o *GetChangesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get changes too many requests response has a 5xx status code
+func (o *GetChangesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get changes too many requests response a status code equal to that given
+func (o *GetChangesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetChangesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetChangesTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetChangesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -409,9 +529,39 @@ type GetChangesInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get changes internal server error response has a 2xx status code
+func (o *GetChangesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get changes internal server error response has a 3xx status code
+func (o *GetChangesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get changes internal server error response has a 4xx status code
+func (o *GetChangesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get changes internal server error response has a 5xx status code
+func (o *GetChangesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get changes internal server error response a status code equal to that given
+func (o *GetChangesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetChangesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetChangesInternalServerError) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetChangesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetChangesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get changes default response has a 2xx status code
+func (o *GetChangesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get changes default response has a 3xx status code
+func (o *GetChangesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get changes default response has a 4xx status code
+func (o *GetChangesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get changes default response has a 5xx status code
+func (o *GetChangesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get changes default response a status code equal to that given
+func (o *GetChangesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetChangesDefault) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChanges default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetChangesDefault) String() string {
+	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChanges default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetChangesDefault) GetPayload() *models.ExternalGetChangesResponse {
 	return o.Payload
 }

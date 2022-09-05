@@ -90,9 +90,39 @@ type GetIncidentsOK struct {
 	Payload *models.APIMsaExternalIncidentResponse
 }
 
+// IsSuccess returns true when this get incidents o k response has a 2xx status code
+func (o *GetIncidentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get incidents o k response has a 3xx status code
+func (o *GetIncidentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get incidents o k response has a 4xx status code
+func (o *GetIncidentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get incidents o k response has a 5xx status code
+func (o *GetIncidentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get incidents o k response a status code equal to that given
+func (o *GetIncidentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIncidentsOK) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetIncidentsOK) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetIncidentsOK) GetPayload() *models.APIMsaExternalIncidentResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetIncidentsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get incidents bad request response has a 2xx status code
+func (o *GetIncidentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get incidents bad request response has a 3xx status code
+func (o *GetIncidentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get incidents bad request response has a 4xx status code
+func (o *GetIncidentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get incidents bad request response has a 5xx status code
+func (o *GetIncidentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get incidents bad request response a status code equal to that given
+func (o *GetIncidentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIncidentsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetIncidentsBadRequest) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetIncidentsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetIncidentsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get incidents forbidden response has a 2xx status code
+func (o *GetIncidentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get incidents forbidden response has a 3xx status code
+func (o *GetIncidentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get incidents forbidden response has a 4xx status code
+func (o *GetIncidentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get incidents forbidden response has a 5xx status code
+func (o *GetIncidentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get incidents forbidden response a status code equal to that given
+func (o *GetIncidentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIncidentsForbidden) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetIncidentsForbidden) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetIncidentsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get incidents too many requests response has a 2xx status code
+func (o *GetIncidentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get incidents too many requests response has a 3xx status code
+func (o *GetIncidentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get incidents too many requests response has a 4xx status code
+func (o *GetIncidentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get incidents too many requests response has a 5xx status code
+func (o *GetIncidentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get incidents too many requests response a status code equal to that given
+func (o *GetIncidentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIncidentsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetIncidentsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetIncidentsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get incidents internal server error response has a 2xx status code
+func (o *GetIncidentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get incidents internal server error response has a 3xx status code
+func (o *GetIncidentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get incidents internal server error response has a 4xx status code
+func (o *GetIncidentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get incidents internal server error response has a 5xx status code
+func (o *GetIncidentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get incidents internal server error response a status code equal to that given
+func (o *GetIncidentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIncidentsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetIncidentsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetIncidentsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetIncidentsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get incidents default response has a 2xx status code
+func (o *GetIncidentsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get incidents default response has a 3xx status code
+func (o *GetIncidentsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get incidents default response has a 4xx status code
+func (o *GetIncidentsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get incidents default response has a 5xx status code
+func (o *GetIncidentsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get incidents default response a status code equal to that given
+func (o *GetIncidentsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetIncidentsDefault) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] GetIncidents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetIncidentsDefault) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] GetIncidents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetIncidentsDefault) GetPayload() *models.APIMsaExternalIncidentResponse {
 	return o.Payload
 }

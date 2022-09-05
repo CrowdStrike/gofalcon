@@ -78,9 +78,39 @@ type QueryPatternsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query patterns o k response has a 2xx status code
+func (o *QueryPatternsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query patterns o k response has a 3xx status code
+func (o *QueryPatternsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query patterns o k response has a 4xx status code
+func (o *QueryPatternsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query patterns o k response has a 5xx status code
+func (o *QueryPatternsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query patterns o k response a status code equal to that given
+func (o *QueryPatternsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryPatternsOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryPatternsOK) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryPatternsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryPatternsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query patterns forbidden response has a 2xx status code
+func (o *QueryPatternsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query patterns forbidden response has a 3xx status code
+func (o *QueryPatternsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query patterns forbidden response has a 4xx status code
+func (o *QueryPatternsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query patterns forbidden response has a 5xx status code
+func (o *QueryPatternsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query patterns forbidden response a status code equal to that given
+func (o *QueryPatternsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryPatternsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryPatternsForbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryPatternsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryPatternsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query patterns too many requests response has a 2xx status code
+func (o *QueryPatternsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query patterns too many requests response has a 3xx status code
+func (o *QueryPatternsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query patterns too many requests response has a 4xx status code
+func (o *QueryPatternsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query patterns too many requests response has a 5xx status code
+func (o *QueryPatternsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query patterns too many requests response a status code equal to that given
+func (o *QueryPatternsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryPatternsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryPatternsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryPatternsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryPatternsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query patterns default response has a 2xx status code
+func (o *QueryPatternsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query patterns default response has a 3xx status code
+func (o *QueryPatternsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query patterns default response has a 4xx status code
+func (o *QueryPatternsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query patterns default response has a 5xx status code
+func (o *QueryPatternsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query patterns default response a status code equal to that given
+func (o *QueryPatternsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryPatternsDefault) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] query-patterns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryPatternsDefault) String() string {
+	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] query-patterns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryPatternsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

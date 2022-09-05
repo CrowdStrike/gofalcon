@@ -100,9 +100,39 @@ type QueryNotificationsV1OK struct {
 	Payload *models.DomainQueryResponse
 }
 
+// IsSuccess returns true when this query notifications v1 o k response has a 2xx status code
+func (o *QueryNotificationsV1OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query notifications v1 o k response has a 3xx status code
+func (o *QueryNotificationsV1OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 o k response has a 4xx status code
+func (o *QueryNotificationsV1OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query notifications v1 o k response has a 5xx status code
+func (o *QueryNotificationsV1OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query notifications v1 o k response a status code equal to that given
+func (o *QueryNotificationsV1OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryNotificationsV1OK) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1OK  %+v", 200, o.Payload)
 }
+
+func (o *QueryNotificationsV1OK) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1OK  %+v", 200, o.Payload)
+}
+
 func (o *QueryNotificationsV1OK) GetPayload() *models.DomainQueryResponse {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type QueryNotificationsV1BadRequest struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query notifications v1 bad request response has a 2xx status code
+func (o *QueryNotificationsV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query notifications v1 bad request response has a 3xx status code
+func (o *QueryNotificationsV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 bad request response has a 4xx status code
+func (o *QueryNotificationsV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query notifications v1 bad request response has a 5xx status code
+func (o *QueryNotificationsV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query notifications v1 bad request response a status code equal to that given
+func (o *QueryNotificationsV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryNotificationsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryNotificationsV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryNotificationsV1BadRequest) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type QueryNotificationsV1Unauthorized struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query notifications v1 unauthorized response has a 2xx status code
+func (o *QueryNotificationsV1Unauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query notifications v1 unauthorized response has a 3xx status code
+func (o *QueryNotificationsV1Unauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 unauthorized response has a 4xx status code
+func (o *QueryNotificationsV1Unauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query notifications v1 unauthorized response has a 5xx status code
+func (o *QueryNotificationsV1Unauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query notifications v1 unauthorized response a status code equal to that given
+func (o *QueryNotificationsV1Unauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *QueryNotificationsV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1Unauthorized  %+v", 401, o.Payload)
 }
+
+func (o *QueryNotificationsV1Unauthorized) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1Unauthorized  %+v", 401, o.Payload)
+}
+
 func (o *QueryNotificationsV1Unauthorized) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type QueryNotificationsV1Forbidden struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query notifications v1 forbidden response has a 2xx status code
+func (o *QueryNotificationsV1Forbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query notifications v1 forbidden response has a 3xx status code
+func (o *QueryNotificationsV1Forbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 forbidden response has a 4xx status code
+func (o *QueryNotificationsV1Forbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query notifications v1 forbidden response has a 5xx status code
+func (o *QueryNotificationsV1Forbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query notifications v1 forbidden response a status code equal to that given
+func (o *QueryNotificationsV1Forbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryNotificationsV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1Forbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryNotificationsV1Forbidden) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1Forbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryNotificationsV1Forbidden) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type QueryNotificationsV1TooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query notifications v1 too many requests response has a 2xx status code
+func (o *QueryNotificationsV1TooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query notifications v1 too many requests response has a 3xx status code
+func (o *QueryNotificationsV1TooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 too many requests response has a 4xx status code
+func (o *QueryNotificationsV1TooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query notifications v1 too many requests response has a 5xx status code
+func (o *QueryNotificationsV1TooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query notifications v1 too many requests response a status code equal to that given
+func (o *QueryNotificationsV1TooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryNotificationsV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1TooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryNotificationsV1TooManyRequests) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1TooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryNotificationsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type QueryNotificationsV1InternalServerError struct {
 	Payload *models.DomainErrorsOnly
 }
 
+// IsSuccess returns true when this query notifications v1 internal server error response has a 2xx status code
+func (o *QueryNotificationsV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query notifications v1 internal server error response has a 3xx status code
+func (o *QueryNotificationsV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query notifications v1 internal server error response has a 4xx status code
+func (o *QueryNotificationsV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query notifications v1 internal server error response has a 5xx status code
+func (o *QueryNotificationsV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query notifications v1 internal server error response a status code equal to that given
+func (o *QueryNotificationsV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryNotificationsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1InternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryNotificationsV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] queryNotificationsV1InternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryNotificationsV1InternalServerError) GetPayload() *models.DomainErrorsOnly {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *QueryNotificationsV1Default) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query notifications v1 default response has a 2xx status code
+func (o *QueryNotificationsV1Default) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query notifications v1 default response has a 3xx status code
+func (o *QueryNotificationsV1Default) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query notifications v1 default response has a 4xx status code
+func (o *QueryNotificationsV1Default) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query notifications v1 default response has a 5xx status code
+func (o *QueryNotificationsV1Default) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query notifications v1 default response a status code equal to that given
+func (o *QueryNotificationsV1Default) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryNotificationsV1Default) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] QueryNotificationsV1 default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryNotificationsV1Default) String() string {
+	return fmt.Sprintf("[GET /recon/queries/notifications/v1][%d] QueryNotificationsV1 default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryNotificationsV1Default) GetPayload() *models.DomainQueryResponse {
 	return o.Payload
 }

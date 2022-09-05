@@ -90,9 +90,39 @@ type CustomerSettingsReadOK struct {
 	Payload *models.APICustomerSettingsResponseV1
 }
 
+// IsSuccess returns true when this customer settings read o k response has a 2xx status code
+func (o *CustomerSettingsReadOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this customer settings read o k response has a 3xx status code
+func (o *CustomerSettingsReadOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this customer settings read o k response has a 4xx status code
+func (o *CustomerSettingsReadOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this customer settings read o k response has a 5xx status code
+func (o *CustomerSettingsReadOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this customer settings read o k response a status code equal to that given
+func (o *CustomerSettingsReadOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CustomerSettingsReadOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK  %+v", 200, o.Payload)
 }
+
+func (o *CustomerSettingsReadOK) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK  %+v", 200, o.Payload)
+}
+
 func (o *CustomerSettingsReadOK) GetPayload() *models.APICustomerSettingsResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type CustomerSettingsReadBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this customer settings read bad request response has a 2xx status code
+func (o *CustomerSettingsReadBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this customer settings read bad request response has a 3xx status code
+func (o *CustomerSettingsReadBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this customer settings read bad request response has a 4xx status code
+func (o *CustomerSettingsReadBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this customer settings read bad request response has a 5xx status code
+func (o *CustomerSettingsReadBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this customer settings read bad request response a status code equal to that given
+func (o *CustomerSettingsReadBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *CustomerSettingsReadBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *CustomerSettingsReadBadRequest) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *CustomerSettingsReadBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type CustomerSettingsReadForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this customer settings read forbidden response has a 2xx status code
+func (o *CustomerSettingsReadForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this customer settings read forbidden response has a 3xx status code
+func (o *CustomerSettingsReadForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this customer settings read forbidden response has a 4xx status code
+func (o *CustomerSettingsReadForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this customer settings read forbidden response has a 5xx status code
+func (o *CustomerSettingsReadForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this customer settings read forbidden response a status code equal to that given
+func (o *CustomerSettingsReadForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CustomerSettingsReadForbidden) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CustomerSettingsReadForbidden) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CustomerSettingsReadForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type CustomerSettingsReadTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this customer settings read too many requests response has a 2xx status code
+func (o *CustomerSettingsReadTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this customer settings read too many requests response has a 3xx status code
+func (o *CustomerSettingsReadTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this customer settings read too many requests response has a 4xx status code
+func (o *CustomerSettingsReadTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this customer settings read too many requests response has a 5xx status code
+func (o *CustomerSettingsReadTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this customer settings read too many requests response a status code equal to that given
+func (o *CustomerSettingsReadTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *CustomerSettingsReadTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *CustomerSettingsReadTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *CustomerSettingsReadTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type CustomerSettingsReadInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this customer settings read internal server error response has a 2xx status code
+func (o *CustomerSettingsReadInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this customer settings read internal server error response has a 3xx status code
+func (o *CustomerSettingsReadInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this customer settings read internal server error response has a 4xx status code
+func (o *CustomerSettingsReadInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this customer settings read internal server error response has a 5xx status code
+func (o *CustomerSettingsReadInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this customer settings read internal server error response a status code equal to that given
+func (o *CustomerSettingsReadInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *CustomerSettingsReadInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *CustomerSettingsReadInternalServerError) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *CustomerSettingsReadInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *CustomerSettingsReadDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this customer settings read default response has a 2xx status code
+func (o *CustomerSettingsReadDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this customer settings read default response has a 3xx status code
+func (o *CustomerSettingsReadDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this customer settings read default response has a 4xx status code
+func (o *CustomerSettingsReadDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this customer settings read default response has a 5xx status code
+func (o *CustomerSettingsReadDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this customer settings read default response a status code equal to that given
+func (o *CustomerSettingsReadDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CustomerSettingsReadDefault) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customer-settings-read default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CustomerSettingsReadDefault) String() string {
+	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customer-settings-read default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CustomerSettingsReadDefault) GetPayload() *models.APICustomerSettingsResponseV1 {
 	return o.Payload
 }

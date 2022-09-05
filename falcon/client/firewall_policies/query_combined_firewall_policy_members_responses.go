@@ -96,9 +96,39 @@ type QueryCombinedFirewallPolicyMembersOK struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined firewall policy members o k response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined firewall policy members o k response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members o k response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined firewall policy members o k response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined firewall policy members o k response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedFirewallPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersOK) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersOK) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type QueryCombinedFirewallPolicyMembersBadRequest struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined firewall policy members bad request response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined firewall policy members bad request response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members bad request response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined firewall policy members bad request response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined firewall policy members bad request response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type QueryCombinedFirewallPolicyMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined firewall policy members forbidden response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined firewall policy members forbidden response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members forbidden response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined firewall policy members forbidden response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined firewall policy members forbidden response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedFirewallPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type QueryCombinedFirewallPolicyMembersNotFound struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined firewall policy members not found response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined firewall policy members not found response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members not found response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined firewall policy members not found response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined firewall policy members not found response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryCombinedFirewallPolicyMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersNotFound) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type QueryCombinedFirewallPolicyMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined firewall policy members too many requests response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined firewall policy members too many requests response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members too many requests response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined firewall policy members too many requests response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined firewall policy members too many requests response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type QueryCombinedFirewallPolicyMembersInternalServerError struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined firewall policy members internal server error response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined firewall policy members internal server error response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined firewall policy members internal server error response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined firewall policy members internal server error response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined firewall policy members internal server error response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *QueryCombinedFirewallPolicyMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined firewall policy members default response has a 2xx status code
+func (o *QueryCombinedFirewallPolicyMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined firewall policy members default response has a 3xx status code
+func (o *QueryCombinedFirewallPolicyMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined firewall policy members default response has a 4xx status code
+func (o *QueryCombinedFirewallPolicyMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined firewall policy members default response has a 5xx status code
+func (o *QueryCombinedFirewallPolicyMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined firewall policy members default response a status code equal to that given
+func (o *QueryCombinedFirewallPolicyMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedFirewallPolicyMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedFirewallPolicyMembersDefault) String() string {
+	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedFirewallPolicyMembersDefault) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }

@@ -100,9 +100,39 @@ type GetClustersOK struct {
 	Payload *models.K8sregGetClustersResp
 }
 
+// IsSuccess returns true when this get clusters o k response has a 2xx status code
+func (o *GetClustersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get clusters o k response has a 3xx status code
+func (o *GetClustersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters o k response has a 4xx status code
+func (o *GetClustersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get clusters o k response has a 5xx status code
+func (o *GetClustersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get clusters o k response a status code equal to that given
+func (o *GetClustersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetClustersOK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK  %+v", 200, o.Payload)
 }
+
+func (o *GetClustersOK) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK  %+v", 200, o.Payload)
+}
+
 func (o *GetClustersOK) GetPayload() *models.K8sregGetClustersResp {
 	return o.Payload
 }
@@ -175,9 +205,39 @@ type GetClustersMultiStatus struct {
 	Payload *models.K8sregGetClustersResp
 }
 
+// IsSuccess returns true when this get clusters multi status response has a 2xx status code
+func (o *GetClustersMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get clusters multi status response has a 3xx status code
+func (o *GetClustersMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters multi status response has a 4xx status code
+func (o *GetClustersMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get clusters multi status response has a 5xx status code
+func (o *GetClustersMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get clusters multi status response a status code equal to that given
+func (o *GetClustersMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetClustersMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetClustersMultiStatus) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetClustersMultiStatus) GetPayload() *models.K8sregGetClustersResp {
 	return o.Payload
 }
@@ -250,9 +310,39 @@ type GetClustersBadRequest struct {
 	Payload *models.K8sregGetClustersResp
 }
 
+// IsSuccess returns true when this get clusters bad request response has a 2xx status code
+func (o *GetClustersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get clusters bad request response has a 3xx status code
+func (o *GetClustersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters bad request response has a 4xx status code
+func (o *GetClustersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get clusters bad request response has a 5xx status code
+func (o *GetClustersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get clusters bad request response a status code equal to that given
+func (o *GetClustersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetClustersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetClustersBadRequest) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetClustersBadRequest) GetPayload() *models.K8sregGetClustersResp {
 	return o.Payload
 }
@@ -325,9 +415,39 @@ type GetClustersForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get clusters forbidden response has a 2xx status code
+func (o *GetClustersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get clusters forbidden response has a 3xx status code
+func (o *GetClustersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters forbidden response has a 4xx status code
+func (o *GetClustersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get clusters forbidden response has a 5xx status code
+func (o *GetClustersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get clusters forbidden response a status code equal to that given
+func (o *GetClustersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetClustersForbidden) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetClustersForbidden) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetClustersForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -404,9 +524,39 @@ type GetClustersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get clusters too many requests response has a 2xx status code
+func (o *GetClustersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get clusters too many requests response has a 3xx status code
+func (o *GetClustersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters too many requests response has a 4xx status code
+func (o *GetClustersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get clusters too many requests response has a 5xx status code
+func (o *GetClustersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get clusters too many requests response a status code equal to that given
+func (o *GetClustersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetClustersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetClustersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetClustersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -490,9 +640,39 @@ type GetClustersInternalServerError struct {
 	Payload *models.K8sregGetClustersResp
 }
 
+// IsSuccess returns true when this get clusters internal server error response has a 2xx status code
+func (o *GetClustersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get clusters internal server error response has a 3xx status code
+func (o *GetClustersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get clusters internal server error response has a 4xx status code
+func (o *GetClustersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get clusters internal server error response has a 5xx status code
+func (o *GetClustersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get clusters internal server error response a status code equal to that given
+func (o *GetClustersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetClustersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetClustersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetClustersInternalServerError) GetPayload() *models.K8sregGetClustersResp {
 	return o.Payload
 }
@@ -561,9 +741,39 @@ func (o *GetClustersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get clusters default response has a 2xx status code
+func (o *GetClustersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get clusters default response has a 3xx status code
+func (o *GetClustersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get clusters default response has a 4xx status code
+func (o *GetClustersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get clusters default response has a 5xx status code
+func (o *GetClustersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get clusters default response a status code equal to that given
+func (o *GetClustersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetClustersDefault) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] GetClusters default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetClustersDefault) String() string {
+	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] GetClusters default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetClustersDefault) GetPayload() *models.K8sregGetClustersResp {
 	return o.Payload
 }

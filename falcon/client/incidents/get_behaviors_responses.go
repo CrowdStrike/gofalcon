@@ -90,9 +90,39 @@ type GetBehaviorsOK struct {
 	Payload *models.APIMsaExternalBehaviorResponse
 }
 
+// IsSuccess returns true when this get behaviors o k response has a 2xx status code
+func (o *GetBehaviorsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get behaviors o k response has a 3xx status code
+func (o *GetBehaviorsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get behaviors o k response has a 4xx status code
+func (o *GetBehaviorsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get behaviors o k response has a 5xx status code
+func (o *GetBehaviorsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get behaviors o k response a status code equal to that given
+func (o *GetBehaviorsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetBehaviorsOK) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetBehaviorsOK) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetBehaviorsOK) GetPayload() *models.APIMsaExternalBehaviorResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetBehaviorsBadRequest struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get behaviors bad request response has a 2xx status code
+func (o *GetBehaviorsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get behaviors bad request response has a 3xx status code
+func (o *GetBehaviorsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get behaviors bad request response has a 4xx status code
+func (o *GetBehaviorsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get behaviors bad request response has a 5xx status code
+func (o *GetBehaviorsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get behaviors bad request response a status code equal to that given
+func (o *GetBehaviorsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetBehaviorsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetBehaviorsBadRequest) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetBehaviorsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetBehaviorsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get behaviors forbidden response has a 2xx status code
+func (o *GetBehaviorsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get behaviors forbidden response has a 3xx status code
+func (o *GetBehaviorsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get behaviors forbidden response has a 4xx status code
+func (o *GetBehaviorsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get behaviors forbidden response has a 5xx status code
+func (o *GetBehaviorsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get behaviors forbidden response a status code equal to that given
+func (o *GetBehaviorsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetBehaviorsForbidden) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetBehaviorsForbidden) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetBehaviorsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetBehaviorsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get behaviors too many requests response has a 2xx status code
+func (o *GetBehaviorsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get behaviors too many requests response has a 3xx status code
+func (o *GetBehaviorsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get behaviors too many requests response has a 4xx status code
+func (o *GetBehaviorsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get behaviors too many requests response has a 5xx status code
+func (o *GetBehaviorsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get behaviors too many requests response a status code equal to that given
+func (o *GetBehaviorsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetBehaviorsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetBehaviorsTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetBehaviorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetBehaviorsInternalServerError struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get behaviors internal server error response has a 2xx status code
+func (o *GetBehaviorsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get behaviors internal server error response has a 3xx status code
+func (o *GetBehaviorsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get behaviors internal server error response has a 4xx status code
+func (o *GetBehaviorsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get behaviors internal server error response has a 5xx status code
+func (o *GetBehaviorsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get behaviors internal server error response a status code equal to that given
+func (o *GetBehaviorsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetBehaviorsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetBehaviorsInternalServerError) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetBehaviorsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetBehaviorsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get behaviors default response has a 2xx status code
+func (o *GetBehaviorsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get behaviors default response has a 3xx status code
+func (o *GetBehaviorsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get behaviors default response has a 4xx status code
+func (o *GetBehaviorsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get behaviors default response has a 5xx status code
+func (o *GetBehaviorsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get behaviors default response a status code equal to that given
+func (o *GetBehaviorsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetBehaviorsDefault) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] GetBehaviors default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetBehaviorsDefault) String() string {
+	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] GetBehaviors default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetBehaviorsDefault) GetPayload() *models.APIMsaExternalBehaviorResponse {
 	return o.Payload
 }

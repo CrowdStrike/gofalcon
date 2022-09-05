@@ -90,9 +90,39 @@ type SetDeviceControlPoliciesPrecedenceOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set device control policies precedence o k response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this set device control policies precedence o k response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set device control policies precedence o k response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set device control policies precedence o k response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set device control policies precedence o k response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceOK) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceOK  %+v", 200, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type SetDeviceControlPoliciesPrecedenceBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set device control policies precedence bad request response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set device control policies precedence bad request response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set device control policies precedence bad request response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set device control policies precedence bad request response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set device control policies precedence bad request response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceBadRequest) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type SetDeviceControlPoliciesPrecedenceForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this set device control policies precedence forbidden response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set device control policies precedence forbidden response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set device control policies precedence forbidden response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set device control policies precedence forbidden response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set device control policies precedence forbidden response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceForbidden) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type SetDeviceControlPoliciesPrecedenceTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this set device control policies precedence too many requests response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set device control policies precedence too many requests response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set device control policies precedence too many requests response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this set device control policies precedence too many requests response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this set device control policies precedence too many requests response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type SetDeviceControlPoliciesPrecedenceInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this set device control policies precedence internal server error response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this set device control policies precedence internal server error response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this set device control policies precedence internal server error response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this set device control policies precedence internal server error response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this set device control policies precedence internal server error response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *SetDeviceControlPoliciesPrecedenceDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this set device control policies precedence default response has a 2xx status code
+func (o *SetDeviceControlPoliciesPrecedenceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this set device control policies precedence default response has a 3xx status code
+func (o *SetDeviceControlPoliciesPrecedenceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this set device control policies precedence default response has a 4xx status code
+func (o *SetDeviceControlPoliciesPrecedenceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this set device control policies precedence default response has a 5xx status code
+func (o *SetDeviceControlPoliciesPrecedenceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this set device control policies precedence default response a status code equal to that given
+func (o *SetDeviceControlPoliciesPrecedenceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceDefault) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SetDeviceControlPoliciesPrecedenceDefault) String() string {
+	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SetDeviceControlPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

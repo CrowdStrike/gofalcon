@@ -90,9 +90,39 @@ type RTRGetScriptsOK struct {
 	Payload *models.BinservclientMsaPFResponse
 }
 
+// IsSuccess returns true when this r t r get scripts o k response has a 2xx status code
+func (o *RTRGetScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this r t r get scripts o k response has a 3xx status code
+func (o *RTRGetScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get scripts o k response has a 4xx status code
+func (o *RTRGetScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this r t r get scripts o k response has a 5xx status code
+func (o *RTRGetScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get scripts o k response a status code equal to that given
+func (o *RTRGetScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RTRGetScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *RTRGetScriptsOK) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *RTRGetScriptsOK) GetPayload() *models.BinservclientMsaPFResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type RTRGetScriptsBadRequest struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get scripts bad request response has a 2xx status code
+func (o *RTRGetScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get scripts bad request response has a 3xx status code
+func (o *RTRGetScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get scripts bad request response has a 4xx status code
+func (o *RTRGetScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get scripts bad request response has a 5xx status code
+func (o *RTRGetScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get scripts bad request response a status code equal to that given
+func (o *RTRGetScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *RTRGetScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *RTRGetScriptsBadRequest) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *RTRGetScriptsBadRequest) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type RTRGetScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get scripts forbidden response has a 2xx status code
+func (o *RTRGetScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get scripts forbidden response has a 3xx status code
+func (o *RTRGetScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get scripts forbidden response has a 4xx status code
+func (o *RTRGetScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get scripts forbidden response has a 5xx status code
+func (o *RTRGetScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get scripts forbidden response a status code equal to that given
+func (o *RTRGetScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RTRGetScriptsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RTRGetScriptsForbidden) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RTRGetScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type RTRGetScriptsNotFound struct {
 	Payload *models.DomainAPIError
 }
 
+// IsSuccess returns true when this r t r get scripts not found response has a 2xx status code
+func (o *RTRGetScriptsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get scripts not found response has a 3xx status code
+func (o *RTRGetScriptsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get scripts not found response has a 4xx status code
+func (o *RTRGetScriptsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get scripts not found response has a 5xx status code
+func (o *RTRGetScriptsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get scripts not found response a status code equal to that given
+func (o *RTRGetScriptsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RTRGetScriptsNotFound) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RTRGetScriptsNotFound) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RTRGetScriptsNotFound) GetPayload() *models.DomainAPIError {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type RTRGetScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this r t r get scripts too many requests response has a 2xx status code
+func (o *RTRGetScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this r t r get scripts too many requests response has a 3xx status code
+func (o *RTRGetScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this r t r get scripts too many requests response has a 4xx status code
+func (o *RTRGetScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this r t r get scripts too many requests response has a 5xx status code
+func (o *RTRGetScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this r t r get scripts too many requests response a status code equal to that given
+func (o *RTRGetScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *RTRGetScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *RTRGetScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] rTRGetScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *RTRGetScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *RTRGetScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this r t r get scripts default response has a 2xx status code
+func (o *RTRGetScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this r t r get scripts default response has a 3xx status code
+func (o *RTRGetScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this r t r get scripts default response has a 4xx status code
+func (o *RTRGetScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this r t r get scripts default response has a 5xx status code
+func (o *RTRGetScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this r t r get scripts default response a status code equal to that given
+func (o *RTRGetScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RTRGetScriptsDefault) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] RTR-GetScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RTRGetScriptsDefault) String() string {
+	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v1][%d] RTR-GetScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RTRGetScriptsDefault) GetPayload() *models.BinservclientMsaPFResponse {
 	return o.Payload
 }

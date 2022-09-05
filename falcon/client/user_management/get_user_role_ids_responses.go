@@ -90,9 +90,39 @@ type GetUserRoleIdsOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get user role ids o k response has a 2xx status code
+func (o *GetUserRoleIdsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user role ids o k response has a 3xx status code
+func (o *GetUserRoleIdsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user role ids o k response has a 4xx status code
+func (o *GetUserRoleIdsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user role ids o k response has a 5xx status code
+func (o *GetUserRoleIdsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user role ids o k response a status code equal to that given
+func (o *GetUserRoleIdsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserRoleIdsOK) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetUserRoleIdsOK) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetUserRoleIdsOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type GetUserRoleIdsBadRequest struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get user role ids bad request response has a 2xx status code
+func (o *GetUserRoleIdsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user role ids bad request response has a 3xx status code
+func (o *GetUserRoleIdsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user role ids bad request response has a 4xx status code
+func (o *GetUserRoleIdsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user role ids bad request response has a 5xx status code
+func (o *GetUserRoleIdsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user role ids bad request response a status code equal to that given
+func (o *GetUserRoleIdsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserRoleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetUserRoleIdsBadRequest) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetUserRoleIdsBadRequest) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type GetUserRoleIdsForbidden struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get user role ids forbidden response has a 2xx status code
+func (o *GetUserRoleIdsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user role ids forbidden response has a 3xx status code
+func (o *GetUserRoleIdsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user role ids forbidden response has a 4xx status code
+func (o *GetUserRoleIdsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user role ids forbidden response has a 5xx status code
+func (o *GetUserRoleIdsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user role ids forbidden response a status code equal to that given
+func (o *GetUserRoleIdsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserRoleIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetUserRoleIdsForbidden) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetUserRoleIdsForbidden) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type GetUserRoleIdsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get user role ids too many requests response has a 2xx status code
+func (o *GetUserRoleIdsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user role ids too many requests response has a 3xx status code
+func (o *GetUserRoleIdsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user role ids too many requests response has a 4xx status code
+func (o *GetUserRoleIdsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user role ids too many requests response has a 5xx status code
+func (o *GetUserRoleIdsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user role ids too many requests response a status code equal to that given
+func (o *GetUserRoleIdsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserRoleIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetUserRoleIdsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type GetUserRoleIdsInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this get user role ids internal server error response has a 2xx status code
+func (o *GetUserRoleIdsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user role ids internal server error response has a 3xx status code
+func (o *GetUserRoleIdsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user role ids internal server error response has a 4xx status code
+func (o *GetUserRoleIdsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user role ids internal server error response has a 5xx status code
+func (o *GetUserRoleIdsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user role ids internal server error response a status code equal to that given
+func (o *GetUserRoleIdsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserRoleIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetUserRoleIdsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] getUserRoleIdsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetUserRoleIdsInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *GetUserRoleIdsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get user role ids default response has a 2xx status code
+func (o *GetUserRoleIdsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get user role ids default response has a 3xx status code
+func (o *GetUserRoleIdsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get user role ids default response has a 4xx status code
+func (o *GetUserRoleIdsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get user role ids default response has a 5xx status code
+func (o *GetUserRoleIdsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get user role ids default response a status code equal to that given
+func (o *GetUserRoleIdsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetUserRoleIdsDefault) Error() string {
 	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] GetUserRoleIds default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetUserRoleIdsDefault) String() string {
+	return fmt.Sprintf("[GET /user-roles/queries/user-role-ids-by-user-uuid/v1][%d] GetUserRoleIds default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetUserRoleIdsDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

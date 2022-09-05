@@ -90,9 +90,39 @@ type DeleteFirewallPoliciesOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete firewall policies o k response has a 2xx status code
+func (o *DeleteFirewallPoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete firewall policies o k response has a 3xx status code
+func (o *DeleteFirewallPoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete firewall policies o k response has a 4xx status code
+func (o *DeleteFirewallPoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete firewall policies o k response has a 5xx status code
+func (o *DeleteFirewallPoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete firewall policies o k response a status code equal to that given
+func (o *DeleteFirewallPoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK  %+v", 200, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesOK) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK  %+v", 200, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type DeleteFirewallPoliciesForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this delete firewall policies forbidden response has a 2xx status code
+func (o *DeleteFirewallPoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete firewall policies forbidden response has a 3xx status code
+func (o *DeleteFirewallPoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete firewall policies forbidden response has a 4xx status code
+func (o *DeleteFirewallPoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete firewall policies forbidden response has a 5xx status code
+func (o *DeleteFirewallPoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete firewall policies forbidden response a status code equal to that given
+func (o *DeleteFirewallPoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesForbidden) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type DeleteFirewallPoliciesNotFound struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete firewall policies not found response has a 2xx status code
+func (o *DeleteFirewallPoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete firewall policies not found response has a 3xx status code
+func (o *DeleteFirewallPoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete firewall policies not found response has a 4xx status code
+func (o *DeleteFirewallPoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete firewall policies not found response has a 5xx status code
+func (o *DeleteFirewallPoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete firewall policies not found response a status code equal to that given
+func (o *DeleteFirewallPoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteFirewallPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesNotFound) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesNotFound) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -286,9 +376,39 @@ type DeleteFirewallPoliciesTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this delete firewall policies too many requests response has a 2xx status code
+func (o *DeleteFirewallPoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete firewall policies too many requests response has a 3xx status code
+func (o *DeleteFirewallPoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete firewall policies too many requests response has a 4xx status code
+func (o *DeleteFirewallPoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete firewall policies too many requests response has a 5xx status code
+func (o *DeleteFirewallPoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete firewall policies too many requests response a status code equal to that given
+func (o *DeleteFirewallPoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteFirewallPoliciesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesTooManyRequests) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -361,9 +481,39 @@ type DeleteFirewallPoliciesInternalServerError struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this delete firewall policies internal server error response has a 2xx status code
+func (o *DeleteFirewallPoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete firewall policies internal server error response has a 3xx status code
+func (o *DeleteFirewallPoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete firewall policies internal server error response has a 4xx status code
+func (o *DeleteFirewallPoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete firewall policies internal server error response has a 5xx status code
+func (o *DeleteFirewallPoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete firewall policies internal server error response a status code equal to that given
+func (o *DeleteFirewallPoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesInternalServerError) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesInternalServerError) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *DeleteFirewallPoliciesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete firewall policies default response has a 2xx status code
+func (o *DeleteFirewallPoliciesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete firewall policies default response has a 3xx status code
+func (o *DeleteFirewallPoliciesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete firewall policies default response has a 4xx status code
+func (o *DeleteFirewallPoliciesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete firewall policies default response has a 5xx status code
+func (o *DeleteFirewallPoliciesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete firewall policies default response a status code equal to that given
+func (o *DeleteFirewallPoliciesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteFirewallPoliciesDefault) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPolicies default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteFirewallPoliciesDefault) String() string {
+	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPolicies default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteFirewallPoliciesDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

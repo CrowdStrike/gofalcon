@@ -78,9 +78,39 @@ type QueryRemediationsFilterOK struct {
 	Payload *models.MsaQueryResponse
 }
 
+// IsSuccess returns true when this query remediations filter o k response has a 2xx status code
+func (o *QueryRemediationsFilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query remediations filter o k response has a 3xx status code
+func (o *QueryRemediationsFilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query remediations filter o k response has a 4xx status code
+func (o *QueryRemediationsFilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query remediations filter o k response has a 5xx status code
+func (o *QueryRemediationsFilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query remediations filter o k response a status code equal to that given
+func (o *QueryRemediationsFilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryRemediationsFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryRemediationsFilterOK) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryRemediationsFilterOK) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type QueryRemediationsFilterForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query remediations filter forbidden response has a 2xx status code
+func (o *QueryRemediationsFilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query remediations filter forbidden response has a 3xx status code
+func (o *QueryRemediationsFilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query remediations filter forbidden response has a 4xx status code
+func (o *QueryRemediationsFilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query remediations filter forbidden response has a 5xx status code
+func (o *QueryRemediationsFilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query remediations filter forbidden response a status code equal to that given
+func (o *QueryRemediationsFilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryRemediationsFilterForbidden) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryRemediationsFilterForbidden) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryRemediationsFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type QueryRemediationsFilterTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query remediations filter too many requests response has a 2xx status code
+func (o *QueryRemediationsFilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query remediations filter too many requests response has a 3xx status code
+func (o *QueryRemediationsFilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query remediations filter too many requests response has a 4xx status code
+func (o *QueryRemediationsFilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query remediations filter too many requests response has a 5xx status code
+func (o *QueryRemediationsFilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query remediations filter too many requests response a status code equal to that given
+func (o *QueryRemediationsFilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryRemediationsFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryRemediationsFilterTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryRemediationsFilterTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *QueryRemediationsFilterDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query remediations filter default response has a 2xx status code
+func (o *QueryRemediationsFilterDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query remediations filter default response has a 3xx status code
+func (o *QueryRemediationsFilterDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query remediations filter default response has a 4xx status code
+func (o *QueryRemediationsFilterDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query remediations filter default response has a 5xx status code
+func (o *QueryRemediationsFilterDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query remediations filter default response a status code equal to that given
+func (o *QueryRemediationsFilterDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryRemediationsFilterDefault) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] QueryRemediationsFilter default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryRemediationsFilterDefault) String() string {
+	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] QueryRemediationsFilter default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryRemediationsFilterDefault) GetPayload() *models.MsaQueryResponse {
 	return o.Payload
 }

@@ -94,9 +94,39 @@ type GetUserGroupsByIDOK struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this get user groups by Id o k response has a 2xx status code
+func (o *GetUserGroupsByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user groups by Id o k response has a 3xx status code
+func (o *GetUserGroupsByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user groups by Id o k response has a 4xx status code
+func (o *GetUserGroupsByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user groups by Id o k response has a 5xx status code
+func (o *GetUserGroupsByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user groups by Id o k response a status code equal to that given
+func (o *GetUserGroupsByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserGroupsByIDOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetUserGroupsByIDOK) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetUserGroupsByIDOK) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -169,9 +199,39 @@ type GetUserGroupsByIDMultiStatus struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
+// IsSuccess returns true when this get user groups by Id multi status response has a 2xx status code
+func (o *GetUserGroupsByIDMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user groups by Id multi status response has a 3xx status code
+func (o *GetUserGroupsByIDMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user groups by Id multi status response has a 4xx status code
+func (o *GetUserGroupsByIDMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user groups by Id multi status response has a 5xx status code
+func (o *GetUserGroupsByIDMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user groups by Id multi status response a status code equal to that given
+func (o *GetUserGroupsByIDMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetUserGroupsByIDMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetUserGroupsByIDMultiStatus) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetUserGroupsByIDMultiStatus) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }
@@ -244,9 +304,39 @@ type GetUserGroupsByIDBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get user groups by Id bad request response has a 2xx status code
+func (o *GetUserGroupsByIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user groups by Id bad request response has a 3xx status code
+func (o *GetUserGroupsByIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user groups by Id bad request response has a 4xx status code
+func (o *GetUserGroupsByIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user groups by Id bad request response has a 5xx status code
+func (o *GetUserGroupsByIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user groups by Id bad request response a status code equal to that given
+func (o *GetUserGroupsByIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserGroupsByIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetUserGroupsByIDBadRequest) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetUserGroupsByIDBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -319,9 +409,39 @@ type GetUserGroupsByIDForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this get user groups by Id forbidden response has a 2xx status code
+func (o *GetUserGroupsByIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user groups by Id forbidden response has a 3xx status code
+func (o *GetUserGroupsByIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user groups by Id forbidden response has a 4xx status code
+func (o *GetUserGroupsByIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user groups by Id forbidden response has a 5xx status code
+func (o *GetUserGroupsByIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user groups by Id forbidden response a status code equal to that given
+func (o *GetUserGroupsByIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserGroupsByIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetUserGroupsByIDForbidden) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetUserGroupsByIDForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -398,9 +518,39 @@ type GetUserGroupsByIDTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get user groups by Id too many requests response has a 2xx status code
+func (o *GetUserGroupsByIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user groups by Id too many requests response has a 3xx status code
+func (o *GetUserGroupsByIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user groups by Id too many requests response has a 4xx status code
+func (o *GetUserGroupsByIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user groups by Id too many requests response has a 5xx status code
+func (o *GetUserGroupsByIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user groups by Id too many requests response a status code equal to that given
+func (o *GetUserGroupsByIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserGroupsByIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetUserGroupsByIDTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetUserGroupsByIDTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -480,9 +630,39 @@ func (o *GetUserGroupsByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get user groups by ID default response has a 2xx status code
+func (o *GetUserGroupsByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get user groups by ID default response has a 3xx status code
+func (o *GetUserGroupsByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get user groups by ID default response has a 4xx status code
+func (o *GetUserGroupsByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get user groups by ID default response has a 5xx status code
+func (o *GetUserGroupsByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get user groups by ID default response a status code equal to that given
+func (o *GetUserGroupsByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetUserGroupsByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByID default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetUserGroupsByIDDefault) String() string {
+	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByID default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetUserGroupsByIDDefault) GetPayload() *models.DomainUserGroupsResponseV1 {
 	return o.Payload
 }

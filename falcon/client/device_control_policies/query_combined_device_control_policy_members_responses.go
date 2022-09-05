@@ -96,9 +96,39 @@ type QueryCombinedDeviceControlPolicyMembersOK struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined device control policy members o k response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this query combined device control policy members o k response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members o k response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined device control policy members o k response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined device control policy members o k response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersOK) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersOK) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type QueryCombinedDeviceControlPolicyMembersBadRequest struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined device control policy members bad request response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined device control policy members bad request response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members bad request response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined device control policy members bad request response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined device control policy members bad request response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersBadRequest) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type QueryCombinedDeviceControlPolicyMembersForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this query combined device control policy members forbidden response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined device control policy members forbidden response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members forbidden response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined device control policy members forbidden response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined device control policy members forbidden response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type QueryCombinedDeviceControlPolicyMembersNotFound struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined device control policy members not found response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined device control policy members not found response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members not found response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined device control policy members not found response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined device control policy members not found response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersNotFound) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type QueryCombinedDeviceControlPolicyMembersTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this query combined device control policy members too many requests response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined device control policy members too many requests response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members too many requests response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this query combined device control policy members too many requests response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this query combined device control policy members too many requests response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type QueryCombinedDeviceControlPolicyMembersInternalServerError struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
+// IsSuccess returns true when this query combined device control policy members internal server error response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query combined device control policy members internal server error response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query combined device control policy members internal server error response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query combined device control policy members internal server error response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query combined device control policy members internal server error response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembersInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersInternalServerError) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *QueryCombinedDeviceControlPolicyMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this query combined device control policy members default response has a 2xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query combined device control policy members default response has a 3xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query combined device control policy members default response has a 4xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query combined device control policy members default response has a 5xx status code
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query combined device control policy members default response a status code equal to that given
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *QueryCombinedDeviceControlPolicyMembersDefault) String() string {
+	return fmt.Sprintf("[GET /policy/combined/device-control-members/v1][%d] queryCombinedDeviceControlPolicyMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *QueryCombinedDeviceControlPolicyMembersDefault) GetPayload() *models.ResponsesPolicyMembersRespV1 {
 	return o.Payload
 }

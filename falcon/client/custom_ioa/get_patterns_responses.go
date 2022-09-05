@@ -78,9 +78,39 @@ type GetPatternsOK struct {
 	Payload *models.APIPatternsResponse
 }
 
+// IsSuccess returns true when this get patterns o k response has a 2xx status code
+func (o *GetPatternsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get patterns o k response has a 3xx status code
+func (o *GetPatternsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get patterns o k response has a 4xx status code
+func (o *GetPatternsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get patterns o k response has a 5xx status code
+func (o *GetPatternsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get patterns o k response a status code equal to that given
+func (o *GetPatternsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetPatternsOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetPatternsOK) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetPatternsOK) GetPayload() *models.APIPatternsResponse {
 	return o.Payload
 }
@@ -142,9 +172,39 @@ type GetPatternsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get patterns forbidden response has a 2xx status code
+func (o *GetPatternsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get patterns forbidden response has a 3xx status code
+func (o *GetPatternsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get patterns forbidden response has a 4xx status code
+func (o *GetPatternsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get patterns forbidden response has a 5xx status code
+func (o *GetPatternsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get patterns forbidden response a status code equal to that given
+func (o *GetPatternsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetPatternsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetPatternsForbidden) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetPatternsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -210,9 +270,39 @@ type GetPatternsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get patterns too many requests response has a 2xx status code
+func (o *GetPatternsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get patterns too many requests response has a 3xx status code
+func (o *GetPatternsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get patterns too many requests response has a 4xx status code
+func (o *GetPatternsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get patterns too many requests response has a 5xx status code
+func (o *GetPatternsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get patterns too many requests response a status code equal to that given
+func (o *GetPatternsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetPatternsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetPatternsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetPatternsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -285,9 +375,39 @@ func (o *GetPatternsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get patterns default response has a 2xx status code
+func (o *GetPatternsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get patterns default response has a 3xx status code
+func (o *GetPatternsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get patterns default response has a 4xx status code
+func (o *GetPatternsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get patterns default response has a 5xx status code
+func (o *GetPatternsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get patterns default response a status code equal to that given
+func (o *GetPatternsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetPatternsDefault) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] get-patterns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetPatternsDefault) String() string {
+	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] get-patterns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetPatternsDefault) GetPayload() *models.APIPatternsResponse {
 	return o.Payload
 }

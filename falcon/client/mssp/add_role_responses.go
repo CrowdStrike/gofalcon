@@ -90,9 +90,39 @@ type AddRoleOK struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
+// IsSuccess returns true when this add role o k response has a 2xx status code
+func (o *AddRoleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this add role o k response has a 3xx status code
+func (o *AddRoleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add role o k response has a 4xx status code
+func (o *AddRoleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this add role o k response has a 5xx status code
+func (o *AddRoleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this add role o k response a status code equal to that given
+func (o *AddRoleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *AddRoleOK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK  %+v", 200, o.Payload)
 }
+
+func (o *AddRoleOK) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK  %+v", 200, o.Payload)
+}
+
 func (o *AddRoleOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }
@@ -154,9 +184,39 @@ type AddRoleMultiStatus struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
+// IsSuccess returns true when this add role multi status response has a 2xx status code
+func (o *AddRoleMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this add role multi status response has a 3xx status code
+func (o *AddRoleMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add role multi status response has a 4xx status code
+func (o *AddRoleMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this add role multi status response has a 5xx status code
+func (o *AddRoleMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this add role multi status response a status code equal to that given
+func (o *AddRoleMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *AddRoleMultiStatus) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *AddRoleMultiStatus) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *AddRoleMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }
@@ -218,9 +278,39 @@ type AddRoleBadRequest struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this add role bad request response has a 2xx status code
+func (o *AddRoleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this add role bad request response has a 3xx status code
+func (o *AddRoleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add role bad request response has a 4xx status code
+func (o *AddRoleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this add role bad request response has a 5xx status code
+func (o *AddRoleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this add role bad request response a status code equal to that given
+func (o *AddRoleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *AddRoleBadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *AddRoleBadRequest) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *AddRoleBadRequest) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -282,9 +372,39 @@ type AddRoleForbidden struct {
 	Payload *models.MsaErrorsOnly
 }
 
+// IsSuccess returns true when this add role forbidden response has a 2xx status code
+func (o *AddRoleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this add role forbidden response has a 3xx status code
+func (o *AddRoleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add role forbidden response has a 4xx status code
+func (o *AddRoleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this add role forbidden response has a 5xx status code
+func (o *AddRoleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this add role forbidden response a status code equal to that given
+func (o *AddRoleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *AddRoleForbidden) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden  %+v", 403, o.Payload)
 }
+
+func (o *AddRoleForbidden) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleForbidden  %+v", 403, o.Payload)
+}
+
 func (o *AddRoleForbidden) GetPayload() *models.MsaErrorsOnly {
 	return o.Payload
 }
@@ -350,9 +470,39 @@ type AddRoleTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this add role too many requests response has a 2xx status code
+func (o *AddRoleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this add role too many requests response has a 3xx status code
+func (o *AddRoleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this add role too many requests response has a 4xx status code
+func (o *AddRoleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this add role too many requests response has a 5xx status code
+func (o *AddRoleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this add role too many requests response a status code equal to that given
+func (o *AddRoleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *AddRoleTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *AddRoleTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *AddRoleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -425,9 +575,39 @@ func (o *AddRoleDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this add role default response has a 2xx status code
+func (o *AddRoleDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this add role default response has a 3xx status code
+func (o *AddRoleDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this add role default response has a 4xx status code
+func (o *AddRoleDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this add role default response has a 5xx status code
+func (o *AddRoleDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this add role default response a status code equal to that given
+func (o *AddRoleDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *AddRoleDefault) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRole default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *AddRoleDefault) String() string {
+	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRole default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *AddRoleDefault) GetPayload() *models.DomainMSSPRoleResponseV1 {
 	return o.Payload
 }

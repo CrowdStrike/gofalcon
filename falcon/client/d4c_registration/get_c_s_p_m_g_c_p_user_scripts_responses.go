@@ -96,9 +96,39 @@ type GetCSPMGCPUserScriptsOK struct {
 	Payload *models.RegistrationGCPProvisionGetUserScriptResponseV1
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts o k response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts o k response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts o k response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts o k response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p user scripts o k response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCSPMGCPUserScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsOK) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsOK) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
@@ -160,9 +190,39 @@ type GetCSPMGCPUserScriptsMultiStatus struct {
 	Payload *models.RegistrationGCPProvisionGetUserScriptResponseV1
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts multi status response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsMultiStatus) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts multi status response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsMultiStatus) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts multi status response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsMultiStatus) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts multi status response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsMultiStatus) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p user scripts multi status response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsMultiStatus) IsCode(code int) bool {
+	return code == 207
+}
+
 func (o *GetCSPMGCPUserScriptsMultiStatus) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsMultiStatus  %+v", 207, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsMultiStatus) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsMultiStatus  %+v", 207, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsMultiStatus) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
@@ -224,9 +284,39 @@ type GetCSPMGCPUserScriptsBadRequest struct {
 	Payload *models.RegistrationGCPProvisionGetUserScriptResponseV1
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts bad request response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts bad request response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts bad request response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts bad request response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p user scripts bad request response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCSPMGCPUserScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsBadRequest) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsBadRequest) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
@@ -288,9 +378,39 @@ type GetCSPMGCPUserScriptsForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts forbidden response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts forbidden response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts forbidden response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts forbidden response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p user scripts forbidden response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCSPMGCPUserScriptsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsForbidden) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -356,9 +476,39 @@ type GetCSPMGCPUserScriptsTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts too many requests response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts too many requests response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts too many requests response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts too many requests response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get c s p m g c p user scripts too many requests response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCSPMGCPUserScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsTooManyRequests) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -431,9 +581,39 @@ type GetCSPMGCPUserScriptsInternalServerError struct {
 	Payload *models.RegistrationGCPProvisionGetUserScriptResponseV1
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts internal server error response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts internal server error response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts internal server error response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts internal server error response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get c s p m g c p user scripts internal server error response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCSPMGCPUserScriptsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] getCSPMGCPUserScriptsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsInternalServerError) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }
@@ -495,9 +675,39 @@ func (o *GetCSPMGCPUserScriptsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get c s p m g c p user scripts default response has a 2xx status code
+func (o *GetCSPMGCPUserScriptsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get c s p m g c p user scripts default response has a 3xx status code
+func (o *GetCSPMGCPUserScriptsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get c s p m g c p user scripts default response has a 4xx status code
+func (o *GetCSPMGCPUserScriptsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get c s p m g c p user scripts default response has a 5xx status code
+func (o *GetCSPMGCPUserScriptsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get c s p m g c p user scripts default response a status code equal to that given
+func (o *GetCSPMGCPUserScriptsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCSPMGCPUserScriptsDefault) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] GetCSPMGCPUserScripts default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCSPMGCPUserScriptsDefault) String() string {
+	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts/v1][%d] GetCSPMGCPUserScripts default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCSPMGCPUserScriptsDefault) GetPayload() *models.RegistrationGCPProvisionGetUserScriptResponseV1 {
 	return o.Payload
 }

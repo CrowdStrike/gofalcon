@@ -73,7 +73,36 @@ type APIPreemptProxyPostGraphqlOK struct {
 	XRateLimitRemaining int64
 }
 
+// IsSuccess returns true when this api preempt proxy post graphql o k response has a 2xx status code
+func (o *APIPreemptProxyPostGraphqlOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this api preempt proxy post graphql o k response has a 3xx status code
+func (o *APIPreemptProxyPostGraphqlOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this api preempt proxy post graphql o k response has a 4xx status code
+func (o *APIPreemptProxyPostGraphqlOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this api preempt proxy post graphql o k response has a 5xx status code
+func (o *APIPreemptProxyPostGraphqlOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this api preempt proxy post graphql o k response a status code equal to that given
+func (o *APIPreemptProxyPostGraphqlOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *APIPreemptProxyPostGraphqlOK) Error() string {
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
+}
+
+func (o *APIPreemptProxyPostGraphqlOK) String() string {
 	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
 }
 
@@ -138,9 +167,39 @@ type APIPreemptProxyPostGraphqlForbidden struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this api preempt proxy post graphql forbidden response has a 2xx status code
+func (o *APIPreemptProxyPostGraphqlForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this api preempt proxy post graphql forbidden response has a 3xx status code
+func (o *APIPreemptProxyPostGraphqlForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this api preempt proxy post graphql forbidden response has a 4xx status code
+func (o *APIPreemptProxyPostGraphqlForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this api preempt proxy post graphql forbidden response has a 5xx status code
+func (o *APIPreemptProxyPostGraphqlForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this api preempt proxy post graphql forbidden response a status code equal to that given
+func (o *APIPreemptProxyPostGraphqlForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *APIPreemptProxyPostGraphqlForbidden) Error() string {
 	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden  %+v", 403, o.Payload)
 }
+
+func (o *APIPreemptProxyPostGraphqlForbidden) String() string {
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlForbidden  %+v", 403, o.Payload)
+}
+
 func (o *APIPreemptProxyPostGraphqlForbidden) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
@@ -217,9 +276,39 @@ type APIPreemptProxyPostGraphqlTooManyRequests struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
+// IsSuccess returns true when this api preempt proxy post graphql too many requests response has a 2xx status code
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this api preempt proxy post graphql too many requests response has a 3xx status code
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this api preempt proxy post graphql too many requests response has a 4xx status code
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this api preempt proxy post graphql too many requests response has a 5xx status code
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this api preempt proxy post graphql too many requests response a status code equal to that given
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests  %+v", 429, o.Payload)
 }
+
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) String() string {
+	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlTooManyRequests  %+v", 429, o.Payload)
+}
+
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
