@@ -101,6 +101,9 @@ func getHostIds(client *client.CrowdStrikeAPISpecification, filter *string) <-ch
 			}
 
 			hosts := response.Payload.Resources
+			if len(hosts) == 0 {
+				break
+			}
 			hostIds <- hosts
 			offset = offset + int64(len(hosts))
 			if offset >= *response.Payload.Meta.Pagination.Total {
