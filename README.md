@@ -47,6 +47,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
@@ -54,8 +55,8 @@ import (
 
 func main() {
 	client, err := falcon.NewClient(&falcon.ApiConfig{
-		ClientId: "FILL-IN-HERE",
-		ClientSecret: "FILL-IN-HERE",
+		ClientId: os.Getenv("FALCON_CLIENT_ID"),
+		ClientSecret: os.Getenv("FALCON_CLIENT_SECRET"),
 		Context: context.Background(),
 	})
 	if err != nil {
