@@ -85,6 +85,10 @@ OK
 */
 type GetRolesOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +97,7 @@ type GetRolesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserRoleResponse
+	Payload *models.APIUserRoleResponse
 }
 
 // IsSuccess returns true when this get roles o k response has a 2xx status code
@@ -129,11 +133,18 @@ func (o *GetRolesOK) String() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetRolesOK) GetPayload() *models.DomainUserRoleResponse {
+func (o *GetRolesOK) GetPayload() *models.APIUserRoleResponse {
 	return o.Payload
 }
 
 func (o *GetRolesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -157,7 +168,7 @@ func (o *GetRolesOK) readResponse(response runtime.ClientResponse, consumer runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserRoleResponse)
+	o.Payload = new(models.APIUserRoleResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +189,10 @@ GetRolesBadRequest describes a response with status code 400, with default heade
 Bad Request
 */
 type GetRolesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -229,6 +244,13 @@ func (o *GetRolesBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GetRolesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -272,6 +294,10 @@ GetRolesForbidden describes a response with status code 403, with default header
 Forbidden
 */
 type GetRolesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -323,6 +349,13 @@ func (o *GetRolesForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GetRolesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -366,6 +399,10 @@ GetRolesNotFound describes a response with status code 404, with default header 
 Not Found
 */
 type GetRolesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -417,6 +454,13 @@ func (o *GetRolesNotFound) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GetRolesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -460,6 +504,10 @@ GetRolesTooManyRequests describes a response with status code 429, with default 
 Too Many Requests
 */
 type GetRolesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -514,6 +562,13 @@ func (o *GetRolesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetRolesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -570,6 +625,10 @@ Internal Server Error
 */
 type GetRolesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -620,6 +679,13 @@ func (o *GetRolesInternalServerError) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GetRolesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -667,7 +733,7 @@ OK
 type GetRolesDefault struct {
 	_statusCode int
 
-	Payload *models.DomainUserRoleResponse
+	Payload *models.APIUserRoleResponse
 }
 
 // Code gets the status code for the get roles default response
@@ -708,13 +774,13 @@ func (o *GetRolesDefault) String() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] GetRoles default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *GetRolesDefault) GetPayload() *models.DomainUserRoleResponse {
+func (o *GetRolesDefault) GetPayload() *models.APIUserRoleResponse {
 	return o.Payload
 }
 
 func (o *GetRolesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainUserRoleResponse)
+	o.Payload = new(models.APIUserRoleResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

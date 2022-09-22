@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUserRoleResponse domain user role response
+// APIUserRoleResponse api user role response
 //
-// swagger:model domain.UserRoleResponse
-type DomainUserRoleResponse struct {
+// swagger:model api.userRoleResponse
+type APIUserRoleResponse struct {
 
 	// errors
 	// Required: true
@@ -33,8 +33,8 @@ type DomainUserRoleResponse struct {
 	Resources []*DomainUserRole `json:"resources"`
 }
 
-// Validate validates this domain user role response
-func (m *DomainUserRoleResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this api user role response
+func (m *APIUserRoleResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *DomainUserRoleResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserRoleResponse) validateErrors(formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -82,7 +82,7 @@ func (m *DomainUserRoleResponse) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserRoleResponse) validateMeta(formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,7 +102,7 @@ func (m *DomainUserRoleResponse) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserRoleResponse) validateResources(formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -129,8 +129,8 @@ func (m *DomainUserRoleResponse) validateResources(formats strfmt.Registry) erro
 	return nil
 }
 
-// ContextValidate validate this domain user role response based on the context it is used
-func (m *DomainUserRoleResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this api user role response based on the context it is used
+func (m *APIUserRoleResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -151,7 +151,7 @@ func (m *DomainUserRoleResponse) ContextValidate(ctx context.Context, formats st
 	return nil
 }
 
-func (m *DomainUserRoleResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -171,7 +171,7 @@ func (m *DomainUserRoleResponse) contextValidateErrors(ctx context.Context, form
 	return nil
 }
 
-func (m *DomainUserRoleResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -187,7 +187,7 @@ func (m *DomainUserRoleResponse) contextValidateMeta(ctx context.Context, format
 	return nil
 }
 
-func (m *DomainUserRoleResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIUserRoleResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -208,7 +208,7 @@ func (m *DomainUserRoleResponse) contextValidateResources(ctx context.Context, f
 }
 
 // MarshalBinary interface implementation
-func (m *DomainUserRoleResponse) MarshalBinary() ([]byte, error) {
+func (m *APIUserRoleResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -216,8 +216,8 @@ func (m *DomainUserRoleResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainUserRoleResponse) UnmarshalBinary(b []byte) error {
-	var res DomainUserRoleResponse
+func (m *APIUserRoleResponse) UnmarshalBinary(b []byte) error {
+	var res APIUserRoleResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

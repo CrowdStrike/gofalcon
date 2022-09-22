@@ -15,13 +15,12 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUserRoleIDsResponse domain user role i ds response
+// DeviceapiUpdateDeviceTagsSwaggerV1 deviceapi update device tags swagger v1
 //
-// swagger:model domain.UserRoleIDsResponse
-type DomainUserRoleIDsResponse struct {
+// swagger:model deviceapi.UpdateDeviceTagsSwaggerV1
+type DeviceapiUpdateDeviceTagsSwaggerV1 struct {
 
 	// errors
-	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
@@ -30,11 +29,11 @@ type DomainUserRoleIDsResponse struct {
 
 	// resources
 	// Required: true
-	Resources []string `json:"resources"`
+	Resources []*DeviceapiUpdateDeviceDetailsResponseV1 `json:"resources"`
 }
 
-// Validate validates this domain user role i ds response
-func (m *DomainUserRoleIDsResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this deviceapi update device tags swagger v1
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,10 +54,9 @@ func (m *DomainUserRoleIDsResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserRoleIDsResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -82,7 +80,7 @@ func (m *DomainUserRoleIDsResponse) validateErrors(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainUserRoleIDsResponse) validateMeta(formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,17 +100,35 @@ func (m *DomainUserRoleIDsResponse) validateMeta(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainUserRoleIDsResponse) validateResources(formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
-// ContextValidate validate this domain user role i ds response based on the context it is used
-func (m *DomainUserRoleIDsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this deviceapi update device tags swagger v1 based on the context it is used
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -123,13 +139,17 @@ func (m *DomainUserRoleIDsResponse) ContextValidate(ctx context.Context, formats
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *DomainUserRoleIDsResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -149,7 +169,7 @@ func (m *DomainUserRoleIDsResponse) contextValidateErrors(ctx context.Context, f
 	return nil
 }
 
-func (m *DomainUserRoleIDsResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -165,8 +185,28 @@ func (m *DomainUserRoleIDsResponse) contextValidateMeta(ctx context.Context, for
 	return nil
 }
 
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // MarshalBinary interface implementation
-func (m *DomainUserRoleIDsResponse) MarshalBinary() ([]byte, error) {
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -174,8 +214,8 @@ func (m *DomainUserRoleIDsResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainUserRoleIDsResponse) UnmarshalBinary(b []byte) error {
-	var res DomainUserRoleIDsResponse
+func (m *DeviceapiUpdateDeviceTagsSwaggerV1) UnmarshalBinary(b []byte) error {
+	var res DeviceapiUpdateDeviceTagsSwaggerV1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

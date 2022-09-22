@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUserMetaDataResponse domain user meta data response
+// APIUserRoleIDsResponse api user role i ds response
 //
-// swagger:model domain.UserMetaDataResponse
-type DomainUserMetaDataResponse struct {
+// swagger:model api.userRoleIDsResponse
+type APIUserRoleIDsResponse struct {
 
 	// errors
 	// Required: true
@@ -30,11 +30,11 @@ type DomainUserMetaDataResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*DomainUserMetadata `json:"resources"`
+	Resources []string `json:"resources"`
 }
 
-// Validate validates this domain user meta data response
-func (m *DomainUserMetaDataResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this api user role i ds response
+func (m *APIUserRoleIDsResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *DomainUserMetaDataResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) validateErrors(formats strfmt.Registry) error {
+func (m *APIUserRoleIDsResponse) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -82,7 +82,7 @@ func (m *DomainUserMetaDataResponse) validateErrors(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) validateMeta(formats strfmt.Registry) error {
+func (m *APIUserRoleIDsResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,35 +102,17 @@ func (m *DomainUserMetaDataResponse) validateMeta(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) validateResources(formats strfmt.Registry) error {
+func (m *APIUserRoleIDsResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
-	for i := 0; i < len(m.Resources); i++ {
-		if swag.IsZero(m.Resources[i]) { // not required
-			continue
-		}
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
-// ContextValidate validate this domain user meta data response based on the context it is used
-func (m *DomainUserMetaDataResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this api user role i ds response based on the context it is used
+func (m *APIUserRoleIDsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -141,17 +123,13 @@ func (m *DomainUserMetaDataResponse) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateResources(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIUserRoleIDsResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -171,7 +149,7 @@ func (m *DomainUserMetaDataResponse) contextValidateErrors(ctx context.Context, 
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIUserRoleIDsResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -187,28 +165,8 @@ func (m *DomainUserMetaDataResponse) contextValidateMeta(ctx context.Context, fo
 	return nil
 }
 
-func (m *DomainUserMetaDataResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Resources); i++ {
-
-		if m.Resources[i] != nil {
-			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
 // MarshalBinary interface implementation
-func (m *DomainUserMetaDataResponse) MarshalBinary() ([]byte, error) {
+func (m *APIUserRoleIDsResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -216,8 +174,8 @@ func (m *DomainUserMetaDataResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainUserMetaDataResponse) UnmarshalBinary(b []byte) error {
-	var res DomainUserMetaDataResponse
+func (m *APIUserRoleIDsResponse) UnmarshalBinary(b []byte) error {
+	var res APIUserRoleIDsResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

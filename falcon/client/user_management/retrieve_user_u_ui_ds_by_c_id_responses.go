@@ -73,6 +73,10 @@ OK
 */
 type RetrieveUserUUIDsByCIDOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -123,6 +127,13 @@ func (o *RetrieveUserUUIDsByCIDOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *RetrieveUserUUIDsByCIDOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -166,6 +177,10 @@ RetrieveUserUUIDsByCIDBadRequest describes a response with status code 400, with
 Bad Request
 */
 type RetrieveUserUUIDsByCIDBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +232,13 @@ func (o *RetrieveUserUUIDsByCIDBadRequest) GetPayload() *models.MsaQueryResponse
 
 func (o *RetrieveUserUUIDsByCIDBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +282,10 @@ RetrieveUserUUIDsByCIDForbidden describes a response with status code 403, with 
 Forbidden
 */
 type RetrieveUserUUIDsByCIDForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +337,13 @@ func (o *RetrieveUserUUIDsByCIDForbidden) GetPayload() *models.MsaQueryResponse 
 
 func (o *RetrieveUserUUIDsByCIDForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +387,10 @@ RetrieveUserUUIDsByCIDTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type RetrieveUserUUIDsByCIDTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -408,6 +445,13 @@ func (o *RetrieveUserUUIDsByCIDTooManyRequests) GetPayload() *models.MsaReplyMet
 }
 
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
