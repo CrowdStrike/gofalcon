@@ -79,6 +79,10 @@ OK
 */
 type UpdateUserOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +91,7 @@ type UpdateUserOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserMetaDataResponse
+	Payload *models.APIUserMetadataResponse
 }
 
 // IsSuccess returns true when this update user o k response has a 2xx status code
@@ -123,11 +127,18 @@ func (o *UpdateUserOK) String() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateUserOK) GetPayload() *models.DomainUserMetaDataResponse {
+func (o *UpdateUserOK) GetPayload() *models.APIUserMetadataResponse {
 	return o.Payload
 }
 
 func (o *UpdateUserOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -151,7 +162,7 @@ func (o *UpdateUserOK) readResponse(response runtime.ClientResponse, consumer ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserMetaDataResponse)
+	o.Payload = new(models.APIUserMetadataResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -172,6 +183,10 @@ UpdateUserBadRequest describes a response with status code 400, with default hea
 Bad Request
 */
 type UpdateUserBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +238,13 @@ func (o *UpdateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *UpdateUserBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +288,10 @@ UpdateUserForbidden describes a response with status code 403, with default head
 Forbidden
 */
 type UpdateUserForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +343,13 @@ func (o *UpdateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *UpdateUserForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +393,10 @@ UpdateUserNotFound describes a response with status code 404, with default heade
 Not Found
 */
 type UpdateUserNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -411,6 +448,13 @@ func (o *UpdateUserNotFound) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *UpdateUserNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -454,6 +498,10 @@ UpdateUserTooManyRequests describes a response with status code 429, with defaul
 Too Many Requests
 */
 type UpdateUserTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -508,6 +556,13 @@ func (o *UpdateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *UpdateUserTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,7 +622,7 @@ OK
 type UpdateUserDefault struct {
 	_statusCode int
 
-	Payload *models.DomainUserMetaDataResponse
+	Payload *models.APIUserMetadataResponse
 }
 
 // Code gets the status code for the update user default response
@@ -608,13 +663,13 @@ func (o *UpdateUserDefault) String() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] UpdateUser default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *UpdateUserDefault) GetPayload() *models.DomainUserMetaDataResponse {
+func (o *UpdateUserDefault) GetPayload() *models.APIUserMetadataResponse {
 	return o.Payload
 }
 
 func (o *UpdateUserDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainUserMetaDataResponse)
+	o.Payload = new(models.APIUserMetadataResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

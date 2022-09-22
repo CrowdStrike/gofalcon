@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUpdateDeviceTagsRequestV1 domain update device tags request v1
+// DeviceapiUpdateDeviceTagsRequestV1 deviceapi update device tags request v1
 //
-// swagger:model domain.UpdateDeviceTagsRequestV1
-type DomainUpdateDeviceTagsRequestV1 struct {
+// swagger:model deviceapi.UpdateDeviceTagsRequestV1
+type DeviceapiUpdateDeviceTagsRequestV1 struct {
 
 	// action
 	// Required: true
@@ -32,8 +32,8 @@ type DomainUpdateDeviceTagsRequestV1 struct {
 	Tags []string `json:"tags"`
 }
 
-// Validate validates this domain update device tags request v1
-func (m *DomainUpdateDeviceTagsRequestV1) Validate(formats strfmt.Registry) error {
+// Validate validates this deviceapi update device tags request v1
+func (m *DeviceapiUpdateDeviceTagsRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAction(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *DomainUpdateDeviceTagsRequestV1) Validate(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *DomainUpdateDeviceTagsRequestV1) validateAction(formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsRequestV1) validateAction(formats strfmt.Registry) error {
 
 	if err := validate.Required("action", "body", m.Action); err != nil {
 		return err
@@ -63,7 +63,7 @@ func (m *DomainUpdateDeviceTagsRequestV1) validateAction(formats strfmt.Registry
 	return nil
 }
 
-func (m *DomainUpdateDeviceTagsRequestV1) validateDeviceIds(formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsRequestV1) validateDeviceIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("device_ids", "body", m.DeviceIds); err != nil {
 		return err
@@ -72,7 +72,7 @@ func (m *DomainUpdateDeviceTagsRequestV1) validateDeviceIds(formats strfmt.Regis
 	return nil
 }
 
-func (m *DomainUpdateDeviceTagsRequestV1) validateTags(formats strfmt.Registry) error {
+func (m *DeviceapiUpdateDeviceTagsRequestV1) validateTags(formats strfmt.Registry) error {
 
 	if err := validate.Required("tags", "body", m.Tags); err != nil {
 		return err
@@ -81,13 +81,13 @@ func (m *DomainUpdateDeviceTagsRequestV1) validateTags(formats strfmt.Registry) 
 	return nil
 }
 
-// ContextValidate validates this domain update device tags request v1 based on context it is used
-func (m *DomainUpdateDeviceTagsRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this deviceapi update device tags request v1 based on context it is used
+func (m *DeviceapiUpdateDeviceTagsRequestV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *DomainUpdateDeviceTagsRequestV1) MarshalBinary() ([]byte, error) {
+func (m *DeviceapiUpdateDeviceTagsRequestV1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -95,8 +95,8 @@ func (m *DomainUpdateDeviceTagsRequestV1) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainUpdateDeviceTagsRequestV1) UnmarshalBinary(b []byte) error {
-	var res DomainUpdateDeviceTagsRequestV1
+func (m *DeviceapiUpdateDeviceTagsRequestV1) UnmarshalBinary(b []byte) error {
+	var res DeviceapiUpdateDeviceTagsRequestV1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -66,6 +66,10 @@ Created
 */
 type CreateUserCreated struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -74,7 +78,7 @@ type CreateUserCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserMetaDataResponse
+	Payload *models.APIUserMetadataResponse
 }
 
 // IsSuccess returns true when this create user created response has a 2xx status code
@@ -110,11 +114,18 @@ func (o *CreateUserCreated) String() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateUserCreated) GetPayload() *models.DomainUserMetaDataResponse {
+func (o *CreateUserCreated) GetPayload() *models.APIUserMetadataResponse {
 	return o.Payload
 }
 
 func (o *CreateUserCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -138,7 +149,7 @@ func (o *CreateUserCreated) readResponse(response runtime.ClientResponse, consum
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserMetaDataResponse)
+	o.Payload = new(models.APIUserMetadataResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -159,6 +170,10 @@ CreateUserBadRequest describes a response with status code 400, with default hea
 Bad Request
 */
 type CreateUserBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -210,6 +225,13 @@ func (o *CreateUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *CreateUserBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -253,6 +275,10 @@ CreateUserForbidden describes a response with status code 403, with default head
 Forbidden
 */
 type CreateUserForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -304,6 +330,13 @@ func (o *CreateUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *CreateUserForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -347,6 +380,10 @@ CreateUserTooManyRequests describes a response with status code 429, with defaul
 Too Many Requests
 */
 type CreateUserTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -401,6 +438,13 @@ func (o *CreateUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *CreateUserTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

@@ -73,6 +73,10 @@ OK
 */
 type GrantUserRoleIdsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -81,7 +85,7 @@ type GrantUserRoleIdsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserRoleIDsResponse
+	Payload *models.APIUserRoleIDsResponse
 }
 
 // IsSuccess returns true when this grant user role ids o k response has a 2xx status code
@@ -117,11 +121,18 @@ func (o *GrantUserRoleIdsOK) String() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
 }
 
-func (o *GrantUserRoleIdsOK) GetPayload() *models.DomainUserRoleIDsResponse {
+func (o *GrantUserRoleIdsOK) GetPayload() *models.APIUserRoleIDsResponse {
 	return o.Payload
 }
 
 func (o *GrantUserRoleIdsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -145,7 +156,7 @@ func (o *GrantUserRoleIdsOK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserRoleIDsResponse)
+	o.Payload = new(models.APIUserRoleIDsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -166,6 +177,10 @@ GrantUserRoleIdsBadRequest describes a response with status code 400, with defau
 Bad Request
 */
 type GrantUserRoleIdsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +232,13 @@ func (o *GrantUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GrantUserRoleIdsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +282,10 @@ GrantUserRoleIdsForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type GrantUserRoleIdsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +337,13 @@ func (o *GrantUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *GrantUserRoleIdsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +387,10 @@ GrantUserRoleIdsTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type GrantUserRoleIdsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -408,6 +445,13 @@ func (o *GrantUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 }
 
 func (o *GrantUserRoleIdsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -467,7 +511,7 @@ OK
 type GrantUserRoleIdsDefault struct {
 	_statusCode int
 
-	Payload *models.DomainUserRoleIDsResponse
+	Payload *models.APIUserRoleIDsResponse
 }
 
 // Code gets the status code for the grant user role ids default response
@@ -508,13 +552,13 @@ func (o *GrantUserRoleIdsDefault) String() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] GrantUserRoleIds default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *GrantUserRoleIdsDefault) GetPayload() *models.DomainUserRoleIDsResponse {
+func (o *GrantUserRoleIdsDefault) GetPayload() *models.APIUserRoleIDsResponse {
 	return o.Payload
 }
 
 func (o *GrantUserRoleIdsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainUserRoleIDsResponse)
+	o.Payload = new(models.APIUserRoleIDsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

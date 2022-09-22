@@ -44,8 +44,6 @@ type ClientService interface {
 
 	RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error)
 
-	RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error)
-
 	RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error)
 
 	RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error)
@@ -66,6 +64,8 @@ type ClientService interface {
 
 	QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error)
 
+	RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error)
+
 	RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...ClientOption) (*RetrieveUsersGETV1OK, error)
 
 	UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) (*UpdateUserV1OK, error)
@@ -78,7 +78,7 @@ type ClientService interface {
 }
 
 /*
-CreateUser creates a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
+CreateUser deprecateds please use p o s t user management entities users v1 create a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
 */
 func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*Cr
 }
 
 /*
-DeleteUser deletes a user permanently
+DeleteUser deprecateds please use d e l e t e user management entities users v1 delete a user permanently
 */
 func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*De
 }
 
 /*
-GetAvailableRoleIds shows role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
+GetAvailableRoleIds deprecateds please use g e t user management queries roles v1 show role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...
 }
 
 /*
-GetRoles gets info about a role
+GetRoles deprecateds please use g e t user management entities roles v1 get info about a role
 */
 func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
@@ -227,7 +227,7 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 }
 
 /*
-GetUserRoleIds shows role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
+GetUserRoleIds deprecateds please use g e t user management combined user roles v1 show role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -264,7 +264,7 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOpti
 }
 
 /*
-GrantUserRoleIds assigns one or more roles to a user
+GrantUserRoleIds deprecateds please use p o s t user management entities user role actions v1 assign one or more roles to a user
 */
 func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -301,7 +301,7 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...Client
 }
 
 /*
-RetrieveEmailsByCID lists the usernames usually an email address for all users in your customer account
+RetrieveEmailsByCID deprecateds please use p o s t user management entities users g e t v1 list the usernames usually an email address for all users in your customer account
 */
 func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -338,44 +338,7 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...
 }
 
 /*
-RetrieveUser gets info about a user
-*/
-func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewRetrieveUserParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "RetrieveUser",
-		Method:             "GET",
-		PathPattern:        "/users/entities/users/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &RetrieveUserReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*RetrieveUserOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveUserDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-RetrieveUserUUID gets a user s ID by providing a username usually an email address
+RetrieveUserUUID deprecateds please use g e t user management queries users v1 get a user s ID by providing a username usually an email address
 */
 func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
@@ -412,7 +375,7 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...Client
 }
 
 /*
-RetrieveUserUUIDsByCID lists user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
+RetrieveUserUUIDsByCID deprecateds please use g e t user management queries users v1 list user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
 */
 func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -449,7 +412,7 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, op
 }
 
 /*
-RevokeUserRoleIds revokes one or more roles from a user
+RevokeUserRoleIds deprecateds please use p o s t user management entities user role actions v1 revoke one or more roles from a user
 */
 func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -486,7 +449,7 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...Clie
 }
 
 /*
-UpdateUser modifies an existing user s first or last name
+UpdateUser deprecateds please use p a t c h user management entities users v1 modify an existing user s first or last name
 */
 func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending
@@ -742,6 +705,43 @@ func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryUserV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+RetrieveUser deprecateds please use p o s t user management entities users g e t v1 get info about a user
+*/
+func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRetrieveUserParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "retrieveUser",
+		Method:             "GET",
+		PathPattern:        "/users/entities/users/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RetrieveUserReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RetrieveUserOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*RetrieveUserDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

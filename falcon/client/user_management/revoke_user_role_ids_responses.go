@@ -73,6 +73,10 @@ OK
 */
 type RevokeUserRoleIdsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -81,7 +85,7 @@ type RevokeUserRoleIdsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserRoleIDsResponse
+	Payload *models.APIUserRoleIDsResponse
 }
 
 // IsSuccess returns true when this revoke user role ids o k response has a 2xx status code
@@ -117,11 +121,18 @@ func (o *RevokeUserRoleIdsOK) String() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
 }
 
-func (o *RevokeUserRoleIdsOK) GetPayload() *models.DomainUserRoleIDsResponse {
+func (o *RevokeUserRoleIdsOK) GetPayload() *models.APIUserRoleIDsResponse {
 	return o.Payload
 }
 
 func (o *RevokeUserRoleIdsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -145,7 +156,7 @@ func (o *RevokeUserRoleIdsOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserRoleIDsResponse)
+	o.Payload = new(models.APIUserRoleIDsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -166,6 +177,10 @@ RevokeUserRoleIdsBadRequest describes a response with status code 400, with defa
 Bad Request
 */
 type RevokeUserRoleIdsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +232,13 @@ func (o *RevokeUserRoleIdsBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *RevokeUserRoleIdsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +282,10 @@ RevokeUserRoleIdsForbidden describes a response with status code 403, with defau
 Forbidden
 */
 type RevokeUserRoleIdsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +337,13 @@ func (o *RevokeUserRoleIdsForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *RevokeUserRoleIdsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +387,10 @@ RevokeUserRoleIdsTooManyRequests describes a response with status code 429, with
 Too Many Requests
 */
 type RevokeUserRoleIdsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -408,6 +445,13 @@ func (o *RevokeUserRoleIdsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly
 }
 
 func (o *RevokeUserRoleIdsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -467,7 +511,7 @@ OK
 type RevokeUserRoleIdsDefault struct {
 	_statusCode int
 
-	Payload *models.DomainUserRoleIDsResponse
+	Payload *models.APIUserRoleIDsResponse
 }
 
 // Code gets the status code for the revoke user role ids default response
@@ -508,13 +552,13 @@ func (o *RevokeUserRoleIdsDefault) String() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] RevokeUserRoleIds default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *RevokeUserRoleIdsDefault) GetPayload() *models.DomainUserRoleIDsResponse {
+func (o *RevokeUserRoleIdsDefault) GetPayload() *models.APIUserRoleIDsResponse {
 	return o.Payload
 }
 
 func (o *RevokeUserRoleIdsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainUserRoleIDsResponse)
+	o.Payload = new(models.APIUserRoleIDsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

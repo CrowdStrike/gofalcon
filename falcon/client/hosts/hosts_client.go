@@ -429,7 +429,7 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...Cl
 }
 
 /*
-UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts
+UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts tags must be of the form falcon grouping tags
 */
 func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error) {
 	// TODO: Validate the params before sending
@@ -461,8 +461,9 @@ func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateDeviceTagsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateDeviceTags: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

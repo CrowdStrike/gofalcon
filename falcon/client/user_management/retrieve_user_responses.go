@@ -79,6 +79,10 @@ OK
 */
 type RetrieveUserOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +91,7 @@ type RetrieveUserOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainUserMetaDataResponse
+	Payload *models.APIUserMetadataResponse
 }
 
 // IsSuccess returns true when this retrieve user o k response has a 2xx status code
@@ -123,11 +127,18 @@ func (o *RetrieveUserOK) String() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
 }
 
-func (o *RetrieveUserOK) GetPayload() *models.DomainUserMetaDataResponse {
+func (o *RetrieveUserOK) GetPayload() *models.APIUserMetadataResponse {
 	return o.Payload
 }
 
 func (o *RetrieveUserOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -151,7 +162,7 @@ func (o *RetrieveUserOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainUserMetaDataResponse)
+	o.Payload = new(models.APIUserMetadataResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -172,6 +183,10 @@ RetrieveUserBadRequest describes a response with status code 400, with default h
 Bad Request
 */
 type RetrieveUserBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +238,13 @@ func (o *RetrieveUserBadRequest) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *RetrieveUserBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +288,10 @@ RetrieveUserForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type RetrieveUserForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +343,13 @@ func (o *RetrieveUserForbidden) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *RetrieveUserForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +393,10 @@ RetrieveUserNotFound describes a response with status code 404, with default hea
 Not Found
 */
 type RetrieveUserNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -411,6 +448,13 @@ func (o *RetrieveUserNotFound) GetPayload() *models.MsaEntitiesResponse {
 
 func (o *RetrieveUserNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -454,6 +498,10 @@ RetrieveUserTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type RetrieveUserTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -508,6 +556,13 @@ func (o *RetrieveUserTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *RetrieveUserTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,7 +622,7 @@ OK
 type RetrieveUserDefault struct {
 	_statusCode int
 
-	Payload *models.DomainUserMetaDataResponse
+	Payload *models.APIUserMetadataResponse
 }
 
 // Code gets the status code for the retrieve user default response
@@ -601,20 +656,20 @@ func (o *RetrieveUserDefault) IsCode(code int) bool {
 }
 
 func (o *RetrieveUserDefault) Error() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] RetrieveUser default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUser default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *RetrieveUserDefault) String() string {
-	return fmt.Sprintf("[GET /users/entities/users/v1][%d] RetrieveUser default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUser default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *RetrieveUserDefault) GetPayload() *models.DomainUserMetaDataResponse {
+func (o *RetrieveUserDefault) GetPayload() *models.APIUserMetadataResponse {
 	return o.Payload
 }
 
 func (o *RetrieveUserDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.DomainUserMetaDataResponse)
+	o.Payload = new(models.APIUserMetadataResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

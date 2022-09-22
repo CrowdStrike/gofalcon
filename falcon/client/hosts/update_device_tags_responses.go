@@ -50,14 +50,7 @@ func (o *UpdateDeviceTagsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewUpdateDeviceTagsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -73,6 +66,10 @@ OK
 */
 type UpdateDeviceTagsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -81,7 +78,7 @@ type UpdateDeviceTagsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaEntitiesResponse
+	Payload *models.DeviceapiUpdateDeviceTagsSwaggerV1
 }
 
 // IsSuccess returns true when this update device tags o k response has a 2xx status code
@@ -117,11 +114,18 @@ func (o *UpdateDeviceTagsOK) String() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateDeviceTagsOK) GetPayload() *models.MsaEntitiesResponse {
+func (o *UpdateDeviceTagsOK) GetPayload() *models.DeviceapiUpdateDeviceTagsSwaggerV1 {
 	return o.Payload
 }
 
 func (o *UpdateDeviceTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -145,7 +149,7 @@ func (o *UpdateDeviceTagsOK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaEntitiesResponse)
+	o.Payload = new(models.DeviceapiUpdateDeviceTagsSwaggerV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -166,6 +170,10 @@ UpdateDeviceTagsBadRequest describes a response with status code 400, with defau
 Bad Request
 */
 type UpdateDeviceTagsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +225,13 @@ func (o *UpdateDeviceTagsBadRequest) GetPayload() *models.MsaReplyAffectedEntiti
 
 func (o *UpdateDeviceTagsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +275,10 @@ UpdateDeviceTagsForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type UpdateDeviceTagsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +330,13 @@ func (o *UpdateDeviceTagsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateDeviceTagsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +380,10 @@ UpdateDeviceTagsTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type UpdateDeviceTagsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -409,6 +439,13 @@ func (o *UpdateDeviceTagsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *UpdateDeviceTagsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -443,78 +480,6 @@ func (o *UpdateDeviceTagsTooManyRequests) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateDeviceTagsDefault creates a UpdateDeviceTagsDefault with default headers values
-func NewUpdateDeviceTagsDefault(code int) *UpdateDeviceTagsDefault {
-	return &UpdateDeviceTagsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateDeviceTagsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateDeviceTagsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaEntitiesResponse
-}
-
-// Code gets the status code for the update device tags default response
-func (o *UpdateDeviceTagsDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this update device tags default response has a 2xx status code
-func (o *UpdateDeviceTagsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update device tags default response has a 3xx status code
-func (o *UpdateDeviceTagsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update device tags default response has a 4xx status code
-func (o *UpdateDeviceTagsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update device tags default response has a 5xx status code
-func (o *UpdateDeviceTagsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update device tags default response a status code equal to that given
-func (o *UpdateDeviceTagsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *UpdateDeviceTagsDefault) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] UpdateDeviceTags default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateDeviceTagsDefault) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] UpdateDeviceTags default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateDeviceTagsDefault) GetPayload() *models.MsaEntitiesResponse {
-	return o.Payload
-}
-
-func (o *UpdateDeviceTagsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

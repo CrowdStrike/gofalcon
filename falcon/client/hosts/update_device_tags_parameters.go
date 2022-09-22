@@ -64,7 +64,7 @@ UpdateDeviceTagsParams contains all the parameters to send to the API endpoint
 type UpdateDeviceTagsParams struct {
 
 	// Body.
-	Body *models.DomainUpdateDeviceTagsRequestV1
+	Body *models.DeviceapiUpdateDeviceTagsRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateDeviceTagsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update device tags params
-func (o *UpdateDeviceTagsParams) WithBody(body *models.DomainUpdateDeviceTagsRequestV1) *UpdateDeviceTagsParams {
+func (o *UpdateDeviceTagsParams) WithBody(body *models.DeviceapiUpdateDeviceTagsRequestV1) *UpdateDeviceTagsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update device tags params
-func (o *UpdateDeviceTagsParams) SetBody(body *models.DomainUpdateDeviceTagsRequestV1) {
+func (o *UpdateDeviceTagsParams) SetBody(body *models.DeviceapiUpdateDeviceTagsRequestV1) {
 	o.Body = body
 }
 
