@@ -27,4 +27,11 @@ $ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
       --filter="type:'url'+malicious_confidence:'Medium'"  | jq length
 ```
 
+Filter out all the IOCs that have been deleted:
+```
+$ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD=us-1 \
+      falcon_intel_indicators \
+      --filter="deleted:false"  | jq length
+```
+
 Please Refer to [Falcon Intel API documentation](https://falcon.crowdstrike.com/documentation/72/intel-apis) to learn more about FQL filter, about the meaning of the indicator entity properties, and best practices. Further, please refer to [jq tool manual](https://stedolan.github.io/jq/manual/) to learn how to effectively post-process JSON outputs in command-line.
