@@ -16,6 +16,7 @@
   # Rename msaspec.Paging to msa.Paging. These are two names for the same type.
   | del(.definitions."msaspec.Paging")
   | .definitions."domain.RuleMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
+  | .definitions."domain.MsaMetaInfo".properties.pagination."$ref" = "#/definitions/msa.Paging"
   # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
   | del(.definitions."msaspec.MetaInfo")
 
