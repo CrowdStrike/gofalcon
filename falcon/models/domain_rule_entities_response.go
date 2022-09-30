@@ -15,25 +15,25 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainQueryResponse domain query response
+// DomainRuleEntitiesResponse domain rule entities response
 //
-// swagger:model domain.QueryResponse
-type DomainQueryResponse struct {
+// swagger:model domain.RuleEntitiesResponse
+type DomainRuleEntitiesResponse struct {
 
 	// errors
 	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *DomainMsaMetaInfo `json:"meta"`
+	Meta *MsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
-	Resources []string `json:"resources"`
+	Resources []*DomainRule `json:"resources"`
 }
 
-// Validate validates this domain query response
-func (m *DomainQueryResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this domain rule entities response
+func (m *DomainRuleEntitiesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *DomainQueryResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainQueryResponse) validateErrors(formats strfmt.Registry) error {
+func (m *DomainRuleEntitiesResponse) validateErrors(formats strfmt.Registry) error {
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -80,7 +80,7 @@ func (m *DomainQueryResponse) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainQueryResponse) validateMeta(formats strfmt.Registry) error {
+func (m *DomainRuleEntitiesResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,17 +100,35 @@ func (m *DomainQueryResponse) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainQueryResponse) validateResources(formats strfmt.Registry) error {
+func (m *DomainRuleEntitiesResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
-// ContextValidate validate this domain query response based on the context it is used
-func (m *DomainQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this domain rule entities response based on the context it is used
+func (m *DomainRuleEntitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -121,13 +139,17 @@ func (m *DomainQueryResponse) ContextValidate(ctx context.Context, formats strfm
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *DomainQueryResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainRuleEntitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -147,7 +169,7 @@ func (m *DomainQueryResponse) contextValidateErrors(ctx context.Context, formats
 	return nil
 }
 
-func (m *DomainQueryResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainRuleEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -163,8 +185,28 @@ func (m *DomainQueryResponse) contextValidateMeta(ctx context.Context, formats s
 	return nil
 }
 
+func (m *DomainRuleEntitiesResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // MarshalBinary interface implementation
-func (m *DomainQueryResponse) MarshalBinary() ([]byte, error) {
+func (m *DomainRuleEntitiesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -172,8 +214,8 @@ func (m *DomainQueryResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DomainQueryResponse) UnmarshalBinary(b []byte) error {
-	var res DomainQueryResponse
+func (m *DomainRuleEntitiesResponse) UnmarshalBinary(b []byte) error {
+	var res DomainRuleEntitiesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
