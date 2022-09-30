@@ -57,6 +57,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
@@ -150,6 +151,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
+	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
 	return cli
@@ -290,6 +292,8 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
+	TailoredIntelligence tailored_intelligence.ClientService
+
 	UserManagement user_management.ClientService
 
 	ZeroTrustAssessment zero_trust_assessment.ClientService
@@ -347,6 +351,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
+	c.TailoredIntelligence.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
 }
