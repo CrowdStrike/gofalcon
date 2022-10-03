@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -26,6 +27,10 @@ type RequestsSensorUpdateSettingsV2 struct {
 	// The uninstall protection state to apply to the policy
 	// Enum: [ENABLED DISABLED MAINTENANCE_MODE IGNORE UNKNOWN]
 	UninstallProtection string `json:"uninstall_protection,omitempty"`
+
+	// variants
+	// Required: true
+	Variants []*RequestsSensorUpdateBuildV1 `json:"variants"`
 }
 
 // Validate validates this requests sensor update settings v2
@@ -33,6 +38,10 @@ func (m *RequestsSensorUpdateSettingsV2) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateUninstallProtection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVariants(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -93,8 +102,64 @@ func (m *RequestsSensorUpdateSettingsV2) validateUninstallProtection(formats str
 	return nil
 }
 
-// ContextValidate validates this requests sensor update settings v2 based on context it is used
+func (m *RequestsSensorUpdateSettingsV2) validateVariants(formats strfmt.Registry) error {
+
+	if err := validate.Required("variants", "body", m.Variants); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Variants); i++ {
+		if swag.IsZero(m.Variants[i]) { // not required
+			continue
+		}
+
+		if m.Variants[i] != nil {
+			if err := m.Variants[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this requests sensor update settings v2 based on the context it is used
 func (m *RequestsSensorUpdateSettingsV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateVariants(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RequestsSensorUpdateSettingsV2) contextValidateVariants(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Variants); i++ {
+
+		if m.Variants[i] != nil {
+			if err := m.Variants[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("variants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

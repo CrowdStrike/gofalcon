@@ -85,6 +85,10 @@ OK
 */
 type UpdateSensorUpdatePoliciesV2OK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -135,6 +139,13 @@ func (o *UpdateSensorUpdatePoliciesV2OK) GetPayload() *models.ResponsesSensorUpd
 
 func (o *UpdateSensorUpdatePoliciesV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -178,6 +189,10 @@ UpdateSensorUpdatePoliciesV2BadRequest describes a response with status code 400
 Bad Request
 */
 type UpdateSensorUpdatePoliciesV2BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -229,6 +244,13 @@ func (o *UpdateSensorUpdatePoliciesV2BadRequest) GetPayload() *models.ResponsesS
 
 func (o *UpdateSensorUpdatePoliciesV2BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -272,6 +294,10 @@ UpdateSensorUpdatePoliciesV2Forbidden describes a response with status code 403,
 Forbidden
 */
 type UpdateSensorUpdatePoliciesV2Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -323,6 +349,13 @@ func (o *UpdateSensorUpdatePoliciesV2Forbidden) GetPayload() *models.MsaErrorsOn
 
 func (o *UpdateSensorUpdatePoliciesV2Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -366,6 +399,10 @@ UpdateSensorUpdatePoliciesV2NotFound describes a response with status code 404, 
 Not Found
 */
 type UpdateSensorUpdatePoliciesV2NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -417,6 +454,13 @@ func (o *UpdateSensorUpdatePoliciesV2NotFound) GetPayload() *models.ResponsesSen
 
 func (o *UpdateSensorUpdatePoliciesV2NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -460,6 +504,10 @@ UpdateSensorUpdatePoliciesV2TooManyRequests describes a response with status cod
 Too Many Requests
 */
 type UpdateSensorUpdatePoliciesV2TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -514,6 +562,13 @@ func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) GetPayload() *models.MsaRe
 }
 
 func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -570,6 +625,10 @@ Internal Server Error
 */
 type UpdateSensorUpdatePoliciesV2InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -619,6 +678,13 @@ func (o *UpdateSensorUpdatePoliciesV2InternalServerError) GetPayload() *models.R
 }
 
 func (o *UpdateSensorUpdatePoliciesV2InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

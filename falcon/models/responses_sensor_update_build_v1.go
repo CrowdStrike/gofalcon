@@ -26,6 +26,10 @@ type ResponsesSensorUpdateBuildV1 struct {
 	// platform
 	// Required: true
 	Platform *string `json:"platform"`
+
+	// sensor version
+	// Required: true
+	SensorVersion *string `json:"sensor_version"`
 }
 
 // Validate validates this responses sensor update build v1
@@ -37,6 +41,10 @@ func (m *ResponsesSensorUpdateBuildV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePlatform(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSensorVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -58,6 +66,15 @@ func (m *ResponsesSensorUpdateBuildV1) validateBuild(formats strfmt.Registry) er
 func (m *ResponsesSensorUpdateBuildV1) validatePlatform(formats strfmt.Registry) error {
 
 	if err := validate.Required("platform", "body", m.Platform); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ResponsesSensorUpdateBuildV1) validateSensorVersion(formats strfmt.Registry) error {
+
+	if err := validate.Required("sensor_version", "body", m.SensorVersion); err != nil {
 		return err
 	}
 

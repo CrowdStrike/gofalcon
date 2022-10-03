@@ -25,6 +25,10 @@ type ResponsesSensorUpdateSettingsV2 struct {
 	// Required: true
 	Build *string `json:"build"`
 
+	// sensor version
+	// Required: true
+	SensorVersion *string `json:"sensor_version"`
+
 	// The uninstall protection setting to apply to devices in the policy
 	// Required: true
 	// Enum: [ENABLED DISABLED MAINTENANCE_MODE IGNORE UNKNOWN]
@@ -40,6 +44,10 @@ func (m *ResponsesSensorUpdateSettingsV2) Validate(formats strfmt.Registry) erro
 	var res []error
 
 	if err := m.validateBuild(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSensorVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,6 +68,15 @@ func (m *ResponsesSensorUpdateSettingsV2) Validate(formats strfmt.Registry) erro
 func (m *ResponsesSensorUpdateSettingsV2) validateBuild(formats strfmt.Registry) error {
 
 	if err := validate.Required("build", "body", m.Build); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ResponsesSensorUpdateSettingsV2) validateSensorVersion(formats strfmt.Registry) error {
+
+	if err := validate.Required("sensor_version", "body", m.SensorVersion); err != nil {
 		return err
 	}
 
