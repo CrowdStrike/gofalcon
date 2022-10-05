@@ -23,12 +23,16 @@ type DomainActionV1 struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// The level of detail in which the content will be delivered
+	// Required: true
+	ContentFormat *string `json:"content_format"`
+
 	// The date when the action was created
 	// Required: true
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
-	// frequency
+	// The time interval between the action's triggers
 	// Required: true
 	Frequency *string `json:"frequency"`
 
@@ -47,6 +51,10 @@ type DomainActionV1 struct {
 	// The action status. It can be either 'enabled' or 'muted'.
 	// Required: true
 	Status *string `json:"status"`
+
+	// Whether to periodically trigger the action based on the frequency, even when there are no new matches for the associated monitoring rule
+	// Required: true
+	TriggerMatchless *bool `json:"trigger_matchless"`
 
 	// The action type. The only type currently supported is 'email'
 	// Required: true
@@ -67,6 +75,10 @@ func (m *DomainActionV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContentFormat(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,6 +106,10 @@ func (m *DomainActionV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTriggerMatchless(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -115,6 +131,15 @@ func (m *DomainActionV1) Validate(formats strfmt.Registry) error {
 func (m *DomainActionV1) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainActionV1) validateContentFormat(formats strfmt.Registry) error {
+
+	if err := validate.Required("content_format", "body", m.ContentFormat); err != nil {
 		return err
 	}
 
@@ -173,6 +198,15 @@ func (m *DomainActionV1) validateRuleID(formats strfmt.Registry) error {
 func (m *DomainActionV1) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainActionV1) validateTriggerMatchless(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_matchless", "body", m.TriggerMatchless); err != nil {
 		return err
 	}
 

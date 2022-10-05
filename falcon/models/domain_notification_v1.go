@@ -31,12 +31,16 @@ type DomainNotificationV1 struct {
 	// Summary of the data breach which matched the rule
 	BreachSummary *DomainMatchedBreachSummaryV1 `json:"breach_summary,omitempty"`
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// The date when the notification was generated
 	// Required: true
 	// Format: date-time
 	CreatedDate *strfmt.DateTime `json:"created_date"`
 
-	// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a <cs-highlight> tag
+	// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
 	Highlights []string `json:"highlights"`
 
 	// The ID of the notification
@@ -45,6 +49,9 @@ type DomainNotificationV1 struct {
 
 	// The author who posted the intelligence item
 	ItemAuthor string `json:"item_author,omitempty"`
+
+	// The ID of the author who posted the intelligence item
+	ItemAuthorID string `json:"item_author_id,omitempty"`
 
 	// Timestamp when the item is considered to have been created
 	// Required: true
@@ -58,9 +65,16 @@ type DomainNotificationV1 struct {
 	// The site where the intelligence item was found
 	ItemSite string `json:"item_site,omitempty"`
 
-	// Type of the item which matched the rule: 'post', 'reply', 'botnet_config', 'breach', etc.
+	// The ID of the site where the intelligence item was found
+	ItemSiteID string `json:"item_site_id,omitempty"`
+
+	// Type of the item which matched the rule: `post`, `reply`, `botnet_config`, `breach`, etc.
 	// Required: true
 	ItemType *string `json:"item_type"`
+
+	// ID of the raw intel item that matched the rule
+	// Required: true
+	RawIntelID *string `json:"raw_intel_id"`
 
 	// The ID of the rule that generated this notification
 	// Required: true
@@ -78,9 +92,15 @@ type DomainNotificationV1 struct {
 	// Required: true
 	RuleTopic *string `json:"rule_topic"`
 
-	// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
+	// Category of the source that generated the notification
+	SourceCategory string `json:"source_category,omitempty"`
+
+	// The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
 	// Required: true
 	Status *string `json:"status"`
+
+	// Details about the infrastructure component that matched the Typosquatting rule
+	Typosquatting *SadomainTyposquattingComponent `json:"typosquatting,omitempty"`
 
 	// The date when the notification was updated
 	// Required: true
@@ -93,6 +113,10 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateBreachSummary(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -116,6 +140,10 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateRawIntelID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRuleID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -133,6 +161,10 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTyposquatting(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,6 +192,15 @@ func (m *DomainNotificationV1) validateBreachSummary(formats strfmt.Registry) er
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
 	}
 
 	return nil
@@ -218,6 +259,15 @@ func (m *DomainNotificationV1) validateItemType(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainNotificationV1) validateRawIntelID(formats strfmt.Registry) error {
+
+	if err := validate.Required("raw_intel_id", "body", m.RawIntelID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainNotificationV1) validateRuleID(formats strfmt.Registry) error {
 
 	if err := validate.Required("rule_id", "body", m.RuleID); err != nil {
@@ -263,6 +313,25 @@ func (m *DomainNotificationV1) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainNotificationV1) validateTyposquatting(formats strfmt.Registry) error {
+	if swag.IsZero(m.Typosquatting) { // not required
+		return nil
+	}
+
+	if m.Typosquatting != nil {
+		if err := m.Typosquatting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("typosquatting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("typosquatting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainNotificationV1) validateUpdatedDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_date", "body", m.UpdatedDate); err != nil {
@@ -284,6 +353,10 @@ func (m *DomainNotificationV1) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateTyposquatting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -298,6 +371,22 @@ func (m *DomainNotificationV1) contextValidateBreachSummary(ctx context.Context,
 				return ve.ValidateName("breach_summary")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("breach_summary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainNotificationV1) contextValidateTyposquatting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Typosquatting != nil {
+		if err := m.Typosquatting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("typosquatting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("typosquatting")
 			}
 			return err
 		}

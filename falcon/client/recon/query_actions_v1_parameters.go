@@ -64,13 +64,13 @@ type QueryActionsV1Params struct {
 
 	/* Filter.
 
-	   FQL query to filter actions by. Possible filter properties are: [id cid user_uuid rule_id type frequency recipients status created_timestamp updated_timestamp]
+	   FQL query to filter actions by. Possible filter properties are: [id cid user_uuid rule_id type frequency content_format trigger_matchless recipients status created_timestamp updated_timestamp]
 	*/
 	Filter *string
 
 	/* Limit.
 
-	   Number of IDs to return.
+	   Number of IDs to return. Offset + limit should NOT be above 10K.
 	*/
 	Limit *int64
 
@@ -78,7 +78,7 @@ type QueryActionsV1Params struct {
 
 	   Starting index of overall result set from which to return IDs.
 	*/
-	Offset *string
+	Offset *int64
 
 	/* Q.
 
@@ -168,13 +168,13 @@ func (o *QueryActionsV1Params) SetLimit(limit *int64) {
 }
 
 // WithOffset adds the offset to the query actions v1 params
-func (o *QueryActionsV1Params) WithOffset(offset *string) *QueryActionsV1Params {
+func (o *QueryActionsV1Params) WithOffset(offset *int64) *QueryActionsV1Params {
 	o.SetOffset(offset)
 	return o
 }
 
 // SetOffset adds the offset to the query actions v1 params
-func (o *QueryActionsV1Params) SetOffset(offset *string) {
+func (o *QueryActionsV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
@@ -245,12 +245,12 @@ func (o *QueryActionsV1Params) WriteToRequest(r runtime.ClientRequest, reg strfm
 	if o.Offset != nil {
 
 		// query param offset
-		var qrOffset string
+		var qrOffset int64
 
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
-		qOffset := qrOffset
+		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {

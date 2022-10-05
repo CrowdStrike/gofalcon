@@ -19,6 +19,10 @@ import (
 // swagger:model domain.UpdateActionRequest
 type DomainUpdateActionRequest struct {
 
+	// content format
+	// Required: true
+	ContentFormat *string `json:"content_format"`
+
 	// frequency
 	// Required: true
 	Frequency *string `json:"frequency"`
@@ -34,11 +38,19 @@ type DomainUpdateActionRequest struct {
 	// status
 	// Required: true
 	Status *string `json:"status"`
+
+	// trigger matchless
+	// Required: true
+	TriggerMatchless *bool `json:"trigger_matchless"`
 }
 
 // Validate validates this domain update action request
 func (m *DomainUpdateActionRequest) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateContentFormat(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateFrequency(formats); err != nil {
 		res = append(res, err)
@@ -56,9 +68,22 @@ func (m *DomainUpdateActionRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTriggerMatchless(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainUpdateActionRequest) validateContentFormat(formats strfmt.Registry) error {
+
+	if err := validate.Required("content_format", "body", m.ContentFormat); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -92,6 +117,15 @@ func (m *DomainUpdateActionRequest) validateRecipients(formats strfmt.Registry) 
 func (m *DomainUpdateActionRequest) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUpdateActionRequest) validateTriggerMatchless(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_matchless", "body", m.TriggerMatchless); err != nil {
 		return err
 	}
 

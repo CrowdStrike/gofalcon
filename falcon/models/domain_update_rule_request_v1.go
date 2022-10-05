@@ -19,11 +19,11 @@ import (
 // swagger:model domain.UpdateRuleRequestV1
 type DomainUpdateRuleRequestV1 struct {
 
-	// Whether to monitor for breach data
+	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
 
-	// The filter to be used for searching
+	// The FQL filter to be used for searching
 	// Required: true
 	Filter *string `json:"filter"`
 
@@ -31,17 +31,21 @@ type DomainUpdateRuleRequestV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// The name of a particular rule
+	// The name of a given rule
 	// Required: true
 	Name *string `json:"name"`
 
-	// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [public private]
+	// The permissions for a given rule which specifies the rule's access by other users. Possible values: `public`, `private`
 	// Required: true
 	Permissions *string `json:"permissions"`
 
-	// The priority for a particular rule. Possible values: [low medium high]
+	// The priority for a given rule. Possible values: `low`, `medium`, `high`
 	// Required: true
 	Priority *string `json:"priority"`
+
+	// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
+	// Required: true
+	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
 }
 
 // Validate validates this domain update rule request v1
@@ -69,6 +73,10 @@ func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePriority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubstringMatchingEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -126,6 +134,15 @@ func (m *DomainUpdateRuleRequestV1) validatePermissions(formats strfmt.Registry)
 func (m *DomainUpdateRuleRequestV1) validatePriority(formats strfmt.Registry) error {
 
 	if err := validate.Required("priority", "body", m.Priority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUpdateRuleRequestV1) validateSubstringMatchingEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("substring_matching_enabled", "body", m.SubstringMatchingEnabled); err != nil {
 		return err
 	}
 

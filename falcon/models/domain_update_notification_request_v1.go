@@ -19,7 +19,7 @@ import (
 // swagger:model domain.UpdateNotificationRequestV1
 type DomainUpdateNotificationRequestV1 struct {
 
-	// The unique ID of the user who is assigned to this notification. The value 'unassigned' can be used to unassign a notification.
+	// The unique ID of the user who is assigned to this notification. The value `unassigned` can be used to unassign a notification.
 	// Required: true
 	AssignedToUUID *string `json:"assigned_to_uuid"`
 
@@ -27,7 +27,7 @@ type DomainUpdateNotificationRequestV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
+	// The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
 	// Required: true
 	Status *string `json:"status"`
 }

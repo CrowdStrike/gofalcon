@@ -64,19 +64,19 @@ type QueryNotificationsV1Params struct {
 
 	/* Filter.
 
-	   FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid status rule_id rule_name rule_topic rule_priority item_type created_date updated_date]
+	   FQL query to filter notifications by. Possible filter properties are: `rule_name`, `typosquatting.base_domain.punycode_format`, `typosquatting.base_domain.whois.name_servers`, `created_date`, `cid`, `typosquatting.base_domain.unicode_format`, `typosquatting.base_domain.whois.registrar.name`, `typosquatting.base_domain.whois.registrant.name`, `item_type`, `typosquatting.punycode_format`, `rule_topic`, `typosquatting.id`, `typosquatting.parent_domain.unicode_format`, `typosquatting.base_domain.id`, `typosquatting.base_domain.whois.registrar.status`, `rule_priority`, `typosquatting.parent_domain.id`, `typosquatting.parent_domain.punycode_format`, `id`, `user_uuid`, `status`, `rule_id`, `typosquatting.base_domain.is_registered`, `typosquatting.base_domain.whois.registrant.email`, `updated_date`, `item_site`, `typosquatting.unicode_format`, `typosquatting.base_domain.whois.registrant.org`, `assigned_to_uuid`
 	*/
 	Filter *string
 
 	/* Limit.
 
-	   Number of ids to return.
+	   Number of IDs to return. Offset + limit should NOT be above 10K.
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   Starting index of overall result set from which to return ids.
+	   Starting index of overall result set from which to return IDs.
 	*/
 	Offset *int64
 
@@ -88,7 +88,7 @@ type QueryNotificationsV1Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: created_date, updated_date. Ex: 'updated_date|desc'.
+	   Possible order by fields: `created_date`, `updated_date`. Ex: `updated_date|desc`.
 	*/
 	Sort *string
 

@@ -19,6 +19,18 @@ import (
 // swagger:model domain.BreachedItemV1
 type DomainBreachedItemV1 struct {
 
+	// company
+	Company string `json:"company,omitempty"`
+
+	// credentials ip
+	CredentialsIP string `json:"credentials_ip,omitempty"`
+
+	// credentials url
+	CredentialsURL string `json:"credentials_url,omitempty"`
+
+	// display name
+	DisplayName string `json:"display_name,omitempty"`
+
 	// The domain associated with the breached account.
 	// Required: true
 	Domain *string `json:"domain"`
@@ -27,9 +39,18 @@ type DomainBreachedItemV1 struct {
 	// Required: true
 	Email *string `json:"email"`
 
+	// financial
+	Financial *DomainExposedDataRecordFinancialV1 `json:"financial,omitempty"`
+
 	// The original hashing algorithm applied to the breached password. Possible values: 'plain', 'unknown', 'base64', 'md5', 'sha1', 'bcrypt', etc. The value 'plain' means that the password was originally found as plaintext.
 	// Required: true
 	HashType *string `json:"hash_type"`
+
+	// job position
+	JobPosition string `json:"job_position,omitempty"`
+
+	// location
+	Location *DomainExposedDataRecordLocationV1 `json:"location,omitempty"`
 
 	// The username of the breached account.
 	// Required: true
@@ -43,9 +64,24 @@ type DomainBreachedItemV1 struct {
 	// Required: true
 	Password *string `json:"password"`
 
+	// password hash
+	PasswordHash string `json:"password_hash,omitempty"`
+
+	// password salt
+	PasswordSalt string `json:"password_salt,omitempty"`
+
 	// The phone number of the person associated with the breached account.
 	// Required: true
 	Phone *string `json:"phone"`
+
+	// social
+	Social *DomainExposedDataRecordSocialV1 `json:"social,omitempty"`
+
+	// user id
+	UserID string `json:"user_id,omitempty"`
+
+	// user ip
+	UserIP string `json:"user_ip,omitempty"`
 }
 
 // Validate validates this domain breached item v1
@@ -60,7 +96,15 @@ func (m *DomainBreachedItemV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateFinancial(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHashType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -77,6 +121,10 @@ func (m *DomainBreachedItemV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePhone(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSocial(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -104,10 +152,48 @@ func (m *DomainBreachedItemV1) validateEmail(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainBreachedItemV1) validateFinancial(formats strfmt.Registry) error {
+	if swag.IsZero(m.Financial) { // not required
+		return nil
+	}
+
+	if m.Financial != nil {
+		if err := m.Financial.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("financial")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("financial")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainBreachedItemV1) validateHashType(formats strfmt.Registry) error {
 
 	if err := validate.Required("hash_type", "body", m.HashType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainBreachedItemV1) validateLocation(formats strfmt.Registry) error {
+	if swag.IsZero(m.Location) { // not required
+		return nil
+	}
+
+	if m.Location != nil {
+		if err := m.Location.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -149,8 +235,92 @@ func (m *DomainBreachedItemV1) validatePhone(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain breached item v1 based on context it is used
+func (m *DomainBreachedItemV1) validateSocial(formats strfmt.Registry) error {
+	if swag.IsZero(m.Social) { // not required
+		return nil
+	}
+
+	if m.Social != nil {
+		if err := m.Social.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("social")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("social")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain breached item v1 based on the context it is used
 func (m *DomainBreachedItemV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFinancial(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSocial(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainBreachedItemV1) contextValidateFinancial(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Financial != nil {
+		if err := m.Financial.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("financial")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("financial")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainBreachedItemV1) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Location != nil {
+		if err := m.Location.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainBreachedItemV1) contextValidateSocial(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Social != nil {
+		if err := m.Social.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("social")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("social")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
