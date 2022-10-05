@@ -64,7 +64,7 @@ type QueryRulesV1Params struct {
 
 	/* Filter.
 
-	   FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions filter status created_timestamp last_updated_timestamp]
+	   FQL query to filter rules by. Possible filter properties are: `cid`, `user_uuid`, `permissions`, `filter`, `breach_monitoring_enabled`, `last_updated_timestamp`, `id`, `topic`, `priority`, `status`, `substring_matching_enabled`, `created_timestamp`.
 	*/
 	Filter *string
 
@@ -76,7 +76,7 @@ type QueryRulesV1Params struct {
 
 	/* Offset.
 
-	   Starting index of overall result set from which to return ids.
+	   Starting index of overall result set from which to return IDs.
 	*/
 	Offset *int64
 
@@ -88,7 +88,7 @@ type QueryRulesV1Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: 'last_updated_timestamp|desc'.
+	   Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
 	*/
 	Sort *string
 

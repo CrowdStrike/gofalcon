@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DomainMsaMetaInfo domain msa meta info
@@ -21,10 +20,6 @@ type DomainMsaMetaInfo struct {
 
 	// pagination
 	Pagination *MsaPaging `json:"pagination,omitempty"`
-
-	// query time
-	// Required: true
-	QueryTime *float64 `json:"queryTime"`
 }
 
 // Validate validates this domain msa meta info
@@ -32,10 +27,6 @@ func (m *DomainMsaMetaInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validatePagination(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateQueryTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -59,15 +50,6 @@ func (m *DomainMsaMetaInfo) validatePagination(formats strfmt.Registry) error {
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *DomainMsaMetaInfo) validateQueryTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("queryTime", "body", m.QueryTime); err != nil {
-		return err
 	}
 
 	return nil

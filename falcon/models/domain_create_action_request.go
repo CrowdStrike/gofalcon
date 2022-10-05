@@ -19,6 +19,10 @@ import (
 // swagger:model domain.CreateActionRequest
 type DomainCreateActionRequest struct {
 
+	// content format
+	// Required: true
+	ContentFormat *string `json:"content_format"`
+
 	// frequency
 	// Required: true
 	Frequency *string `json:"frequency"`
@@ -26,6 +30,10 @@ type DomainCreateActionRequest struct {
 	// recipients
 	// Required: true
 	Recipients []string `json:"recipients"`
+
+	// trigger matchless
+	// Required: true
+	TriggerMatchless *bool `json:"trigger_matchless"`
 
 	// type
 	// Required: true
@@ -36,11 +44,19 @@ type DomainCreateActionRequest struct {
 func (m *DomainCreateActionRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateContentFormat(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFrequency(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateRecipients(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTriggerMatchless(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -51,6 +67,15 @@ func (m *DomainCreateActionRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainCreateActionRequest) validateContentFormat(formats strfmt.Registry) error {
+
+	if err := validate.Required("content_format", "body", m.ContentFormat); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -66,6 +91,15 @@ func (m *DomainCreateActionRequest) validateFrequency(formats strfmt.Registry) e
 func (m *DomainCreateActionRequest) validateRecipients(formats strfmt.Registry) error {
 
 	if err := validate.Required("recipients", "body", m.Recipients); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCreateActionRequest) validateTriggerMatchless(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger_matchless", "body", m.TriggerMatchless); err != nil {
 		return err
 	}
 

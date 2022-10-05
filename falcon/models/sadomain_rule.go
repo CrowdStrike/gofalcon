@@ -19,7 +19,7 @@ import (
 // swagger:model sadomain.Rule
 type SadomainRule struct {
 
-	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required.
+	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
 
@@ -32,7 +32,7 @@ type SadomainRule struct {
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
-	// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity.
+	// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity
 	// Required: true
 	Filter *string `json:"filter"`
 
@@ -40,7 +40,7 @@ type SadomainRule struct {
 	// Required: true
 	ID *string `json:"id"`
 
-	// The name for a given rule
+	// The name of a given rule
 	// Required: true
 	Name *string `json:"name"`
 
@@ -55,12 +55,16 @@ type SadomainRule struct {
 	// Required: true
 	Priority *string `json:"priority"`
 
-	// The status of a rule
+	// The status of a given rule
 	// Required: true
 	Status *string `json:"status"`
 
-	// The detailed status message
+	// The detailed status message of a given rule
 	StatusMessage string `json:"status_message,omitempty"`
+
+	// Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic
+	// Required: true
+	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
 
 	// The topic of a given rule
 	// Required: true
@@ -123,6 +127,10 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubstringMatchingEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -242,6 +250,15 @@ func (m *SadomainRule) validatePriority(formats strfmt.Registry) error {
 func (m *SadomainRule) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SadomainRule) validateSubstringMatchingEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("substring_matching_enabled", "body", m.SubstringMatchingEnabled); err != nil {
 		return err
 	}
 

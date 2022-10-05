@@ -22,7 +22,7 @@ type DomainNotificationDetailsV1 struct {
 	// The raw intelligence item author username
 	Author string `json:"author,omitempty"`
 
-	// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a <cs-highlight> tag
+	// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
 	// Required: true
 	Content *string `json:"content"`
 
