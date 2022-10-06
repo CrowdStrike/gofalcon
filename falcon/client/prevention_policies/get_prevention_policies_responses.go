@@ -56,14 +56,7 @@ func (o *GetPreventionPoliciesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewGetPreventionPoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -596,78 +589,6 @@ func (o *GetPreventionPoliciesInternalServerError) readResponse(response runtime
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetPreventionPoliciesDefault creates a GetPreventionPoliciesDefault with default headers values
-func NewGetPreventionPoliciesDefault(code int) *GetPreventionPoliciesDefault {
-	return &GetPreventionPoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetPreventionPoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetPreventionPoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesPreventionPoliciesV1
-}
-
-// Code gets the status code for the get prevention policies default response
-func (o *GetPreventionPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get prevention policies default response has a 2xx status code
-func (o *GetPreventionPoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get prevention policies default response has a 3xx status code
-func (o *GetPreventionPoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get prevention policies default response has a 4xx status code
-func (o *GetPreventionPoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get prevention policies default response has a 5xx status code
-func (o *GetPreventionPoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get prevention policies default response a status code equal to that given
-func (o *GetPreventionPoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetPreventionPoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetPreventionPoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetPreventionPoliciesDefault) GetPayload() *models.ResponsesPreventionPoliciesV1 {
-	return o.Payload
-}
-
-func (o *GetPreventionPoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesPreventionPoliciesV1)
 

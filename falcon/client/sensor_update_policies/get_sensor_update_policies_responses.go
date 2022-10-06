@@ -56,14 +56,7 @@ func (o *GetSensorUpdatePoliciesReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		result := NewGetSensorUpdatePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetSensorUpdatePoliciesOK describes a response with status code 200, with defaul
 OK
 */
 type GetSensorUpdatePoliciesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *GetSensorUpdatePoliciesOK) GetPayload() *models.ResponsesSensorUpdatePo
 
 func (o *GetSensorUpdatePoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ GetSensorUpdatePoliciesForbidden describes a response with status code 403, with
 Forbidden
 */
 type GetSensorUpdatePoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *GetSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetSensorUpdatePoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ GetSensorUpdatePoliciesNotFound describes a response with status code 404, with 
 Not Found
 */
 type GetSensorUpdatePoliciesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *GetSensorUpdatePoliciesNotFound) GetPayload() *models.ResponsesSensorUp
 
 func (o *GetSensorUpdatePoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ GetSensorUpdatePoliciesTooManyRequests describes a response with status code 429
 Too Many Requests
 */
 type GetSensorUpdatePoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *GetSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaReplyMe
 }
 
 func (o *GetSensorUpdatePoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type GetSensorUpdatePoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *GetSensorUpdatePoliciesInternalServerError) GetPayload() *models.Respon
 
 func (o *GetSensorUpdatePoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *GetSensorUpdatePoliciesInternalServerError) readResponse(response runti
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetSensorUpdatePoliciesDefault creates a GetSensorUpdatePoliciesDefault with default headers values
-func NewGetSensorUpdatePoliciesDefault(code int) *GetSensorUpdatePoliciesDefault {
-	return &GetSensorUpdatePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetSensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetSensorUpdatePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesSensorUpdatePoliciesV1
-}
-
-// Code gets the status code for the get sensor update policies default response
-func (o *GetSensorUpdatePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get sensor update policies default response has a 2xx status code
-func (o *GetSensorUpdatePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get sensor update policies default response has a 3xx status code
-func (o *GetSensorUpdatePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get sensor update policies default response has a 4xx status code
-func (o *GetSensorUpdatePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get sensor update policies default response has a 5xx status code
-func (o *GetSensorUpdatePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get sensor update policies default response a status code equal to that given
-func (o *GetSensorUpdatePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetSensorUpdatePoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorUpdatePoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorUpdatePoliciesDefault) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
-	return o.Payload
-}
-
-func (o *GetSensorUpdatePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
 

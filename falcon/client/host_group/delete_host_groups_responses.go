@@ -56,14 +56,7 @@ func (o *DeleteHostGroupsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewDeleteHostGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeleteHostGroupsOK describes a response with status code 200, with default heade
 OK
 */
 type DeleteHostGroupsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *DeleteHostGroupsOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *DeleteHostGroupsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ DeleteHostGroupsForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type DeleteHostGroupsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *DeleteHostGroupsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteHostGroupsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ DeleteHostGroupsNotFound describes a response with status code 404, with default
 Not Found
 */
 type DeleteHostGroupsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *DeleteHostGroupsNotFound) GetPayload() *models.MsaQueryResponse {
 
 func (o *DeleteHostGroupsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ DeleteHostGroupsTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type DeleteHostGroupsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *DeleteHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 }
 
 func (o *DeleteHostGroupsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type DeleteHostGroupsInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *DeleteHostGroupsInternalServerError) GetPayload() *models.MsaQueryRespo
 
 func (o *DeleteHostGroupsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *DeleteHostGroupsInternalServerError) readResponse(response runtime.Clie
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteHostGroupsDefault creates a DeleteHostGroupsDefault with default headers values
-func NewDeleteHostGroupsDefault(code int) *DeleteHostGroupsDefault {
-	return &DeleteHostGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteHostGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteHostGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// Code gets the status code for the delete host groups default response
-func (o *DeleteHostGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this delete host groups default response has a 2xx status code
-func (o *DeleteHostGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete host groups default response has a 3xx status code
-func (o *DeleteHostGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete host groups default response has a 4xx status code
-func (o *DeleteHostGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete host groups default response has a 5xx status code
-func (o *DeleteHostGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete host groups default response a status code equal to that given
-func (o *DeleteHostGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *DeleteHostGroupsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteHostGroupsDefault) String() string {
-	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteHostGroupsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *DeleteHostGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

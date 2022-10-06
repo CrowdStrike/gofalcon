@@ -56,14 +56,7 @@ func (o *GetIOAExclusionsV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewGetIOAExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetIOAExclusionsV1OK describes a response with status code 200, with default hea
 OK
 */
 type GetIOAExclusionsV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *GetIOAExclusionsV1OK) GetPayload() *models.ResponsesIoaExclusionRespV1 
 
 func (o *GetIOAExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ GetIOAExclusionsV1BadRequest describes a response with status code 400, with def
 Bad Request
 */
 type GetIOAExclusionsV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *GetIOAExclusionsV1BadRequest) GetPayload() *models.ResponsesIoaExclusio
 
 func (o *GetIOAExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ GetIOAExclusionsV1Forbidden describes a response with status code 403, with defa
 Forbidden
 */
 type GetIOAExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *GetIOAExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetIOAExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ GetIOAExclusionsV1TooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type GetIOAExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *GetIOAExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 }
 
 func (o *GetIOAExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type GetIOAExclusionsV1InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *GetIOAExclusionsV1InternalServerError) GetPayload() *models.ResponsesIo
 
 func (o *GetIOAExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *GetIOAExclusionsV1InternalServerError) readResponse(response runtime.Cl
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetIOAExclusionsV1Default creates a GetIOAExclusionsV1Default with default headers values
-func NewGetIOAExclusionsV1Default(code int) *GetIOAExclusionsV1Default {
-	return &GetIOAExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetIOAExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetIOAExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesIoaExclusionRespV1
-}
-
-// Code gets the status code for the get i o a exclusions v1 default response
-func (o *GetIOAExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get i o a exclusions v1 default response has a 2xx status code
-func (o *GetIOAExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get i o a exclusions v1 default response has a 3xx status code
-func (o *GetIOAExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get i o a exclusions v1 default response has a 4xx status code
-func (o *GetIOAExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get i o a exclusions v1 default response has a 5xx status code
-func (o *GetIOAExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get i o a exclusions v1 default response a status code equal to that given
-func (o *GetIOAExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetIOAExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/ioa-exclusions/v1][%d] getIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIOAExclusionsV1Default) String() string {
-	return fmt.Sprintf("[GET /policy/entities/ioa-exclusions/v1][%d] getIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIOAExclusionsV1Default) GetPayload() *models.ResponsesIoaExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *GetIOAExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesIoaExclusionRespV1)
 

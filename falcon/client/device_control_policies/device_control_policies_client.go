@@ -124,8 +124,9 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DeleteDeviceControlPoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -161,8 +162,9 @@ func (a *Client) GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetDeviceControlPoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

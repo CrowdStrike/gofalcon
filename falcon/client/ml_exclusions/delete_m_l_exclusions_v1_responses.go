@@ -56,14 +56,7 @@ func (o *DeleteMLExclusionsV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewDeleteMLExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeleteMLExclusionsV1OK describes a response with status code 200, with default h
 OK
 */
 type DeleteMLExclusionsV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *DeleteMLExclusionsV1OK) GetPayload() *models.ResponsesMlExclusionRespV1
 
 func (o *DeleteMLExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ DeleteMLExclusionsV1BadRequest describes a response with status code 400, with d
 Bad Request
 */
 type DeleteMLExclusionsV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.ResponsesMlExclusi
 
 func (o *DeleteMLExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ DeleteMLExclusionsV1Forbidden describes a response with status code 403, with de
 Forbidden
 */
 type DeleteMLExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *DeleteMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *DeleteMLExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ DeleteMLExclusionsV1TooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type DeleteMLExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *DeleteMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaO
 }
 
 func (o *DeleteMLExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type DeleteMLExclusionsV1InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.Responses
 
 func (o *DeleteMLExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *DeleteMLExclusionsV1InternalServerError) readResponse(response runtime.
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteMLExclusionsV1Default creates a DeleteMLExclusionsV1Default with default headers values
-func NewDeleteMLExclusionsV1Default(code int) *DeleteMLExclusionsV1Default {
-	return &DeleteMLExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteMLExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteMLExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesMlExclusionRespV1
-}
-
-// Code gets the status code for the delete m l exclusions v1 default response
-func (o *DeleteMLExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this delete m l exclusions v1 default response has a 2xx status code
-func (o *DeleteMLExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete m l exclusions v1 default response has a 3xx status code
-func (o *DeleteMLExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete m l exclusions v1 default response has a 4xx status code
-func (o *DeleteMLExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete m l exclusions v1 default response has a 5xx status code
-func (o *DeleteMLExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete m l exclusions v1 default response a status code equal to that given
-func (o *DeleteMLExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *DeleteMLExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteMLExclusionsV1Default) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteMLExclusionsV1Default) GetPayload() *models.ResponsesMlExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *DeleteMLExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesMlExclusionRespV1)
 

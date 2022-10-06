@@ -62,14 +62,7 @@ func (o *GetHostGroupsReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		result := NewGetHostGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ GetHostGroupsOK describes a response with status code 200, with default header v
 OK
 */
 type GetHostGroupsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -135,6 +132,13 @@ func (o *GetHostGroupsOK) GetPayload() *models.ResponsesHostGroupsV1 {
 
 func (o *GetHostGroupsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -178,6 +182,10 @@ GetHostGroupsBadRequest describes a response with status code 400, with default 
 Bad Request
 */
 type GetHostGroupsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -229,6 +237,13 @@ func (o *GetHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
 
 func (o *GetHostGroupsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -272,6 +287,10 @@ GetHostGroupsForbidden describes a response with status code 403, with default h
 Forbidden
 */
 type GetHostGroupsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -323,6 +342,13 @@ func (o *GetHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetHostGroupsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -366,6 +392,10 @@ GetHostGroupsNotFound describes a response with status code 404, with default he
 Not Found
 */
 type GetHostGroupsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -417,6 +447,13 @@ func (o *GetHostGroupsNotFound) GetPayload() *models.ResponsesHostGroupsV1 {
 
 func (o *GetHostGroupsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -460,6 +497,10 @@ GetHostGroupsTooManyRequests describes a response with status code 429, with def
 Too Many Requests
 */
 type GetHostGroupsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -514,6 +555,13 @@ func (o *GetHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 }
 
 func (o *GetHostGroupsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -570,6 +618,10 @@ Internal Server Error
 */
 type GetHostGroupsInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -620,6 +672,13 @@ func (o *GetHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGro
 
 func (o *GetHostGroupsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -641,78 +700,6 @@ func (o *GetHostGroupsInternalServerError) readResponse(response runtime.ClientR
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesHostGroupsV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetHostGroupsDefault creates a GetHostGroupsDefault with default headers values
-func NewGetHostGroupsDefault(code int) *GetHostGroupsDefault {
-	return &GetHostGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetHostGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetHostGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesHostGroupsV1
-}
-
-// Code gets the status code for the get host groups default response
-func (o *GetHostGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get host groups default response has a 2xx status code
-func (o *GetHostGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get host groups default response has a 3xx status code
-func (o *GetHostGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get host groups default response has a 4xx status code
-func (o *GetHostGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get host groups default response has a 5xx status code
-func (o *GetHostGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get host groups default response a status code equal to that given
-func (o *GetHostGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetHostGroupsDefault) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetHostGroupsDefault) String() string {
-	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetHostGroupsDefault) GetPayload() *models.ResponsesHostGroupsV1 {
-	return o.Payload
-}
-
-func (o *GetHostGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesHostGroupsV1)
 

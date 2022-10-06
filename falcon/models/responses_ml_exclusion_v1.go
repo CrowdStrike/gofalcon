@@ -34,7 +34,7 @@ type ResponsesMlExclusionV1 struct {
 	CreatedOn *strfmt.DateTime `json:"created_on"`
 
 	// excluded from
-	ExcludedFrom []RequestsMlExclusionType `json:"excluded_from"`
+	ExcludedFrom []string `json:"excluded_from"`
 
 	// groups
 	// Required: true

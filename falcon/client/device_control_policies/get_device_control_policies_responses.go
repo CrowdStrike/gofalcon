@@ -56,14 +56,7 @@ func (o *GetDeviceControlPoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		result := NewGetDeviceControlPoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetDeviceControlPoliciesOK describes a response with status code 200, with defau
 OK
 */
 type GetDeviceControlPoliciesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *GetDeviceControlPoliciesOK) GetPayload() *models.ResponsesDeviceControl
 
 func (o *GetDeviceControlPoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ GetDeviceControlPoliciesForbidden describes a response with status code 403, wit
 Forbidden
 */
 type GetDeviceControlPoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *GetDeviceControlPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetDeviceControlPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ GetDeviceControlPoliciesNotFound describes a response with status code 404, with
 Not Found
 */
 type GetDeviceControlPoliciesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *GetDeviceControlPoliciesNotFound) GetPayload() *models.ResponsesDeviceC
 
 func (o *GetDeviceControlPoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ GetDeviceControlPoliciesTooManyRequests describes a response with status code 42
 Too Many Requests
 */
 type GetDeviceControlPoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *GetDeviceControlPoliciesTooManyRequests) GetPayload() *models.MsaReplyM
 }
 
 func (o *GetDeviceControlPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type GetDeviceControlPoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *GetDeviceControlPoliciesInternalServerError) GetPayload() *models.Respo
 
 func (o *GetDeviceControlPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *GetDeviceControlPoliciesInternalServerError) readResponse(response runt
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetDeviceControlPoliciesDefault creates a GetDeviceControlPoliciesDefault with default headers values
-func NewGetDeviceControlPoliciesDefault(code int) *GetDeviceControlPoliciesDefault {
-	return &GetDeviceControlPoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetDeviceControlPoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetDeviceControlPoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesDeviceControlPoliciesV1
-}
-
-// Code gets the status code for the get device control policies default response
-func (o *GetDeviceControlPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get device control policies default response has a 2xx status code
-func (o *GetDeviceControlPoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get device control policies default response has a 3xx status code
-func (o *GetDeviceControlPoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get device control policies default response has a 4xx status code
-func (o *GetDeviceControlPoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get device control policies default response has a 5xx status code
-func (o *GetDeviceControlPoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get device control policies default response a status code equal to that given
-func (o *GetDeviceControlPoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetDeviceControlPoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/device-control/v1][%d] getDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDeviceControlPoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/entities/device-control/v1][%d] getDeviceControlPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDeviceControlPoliciesDefault) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
-	return o.Payload
-}
-
-func (o *GetDeviceControlPoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
 

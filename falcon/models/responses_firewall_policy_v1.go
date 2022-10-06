@@ -25,6 +25,10 @@ type ResponsesFirewallPolicyV1 struct {
 	// Required: true
 	ChannelVersion *int64 `json:"channel_version"`
 
+	// The customer id associated with the policy
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// The email of the user which created the policy
 	// Required: true
 	CreatedBy *string `json:"created_by"`
@@ -81,6 +85,10 @@ func (m *ResponsesFirewallPolicyV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -134,6 +142,15 @@ func (m *ResponsesFirewallPolicyV1) Validate(formats strfmt.Registry) error {
 func (m *ResponsesFirewallPolicyV1) validateChannelVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("channel_version", "body", m.ChannelVersion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ResponsesFirewallPolicyV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
 		return err
 	}
 

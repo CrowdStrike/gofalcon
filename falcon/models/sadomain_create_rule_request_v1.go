@@ -31,11 +31,11 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The permissions for a given rule which specifies the rule's access by other users. Possible values: `public`, `private`
+	// The permissions for a given rule which specifies the rule's access by other users. Possible values: `private`, `public`
 	// Required: true
 	Permissions *string `json:"permissions"`
 
-	// The priority for a given rule. Possible values: `high`, `low`, `medium`
+	// The priority for a given rule. Possible values: `low`, `medium`, `high`
 	// Required: true
 	Priority *string `json:"priority"`
 
@@ -43,7 +43,7 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
 
-	// The topic of a given rule. Possible values: `SA_BIN`, `SA_DOMAIN`, `SA_ALIAS`, `SA_TYPOSQUATTING`, `SA_IP`, `SA_VIP`, `SA_THIRD_PARTY`, `SA_CVE`, `SA_EMAIL`, `SA_AUTHOR`, `SA_CUSTOM`, `SA_BRAND_PRODUCT`
+	// The topic of a given rule. Possible values: `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_BRAND_PRODUCT`, `SA_CUSTOM`, `SA_TYPOSQUATTING`, `SA_AUTHOR`, `SA_THIRD_PARTY`
 	// Required: true
 	Topic *string `json:"topic"`
 }
