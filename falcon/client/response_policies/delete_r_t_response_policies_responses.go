@@ -56,14 +56,7 @@ func (o *DeleteRTResponsePoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		result := NewDeleteRTResponsePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -596,78 +589,6 @@ func (o *DeleteRTResponsePoliciesInternalServerError) readResponse(response runt
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteRTResponsePoliciesDefault creates a DeleteRTResponsePoliciesDefault with default headers values
-func NewDeleteRTResponsePoliciesDefault(code int) *DeleteRTResponsePoliciesDefault {
-	return &DeleteRTResponsePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteRTResponsePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteRTResponsePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// Code gets the status code for the delete r t response policies default response
-func (o *DeleteRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this delete r t response policies default response has a 2xx status code
-func (o *DeleteRTResponsePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete r t response policies default response has a 3xx status code
-func (o *DeleteRTResponsePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete r t response policies default response has a 4xx status code
-func (o *DeleteRTResponsePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete r t response policies default response has a 5xx status code
-func (o *DeleteRTResponsePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete r t response policies default response a status code equal to that given
-func (o *DeleteRTResponsePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *DeleteRTResponsePoliciesDefault) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteRTResponsePoliciesDefault) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteRTResponsePoliciesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *DeleteRTResponsePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

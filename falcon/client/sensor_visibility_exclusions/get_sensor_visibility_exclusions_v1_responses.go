@@ -56,14 +56,7 @@ func (o *GetSensorVisibilityExclusionsV1Reader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewGetSensorVisibilityExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetSensorVisibilityExclusionsV1OK describes a response with status code 200, wit
 OK
 */
 type GetSensorVisibilityExclusionsV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *GetSensorVisibilityExclusionsV1OK) GetPayload() *models.ResponsesSvExcl
 
 func (o *GetSensorVisibilityExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ GetSensorVisibilityExclusionsV1BadRequest describes a response with status code 
 Bad Request
 */
 type GetSensorVisibilityExclusionsV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *GetSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.Respons
 
 func (o *GetSensorVisibilityExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ GetSensorVisibilityExclusionsV1Forbidden describes a response with status code 4
 Forbidden
 */
 type GetSensorVisibilityExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *GetSensorVisibilityExclusionsV1Forbidden) GetPayload() *models.MsaError
 
 func (o *GetSensorVisibilityExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ GetSensorVisibilityExclusionsV1TooManyRequests describes a response with status 
 Too Many Requests
 */
 type GetSensorVisibilityExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *GetSensorVisibilityExclusionsV1TooManyRequests) GetPayload() *models.Ms
 }
 
 func (o *GetSensorVisibilityExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type GetSensorVisibilityExclusionsV1InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *GetSensorVisibilityExclusionsV1InternalServerError) GetPayload() *model
 
 func (o *GetSensorVisibilityExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *GetSensorVisibilityExclusionsV1InternalServerError) readResponse(respon
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetSensorVisibilityExclusionsV1Default creates a GetSensorVisibilityExclusionsV1Default with default headers values
-func NewGetSensorVisibilityExclusionsV1Default(code int) *GetSensorVisibilityExclusionsV1Default {
-	return &GetSensorVisibilityExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetSensorVisibilityExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesSvExclusionRespV1
-}
-
-// Code gets the status code for the get sensor visibility exclusions v1 default response
-func (o *GetSensorVisibilityExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get sensor visibility exclusions v1 default response has a 2xx status code
-func (o *GetSensorVisibilityExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get sensor visibility exclusions v1 default response has a 3xx status code
-func (o *GetSensorVisibilityExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get sensor visibility exclusions v1 default response has a 4xx status code
-func (o *GetSensorVisibilityExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get sensor visibility exclusions v1 default response has a 5xx status code
-func (o *GetSensorVisibilityExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get sensor visibility exclusions v1 default response a status code equal to that given
-func (o *GetSensorVisibilityExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetSensorVisibilityExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorVisibilityExclusionsV1Default) String() string {
-	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorVisibilityExclusionsV1Default) GetPayload() *models.ResponsesSvExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *GetSensorVisibilityExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesSvExclusionRespV1)
 

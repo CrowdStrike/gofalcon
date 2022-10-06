@@ -56,14 +56,7 @@ func (o *GetRTResponsePoliciesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewGetRTResponsePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -596,78 +589,6 @@ func (o *GetRTResponsePoliciesInternalServerError) readResponse(response runtime
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetRTResponsePoliciesDefault creates a GetRTResponsePoliciesDefault with default headers values
-func NewGetRTResponsePoliciesDefault(code int) *GetRTResponsePoliciesDefault {
-	return &GetRTResponsePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetRTResponsePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetRTResponsePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesRTResponsePoliciesV1
-}
-
-// Code gets the status code for the get r t response policies default response
-func (o *GetRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get r t response policies default response has a 2xx status code
-func (o *GetRTResponsePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get r t response policies default response has a 3xx status code
-func (o *GetRTResponsePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get r t response policies default response has a 4xx status code
-func (o *GetRTResponsePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get r t response policies default response has a 5xx status code
-func (o *GetRTResponsePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get r t response policies default response a status code equal to that given
-func (o *GetRTResponsePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetRTResponsePoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/entities/response/v1][%d] getRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRTResponsePoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/entities/response/v1][%d] getRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRTResponsePoliciesDefault) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
-	return o.Payload
-}
-
-func (o *GetRTResponsePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
 

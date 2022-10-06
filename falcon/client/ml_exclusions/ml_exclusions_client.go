@@ -6,6 +6,8 @@ package ml_exclusions
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -111,8 +113,9 @@ func (a *Client) DeleteMLExclusionsV1(params *DeleteMLExclusionsV1Params, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DeleteMLExclusionsV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteMLExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -148,8 +151,9 @@ func (a *Client) GetMLExclusionsV1(params *GetMLExclusionsV1Params, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMLExclusionsV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getMLExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

@@ -64,7 +64,7 @@ type QueryRulesV1Params struct {
 
 	/* Filter.
 
-	   FQL query to filter rules by. Possible filter properties are: `cid`, `user_uuid`, `permissions`, `filter`, `breach_monitoring_enabled`, `last_updated_timestamp`, `id`, `topic`, `priority`, `status`, `substring_matching_enabled`, `created_timestamp`.
+	   FQL query to filter rules by. Possible filter properties are: `permissions`, `status`, `breach_monitoring_enabled`, `substring_matching_enabled`, `cid`, `user_uuid`, `priority`, `filter`, `created_timestamp`, `last_updated_timestamp`, `id`, `topic`.
 	*/
 	Filter *string
 

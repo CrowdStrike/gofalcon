@@ -56,14 +56,7 @@ func (o *DeleteSensorUpdatePoliciesReader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		result := NewDeleteSensorUpdatePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeleteSensorUpdatePoliciesOK describes a response with status code 200, with def
 OK
 */
 type DeleteSensorUpdatePoliciesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -129,6 +126,13 @@ func (o *DeleteSensorUpdatePoliciesOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *DeleteSensorUpdatePoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ DeleteSensorUpdatePoliciesForbidden describes a response with status code 403, w
 Forbidden
 */
 type DeleteSensorUpdatePoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -223,6 +231,13 @@ func (o *DeleteSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly
 
 func (o *DeleteSensorUpdatePoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -266,6 +281,10 @@ DeleteSensorUpdatePoliciesNotFound describes a response with status code 404, wi
 Not Found
 */
 type DeleteSensorUpdatePoliciesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -317,6 +336,13 @@ func (o *DeleteSensorUpdatePoliciesNotFound) GetPayload() *models.MsaQueryRespon
 
 func (o *DeleteSensorUpdatePoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -360,6 +386,10 @@ DeleteSensorUpdatePoliciesTooManyRequests describes a response with status code 
 Too Many Requests
 */
 type DeleteSensorUpdatePoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -414,6 +444,13 @@ func (o *DeleteSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaRepl
 }
 
 func (o *DeleteSensorUpdatePoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -470,6 +507,10 @@ Internal Server Error
 */
 type DeleteSensorUpdatePoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -520,6 +561,13 @@ func (o *DeleteSensorUpdatePoliciesInternalServerError) GetPayload() *models.Msa
 
 func (o *DeleteSensorUpdatePoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -541,78 +589,6 @@ func (o *DeleteSensorUpdatePoliciesInternalServerError) readResponse(response ru
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteSensorUpdatePoliciesDefault creates a DeleteSensorUpdatePoliciesDefault with default headers values
-func NewDeleteSensorUpdatePoliciesDefault(code int) *DeleteSensorUpdatePoliciesDefault {
-	return &DeleteSensorUpdatePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteSensorUpdatePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteSensorUpdatePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// Code gets the status code for the delete sensor update policies default response
-func (o *DeleteSensorUpdatePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this delete sensor update policies default response has a 2xx status code
-func (o *DeleteSensorUpdatePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete sensor update policies default response has a 3xx status code
-func (o *DeleteSensorUpdatePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete sensor update policies default response has a 4xx status code
-func (o *DeleteSensorUpdatePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete sensor update policies default response has a 5xx status code
-func (o *DeleteSensorUpdatePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete sensor update policies default response a status code equal to that given
-func (o *DeleteSensorUpdatePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *DeleteSensorUpdatePoliciesDefault) Error() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteSensorUpdatePoliciesDefault) String() string {
-	return fmt.Sprintf("[DELETE /policy/entities/sensor-update/v1][%d] deleteSensorUpdatePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteSensorUpdatePoliciesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *DeleteSensorUpdatePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

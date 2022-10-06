@@ -21,6 +21,10 @@ import (
 // swagger:model responses.SensorUpdatePolicyV1
 type ResponsesSensorUpdatePolicyV1 struct {
 
+	// The customer id associated with the policy
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// The email of the user which created the policy
 	// Required: true
 	CreatedBy *string `json:"created_by"`
@@ -73,6 +77,10 @@ type ResponsesSensorUpdatePolicyV1 struct {
 func (m *ResponsesSensorUpdatePolicyV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -120,6 +128,15 @@ func (m *ResponsesSensorUpdatePolicyV1) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ResponsesSensorUpdatePolicyV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
