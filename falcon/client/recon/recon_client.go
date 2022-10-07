@@ -144,7 +144,7 @@ func (a *Client) CreateActionsV1(params *CreateActionsV1Params, opts ...ClientOp
 }
 
 /*
-CreateRulesV1 create rules v1 API
+CreateRulesV1 creates monitoring rules
 */
 func (a *Client) CreateRulesV1(params *CreateRulesV1Params, opts ...ClientOption) (*CreateRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -329,7 +329,7 @@ func (a *Client) GetActionsV1(params *GetActionsV1Params, opts ...ClientOption) 
 }
 
 /*
-GetNotificationsDetailedTranslatedV1 get notifications detailed translated v1 API
+GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match this endpoint will return translated notification content the only target language available is english a single notification can be translated per request
 */
 func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDetailedTranslatedV1Params, opts ...ClientOption) (*GetNotificationsDetailedTranslatedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -366,7 +366,7 @@ func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDe
 }
 
 /*
-GetNotificationsDetailedV1 get notifications detailed v1 API
+GetNotificationsDetailedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match
 */
 func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Params, opts ...ClientOption) (*GetNotificationsDetailedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -403,7 +403,7 @@ func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Pa
 }
 
 /*
-GetNotificationsTranslatedV1 get notifications translated v1 API
+GetNotificationsTranslatedV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint this endpoint will return translated notification content the only target language available is english
 */
 func (a *Client) GetNotificationsTranslatedV1(params *GetNotificationsTranslatedV1Params, opts ...ClientOption) (*GetNotificationsTranslatedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -440,7 +440,7 @@ func (a *Client) GetNotificationsTranslatedV1(params *GetNotificationsTranslated
 }
 
 /*
-GetNotificationsV1 get notifications v1 API
+GetNotificationsV1 gets notifications based on their i ds i ds can be retrieved using the g e t queries notifications v1 endpoint
 */
 func (a *Client) GetNotificationsV1(params *GetNotificationsV1Params, opts ...ClientOption) (*GetNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -477,7 +477,7 @@ func (a *Client) GetNotificationsV1(params *GetNotificationsV1Params, opts ...Cl
 }
 
 /*
-GetRulesV1 get rules v1 API
+GetRulesV1 gets monitoring rules based on their i ds i ds can be retrieved using the g e t queries rules v1 endpoint
 */
 func (a *Client) GetRulesV1(params *GetRulesV1Params, opts ...ClientOption) (*GetRulesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -699,7 +699,7 @@ func (a *Client) UpdateActionV1(params *UpdateActionV1Params, opts ...ClientOpti
 }
 
 /*
-UpdateNotificationsV1 update notifications v1 API
+UpdateNotificationsV1 updates notification status or assignee accepts bulk requests
 */
 func (a *Client) UpdateNotificationsV1(params *UpdateNotificationsV1Params, opts ...ClientOption) (*UpdateNotificationsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -736,7 +736,7 @@ func (a *Client) UpdateNotificationsV1(params *UpdateNotificationsV1Params, opts
 }
 
 /*
-UpdateRulesV1 update rules v1 API
+UpdateRulesV1 updates monitoring rules
 */
 func (a *Client) UpdateRulesV1(params *UpdateRulesV1Params, opts ...ClientOption) (*UpdateRulesV1OK, error) {
 	// TODO: Validate the params before sending

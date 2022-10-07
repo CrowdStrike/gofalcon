@@ -43,7 +43,7 @@ type SadomainCreateRuleRequestV1 struct {
 	// Required: true
 	SubstringMatchingEnabled *bool `json:"substring_matching_enabled"`
 
-	// The topic of a given rule. Possible values: `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_BRAND_PRODUCT`, `SA_CUSTOM`, `SA_TYPOSQUATTING`, `SA_AUTHOR`, `SA_THIRD_PARTY`
+	// The topic of a given rule. Possible values: `SA_BRAND_PRODUCT`, `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_TYPOSQUATTING`, `SA_THIRD_PARTY`, `SA_EMAIL`, `SA_ALIAS`, `SA_AUTHOR`, `SA_CUSTOM`
 	// Required: true
 	Topic *string `json:"topic"`
 }
