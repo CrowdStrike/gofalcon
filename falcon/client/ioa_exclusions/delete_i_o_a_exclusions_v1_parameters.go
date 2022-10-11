@@ -202,8 +202,8 @@ func (o *DeleteIOAExclusionsV1Params) bindParamIds(formats strfmt.Registry) []st
 		idsIC = append(idsIC, idsIIV)
 	}
 
-	// items.CollectionFormat: "csv"
-	idsIS := swag.JoinByFormat(idsIC, "csv")
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
 }
