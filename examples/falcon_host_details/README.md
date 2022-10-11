@@ -40,7 +40,7 @@ falcon_host_details --filter="platform_name:'Windows'"
 
 List Kubernetes pods (protected by CrowdStrike Falcon Container) that have been running during past 7 days, show only pod names, agent versions and cloud information.
 ```
-week_ago=$(date -jf %s $(( $(date +%s) - 86400 * 7 )) +%Y-%m-%d)
+week_ago=$(date -d "7 days ago" '+%Y-%m-%d' 2>/dev/null || date -v-1w +%F)
 falcon_host_details --filter="product_type_desc:'Pod'+last_seen:>='${week_ago}'" \
     | jq -r 'map({(.device_id): {"agent_version": .agent_version, "cloud": .service_provider, "pod_name": .pod_name}}) | add'
 ```
