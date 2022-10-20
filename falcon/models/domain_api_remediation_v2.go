@@ -38,6 +38,10 @@ type DomainAPIRemediationV2 struct {
 	// title
 	// Required: true
 	Title *string `json:"title"`
+
+	// vendor url
+	// Required: true
+	VendorURL *string `json:"vendor_url"`
 }
 
 // Validate validates this domain API remediation v2
@@ -61,6 +65,10 @@ func (m *DomainAPIRemediationV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTitle(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVendorURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -109,6 +117,15 @@ func (m *DomainAPIRemediationV2) validateReference(formats strfmt.Registry) erro
 func (m *DomainAPIRemediationV2) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAPIRemediationV2) validateVendorURL(formats strfmt.Registry) error {
+
+	if err := validate.Required("vendor_url", "body", m.VendorURL); err != nil {
 		return err
 	}
 
