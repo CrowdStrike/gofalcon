@@ -30,6 +30,14 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	GetIndicatorsReport(params *GetIndicatorsReportParams, opts ...ClientOption) (*GetIndicatorsReportOK, error)
+
+	ActionGetV1(params *ActionGetV1Params, opts ...ClientOption) (*ActionGetV1OK, error)
+
+	ActionQueryV1(params *ActionQueryV1Params, opts ...ClientOption) (*ActionQueryV1OK, error)
+
+	IndicatorAggregateV1(params *IndicatorAggregateV1Params, opts ...ClientOption) (*IndicatorAggregateV1OK, error)
+
 	IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...ClientOption) (*IndicatorCombinedV1OK, error)
 
 	IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...ClientOption) (*IndicatorCreateV1Created, error)
@@ -42,7 +50,161 @@ type ClientService interface {
 
 	IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...ClientOption) (*IndicatorUpdateV1OK, error)
 
+	IocTypeQueryV1(params *IocTypeQueryV1Params, opts ...ClientOption) (*IocTypeQueryV1OK, error)
+
+	PlatformQueryV1(params *PlatformQueryV1Params, opts ...ClientOption) (*PlatformQueryV1OK, error)
+
+	SeverityQueryV1(params *SeverityQueryV1Params, opts ...ClientOption) (*SeverityQueryV1OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+GetIndicatorsReport launches an indicators report creation job
+*/
+func (a *Client) GetIndicatorsReport(params *GetIndicatorsReportParams, opts ...ClientOption) (*GetIndicatorsReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetIndicatorsReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetIndicatorsReport",
+		Method:             "POST",
+		PathPattern:        "/iocs/entities/indicators-reports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetIndicatorsReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetIndicatorsReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetIndicatorsReportDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ActionGetV1 gets actions by ids
+*/
+func (a *Client) ActionGetV1(params *ActionGetV1Params, opts ...ClientOption) (*ActionGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewActionGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "action.get.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/entities/actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ActionGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ActionGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ActionGetV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ActionQueryV1 queries actions
+*/
+func (a *Client) ActionQueryV1(params *ActionQueryV1Params, opts ...ClientOption) (*ActionQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewActionQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "action.query.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ActionQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ActionQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ActionQueryV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+IndicatorAggregateV1 gets indicators aggregates as specified via json in the request body
+*/
+func (a *Client) IndicatorAggregateV1(params *IndicatorAggregateV1Params, opts ...ClientOption) (*IndicatorAggregateV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorAggregateV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.aggregate.v1",
+		Method:             "POST",
+		PathPattern:        "/iocs/aggregates/indicators/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IndicatorAggregateV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorAggregateV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*IndicatorAggregateV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -265,6 +427,117 @@ func (a *Client) IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...Clie
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*IndicatorUpdateV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+IocTypeQueryV1 queries i o c types
+*/
+func (a *Client) IocTypeQueryV1(params *IocTypeQueryV1Params, opts ...ClientOption) (*IocTypeQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIocTypeQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ioc_type.query.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/ioc-types/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IocTypeQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IocTypeQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*IocTypeQueryV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+PlatformQueryV1 queries platforms
+*/
+func (a *Client) PlatformQueryV1(params *PlatformQueryV1Params, opts ...ClientOption) (*PlatformQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPlatformQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "platform.query.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/platforms/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PlatformQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PlatformQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*PlatformQueryV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+SeverityQueryV1 queries severities
+*/
+func (a *Client) SeverityQueryV1(params *SeverityQueryV1Params, opts ...ClientOption) (*SeverityQueryV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSeverityQueryV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "severity.query.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/severities/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SeverityQueryV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SeverityQueryV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*SeverityQueryV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
