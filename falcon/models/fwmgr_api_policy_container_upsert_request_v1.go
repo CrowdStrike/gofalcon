@@ -34,6 +34,10 @@ type FwmgrAPIPolicyContainerUpsertRequestV1 struct {
 	// is default policy
 	IsDefaultPolicy bool `json:"is_default_policy,omitempty"`
 
+	// local logging
+	// Required: true
+	LocalLogging *bool `json:"local_logging"`
+
 	// platform id
 	// Required: true
 	PlatformID *string `json:"platform_id"`
@@ -67,6 +71,10 @@ func (m *FwmgrAPIPolicyContainerUpsertRequestV1) Validate(formats strfmt.Registr
 	}
 
 	if err := m.validateEnforce(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocalLogging(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -113,6 +121,15 @@ func (m *FwmgrAPIPolicyContainerUpsertRequestV1) validateDefaultOutbound(formats
 func (m *FwmgrAPIPolicyContainerUpsertRequestV1) validateEnforce(formats strfmt.Registry) error {
 
 	if err := validate.Required("enforce", "body", m.Enforce); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrAPIPolicyContainerUpsertRequestV1) validateLocalLogging(formats strfmt.Registry) error {
+
+	if err := validate.Required("local_logging", "body", m.LocalLogging); err != nil {
 		return err
 	}
 

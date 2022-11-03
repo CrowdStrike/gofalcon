@@ -32,6 +32,10 @@ type FwmgrAPIRuleGroupCreateRequestV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// platform
+	// Required: true
+	Platform *string `json:"platform"`
+
 	// rules
 	// Required: true
 	Rules []*FwmgrAPIRuleCreateRequestV1 `json:"rules"`
@@ -50,6 +54,10 @@ func (m *FwmgrAPIRuleGroupCreateRequestV1) Validate(formats strfmt.Registry) err
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,6 +92,15 @@ func (m *FwmgrAPIRuleGroupCreateRequestV1) validateEnabled(formats strfmt.Regist
 func (m *FwmgrAPIRuleGroupCreateRequestV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrAPIRuleGroupCreateRequestV1) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 
