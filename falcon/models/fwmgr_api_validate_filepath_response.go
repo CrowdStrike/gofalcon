@@ -15,13 +15,12 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// FwmgrMsaQueryResponse fwmgr msa query response
+// FwmgrAPIValidateFilepathResponse fwmgr api validate filepath response
 //
-// swagger:model fwmgr.msa.QueryResponse
-type FwmgrMsaQueryResponse struct {
+// swagger:model fwmgr.api.ValidateFilepathResponse
+type FwmgrAPIValidateFilepathResponse struct {
 
 	// errors
-	// Required: true
 	Errors []*FwmgrMsaspecError `json:"errors"`
 
 	// meta
@@ -30,11 +29,11 @@ type FwmgrMsaQueryResponse struct {
 
 	// resources
 	// Required: true
-	Resources []string `json:"resources"`
+	Resources []*FwmgrAPIFilepathTestResult `json:"resources"`
 }
 
-// Validate validates this fwmgr msa query response
-func (m *FwmgrMsaQueryResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this fwmgr api validate filepath response
+func (m *FwmgrAPIValidateFilepathResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,10 +54,9 @@ func (m *FwmgrMsaQueryResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *FwmgrMsaQueryResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+func (m *FwmgrAPIValidateFilepathResponse) validateErrors(formats strfmt.Registry) error {
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -82,7 +80,7 @@ func (m *FwmgrMsaQueryResponse) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *FwmgrMsaQueryResponse) validateMeta(formats strfmt.Registry) error {
+func (m *FwmgrAPIValidateFilepathResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,17 +100,35 @@ func (m *FwmgrMsaQueryResponse) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *FwmgrMsaQueryResponse) validateResources(formats strfmt.Registry) error {
+func (m *FwmgrAPIValidateFilepathResponse) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
+	for i := 0; i < len(m.Resources); i++ {
+		if swag.IsZero(m.Resources[i]) { // not required
+			continue
+		}
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
-// ContextValidate validate this fwmgr msa query response based on the context it is used
-func (m *FwmgrMsaQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this fwmgr api validate filepath response based on the context it is used
+func (m *FwmgrAPIValidateFilepathResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -123,13 +139,17 @@ func (m *FwmgrMsaQueryResponse) ContextValidate(ctx context.Context, formats str
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
 }
 
-func (m *FwmgrMsaQueryResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *FwmgrAPIValidateFilepathResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -149,7 +169,7 @@ func (m *FwmgrMsaQueryResponse) contextValidateErrors(ctx context.Context, forma
 	return nil
 }
 
-func (m *FwmgrMsaQueryResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *FwmgrAPIValidateFilepathResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -165,8 +185,28 @@ func (m *FwmgrMsaQueryResponse) contextValidateMeta(ctx context.Context, formats
 	return nil
 }
 
+func (m *FwmgrAPIValidateFilepathResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 // MarshalBinary interface implementation
-func (m *FwmgrMsaQueryResponse) MarshalBinary() ([]byte, error) {
+func (m *FwmgrAPIValidateFilepathResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -174,8 +214,8 @@ func (m *FwmgrMsaQueryResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *FwmgrMsaQueryResponse) UnmarshalBinary(b []byte) error {
-	var res FwmgrMsaQueryResponse
+func (m *FwmgrAPIValidateFilepathResponse) UnmarshalBinary(b []byte) error {
+	var res FwmgrAPIValidateFilepathResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

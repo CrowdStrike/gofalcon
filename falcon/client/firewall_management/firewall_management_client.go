@@ -40,6 +40,8 @@ type ClientService interface {
 
 	CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error)
 
+	CreateRuleGroupValidation(params *CreateRuleGroupValidationParams, opts ...ClientOption) (*CreateRuleGroupValidationCreated, error)
+
 	DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error)
 
 	GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error)
@@ -69,6 +71,10 @@ type ClientService interface {
 	UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
 
 	UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error)
+
+	UpdateRuleGroupValidation(params *UpdateRuleGroupValidationParams, opts ...ClientOption) (*UpdateRuleGroupValidationOK, error)
+
+	ValidateFilepathPattern(params *ValidateFilepathPatternParams, opts ...ClientOption) (*ValidateFilepathPatternOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -256,6 +262,44 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for create-rule-group: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateRuleGroupValidation validates the request of creating a new rule group on a platform for a customer with a name and description
+*/
+func (a *Client) CreateRuleGroupValidation(params *CreateRuleGroupValidationParams, opts ...ClientOption) (*CreateRuleGroupValidationCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateRuleGroupValidationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "create-rule-group-validation",
+		Method:             "POST",
+		PathPattern:        "/fwmgr/entities/rule-groups/validation/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateRuleGroupValidationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateRuleGroupValidationCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for create-rule-group-validation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -741,7 +785,7 @@ func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*Qu
 }
 
 /*
-UpdatePolicyContainer updates an identified policy container
+UpdatePolicyContainer updates an identified policy container including local logging functionality
 */
 func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
 	// TODO: Validate the params before sending
@@ -751,7 +795,7 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts
 	op := &runtime.ClientOperation{
 		ID:                 "update-policy-container",
 		Method:             "PUT",
-		PathPattern:        "/fwmgr/entities/policies/v1",
+		PathPattern:        "/fwmgr/entities/policies/v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -813,6 +857,80 @@ func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOp
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdateRuleGroupDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpdateRuleGroupValidation validates the request of updating name description or enabled status of a rule group or create edit delete or reorder rules
+*/
+func (a *Client) UpdateRuleGroupValidation(params *UpdateRuleGroupValidationParams, opts ...ClientOption) (*UpdateRuleGroupValidationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateRuleGroupValidationParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-rule-group-validation",
+		Method:             "PATCH",
+		PathPattern:        "/fwmgr/entities/rule-groups/validation/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateRuleGroupValidationReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateRuleGroupValidationOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UpdateRuleGroupValidationDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ValidateFilepathPattern validates that the test pattern matches the executable filepath glob pattern
+*/
+func (a *Client) ValidateFilepathPattern(params *ValidateFilepathPatternParams, opts ...ClientOption) (*ValidateFilepathPatternOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewValidateFilepathPatternParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "validate-filepath-pattern",
+		Method:             "POST",
+		PathPattern:        "/fwmgr/entities/rules/validate-filepath/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ValidateFilepathPatternReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ValidateFilepathPatternOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ValidateFilepathPatternDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

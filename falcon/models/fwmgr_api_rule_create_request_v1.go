@@ -68,10 +68,6 @@ type FwmgrAPIRuleCreateRequestV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// platform ids
-	// Required: true
-	PlatformIds []string `json:"platform_ids"`
-
 	// protocol
 	// Required: true
 	Protocol *string `json:"protocol"`
@@ -138,10 +134,6 @@ func (m *FwmgrAPIRuleCreateRequestV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePlatformIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -345,15 +337,6 @@ func (m *FwmgrAPIRuleCreateRequestV1) validateMonitor(formats strfmt.Registry) e
 func (m *FwmgrAPIRuleCreateRequestV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *FwmgrAPIRuleCreateRequestV1) validatePlatformIds(formats strfmt.Registry) error {
-
-	if err := validate.Required("platform_ids", "body", m.PlatformIds); err != nil {
 		return err
 	}
 

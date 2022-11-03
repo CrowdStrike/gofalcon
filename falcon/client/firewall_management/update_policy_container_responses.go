@@ -120,11 +120,11 @@ func (o *UpdatePolicyContainerOK) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerOK) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
 }
 
 func (o *UpdatePolicyContainerOK) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
 }
 
 func (o *UpdatePolicyContainerOK) GetPayload() *models.FwmgrMsaReplyMetaOnly {
@@ -225,11 +225,11 @@ func (o *UpdatePolicyContainerCreated) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerCreated) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
 }
 
 func (o *UpdatePolicyContainerCreated) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
 }
 
 func (o *UpdatePolicyContainerCreated) GetPayload() *models.FwmgrMsaReplyMetaOnly {
@@ -330,11 +330,11 @@ func (o *UpdatePolicyContainerBadRequest) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *UpdatePolicyContainerBadRequest) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *UpdatePolicyContainerBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
@@ -435,11 +435,11 @@ func (o *UpdatePolicyContainerForbidden) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerForbidden) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
 }
 
 func (o *UpdatePolicyContainerForbidden) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerForbidden  %+v", 403, o.Payload)
 }
 
 func (o *UpdatePolicyContainerForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -544,11 +544,11 @@ func (o *UpdatePolicyContainerTooManyRequests) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerTooManyRequests) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *UpdatePolicyContainerTooManyRequests) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *UpdatePolicyContainerTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -656,11 +656,11 @@ func (o *UpdatePolicyContainerDefault) IsCode(code int) bool {
 }
 
 func (o *UpdatePolicyContainerDefault) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *UpdatePolicyContainerDefault) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v1][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *UpdatePolicyContainerDefault) GetPayload() *models.FwmgrMsaReplyMetaOnly {
