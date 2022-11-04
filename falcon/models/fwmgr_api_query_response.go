@@ -21,7 +21,7 @@ import (
 type FwmgrAPIQueryResponse struct {
 
 	// errors
-	Errors []*FwmgrMsaAPIError `json:"errors"`
+	Errors []*FwmgrMsaspecError `json:"errors"`
 
 	// meta
 	// Required: true

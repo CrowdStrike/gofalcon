@@ -21,11 +21,11 @@ import (
 type FwmgrAPIEventsResponse struct {
 
 	// errors
-	Errors []*FwmgrMsaAPIError `json:"errors"`
+	Errors []*FwmgrMsaspecError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *FwmgrMsaMetaInfo `json:"meta"`
+	Meta *FwmgrMsaspecMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true

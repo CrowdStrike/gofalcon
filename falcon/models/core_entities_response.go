@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIIndicatorQueryResponse api indicator query response
+// CoreEntitiesResponse core entities response
 //
-// swagger:model api.IndicatorQueryResponse
-type APIIndicatorQueryResponse struct {
+// swagger:model core.EntitiesResponse
+type CoreEntitiesResponse struct {
 
 	// errors
 	// Required: true
@@ -26,15 +26,15 @@ type APIIndicatorQueryResponse struct {
 
 	// meta
 	// Required: true
-	Meta *APIIndicatorsQueryMeta `json:"meta"`
+	Meta *MsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
-	Resources []string `json:"resources"`
+	Resources CoreEntitiesResponseResources `json:"resources"`
 }
 
-// Validate validates this api indicator query response
-func (m *APIIndicatorQueryResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this core entities response
+func (m *CoreEntitiesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *APIIndicatorQueryResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIIndicatorQueryResponse) validateErrors(formats strfmt.Registry) error {
+func (m *CoreEntitiesResponse) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -82,7 +82,7 @@ func (m *APIIndicatorQueryResponse) validateErrors(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *APIIndicatorQueryResponse) validateMeta(formats strfmt.Registry) error {
+func (m *CoreEntitiesResponse) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,17 +102,17 @@ func (m *APIIndicatorQueryResponse) validateMeta(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *APIIndicatorQueryResponse) validateResources(formats strfmt.Registry) error {
+func (m *CoreEntitiesResponse) validateResources(formats strfmt.Registry) error {
 
-	if err := validate.Required("resources", "body", m.Resources); err != nil {
-		return err
+	if m.Resources == nil {
+		return errors.Required("resources", "body", nil)
 	}
 
 	return nil
 }
 
-// ContextValidate validate this api indicator query response based on the context it is used
-func (m *APIIndicatorQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this core entities response based on the context it is used
+func (m *CoreEntitiesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -129,7 +129,7 @@ func (m *APIIndicatorQueryResponse) ContextValidate(ctx context.Context, formats
 	return nil
 }
 
-func (m *APIIndicatorQueryResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CoreEntitiesResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -149,7 +149,7 @@ func (m *APIIndicatorQueryResponse) contextValidateErrors(ctx context.Context, f
 	return nil
 }
 
-func (m *APIIndicatorQueryResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CoreEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -166,7 +166,7 @@ func (m *APIIndicatorQueryResponse) contextValidateMeta(ctx context.Context, for
 }
 
 // MarshalBinary interface implementation
-func (m *APIIndicatorQueryResponse) MarshalBinary() ([]byte, error) {
+func (m *CoreEntitiesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -174,8 +174,8 @@ func (m *APIIndicatorQueryResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *APIIndicatorQueryResponse) UnmarshalBinary(b []byte) error {
-	var res APIIndicatorQueryResponse
+func (m *CoreEntitiesResponse) UnmarshalBinary(b []byte) error {
+	var res CoreEntitiesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

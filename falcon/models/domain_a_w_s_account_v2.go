@@ -42,21 +42,36 @@ type DomainAWSAccountV2 struct {
 	// 12 digit AWS provided unique identifier for the account.
 	AccountID string `json:"account_id,omitempty"`
 
+	// account type
+	AccountType string `json:"account_type,omitempty"`
+
 	// AWS CloudTrail bucket name to store logs.
 	AwsCloudtrailBucketName string `json:"aws_cloudtrail_bucket_name,omitempty"`
 
 	// AWS CloudTrail region.
 	AwsCloudtrailRegion string `json:"aws_cloudtrail_region,omitempty"`
 
+	// AWS Eventbus ARN.
+	AwsEventbusArn string `json:"aws_eventbus_arn,omitempty"`
+
 	// Permissions status returned via API.
 	// Required: true
 	AwsPermissionsStatus []*DomainPermission `json:"aws_permissions_status"`
+
+	// behavior assessment enabled
+	BehaviorAssessmentEnabled bool `json:"behavior_assessment_enabled,omitempty"`
 
 	// cid
 	Cid string `json:"cid,omitempty"`
 
 	// cloudformation url
 	CloudformationURL string `json:"cloudformation_url,omitempty"`
+
+	// d4c
+	D4c *DomainAWSD4CAccountV1 `json:"d4c,omitempty"`
+
+	// d4c migrated
+	D4cMigrated bool `json:"d4c_migrated,omitempty"`
 
 	// eventbus name
 	EventbusName string `json:"eventbus_name,omitempty"`
@@ -70,15 +85,46 @@ type DomainAWSAccountV2 struct {
 	// intermediate role arn
 	IntermediateRoleArn string `json:"intermediate_role_arn,omitempty"`
 
-	// is master
+	// is custom rolename
 	// Required: true
-	IsMaster *bool `json:"is_master"`
+	IsCustomRolename *bool `json:"is_custom_rolename"`
+
+	// is master
+	IsMaster bool `json:"is_master,omitempty"`
 
 	// Up to 34 character AWS provided unique identifier for the organization.
 	OrganizationID string `json:"organization_id,omitempty"`
 
+	// remediation cloudformation url
+	RemediationCloudformationURL string `json:"remediation_cloudformation_url,omitempty"`
+
+	// remediation region
+	RemediationRegion string `json:"remediation_region,omitempty"`
+
+	// remediation tou accepted
+	// Format: date-time
+	RemediationTouAccepted strfmt.DateTime `json:"remediation_tou_accepted,omitempty"`
+
+	// 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to).
+	RootAccountID string `json:"root_account_id,omitempty"`
+
+	// root iam role
+	RootIamRole bool `json:"root_iam_role,omitempty"`
+
+	// secondary role arn
+	SecondaryRoleArn string `json:"secondary_role_arn,omitempty"`
+
+	// settings
+	Settings string `json:"settings,omitempty"`
+
 	// Account registration status.
 	Status string `json:"status,omitempty"`
+
+	// use existing cloudtrail
+	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
+
+	// valid
+	Valid bool `json:"valid,omitempty"`
 }
 
 // Validate validates this domain a w s account v2
@@ -105,7 +151,15 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsMaster(formats); err != nil {
+	if err := m.validateD4c(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsCustomRolename(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRemediationTouAccepted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,9 +244,40 @@ func (m *DomainAWSAccountV2) validateAwsPermissionsStatus(formats strfmt.Registr
 	return nil
 }
 
-func (m *DomainAWSAccountV2) validateIsMaster(formats strfmt.Registry) error {
+func (m *DomainAWSAccountV2) validateD4c(formats strfmt.Registry) error {
+	if swag.IsZero(m.D4c) { // not required
+		return nil
+	}
 
-	if err := validate.Required("is_master", "body", m.IsMaster); err != nil {
+	if m.D4c != nil {
+		if err := m.D4c.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("d4c")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("d4c")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountV2) validateIsCustomRolename(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_custom_rolename", "body", m.IsCustomRolename); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountV2) validateRemediationTouAccepted(formats strfmt.Registry) error {
+	if swag.IsZero(m.RemediationTouAccepted) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("remediation_tou_accepted", "body", "date-time", m.RemediationTouAccepted.String(), formats); err != nil {
 		return err
 	}
 
@@ -204,6 +289,10 @@ func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt
 	var res []error
 
 	if err := m.contextValidateAwsPermissionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateD4c(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -228,6 +317,22 @@ func (m *DomainAWSAccountV2) contextValidateAwsPermissionsStatus(ctx context.Con
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountV2) contextValidateD4c(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.D4c != nil {
+		if err := m.D4c.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("d4c")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("d4c")
+			}
+			return err
+		}
 	}
 
 	return nil

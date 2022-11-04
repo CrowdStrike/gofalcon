@@ -32,6 +32,14 @@ type FwmgrMsaAggregateQueryRequest struct {
 	// Required: true
 	Filter *string `json:"filter"`
 
+	// from
+	// Required: true
+	From *int32 `json:"from"`
+
+	// include
+	// Required: true
+	Include *string `json:"include"`
+
 	// interval
 	// Required: true
 	Interval *string `json:"interval"`
@@ -90,6 +98,14 @@ func (m *FwmgrMsaAggregateQueryRequest) Validate(formats strfmt.Registry) error 
 	}
 
 	if err := m.validateFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFrom(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInclude(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -182,6 +198,24 @@ func (m *FwmgrMsaAggregateQueryRequest) validateField(formats strfmt.Registry) e
 func (m *FwmgrMsaAggregateQueryRequest) validateFilter(formats strfmt.Registry) error {
 
 	if err := validate.Required("filter", "body", m.Filter); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrMsaAggregateQueryRequest) validateFrom(formats strfmt.Registry) error {
+
+	if err := validate.Required("from", "body", m.From); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrMsaAggregateQueryRequest) validateInclude(formats strfmt.Registry) error {
+
+	if err := validate.Required("include", "body", m.Include); err != nil {
 		return err
 	}
 

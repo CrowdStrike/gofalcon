@@ -79,7 +79,7 @@ type IndicatorDeleteV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIIndicatorQueryResponse
+	Payload *models.APIIndicatorQueryRespV1
 }
 
 // IsSuccess returns true when this indicator delete v1 o k response has a 2xx status code
@@ -115,7 +115,7 @@ func (o *IndicatorDeleteV1OK) String() string {
 	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicatorDeleteV1OK  %+v", 200, o.Payload)
 }
 
-func (o *IndicatorDeleteV1OK) GetPayload() *models.APIIndicatorQueryResponse {
+func (o *IndicatorDeleteV1OK) GetPayload() *models.APIIndicatorQueryRespV1 {
 	return o.Payload
 }
 
@@ -150,7 +150,7 @@ func (o *IndicatorDeleteV1OK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIIndicatorQueryResponse)
+	o.Payload = new(models.APIIndicatorQueryRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -400,7 +400,7 @@ OK
 type IndicatorDeleteV1Default struct {
 	_statusCode int
 
-	Payload *models.APIIndicatorQueryResponse
+	Payload *models.APIIndicatorQueryRespV1
 }
 
 // Code gets the status code for the indicator delete v1 default response
@@ -441,13 +441,13 @@ func (o *IndicatorDeleteV1Default) String() string {
 	return fmt.Sprintf("[DELETE /iocs/entities/indicators/v1][%d] indicator.delete.v1 default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *IndicatorDeleteV1Default) GetPayload() *models.APIIndicatorQueryResponse {
+func (o *IndicatorDeleteV1Default) GetPayload() *models.APIIndicatorQueryRespV1 {
 	return o.Payload
 }
 
 func (o *IndicatorDeleteV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.APIIndicatorQueryResponse)
+	o.Payload = new(models.APIIndicatorQueryRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

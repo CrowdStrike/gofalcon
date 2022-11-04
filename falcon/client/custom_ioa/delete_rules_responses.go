@@ -50,14 +50,7 @@ func (o *DeleteRulesReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return nil, result
 	default:
-		result := NewDeleteRulesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ DeleteRulesOK describes a response with status code 200, with default header val
 OK
 */
 type DeleteRulesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -123,6 +120,13 @@ func (o *DeleteRulesOK) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteRulesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -166,6 +170,10 @@ DeleteRulesForbidden describes a response with status code 403, with default hea
 Forbidden
 */
 type DeleteRulesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +225,13 @@ func (o *DeleteRulesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteRulesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +275,10 @@ DeleteRulesNotFound describes a response with status code 404, with default head
 Not Found
 */
 type DeleteRulesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +330,13 @@ func (o *DeleteRulesNotFound) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteRulesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +380,10 @@ DeleteRulesTooManyRequests describes a response with status code 429, with defau
 Too Many Requests
 */
 type DeleteRulesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -409,6 +439,13 @@ func (o *DeleteRulesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteRulesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -441,78 +478,6 @@ func (o *DeleteRulesTooManyRequests) readResponse(response runtime.ClientRespons
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteRulesDefault creates a DeleteRulesDefault with default headers values
-func NewDeleteRulesDefault(code int) *DeleteRulesDefault {
-	return &DeleteRulesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteRulesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteRulesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// Code gets the status code for the delete rules default response
-func (o *DeleteRulesDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this delete rules default response has a 2xx status code
-func (o *DeleteRulesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete rules default response has a 3xx status code
-func (o *DeleteRulesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete rules default response has a 4xx status code
-func (o *DeleteRulesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete rules default response has a 5xx status code
-func (o *DeleteRulesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete rules default response a status code equal to that given
-func (o *DeleteRulesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *DeleteRulesDefault) Error() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] delete-rules default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteRulesDefault) String() string {
-	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] delete-rules default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteRulesDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *DeleteRulesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

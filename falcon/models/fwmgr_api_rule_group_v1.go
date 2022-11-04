@@ -59,6 +59,10 @@ type FwmgrAPIRuleGroupV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// platform
+	// Required: true
+	Platform *string `json:"platform"`
+
 	// policy ids
 	// Required: true
 	PolicyIds []string `json:"policy_ids"`
@@ -113,6 +117,10 @@ func (m *FwmgrAPIRuleGroupV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -218,6 +226,15 @@ func (m *FwmgrAPIRuleGroupV1) validateModifiedOn(formats strfmt.Registry) error 
 func (m *FwmgrAPIRuleGroupV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrAPIRuleGroupV1) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 

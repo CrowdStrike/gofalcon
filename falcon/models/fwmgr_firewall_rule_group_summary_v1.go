@@ -51,6 +51,10 @@ type FwmgrFirewallRuleGroupSummaryV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// platform
+	// Required: true
+	Platform *string `json:"platform"`
+
 	// policy ids
 	// Required: true
 	PolicyIds []string `json:"policy_ids"`
@@ -89,6 +93,10 @@ func (m *FwmgrFirewallRuleGroupSummaryV1) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -168,6 +176,15 @@ func (m *FwmgrFirewallRuleGroupSummaryV1) validateModifiedOn(formats strfmt.Regi
 func (m *FwmgrFirewallRuleGroupSummaryV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallRuleGroupSummaryV1) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 

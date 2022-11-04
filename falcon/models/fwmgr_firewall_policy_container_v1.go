@@ -43,6 +43,10 @@ type FwmgrFirewallPolicyContainerV1 struct {
 	// is default policy
 	IsDefaultPolicy bool `json:"is_default_policy,omitempty"`
 
+	// local logging
+	// Required: true
+	LocalLogging *bool `json:"local_logging"`
+
 	// modified by
 	ModifiedBy string `json:"modified_by,omitempty"`
 
@@ -82,6 +86,10 @@ func (m *FwmgrFirewallPolicyContainerV1) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validateEnforce(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocalLogging(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -128,6 +136,15 @@ func (m *FwmgrFirewallPolicyContainerV1) validateDefaultOutbound(formats strfmt.
 func (m *FwmgrFirewallPolicyContainerV1) validateEnforce(formats strfmt.Registry) error {
 
 	if err := validate.Required("enforce", "body", m.Enforce); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallPolicyContainerV1) validateLocalLogging(formats strfmt.Registry) error {
+
+	if err := validate.Required("local_logging", "body", m.LocalLogging); err != nil {
 		return err
 	}
 
