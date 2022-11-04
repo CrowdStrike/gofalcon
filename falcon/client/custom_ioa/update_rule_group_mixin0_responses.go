@@ -50,14 +50,7 @@ func (o *UpdateRuleGroupMixin0Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewUpdateRuleGroupMixin0Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ UpdateRuleGroupMixin0OK describes a response with status code 200, with default 
 OK
 */
 type UpdateRuleGroupMixin0OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -123,6 +120,13 @@ func (o *UpdateRuleGroupMixin0OK) GetPayload() *models.APIRuleGroupsResponse {
 
 func (o *UpdateRuleGroupMixin0OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -166,6 +170,10 @@ UpdateRuleGroupMixin0Forbidden describes a response with status code 403, with d
 Forbidden
 */
 type UpdateRuleGroupMixin0Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +225,13 @@ func (o *UpdateRuleGroupMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateRuleGroupMixin0Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +275,10 @@ UpdateRuleGroupMixin0NotFound describes a response with status code 404, with de
 Not Found
 */
 type UpdateRuleGroupMixin0NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +330,13 @@ func (o *UpdateRuleGroupMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateRuleGroupMixin0NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +380,10 @@ UpdateRuleGroupMixin0TooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type UpdateRuleGroupMixin0TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -409,6 +439,13 @@ func (o *UpdateRuleGroupMixin0TooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *UpdateRuleGroupMixin0TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -443,78 +480,6 @@ func (o *UpdateRuleGroupMixin0TooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRuleGroupMixin0Default creates a UpdateRuleGroupMixin0Default with default headers values
-func NewUpdateRuleGroupMixin0Default(code int) *UpdateRuleGroupMixin0Default {
-	return &UpdateRuleGroupMixin0Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateRuleGroupMixin0Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateRuleGroupMixin0Default struct {
-	_statusCode int
-
-	Payload *models.APIRuleGroupsResponse
-}
-
-// Code gets the status code for the update rule group mixin0 default response
-func (o *UpdateRuleGroupMixin0Default) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this update rule group mixin0 default response has a 2xx status code
-func (o *UpdateRuleGroupMixin0Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update rule group mixin0 default response has a 3xx status code
-func (o *UpdateRuleGroupMixin0Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update rule group mixin0 default response has a 4xx status code
-func (o *UpdateRuleGroupMixin0Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update rule group mixin0 default response has a 5xx status code
-func (o *UpdateRuleGroupMixin0Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update rule group mixin0 default response a status code equal to that given
-func (o *UpdateRuleGroupMixin0Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *UpdateRuleGroupMixin0Default) Error() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] update-rule-groupMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRuleGroupMixin0Default) String() string {
-	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] update-rule-groupMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRuleGroupMixin0Default) GetPayload() *models.APIRuleGroupsResponse {
-	return o.Payload
-}
-
-func (o *UpdateRuleGroupMixin0Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIRuleGroupsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -50,14 +50,7 @@ func (o *QueryRuleGroupsMixin0Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewQueryRuleGroupsMixin0Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ QueryRuleGroupsMixin0OK describes a response with status code 200, with default 
 OK
 */
 type QueryRuleGroupsMixin0OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -123,6 +120,13 @@ func (o *QueryRuleGroupsMixin0OK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryRuleGroupsMixin0OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -166,6 +170,10 @@ QueryRuleGroupsMixin0Forbidden describes a response with status code 403, with d
 Forbidden
 */
 type QueryRuleGroupsMixin0Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -217,6 +225,13 @@ func (o *QueryRuleGroupsMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryRuleGroupsMixin0Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -260,6 +275,10 @@ QueryRuleGroupsMixin0NotFound describes a response with status code 404, with de
 Not Found
 */
 type QueryRuleGroupsMixin0NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -311,6 +330,13 @@ func (o *QueryRuleGroupsMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryRuleGroupsMixin0NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -354,6 +380,10 @@ QueryRuleGroupsMixin0TooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type QueryRuleGroupsMixin0TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -409,6 +439,13 @@ func (o *QueryRuleGroupsMixin0TooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *QueryRuleGroupsMixin0TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -443,78 +480,6 @@ func (o *QueryRuleGroupsMixin0TooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRuleGroupsMixin0Default creates a QueryRuleGroupsMixin0Default with default headers values
-func NewQueryRuleGroupsMixin0Default(code int) *QueryRuleGroupsMixin0Default {
-	return &QueryRuleGroupsMixin0Default{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryRuleGroupsMixin0Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryRuleGroupsMixin0Default struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// Code gets the status code for the query rule groups mixin0 default response
-func (o *QueryRuleGroupsMixin0Default) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this query rule groups mixin0 default response has a 2xx status code
-func (o *QueryRuleGroupsMixin0Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query rule groups mixin0 default response has a 3xx status code
-func (o *QueryRuleGroupsMixin0Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query rule groups mixin0 default response has a 4xx status code
-func (o *QueryRuleGroupsMixin0Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query rule groups mixin0 default response has a 5xx status code
-func (o *QueryRuleGroupsMixin0Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query rule groups mixin0 default response a status code equal to that given
-func (o *QueryRuleGroupsMixin0Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *QueryRuleGroupsMixin0Default) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups/v1][%d] query-rule-groupsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleGroupsMixin0Default) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-groups/v1][%d] query-rule-groupsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleGroupsMixin0Default) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryRuleGroupsMixin0Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

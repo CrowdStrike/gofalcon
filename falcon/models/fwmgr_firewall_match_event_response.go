@@ -95,6 +95,10 @@ type FwmgrFirewallMatchEventResponse struct {
 	// Required: true
 	Pid *string `json:"pid"`
 
+	// platform
+	// Required: true
+	Platform *string `json:"platform"`
+
 	// policy id
 	// Required: true
 	PolicyID *string `json:"policy_id"`
@@ -229,6 +233,10 @@ func (m *FwmgrFirewallMatchEventResponse) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validatePid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePlatform(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -470,6 +478,15 @@ func (m *FwmgrFirewallMatchEventResponse) validateNetworkProfile(formats strfmt.
 func (m *FwmgrFirewallMatchEventResponse) validatePid(formats strfmt.Registry) error {
 
 	if err := validate.Required("pid", "body", m.Pid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FwmgrFirewallMatchEventResponse) validatePlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("platform", "body", m.Platform); err != nil {
 		return err
 	}
 

@@ -66,6 +66,10 @@ Created
 */
 type CreateRuleGroupMixin0Created struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -116,6 +120,13 @@ func (o *CreateRuleGroupMixin0Created) GetPayload() *models.APIRuleGroupsRespons
 
 func (o *CreateRuleGroupMixin0Created) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -159,6 +170,10 @@ CreateRuleGroupMixin0Forbidden describes a response with status code 403, with d
 Forbidden
 */
 type CreateRuleGroupMixin0Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -210,6 +225,13 @@ func (o *CreateRuleGroupMixin0Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *CreateRuleGroupMixin0Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -253,6 +275,10 @@ CreateRuleGroupMixin0NotFound describes a response with status code 404, with de
 Not Found
 */
 type CreateRuleGroupMixin0NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -304,6 +330,13 @@ func (o *CreateRuleGroupMixin0NotFound) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *CreateRuleGroupMixin0NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -347,6 +380,10 @@ CreateRuleGroupMixin0TooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type CreateRuleGroupMixin0TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -401,6 +438,13 @@ func (o *CreateRuleGroupMixin0TooManyRequests) GetPayload() *models.MsaReplyMeta
 }
 
 func (o *CreateRuleGroupMixin0TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

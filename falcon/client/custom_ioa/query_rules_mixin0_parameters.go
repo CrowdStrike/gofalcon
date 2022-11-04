@@ -88,7 +88,7 @@ type QueryRulesMixin0Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: {rules.ruletype_name, rules.enabled, rules.created_by, rules.current_version.name, rules.current_version.modified_by, rules.created_on, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on}
+	   Possible order by fields: {rules.current_version.pattern_severity, rules.current_version.modified_by, rules.current_version.modified_on, rules.ruletype_name, rules.created_by, rules.created_on, rules.current_version.name, rules.enabled, rules.current_version.description, rules.current_version.action_label}
 	*/
 	Sort *string
 

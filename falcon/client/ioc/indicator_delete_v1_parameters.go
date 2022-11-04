@@ -74,6 +74,12 @@ type IndicatorDeleteV1Params struct {
 	*/
 	Filter *string
 
+	/* FromParent.
+
+	   The filter for returning either only indicators for the request customer or its MSSP parents
+	*/
+	FromParent *bool
+
 	/* Ids.
 
 	   The ids of the Indicators to delete. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids
@@ -155,6 +161,17 @@ func (o *IndicatorDeleteV1Params) SetFilter(filter *string) {
 	o.Filter = filter
 }
 
+// WithFromParent adds the fromParent to the indicator delete v1 params
+func (o *IndicatorDeleteV1Params) WithFromParent(fromParent *bool) *IndicatorDeleteV1Params {
+	o.SetFromParent(fromParent)
+	return o
+}
+
+// SetFromParent adds the fromParent to the indicator delete v1 params
+func (o *IndicatorDeleteV1Params) SetFromParent(fromParent *bool) {
+	o.FromParent = fromParent
+}
+
 // WithIds adds the ids to the indicator delete v1 params
 func (o *IndicatorDeleteV1Params) WithIds(ids []string) *IndicatorDeleteV1Params {
 	o.SetIds(ids)
@@ -203,6 +220,23 @@ func (o *IndicatorDeleteV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.FromParent != nil {
+
+		// query param from_parent
+		var qrFromParent bool
+
+		if o.FromParent != nil {
+			qrFromParent = *o.FromParent
+		}
+		qFromParent := swag.FormatBool(qrFromParent)
+		if qFromParent != "" {
+
+			if err := r.SetQueryParam("from_parent", qFromParent); err != nil {
 				return err
 			}
 		}

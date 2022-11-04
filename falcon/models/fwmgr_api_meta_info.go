@@ -34,7 +34,7 @@ type FwmgrAPIMetaInfo struct {
 	TraceID *string `json:"trace_id"`
 
 	// writes
-	Writes *FwmgrMsaResources `json:"writes,omitempty"`
+	Writes *FwmgrMsaspecWrites `json:"writes,omitempty"`
 }
 
 // Validate validates this fwmgr api meta info

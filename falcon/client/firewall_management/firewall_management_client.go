@@ -70,6 +70,8 @@ type ClientService interface {
 
 	UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
 
+	UpdatePolicyContainerV1(params *UpdatePolicyContainerV1Params, opts ...ClientOption) (*UpdatePolicyContainerV1OK, *UpdatePolicyContainerV1Created, error)
+
 	UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error)
 
 	UpdateRuleGroupValidation(params *UpdateRuleGroupValidationParams, opts ...ClientOption) (*UpdateRuleGroupValidationOK, error)
@@ -820,6 +822,45 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdatePolicyContainerDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpdatePolicyContainerV1 updates an identified policy container w a r n i n g this endpoint is deprecated in favor of v2 using this endpoint could disable your local logging setting
+*/
+func (a *Client) UpdatePolicyContainerV1(params *UpdatePolicyContainerV1Params, opts ...ClientOption) (*UpdatePolicyContainerV1OK, *UpdatePolicyContainerV1Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePolicyContainerV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-policy-container-v1",
+		Method:             "PUT",
+		PathPattern:        "/fwmgr/entities/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdatePolicyContainerV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *UpdatePolicyContainerV1OK:
+		return value, nil, nil
+	case *UpdatePolicyContainerV1Created:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UpdatePolicyContainerV1Default)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
