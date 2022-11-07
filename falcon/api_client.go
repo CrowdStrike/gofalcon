@@ -44,6 +44,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		T: &workaround{
 			T: authenticatedClient.Transport,
 		},
+		UserAgent: ac.UserAgent(),
 	}
 	customTransport := httptransport.NewWithClient(
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
@@ -56,11 +57,12 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 
 type roundTripper struct {
 	T                   http.RoundTripper
+	UserAgent           string
 	LastRateLimitDigits int
 }
 
 func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-	req.Header.Add("User-Agent", userAgent)
+	req.Header.Add("User-Agent", rt.UserAgent)
 
 	if rt.LastRateLimitDigits == 1 || rt.LastRateLimitDigits == 2 {
 		log.Debug("Approaching CrowdStrike API rate limits. Waiting 500 millisecond.")
@@ -73,8 +75,6 @@ func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 
 	return response, err
 }
-
-var userAgent = "gofalcon/" + Version.String()
 
 type workaround struct {
 	T http.RoundTripper
