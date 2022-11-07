@@ -52,3 +52,9 @@ func (ac *ApiConfig) HttpTimeout() time.Duration {
 	}
 	return *ac.HttpTimeOutOverride
 }
+
+var userAgent = "gofalcon/" + Version.String()
+
+func (ac *ApiConfig) UserAgent() string {
+	return userAgent
+}
