@@ -64,7 +64,7 @@ type QueryUserV1Params struct {
 
 	/* Filter.
 
-	   The filter expression that should be used to limit the results
+	   Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
 	*/
 	Filter *string
 

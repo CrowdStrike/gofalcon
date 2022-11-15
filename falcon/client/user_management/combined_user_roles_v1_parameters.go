@@ -76,7 +76,7 @@ type CombinedUserRolesV1Params struct {
 
 	/* Filter.
 
-	   The filter expression that should be used to limit the results
+	   Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name
 	*/
 	Filter *string
 
