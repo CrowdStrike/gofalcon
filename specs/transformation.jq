@@ -39,3 +39,5 @@
 
   # Needed by rusty-falcon (stricter typing)
   | .definitions."deviceapi.DeviceDetailsResponseSwagger".properties.errors."x-nullable" = true
+
+  | .paths."/ioarules/queries/rule-groups-full/v1".get.responses."200" = .paths."/ioarules/entities/rule-groups/v1".get.responses."200"
