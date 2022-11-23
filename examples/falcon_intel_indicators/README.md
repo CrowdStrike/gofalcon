@@ -1,8 +1,6 @@
 # Falcon Threat Intelligence Indicators
 
-[Falcon X](https://www.crowdstrike.com/endpoint-security-products/falcon-x-threat-intelligence/)
-
-This page represents a stand-alone tool that uses Falcon X Threat Intelligence API to query the Intel Indicators and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+This page represents a stand-alone tool that uses Falcon Intelligence API to query the Intel Indicators and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
 
 ## Installation
 
