@@ -78,7 +78,7 @@ type QueryRuleGroupsFullOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.APIRuleGroupsResponse
 }
 
 // IsSuccess returns true when this query rule groups full o k response has a 2xx status code
@@ -114,7 +114,7 @@ func (o *QueryRuleGroupsFullOK) String() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryRuleGroupsFullOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryRuleGroupsFullOK) GetPayload() *models.APIRuleGroupsResponse {
 	return o.Payload
 }
 
@@ -149,7 +149,7 @@ func (o *QueryRuleGroupsFullOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.APIRuleGroupsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
