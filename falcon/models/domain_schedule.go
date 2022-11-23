@@ -8,10 +8,8 @@ package models
 import (
 	"context"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // DomainSchedule domain schedule
@@ -19,48 +17,18 @@ import (
 // swagger:model domain.Schedule
 type DomainSchedule struct {
 
-	// definition
-	// Required: true
-	Definition *string `json:"definition"`
+	// ignored by channelfile
+	IgnoredByChannelfile bool `json:"ignored_by_channelfile,omitempty"`
 
-	// display
-	// Required: true
-	Display *string `json:"display"`
+	// interval
+	Interval int32 `json:"interval,omitempty"`
+
+	// start timestamp
+	StartTimestamp string `json:"start_timestamp,omitempty"`
 }
 
 // Validate validates this domain schedule
 func (m *DomainSchedule) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateDefinition(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDisplay(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DomainSchedule) validateDefinition(formats strfmt.Registry) error {
-
-	if err := validate.Required("definition", "body", m.Definition); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSchedule) validateDisplay(formats strfmt.Registry) error {
-
-	if err := validate.Required("display", "body", m.Display); err != nil {
-		return err
-	}
-
 	return nil
 }
 
