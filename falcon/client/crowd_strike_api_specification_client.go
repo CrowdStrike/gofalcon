@@ -30,7 +30,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
 	"github.com/crowdstrike/gofalcon/falcon/client/identity_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
-	"github.com/crowdstrike/gofalcon/falcon/client/incoming_webhook_requests"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
@@ -44,7 +43,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
-	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -61,7 +59,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_visibility_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
-	"github.com/crowdstrike/gofalcon/falcon/client/store"
 	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
@@ -129,7 +126,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Hosts = hosts.New(transport, formats)
 	cli.IdentityProtection = identity_protection.New(transport, formats)
 	cli.Incidents = incidents.New(transport, formats)
-	cli.IncomingWebhookRequests = incoming_webhook_requests.New(transport, formats)
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
@@ -143,7 +139,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
-	cli.Operations = operations.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
@@ -160,7 +155,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SensorVisibilityExclusions = sensor_visibility_exclusions.New(transport, formats)
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
-	cli.Store = store.New(transport, formats)
 	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
@@ -248,8 +242,6 @@ type CrowdStrikeAPISpecification struct {
 
 	Incidents incidents.ClientService
 
-	IncomingWebhookRequests incoming_webhook_requests.ClientService
-
 	InstallationTokens installation_tokens.ClientService
 
 	Intel intel.ClientService
@@ -275,8 +267,6 @@ type CrowdStrikeAPISpecification struct {
 	Oauth2 oauth2.ClientService
 
 	Ods ods.ClientService
-
-	Operations operations.ClientService
 
 	OverwatchDashboard overwatch_dashboard.ClientService
 
@@ -310,8 +300,6 @@ type CrowdStrikeAPISpecification struct {
 
 	SpotlightVulnerabilities spotlight_vulnerabilities.ClientService
 
-	Store store.ClientService
-
 	TailoredIntelligence tailored_intelligence.ClientService
 
 	UserManagement user_management.ClientService
@@ -344,7 +332,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Hosts.SetTransport(transport)
 	c.IdentityProtection.SetTransport(transport)
 	c.Incidents.SetTransport(transport)
-	c.IncomingWebhookRequests.SetTransport(transport)
 	c.InstallationTokens.SetTransport(transport)
 	c.Intel.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
@@ -358,7 +345,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
-	c.Operations.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
@@ -375,7 +361,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SensorVisibilityExclusions.SetTransport(transport)
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
-	c.Store.SetTransport(transport)
 	c.TailoredIntelligence.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
