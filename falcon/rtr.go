@@ -9,6 +9,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
 
 type RTR struct {
@@ -193,10 +194,17 @@ func (s RTRSession) AdminExecute(ctx context.Context, baseCommand, commandString
 }
 
 func (s *RTRSession) WaitForExecution(ctx context.Context, cloudRequestId string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
+	var lastSequenceID int64 = 0
+	var completeResponse = models.DomainStatusResponse{
+		Stdout: new(string),
+		Stderr: new(string),
+	}
+
 	for {
 		response, err := s.client.RTRCheckCommandStatus(&real_time_response.RTRCheckCommandStatusParams{
 			Context:        ctx,
 			CloudRequestID: cloudRequestId,
+			SequenceID:     lastSequenceID,
 		}, opts...)
 		if err != nil {
 			return nil, err
@@ -207,18 +215,33 @@ func (s *RTRSession) WaitForExecution(ctx context.Context, cloudRequestId string
 		if len(response.Payload.Resources) != 1 {
 			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
-		if *response.Payload.Resources[0].Complete {
-			return response.Payload.Resources[0], nil
+		resource := *response.Payload.Resources[0]
+		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
+		*completeResponse.Stdout += falcon_util.DerefString(resource.Stdout)
+		if *resource.Complete {
+			completeResponse.BaseCommand = resource.BaseCommand
+			completeResponse.Complete = resource.Complete
+			completeResponse.SequenceID = resource.SequenceID
+			completeResponse.SessionID = resource.SessionID
+			completeResponse.TaskID = resource.TaskID
+			return &completeResponse, nil
 		}
+		lastSequenceID = resource.SequenceID
 		time.Sleep(120 * time.Millisecond)
 	}
 }
 
 func (s *RTRSession) ActiveResponderWaitForExecution(ctx context.Context, cloudRequestId string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
+	var lastSequenceID int64 = 0
+	var completeResponse = models.DomainStatusResponse{
+		Stdout: new(string),
+		Stderr: new(string),
+	}
 	for {
 		response, err := s.client.RTRCheckActiveResponderCommandStatus(&real_time_response.RTRCheckActiveResponderCommandStatusParams{
 			Context:        ctx,
 			CloudRequestID: cloudRequestId,
+			SequenceID:     lastSequenceID,
 		}, opts...)
 		if err != nil {
 			return nil, err
@@ -229,18 +252,33 @@ func (s *RTRSession) ActiveResponderWaitForExecution(ctx context.Context, cloudR
 		if len(response.Payload.Resources) != 1 {
 			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
-		if *response.Payload.Resources[0].Complete {
-			return response.Payload.Resources[0], nil
+		resource := *response.Payload.Resources[0]
+		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
+		*completeResponse.Stdout += falcon_util.DerefString(resource.Stdout)
+		if *resource.Complete {
+			completeResponse.BaseCommand = resource.BaseCommand
+			completeResponse.Complete = resource.Complete
+			completeResponse.SequenceID = resource.SequenceID
+			completeResponse.SessionID = resource.SessionID
+			completeResponse.TaskID = resource.TaskID
+			return &completeResponse, nil
 		}
+		lastSequenceID = resource.SequenceID
 		time.Sleep(120 * time.Millisecond)
 	}
 }
 
 func (s *RTRSession) AdminWaitForExecution(ctx context.Context, cloudRequestId string, opts ...real_time_response_admin.ClientOption) (*models.DomainStatusResponse, error) {
+	var lastSequenceID int64 = 0
+	var completeResponse = models.DomainStatusResponse{
+		Stdout: new(string),
+		Stderr: new(string),
+	}
 	for {
 		response, err := s.adminClient.RTRCheckAdminCommandStatus(&real_time_response_admin.RTRCheckAdminCommandStatusParams{
 			Context:        ctx,
 			CloudRequestID: cloudRequestId,
+			SequenceID:     lastSequenceID,
 		}, opts...)
 		if err != nil {
 			return nil, err
@@ -251,9 +289,18 @@ func (s *RTRSession) AdminWaitForExecution(ctx context.Context, cloudRequestId s
 		if len(response.Payload.Resources) != 1 {
 			return nil, fmt.Errorf("Unexpected return from RTRCheckActiverResponderCommandStatus: %v", response)
 		}
-		if *response.Payload.Resources[0].Complete {
-			return response.Payload.Resources[0], nil
+		resource := *response.Payload.Resources[0]
+		*completeResponse.Stderr += falcon_util.DerefString(resource.Stderr)
+		*completeResponse.Stdout += falcon_util.DerefString(resource.Stdout)
+		if *resource.Complete {
+			completeResponse.BaseCommand = resource.BaseCommand
+			completeResponse.Complete = resource.Complete
+			completeResponse.SequenceID = resource.SequenceID
+			completeResponse.SessionID = resource.SessionID
+			completeResponse.TaskID = resource.TaskID
+			return &completeResponse, nil
 		}
+		lastSequenceID = resource.SequenceID
 		time.Sleep(120 * time.Millisecond)
 	}
 }
