@@ -20,10 +20,18 @@
   # Rename msaspec.MetaInfo to msa.MetaInfo. These are two names for the same type.
   | del(.definitions."msaspec.MetaInfo")
 
+
+  # Device v1 API has been deprecated since August 2022. And the end point will be removed at some point in the future.
+  | del(.paths."/devices/entities/devices/v1")
+  | .paths."/devices/entities/devices//v2".get = .paths."/devices/entities/devices/v2".get
+  | .paths."/devices/entities/devices//v2".get.operationId = "GetDeviceDetails"
+  | .paths."/devices/entities/devices//v2".get.deprecated = true
+  | .paths."/devices/entities/devices//v2".get.summary = "Deprecated: Please use new methods: GetDeviceDetailsV2 or	PostDeviceDetailsV2. This method now redirects to GetDeviceDetailsV2. The original API endpoint will be removed on or sometime after February 9, 2023."
+  | .paths."/devices/entities/devices//v2".get.responses."200".schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
+  | .paths."/devices/entities/devices//v2".get.responses.default.schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
+
   # A patch until DeviceDetails v1 gets removed
   | .definitions."domain.DeviceDetailsResponseSwagger" = .definitions."deviceapi.DeviceDetailsResponseSwagger"
-  | .paths."/devices/entities/devices/v1".get.responses."200".schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
-  | .paths."/devices/entities/devices/v1".get.responses.default.schema."$ref" = "#/definitions/domain.DeviceDetailsResponseSwagger"
   | .definitions."domain.DeviceSwagger" = .definitions."deviceapi.DeviceSwagger"
   | .definitions."domain.DeviceDetailsResponseSwagger".properties.resources.items."$ref" = "#/definitions/domain.DeviceSwagger"
 
@@ -40,4 +48,5 @@
   # Needed by rusty-falcon (stricter typing)
   | .definitions."deviceapi.DeviceDetailsResponseSwagger".properties.errors."x-nullable" = true
 
+  # IOA Rule Groups Combined API has incorrect swagger response object: list of ids instead of list of objects
   | .paths."/ioarules/queries/rule-groups-full/v1".get.responses."200" = .paths."/ioarules/entities/rule-groups/v1".get.responses."200"
