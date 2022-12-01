@@ -108,11 +108,11 @@ func (o *GetDeviceDetailsOK) IsCode(code int) bool {
 }
 
 func (o *GetDeviceDetailsOK) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetDeviceDetailsOK) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetDeviceDetailsOK) GetPayload() *models.DomainDeviceDetailsResponseSwagger {
@@ -213,11 +213,11 @@ func (o *GetDeviceDetailsForbidden) IsCode(code int) bool {
 }
 
 func (o *GetDeviceDetailsForbidden) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetDeviceDetailsForbidden) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetDeviceDetailsForbidden) GetPayload() *models.MsaReplyMetaOnly {
@@ -322,11 +322,11 @@ func (o *GetDeviceDetailsTooManyRequests) IsCode(code int) bool {
 }
 
 func (o *GetDeviceDetailsTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *GetDeviceDetailsTooManyRequests) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *GetDeviceDetailsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
@@ -434,11 +434,11 @@ func (o *GetDeviceDetailsDefault) IsCode(code int) bool {
 }
 
 func (o *GetDeviceDetailsDefault) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetDeviceDetailsDefault) String() string {
-	return fmt.Sprintf("[GET /devices/entities/devices/v1][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] GetDeviceDetails default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetDeviceDetailsDefault) GetPayload() *models.DomainDeviceDetailsResponseSwagger {

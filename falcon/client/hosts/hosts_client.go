@@ -58,7 +58,7 @@ type ClientService interface {
 }
 
 /*
-GetDeviceDetails deprecateds please use new g e t or p o s t devices entities devices v2 endpoints this endpoint will be removed on or sometime after february 9 2023 get details on one or more hosts by providing agent i ds a ID you can get a host s agent i ds a i ds from the devices queries devices v1 endpoint the falcon console or the streaming API
+GetDeviceDetails deprecateds please use new methods get device details v2 or post device details v2 this method now redirects to get device details v2 the original API endpoint will be removed on or sometime after february 9 2023
 */
 func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...ClientOption) (*GetDeviceDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -68,7 +68,7 @@ func (a *Client) GetDeviceDetails(params *GetDeviceDetailsParams, opts ...Client
 	op := &runtime.ClientOperation{
 		ID:                 "GetDeviceDetails",
 		Method:             "GET",
-		PathPattern:        "/devices/entities/devices/v1",
+		PathPattern:        "/devices/entities/devices//v2",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
