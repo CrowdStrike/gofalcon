@@ -6,6 +6,8 @@ package mssp
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -50,15 +52,25 @@ type ClientService interface {
 
 	GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOption) (*GetCIDGroupByIDOK, *GetCIDGroupByIDMultiStatus, error)
 
+	GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...ClientOption) (*GetCIDGroupByIDV2OK, *GetCIDGroupByIDV2MultiStatus, error)
+
 	GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error)
 
+	GetCIDGroupMembersByV2(params *GetCIDGroupMembersByV2Params, opts ...ClientOption) (*GetCIDGroupMembersByV2OK, *GetCIDGroupMembersByV2MultiStatus, error)
+
 	GetChildren(params *GetChildrenParams, opts ...ClientOption) (*GetChildrenOK, *GetChildrenMultiStatus, error)
+
+	GetChildrenV2(params *GetChildrenV2Params, opts ...ClientOption) (*GetChildrenV2OK, *GetChildrenV2MultiStatus, error)
 
 	GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) (*GetRolesByIDOK, *GetRolesByIDMultiStatus, error)
 
 	GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, opts ...ClientOption) (*GetUserGroupMembersByIDOK, *GetUserGroupMembersByIDMultiStatus, error)
 
+	GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Params, opts ...ClientOption) (*GetUserGroupMembersByIDV2OK, *GetUserGroupMembersByIDV2MultiStatus, error)
+
 	GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error)
+
+	GetUserGroupsByIDV2(params *GetUserGroupsByIDV2Params, opts ...ClientOption) (*GetUserGroupsByIDV2OK, *GetUserGroupsByIDV2MultiStatus, error)
 
 	QueryCIDGroupMembers(params *QueryCIDGroupMembersParams, opts ...ClientOption) (*QueryCIDGroupMembersOK, error)
 
@@ -509,6 +521,45 @@ func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOp
 }
 
 /*
+GetCIDGroupByIDV2 gets c ID groups by ID identical to entities cid groups v1 but accepts uniform ids parameter instead of cid group ids
+*/
+func (a *Client) GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...ClientOption) (*GetCIDGroupByIDV2OK, *GetCIDGroupByIDV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCIDGroupByIDV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getCIDGroupByIdV2",
+		Method:             "GET",
+		PathPattern:        "/mssp/entities/cid-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCIDGroupByIDV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetCIDGroupByIDV2OK:
+		return value, nil, nil
+	case *GetCIDGroupByIDV2MultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetCIDGroupMembersBy gets c ID group members by c ID group ID
 */
 func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error) {
@@ -548,6 +599,45 @@ func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts .
 }
 
 /*
+GetCIDGroupMembersByV2 gets c ID group members by c ID group ID identical to entities cid group members v1 but accepts uniform ids parameter instead of cid group ids
+*/
+func (a *Client) GetCIDGroupMembersByV2(params *GetCIDGroupMembersByV2Params, opts ...ClientOption) (*GetCIDGroupMembersByV2OK, *GetCIDGroupMembersByV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCIDGroupMembersByV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getCIDGroupMembersByV2",
+		Method:             "GET",
+		PathPattern:        "/mssp/entities/cid-group-members/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCIDGroupMembersByV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetCIDGroupMembersByV2OK:
+		return value, nil, nil
+	case *GetCIDGroupMembersByV2MultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetChildren gets link to child customer by child c ID s
 */
 func (a *Client) GetChildren(params *GetChildrenParams, opts ...ClientOption) (*GetChildrenOK, *GetChildrenMultiStatus, error) {
@@ -584,6 +674,45 @@ func (a *Client) GetChildren(params *GetChildrenParams, opts ...ClientOption) (*
 	// unexpected success response
 	unexpectedSuccess := result.(*GetChildrenDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetChildrenV2 gets link to child customer by child c ID s
+*/
+func (a *Client) GetChildrenV2(params *GetChildrenV2Params, opts ...ClientOption) (*GetChildrenV2OK, *GetChildrenV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetChildrenV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getChildrenV2",
+		Method:             "POST",
+		PathPattern:        "/mssp/entities/children/GET/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetChildrenV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetChildrenV2OK:
+		return value, nil, nil
+	case *GetChildrenV2MultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -665,6 +794,45 @@ func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, 
 }
 
 /*
+GetUserGroupMembersByIDV2 gets user group members by user group ID identical to entities user group members v1 but accepts uniform ids parameter instead of user group ids
+*/
+func (a *Client) GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Params, opts ...ClientOption) (*GetUserGroupMembersByIDV2OK, *GetUserGroupMembersByIDV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserGroupMembersByIDV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getUserGroupMembersByIDV2",
+		Method:             "GET",
+		PathPattern:        "/mssp/entities/user-group-members/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserGroupMembersByIDV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetUserGroupMembersByIDV2OK:
+		return value, nil, nil
+	case *GetUserGroupMembersByIDV2MultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetUserGroupsByID gets user groups by ID
 */
 func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error) {
@@ -701,6 +869,45 @@ func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...Clie
 	// unexpected success response
 	unexpectedSuccess := result.(*GetUserGroupsByIDDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetUserGroupsByIDV2 gets user groups by ID identical to entities user groups v1 but accepts uniform ids parameter instead of user group ids
+*/
+func (a *Client) GetUserGroupsByIDV2(params *GetUserGroupsByIDV2Params, opts ...ClientOption) (*GetUserGroupsByIDV2OK, *GetUserGroupsByIDV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserGroupsByIDV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getUserGroupsByIDV2",
+		Method:             "GET",
+		PathPattern:        "/mssp/entities/user-groups/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserGroupsByIDV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetUserGroupsByIDV2OK:
+		return value, nil, nil
+	case *GetUserGroupsByIDV2MultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
