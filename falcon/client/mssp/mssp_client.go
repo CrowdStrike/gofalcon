@@ -482,7 +482,7 @@ func (a *Client) DeletedRoles(params *DeletedRolesParams, opts ...ClientOption) 
 }
 
 /*
-GetCIDGroupByID gets c ID groups by ID
+GetCIDGroupByID deprecateds please use g e t mssp entities cid groups v2 get c ID groups by ID
 */
 func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOption) (*GetCIDGroupByIDOK, *GetCIDGroupByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -515,13 +515,13 @@ func (a *Client) GetCIDGroupByID(params *GetCIDGroupByIDParams, opts ...ClientOp
 	case *GetCIDGroupByIDMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCIDGroupByIDDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetCIDGroupByIDV2 gets c ID groups by ID identical to entities cid groups v1 but accepts uniform ids parameter instead of cid group ids
+GetCIDGroupByIDV2 gets c ID groups by ID
 */
 func (a *Client) GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...ClientOption) (*GetCIDGroupByIDV2OK, *GetCIDGroupByIDV2MultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -560,7 +560,7 @@ func (a *Client) GetCIDGroupByIDV2(params *GetCIDGroupByIDV2Params, opts ...Clie
 }
 
 /*
-GetCIDGroupMembersBy gets c ID group members by c ID group ID
+GetCIDGroupMembersBy deprecateds please use g e t mssp entities cid group members v2 get c ID group members by c ID group ID
 */
 func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts ...ClientOption) (*GetCIDGroupMembersByOK, *GetCIDGroupMembersByMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -593,13 +593,13 @@ func (a *Client) GetCIDGroupMembersBy(params *GetCIDGroupMembersByParams, opts .
 	case *GetCIDGroupMembersByMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCIDGroupMembersByDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetCIDGroupMembersByV2 gets c ID group members by c ID group ID identical to entities cid group members v1 but accepts uniform ids parameter instead of cid group ids
+GetCIDGroupMembersByV2 gets c ID group members by c ID group ID
 */
 func (a *Client) GetCIDGroupMembersByV2(params *GetCIDGroupMembersByV2Params, opts ...ClientOption) (*GetCIDGroupMembersByV2OK, *GetCIDGroupMembersByV2MultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -755,7 +755,7 @@ func (a *Client) GetRolesByID(params *GetRolesByIDParams, opts ...ClientOption) 
 }
 
 /*
-GetUserGroupMembersByID gets user group members by user group ID
+GetUserGroupMembersByID deprecateds please use g e t mssp entities user group members v2 get user group members by user group ID
 */
 func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, opts ...ClientOption) (*GetUserGroupMembersByIDOK, *GetUserGroupMembersByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -788,13 +788,13 @@ func (a *Client) GetUserGroupMembersByID(params *GetUserGroupMembersByIDParams, 
 	case *GetUserGroupMembersByIDMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetUserGroupMembersByIDDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetUserGroupMembersByIDV2 gets user group members by user group ID identical to entities user group members v1 but accepts uniform ids parameter instead of user group ids
+GetUserGroupMembersByIDV2 gets user group members by user group ID
 */
 func (a *Client) GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Params, opts ...ClientOption) (*GetUserGroupMembersByIDV2OK, *GetUserGroupMembersByIDV2MultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -833,7 +833,7 @@ func (a *Client) GetUserGroupMembersByIDV2(params *GetUserGroupMembersByIDV2Para
 }
 
 /*
-GetUserGroupsByID gets user groups by ID
+GetUserGroupsByID deprecateds please use g e t entities user groups v2 get user groups by ID
 */
 func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...ClientOption) (*GetUserGroupsByIDOK, *GetUserGroupsByIDMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -866,13 +866,13 @@ func (a *Client) GetUserGroupsByID(params *GetUserGroupsByIDParams, opts ...Clie
 	case *GetUserGroupsByIDMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetUserGroupsByIDDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetUserGroupsByIDV2 gets user groups by ID identical to entities user groups v1 but accepts uniform ids parameter instead of user group ids
+GetUserGroupsByIDV2 gets user groups by ID
 */
 func (a *Client) GetUserGroupsByIDV2(params *GetUserGroupsByIDV2Params, opts ...ClientOption) (*GetUserGroupsByIDV2OK, *GetUserGroupsByIDV2MultiStatus, error) {
 	// TODO: Validate the params before sending
