@@ -56,14 +56,7 @@ func (o *GetUserGroupMembersByIDReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		result := NewGetUserGroupMembersByIDDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -598,78 +591,6 @@ func (o *GetUserGroupMembersByIDTooManyRequests) readResponse(response runtime.C
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetUserGroupMembersByIDDefault creates a GetUserGroupMembersByIDDefault with default headers values
-func NewGetUserGroupMembersByIDDefault(code int) *GetUserGroupMembersByIDDefault {
-	return &GetUserGroupMembersByIDDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetUserGroupMembersByIDDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetUserGroupMembersByIDDefault struct {
-	_statusCode int
-
-	Payload *models.DomainUserGroupMembersResponseV1
-}
-
-// Code gets the status code for the get user group members by ID default response
-func (o *GetUserGroupMembersByIDDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get user group members by ID default response has a 2xx status code
-func (o *GetUserGroupMembersByIDDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get user group members by ID default response has a 3xx status code
-func (o *GetUserGroupMembersByIDDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get user group members by ID default response has a 4xx status code
-func (o *GetUserGroupMembersByIDDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get user group members by ID default response has a 5xx status code
-func (o *GetUserGroupMembersByIDDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get user group members by ID default response a status code equal to that given
-func (o *GetUserGroupMembersByIDDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetUserGroupMembersByIDDefault) Error() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-group-members/v1][%d] getUserGroupMembersByID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetUserGroupMembersByIDDefault) String() string {
-	return fmt.Sprintf("[GET /mssp/entities/user-group-members/v1][%d] getUserGroupMembersByID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetUserGroupMembersByIDDefault) GetPayload() *models.DomainUserGroupMembersResponseV1 {
-	return o.Payload
-}
-
-func (o *GetUserGroupMembersByIDDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainUserGroupMembersResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
