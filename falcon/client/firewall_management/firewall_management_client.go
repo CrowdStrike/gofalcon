@@ -38,15 +38,23 @@ type ClientService interface {
 
 	AggregateRules(params *AggregateRulesParams, opts ...ClientOption) (*AggregateRulesOK, error)
 
+	CreateNetworkLocations(params *CreateNetworkLocationsParams, opts ...ClientOption) (*CreateNetworkLocationsCreated, error)
+
 	CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error)
 
 	CreateRuleGroupValidation(params *CreateRuleGroupValidationParams, opts ...ClientOption) (*CreateRuleGroupValidationCreated, error)
+
+	DeleteNetworkLocations(params *DeleteNetworkLocationsParams, opts ...ClientOption) (*DeleteNetworkLocationsOK, error)
 
 	DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error)
 
 	GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error)
 
 	GetFirewallFields(params *GetFirewallFieldsParams, opts ...ClientOption) (*GetFirewallFieldsOK, error)
+
+	GetNetworkLocations(params *GetNetworkLocationsParams, opts ...ClientOption) (*GetNetworkLocationsOK, error)
+
+	GetNetworkLocationsDetails(params *GetNetworkLocationsDetailsParams, opts ...ClientOption) (*GetNetworkLocationsDetailsOK, error)
 
 	GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) (*GetPlatformsOK, error)
 
@@ -60,6 +68,8 @@ type ClientService interface {
 
 	QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...ClientOption) (*QueryFirewallFieldsOK, error)
 
+	QueryNetworkLocations(params *QueryNetworkLocationsParams, opts ...ClientOption) (*QueryNetworkLocationsOK, error)
+
 	QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error)
 
 	QueryPolicyRules(params *QueryPolicyRulesParams, opts ...ClientOption) (*QueryPolicyRulesOK, error)
@@ -68,6 +78,12 @@ type ClientService interface {
 
 	QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error)
 
+	UpdateNetworkLocations(params *UpdateNetworkLocationsParams, opts ...ClientOption) (*UpdateNetworkLocationsOK, error)
+
+	UpdateNetworkLocationsMetadata(params *UpdateNetworkLocationsMetadataParams, opts ...ClientOption) (*UpdateNetworkLocationsMetadataOK, error)
+
+	UpdateNetworkLocationsPrecedence(params *UpdateNetworkLocationsPrecedenceParams, opts ...ClientOption) (*UpdateNetworkLocationsPrecedenceOK, error)
+
 	UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error)
 
 	UpdatePolicyContainerV1(params *UpdatePolicyContainerV1Params, opts ...ClientOption) (*UpdatePolicyContainerV1OK, *UpdatePolicyContainerV1Created, error)
@@ -75,6 +91,8 @@ type ClientService interface {
 	UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error)
 
 	UpdateRuleGroupValidation(params *UpdateRuleGroupValidationParams, opts ...ClientOption) (*UpdateRuleGroupValidationOK, error)
+
+	UpsertNetworkLocations(params *UpsertNetworkLocationsParams, opts ...ClientOption) (*UpsertNetworkLocationsOK, error)
 
 	ValidateFilepathPattern(params *ValidateFilepathPatternParams, opts ...ClientOption) (*ValidateFilepathPatternOK, error)
 
@@ -230,6 +248,44 @@ func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOpti
 }
 
 /*
+CreateNetworkLocations creates new network locations provided and return the ID
+*/
+func (a *Client) CreateNetworkLocations(params *CreateNetworkLocationsParams, opts ...ClientOption) (*CreateNetworkLocationsCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "create-network-locations",
+		Method:             "POST",
+		PathPattern:        "/fwmgr/entities/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateNetworkLocationsCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for create-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
 */
 func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error) {
@@ -302,6 +358,44 @@ func (a *Client) CreateRuleGroupValidation(params *CreateRuleGroupValidationPara
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for create-rule-group-validation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteNetworkLocations deletes network location entities by ID
+*/
+func (a *Client) DeleteNetworkLocations(params *DeleteNetworkLocationsParams, opts ...ClientOption) (*DeleteNetworkLocationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "delete-network-locations",
+		Method:             "DELETE",
+		PathPattern:        "/fwmgr/entities/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteNetworkLocationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for delete-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -414,6 +508,86 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...Clie
 	// unexpected success response
 	unexpectedSuccess := result.(*GetFirewallFieldsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetNetworkLocations gets a summary of network locations entities by ID
+
+This endpoint returns a summary of network locations that includes name, description, enabled/disabled status, a count of associated rules etc
+*/
+func (a *Client) GetNetworkLocations(params *GetNetworkLocationsParams, opts ...ClientOption) (*GetNetworkLocationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get-network-locations",
+		Method:             "GET",
+		PathPattern:        "/fwmgr/entities/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetNetworkLocationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetNetworkLocationsDetails gets network locations entities by ID
+
+This endpoint returns the complete network locations objects that includes all the network location conditions.
+*/
+func (a *Client) GetNetworkLocationsDetails(params *GetNetworkLocationsDetailsParams, opts ...ClientOption) (*GetNetworkLocationsDetailsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetNetworkLocationsDetailsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get-network-locations-details",
+		Method:             "GET",
+		PathPattern:        "/fwmgr/entities/network-locations-details/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetNetworkLocationsDetailsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetNetworkLocationsDetailsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-network-locations-details: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -639,6 +813,46 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...
 }
 
 /*
+QueryNetworkLocations gets a list of network location i ds
+
+This endpoint returns a list of network location IDs based of query parameter.
+*/
+func (a *Client) QueryNetworkLocations(params *QueryNetworkLocationsParams, opts ...ClientOption) (*QueryNetworkLocationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "query-network-locations",
+		Method:             "GET",
+		PathPattern:        "/fwmgr/queries/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryNetworkLocationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryPlatforms gets the list of platform names
 */
 func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error) {
@@ -784,6 +998,120 @@ func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*Qu
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryRulesDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpdateNetworkLocations updates the network locations provided and return the ID
+*/
+func (a *Client) UpdateNetworkLocations(params *UpdateNetworkLocationsParams, opts ...ClientOption) (*UpdateNetworkLocationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-network-locations",
+		Method:             "PATCH",
+		PathPattern:        "/fwmgr/entities/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateNetworkLocationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for update-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateNetworkLocationsMetadata updates the network locations metadata such as polling intervals for the cid
+*/
+func (a *Client) UpdateNetworkLocationsMetadata(params *UpdateNetworkLocationsMetadataParams, opts ...ClientOption) (*UpdateNetworkLocationsMetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateNetworkLocationsMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-network-locations-metadata",
+		Method:             "POST",
+		PathPattern:        "/fwmgr/entities/network-locations-metadata/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateNetworkLocationsMetadataReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateNetworkLocationsMetadataOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for update-network-locations-metadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateNetworkLocationsPrecedence updates the network locations precedence according to the list of ids provided
+*/
+func (a *Client) UpdateNetworkLocationsPrecedence(params *UpdateNetworkLocationsPrecedenceParams, opts ...ClientOption) (*UpdateNetworkLocationsPrecedenceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateNetworkLocationsPrecedenceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-network-locations-precedence",
+		Method:             "POST",
+		PathPattern:        "/fwmgr/entities/network-locations-precedence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateNetworkLocationsPrecedenceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateNetworkLocationsPrecedenceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for update-network-locations-precedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -936,6 +1264,44 @@ func (a *Client) UpdateRuleGroupValidation(params *UpdateRuleGroupValidationPara
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdateRuleGroupValidationDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpsertNetworkLocations updates the network locations provided and return the ID
+*/
+func (a *Client) UpsertNetworkLocations(params *UpsertNetworkLocationsParams, opts ...ClientOption) (*UpsertNetworkLocationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpsertNetworkLocationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "upsert-network-locations",
+		Method:             "PUT",
+		PathPattern:        "/fwmgr/entities/network-locations/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpsertNetworkLocationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpsertNetworkLocationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for upsert-network-locations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
