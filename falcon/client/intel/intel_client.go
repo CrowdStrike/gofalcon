@@ -44,6 +44,8 @@ type ClientService interface {
 
 	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error)
 
+	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
+
 	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error)
 
 	QueryIntelActorIds(params *QueryIntelActorIdsParams, opts ...ClientOption) (*QueryIntelActorIdsOK, error)
@@ -57,6 +59,8 @@ type ClientService interface {
 	QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...ClientOption) (*QueryIntelReportIdsOK, error)
 
 	QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error)
+
+	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -321,6 +325,43 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, wr
 }
 
 /*
+GetVulnerabilities gets vulnerabilities
+*/
+func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVulnerabilitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVulnerabilities",
+		Method:             "POST",
+		PathPattern:        "/intel/entities/vulnerabilities/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetVulnerabilitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetVulnerabilitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetVulnerabilitiesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 QueryIntelActorEntities gets info about actors that match provided f q l filters
 */
 func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error) {
@@ -576,6 +617,43 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...Clie
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryIntelRuleIdsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueryVulnerabilities gets vulnerabilities i ds
+*/
+func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryVulnerabilitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryVulnerabilities",
+		Method:             "GET",
+		PathPattern:        "/intel/queries/vulnerabilities/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryVulnerabilitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryVulnerabilitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryVulnerabilitiesDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
