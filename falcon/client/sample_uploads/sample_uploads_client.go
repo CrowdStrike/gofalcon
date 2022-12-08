@@ -6,6 +6,8 @@ package sample_uploads
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -28,13 +30,178 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	ArchiveDeleteV1(params *ArchiveDeleteV1Params, opts ...ClientOption) (*ArchiveDeleteV1Accepted, error)
+
+	ArchiveGetV1(params *ArchiveGetV1Params, opts ...ClientOption) (*ArchiveGetV1OK, error)
+
+	ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption) (*ArchiveListV1OK, error)
+
+	ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOption) (*ArchiveUploadV2OK, *ArchiveUploadV2Accepted, error)
+
 	DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error)
+
+	ExtractionCreateV1(params *ExtractionCreateV1Params, opts ...ClientOption) (*ExtractionCreateV1OK, *ExtractionCreateV1Accepted, error)
+
+	ExtractionGetV1(params *ExtractionGetV1Params, opts ...ClientOption) (*ExtractionGetV1OK, error)
+
+	ExtractionListV1(params *ExtractionListV1Params, opts ...ClientOption) (*ExtractionListV1OK, error)
 
 	GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*GetSampleV3OK, error)
 
 	UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOption) (*UploadSampleV3OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+ArchiveDeleteV1 deletes an archive that was uploaded previously
+*/
+func (a *Client) ArchiveDeleteV1(params *ArchiveDeleteV1Params, opts ...ClientOption) (*ArchiveDeleteV1Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewArchiveDeleteV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ArchiveDeleteV1",
+		Method:             "DELETE",
+		PathPattern:        "/archives/entities/archives/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ArchiveDeleteV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ArchiveDeleteV1Accepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ArchiveDeleteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ArchiveGetV1 retrieves the archives upload operation statuses status done means that archive was processed successfully status error means that archive was not processed successfully
+*/
+func (a *Client) ArchiveGetV1(params *ArchiveGetV1Params, opts ...ClientOption) (*ArchiveGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewArchiveGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ArchiveGetV1",
+		Method:             "GET",
+		PathPattern:        "/archives/entities/archives/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ArchiveGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ArchiveGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ArchiveGetV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ArchiveListV1 retrieves the archives files in chunks
+*/
+func (a *Client) ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption) (*ArchiveListV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewArchiveListV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ArchiveListV1",
+		Method:             "GET",
+		PathPattern:        "/archives/entities/archive-files/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ArchiveListV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ArchiveListV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ArchiveListV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ArchiveUploadV2 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis
+*/
+func (a *Client) ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOption) (*ArchiveUploadV2OK, *ArchiveUploadV2Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewArchiveUploadV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ArchiveUploadV2",
+		Method:             "POST",
+		PathPattern:        "/archives/entities/archives/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ArchiveUploadV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ArchiveUploadV2OK:
+		return value, nil, nil
+	case *ArchiveUploadV2Accepted:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ArchiveUploadV2Default)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -71,6 +238,119 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOpti
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteSampleV3Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ExtractionCreateV1 extracts files from an uploaded archive and copies them to internal storage making it available for content analysis
+*/
+func (a *Client) ExtractionCreateV1(params *ExtractionCreateV1Params, opts ...ClientOption) (*ExtractionCreateV1OK, *ExtractionCreateV1Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExtractionCreateV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExtractionCreateV1",
+		Method:             "POST",
+		PathPattern:        "/archives/entities/extractions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExtractionCreateV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ExtractionCreateV1OK:
+		return value, nil, nil
+	case *ExtractionCreateV1Accepted:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ExtractionCreateV1Default)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ExtractionGetV1 retrieves the files extraction operation statuses status done means that all files were processed successfully status error means that at least one of the file could not be processed
+*/
+func (a *Client) ExtractionGetV1(params *ExtractionGetV1Params, opts ...ClientOption) (*ExtractionGetV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExtractionGetV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExtractionGetV1",
+		Method:             "GET",
+		PathPattern:        "/archives/entities/extractions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExtractionGetV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExtractionGetV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ExtractionGetV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ExtractionListV1 retrieves the files extractions in chunks status done means that all files were processed successfully status error means that at least one of the file could not be processed
+*/
+func (a *Client) ExtractionListV1(params *ExtractionListV1Params, opts ...ClientOption) (*ExtractionListV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExtractionListV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExtractionListV1",
+		Method:             "GET",
+		PathPattern:        "/archives/entities/extraction-files/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"*/*"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExtractionListV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExtractionListV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ExtractionListV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

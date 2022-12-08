@@ -28,13 +28,19 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AggregateNotificationsExposedDataRecordsV1(params *AggregateNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*AggregateNotificationsExposedDataRecordsV1OK, error)
+
 	AggregateNotificationsV1(params *AggregateNotificationsV1Params, opts ...ClientOption) (*AggregateNotificationsV1OK, error)
 
 	CreateActionsV1(params *CreateActionsV1Params, opts ...ClientOption) (*CreateActionsV1OK, error)
 
+	CreateExportJobsV1(params *CreateExportJobsV1Params, opts ...ClientOption) (*CreateExportJobsV1OK, error)
+
 	CreateRulesV1(params *CreateRulesV1Params, opts ...ClientOption) (*CreateRulesV1OK, error)
 
 	DeleteActionV1(params *DeleteActionV1Params, opts ...ClientOption) (*DeleteActionV1OK, error)
+
+	DeleteExportJobsV1(params *DeleteExportJobsV1Params, opts ...ClientOption) (*DeleteExportJobsV1OK, error)
 
 	DeleteNotificationsV1(params *DeleteNotificationsV1Params, opts ...ClientOption) (*DeleteNotificationsV1OK, error)
 
@@ -42,9 +48,15 @@ type ClientService interface {
 
 	GetActionsV1(params *GetActionsV1Params, opts ...ClientOption) (*GetActionsV1OK, error)
 
+	GetExportJobsV1(params *GetExportJobsV1Params, opts ...ClientOption) (*GetExportJobsV1OK, error)
+
+	GetFileContentForExportJobsV1(params *GetFileContentForExportJobsV1Params, opts ...ClientOption) (*GetFileContentForExportJobsV1OK, error)
+
 	GetNotificationsDetailedTranslatedV1(params *GetNotificationsDetailedTranslatedV1Params, opts ...ClientOption) (*GetNotificationsDetailedTranslatedV1OK, error)
 
 	GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Params, opts ...ClientOption) (*GetNotificationsDetailedV1OK, error)
+
+	GetNotificationsExposedDataRecordsV1(params *GetNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*GetNotificationsExposedDataRecordsV1OK, error)
 
 	GetNotificationsTranslatedV1(params *GetNotificationsTranslatedV1Params, opts ...ClientOption) (*GetNotificationsTranslatedV1OK, error)
 
@@ -55,6 +67,8 @@ type ClientService interface {
 	PreviewRuleV1(params *PreviewRuleV1Params, opts ...ClientOption) (*PreviewRuleV1OK, error)
 
 	QueryActionsV1(params *QueryActionsV1Params, opts ...ClientOption) (*QueryActionsV1OK, error)
+
+	QueryNotificationsExposedDataRecordsV1(params *QueryNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*QueryNotificationsExposedDataRecordsV1OK, error)
 
 	QueryNotificationsV1(params *QueryNotificationsV1Params, opts ...ClientOption) (*QueryNotificationsV1OK, error)
 
@@ -67,6 +81,43 @@ type ClientService interface {
 	UpdateRulesV1(params *UpdateRulesV1Params, opts ...ClientOption) (*UpdateRulesV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+AggregateNotificationsExposedDataRecordsV1 gets notification exposed data record aggregates as specified via JSON in request body the valid aggregation fields are notification id created date rule id rule name rule topic source category site author
+*/
+func (a *Client) AggregateNotificationsExposedDataRecordsV1(params *AggregateNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*AggregateNotificationsExposedDataRecordsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAggregateNotificationsExposedDataRecordsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "AggregateNotificationsExposedDataRecordsV1",
+		Method:             "POST",
+		PathPattern:        "/recon/aggregates/notifications-exposed-data-records/GET/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AggregateNotificationsExposedDataRecordsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AggregateNotificationsExposedDataRecordsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*AggregateNotificationsExposedDataRecordsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -144,6 +195,43 @@ func (a *Client) CreateActionsV1(params *CreateActionsV1Params, opts ...ClientOp
 }
 
 /*
+CreateExportJobsV1 launches asynchronous export job use the job ID to poll the status of the job using g e t entities exports v1
+*/
+func (a *Client) CreateExportJobsV1(params *CreateExportJobsV1Params, opts ...ClientOption) (*CreateExportJobsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateExportJobsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateExportJobsV1",
+		Method:             "POST",
+		PathPattern:        "/recon/entities/exports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateExportJobsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateExportJobsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateExportJobsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 CreateRulesV1 creates monitoring rules
 */
 func (a *Client) CreateRulesV1(params *CreateRulesV1Params, opts ...ClientOption) (*CreateRulesV1OK, error) {
@@ -214,6 +302,43 @@ func (a *Client) DeleteActionV1(params *DeleteActionV1Params, opts ...ClientOpti
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteActionV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+DeleteExportJobsV1 deletes export jobs and their associated file s based on their i ds
+*/
+func (a *Client) DeleteExportJobsV1(params *DeleteExportJobsV1Params, opts ...ClientOption) (*DeleteExportJobsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteExportJobsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteExportJobsV1",
+		Method:             "DELETE",
+		PathPattern:        "/recon/entities/exports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteExportJobsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteExportJobsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DeleteExportJobsV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -329,6 +454,80 @@ func (a *Client) GetActionsV1(params *GetActionsV1Params, opts ...ClientOption) 
 }
 
 /*
+GetExportJobsV1 gets the status of export jobs based on their i ds export jobs can be launched by calling p o s t entities exports v1 when a job is complete use the job ID to download the file s associated with it using g e t entities export files v1
+*/
+func (a *Client) GetExportJobsV1(params *GetExportJobsV1Params, opts ...ClientOption) (*GetExportJobsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetExportJobsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetExportJobsV1",
+		Method:             "GET",
+		PathPattern:        "/recon/entities/exports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExportJobsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetExportJobsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetExportJobsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetFileContentForExportJobsV1 downloads the file associated with a job ID
+*/
+func (a *Client) GetFileContentForExportJobsV1(params *GetFileContentForExportJobsV1Params, opts ...ClientOption) (*GetFileContentForExportJobsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetFileContentForExportJobsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetFileContentForExportJobsV1",
+		Method:             "GET",
+		PathPattern:        "/recon/entities/export-files/v1",
+		ProducesMediaTypes: []string{"application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFileContentForExportJobsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetFileContentForExportJobsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetFileContentForExportJobsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 GetNotificationsDetailedTranslatedV1 gets detailed notifications based on their i ds these include the raw intelligence content that generated the match this endpoint will return translated notification content the only target language available is english a single notification can be translated per request
 */
 func (a *Client) GetNotificationsDetailedTranslatedV1(params *GetNotificationsDetailedTranslatedV1Params, opts ...ClientOption) (*GetNotificationsDetailedTranslatedV1OK, error) {
@@ -399,6 +598,43 @@ func (a *Client) GetNotificationsDetailedV1(params *GetNotificationsDetailedV1Pa
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetNotificationsDetailedV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetNotificationsExposedDataRecordsV1 gets notifications exposed data records based on their i ds i ds can be retrieved using the g e t queries notifications exposed data records v1 endpoint the associate notification can be fetched using the entities notifications v endpoints
+*/
+func (a *Client) GetNotificationsExposedDataRecordsV1(params *GetNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*GetNotificationsExposedDataRecordsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetNotificationsExposedDataRecordsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetNotificationsExposedDataRecordsV1",
+		Method:             "GET",
+		PathPattern:        "/recon/entities/notifications-exposed-data-records/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetNotificationsExposedDataRecordsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetNotificationsExposedDataRecordsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetNotificationsExposedDataRecordsV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -584,6 +820,43 @@ func (a *Client) QueryActionsV1(params *QueryActionsV1Params, opts ...ClientOpti
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryActionsV1Default)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueryNotificationsExposedDataRecordsV1 queries notifications exposed data records based on provided criteria use the i ds from this response to get the notification entities on g e t entities notifications exposed data records v1
+*/
+func (a *Client) QueryNotificationsExposedDataRecordsV1(params *QueryNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*QueryNotificationsExposedDataRecordsV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryNotificationsExposedDataRecordsV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryNotificationsExposedDataRecordsV1",
+		Method:             "GET",
+		PathPattern:        "/recon/queries/notifications-exposed-data-records/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryNotificationsExposedDataRecordsV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryNotificationsExposedDataRecordsV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*QueryNotificationsExposedDataRecordsV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
