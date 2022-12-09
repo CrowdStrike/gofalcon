@@ -32,7 +32,11 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	CreateAWSAccount(params *CreateAWSAccountParams, opts ...ClientOption) (*CreateAWSAccountCreated, *CreateAWSAccountMultiStatus, error)
 
+	CreateAzureSubscription(params *CreateAzureSubscriptionParams, opts ...ClientOption) (*CreateAzureSubscriptionCreated, *CreateAzureSubscriptionMultiStatus, error)
+
 	DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, opts ...ClientOption) (*DeleteAWSAccountsMixin0OK, *DeleteAWSAccountsMixin0MultiStatus, error)
+
+	DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, opts ...ClientOption) (*DeleteAzureSubscriptionOK, *DeleteAzureSubscriptionMultiStatus, error)
 
 	GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts ...ClientOption) (*GetAWSAccountsMixin0OK, *GetAWSAccountsMixin0MultiStatus, error)
 
@@ -41,6 +45,10 @@ type ClientService interface {
 	GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...ClientOption) (*GetHelmValuesYamlOK, error)
 
 	GetLocations(params *GetLocationsParams, opts ...ClientOption) (*GetLocationsOK, *GetLocationsMultiStatus, error)
+
+	ListAzureAccounts(params *ListAzureAccountsParams, opts ...ClientOption) (*ListAzureAccountsOK, *ListAzureAccountsMultiStatus, error)
+
+	PatchAzureServicePrincipal(params *PatchAzureServicePrincipalParams, opts ...ClientOption) (*PatchAzureServicePrincipalCreated, *PatchAzureServicePrincipalMultiStatus, error)
 
 	RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...ClientOption) (*RegenerateAPIKeyOK, *RegenerateAPIKeyMultiStatus, error)
 
@@ -91,6 +99,45 @@ func (a *Client) CreateAWSAccount(params *CreateAWSAccountParams, opts ...Client
 }
 
 /*
+CreateAzureSubscription creates a new azure subscription in our system
+*/
+func (a *Client) CreateAzureSubscription(params *CreateAzureSubscriptionParams, opts ...ClientOption) (*CreateAzureSubscriptionCreated, *CreateAzureSubscriptionMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateAzureSubscriptionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateAzureSubscription",
+		Method:             "POST",
+		PathPattern:        "/kubernetes-protection/entities/accounts/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateAzureSubscriptionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateAzureSubscriptionCreated:
+		return value, nil, nil
+	case *CreateAzureSubscriptionMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 DeleteAWSAccountsMixin0 deletes a w s accounts
 */
 func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, opts ...ClientOption) (*DeleteAWSAccountsMixin0OK, *DeleteAWSAccountsMixin0MultiStatus, error) {
@@ -127,6 +174,45 @@ func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, 
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteAWSAccountsMixin0Default)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+DeleteAzureSubscription deletes a new azure subscription in our system
+*/
+func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, opts ...ClientOption) (*DeleteAzureSubscriptionOK, *DeleteAzureSubscriptionMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteAzureSubscriptionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteAzureSubscription",
+		Method:             "DELETE",
+		PathPattern:        "/kubernetes-protection/entities/accounts/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteAzureSubscriptionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteAzureSubscriptionOK:
+		return value, nil, nil
+	case *DeleteAzureSubscriptionMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -281,6 +367,84 @@ func (a *Client) GetLocations(params *GetLocationsParams, opts ...ClientOption) 
 	// unexpected success response
 	unexpectedSuccess := result.(*GetLocationsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ListAzureAccounts provides the azure subscriptions registered to kubernetes protection
+*/
+func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...ClientOption) (*ListAzureAccountsOK, *ListAzureAccountsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListAzureAccountsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListAzureAccounts",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/accounts/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListAzureAccountsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ListAzureAccountsOK:
+		return value, nil, nil
+	case *ListAzureAccountsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PatchAzureServicePrincipal adds the client ID for the given tenant ID to our system
+*/
+func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalParams, opts ...ClientOption) (*PatchAzureServicePrincipalCreated, *PatchAzureServicePrincipalMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchAzureServicePrincipalParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PatchAzureServicePrincipal",
+		Method:             "PATCH",
+		PathPattern:        "/kubernetes-protection/entities/service-principal/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchAzureServicePrincipalReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchAzureServicePrincipalCreated:
+		return value, nil, nil
+	case *PatchAzureServicePrincipalMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
