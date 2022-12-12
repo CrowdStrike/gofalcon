@@ -10,6 +10,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/models"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/go-openapi/runtime"
 )
 
 type RTR struct {
@@ -83,6 +84,174 @@ func (r *RTR) getActiveSessionIds(ctx context.Context) ([]string, error) {
 	return response.GetPayload().Resources, nil
 }
 
+func (r *RTR) CreateScript(ctx context.Context, name *string, description, permissionType string, platform []string, auditLogComment, content *string, file runtime.NamedReadCloser, opts ...real_time_response_admin.ClientOption) error {
+	response, err := r.adminClient.RTRCreateScripts(&real_time_response_admin.RTRCreateScriptsParams{
+		CommentsForAuditLog: auditLogComment,
+		Content:             content,
+		Description:         description,
+		File:                file,
+		Name:                name,
+		PermissionType:      permissionType,
+		Platform:            platform,
+		Context:             ctx,
+	}, opts...)
+	if err != nil {
+		return err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return err
+	}
+	count := falcon_util.DerefInt32(response.Payload.Meta.Writes.ResourcesAffected)
+	if count != 1 {
+		return fmt.Errorf("expected 1 resource affected, got %d", count)
+	}
+	return nil
+}
+
+func (r *RTR) UpdateScript(ctx context.Context, id string, name, description, permissionType *string, platform []string, auditLogComment, content *string, file runtime.NamedReadCloser, opts ...real_time_response_admin.ClientOption) error {
+	response, err := r.adminClient.RTRUpdateScripts(&real_time_response_admin.RTRUpdateScriptsParams{
+		CommentsForAuditLog: auditLogComment,
+		Content:             content,
+		Description:         description,
+		File:                file,
+		ID:                  id,
+		Name:                name,
+		PermissionType:      permissionType,
+		Platform:            platform,
+		Context:             ctx,
+	}, opts...)
+	if err != nil {
+		return err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return err
+	}
+	count := falcon_util.DerefInt32(response.Payload.Meta.Writes.ResourcesAffected)
+	if count != 1 {
+		return fmt.Errorf("expected 1 resource affected, got %d", count)
+	}
+	return nil
+}
+
+func (r *RTR) DeleteScript(ctx context.Context, id string, opts ...real_time_response_admin.ClientOption) error {
+	response, err := r.adminClient.RTRDeleteScripts(&real_time_response_admin.RTRDeleteScriptsParams{
+		Ids:     id,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return err
+	}
+	count := falcon_util.DerefInt32(response.Payload.Meta.Writes.ResourcesAffected)
+	if count != 1 {
+		return fmt.Errorf("expected 1 resource affected, got %d", count)
+	}
+	return nil
+}
+
+func (r *RTR) GetScripts(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.DomainRemoteCommandPutFileV2, error) {
+	response, err := r.adminClient.RTRGetScriptsV2(&real_time_response_admin.RTRGetScriptsV2Params{
+		Ids:     ids,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload.Resources, nil
+}
+
+func (r *RTR) ListScripts(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservclientMsaPutFileResponse, error) {
+	response, err := r.adminClient.RTRListScripts(&real_time_response_admin.RTRListScriptsParams{
+		Filter:  filter,
+		Limit:   limit,
+		Offset:  offset,
+		Sort:    sort,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload, nil
+}
+
+func (r *RTR) CreatePutFile(ctx context.Context, name *string, description string, auditLogComment *string, file runtime.NamedReadCloser, opts ...real_time_response_admin.ClientOption) error {
+	response, err := r.adminClient.RTRCreatePutFiles(&real_time_response_admin.RTRCreatePutFilesParams{
+		CommentsForAuditLog: auditLogComment,
+		Description:         description,
+		File:                file,
+		Name:                name,
+		Context:             ctx,
+	}, opts...)
+	if err != nil {
+		return err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return err
+	}
+	count := falcon_util.DerefInt32(response.Payload.Meta.Writes.ResourcesAffected)
+	if count != 1 {
+		return fmt.Errorf("expected 1 resource affected, got %d", count)
+	}
+	return nil
+}
+
+func (r *RTR) DeletePutFile(ctx context.Context, id string, opts ...real_time_response_admin.ClientOption) error {
+	response, err := r.adminClient.RTRDeletePutFiles(&real_time_response_admin.RTRDeletePutFilesParams{
+		Ids:     id,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return err
+	}
+	count := falcon_util.DerefInt32(response.Payload.Meta.Writes.ResourcesAffected)
+	if count != 1 {
+		return fmt.Errorf("expected 1 resource affected, got %d", count)
+	}
+	return nil
+}
+
+func (r *RTR) GetPutFiles(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.DomainRemoteCommandPutFileV2, error) {
+	response, err := r.adminClient.RTRGetPutFilesV2(&real_time_response_admin.RTRGetPutFilesV2Params{
+		Ids:     ids,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload.Resources, nil
+}
+
+func (r *RTR) ListPutFiles(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservclientMsaPutFileResponse, error) {
+	response, err := r.adminClient.RTRListPutFiles(&real_time_response_admin.RTRListPutFilesParams{
+		Filter:  filter,
+		Limit:   limit,
+		Offset:  offset,
+		Sort:    sort,
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload, nil
+}
+
 func (r *RTR) NewSession(ctx context.Context, deviceID string) (*RTRSession, error) {
 	response, err := r.client.RTRInitSession(&real_time_response.RTRInitSessionParams{
 		Body: &models.DomainInitRequest{
@@ -106,7 +275,7 @@ func (r *RTR) NewSession(ctx context.Context, deviceID string) (*RTRSession, err
 	}, nil
 }
 
-func (s RTRSession) ExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
+func (s *RTRSession) ExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
 	execution, err := s.Execute(ctx, baseCommand, commandString, opts...)
 	if err != nil {
 		return nil, err
@@ -114,7 +283,7 @@ func (s RTRSession) ExecuteAndWait(ctx context.Context, baseCommand, commandStri
 	return s.WaitForExecution(ctx, *execution.CloudRequestID, opts...)
 }
 
-func (s RTRSession) ActiveResponderExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
+func (s *RTRSession) ActiveResponderExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainStatusResponse, error) {
 	execution, err := s.ActiveResponderExecute(ctx, baseCommand, commandString, opts...)
 	if err != nil {
 		return nil, err
@@ -122,7 +291,7 @@ func (s RTRSession) ActiveResponderExecuteAndWait(ctx context.Context, baseComma
 	return s.ActiveResponderWaitForExecution(ctx, *execution.CloudRequestID, opts...)
 }
 
-func (s RTRSession) AdminExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response_admin.ClientOption) (*models.DomainStatusResponse, error) {
+func (s *RTRSession) AdminExecuteAndWait(ctx context.Context, baseCommand, commandString string, opts ...real_time_response_admin.ClientOption) (*models.DomainStatusResponse, error) {
 	execution, err := s.AdminExecute(ctx, baseCommand, commandString, opts...)
 	if err != nil {
 		return nil, err
@@ -130,7 +299,7 @@ func (s RTRSession) AdminExecuteAndWait(ctx context.Context, baseCommand, comman
 	return s.AdminWaitForExecution(ctx, *execution.CloudRequestID, opts...)
 }
 
-func (s RTRSession) Execute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainCommandExecuteResponse, error) {
+func (s *RTRSession) Execute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainCommandExecuteResponse, error) {
 	response, err := s.client.RTRExecuteCommand(&real_time_response.RTRExecuteCommandParams{
 		Context: ctx,
 		Body: &models.DomainCommandExecuteRequest{
@@ -151,7 +320,7 @@ func (s RTRSession) Execute(ctx context.Context, baseCommand, commandString stri
 	return response.Payload.Resources[0], nil
 }
 
-func (s RTRSession) ActiveResponderExecute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainCommandExecuteResponse, error) {
+func (s *RTRSession) ActiveResponderExecute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response.ClientOption) (*models.DomainCommandExecuteResponse, error) {
 	response, err := s.client.RTRExecuteActiveResponderCommand(&real_time_response.RTRExecuteActiveResponderCommandParams{
 		Context: ctx,
 		Body: &models.DomainCommandExecuteRequest{
@@ -172,7 +341,7 @@ func (s RTRSession) ActiveResponderExecute(ctx context.Context, baseCommand, com
 	return response.Payload.Resources[0], nil
 }
 
-func (s RTRSession) AdminExecute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response_admin.ClientOption) (*models.DomainCommandExecuteResponse, error) {
+func (s *RTRSession) AdminExecute(ctx context.Context, baseCommand, commandString string, opts ...real_time_response_admin.ClientOption) (*models.DomainCommandExecuteResponse, error) {
 	response, err := s.adminClient.RTRExecuteAdminCommand(&real_time_response_admin.RTRExecuteAdminCommandParams{
 		Context: ctx,
 		Body: &models.DomainCommandExecuteRequest{
