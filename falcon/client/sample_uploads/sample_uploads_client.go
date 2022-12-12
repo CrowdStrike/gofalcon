@@ -36,6 +36,8 @@ type ClientService interface {
 
 	ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption) (*ArchiveListV1OK, error)
 
+	ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOption) (*ArchiveUploadV1OK, *ArchiveUploadV1Accepted, error)
+
 	ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOption) (*ArchiveUploadV2OK, *ArchiveUploadV2Accepted, error)
 
 	DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error)
@@ -163,6 +165,45 @@ func (a *Client) ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption
 	// unexpected success response
 	unexpectedSuccess := result.(*ArchiveListV1Default)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ArchiveUploadV1 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis this method is deprecated in favor of archives entities archives v2
+*/
+func (a *Client) ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOption) (*ArchiveUploadV1OK, *ArchiveUploadV1Accepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewArchiveUploadV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ArchiveUploadV1",
+		Method:             "POST",
+		PathPattern:        "/archives/entities/archives/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/octet-stream", "application/x-7z-compressed", "application/x-zip-compressed", "application/zip"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ArchiveUploadV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ArchiveUploadV1OK:
+		return value, nil, nil
+	case *ArchiveUploadV1Accepted:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ArchiveUploadV1Default)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
