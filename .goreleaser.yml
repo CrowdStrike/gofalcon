@@ -139,6 +139,34 @@ builds:
       - amd64
       - arm
       - arm64
+  - id: falcon_rtr_read_only_command
+    binary: falcon_rtr_read_only_command
+    main: ./examples/falcon_rtr_read_only_command
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+  - id: falcon_rtr_admin_create_and_run_script
+    binary: falcon_rtr_admin_create_and_run_script
+    main: ./examples/falcon_rtr_admin_create_and_run_script
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
   - id: falcon_spotlight_vulnerabilities
     binary: falcon_spotlight_vulnerabilities
     main: ./examples/falcon_spotlight_vulnerabilities
