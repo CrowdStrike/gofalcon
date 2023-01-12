@@ -34,6 +34,8 @@ type ClientService interface {
 
 	DeleteDeviceControlPolicies(params *DeleteDeviceControlPoliciesParams, opts ...ClientOption) (*DeleteDeviceControlPoliciesOK, error)
 
+	GetDefaultDeviceControlPolicies(params *GetDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*GetDefaultDeviceControlPoliciesOK, error)
+
 	GetDeviceControlPolicies(params *GetDeviceControlPoliciesParams, opts ...ClientOption) (*GetDeviceControlPoliciesOK, error)
 
 	PerformDeviceControlPoliciesAction(params *PerformDeviceControlPoliciesActionParams, opts ...ClientOption) (*PerformDeviceControlPoliciesActionOK, error)
@@ -47,6 +49,8 @@ type ClientService interface {
 	QueryDeviceControlPolicyMembers(params *QueryDeviceControlPolicyMembersParams, opts ...ClientOption) (*QueryDeviceControlPolicyMembersOK, error)
 
 	SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoliciesPrecedenceParams, opts ...ClientOption) (*SetDeviceControlPoliciesPrecedenceOK, error)
+
+	UpdateDefaultDeviceControlPolicies(params *UpdateDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDefaultDeviceControlPoliciesOK, error)
 
 	UpdateDeviceControlPolicies(params *UpdateDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDeviceControlPoliciesOK, error)
 
@@ -126,6 +130,44 @@ func (a *Client) DeleteDeviceControlPolicies(params *DeleteDeviceControlPolicies
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for deleteDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDefaultDeviceControlPolicies retrieves the configuration for a default device control policy
+*/
+func (a *Client) GetDefaultDeviceControlPolicies(params *GetDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*GetDefaultDeviceControlPoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDefaultDeviceControlPoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getDefaultDeviceControlPolicies",
+		Method:             "GET",
+		PathPattern:        "/policy/entities/default-device-control/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDefaultDeviceControlPoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDefaultDeviceControlPoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDefaultDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -387,6 +429,44 @@ func (a *Client) SetDeviceControlPoliciesPrecedence(params *SetDeviceControlPoli
 	// unexpected success response
 	unexpectedSuccess := result.(*SetDeviceControlPoliciesPrecedenceDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+UpdateDefaultDeviceControlPolicies updates the configuration for a default device control policy
+*/
+func (a *Client) UpdateDefaultDeviceControlPolicies(params *UpdateDefaultDeviceControlPoliciesParams, opts ...ClientOption) (*UpdateDefaultDeviceControlPoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDefaultDeviceControlPoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateDefaultDeviceControlPolicies",
+		Method:             "PATCH",
+		PathPattern:        "/policy/entities/default-device-control/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateDefaultDeviceControlPoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDefaultDeviceControlPoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateDefaultDeviceControlPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
