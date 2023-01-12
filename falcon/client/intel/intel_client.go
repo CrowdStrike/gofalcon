@@ -6,6 +6,7 @@ package intel
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
 	"io"
 
 	"github.com/go-openapi/runtime"
@@ -44,7 +45,11 @@ type ClientService interface {
 
 	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error)
 
+	GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error)
+
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
+
+	PostMitreAttacks(params *PostMitreAttacksParams, opts ...ClientOption) (*PostMitreAttacksOK, error)
 
 	QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error)
 
@@ -59,6 +64,8 @@ type ClientService interface {
 	QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...ClientOption) (*QueryIntelReportIdsOK, error)
 
 	QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error)
+
+	QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...ClientOption) (*QueryMitreAttacksOK, error)
 
 	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
@@ -325,6 +332,44 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, wr
 }
 
 /*
+GetMitreReport exports mitre a t t and c k information for a given actor
+*/
+func (a *Client) GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetMitreReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetMitreReport",
+		Method:             "GET",
+		PathPattern:        "/intel/entities/mitre-reports/v1",
+		ProducesMediaTypes: []string{"application/json", "text/csv"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetMitreReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetMitreReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMitreReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetVulnerabilities gets vulnerabilities
 */
 func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error) {
@@ -359,6 +404,44 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...Cl
 	// unexpected success response
 	unexpectedSuccess := result.(*GetVulnerabilitiesDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+PostMitreAttacks retrieves report and observable i ds associated with the given actor and attacks
+*/
+func (a *Client) PostMitreAttacks(params *PostMitreAttacksParams, opts ...ClientOption) (*PostMitreAttacksOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostMitreAttacksParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostMitreAttacks",
+		Method:             "POST",
+		PathPattern:        "/intel/entities/mitre/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostMitreAttacksReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostMitreAttacksOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostMitreAttacks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -618,6 +701,44 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...Clie
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryIntelRuleIdsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueryMitreAttacks gets m i t r e tactics and techniques for the given actor
+*/
+func (a *Client) QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...ClientOption) (*QueryMitreAttacksOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryMitreAttacksParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryMitreAttacks",
+		Method:             "GET",
+		PathPattern:        "/intel/queries/mitre/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryMitreAttacksReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryMitreAttacksOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryMitreAttacks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

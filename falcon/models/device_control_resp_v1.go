@@ -15,25 +15,26 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// EntitiesODSReportResponse entities o d s report response
+// DeviceControlRespV1 device control resp v1
 //
-// swagger:model entities.ODSReportResponse
-type EntitiesODSReportResponse struct {
+// swagger:model device_control.RespV1
+type DeviceControlRespV1 struct {
 
-	// errors
+	// A collection of any errors which occurred during execution of the request
+	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
-	// meta
+	// Additional metadata about the request
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
-	Resources []*DomainJobWithLink `json:"resources"`
+	Resources []*DeviceControlPolicyV1 `json:"resources"`
 }
 
-// Validate validates this entities o d s report response
-func (m *EntitiesODSReportResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this device control resp v1
+func (m *DeviceControlRespV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -54,9 +55,10 @@ func (m *EntitiesODSReportResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) validateErrors(formats strfmt.Registry) error {
-	if swag.IsZero(m.Errors) { // not required
-		return nil
+func (m *DeviceControlRespV1) validateErrors(formats strfmt.Registry) error {
+
+	if err := validate.Required("errors", "body", m.Errors); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -80,7 +82,7 @@ func (m *EntitiesODSReportResponse) validateErrors(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) validateMeta(formats strfmt.Registry) error {
+func (m *DeviceControlRespV1) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -100,7 +102,7 @@ func (m *EntitiesODSReportResponse) validateMeta(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) validateResources(formats strfmt.Registry) error {
+func (m *DeviceControlRespV1) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -127,8 +129,8 @@ func (m *EntitiesODSReportResponse) validateResources(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validate this entities o d s report response based on the context it is used
-func (m *EntitiesODSReportResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this device control resp v1 based on the context it is used
+func (m *DeviceControlRespV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -149,7 +151,7 @@ func (m *EntitiesODSReportResponse) ContextValidate(ctx context.Context, formats
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *DeviceControlRespV1) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -169,7 +171,7 @@ func (m *EntitiesODSReportResponse) contextValidateErrors(ctx context.Context, f
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *DeviceControlRespV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
@@ -185,7 +187,7 @@ func (m *EntitiesODSReportResponse) contextValidateMeta(ctx context.Context, for
 	return nil
 }
 
-func (m *EntitiesODSReportResponse) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *DeviceControlRespV1) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -206,7 +208,7 @@ func (m *EntitiesODSReportResponse) contextValidateResources(ctx context.Context
 }
 
 // MarshalBinary interface implementation
-func (m *EntitiesODSReportResponse) MarshalBinary() ([]byte, error) {
+func (m *DeviceControlRespV1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -214,8 +216,8 @@ func (m *EntitiesODSReportResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *EntitiesODSReportResponse) UnmarshalBinary(b []byte) error {
-	var res EntitiesODSReportResponse
+func (m *DeviceControlRespV1) UnmarshalBinary(b []byte) error {
+	var res DeviceControlRespV1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
