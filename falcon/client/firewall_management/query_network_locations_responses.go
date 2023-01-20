@@ -106,6 +106,11 @@ func (o *QueryNetworkLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query network locations o k response
+func (o *QueryNetworkLocationsOK) Code() int {
+	return 200
+}
+
 func (o *QueryNetworkLocationsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query network locations bad request response
+func (o *QueryNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/network-locations/v1][%d] queryNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this query network locations forbidden response a status code equal to that given
 func (o *QueryNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query network locations forbidden response
+func (o *QueryNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query network locations too many requests response a status code equal to that given
 func (o *QueryNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query network locations too many requests response
+func (o *QueryNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryNetworkLocationsTooManyRequests) Error() string {

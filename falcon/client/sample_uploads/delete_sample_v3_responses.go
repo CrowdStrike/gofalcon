@@ -125,6 +125,11 @@ func (o *DeleteSampleV3OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete sample v3 o k response
+func (o *DeleteSampleV3OK) Code() int {
+	return 200
+}
+
 func (o *DeleteSampleV3OK) Error() string {
 	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *DeleteSampleV3BadRequest) IsServerError() bool {
 // IsCode returns true when this delete sample v3 bad request response a status code equal to that given
 func (o *DeleteSampleV3BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete sample v3 bad request response
+func (o *DeleteSampleV3BadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteSampleV3BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *DeleteSampleV3Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete sample v3 forbidden response
+func (o *DeleteSampleV3Forbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteSampleV3Forbidden) Error() string {
 	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3Forbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *DeleteSampleV3NotFound) IsServerError() bool {
 // IsCode returns true when this delete sample v3 not found response a status code equal to that given
 func (o *DeleteSampleV3NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete sample v3 not found response
+func (o *DeleteSampleV3NotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteSampleV3NotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *DeleteSampleV3TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete sample v3 too many requests response a status code equal to that given
 func (o *DeleteSampleV3TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete sample v3 too many requests response
+func (o *DeleteSampleV3TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteSampleV3TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *DeleteSampleV3InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete sample v3 internal server error response
+func (o *DeleteSampleV3InternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteSampleV3InternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /samples/entities/samples/v3][%d] deleteSampleV3InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type DeleteSampleV3Default struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the delete sample v3 default response
-func (o *DeleteSampleV3Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete sample v3 default response has a 2xx status code
 func (o *DeleteSampleV3Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *DeleteSampleV3Default) IsServerError() bool {
 // IsCode returns true when this delete sample v3 default response a status code equal to that given
 func (o *DeleteSampleV3Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete sample v3 default response
+func (o *DeleteSampleV3Default) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteSampleV3Default) Error() string {

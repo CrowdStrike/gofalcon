@@ -121,6 +121,11 @@ func (o *PerformDeviceControlPoliciesActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform device control policies action o k response
+func (o *PerformDeviceControlPoliciesActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformDeviceControlPoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *PerformDeviceControlPoliciesActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform device control policies action bad request response a status code equal to that given
 func (o *PerformDeviceControlPoliciesActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform device control policies action bad request response
+func (o *PerformDeviceControlPoliciesActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformDeviceControlPoliciesActionBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *PerformDeviceControlPoliciesActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform device control policies action forbidden response
+func (o *PerformDeviceControlPoliciesActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformDeviceControlPoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *PerformDeviceControlPoliciesActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform device control policies action not found response a status code equal to that given
 func (o *PerformDeviceControlPoliciesActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform device control policies action not found response
+func (o *PerformDeviceControlPoliciesActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformDeviceControlPoliciesActionNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *PerformDeviceControlPoliciesActionTooManyRequests) IsServerError() bool
 // IsCode returns true when this perform device control policies action too many requests response a status code equal to that given
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform device control policies action too many requests response
+func (o *PerformDeviceControlPoliciesActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *PerformDeviceControlPoliciesActionInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the perform device control policies action internal server error response
+func (o *PerformDeviceControlPoliciesActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformDeviceControlPoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type PerformDeviceControlPoliciesActionDefault struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
-// Code gets the status code for the perform device control policies action default response
-func (o *PerformDeviceControlPoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform device control policies action default response has a 2xx status code
 func (o *PerformDeviceControlPoliciesActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *PerformDeviceControlPoliciesActionDefault) IsServerError() bool {
 // IsCode returns true when this perform device control policies action default response a status code equal to that given
 func (o *PerformDeviceControlPoliciesActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform device control policies action default response
+func (o *PerformDeviceControlPoliciesActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformDeviceControlPoliciesActionDefault) Error() string {

@@ -119,6 +119,11 @@ func (o *QueryChangesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query changes o k response
+func (o *QueryChangesOK) Code() int {
+	return 200
+}
+
 func (o *QueryChangesOK) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *QueryChangesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query changes bad request response
+func (o *QueryChangesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryChangesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *QueryChangesForbidden) IsServerError() bool {
 // IsCode returns true when this query changes forbidden response a status code equal to that given
 func (o *QueryChangesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query changes forbidden response
+func (o *QueryChangesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryChangesForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *QueryChangesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query changes too many requests response a status code equal to that given
 func (o *QueryChangesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query changes too many requests response
+func (o *QueryChangesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryChangesTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *QueryChangesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query changes internal server error response
+func (o *QueryChangesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryChangesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /filevantage/queries/changes/v2][%d] queryChangesInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type QueryChangesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query changes default response
-func (o *QueryChangesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query changes default response has a 2xx status code
 func (o *QueryChangesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *QueryChangesDefault) IsServerError() bool {
 // IsCode returns true when this query changes default response a status code equal to that given
 func (o *QueryChangesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query changes default response
+func (o *QueryChangesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryChangesDefault) Error() string {

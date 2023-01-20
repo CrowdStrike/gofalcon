@@ -115,6 +115,11 @@ func (o *RTRListAllSessionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r list all sessions o k response
+func (o *RTRListAllSessionsOK) Code() int {
+	return 200
+}
+
 func (o *RTRListAllSessionsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *RTRListAllSessionsBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r list all sessions bad request response a status code equal to that given
 func (o *RTRListAllSessionsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r list all sessions bad request response
+func (o *RTRListAllSessionsBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRListAllSessionsBadRequest) Error() string {
@@ -303,6 +313,11 @@ func (o *RTRListAllSessionsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r list all sessions forbidden response
+func (o *RTRListAllSessionsForbidden) Code() int {
+	return 403
+}
+
 func (o *RTRListAllSessionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsForbidden  %+v", 403, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *RTRListAllSessionsNotFound) IsServerError() bool {
 // IsCode returns true when this r t r list all sessions not found response a status code equal to that given
 func (o *RTRListAllSessionsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r list all sessions not found response
+func (o *RTRListAllSessionsNotFound) Code() int {
+	return 404
 }
 
 func (o *RTRListAllSessionsNotFound) Error() string {
@@ -495,6 +515,11 @@ func (o *RTRListAllSessionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r list all sessions too many requests response
+func (o *RTRListAllSessionsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRListAllSessionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] rTRListAllSessionsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type RTRListAllSessionsDefault struct {
 	Payload *models.DomainListSessionsResponseMsa
 }
 
-// Code gets the status code for the r t r list all sessions default response
-func (o *RTRListAllSessionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r list all sessions default response has a 2xx status code
 func (o *RTRListAllSessionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *RTRListAllSessionsDefault) IsServerError() bool {
 // IsCode returns true when this r t r list all sessions default response a status code equal to that given
 func (o *RTRListAllSessionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r list all sessions default response
+func (o *RTRListAllSessionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRListAllSessionsDefault) Error() string {

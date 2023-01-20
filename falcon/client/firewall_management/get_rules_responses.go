@@ -113,6 +113,11 @@ func (o *GetRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rules o k response
+func (o *GetRulesOK) Code() int {
+	return 200
+}
+
 func (o *GetRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *GetRulesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get rules bad request response
+func (o *GetRulesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *GetRulesForbidden) IsServerError() bool {
 // IsCode returns true when this get rules forbidden response a status code equal to that given
 func (o *GetRulesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get rules forbidden response
+func (o *GetRulesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRulesForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *GetRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get rules too many requests response
+func (o *GetRulesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rules/v1][%d] getRulesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type GetRulesDefault struct {
 	Payload *models.FwmgrAPIRulesResponse
 }
 
-// Code gets the status code for the get rules default response
-func (o *GetRulesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get rules default response has a 2xx status code
 func (o *GetRulesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GetRulesDefault) IsServerError() bool {
 // IsCode returns true when this get rules default response a status code equal to that given
 func (o *GetRulesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get rules default response
+func (o *GetRulesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRulesDefault) Error() string {

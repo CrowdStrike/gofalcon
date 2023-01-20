@@ -106,6 +106,11 @@ func (o *DeleteRuleGroupsMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete rule groups mixin0 o k response
+func (o *DeleteRuleGroupsMixin0OK) Code() int {
+	return 200
+}
+
 func (o *DeleteRuleGroupsMixin0OK) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0OK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *DeleteRuleGroupsMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete rule groups mixin0 forbidden response
+func (o *DeleteRuleGroupsMixin0Forbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteRuleGroupsMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rule-groups/v1][%d] deleteRuleGroupsMixin0Forbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *DeleteRuleGroupsMixin0NotFound) IsServerError() bool {
 // IsCode returns true when this delete rule groups mixin0 not found response a status code equal to that given
 func (o *DeleteRuleGroupsMixin0NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete rule groups mixin0 not found response
+func (o *DeleteRuleGroupsMixin0NotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteRuleGroupsMixin0NotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *DeleteRuleGroupsMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete rule groups mixin0 too many requests response a status code equal to that given
 func (o *DeleteRuleGroupsMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete rule groups mixin0 too many requests response
+func (o *DeleteRuleGroupsMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteRuleGroupsMixin0TooManyRequests) Error() string {

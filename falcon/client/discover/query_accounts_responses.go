@@ -119,6 +119,11 @@ func (o *QueryAccountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query accounts o k response
+func (o *QueryAccountsOK) Code() int {
+	return 200
+}
+
 func (o *QueryAccountsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *QueryAccountsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query accounts bad request response
+func (o *QueryAccountsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *QueryAccountsForbidden) IsServerError() bool {
 // IsCode returns true when this query accounts forbidden response a status code equal to that given
 func (o *QueryAccountsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query accounts forbidden response
+func (o *QueryAccountsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryAccountsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *QueryAccountsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query accounts too many requests response a status code equal to that given
 func (o *QueryAccountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query accounts too many requests response
+func (o *QueryAccountsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryAccountsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *QueryAccountsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query accounts internal server error response
+func (o *QueryAccountsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] queryAccountsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type QueryAccountsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query accounts default response
-func (o *QueryAccountsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query accounts default response has a 2xx status code
 func (o *QueryAccountsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *QueryAccountsDefault) IsServerError() bool {
 // IsCode returns true when this query accounts default response a status code equal to that given
 func (o *QueryAccountsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query accounts default response
+func (o *QueryAccountsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryAccountsDefault) Error() string {

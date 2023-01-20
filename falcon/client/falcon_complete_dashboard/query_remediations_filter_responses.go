@@ -103,6 +103,11 @@ func (o *QueryRemediationsFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query remediations filter o k response
+func (o *QueryRemediationsFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryRemediationsFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryRemediationsFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query remediations filter forbidden response a status code equal to that given
 func (o *QueryRemediationsFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query remediations filter forbidden response
+func (o *QueryRemediationsFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRemediationsFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryRemediationsFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query remediations filter too many requests response
+func (o *QueryRemediationsFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryRemediationsFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] queryRemediationsFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryRemediationsFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query remediations filter default response
-func (o *QueryRemediationsFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query remediations filter default response has a 2xx status code
 func (o *QueryRemediationsFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryRemediationsFilterDefault) IsServerError() bool {
 // IsCode returns true when this query remediations filter default response a status code equal to that given
 func (o *QueryRemediationsFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query remediations filter default response
+func (o *QueryRemediationsFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRemediationsFilterDefault) Error() string {

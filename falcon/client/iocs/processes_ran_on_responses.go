@@ -103,6 +103,11 @@ func (o *ProcessesRanOnOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the processes ran on o k response
+func (o *ProcessesRanOnOK) Code() int {
+	return 200
+}
+
 func (o *ProcessesRanOnOK) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *ProcessesRanOnForbidden) IsServerError() bool {
 // IsCode returns true when this processes ran on forbidden response a status code equal to that given
 func (o *ProcessesRanOnForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the processes ran on forbidden response
+func (o *ProcessesRanOnForbidden) Code() int {
+	return 403
 }
 
 func (o *ProcessesRanOnForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *ProcessesRanOnTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the processes ran on too many requests response
+func (o *ProcessesRanOnTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ProcessesRanOnTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type ProcessesRanOnDefault struct {
 	Payload *models.APIMsaReplyProcessesRanOn
 }
 
-// Code gets the status code for the processes ran on default response
-func (o *ProcessesRanOnDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this processes ran on default response has a 2xx status code
 func (o *ProcessesRanOnDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *ProcessesRanOnDefault) IsServerError() bool {
 // IsCode returns true when this processes ran on default response a status code equal to that given
 func (o *ProcessesRanOnDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the processes ran on default response
+func (o *ProcessesRanOnDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ProcessesRanOnDefault) Error() string {

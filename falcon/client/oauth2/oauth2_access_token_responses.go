@@ -103,6 +103,11 @@ func (o *Oauth2AccessTokenCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the oauth2 access token created response
+func (o *Oauth2AccessTokenCreated) Code() int {
+	return 201
+}
+
 func (o *Oauth2AccessTokenCreated) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenCreated  %+v", 201, o.Payload)
 }
@@ -204,6 +209,11 @@ func (o *Oauth2AccessTokenBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the oauth2 access token bad request response
+func (o *Oauth2AccessTokenBadRequest) Code() int {
+	return 400
+}
+
 func (o *Oauth2AccessTokenBadRequest) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenBadRequest  %+v", 400, o.Payload)
 }
@@ -298,6 +308,11 @@ func (o *Oauth2AccessTokenForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the oauth2 access token forbidden response
+func (o *Oauth2AccessTokenForbidden) Code() int {
+	return 403
+}
+
 func (o *Oauth2AccessTokenForbidden) Error() string {
 	return fmt.Sprintf("[POST /oauth2/token][%d] oauth2AccessTokenForbidden  %+v", 403, o.Payload)
 }
@@ -390,6 +405,11 @@ func (o *Oauth2AccessTokenInternalServerError) IsServerError() bool {
 // IsCode returns true when this oauth2 access token internal server error response a status code equal to that given
 func (o *Oauth2AccessTokenInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the oauth2 access token internal server error response
+func (o *Oauth2AccessTokenInternalServerError) Code() int {
+	return 500
 }
 
 func (o *Oauth2AccessTokenInternalServerError) Error() string {

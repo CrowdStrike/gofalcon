@@ -115,6 +115,11 @@ func (o *ListAvailableStreamsOAuth2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list available streams o auth2 o k response
+func (o *ListAvailableStreamsOAuth2OK) Code() int {
+	return 200
+}
+
 func (o *ListAvailableStreamsOAuth2OK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *ListAvailableStreamsOAuth2BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the list available streams o auth2 bad request response
+func (o *ListAvailableStreamsOAuth2BadRequest) Code() int {
+	return 400
+}
+
 func (o *ListAvailableStreamsOAuth2BadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *ListAvailableStreamsOAuth2Forbidden) IsServerError() bool {
 // IsCode returns true when this list available streams o auth2 forbidden response a status code equal to that given
 func (o *ListAvailableStreamsOAuth2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list available streams o auth2 forbidden response
+func (o *ListAvailableStreamsOAuth2Forbidden) Code() int {
+	return 403
 }
 
 func (o *ListAvailableStreamsOAuth2Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *ListAvailableStreamsOAuth2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this list available streams o auth2 too many requests response a status code equal to that given
 func (o *ListAvailableStreamsOAuth2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list available streams o auth2 too many requests response
+func (o *ListAvailableStreamsOAuth2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListAvailableStreamsOAuth2TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *ListAvailableStreamsOAuth2InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the list available streams o auth2 internal server error response
+func (o *ListAvailableStreamsOAuth2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *ListAvailableStreamsOAuth2InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/datafeed/v2][%d] listAvailableStreamsOAuth2InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type ListAvailableStreamsOAuth2Default struct {
 	Payload *models.MainDiscoveryResponseV2
 }
 
-// Code gets the status code for the list available streams o auth2 default response
-func (o *ListAvailableStreamsOAuth2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list available streams o auth2 default response has a 2xx status code
 func (o *ListAvailableStreamsOAuth2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *ListAvailableStreamsOAuth2Default) IsServerError() bool {
 // IsCode returns true when this list available streams o auth2 default response a status code equal to that given
 func (o *ListAvailableStreamsOAuth2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list available streams o auth2 default response
+func (o *ListAvailableStreamsOAuth2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ListAvailableStreamsOAuth2Default) Error() string {

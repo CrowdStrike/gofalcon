@@ -118,6 +118,11 @@ func (o *CreatePreventionPoliciesCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create prevention policies created response
+func (o *CreatePreventionPoliciesCreated) Code() int {
+	return 201
+}
+
 func (o *CreatePreventionPoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *CreatePreventionPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this create prevention policies bad request response a status code equal to that given
 func (o *CreatePreventionPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create prevention policies bad request response
+func (o *CreatePreventionPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreatePreventionPoliciesBadRequest) Error() string {
@@ -328,6 +338,11 @@ func (o *CreatePreventionPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create prevention policies forbidden response
+func (o *CreatePreventionPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *CreatePreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention/v1][%d] createPreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *CreatePreventionPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this create prevention policies not found response a status code equal to that given
 func (o *CreatePreventionPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create prevention policies not found response
+func (o *CreatePreventionPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *CreatePreventionPoliciesNotFound) Error() string {
@@ -540,6 +560,11 @@ func (o *CreatePreventionPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create prevention policies too many requests response a status code equal to that given
 func (o *CreatePreventionPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create prevention policies too many requests response
+func (o *CreatePreventionPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreatePreventionPoliciesTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *CreatePreventionPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this create prevention policies internal server error response a status code equal to that given
 func (o *CreatePreventionPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create prevention policies internal server error response
+func (o *CreatePreventionPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreatePreventionPoliciesInternalServerError) Error() string {

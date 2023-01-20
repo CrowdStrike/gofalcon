@@ -115,6 +115,11 @@ func (o *RTRListScriptsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r list scripts o k response
+func (o *RTRListScriptsOK) Code() int {
+	return 200
+}
+
 func (o *RTRListScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *RTRListScriptsBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r list scripts bad request response a status code equal to that given
 func (o *RTRListScriptsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r list scripts bad request response
+func (o *RTRListScriptsBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRListScriptsBadRequest) Error() string {
@@ -303,6 +313,11 @@ func (o *RTRListScriptsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r list scripts forbidden response
+func (o *RTRListScriptsForbidden) Code() int {
+	return 403
+}
+
 func (o *RTRListScriptsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsForbidden  %+v", 403, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *RTRListScriptsNotFound) IsServerError() bool {
 // IsCode returns true when this r t r list scripts not found response a status code equal to that given
 func (o *RTRListScriptsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r list scripts not found response
+func (o *RTRListScriptsNotFound) Code() int {
+	return 404
 }
 
 func (o *RTRListScriptsNotFound) Error() string {
@@ -495,6 +515,11 @@ func (o *RTRListScriptsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r list scripts too many requests response
+func (o *RTRListScriptsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRListScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/queries/scripts/v1][%d] rTRListScriptsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type RTRListScriptsDefault struct {
 	Payload *models.BinservclientMsaPutFileResponse
 }
 
-// Code gets the status code for the r t r list scripts default response
-func (o *RTRListScriptsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r list scripts default response has a 2xx status code
 func (o *RTRListScriptsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *RTRListScriptsDefault) IsServerError() bool {
 // IsCode returns true when this r t r list scripts default response a status code equal to that given
 func (o *RTRListScriptsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r list scripts default response
+func (o *RTRListScriptsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRListScriptsDefault) Error() string {

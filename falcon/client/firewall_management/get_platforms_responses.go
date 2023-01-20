@@ -103,6 +103,11 @@ func (o *GetPlatformsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get platforms o k response
+func (o *GetPlatformsOK) Code() int {
+	return 200
+}
+
 func (o *GetPlatformsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *GetPlatformsForbidden) IsServerError() bool {
 // IsCode returns true when this get platforms forbidden response a status code equal to that given
 func (o *GetPlatformsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get platforms forbidden response
+func (o *GetPlatformsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetPlatformsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *GetPlatformsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get platforms too many requests response
+func (o *GetPlatformsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetPlatformsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] getPlatformsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type GetPlatformsDefault struct {
 	Payload *models.FwmgrAPIPlatformsResponse
 }
 
-// Code gets the status code for the get platforms default response
-func (o *GetPlatformsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get platforms default response has a 2xx status code
 func (o *GetPlatformsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *GetPlatformsDefault) IsServerError() bool {
 // IsCode returns true when this get platforms default response a status code equal to that given
 func (o *GetPlatformsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get platforms default response
+func (o *GetPlatformsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetPlatformsDefault) Error() string {

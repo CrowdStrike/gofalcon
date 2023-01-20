@@ -107,6 +107,11 @@ func (o *EntitiesPerformActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the entities perform action o k response
+func (o *EntitiesPerformActionOK) Code() int {
+	return 200
+}
+
 func (o *EntitiesPerformActionOK) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *EntitiesPerformActionForbidden) IsServerError() bool {
 // IsCode returns true when this entities perform action forbidden response a status code equal to that given
 func (o *EntitiesPerformActionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the entities perform action forbidden response
+func (o *EntitiesPerformActionForbidden) Code() int {
+	return 403
 }
 
 func (o *EntitiesPerformActionForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *EntitiesPerformActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the entities perform action too many requests response
+func (o *EntitiesPerformActionTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *EntitiesPerformActionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/group-actions/v1][%d] entitiesPerformActionTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type EntitiesPerformActionDefault struct {
 	Payload *models.DeviceapiGroupsResponseV1
 }
 
-// Code gets the status code for the entities perform action default response
-func (o *EntitiesPerformActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this entities perform action default response has a 2xx status code
 func (o *EntitiesPerformActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *EntitiesPerformActionDefault) IsServerError() bool {
 // IsCode returns true when this entities perform action default response a status code equal to that given
 func (o *EntitiesPerformActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the entities perform action default response
+func (o *EntitiesPerformActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EntitiesPerformActionDefault) Error() string {

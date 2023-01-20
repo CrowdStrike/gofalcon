@@ -119,6 +119,11 @@ func (o *DiscoverCloudAzureDownloadCertificateOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the discover cloud azure download certificate o k response
+func (o *DiscoverCloudAzureDownloadCertificateOK) Code() int {
+	return 200
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *DiscoverCloudAzureDownloadCertificateBadRequest) IsCode(code int) bool 
 	return code == 400
 }
 
+// Code gets the status code for the discover cloud azure download certificate bad request response
+func (o *DiscoverCloudAzureDownloadCertificateBadRequest) Code() int {
+	return 400
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsServerError() bool {
 // IsCode returns true when this discover cloud azure download certificate forbidden response a status code equal to that given
 func (o *DiscoverCloudAzureDownloadCertificateForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the discover cloud azure download certificate forbidden response
+func (o *DiscoverCloudAzureDownloadCertificateForbidden) Code() int {
+	return 403
 }
 
 func (o *DiscoverCloudAzureDownloadCertificateForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsServerError() b
 // IsCode returns true when this discover cloud azure download certificate too many requests response a status code equal to that given
 func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the discover cloud azure download certificate too many requests response
+func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DiscoverCloudAzureDownloadCertificateTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) IsCode(code i
 	return code == 500
 }
 
+// Code gets the status code for the discover cloud azure download certificate internal server error response
+func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) Code() int {
+	return 500
+}
+
 func (o *DiscoverCloudAzureDownloadCertificateInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-azure/entities/download-certificate/v1][%d] discoverCloudAzureDownloadCertificateInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type DiscoverCloudAzureDownloadCertificateDefault struct {
 	Payload *models.RegistrationAzureDownloadCertificateResponseV1
 }
 
-// Code gets the status code for the discover cloud azure download certificate default response
-func (o *DiscoverCloudAzureDownloadCertificateDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this discover cloud azure download certificate default response has a 2xx status code
 func (o *DiscoverCloudAzureDownloadCertificateDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *DiscoverCloudAzureDownloadCertificateDefault) IsServerError() bool {
 // IsCode returns true when this discover cloud azure download certificate default response a status code equal to that given
 func (o *DiscoverCloudAzureDownloadCertificateDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the discover cloud azure download certificate default response
+func (o *DiscoverCloudAzureDownloadCertificateDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DiscoverCloudAzureDownloadCertificateDefault) Error() string {

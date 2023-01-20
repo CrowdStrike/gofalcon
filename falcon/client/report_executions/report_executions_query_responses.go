@@ -113,6 +113,11 @@ func (o *ReportExecutionsQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the report executions query o k response
+func (o *ReportExecutionsQueryOK) Code() int {
+	return 200
+}
+
 func (o *ReportExecutionsQueryOK) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] reportExecutionsQueryOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *ReportExecutionsQueryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the report executions query bad request response
+func (o *ReportExecutionsQueryBadRequest) Code() int {
+	return 400
+}
+
 func (o *ReportExecutionsQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] reportExecutionsQueryBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *ReportExecutionsQueryForbidden) IsServerError() bool {
 // IsCode returns true when this report executions query forbidden response a status code equal to that given
 func (o *ReportExecutionsQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the report executions query forbidden response
+func (o *ReportExecutionsQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *ReportExecutionsQueryForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *ReportExecutionsQueryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the report executions query too many requests response
+func (o *ReportExecutionsQueryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ReportExecutionsQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] reportExecutionsQueryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type ReportExecutionsQueryDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the report executions query default response
-func (o *ReportExecutionsQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this report executions query default response has a 2xx status code
 func (o *ReportExecutionsQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *ReportExecutionsQueryDefault) IsServerError() bool {
 // IsCode returns true when this report executions query default response a status code equal to that given
 func (o *ReportExecutionsQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the report executions query default response
+func (o *ReportExecutionsQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ReportExecutionsQueryDefault) Error() string {

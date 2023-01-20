@@ -113,6 +113,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get mal query entities samples fetch v1 o k response
+func (o *GetMalQueryEntitiesSamplesFetchV1OK) Code() int {
+	return 200
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1OK) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1OK ", 200)
 }
@@ -194,6 +199,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsServerError() bool {
 // IsCode returns true when this get mal query entities samples fetch v1 unauthorized response a status code equal to that given
 func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) IsCode(code int) bool {
 	return code == 401
+}
+
+// Code gets the status code for the get mal query entities samples fetch v1 unauthorized response
+func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) Code() int {
+	return 401
 }
 
 func (o *GetMalQueryEntitiesSamplesFetchV1Unauthorized) Error() string {
@@ -288,6 +298,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsServerError() bool {
 // IsCode returns true when this get mal query entities samples fetch v1 forbidden response a status code equal to that given
 func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get mal query entities samples fetch v1 forbidden response
+func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetMalQueryEntitiesSamplesFetchV1Forbidden) Error() string {
@@ -386,6 +401,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsServerError() bool 
 // IsCode returns true when this get mal query entities samples fetch v1 too many requests response a status code equal to that given
 func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get mal query entities samples fetch v1 too many requests response
+func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetMalQueryEntitiesSamplesFetchV1TooManyRequests) Error() string {
@@ -493,6 +513,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) IsCode(code int) 
 	return code == 500
 }
 
+// Code gets the status code for the get mal query entities samples fetch v1 internal server error response
+func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetMalQueryEntitiesSamplesFetchV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/samples-fetch/v1][%d] getMalQueryEntitiesSamplesFetchV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -555,11 +580,6 @@ type GetMalQueryEntitiesSamplesFetchV1Default struct {
 	_statusCode int
 }
 
-// Code gets the status code for the get mal query entities samples fetch v1 default response
-func (o *GetMalQueryEntitiesSamplesFetchV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get mal query entities samples fetch v1 default response has a 2xx status code
 func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -583,6 +603,11 @@ func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsServerError() bool {
 // IsCode returns true when this get mal query entities samples fetch v1 default response a status code equal to that given
 func (o *GetMalQueryEntitiesSamplesFetchV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get mal query entities samples fetch v1 default response
+func (o *GetMalQueryEntitiesSamplesFetchV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetMalQueryEntitiesSamplesFetchV1Default) Error() string {

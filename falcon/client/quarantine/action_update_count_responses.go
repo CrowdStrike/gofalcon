@@ -107,6 +107,11 @@ func (o *ActionUpdateCountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the action update count o k response
+func (o *ActionUpdateCountOK) Code() int {
+	return 200
+}
+
 func (o *ActionUpdateCountOK) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *ActionUpdateCountForbidden) IsServerError() bool {
 // IsCode returns true when this action update count forbidden response a status code equal to that given
 func (o *ActionUpdateCountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the action update count forbidden response
+func (o *ActionUpdateCountForbidden) Code() int {
+	return 403
 }
 
 func (o *ActionUpdateCountForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *ActionUpdateCountTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the action update count too many requests response
+func (o *ActionUpdateCountTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ActionUpdateCountTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] actionUpdateCountTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type ActionUpdateCountDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the action update count default response
-func (o *ActionUpdateCountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this action update count default response has a 2xx status code
 func (o *ActionUpdateCountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *ActionUpdateCountDefault) IsServerError() bool {
 // IsCode returns true when this action update count default response a status code equal to that given
 func (o *ActionUpdateCountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the action update count default response
+func (o *ActionUpdateCountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ActionUpdateCountDefault) Error() string {

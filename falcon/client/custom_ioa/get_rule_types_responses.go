@@ -109,6 +109,11 @@ func (o *GetRuleTypesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rule types o k response
+func (o *GetRuleTypesOK) Code() int {
+	return 200
+}
+
 func (o *GetRuleTypesOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *GetRuleTypesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get rule types forbidden response
+func (o *GetRuleTypesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRuleTypesForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesForbidden  %+v", 403, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *GetRuleTypesNotFound) IsServerError() bool {
 // IsCode returns true when this get rule types not found response a status code equal to that given
 func (o *GetRuleTypesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get rule types not found response
+func (o *GetRuleTypesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetRuleTypesNotFound) Error() string {
@@ -395,6 +410,11 @@ func (o *GetRuleTypesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get rule types too many requests response
+func (o *GetRuleTypesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetRuleTypesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] getRuleTypesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetRuleTypesDefault struct {
 	Payload *models.APIRuleTypesResponse
 }
 
-// Code gets the status code for the get rule types default response
-func (o *GetRuleTypesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get rule types default response has a 2xx status code
 func (o *GetRuleTypesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetRuleTypesDefault) IsServerError() bool {
 // IsCode returns true when this get rule types default response a status code equal to that given
 func (o *GetRuleTypesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get rule types default response
+func (o *GetRuleTypesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRuleTypesDefault) Error() string {

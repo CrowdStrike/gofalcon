@@ -103,6 +103,11 @@ func (o *QueryIncidentIdsByFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query incident ids by filter o k response
+func (o *QueryIncidentIdsByFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryIncidentIdsByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/incidents/v1][%d] queryIncidentIdsByFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryIncidentIdsByFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query incident ids by filter forbidden response a status code equal to that given
 func (o *QueryIncidentIdsByFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query incident ids by filter forbidden response
+func (o *QueryIncidentIdsByFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryIncidentIdsByFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryIncidentIdsByFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query incident ids by filter too many requests response
+func (o *QueryIncidentIdsByFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryIncidentIdsByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/incidents/v1][%d] queryIncidentIdsByFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryIncidentIdsByFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query incident ids by filter default response
-func (o *QueryIncidentIdsByFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query incident ids by filter default response has a 2xx status code
 func (o *QueryIncidentIdsByFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryIncidentIdsByFilterDefault) IsServerError() bool {
 // IsCode returns true when this query incident ids by filter default response a status code equal to that given
 func (o *QueryIncidentIdsByFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query incident ids by filter default response
+func (o *QueryIncidentIdsByFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryIncidentIdsByFilterDefault) Error() string {

@@ -107,6 +107,11 @@ func (o *IndicatorAggregateV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the indicator aggregate v1 o k response
+func (o *IndicatorAggregateV1OK) Code() int {
+	return 200
+}
+
 func (o *IndicatorAggregateV1OK) Error() string {
 	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *IndicatorAggregateV1Forbidden) IsServerError() bool {
 // IsCode returns true when this indicator aggregate v1 forbidden response a status code equal to that given
 func (o *IndicatorAggregateV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the indicator aggregate v1 forbidden response
+func (o *IndicatorAggregateV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *IndicatorAggregateV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *IndicatorAggregateV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the indicator aggregate v1 too many requests response
+func (o *IndicatorAggregateV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *IndicatorAggregateV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicatorAggregateV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type IndicatorAggregateV1Default struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the indicator aggregate v1 default response
-func (o *IndicatorAggregateV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this indicator aggregate v1 default response has a 2xx status code
 func (o *IndicatorAggregateV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *IndicatorAggregateV1Default) IsServerError() bool {
 // IsCode returns true when this indicator aggregate v1 default response a status code equal to that given
 func (o *IndicatorAggregateV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the indicator aggregate v1 default response
+func (o *IndicatorAggregateV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *IndicatorAggregateV1Default) Error() string {

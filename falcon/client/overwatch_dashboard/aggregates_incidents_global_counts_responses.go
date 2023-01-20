@@ -103,6 +103,11 @@ func (o *AggregatesIncidentsGlobalCountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregates incidents global counts o k response
+func (o *AggregatesIncidentsGlobalCountsOK) Code() int {
+	return 200
+}
+
 func (o *AggregatesIncidentsGlobalCountsOK) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/incidents-global-counts/v1][%d] aggregatesIncidentsGlobalCountsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregatesIncidentsGlobalCountsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregates incidents global counts forbidden response a status code equal to that given
 func (o *AggregatesIncidentsGlobalCountsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregates incidents global counts forbidden response
+func (o *AggregatesIncidentsGlobalCountsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregatesIncidentsGlobalCountsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregatesIncidentsGlobalCountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregates incidents global counts too many requests response
+func (o *AggregatesIncidentsGlobalCountsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregatesIncidentsGlobalCountsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/incidents-global-counts/v1][%d] aggregatesIncidentsGlobalCountsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregatesIncidentsGlobalCountsDefault struct {
 	Payload *models.MsaFacetsResponse
 }
 
-// Code gets the status code for the aggregates incidents global counts default response
-func (o *AggregatesIncidentsGlobalCountsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregates incidents global counts default response has a 2xx status code
 func (o *AggregatesIncidentsGlobalCountsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregatesIncidentsGlobalCountsDefault) IsServerError() bool {
 // IsCode returns true when this aggregates incidents global counts default response a status code equal to that given
 func (o *AggregatesIncidentsGlobalCountsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregates incidents global counts default response
+func (o *AggregatesIncidentsGlobalCountsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregatesIncidentsGlobalCountsDefault) Error() string {

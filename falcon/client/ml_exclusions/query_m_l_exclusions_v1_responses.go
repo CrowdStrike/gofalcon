@@ -115,6 +115,11 @@ func (o *QueryMLExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query m l exclusions v1 o k response
+func (o *QueryMLExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *QueryMLExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryMLExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query m l exclusions v1 bad request response
+func (o *QueryMLExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryMLExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryMLExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this query m l exclusions v1 forbidden response a status code equal to that given
 func (o *QueryMLExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query m l exclusions v1 forbidden response
+func (o *QueryMLExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *QueryMLExclusionsV1Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryMLExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this query m l exclusions v1 too many requests response a status code equal to that given
 func (o *QueryMLExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query m l exclusions v1 too many requests response
+func (o *QueryMLExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryMLExclusionsV1TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryMLExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query m l exclusions v1 internal server error response
+func (o *QueryMLExclusionsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryMLExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryMLExclusionsV1Default struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query m l exclusions v1 default response
-func (o *QueryMLExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query m l exclusions v1 default response has a 2xx status code
 func (o *QueryMLExclusionsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryMLExclusionsV1Default) IsServerError() bool {
 // IsCode returns true when this query m l exclusions v1 default response a status code equal to that given
 func (o *QueryMLExclusionsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query m l exclusions v1 default response
+func (o *QueryMLExclusionsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryMLExclusionsV1Default) Error() string {

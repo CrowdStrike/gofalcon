@@ -119,6 +119,11 @@ func (o *GetEventsEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get events entities o k response
+func (o *GetEventsEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetEventsEntitiesOK) Error() string {
 	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetEventsEntitiesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get events entities bad request response
+func (o *GetEventsEntitiesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetEventsEntitiesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetEventsEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get events entities forbidden response
+func (o *GetEventsEntitiesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetEventsEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesForbidden ", 403)
 }
@@ -423,6 +438,11 @@ func (o *GetEventsEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get events entities too many requests response a status code equal to that given
 func (o *GetEventsEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get events entities too many requests response
+func (o *GetEventsEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetEventsEntitiesTooManyRequests) Error() string {
@@ -541,6 +561,11 @@ func (o *GetEventsEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get events entities internal server error response
+func (o *GetEventsEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetEventsEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] getEventsEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -612,11 +637,6 @@ type GetEventsEntitiesDefault struct {
 	Payload *models.DomainEventEntitiesResponse
 }
 
-// Code gets the status code for the get events entities default response
-func (o *GetEventsEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get events entities default response has a 2xx status code
 func (o *GetEventsEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -640,6 +660,11 @@ func (o *GetEventsEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get events entities default response a status code equal to that given
 func (o *GetEventsEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get events entities default response
+func (o *GetEventsEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetEventsEntitiesDefault) Error() string {

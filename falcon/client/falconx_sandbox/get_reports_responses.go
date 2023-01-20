@@ -115,6 +115,11 @@ func (o *GetReportsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get reports o k response
+func (o *GetReportsOK) Code() int {
+	return 200
+}
+
 func (o *GetReportsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/reports/v1][%d] getReportsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetReportsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get reports bad request response
+func (o *GetReportsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetReportsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/reports/v1][%d] getReportsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetReportsForbidden) IsServerError() bool {
 // IsCode returns true when this get reports forbidden response a status code equal to that given
 func (o *GetReportsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get reports forbidden response
+func (o *GetReportsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetReportsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetReportsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get reports too many requests response a status code equal to that given
 func (o *GetReportsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get reports too many requests response
+func (o *GetReportsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetReportsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetReportsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get reports internal server error response
+func (o *GetReportsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetReportsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/reports/v1][%d] getReportsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetReportsDefault struct {
 	Payload *models.FalconxReportV1Response
 }
 
-// Code gets the status code for the get reports default response
-func (o *GetReportsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get reports default response has a 2xx status code
 func (o *GetReportsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetReportsDefault) IsServerError() bool {
 // IsCode returns true when this get reports default response a status code equal to that given
 func (o *GetReportsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get reports default response
+func (o *GetReportsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetReportsDefault) Error() string {

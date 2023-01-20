@@ -121,6 +121,11 @@ func (o *GetAWSAccountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get a w s accounts o k response
+func (o *GetAWSAccountsOK) Code() int {
+	return 200
+}
+
 func (o *GetAWSAccountsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetAWSAccountsBadRequest) IsServerError() bool {
 // IsCode returns true when this get a w s accounts bad request response a status code equal to that given
 func (o *GetAWSAccountsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get a w s accounts bad request response
+func (o *GetAWSAccountsBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetAWSAccountsBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *GetAWSAccountsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get a w s accounts forbidden response
+func (o *GetAWSAccountsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetAWSAccountsForbidden) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetAWSAccountsNotFound) IsServerError() bool {
 // IsCode returns true when this get a w s accounts not found response a status code equal to that given
 func (o *GetAWSAccountsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get a w s accounts not found response
+func (o *GetAWSAccountsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetAWSAccountsNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *GetAWSAccountsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get a w s accounts too many requests response a status code equal to that given
 func (o *GetAWSAccountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get a w s accounts too many requests response
+func (o *GetAWSAccountsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetAWSAccountsTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetAWSAccountsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get a w s accounts internal server error response
+func (o *GetAWSAccountsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetAWSAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] getAWSAccountsInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetAWSAccountsDefault struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
-// Code gets the status code for the get a w s accounts default response
-func (o *GetAWSAccountsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get a w s accounts default response has a 2xx status code
 func (o *GetAWSAccountsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetAWSAccountsDefault) IsServerError() bool {
 // IsCode returns true when this get a w s accounts default response a status code equal to that given
 func (o *GetAWSAccountsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get a w s accounts default response
+func (o *GetAWSAccountsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAWSAccountsDefault) Error() string {

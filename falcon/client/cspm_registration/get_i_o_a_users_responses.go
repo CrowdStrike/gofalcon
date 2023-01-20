@@ -119,6 +119,11 @@ func (o *GetIOAUsersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get i o a users o k response
+func (o *GetIOAUsersOK) Code() int {
+	return 200
+}
+
 func (o *GetIOAUsersOK) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetIOAUsersBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get i o a users bad request response
+func (o *GetIOAUsersBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetIOAUsersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetIOAUsersForbidden) IsServerError() bool {
 // IsCode returns true when this get i o a users forbidden response a status code equal to that given
 func (o *GetIOAUsersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get i o a users forbidden response
+func (o *GetIOAUsersForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIOAUsersForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetIOAUsersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get i o a users too many requests response a status code equal to that given
 func (o *GetIOAUsersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get i o a users too many requests response
+func (o *GetIOAUsersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIOAUsersTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetIOAUsersInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get i o a users internal server error response
+func (o *GetIOAUsersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIOAUsersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/users/v1][%d] getIOAUsersInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetIOAUsersDefault struct {
 	Payload *models.RegistrationIOAUserResponse
 }
 
-// Code gets the status code for the get i o a users default response
-func (o *GetIOAUsersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get i o a users default response has a 2xx status code
 func (o *GetIOAUsersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetIOAUsersDefault) IsServerError() bool {
 // IsCode returns true when this get i o a users default response a status code equal to that given
 func (o *GetIOAUsersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get i o a users default response
+func (o *GetIOAUsersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIOAUsersDefault) Error() string {

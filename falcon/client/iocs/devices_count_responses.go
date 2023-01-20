@@ -103,6 +103,11 @@ func (o *DevicesCountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the devices count o k response
+func (o *DevicesCountOK) Code() int {
+	return 200
+}
+
 func (o *DevicesCountOK) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *DevicesCountForbidden) IsServerError() bool {
 // IsCode returns true when this devices count forbidden response a status code equal to that given
 func (o *DevicesCountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the devices count forbidden response
+func (o *DevicesCountForbidden) Code() int {
+	return 403
 }
 
 func (o *DevicesCountForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *DevicesCountTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the devices count too many requests response
+func (o *DevicesCountTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DevicesCountTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /indicators/aggregates/devices-count/v1][%d] devicesCountTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type DevicesCountDefault struct {
 	Payload *models.APIMsaReplyIOCDevicesCount
 }
 
-// Code gets the status code for the devices count default response
-func (o *DevicesCountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this devices count default response has a 2xx status code
 func (o *DevicesCountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *DevicesCountDefault) IsServerError() bool {
 // IsCode returns true when this devices count default response a status code equal to that given
 func (o *DevicesCountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the devices count default response
+func (o *DevicesCountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DevicesCountDefault) Error() string {

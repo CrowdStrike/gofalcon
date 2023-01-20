@@ -115,6 +115,11 @@ func (o *ScanSamplesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the scan samples o k response
+func (o *ScanSamplesOK) Code() int {
+	return 200
+}
+
 func (o *ScanSamplesOK) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *ScanSamplesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the scan samples bad request response
+func (o *ScanSamplesBadRequest) Code() int {
+	return 400
+}
+
 func (o *ScanSamplesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *ScanSamplesForbidden) IsServerError() bool {
 // IsCode returns true when this scan samples forbidden response a status code equal to that given
 func (o *ScanSamplesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the scan samples forbidden response
+func (o *ScanSamplesForbidden) Code() int {
+	return 403
 }
 
 func (o *ScanSamplesForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *ScanSamplesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this scan samples too many requests response a status code equal to that given
 func (o *ScanSamplesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the scan samples too many requests response
+func (o *ScanSamplesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ScanSamplesTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *ScanSamplesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the scan samples internal server error response
+func (o *ScanSamplesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ScanSamplesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /scanner/entities/scans/v1][%d] scanSamplesInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type ScanSamplesDefault struct {
 	Payload *models.MlscannerQueryResponse
 }
 
-// Code gets the status code for the scan samples default response
-func (o *ScanSamplesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this scan samples default response has a 2xx status code
 func (o *ScanSamplesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *ScanSamplesDefault) IsServerError() bool {
 // IsCode returns true when this scan samples default response a status code equal to that given
 func (o *ScanSamplesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the scan samples default response
+func (o *ScanSamplesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ScanSamplesDefault) Error() string {

@@ -109,6 +109,11 @@ func (o *QueryChildrenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query children o k response
+func (o *QueryChildrenOK) Code() int {
+	return 200
+}
+
 func (o *QueryChildrenOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *QueryChildrenBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query children bad request response
+func (o *QueryChildrenBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryChildrenBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *QueryChildrenForbidden) IsServerError() bool {
 // IsCode returns true when this query children forbidden response a status code equal to that given
 func (o *QueryChildrenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query children forbidden response
+func (o *QueryChildrenForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryChildrenForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *QueryChildrenTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query children too many requests response
+func (o *QueryChildrenTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryChildrenTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/children/v1][%d] queryChildrenTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type QueryChildrenDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query children default response
-func (o *QueryChildrenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query children default response has a 2xx status code
 func (o *QueryChildrenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *QueryChildrenDefault) IsServerError() bool {
 // IsCode returns true when this query children default response a status code equal to that given
 func (o *QueryChildrenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query children default response
+func (o *QueryChildrenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryChildrenDefault) Error() string {

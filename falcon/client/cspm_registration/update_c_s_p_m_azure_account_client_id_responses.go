@@ -108,6 +108,11 @@ func (o *UpdateCSPMAzureAccountClientIDCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the update c s p m azure account client Id created response
+func (o *UpdateCSPMAzureAccountClientIDCreated) Code() int {
+	return 201
+}
+
 func (o *UpdateCSPMAzureAccountClientIDCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *UpdateCSPMAzureAccountClientIDBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update c s p m azure account client Id bad request response
+func (o *UpdateCSPMAzureAccountClientIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCSPMAzureAccountClientIDBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/client-id/v1][%d] updateCSPMAzureAccountClientIdBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *UpdateCSPMAzureAccountClientIDForbidden) IsServerError() bool {
 // IsCode returns true when this update c s p m azure account client Id forbidden response a status code equal to that given
 func (o *UpdateCSPMAzureAccountClientIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update c s p m azure account client Id forbidden response
+func (o *UpdateCSPMAzureAccountClientIDForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCSPMAzureAccountClientIDForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update c s p m azure account client Id too many requests response a status code equal to that given
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update c s p m azure account client Id too many requests response
+func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateCSPMAzureAccountClientIDTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsServerError() bool
 // IsCode returns true when this update c s p m azure account client Id internal server error response a status code equal to that given
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the update c s p m azure account client Id internal server error response
+func (o *UpdateCSPMAzureAccountClientIDInternalServerError) Code() int {
+	return 500
 }
 
 func (o *UpdateCSPMAzureAccountClientIDInternalServerError) Error() string {

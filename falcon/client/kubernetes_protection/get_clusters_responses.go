@@ -125,6 +125,11 @@ func (o *GetClustersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get clusters o k response
+func (o *GetClustersOK) Code() int {
+	return 200
+}
+
 func (o *GetClustersOK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetClustersMultiStatus) IsServerError() bool {
 // IsCode returns true when this get clusters multi status response a status code equal to that given
 func (o *GetClustersMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get clusters multi status response
+func (o *GetClustersMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetClustersMultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *GetClustersBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get clusters bad request response
+func (o *GetClustersBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetClustersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersBadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetClustersForbidden) IsServerError() bool {
 // IsCode returns true when this get clusters forbidden response a status code equal to that given
 func (o *GetClustersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get clusters forbidden response
+func (o *GetClustersForbidden) Code() int {
+	return 403
 }
 
 func (o *GetClustersForbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *GetClustersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get clusters too many requests response a status code equal to that given
 func (o *GetClustersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get clusters too many requests response
+func (o *GetClustersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetClustersTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetClustersInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get clusters internal server error response
+func (o *GetClustersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetClustersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/kubernetes/clusters/v1][%d] getClustersInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetClustersDefault struct {
 	Payload *models.K8sregGetClustersResp
 }
 
-// Code gets the status code for the get clusters default response
-func (o *GetClustersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get clusters default response has a 2xx status code
 func (o *GetClustersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetClustersDefault) IsServerError() bool {
 // IsCode returns true when this get clusters default response a status code equal to that given
 func (o *GetClustersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get clusters default response
+func (o *GetClustersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetClustersDefault) Error() string {

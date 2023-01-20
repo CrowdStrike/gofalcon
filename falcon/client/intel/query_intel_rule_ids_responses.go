@@ -115,6 +115,11 @@ func (o *QueryIntelRuleIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query intel rule ids o k response
+func (o *QueryIntelRuleIdsOK) Code() int {
+	return 200
+}
+
 func (o *QueryIntelRuleIdsOK) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryIntelRuleIdsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query intel rule ids bad request response
+func (o *QueryIntelRuleIdsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryIntelRuleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryIntelRuleIdsForbidden) IsServerError() bool {
 // IsCode returns true when this query intel rule ids forbidden response a status code equal to that given
 func (o *QueryIntelRuleIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query intel rule ids forbidden response
+func (o *QueryIntelRuleIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryIntelRuleIdsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryIntelRuleIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query intel rule ids too many requests response a status code equal to that given
 func (o *QueryIntelRuleIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query intel rule ids too many requests response
+func (o *QueryIntelRuleIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryIntelRuleIdsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryIntelRuleIdsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query intel rule ids internal server error response
+func (o *QueryIntelRuleIdsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryIntelRuleIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/rules/v1][%d] queryIntelRuleIdsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryIntelRuleIdsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query intel rule ids default response
-func (o *QueryIntelRuleIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query intel rule ids default response has a 2xx status code
 func (o *QueryIntelRuleIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryIntelRuleIdsDefault) IsServerError() bool {
 // IsCode returns true when this query intel rule ids default response a status code equal to that given
 func (o *QueryIntelRuleIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query intel rule ids default response
+func (o *QueryIntelRuleIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryIntelRuleIdsDefault) Error() string {

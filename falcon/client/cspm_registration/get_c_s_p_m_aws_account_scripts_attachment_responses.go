@@ -115,6 +115,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m aws account scripts attachment o k response
+func (o *GetCSPMAwsAccountScriptsAttachmentOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMAwsAccountScriptsAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m aws account scripts attachment bad request response
+func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account scripts attachment forbidden response a status code equal to that given
 func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m aws account scripts attachment forbidden response
+func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentTooManyRequests) IsServerError() bool
 // IsCode returns true when this get c s p m aws account scripts attachment too many requests response a status code equal to that given
 func (o *GetCSPMAwsAccountScriptsAttachmentTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m aws account scripts attachment too many requests response
+func (o *GetCSPMAwsAccountScriptsAttachmentTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMAwsAccountScriptsAttachmentTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m aws account scripts attachment internal server error response
+func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetCSPMAwsAccountScriptsAttachmentDefault struct {
 	Payload *models.RegistrationAWSProvisionGetAccountScriptResponseV2
 }
 
-// Code gets the status code for the get c s p m aws account scripts attachment default response
-func (o *GetCSPMAwsAccountScriptsAttachmentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m aws account scripts attachment default response has a 2xx status code
 func (o *GetCSPMAwsAccountScriptsAttachmentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetCSPMAwsAccountScriptsAttachmentDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account scripts attachment default response a status code equal to that given
 func (o *GetCSPMAwsAccountScriptsAttachmentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m aws account scripts attachment default response
+func (o *GetCSPMAwsAccountScriptsAttachmentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMAwsAccountScriptsAttachmentDefault) Error() string {

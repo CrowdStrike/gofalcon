@@ -131,6 +131,11 @@ func (o *CreateExportJobsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create export jobs v1 o k response
+func (o *CreateExportJobsV1OK) Code() int {
+	return 200
+}
+
 func (o *CreateExportJobsV1OK) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/exports/v1][%d] createExportJobsV1OK  %+v", 200, o.Payload)
 }
@@ -234,6 +239,11 @@ func (o *CreateExportJobsV1BadRequest) IsServerError() bool {
 // IsCode returns true when this create export jobs v1 bad request response a status code equal to that given
 func (o *CreateExportJobsV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create export jobs v1 bad request response
+func (o *CreateExportJobsV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateExportJobsV1BadRequest) Error() string {
@@ -341,6 +351,11 @@ func (o *CreateExportJobsV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create export jobs v1 unauthorized response
+func (o *CreateExportJobsV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateExportJobsV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/exports/v1][%d] createExportJobsV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -446,6 +461,11 @@ func (o *CreateExportJobsV1Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create export jobs v1 forbidden response
+func (o *CreateExportJobsV1Forbidden) Code() int {
+	return 403
+}
+
 func (o *CreateExportJobsV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/exports/v1][%d] createExportJobsV1Forbidden  %+v", 403, o.Payload)
 }
@@ -549,6 +569,11 @@ func (o *CreateExportJobsV1NotFound) IsServerError() bool {
 // IsCode returns true when this create export jobs v1 not found response a status code equal to that given
 func (o *CreateExportJobsV1NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create export jobs v1 not found response
+func (o *CreateExportJobsV1NotFound) Code() int {
+	return 404
 }
 
 func (o *CreateExportJobsV1NotFound) Error() string {
@@ -658,6 +683,11 @@ func (o *CreateExportJobsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this create export jobs v1 too many requests response a status code equal to that given
 func (o *CreateExportJobsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create export jobs v1 too many requests response
+func (o *CreateExportJobsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateExportJobsV1TooManyRequests) Error() string {
@@ -776,6 +806,11 @@ func (o *CreateExportJobsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create export jobs v1 internal server error response
+func (o *CreateExportJobsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateExportJobsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/exports/v1][%d] createExportJobsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -847,11 +882,6 @@ type CreateExportJobsV1Default struct {
 	Payload *models.DomainLaunchExportJobResponseV1
 }
 
-// Code gets the status code for the create export jobs v1 default response
-func (o *CreateExportJobsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create export jobs v1 default response has a 2xx status code
 func (o *CreateExportJobsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -875,6 +905,11 @@ func (o *CreateExportJobsV1Default) IsServerError() bool {
 // IsCode returns true when this create export jobs v1 default response a status code equal to that given
 func (o *CreateExportJobsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create export jobs v1 default response
+func (o *CreateExportJobsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateExportJobsV1Default) Error() string {

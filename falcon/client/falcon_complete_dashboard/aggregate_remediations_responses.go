@@ -103,6 +103,11 @@ func (o *AggregateRemediationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate remediations o k response
+func (o *AggregateRemediationsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateRemediationsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregateRemediationsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate remediations forbidden response a status code equal to that given
 func (o *AggregateRemediationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate remediations forbidden response
+func (o *AggregateRemediationsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateRemediationsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregateRemediationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate remediations too many requests response
+func (o *AggregateRemediationsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateRemediationsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/remediations/GET/v1][%d] aggregateRemediationsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregateRemediationsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate remediations default response
-func (o *AggregateRemediationsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate remediations default response has a 2xx status code
 func (o *AggregateRemediationsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregateRemediationsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate remediations default response a status code equal to that given
 func (o *AggregateRemediationsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate remediations default response
+func (o *AggregateRemediationsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateRemediationsDefault) Error() string {

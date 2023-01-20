@@ -115,6 +115,11 @@ func (o *QueryIntelReportEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query intel report entities o k response
+func (o *QueryIntelReportEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *QueryIntelReportEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *QueryIntelReportEntitiesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query intel report entities bad request response
+func (o *QueryIntelReportEntitiesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryIntelReportEntitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesBadRequest ", 400)
 }
@@ -288,6 +298,11 @@ func (o *QueryIntelReportEntitiesForbidden) IsServerError() bool {
 // IsCode returns true when this query intel report entities forbidden response a status code equal to that given
 func (o *QueryIntelReportEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query intel report entities forbidden response
+func (o *QueryIntelReportEntitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryIntelReportEntitiesForbidden) Error() string {
@@ -386,6 +401,11 @@ func (o *QueryIntelReportEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query intel report entities too many requests response a status code equal to that given
 func (o *QueryIntelReportEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query intel report entities too many requests response
+func (o *QueryIntelReportEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryIntelReportEntitiesTooManyRequests) Error() string {
@@ -493,6 +513,11 @@ func (o *QueryIntelReportEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query intel report entities internal server error response
+func (o *QueryIntelReportEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryIntelReportEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/combined/reports/v1][%d] queryIntelReportEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -557,11 +582,6 @@ type QueryIntelReportEntitiesDefault struct {
 	Payload *models.DomainNewsResponse
 }
 
-// Code gets the status code for the query intel report entities default response
-func (o *QueryIntelReportEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query intel report entities default response has a 2xx status code
 func (o *QueryIntelReportEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -585,6 +605,11 @@ func (o *QueryIntelReportEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this query intel report entities default response a status code equal to that given
 func (o *QueryIntelReportEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query intel report entities default response
+func (o *QueryIntelReportEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryIntelReportEntitiesDefault) Error() string {

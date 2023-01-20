@@ -119,6 +119,11 @@ func (o *QueryLoginsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query logins o k response
+func (o *QueryLoginsOK) Code() int {
+	return 200
+}
+
 func (o *QueryLoginsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *QueryLoginsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query logins bad request response
+func (o *QueryLoginsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryLoginsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *QueryLoginsForbidden) IsServerError() bool {
 // IsCode returns true when this query logins forbidden response a status code equal to that given
 func (o *QueryLoginsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query logins forbidden response
+func (o *QueryLoginsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryLoginsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *QueryLoginsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query logins too many requests response a status code equal to that given
 func (o *QueryLoginsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query logins too many requests response
+func (o *QueryLoginsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryLoginsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *QueryLoginsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query logins internal server error response
+func (o *QueryLoginsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryLoginsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/logins/v1][%d] queryLoginsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type QueryLoginsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query logins default response
-func (o *QueryLoginsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query logins default response has a 2xx status code
 func (o *QueryLoginsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *QueryLoginsDefault) IsServerError() bool {
 // IsCode returns true when this query logins default response a status code equal to that given
 func (o *QueryLoginsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query logins default response
+func (o *QueryLoginsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryLoginsDefault) Error() string {

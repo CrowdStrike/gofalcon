@@ -113,6 +113,11 @@ func (o *GetRuleGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rule groups o k response
+func (o *GetRuleGroupsOK) Code() int {
+	return 200
+}
+
 func (o *GetRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *GetRuleGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get rule groups bad request response
+func (o *GetRuleGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *GetRuleGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this get rule groups forbidden response a status code equal to that given
 func (o *GetRuleGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get rule groups forbidden response
+func (o *GetRuleGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRuleGroupsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *GetRuleGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get rule groups too many requests response
+func (o *GetRuleGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/rule-groups/v1][%d] getRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type GetRuleGroupsDefault struct {
 	Payload *models.FwmgrAPIRuleGroupsResponse
 }
 
-// Code gets the status code for the get rule groups default response
-func (o *GetRuleGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get rule groups default response has a 2xx status code
 func (o *GetRuleGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GetRuleGroupsDefault) IsServerError() bool {
 // IsCode returns true when this get rule groups default response a status code equal to that given
 func (o *GetRuleGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get rule groups default response
+func (o *GetRuleGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRuleGroupsDefault) Error() string {

@@ -98,6 +98,11 @@ func (o *GetMitreReportOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get mitre report o k response
+func (o *GetMitreReportOK) Code() int {
+	return 200
+}
+
 func (o *GetMitreReportOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/mitre-reports/v1][%d] getMitreReportOK ", 200)
 }
@@ -190,6 +195,11 @@ func (o *GetMitreReportForbidden) IsServerError() bool {
 // IsCode returns true when this get mitre report forbidden response a status code equal to that given
 func (o *GetMitreReportForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get mitre report forbidden response
+func (o *GetMitreReportForbidden) Code() int {
+	return 403
 }
 
 func (o *GetMitreReportForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *GetMitreReportTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get mitre report too many requests response a status code equal to that given
 func (o *GetMitreReportTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get mitre report too many requests response
+func (o *GetMitreReportTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetMitreReportTooManyRequests) Error() string {

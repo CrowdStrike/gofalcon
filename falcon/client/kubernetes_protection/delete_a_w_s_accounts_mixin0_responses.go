@@ -125,6 +125,11 @@ func (o *DeleteAWSAccountsMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete a w s accounts mixin0 o k response
+func (o *DeleteAWSAccountsMixin0OK) Code() int {
+	return 200
+}
+
 func (o *DeleteAWSAccountsMixin0OK) Error() string {
 	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *DeleteAWSAccountsMixin0MultiStatus) IsServerError() bool {
 // IsCode returns true when this delete a w s accounts mixin0 multi status response a status code equal to that given
 func (o *DeleteAWSAccountsMixin0MultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the delete a w s accounts mixin0 multi status response
+func (o *DeleteAWSAccountsMixin0MultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeleteAWSAccountsMixin0MultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *DeleteAWSAccountsMixin0BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete a w s accounts mixin0 bad request response
+func (o *DeleteAWSAccountsMixin0BadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteAWSAccountsMixin0BadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *DeleteAWSAccountsMixin0Forbidden) IsServerError() bool {
 // IsCode returns true when this delete a w s accounts mixin0 forbidden response a status code equal to that given
 func (o *DeleteAWSAccountsMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete a w s accounts mixin0 forbidden response
+func (o *DeleteAWSAccountsMixin0Forbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteAWSAccountsMixin0Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *DeleteAWSAccountsMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete a w s accounts mixin0 too many requests response a status code equal to that given
 func (o *DeleteAWSAccountsMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete a w s accounts mixin0 too many requests response
+func (o *DeleteAWSAccountsMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteAWSAccountsMixin0TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *DeleteAWSAccountsMixin0InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete a w s accounts mixin0 internal server error response
+func (o *DeleteAWSAccountsMixin0InternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteAWSAccountsMixin0InternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] deleteAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type DeleteAWSAccountsMixin0Default struct {
 	Payload *models.MsaMetaInfo
 }
 
-// Code gets the status code for the delete a w s accounts mixin0 default response
-func (o *DeleteAWSAccountsMixin0Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete a w s accounts mixin0 default response has a 2xx status code
 func (o *DeleteAWSAccountsMixin0Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *DeleteAWSAccountsMixin0Default) IsServerError() bool {
 // IsCode returns true when this delete a w s accounts mixin0 default response a status code equal to that given
 func (o *DeleteAWSAccountsMixin0Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete a w s accounts mixin0 default response
+func (o *DeleteAWSAccountsMixin0Default) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteAWSAccountsMixin0Default) Error() string {

@@ -115,6 +115,11 @@ func (o *UpdateDetectsByIdsV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update detects by ids v2 o k response
+func (o *UpdateDetectsByIdsV2OK) Code() int {
+	return 200
+}
+
 func (o *UpdateDetectsByIdsV2OK) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *UpdateDetectsByIdsV2BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update detects by ids v2 bad request response
+func (o *UpdateDetectsByIdsV2BadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateDetectsByIdsV2BadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *UpdateDetectsByIdsV2Forbidden) IsServerError() bool {
 // IsCode returns true when this update detects by ids v2 forbidden response a status code equal to that given
 func (o *UpdateDetectsByIdsV2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update detects by ids v2 forbidden response
+func (o *UpdateDetectsByIdsV2Forbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateDetectsByIdsV2Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *UpdateDetectsByIdsV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this update detects by ids v2 too many requests response a status code equal to that given
 func (o *UpdateDetectsByIdsV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update detects by ids v2 too many requests response
+func (o *UpdateDetectsByIdsV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateDetectsByIdsV2TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *UpdateDetectsByIdsV2InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update detects by ids v2 internal server error response
+func (o *UpdateDetectsByIdsV2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateDetectsByIdsV2InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] updateDetectsByIdsV2InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type UpdateDetectsByIdsV2Default struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the update detects by ids v2 default response
-func (o *UpdateDetectsByIdsV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update detects by ids v2 default response has a 2xx status code
 func (o *UpdateDetectsByIdsV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *UpdateDetectsByIdsV2Default) IsServerError() bool {
 // IsCode returns true when this update detects by ids v2 default response a status code equal to that given
 func (o *UpdateDetectsByIdsV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update detects by ids v2 default response
+func (o *UpdateDetectsByIdsV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateDetectsByIdsV2Default) Error() string {

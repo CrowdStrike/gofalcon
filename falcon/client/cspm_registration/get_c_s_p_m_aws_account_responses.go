@@ -125,6 +125,11 @@ func (o *GetCSPMAwsAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m aws account o k response
+func (o *GetCSPMAwsAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMAwsAccountOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetCSPMAwsAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account multi status response a status code equal to that given
 func (o *GetCSPMAwsAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c s p m aws account multi status response
+func (o *GetCSPMAwsAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCSPMAwsAccountMultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *GetCSPMAwsAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m aws account bad request response
+func (o *GetCSPMAwsAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetCSPMAwsAccountForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account forbidden response a status code equal to that given
 func (o *GetCSPMAwsAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m aws account forbidden response
+func (o *GetCSPMAwsAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMAwsAccountForbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *GetCSPMAwsAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account too many requests response a status code equal to that given
 func (o *GetCSPMAwsAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m aws account too many requests response
+func (o *GetCSPMAwsAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMAwsAccountTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetCSPMAwsAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m aws account internal server error response
+func (o *GetCSPMAwsAccountInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMAwsAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetCSPMAwsAccountDefault struct {
 	Payload *models.RegistrationAWSAccountResponseV2
 }
 
-// Code gets the status code for the get c s p m aws account default response
-func (o *GetCSPMAwsAccountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m aws account default response has a 2xx status code
 func (o *GetCSPMAwsAccountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetCSPMAwsAccountDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m aws account default response a status code equal to that given
 func (o *GetCSPMAwsAccountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m aws account default response
+func (o *GetCSPMAwsAccountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMAwsAccountDefault) Error() string {

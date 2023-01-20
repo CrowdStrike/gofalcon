@@ -115,6 +115,11 @@ func (o *GetDetectSummariesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get detect summaries o k response
+func (o *GetDetectSummariesOK) Code() int {
+	return 200
+}
+
 func (o *GetDetectSummariesOK) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetDetectSummariesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get detect summaries bad request response
+func (o *GetDetectSummariesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetDetectSummariesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetDetectSummariesForbidden) IsServerError() bool {
 // IsCode returns true when this get detect summaries forbidden response a status code equal to that given
 func (o *GetDetectSummariesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get detect summaries forbidden response
+func (o *GetDetectSummariesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetDetectSummariesForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetDetectSummariesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get detect summaries too many requests response a status code equal to that given
 func (o *GetDetectSummariesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get detect summaries too many requests response
+func (o *GetDetectSummariesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetDetectSummariesTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetDetectSummariesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get detect summaries internal server error response
+func (o *GetDetectSummariesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetDetectSummariesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] getDetectSummariesInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetDetectSummariesDefault struct {
 	Payload *models.DomainMsaDetectSummariesResponse
 }
 
-// Code gets the status code for the get detect summaries default response
-func (o *GetDetectSummariesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get detect summaries default response has a 2xx status code
 func (o *GetDetectSummariesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetDetectSummariesDefault) IsServerError() bool {
 // IsCode returns true when this get detect summaries default response a status code equal to that given
 func (o *GetDetectSummariesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get detect summaries default response
+func (o *GetDetectSummariesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetDetectSummariesDefault) Error() string {

@@ -109,6 +109,11 @@ func (o *GetSensorInstallersByQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get sensor installers by query o k response
+func (o *GetSensorInstallersByQueryOK) Code() int {
+	return 200
+}
+
 func (o *GetSensorInstallersByQueryOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *GetSensorInstallersByQueryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get sensor installers by query bad request response
+func (o *GetSensorInstallersByQueryBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetSensorInstallersByQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *GetSensorInstallersByQueryForbidden) IsServerError() bool {
 // IsCode returns true when this get sensor installers by query forbidden response a status code equal to that given
 func (o *GetSensorInstallersByQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get sensor installers by query forbidden response
+func (o *GetSensorInstallersByQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *GetSensorInstallersByQueryForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *GetSensorInstallersByQueryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get sensor installers by query too many requests response
+func (o *GetSensorInstallersByQueryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetSensorInstallersByQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/queries/installers/v1][%d] getSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetSensorInstallersByQueryDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the get sensor installers by query default response
-func (o *GetSensorInstallersByQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get sensor installers by query default response has a 2xx status code
 func (o *GetSensorInstallersByQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetSensorInstallersByQueryDefault) IsServerError() bool {
 // IsCode returns true when this get sensor installers by query default response a status code equal to that given
 func (o *GetSensorInstallersByQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get sensor installers by query default response
+func (o *GetSensorInstallersByQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSensorInstallersByQueryDefault) Error() string {

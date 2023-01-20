@@ -112,6 +112,11 @@ func (o *DeleteRTResponsePoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete r t response policies o k response
+func (o *DeleteRTResponsePoliciesOK) Code() int {
+	return 200
+}
+
 func (o *DeleteRTResponsePoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteRTResponsePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete r t response policies forbidden response
+func (o *DeleteRTResponsePoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteRTResponsePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/response/v1][%d] deleteRTResponsePoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteRTResponsePoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this delete r t response policies not found response a status code equal to that given
 func (o *DeleteRTResponsePoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete r t response policies not found response
+func (o *DeleteRTResponsePoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteRTResponsePoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteRTResponsePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete r t response policies too many requests response a status code equal to that given
 func (o *DeleteRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete r t response policies too many requests response
+func (o *DeleteRTResponsePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteRTResponsePoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteRTResponsePoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete r t response policies internal server error response a status code equal to that given
 func (o *DeleteRTResponsePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete r t response policies internal server error response
+func (o *DeleteRTResponsePoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteRTResponsePoliciesInternalServerError) Error() string {

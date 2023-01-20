@@ -115,6 +115,11 @@ func (o *QueryCombinedDeviceControlPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined device control policies o k response
+func (o *QueryCombinedDeviceControlPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryCombinedDeviceControlPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query combined device control policies bad request response
+func (o *QueryCombinedDeviceControlPoliciesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryCombinedDeviceControlPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryCombinedDeviceControlPoliciesForbidden) IsServerError() bool {
 // IsCode returns true when this query combined device control policies forbidden response a status code equal to that given
 func (o *QueryCombinedDeviceControlPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query combined device control policies forbidden response
+func (o *QueryCombinedDeviceControlPoliciesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCombinedDeviceControlPoliciesForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) IsServerError() bool
 // IsCode returns true when this query combined device control policies too many requests response a status code equal to that given
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined device control policies too many requests response
+func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedDeviceControlPoliciesTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryCombinedDeviceControlPoliciesInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the query combined device control policies internal server error response
+func (o *QueryCombinedDeviceControlPoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/device-control/v1][%d] queryCombinedDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryCombinedDeviceControlPoliciesDefault struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
-// Code gets the status code for the query combined device control policies default response
-func (o *QueryCombinedDeviceControlPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined device control policies default response has a 2xx status code
 func (o *QueryCombinedDeviceControlPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryCombinedDeviceControlPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this query combined device control policies default response a status code equal to that given
 func (o *QueryCombinedDeviceControlPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined device control policies default response
+func (o *QueryCombinedDeviceControlPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedDeviceControlPoliciesDefault) Error() string {

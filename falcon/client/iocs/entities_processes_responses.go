@@ -103,6 +103,11 @@ func (o *EntitiesProcessesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the entities processes o k response
+func (o *EntitiesProcessesOK) Code() int {
+	return 200
+}
+
 func (o *EntitiesProcessesOK) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *EntitiesProcessesForbidden) IsServerError() bool {
 // IsCode returns true when this entities processes forbidden response a status code equal to that given
 func (o *EntitiesProcessesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the entities processes forbidden response
+func (o *EntitiesProcessesForbidden) Code() int {
+	return 403
 }
 
 func (o *EntitiesProcessesForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *EntitiesProcessesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the entities processes too many requests response
+func (o *EntitiesProcessesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *EntitiesProcessesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /processes/entities/processes/v1][%d] entitiesProcessesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type EntitiesProcessesDefault struct {
 	Payload *models.APIMsaProcessDetailResponse
 }
 
-// Code gets the status code for the entities processes default response
-func (o *EntitiesProcessesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this entities processes default response has a 2xx status code
 func (o *EntitiesProcessesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *EntitiesProcessesDefault) IsServerError() bool {
 // IsCode returns true when this entities processes default response a status code equal to that given
 func (o *EntitiesProcessesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the entities processes default response
+func (o *EntitiesProcessesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EntitiesProcessesDefault) Error() string {

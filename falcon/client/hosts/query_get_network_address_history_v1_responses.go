@@ -107,6 +107,11 @@ func (o *QueryGetNetworkAddressHistoryV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query get network address history v1 o k response
+func (o *QueryGetNetworkAddressHistoryV1OK) Code() int {
+	return 200
+}
+
 func (o *QueryGetNetworkAddressHistoryV1OK) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *QueryGetNetworkAddressHistoryV1Forbidden) IsServerError() bool {
 // IsCode returns true when this query get network address history v1 forbidden response a status code equal to that given
 func (o *QueryGetNetworkAddressHistoryV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query get network address history v1 forbidden response
+func (o *QueryGetNetworkAddressHistoryV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *QueryGetNetworkAddressHistoryV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query get network address history v1 too many requests response
+func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryGetNetworkAddressHistoryV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/network-address-history/v1][%d] queryGetNetworkAddressHistoryV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type QueryGetNetworkAddressHistoryV1Default struct {
 	Payload *models.DeviceapiNetworkAddressHistoryResponseV1
 }
 
-// Code gets the status code for the query get network address history v1 default response
-func (o *QueryGetNetworkAddressHistoryV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query get network address history v1 default response has a 2xx status code
 func (o *QueryGetNetworkAddressHistoryV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *QueryGetNetworkAddressHistoryV1Default) IsServerError() bool {
 // IsCode returns true when this query get network address history v1 default response a status code equal to that given
 func (o *QueryGetNetworkAddressHistoryV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query get network address history v1 default response
+func (o *QueryGetNetworkAddressHistoryV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryGetNetworkAddressHistoryV1Default) Error() string {

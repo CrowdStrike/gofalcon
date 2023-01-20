@@ -107,6 +107,11 @@ func (o *IndicatorSearchV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the indicator search v1 o k response
+func (o *IndicatorSearchV1OK) Code() int {
+	return 200
+}
+
 func (o *IndicatorSearchV1OK) Error() string {
 	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicatorSearchV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *IndicatorSearchV1Forbidden) IsServerError() bool {
 // IsCode returns true when this indicator search v1 forbidden response a status code equal to that given
 func (o *IndicatorSearchV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the indicator search v1 forbidden response
+func (o *IndicatorSearchV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *IndicatorSearchV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *IndicatorSearchV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the indicator search v1 too many requests response
+func (o *IndicatorSearchV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *IndicatorSearchV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /iocs/queries/indicators/v1][%d] indicatorSearchV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type IndicatorSearchV1Default struct {
 	Payload *models.APIIndicatorQueryRespV1
 }
 
-// Code gets the status code for the indicator search v1 default response
-func (o *IndicatorSearchV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this indicator search v1 default response has a 2xx status code
 func (o *IndicatorSearchV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *IndicatorSearchV1Default) IsServerError() bool {
 // IsCode returns true when this indicator search v1 default response a status code equal to that given
 func (o *IndicatorSearchV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the indicator search v1 default response
+func (o *IndicatorSearchV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *IndicatorSearchV1Default) Error() string {

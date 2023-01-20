@@ -107,6 +107,11 @@ func (o *QueryDeviceLoginHistoryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query device login history o k response
+func (o *QueryDeviceLoginHistoryOK) Code() int {
+	return 200
+}
+
 func (o *QueryDeviceLoginHistoryOK) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *QueryDeviceLoginHistoryForbidden) IsServerError() bool {
 // IsCode returns true when this query device login history forbidden response a status code equal to that given
 func (o *QueryDeviceLoginHistoryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query device login history forbidden response
+func (o *QueryDeviceLoginHistoryForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryDeviceLoginHistoryForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *QueryDeviceLoginHistoryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query device login history too many requests response
+func (o *QueryDeviceLoginHistoryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryDeviceLoginHistoryTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /devices/combined/devices/login-history/v1][%d] queryDeviceLoginHistoryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type QueryDeviceLoginHistoryDefault struct {
 	Payload *models.DeviceapiLoginHistoryResponseV1
 }
 
-// Code gets the status code for the query device login history default response
-func (o *QueryDeviceLoginHistoryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query device login history default response has a 2xx status code
 func (o *QueryDeviceLoginHistoryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *QueryDeviceLoginHistoryDefault) IsServerError() bool {
 // IsCode returns true when this query device login history default response a status code equal to that given
 func (o *QueryDeviceLoginHistoryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query device login history default response
+func (o *QueryDeviceLoginHistoryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDeviceLoginHistoryDefault) Error() string {

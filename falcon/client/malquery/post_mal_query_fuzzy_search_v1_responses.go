@@ -121,6 +121,11 @@ func (o *PostMalQueryFuzzySearchV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the post mal query fuzzy search v1 o k response
+func (o *PostMalQueryFuzzySearchV1OK) Code() int {
+	return 200
+}
+
 func (o *PostMalQueryFuzzySearchV1OK) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1OK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *PostMalQueryFuzzySearchV1BadRequest) IsServerError() bool {
 // IsCode returns true when this post mal query fuzzy search v1 bad request response a status code equal to that given
 func (o *PostMalQueryFuzzySearchV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the post mal query fuzzy search v1 bad request response
+func (o *PostMalQueryFuzzySearchV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *PostMalQueryFuzzySearchV1BadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *PostMalQueryFuzzySearchV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the post mal query fuzzy search v1 unauthorized response
+func (o *PostMalQueryFuzzySearchV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *PostMalQueryFuzzySearchV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *PostMalQueryFuzzySearchV1Forbidden) IsServerError() bool {
 // IsCode returns true when this post mal query fuzzy search v1 forbidden response a status code equal to that given
 func (o *PostMalQueryFuzzySearchV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the post mal query fuzzy search v1 forbidden response
+func (o *PostMalQueryFuzzySearchV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *PostMalQueryFuzzySearchV1Forbidden) Error() string {
@@ -499,6 +519,11 @@ func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this post mal query fuzzy search v1 too many requests response a status code equal to that given
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the post mal query fuzzy search v1 too many requests response
+func (o *PostMalQueryFuzzySearchV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *PostMalQueryFuzzySearchV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the post mal query fuzzy search v1 internal server error response
+func (o *PostMalQueryFuzzySearchV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *PostMalQueryFuzzySearchV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] postMalQueryFuzzySearchV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type PostMalQueryFuzzySearchV1Default struct {
 	Payload *models.MalqueryFuzzySearchResponse
 }
 
-// Code gets the status code for the post mal query fuzzy search v1 default response
-func (o *PostMalQueryFuzzySearchV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this post mal query fuzzy search v1 default response has a 2xx status code
 func (o *PostMalQueryFuzzySearchV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *PostMalQueryFuzzySearchV1Default) IsServerError() bool {
 // IsCode returns true when this post mal query fuzzy search v1 default response a status code equal to that given
 func (o *PostMalQueryFuzzySearchV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the post mal query fuzzy search v1 default response
+func (o *PostMalQueryFuzzySearchV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *PostMalQueryFuzzySearchV1Default) Error() string {

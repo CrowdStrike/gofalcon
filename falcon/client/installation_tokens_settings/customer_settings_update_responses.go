@@ -125,6 +125,11 @@ func (o *CustomerSettingsUpdateOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the customer settings update o k response
+func (o *CustomerSettingsUpdateOK) Code() int {
+	return 200
+}
+
 func (o *CustomerSettingsUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *CustomerSettingsUpdateBadRequest) IsServerError() bool {
 // IsCode returns true when this customer settings update bad request response a status code equal to that given
 func (o *CustomerSettingsUpdateBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the customer settings update bad request response
+func (o *CustomerSettingsUpdateBadRequest) Code() int {
+	return 400
 }
 
 func (o *CustomerSettingsUpdateBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *CustomerSettingsUpdateForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the customer settings update forbidden response
+func (o *CustomerSettingsUpdateForbidden) Code() int {
+	return 403
+}
+
 func (o *CustomerSettingsUpdateForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *CustomerSettingsUpdateNotFound) IsServerError() bool {
 // IsCode returns true when this customer settings update not found response a status code equal to that given
 func (o *CustomerSettingsUpdateNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the customer settings update not found response
+func (o *CustomerSettingsUpdateNotFound) Code() int {
+	return 404
 }
 
 func (o *CustomerSettingsUpdateNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *CustomerSettingsUpdateTooManyRequests) IsServerError() bool {
 // IsCode returns true when this customer settings update too many requests response a status code equal to that given
 func (o *CustomerSettingsUpdateTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the customer settings update too many requests response
+func (o *CustomerSettingsUpdateTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CustomerSettingsUpdateTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *CustomerSettingsUpdateInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the customer settings update internal server error response
+func (o *CustomerSettingsUpdateInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CustomerSettingsUpdateInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type CustomerSettingsUpdateDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the customer settings update default response
-func (o *CustomerSettingsUpdateDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this customer settings update default response has a 2xx status code
 func (o *CustomerSettingsUpdateDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *CustomerSettingsUpdateDefault) IsServerError() bool {
 // IsCode returns true when this customer settings update default response a status code equal to that given
 func (o *CustomerSettingsUpdateDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the customer settings update default response
+func (o *CustomerSettingsUpdateDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CustomerSettingsUpdateDefault) Error() string {

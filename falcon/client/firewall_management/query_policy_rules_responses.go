@@ -113,6 +113,11 @@ func (o *QueryPolicyRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query policy rules o k response
+func (o *QueryPolicyRulesOK) Code() int {
+	return 200
+}
+
 func (o *QueryPolicyRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *QueryPolicyRulesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query policy rules bad request response
+func (o *QueryPolicyRulesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryPolicyRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *QueryPolicyRulesForbidden) IsServerError() bool {
 // IsCode returns true when this query policy rules forbidden response a status code equal to that given
 func (o *QueryPolicyRulesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query policy rules forbidden response
+func (o *QueryPolicyRulesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryPolicyRulesForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *QueryPolicyRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query policy rules too many requests response
+func (o *QueryPolicyRulesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryPolicyRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/policy-rules/v1][%d] queryPolicyRulesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type QueryPolicyRulesDefault struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
-// Code gets the status code for the query policy rules default response
-func (o *QueryPolicyRulesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query policy rules default response has a 2xx status code
 func (o *QueryPolicyRulesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *QueryPolicyRulesDefault) IsServerError() bool {
 // IsCode returns true when this query policy rules default response a status code equal to that given
 func (o *QueryPolicyRulesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query policy rules default response
+func (o *QueryPolicyRulesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryPolicyRulesDefault) Error() string {

@@ -125,6 +125,11 @@ func (o *QueryRulesV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rules v1 o k response
+func (o *QueryRulesV1OK) Code() int {
+	return 200
+}
+
 func (o *QueryRulesV1OK) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/rules/v1][%d] queryRulesV1OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *QueryRulesV1BadRequest) IsServerError() bool {
 // IsCode returns true when this query rules v1 bad request response a status code equal to that given
 func (o *QueryRulesV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query rules v1 bad request response
+func (o *QueryRulesV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryRulesV1BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *QueryRulesV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the query rules v1 unauthorized response
+func (o *QueryRulesV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *QueryRulesV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/rules/v1][%d] queryRulesV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *QueryRulesV1Forbidden) IsServerError() bool {
 // IsCode returns true when this query rules v1 forbidden response a status code equal to that given
 func (o *QueryRulesV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query rules v1 forbidden response
+func (o *QueryRulesV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRulesV1Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *QueryRulesV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this query rules v1 too many requests response a status code equal to that given
 func (o *QueryRulesV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query rules v1 too many requests response
+func (o *QueryRulesV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryRulesV1TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *QueryRulesV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query rules v1 internal server error response
+func (o *QueryRulesV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryRulesV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /recon/queries/rules/v1][%d] queryRulesV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type QueryRulesV1Default struct {
 	Payload *models.DomainRuleQueryResponseV1
 }
 
-// Code gets the status code for the query rules v1 default response
-func (o *QueryRulesV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query rules v1 default response has a 2xx status code
 func (o *QueryRulesV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *QueryRulesV1Default) IsServerError() bool {
 // IsCode returns true when this query rules v1 default response a status code equal to that given
 func (o *QueryRulesV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query rules v1 default response
+func (o *QueryRulesV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRulesV1Default) Error() string {

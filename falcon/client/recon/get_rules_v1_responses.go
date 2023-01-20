@@ -125,6 +125,11 @@ func (o *GetRulesV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rules v1 o k response
+func (o *GetRulesV1OK) Code() int {
+	return 200
+}
+
 func (o *GetRulesV1OK) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetRulesV1BadRequest) IsServerError() bool {
 // IsCode returns true when this get rules v1 bad request response a status code equal to that given
 func (o *GetRulesV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get rules v1 bad request response
+func (o *GetRulesV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *GetRulesV1BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *GetRulesV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get rules v1 unauthorized response
+func (o *GetRulesV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *GetRulesV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetRulesV1Forbidden) IsServerError() bool {
 // IsCode returns true when this get rules v1 forbidden response a status code equal to that given
 func (o *GetRulesV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get rules v1 forbidden response
+func (o *GetRulesV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetRulesV1Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *GetRulesV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get rules v1 too many requests response a status code equal to that given
 func (o *GetRulesV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get rules v1 too many requests response
+func (o *GetRulesV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRulesV1TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetRulesV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get rules v1 internal server error response
+func (o *GetRulesV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetRulesV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /recon/entities/rules/v1][%d] getRulesV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetRulesV1Default struct {
 	Payload *models.DomainRulesEntitiesResponseV1
 }
 
-// Code gets the status code for the get rules v1 default response
-func (o *GetRulesV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get rules v1 default response has a 2xx status code
 func (o *GetRulesV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetRulesV1Default) IsServerError() bool {
 // IsCode returns true when this get rules v1 default response a status code equal to that given
 func (o *GetRulesV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get rules v1 default response
+func (o *GetRulesV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRulesV1Default) Error() string {

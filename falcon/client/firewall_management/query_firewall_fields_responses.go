@@ -103,6 +103,11 @@ func (o *QueryFirewallFieldsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query firewall fields o k response
+func (o *QueryFirewallFieldsOK) Code() int {
+	return 200
+}
+
 func (o *QueryFirewallFieldsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryFirewallFieldsForbidden) IsServerError() bool {
 // IsCode returns true when this query firewall fields forbidden response a status code equal to that given
 func (o *QueryFirewallFieldsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query firewall fields forbidden response
+func (o *QueryFirewallFieldsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryFirewallFieldsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryFirewallFieldsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query firewall fields too many requests response
+func (o *QueryFirewallFieldsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryFirewallFieldsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryFirewallFieldsDefault struct {
 	Payload *models.FwmgrMsaQueryResponse
 }
 
-// Code gets the status code for the query firewall fields default response
-func (o *QueryFirewallFieldsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query firewall fields default response has a 2xx status code
 func (o *QueryFirewallFieldsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryFirewallFieldsDefault) IsServerError() bool {
 // IsCode returns true when this query firewall fields default response a status code equal to that given
 func (o *QueryFirewallFieldsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query firewall fields default response
+func (o *QueryFirewallFieldsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryFirewallFieldsDefault) Error() string {

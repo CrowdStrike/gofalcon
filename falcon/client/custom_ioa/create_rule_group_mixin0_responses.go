@@ -106,6 +106,11 @@ func (o *CreateRuleGroupMixin0Created) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create rule group mixin0 created response
+func (o *CreateRuleGroupMixin0Created) Code() int {
+	return 201
+}
+
 func (o *CreateRuleGroupMixin0Created) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Created  %+v", 201, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CreateRuleGroupMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create rule group mixin0 forbidden response
+func (o *CreateRuleGroupMixin0Forbidden) Code() int {
+	return 403
+}
+
 func (o *CreateRuleGroupMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rule-groups/v1][%d] createRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CreateRuleGroupMixin0NotFound) IsServerError() bool {
 // IsCode returns true when this create rule group mixin0 not found response a status code equal to that given
 func (o *CreateRuleGroupMixin0NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create rule group mixin0 not found response
+func (o *CreateRuleGroupMixin0NotFound) Code() int {
+	return 404
 }
 
 func (o *CreateRuleGroupMixin0NotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *CreateRuleGroupMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this create rule group mixin0 too many requests response a status code equal to that given
 func (o *CreateRuleGroupMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create rule group mixin0 too many requests response
+func (o *CreateRuleGroupMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateRuleGroupMixin0TooManyRequests) Error() string {

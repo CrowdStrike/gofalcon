@@ -113,6 +113,11 @@ func (o *QueryEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query events o k response
+func (o *QueryEventsOK) Code() int {
+	return 200
+}
+
 func (o *QueryEventsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *QueryEventsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query events bad request response
+func (o *QueryEventsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *QueryEventsForbidden) IsServerError() bool {
 // IsCode returns true when this query events forbidden response a status code equal to that given
 func (o *QueryEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query events forbidden response
+func (o *QueryEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryEventsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *QueryEventsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query events too many requests response
+func (o *QueryEventsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/events/v1][%d] queryEventsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type QueryEventsDefault struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
-// Code gets the status code for the query events default response
-func (o *QueryEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query events default response has a 2xx status code
 func (o *QueryEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *QueryEventsDefault) IsServerError() bool {
 // IsCode returns true when this query events default response a status code equal to that given
 func (o *QueryEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query events default response
+func (o *QueryEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryEventsDefault) Error() string {

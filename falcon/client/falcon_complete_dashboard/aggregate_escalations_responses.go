@@ -103,6 +103,11 @@ func (o *AggregateEscalationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate escalations o k response
+func (o *AggregateEscalationsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateEscalationsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregateEscalationsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate escalations forbidden response a status code equal to that given
 func (o *AggregateEscalationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate escalations forbidden response
+func (o *AggregateEscalationsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateEscalationsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregateEscalationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate escalations too many requests response
+func (o *AggregateEscalationsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateEscalationsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/escalations/GET/v1][%d] aggregateEscalationsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregateEscalationsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate escalations default response
-func (o *AggregateEscalationsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate escalations default response has a 2xx status code
 func (o *AggregateEscalationsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregateEscalationsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate escalations default response a status code equal to that given
 func (o *AggregateEscalationsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate escalations default response
+func (o *AggregateEscalationsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateEscalationsDefault) Error() string {

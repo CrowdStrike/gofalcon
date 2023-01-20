@@ -125,6 +125,11 @@ func (o *PerformPreventionPoliciesActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform prevention policies action o k response
+func (o *PerformPreventionPoliciesActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformPreventionPoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-actions/v1][%d] performPreventionPoliciesActionOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *PerformPreventionPoliciesActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform prevention policies action bad request response a status code equal to that given
 func (o *PerformPreventionPoliciesActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform prevention policies action bad request response
+func (o *PerformPreventionPoliciesActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformPreventionPoliciesActionBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *PerformPreventionPoliciesActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform prevention policies action forbidden response
+func (o *PerformPreventionPoliciesActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformPreventionPoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-actions/v1][%d] performPreventionPoliciesActionForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *PerformPreventionPoliciesActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform prevention policies action not found response a status code equal to that given
 func (o *PerformPreventionPoliciesActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform prevention policies action not found response
+func (o *PerformPreventionPoliciesActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformPreventionPoliciesActionNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *PerformPreventionPoliciesActionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform prevention policies action too many requests response a status code equal to that given
 func (o *PerformPreventionPoliciesActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform prevention policies action too many requests response
+func (o *PerformPreventionPoliciesActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformPreventionPoliciesActionTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *PerformPreventionPoliciesActionInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the perform prevention policies action internal server error response
+func (o *PerformPreventionPoliciesActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformPreventionPoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-actions/v1][%d] performPreventionPoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type PerformPreventionPoliciesActionDefault struct {
 	Payload *models.ResponsesPreventionPoliciesV1
 }
 
-// Code gets the status code for the perform prevention policies action default response
-func (o *PerformPreventionPoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform prevention policies action default response has a 2xx status code
 func (o *PerformPreventionPoliciesActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *PerformPreventionPoliciesActionDefault) IsServerError() bool {
 // IsCode returns true when this perform prevention policies action default response a status code equal to that given
 func (o *PerformPreventionPoliciesActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform prevention policies action default response
+func (o *PerformPreventionPoliciesActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformPreventionPoliciesActionDefault) Error() string {

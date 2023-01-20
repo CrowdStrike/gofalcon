@@ -112,6 +112,11 @@ func (o *GetArtifactsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get artifacts bad request response
+func (o *GetArtifactsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetArtifactsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsBadRequest  %+v", 400, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetArtifactsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get artifacts forbidden response
+func (o *GetArtifactsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetArtifactsForbidden) Error() string {
 	return fmt.Sprintf("[GET /falconx/entities/artifacts/v1][%d] getArtifactsForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetArtifactsNotFound) IsServerError() bool {
 // IsCode returns true when this get artifacts not found response a status code equal to that given
 func (o *GetArtifactsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get artifacts not found response
+func (o *GetArtifactsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetArtifactsNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetArtifactsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get artifacts too many requests response a status code equal to that given
 func (o *GetArtifactsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get artifacts too many requests response
+func (o *GetArtifactsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetArtifactsTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetArtifactsInternalServerError) IsServerError() bool {
 // IsCode returns true when this get artifacts internal server error response a status code equal to that given
 func (o *GetArtifactsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get artifacts internal server error response
+func (o *GetArtifactsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetArtifactsInternalServerError) Error() string {

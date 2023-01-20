@@ -118,6 +118,11 @@ func (o *TriggerScanCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the trigger scan created response
+func (o *TriggerScanCreated) Code() int {
+	return 201
+}
+
 func (o *TriggerScanCreated) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *TriggerScanMultiStatus) IsServerError() bool {
 // IsCode returns true when this trigger scan multi status response a status code equal to that given
 func (o *TriggerScanMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the trigger scan multi status response
+func (o *TriggerScanMultiStatus) Code() int {
+	return 207
 }
 
 func (o *TriggerScanMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *TriggerScanBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the trigger scan bad request response
+func (o *TriggerScanBadRequest) Code() int {
+	return 400
+}
+
 func (o *TriggerScanBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/scan/trigger/v1][%d] triggerScanBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *TriggerScanForbidden) IsServerError() bool {
 // IsCode returns true when this trigger scan forbidden response a status code equal to that given
 func (o *TriggerScanForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the trigger scan forbidden response
+func (o *TriggerScanForbidden) Code() int {
+	return 403
 }
 
 func (o *TriggerScanForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *TriggerScanTooManyRequests) IsServerError() bool {
 // IsCode returns true when this trigger scan too many requests response a status code equal to that given
 func (o *TriggerScanTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the trigger scan too many requests response
+func (o *TriggerScanTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TriggerScanTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *TriggerScanInternalServerError) IsServerError() bool {
 // IsCode returns true when this trigger scan internal server error response a status code equal to that given
 func (o *TriggerScanInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the trigger scan internal server error response
+func (o *TriggerScanInternalServerError) Code() int {
+	return 500
 }
 
 func (o *TriggerScanInternalServerError) Error() string {

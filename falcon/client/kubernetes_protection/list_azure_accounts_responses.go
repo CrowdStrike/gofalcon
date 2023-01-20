@@ -118,6 +118,11 @@ func (o *ListAzureAccountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list azure accounts o k response
+func (o *ListAzureAccountsOK) Code() int {
+	return 200
+}
+
 func (o *ListAzureAccountsOK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *ListAzureAccountsMultiStatus) IsServerError() bool {
 // IsCode returns true when this list azure accounts multi status response a status code equal to that given
 func (o *ListAzureAccountsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the list azure accounts multi status response
+func (o *ListAzureAccountsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *ListAzureAccountsMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *ListAzureAccountsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the list azure accounts bad request response
+func (o *ListAzureAccountsBadRequest) Code() int {
+	return 400
+}
+
 func (o *ListAzureAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/azure/v1][%d] listAzureAccountsBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *ListAzureAccountsForbidden) IsServerError() bool {
 // IsCode returns true when this list azure accounts forbidden response a status code equal to that given
 func (o *ListAzureAccountsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list azure accounts forbidden response
+func (o *ListAzureAccountsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListAzureAccountsForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *ListAzureAccountsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this list azure accounts too many requests response a status code equal to that given
 func (o *ListAzureAccountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the list azure accounts too many requests response
+func (o *ListAzureAccountsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ListAzureAccountsTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *ListAzureAccountsInternalServerError) IsServerError() bool {
 // IsCode returns true when this list azure accounts internal server error response a status code equal to that given
 func (o *ListAzureAccountsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the list azure accounts internal server error response
+func (o *ListAzureAccountsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ListAzureAccountsInternalServerError) Error() string {

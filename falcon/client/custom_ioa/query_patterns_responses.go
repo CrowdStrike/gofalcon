@@ -103,6 +103,11 @@ func (o *QueryPatternsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query patterns o k response
+func (o *QueryPatternsOK) Code() int {
+	return 200
+}
+
 func (o *QueryPatternsOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryPatternsForbidden) IsServerError() bool {
 // IsCode returns true when this query patterns forbidden response a status code equal to that given
 func (o *QueryPatternsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query patterns forbidden response
+func (o *QueryPatternsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryPatternsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryPatternsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query patterns too many requests response
+func (o *QueryPatternsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryPatternsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/pattern-severities/v1][%d] queryPatternsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryPatternsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query patterns default response
-func (o *QueryPatternsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query patterns default response has a 2xx status code
 func (o *QueryPatternsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryPatternsDefault) IsServerError() bool {
 // IsCode returns true when this query patterns default response a status code equal to that given
 func (o *QueryPatternsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query patterns default response
+func (o *QueryPatternsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryPatternsDefault) Error() string {

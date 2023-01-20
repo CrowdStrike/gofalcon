@@ -115,6 +115,11 @@ func (o *DeletedRolesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the deleted roles o k response
+func (o *DeletedRolesOK) Code() int {
+	return 200
+}
+
 func (o *DeletedRolesOK) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *DeletedRolesMultiStatus) IsServerError() bool {
 // IsCode returns true when this deleted roles multi status response a status code equal to that given
 func (o *DeletedRolesMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the deleted roles multi status response
+func (o *DeletedRolesMultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeletedRolesMultiStatus) Error() string {
@@ -303,6 +313,11 @@ func (o *DeletedRolesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the deleted roles bad request response
+func (o *DeletedRolesBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeletedRolesBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesBadRequest  %+v", 400, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *DeletedRolesForbidden) IsServerError() bool {
 // IsCode returns true when this deleted roles forbidden response a status code equal to that given
 func (o *DeletedRolesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the deleted roles forbidden response
+func (o *DeletedRolesForbidden) Code() int {
+	return 403
 }
 
 func (o *DeletedRolesForbidden) Error() string {
@@ -495,6 +515,11 @@ func (o *DeletedRolesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the deleted roles too many requests response
+func (o *DeletedRolesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeletedRolesTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRolesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type DeletedRolesDefault struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
-// Code gets the status code for the deleted roles default response
-func (o *DeletedRolesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this deleted roles default response has a 2xx status code
 func (o *DeletedRolesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *DeletedRolesDefault) IsServerError() bool {
 // IsCode returns true when this deleted roles default response a status code equal to that given
 func (o *DeletedRolesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the deleted roles default response
+func (o *DeletedRolesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeletedRolesDefault) Error() string {

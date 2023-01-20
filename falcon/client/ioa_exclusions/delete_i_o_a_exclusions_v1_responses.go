@@ -112,6 +112,11 @@ func (o *DeleteIOAExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete i o a exclusions v1 o k response
+func (o *DeleteIOAExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *DeleteIOAExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteIOAExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete i o a exclusions v1 bad request response
+func (o *DeleteIOAExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteIOAExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ioa-exclusions/v1][%d] deleteIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteIOAExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this delete i o a exclusions v1 forbidden response a status code equal to that given
 func (o *DeleteIOAExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete i o a exclusions v1 forbidden response
+func (o *DeleteIOAExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteIOAExclusionsV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteIOAExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete i o a exclusions v1 too many requests response a status code equal to that given
 func (o *DeleteIOAExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete i o a exclusions v1 too many requests response
+func (o *DeleteIOAExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteIOAExclusionsV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteIOAExclusionsV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this delete i o a exclusions v1 internal server error response a status code equal to that given
 func (o *DeleteIOAExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete i o a exclusions v1 internal server error response
+func (o *DeleteIOAExclusionsV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteIOAExclusionsV1InternalServerError) Error() string {

@@ -113,6 +113,11 @@ func (o *RetrieveUserUUIDsByCIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the retrieve user u Ui ds by c Id o k response
+func (o *RetrieveUserUUIDsByCIDOK) Code() int {
+	return 200
+}
+
 func (o *RetrieveUserUUIDsByCIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *RetrieveUserUUIDsByCIDBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the retrieve user u Ui ds by c Id bad request response
+func (o *RetrieveUserUUIDsByCIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *RetrieveUserUUIDsByCIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *RetrieveUserUUIDsByCIDForbidden) IsServerError() bool {
 // IsCode returns true when this retrieve user u Ui ds by c Id forbidden response a status code equal to that given
 func (o *RetrieveUserUUIDsByCIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the retrieve user u Ui ds by c Id forbidden response
+func (o *RetrieveUserUUIDsByCIDForbidden) Code() int {
+	return 403
 }
 
 func (o *RetrieveUserUUIDsByCIDForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *RetrieveUserUUIDsByCIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the retrieve user u Ui ds by c Id too many requests response
+func (o *RetrieveUserUUIDsByCIDTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RetrieveUserUUIDsByCIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] retrieveUserUUiDsByCIdTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type RetrieveUserUUIDsByCIDDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the retrieve user u UI ds by c ID default response
-func (o *RetrieveUserUUIDsByCIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this retrieve user u UI ds by c ID default response has a 2xx status code
 func (o *RetrieveUserUUIDsByCIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *RetrieveUserUUIDsByCIDDefault) IsServerError() bool {
 // IsCode returns true when this retrieve user u UI ds by c ID default response a status code equal to that given
 func (o *RetrieveUserUUIDsByCIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the retrieve user u UI ds by c ID default response
+func (o *RetrieveUserUUIDsByCIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RetrieveUserUUIDsByCIDDefault) Error() string {

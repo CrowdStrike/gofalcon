@@ -112,6 +112,11 @@ func (o *GetUserGroupsByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get user groups by Id o k response
+func (o *GetUserGroupsByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetUserGroupsByIDOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdOK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *GetUserGroupsByIDMultiStatus) IsServerError() bool {
 // IsCode returns true when this get user groups by Id multi status response a status code equal to that given
 func (o *GetUserGroupsByIDMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get user groups by Id multi status response
+func (o *GetUserGroupsByIDMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetUserGroupsByIDMultiStatus) Error() string {
@@ -322,6 +332,11 @@ func (o *GetUserGroupsByIDBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get user groups by Id bad request response
+func (o *GetUserGroupsByIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetUserGroupsByIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/user-groups/v1][%d] getUserGroupsByIdBadRequest  %+v", 400, o.Payload)
 }
@@ -425,6 +440,11 @@ func (o *GetUserGroupsByIDForbidden) IsServerError() bool {
 // IsCode returns true when this get user groups by Id forbidden response a status code equal to that given
 func (o *GetUserGroupsByIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get user groups by Id forbidden response
+func (o *GetUserGroupsByIDForbidden) Code() int {
+	return 403
 }
 
 func (o *GetUserGroupsByIDForbidden) Error() string {
@@ -534,6 +554,11 @@ func (o *GetUserGroupsByIDTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get user groups by Id too many requests response a status code equal to that given
 func (o *GetUserGroupsByIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get user groups by Id too many requests response
+func (o *GetUserGroupsByIDTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetUserGroupsByIDTooManyRequests) Error() string {

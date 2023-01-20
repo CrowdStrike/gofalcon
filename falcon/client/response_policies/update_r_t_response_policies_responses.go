@@ -125,6 +125,11 @@ func (o *UpdateRTResponsePoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update r t response policies o k response
+func (o *UpdateRTResponsePoliciesOK) Code() int {
+	return 200
+}
+
 func (o *UpdateRTResponsePoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *UpdateRTResponsePoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this update r t response policies bad request response a status code equal to that given
 func (o *UpdateRTResponsePoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update r t response policies bad request response
+func (o *UpdateRTResponsePoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateRTResponsePoliciesBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *UpdateRTResponsePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update r t response policies forbidden response
+func (o *UpdateRTResponsePoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateRTResponsePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *UpdateRTResponsePoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this update r t response policies not found response a status code equal to that given
 func (o *UpdateRTResponsePoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update r t response policies not found response
+func (o *UpdateRTResponsePoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateRTResponsePoliciesNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *UpdateRTResponsePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update r t response policies too many requests response a status code equal to that given
 func (o *UpdateRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update r t response policies too many requests response
+func (o *UpdateRTResponsePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateRTResponsePoliciesTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *UpdateRTResponsePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update r t response policies internal server error response
+func (o *UpdateRTResponsePoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateRTResponsePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type UpdateRTResponsePoliciesDefault struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
-// Code gets the status code for the update r t response policies default response
-func (o *UpdateRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update r t response policies default response has a 2xx status code
 func (o *UpdateRTResponsePoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *UpdateRTResponsePoliciesDefault) IsServerError() bool {
 // IsCode returns true when this update r t response policies default response a status code equal to that given
 func (o *UpdateRTResponsePoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update r t response policies default response
+func (o *UpdateRTResponsePoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateRTResponsePoliciesDefault) Error() string {

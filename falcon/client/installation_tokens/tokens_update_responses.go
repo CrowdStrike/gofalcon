@@ -121,6 +121,11 @@ func (o *TokensUpdateOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tokens update o k response
+func (o *TokensUpdateOK) Code() int {
+	return 200
+}
+
 func (o *TokensUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *TokensUpdateBadRequest) IsServerError() bool {
 // IsCode returns true when this tokens update bad request response a status code equal to that given
 func (o *TokensUpdateBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the tokens update bad request response
+func (o *TokensUpdateBadRequest) Code() int {
+	return 400
 }
 
 func (o *TokensUpdateBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *TokensUpdateForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the tokens update forbidden response
+func (o *TokensUpdateForbidden) Code() int {
+	return 403
+}
+
 func (o *TokensUpdateForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *TokensUpdateNotFound) IsServerError() bool {
 // IsCode returns true when this tokens update not found response a status code equal to that given
 func (o *TokensUpdateNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the tokens update not found response
+func (o *TokensUpdateNotFound) Code() int {
+	return 404
 }
 
 func (o *TokensUpdateNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *TokensUpdateTooManyRequests) IsServerError() bool {
 // IsCode returns true when this tokens update too many requests response a status code equal to that given
 func (o *TokensUpdateTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the tokens update too many requests response
+func (o *TokensUpdateTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TokensUpdateTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *TokensUpdateInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the tokens update internal server error response
+func (o *TokensUpdateInternalServerError) Code() int {
+	return 500
+}
+
 func (o *TokensUpdateInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type TokensUpdateDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the tokens update default response
-func (o *TokensUpdateDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tokens update default response has a 2xx status code
 func (o *TokensUpdateDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *TokensUpdateDefault) IsServerError() bool {
 // IsCode returns true when this tokens update default response a status code equal to that given
 func (o *TokensUpdateDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tokens update default response
+func (o *TokensUpdateDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TokensUpdateDefault) Error() string {

@@ -113,6 +113,11 @@ func (o *QueryRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rules o k response
+func (o *QueryRulesOK) Code() int {
+	return 200
+}
+
 func (o *QueryRulesOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *QueryRulesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query rules bad request response
+func (o *QueryRulesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryRulesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *QueryRulesForbidden) IsServerError() bool {
 // IsCode returns true when this query rules forbidden response a status code equal to that given
 func (o *QueryRulesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query rules forbidden response
+func (o *QueryRulesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRulesForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *QueryRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query rules too many requests response
+func (o *QueryRulesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rules/v1][%d] queryRulesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type QueryRulesDefault struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
-// Code gets the status code for the query rules default response
-func (o *QueryRulesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query rules default response has a 2xx status code
 func (o *QueryRulesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *QueryRulesDefault) IsServerError() bool {
 // IsCode returns true when this query rules default response a status code equal to that given
 func (o *QueryRulesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query rules default response
+func (o *QueryRulesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRulesDefault) Error() string {

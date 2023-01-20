@@ -119,6 +119,11 @@ func (o *CombinedQueryVulnerabilitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the combined query vulnerabilities o k response
+func (o *CombinedQueryVulnerabilitiesOK) Code() int {
+	return 200
+}
+
 func (o *CombinedQueryVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *CombinedQueryVulnerabilitiesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the combined query vulnerabilities bad request response
+func (o *CombinedQueryVulnerabilitiesBadRequest) Code() int {
+	return 400
+}
+
 func (o *CombinedQueryVulnerabilitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *CombinedQueryVulnerabilitiesForbidden) IsServerError() bool {
 // IsCode returns true when this combined query vulnerabilities forbidden response a status code equal to that given
 func (o *CombinedQueryVulnerabilitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the combined query vulnerabilities forbidden response
+func (o *CombinedQueryVulnerabilitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *CombinedQueryVulnerabilitiesForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this combined query vulnerabilities too many requests response a status code equal to that given
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the combined query vulnerabilities too many requests response
+func (o *CombinedQueryVulnerabilitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CombinedQueryVulnerabilitiesTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *CombinedQueryVulnerabilitiesInternalServerError) IsCode(code int) bool 
 	return code == 500
 }
 
+// Code gets the status code for the combined query vulnerabilities internal server error response
+func (o *CombinedQueryVulnerabilitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CombinedQueryVulnerabilitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type CombinedQueryVulnerabilitiesDefault struct {
 	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
 }
 
-// Code gets the status code for the combined query vulnerabilities default response
-func (o *CombinedQueryVulnerabilitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this combined query vulnerabilities default response has a 2xx status code
 func (o *CombinedQueryVulnerabilitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *CombinedQueryVulnerabilitiesDefault) IsServerError() bool {
 // IsCode returns true when this combined query vulnerabilities default response a status code equal to that given
 func (o *CombinedQueryVulnerabilitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the combined query vulnerabilities default response
+func (o *CombinedQueryVulnerabilitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CombinedQueryVulnerabilitiesDefault) Error() string {

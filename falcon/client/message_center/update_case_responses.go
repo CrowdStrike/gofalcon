@@ -119,6 +119,11 @@ func (o *UpdateCaseOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update case o k response
+func (o *UpdateCaseOK) Code() int {
+	return 200
+}
+
 func (o *UpdateCaseOK) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *UpdateCaseBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update case bad request response
+func (o *UpdateCaseBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCaseBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *UpdateCaseForbidden) IsServerError() bool {
 // IsCode returns true when this update case forbidden response a status code equal to that given
 func (o *UpdateCaseForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update case forbidden response
+func (o *UpdateCaseForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCaseForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *UpdateCaseTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update case too many requests response a status code equal to that given
 func (o *UpdateCaseTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update case too many requests response
+func (o *UpdateCaseTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateCaseTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *UpdateCaseInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update case internal server error response
+func (o *UpdateCaseInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateCaseInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /message-center/entities/case/v1][%d] updateCaseInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type UpdateCaseDefault struct {
 	Payload *models.MsaReplyAffectedEntities
 }
 
-// Code gets the status code for the update case default response
-func (o *UpdateCaseDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update case default response has a 2xx status code
 func (o *UpdateCaseDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *UpdateCaseDefault) IsServerError() bool {
 // IsCode returns true when this update case default response a status code equal to that given
 func (o *UpdateCaseDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update case default response
+func (o *UpdateCaseDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateCaseDefault) Error() string {

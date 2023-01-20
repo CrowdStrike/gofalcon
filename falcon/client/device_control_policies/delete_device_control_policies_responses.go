@@ -112,6 +112,11 @@ func (o *DeleteDeviceControlPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete device control policies o k response
+func (o *DeleteDeviceControlPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *DeleteDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteDeviceControlPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete device control policies forbidden response
+func (o *DeleteDeviceControlPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/device-control/v1][%d] deleteDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteDeviceControlPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this delete device control policies not found response a status code equal to that given
 func (o *DeleteDeviceControlPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete device control policies not found response
+func (o *DeleteDeviceControlPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteDeviceControlPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteDeviceControlPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete device control policies too many requests response a status code equal to that given
 func (o *DeleteDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete device control policies too many requests response
+func (o *DeleteDeviceControlPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteDeviceControlPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteDeviceControlPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete device control policies internal server error response a status code equal to that given
 func (o *DeleteDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete device control policies internal server error response
+func (o *DeleteDeviceControlPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteDeviceControlPoliciesInternalServerError) Error() string {

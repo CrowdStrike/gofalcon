@@ -115,6 +115,11 @@ func (o *AddRoleOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the add role o k response
+func (o *AddRoleOK) Code() int {
+	return 200
+}
+
 func (o *AddRoleOK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *AddRoleMultiStatus) IsServerError() bool {
 // IsCode returns true when this add role multi status response a status code equal to that given
 func (o *AddRoleMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the add role multi status response
+func (o *AddRoleMultiStatus) Code() int {
+	return 207
 }
 
 func (o *AddRoleMultiStatus) Error() string {
@@ -303,6 +313,11 @@ func (o *AddRoleBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the add role bad request response
+func (o *AddRoleBadRequest) Code() int {
+	return 400
+}
+
 func (o *AddRoleBadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleBadRequest  %+v", 400, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *AddRoleForbidden) IsServerError() bool {
 // IsCode returns true when this add role forbidden response a status code equal to that given
 func (o *AddRoleForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the add role forbidden response
+func (o *AddRoleForbidden) Code() int {
+	return 403
 }
 
 func (o *AddRoleForbidden) Error() string {
@@ -495,6 +515,11 @@ func (o *AddRoleTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the add role too many requests response
+func (o *AddRoleTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AddRoleTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRoleTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type AddRoleDefault struct {
 	Payload *models.DomainMSSPRoleResponseV1
 }
 
-// Code gets the status code for the add role default response
-func (o *AddRoleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this add role default response has a 2xx status code
 func (o *AddRoleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *AddRoleDefault) IsServerError() bool {
 // IsCode returns true when this add role default response a status code equal to that given
 func (o *AddRoleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the add role default response
+func (o *AddRoleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AddRoleDefault) Error() string {

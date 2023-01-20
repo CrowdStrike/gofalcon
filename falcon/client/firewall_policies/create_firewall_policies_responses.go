@@ -114,6 +114,11 @@ func (o *CreateFirewallPoliciesCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create firewall policies created response
+func (o *CreateFirewallPoliciesCreated) Code() int {
+	return 201
+}
+
 func (o *CreateFirewallPoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesCreated  %+v", 201, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *CreateFirewallPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this create firewall policies bad request response a status code equal to that given
 func (o *CreateFirewallPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create firewall policies bad request response
+func (o *CreateFirewallPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateFirewallPoliciesBadRequest) Error() string {
@@ -302,6 +312,11 @@ func (o *CreateFirewallPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create firewall policies forbidden response
+func (o *CreateFirewallPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *CreateFirewallPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this create firewall policies not found response a status code equal to that given
 func (o *CreateFirewallPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create firewall policies not found response
+func (o *CreateFirewallPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *CreateFirewallPoliciesNotFound) Error() string {
@@ -492,6 +512,11 @@ func (o *CreateFirewallPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create firewall policies too many requests response a status code equal to that given
 func (o *CreateFirewallPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create firewall policies too many requests response
+func (o *CreateFirewallPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateFirewallPoliciesTooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *CreateFirewallPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this create firewall policies internal server error response a status code equal to that given
 func (o *CreateFirewallPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create firewall policies internal server error response
+func (o *CreateFirewallPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateFirewallPoliciesInternalServerError) Error() string {

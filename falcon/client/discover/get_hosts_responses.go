@@ -56,14 +56,7 @@ func (o *GetHostsReader) ReadResponse(response runtime.ClientResponse, consumer 
 		}
 		return nil, result
 	default:
-		result := NewGetHostsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -117,6 +110,11 @@ func (o *GetHostsOK) IsServerError() bool {
 // IsCode returns true when this get hosts o k response a status code equal to that given
 func (o *GetHostsOK) IsCode(code int) bool {
 	return code == 200
+}
+
+// Code gets the status code for the get hosts o k response
+func (o *GetHostsOK) Code() int {
+	return 200
 }
 
 func (o *GetHostsOK) Error() string {
@@ -196,7 +194,7 @@ type GetHostsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get hosts bad request response has a 2xx status code
@@ -224,6 +222,11 @@ func (o *GetHostsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get hosts bad request response
+func (o *GetHostsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetHostsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsBadRequest  %+v", 400, o.Payload)
 }
@@ -232,7 +235,7 @@ func (o *GetHostsBadRequest) String() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetHostsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -267,7 +270,7 @@ func (o *GetHostsBadRequest) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -327,6 +330,11 @@ func (o *GetHostsForbidden) IsServerError() bool {
 // IsCode returns true when this get hosts forbidden response a status code equal to that given
 func (o *GetHostsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get hosts forbidden response
+func (o *GetHostsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetHostsForbidden) Error() string {
@@ -438,6 +446,11 @@ func (o *GetHostsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get hosts too many requests response
+func (o *GetHostsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetHostsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -526,7 +539,7 @@ type GetHostsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get hosts internal server error response has a 2xx status code
@@ -554,6 +567,11 @@ func (o *GetHostsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get hosts internal server error response
+func (o *GetHostsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetHostsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsInternalServerError  %+v", 500, o.Payload)
 }
@@ -562,7 +580,7 @@ func (o *GetHostsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] getHostsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetHostsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -597,79 +615,7 @@ func (o *GetHostsInternalServerError) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetHostsDefault creates a GetHostsDefault with default headers values
-func NewGetHostsDefault(code int) *GetHostsDefault {
-	return &GetHostsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetHostsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetHostsDefault struct {
-	_statusCode int
-
-	Payload *models.DomainDiscoverAPIHostEntitiesResponse
-}
-
-// Code gets the status code for the get hosts default response
-func (o *GetHostsDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this get hosts default response has a 2xx status code
-func (o *GetHostsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get hosts default response has a 3xx status code
-func (o *GetHostsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get hosts default response has a 4xx status code
-func (o *GetHostsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get hosts default response has a 5xx status code
-func (o *GetHostsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get hosts default response a status code equal to that given
-func (o *GetHostsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *GetHostsDefault) Error() string {
-	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] get-hosts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetHostsDefault) String() string {
-	return fmt.Sprintf("[GET /discover/entities/hosts/v1][%d] get-hosts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetHostsDefault) GetPayload() *models.DomainDiscoverAPIHostEntitiesResponse {
-	return o.Payload
-}
-
-func (o *GetHostsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainDiscoverAPIHostEntitiesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

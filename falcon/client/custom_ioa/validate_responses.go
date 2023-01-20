@@ -106,6 +106,11 @@ func (o *ValidateOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the validate o k response
+func (o *ValidateOK) Code() int {
+	return 200
+}
+
 func (o *ValidateOK) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *ValidateForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the validate forbidden response
+func (o *ValidateForbidden) Code() int {
+	return 403
+}
+
 func (o *ValidateForbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/validate/v1][%d] validateForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *ValidateNotFound) IsServerError() bool {
 // IsCode returns true when this validate not found response a status code equal to that given
 func (o *ValidateNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the validate not found response
+func (o *ValidateNotFound) Code() int {
+	return 404
 }
 
 func (o *ValidateNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *ValidateTooManyRequests) IsServerError() bool {
 // IsCode returns true when this validate too many requests response a status code equal to that given
 func (o *ValidateTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the validate too many requests response
+func (o *ValidateTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ValidateTooManyRequests) Error() string {

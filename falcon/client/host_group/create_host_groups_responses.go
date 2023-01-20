@@ -112,6 +112,11 @@ func (o *CreateHostGroupsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create host groups created response
+func (o *CreateHostGroupsCreated) Code() int {
+	return 201
+}
+
 func (o *CreateHostGroupsCreated) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *CreateHostGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create host groups bad request response
+func (o *CreateHostGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateHostGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *CreateHostGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this create host groups forbidden response a status code equal to that given
 func (o *CreateHostGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create host groups forbidden response
+func (o *CreateHostGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateHostGroupsForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *CreateHostGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create host groups too many requests response a status code equal to that given
 func (o *CreateHostGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create host groups too many requests response
+func (o *CreateHostGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateHostGroupsTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *CreateHostGroupsInternalServerError) IsServerError() bool {
 // IsCode returns true when this create host groups internal server error response a status code equal to that given
 func (o *CreateHostGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create host groups internal server error response
+func (o *CreateHostGroupsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateHostGroupsInternalServerError) Error() string {

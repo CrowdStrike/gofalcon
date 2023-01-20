@@ -119,6 +119,11 @@ func (o *GetBehaviorDetectionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get behavior detections o k response
+func (o *GetBehaviorDetectionsOK) Code() int {
+	return 200
+}
+
 func (o *GetBehaviorDetectionsOK) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetBehaviorDetectionsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get behavior detections bad request response
+func (o *GetBehaviorDetectionsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetBehaviorDetectionsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetBehaviorDetectionsForbidden) IsServerError() bool {
 // IsCode returns true when this get behavior detections forbidden response a status code equal to that given
 func (o *GetBehaviorDetectionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get behavior detections forbidden response
+func (o *GetBehaviorDetectionsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetBehaviorDetectionsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetBehaviorDetectionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get behavior detections too many requests response a status code equal to that given
 func (o *GetBehaviorDetectionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get behavior detections too many requests response
+func (o *GetBehaviorDetectionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetBehaviorDetectionsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetBehaviorDetectionsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get behavior detections internal server error response
+func (o *GetBehaviorDetectionsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetBehaviorDetectionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/ioa/v1][%d] getBehaviorDetectionsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetBehaviorDetectionsDefault struct {
 	Payload *models.RegistrationExternalIOAEventResponse
 }
 
-// Code gets the status code for the get behavior detections default response
-func (o *GetBehaviorDetectionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get behavior detections default response has a 2xx status code
 func (o *GetBehaviorDetectionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetBehaviorDetectionsDefault) IsServerError() bool {
 // IsCode returns true when this get behavior detections default response a status code equal to that given
 func (o *GetBehaviorDetectionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get behavior detections default response
+func (o *GetBehaviorDetectionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetBehaviorDetectionsDefault) Error() string {

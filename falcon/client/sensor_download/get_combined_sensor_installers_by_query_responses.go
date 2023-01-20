@@ -109,6 +109,11 @@ func (o *GetCombinedSensorInstallersByQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get combined sensor installers by query o k response
+func (o *GetCombinedSensorInstallersByQueryOK) Code() int {
+	return 200
+}
+
 func (o *GetCombinedSensorInstallersByQueryOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *GetCombinedSensorInstallersByQueryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get combined sensor installers by query bad request response
+func (o *GetCombinedSensorInstallersByQueryBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCombinedSensorInstallersByQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *GetCombinedSensorInstallersByQueryForbidden) IsServerError() bool {
 // IsCode returns true when this get combined sensor installers by query forbidden response a status code equal to that given
 func (o *GetCombinedSensorInstallersByQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get combined sensor installers by query forbidden response
+func (o *GetCombinedSensorInstallersByQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCombinedSensorInstallersByQueryForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *GetCombinedSensorInstallersByQueryTooManyRequests) IsCode(code int) boo
 	return code == 429
 }
 
+// Code gets the status code for the get combined sensor installers by query too many requests response
+func (o *GetCombinedSensorInstallersByQueryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetCombinedSensorInstallersByQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetCombinedSensorInstallersByQueryDefault struct {
 	Payload *models.DomainSensorInstallersV1
 }
 
-// Code gets the status code for the get combined sensor installers by query default response
-func (o *GetCombinedSensorInstallersByQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get combined sensor installers by query default response has a 2xx status code
 func (o *GetCombinedSensorInstallersByQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetCombinedSensorInstallersByQueryDefault) IsServerError() bool {
 // IsCode returns true when this get combined sensor installers by query default response a status code equal to that given
 func (o *GetCombinedSensorInstallersByQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get combined sensor installers by query default response
+func (o *GetCombinedSensorInstallersByQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCombinedSensorInstallersByQueryDefault) Error() string {

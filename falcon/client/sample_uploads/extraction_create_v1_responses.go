@@ -125,6 +125,11 @@ func (o *ExtractionCreateV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the extraction create v1 o k response
+func (o *ExtractionCreateV1OK) Code() int {
+	return 200
+}
+
 func (o *ExtractionCreateV1OK) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *ExtractionCreateV1Accepted) IsServerError() bool {
 // IsCode returns true when this extraction create v1 accepted response a status code equal to that given
 func (o *ExtractionCreateV1Accepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the extraction create v1 accepted response
+func (o *ExtractionCreateV1Accepted) Code() int {
+	return 202
 }
 
 func (o *ExtractionCreateV1Accepted) Error() string {
@@ -335,6 +345,11 @@ func (o *ExtractionCreateV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the extraction create v1 bad request response
+func (o *ExtractionCreateV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *ExtractionCreateV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1BadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *ExtractionCreateV1Forbidden) IsServerError() bool {
 // IsCode returns true when this extraction create v1 forbidden response a status code equal to that given
 func (o *ExtractionCreateV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the extraction create v1 forbidden response
+func (o *ExtractionCreateV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *ExtractionCreateV1Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *ExtractionCreateV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this extraction create v1 too many requests response a status code equal to that given
 func (o *ExtractionCreateV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the extraction create v1 too many requests response
+func (o *ExtractionCreateV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ExtractionCreateV1TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *ExtractionCreateV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the extraction create v1 internal server error response
+func (o *ExtractionCreateV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *ExtractionCreateV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] extractionCreateV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type ExtractionCreateV1Default struct {
 	Payload *models.ClientExtractionCreateResponseV1
 }
 
-// Code gets the status code for the extraction create v1 default response
-func (o *ExtractionCreateV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this extraction create v1 default response has a 2xx status code
 func (o *ExtractionCreateV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *ExtractionCreateV1Default) IsServerError() bool {
 // IsCode returns true when this extraction create v1 default response a status code equal to that given
 func (o *ExtractionCreateV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the extraction create v1 default response
+func (o *ExtractionCreateV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ExtractionCreateV1Default) Error() string {

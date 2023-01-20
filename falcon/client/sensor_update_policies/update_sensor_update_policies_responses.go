@@ -121,6 +121,11 @@ func (o *UpdateSensorUpdatePoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update sensor update policies o k response
+func (o *UpdateSensorUpdatePoliciesOK) Code() int {
+	return 200
+}
+
 func (o *UpdateSensorUpdatePoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *UpdateSensorUpdatePoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this update sensor update policies bad request response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update sensor update policies bad request response
+func (o *UpdateSensorUpdatePoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateSensorUpdatePoliciesBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *UpdateSensorUpdatePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update sensor update policies forbidden response
+func (o *UpdateSensorUpdatePoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateSensorUpdatePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *UpdateSensorUpdatePoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this update sensor update policies not found response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update sensor update policies not found response
+func (o *UpdateSensorUpdatePoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateSensorUpdatePoliciesNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update sensor update policies too many requests response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update sensor update policies too many requests response
+func (o *UpdateSensorUpdatePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateSensorUpdatePoliciesTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *UpdateSensorUpdatePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update sensor update policies internal server error response
+func (o *UpdateSensorUpdatePoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateSensorUpdatePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v1][%d] updateSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type UpdateSensorUpdatePoliciesDefault struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
-// Code gets the status code for the update sensor update policies default response
-func (o *UpdateSensorUpdatePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update sensor update policies default response has a 2xx status code
 func (o *UpdateSensorUpdatePoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *UpdateSensorUpdatePoliciesDefault) IsServerError() bool {
 // IsCode returns true when this update sensor update policies default response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update sensor update policies default response
+func (o *UpdateSensorUpdatePoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateSensorUpdatePoliciesDefault) Error() string {

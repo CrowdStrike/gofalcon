@@ -107,6 +107,11 @@ func (o *AggregateDetectionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate detections o k response
+func (o *AggregateDetectionsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateDetectionsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/detects/GET/v1][%d] aggregateDetectionsOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *AggregateDetectionsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate detections forbidden response a status code equal to that given
 func (o *AggregateDetectionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate detections forbidden response
+func (o *AggregateDetectionsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateDetectionsForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *AggregateDetectionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate detections too many requests response
+func (o *AggregateDetectionsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateDetectionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/detects/GET/v1][%d] aggregateDetectionsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type AggregateDetectionsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate detections default response
-func (o *AggregateDetectionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate detections default response has a 2xx status code
 func (o *AggregateDetectionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *AggregateDetectionsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate detections default response a status code equal to that given
 func (o *AggregateDetectionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate detections default response
+func (o *AggregateDetectionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateDetectionsDefault) Error() string {

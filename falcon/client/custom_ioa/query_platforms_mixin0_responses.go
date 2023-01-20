@@ -103,6 +103,11 @@ func (o *QueryPlatformsMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query platforms mixin0 o k response
+func (o *QueryPlatformsMixin0OK) Code() int {
+	return 200
+}
+
 func (o *QueryPlatformsMixin0OK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/platforms/v1][%d] queryPlatformsMixin0OK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryPlatformsMixin0Forbidden) IsServerError() bool {
 // IsCode returns true when this query platforms mixin0 forbidden response a status code equal to that given
 func (o *QueryPlatformsMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query platforms mixin0 forbidden response
+func (o *QueryPlatformsMixin0Forbidden) Code() int {
+	return 403
 }
 
 func (o *QueryPlatformsMixin0Forbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryPlatformsMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query platforms mixin0 too many requests response
+func (o *QueryPlatformsMixin0TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryPlatformsMixin0TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/platforms/v1][%d] queryPlatformsMixin0TooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryPlatformsMixin0Default struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query platforms mixin0 default response
-func (o *QueryPlatformsMixin0Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query platforms mixin0 default response has a 2xx status code
 func (o *QueryPlatformsMixin0Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryPlatformsMixin0Default) IsServerError() bool {
 // IsCode returns true when this query platforms mixin0 default response a status code equal to that given
 func (o *QueryPlatformsMixin0Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query platforms mixin0 default response
+func (o *QueryPlatformsMixin0Default) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryPlatformsMixin0Default) Error() string {

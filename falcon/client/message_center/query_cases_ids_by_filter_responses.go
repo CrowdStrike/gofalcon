@@ -119,6 +119,11 @@ func (o *QueryCasesIdsByFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query cases ids by filter o k response
+func (o *QueryCasesIdsByFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryCasesIdsByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *QueryCasesIdsByFilterBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query cases ids by filter bad request response
+func (o *QueryCasesIdsByFilterBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryCasesIdsByFilterBadRequest) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *QueryCasesIdsByFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query cases ids by filter forbidden response a status code equal to that given
 func (o *QueryCasesIdsByFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query cases ids by filter forbidden response
+func (o *QueryCasesIdsByFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCasesIdsByFilterForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *QueryCasesIdsByFilterTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query cases ids by filter too many requests response a status code equal to that given
 func (o *QueryCasesIdsByFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query cases ids by filter too many requests response
+func (o *QueryCasesIdsByFilterTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCasesIdsByFilterTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *QueryCasesIdsByFilterInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query cases ids by filter internal server error response
+func (o *QueryCasesIdsByFilterInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCasesIdsByFilterInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type QueryCasesIdsByFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query cases ids by filter default response
-func (o *QueryCasesIdsByFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query cases ids by filter default response has a 2xx status code
 func (o *QueryCasesIdsByFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *QueryCasesIdsByFilterDefault) IsServerError() bool {
 // IsCode returns true when this query cases ids by filter default response a status code equal to that given
 func (o *QueryCasesIdsByFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query cases ids by filter default response
+func (o *QueryCasesIdsByFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCasesIdsByFilterDefault) Error() string {

@@ -103,6 +103,11 @@ func (o *QueryDetectionIdsByFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query detection ids by filter o k response
+func (o *QueryDetectionIdsByFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryDetectionIdsByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryDetectionIdsByFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query detection ids by filter forbidden response a status code equal to that given
 func (o *QueryDetectionIdsByFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query detection ids by filter forbidden response
+func (o *QueryDetectionIdsByFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryDetectionIdsByFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryDetectionIdsByFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query detection ids by filter too many requests response
+func (o *QueryDetectionIdsByFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryDetectionIdsByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/detects/v1][%d] queryDetectionIdsByFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryDetectionIdsByFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query detection ids by filter default response
-func (o *QueryDetectionIdsByFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query detection ids by filter default response has a 2xx status code
 func (o *QueryDetectionIdsByFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryDetectionIdsByFilterDefault) IsServerError() bool {
 // IsCode returns true when this query detection ids by filter default response a status code equal to that given
 func (o *QueryDetectionIdsByFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query detection ids by filter default response
+func (o *QueryDetectionIdsByFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDetectionIdsByFilterDefault) Error() string {

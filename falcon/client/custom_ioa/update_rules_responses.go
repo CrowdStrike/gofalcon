@@ -106,6 +106,11 @@ func (o *UpdateRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update rules o k response
+func (o *UpdateRulesOK) Code() int {
+	return 200
+}
+
 func (o *UpdateRulesOK) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateRulesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update rules forbidden response
+func (o *UpdateRulesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateRulesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rules/v1][%d] updateRulesForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateRulesNotFound) IsServerError() bool {
 // IsCode returns true when this update rules not found response a status code equal to that given
 func (o *UpdateRulesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update rules not found response
+func (o *UpdateRulesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateRulesNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateRulesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update rules too many requests response a status code equal to that given
 func (o *UpdateRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update rules too many requests response
+func (o *UpdateRulesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateRulesTooManyRequests) Error() string {

@@ -119,6 +119,11 @@ func (o *GetLoginsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get logins o k response
+func (o *GetLoginsOK) Code() int {
+	return 200
+}
+
 func (o *GetLoginsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetLoginsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get logins bad request response
+func (o *GetLoginsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetLoginsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetLoginsForbidden) IsServerError() bool {
 // IsCode returns true when this get logins forbidden response a status code equal to that given
 func (o *GetLoginsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get logins forbidden response
+func (o *GetLoginsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetLoginsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetLoginsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get logins too many requests response a status code equal to that given
 func (o *GetLoginsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get logins too many requests response
+func (o *GetLoginsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetLoginsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetLoginsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get logins internal server error response
+func (o *GetLoginsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetLoginsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/entities/logins/v1][%d] getLoginsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetLoginsDefault struct {
 	Payload *models.DomainDiscoverAPILoginEntitiesResponse
 }
 
-// Code gets the status code for the get logins default response
-func (o *GetLoginsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get logins default response has a 2xx status code
 func (o *GetLoginsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetLoginsDefault) IsServerError() bool {
 // IsCode returns true when this get logins default response a status code equal to that given
 func (o *GetLoginsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get logins default response
+func (o *GetLoginsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLoginsDefault) Error() string {

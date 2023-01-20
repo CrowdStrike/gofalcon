@@ -115,6 +115,11 @@ func (o *AuditEventsReadOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the audit events read o k response
+func (o *AuditEventsReadOK) Code() int {
+	return 200
+}
+
 func (o *AuditEventsReadOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *AuditEventsReadBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the audit events read bad request response
+func (o *AuditEventsReadBadRequest) Code() int {
+	return 400
+}
+
 func (o *AuditEventsReadBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *AuditEventsReadForbidden) IsServerError() bool {
 // IsCode returns true when this audit events read forbidden response a status code equal to that given
 func (o *AuditEventsReadForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the audit events read forbidden response
+func (o *AuditEventsReadForbidden) Code() int {
+	return 403
 }
 
 func (o *AuditEventsReadForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *AuditEventsReadTooManyRequests) IsServerError() bool {
 // IsCode returns true when this audit events read too many requests response a status code equal to that given
 func (o *AuditEventsReadTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the audit events read too many requests response
+func (o *AuditEventsReadTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *AuditEventsReadTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *AuditEventsReadInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the audit events read internal server error response
+func (o *AuditEventsReadInternalServerError) Code() int {
+	return 500
+}
+
 func (o *AuditEventsReadInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type AuditEventsReadDefault struct {
 	Payload *models.APIAuditEventDetailsResponseV1
 }
 
-// Code gets the status code for the audit events read default response
-func (o *AuditEventsReadDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this audit events read default response has a 2xx status code
 func (o *AuditEventsReadDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *AuditEventsReadDefault) IsServerError() bool {
 // IsCode returns true when this audit events read default response a status code equal to that given
 func (o *AuditEventsReadDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the audit events read default response
+func (o *AuditEventsReadDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AuditEventsReadDefault) Error() string {

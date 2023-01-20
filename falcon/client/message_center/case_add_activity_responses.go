@@ -119,6 +119,11 @@ func (o *CaseAddActivityOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the case add activity o k response
+func (o *CaseAddActivityOK) Code() int {
+	return 200
+}
+
 func (o *CaseAddActivityOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *CaseAddActivityBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the case add activity bad request response
+func (o *CaseAddActivityBadRequest) Code() int {
+	return 400
+}
+
 func (o *CaseAddActivityBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *CaseAddActivityForbidden) IsServerError() bool {
 // IsCode returns true when this case add activity forbidden response a status code equal to that given
 func (o *CaseAddActivityForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the case add activity forbidden response
+func (o *CaseAddActivityForbidden) Code() int {
+	return 403
 }
 
 func (o *CaseAddActivityForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *CaseAddActivityTooManyRequests) IsServerError() bool {
 // IsCode returns true when this case add activity too many requests response a status code equal to that given
 func (o *CaseAddActivityTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the case add activity too many requests response
+func (o *CaseAddActivityTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CaseAddActivityTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *CaseAddActivityInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the case add activity internal server error response
+func (o *CaseAddActivityInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CaseAddActivityInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type CaseAddActivityDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the case add activity default response
-func (o *CaseAddActivityDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this case add activity default response has a 2xx status code
 func (o *CaseAddActivityDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *CaseAddActivityDefault) IsServerError() bool {
 // IsCode returns true when this case add activity default response a status code equal to that given
 func (o *CaseAddActivityDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the case add activity default response
+func (o *CaseAddActivityDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CaseAddActivityDefault) Error() string {

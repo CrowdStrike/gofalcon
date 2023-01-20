@@ -112,6 +112,11 @@ func (o *GetCIDGroupByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c Id group by Id o k response
+func (o *GetCIDGroupByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetCIDGroupByIDOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdOK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *GetCIDGroupByIDMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c Id group by Id multi status response a status code equal to that given
 func (o *GetCIDGroupByIDMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c Id group by Id multi status response
+func (o *GetCIDGroupByIDMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCIDGroupByIDMultiStatus) Error() string {
@@ -322,6 +332,11 @@ func (o *GetCIDGroupByIDBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c Id group by Id bad request response
+func (o *GetCIDGroupByIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCIDGroupByIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-groups/v1][%d] getCIdGroupByIdBadRequest  %+v", 400, o.Payload)
 }
@@ -425,6 +440,11 @@ func (o *GetCIDGroupByIDForbidden) IsServerError() bool {
 // IsCode returns true when this get c Id group by Id forbidden response a status code equal to that given
 func (o *GetCIDGroupByIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c Id group by Id forbidden response
+func (o *GetCIDGroupByIDForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCIDGroupByIDForbidden) Error() string {
@@ -534,6 +554,11 @@ func (o *GetCIDGroupByIDTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c Id group by Id too many requests response a status code equal to that given
 func (o *GetCIDGroupByIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c Id group by Id too many requests response
+func (o *GetCIDGroupByIDTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCIDGroupByIDTooManyRequests) Error() string {

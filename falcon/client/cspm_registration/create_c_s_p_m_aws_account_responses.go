@@ -118,6 +118,11 @@ func (o *CreateCSPMAwsAccountCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create c s p m aws account created response
+func (o *CreateCSPMAwsAccountCreated) Code() int {
+	return 201
+}
+
 func (o *CreateCSPMAwsAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *CreateCSPMAwsAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this create c s p m aws account multi status response a status code equal to that given
 func (o *CreateCSPMAwsAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create c s p m aws account multi status response
+func (o *CreateCSPMAwsAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateCSPMAwsAccountMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *CreateCSPMAwsAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create c s p m aws account bad request response
+func (o *CreateCSPMAwsAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateCSPMAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-aws/entities/account/v1][%d] createCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *CreateCSPMAwsAccountForbidden) IsServerError() bool {
 // IsCode returns true when this create c s p m aws account forbidden response a status code equal to that given
 func (o *CreateCSPMAwsAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create c s p m aws account forbidden response
+func (o *CreateCSPMAwsAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateCSPMAwsAccountForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *CreateCSPMAwsAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create c s p m aws account too many requests response a status code equal to that given
 func (o *CreateCSPMAwsAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create c s p m aws account too many requests response
+func (o *CreateCSPMAwsAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateCSPMAwsAccountTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *CreateCSPMAwsAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this create c s p m aws account internal server error response a status code equal to that given
 func (o *CreateCSPMAwsAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create c s p m aws account internal server error response
+func (o *CreateCSPMAwsAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateCSPMAwsAccountInternalServerError) Error() string {

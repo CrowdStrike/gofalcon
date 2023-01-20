@@ -113,6 +113,11 @@ func (o *QueryRuleGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rule groups o k response
+func (o *QueryRuleGroupsOK) Code() int {
+	return 200
+}
+
 func (o *QueryRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *QueryRuleGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query rule groups bad request response
+func (o *QueryRuleGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *QueryRuleGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this query rule groups forbidden response a status code equal to that given
 func (o *QueryRuleGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query rule groups forbidden response
+func (o *QueryRuleGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRuleGroupsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *QueryRuleGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query rule groups too many requests response
+func (o *QueryRuleGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type QueryRuleGroupsDefault struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
-// Code gets the status code for the query rule groups default response
-func (o *QueryRuleGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query rule groups default response has a 2xx status code
 func (o *QueryRuleGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *QueryRuleGroupsDefault) IsServerError() bool {
 // IsCode returns true when this query rule groups default response a status code equal to that given
 func (o *QueryRuleGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query rule groups default response
+func (o *QueryRuleGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRuleGroupsDefault) Error() string {

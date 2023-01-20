@@ -106,6 +106,11 @@ func (o *ReadImageVulnerabilitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the read image vulnerabilities o k response
+func (o *ReadImageVulnerabilitiesOK) Code() int {
+	return 200
+}
+
 func (o *ReadImageVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[POST /image-assessment/combined/vulnerability-lookups/v1][%d] readImageVulnerabilitiesOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *ReadImageVulnerabilitiesForbidden) IsServerError() bool {
 // IsCode returns true when this read image vulnerabilities forbidden response a status code equal to that given
 func (o *ReadImageVulnerabilitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the read image vulnerabilities forbidden response
+func (o *ReadImageVulnerabilitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *ReadImageVulnerabilitiesForbidden) Error() string {
@@ -318,6 +328,11 @@ func (o *ReadImageVulnerabilitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this read image vulnerabilities too many requests response a status code equal to that given
 func (o *ReadImageVulnerabilitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the read image vulnerabilities too many requests response
+func (o *ReadImageVulnerabilitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ReadImageVulnerabilitiesTooManyRequests) Error() string {
@@ -434,6 +449,11 @@ func (o *ReadImageVulnerabilitiesInternalServerError) IsServerError() bool {
 // IsCode returns true when this read image vulnerabilities internal server error response a status code equal to that given
 func (o *ReadImageVulnerabilitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the read image vulnerabilities internal server error response
+func (o *ReadImageVulnerabilitiesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ReadImageVulnerabilitiesInternalServerError) Error() string {

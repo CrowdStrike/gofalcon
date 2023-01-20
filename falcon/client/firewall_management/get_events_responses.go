@@ -113,6 +113,11 @@ func (o *GetEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get events o k response
+func (o *GetEventsOK) Code() int {
+	return 200
+}
+
 func (o *GetEventsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *GetEventsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get events bad request response
+func (o *GetEventsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *GetEventsForbidden) IsServerError() bool {
 // IsCode returns true when this get events forbidden response a status code equal to that given
 func (o *GetEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get events forbidden response
+func (o *GetEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetEventsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *GetEventsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get events too many requests response
+func (o *GetEventsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/events/v1][%d] getEventsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type GetEventsDefault struct {
 	Payload *models.FwmgrAPIEventsResponse
 }
 
-// Code gets the status code for the get events default response
-func (o *GetEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get events default response has a 2xx status code
 func (o *GetEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GetEventsDefault) IsServerError() bool {
 // IsCode returns true when this get events default response a status code equal to that given
 func (o *GetEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get events default response
+func (o *GetEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetEventsDefault) Error() string {

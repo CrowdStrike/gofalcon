@@ -112,6 +112,11 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) IsCode(code int) boo
 	return code == 201
 }
 
+// Code gets the status code for the update c s p m azure tenant default subscription Id created response
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Code() int {
+	return 201
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) IsCode(code int) 
 	return code == 400
 }
 
+// Code gets the status code for the update c s p m azure tenant default subscription Id bad request response
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-azure/entities/default-subscription-id/v1][%d] updateCSPMAzureTenantDefaultSubscriptionIdBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsServerError() bo
 // IsCode returns true when this update c s p m azure tenant default subscription Id forbidden response a status code equal to that given
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update c s p m azure tenant default subscription Id forbidden response
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsServerErro
 // IsCode returns true when this update c s p m azure tenant default subscription Id too many requests response a status code equal to that given
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update c s p m azure tenant default subscription Id too many requests response
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsServer
 // IsCode returns true when this update c s p m azure tenant default subscription Id internal server error response a status code equal to that given
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the update c s p m azure tenant default subscription Id internal server error response
+func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Code() int {
+	return 500
 }
 
 func (o *UpdateCSPMAzureTenantDefaultSubscriptionIDInternalServerError) Error() string {

@@ -113,6 +113,11 @@ func (o *ValidateFilepathPatternOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the validate filepath pattern o k response
+func (o *ValidateFilepathPatternOK) Code() int {
+	return 200
+}
+
 func (o *ValidateFilepathPatternOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *ValidateFilepathPatternBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the validate filepath pattern bad request response
+func (o *ValidateFilepathPatternBadRequest) Code() int {
+	return 400
+}
+
 func (o *ValidateFilepathPatternBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *ValidateFilepathPatternForbidden) IsServerError() bool {
 // IsCode returns true when this validate filepath pattern forbidden response a status code equal to that given
 func (o *ValidateFilepathPatternForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the validate filepath pattern forbidden response
+func (o *ValidateFilepathPatternForbidden) Code() int {
+	return 403
 }
 
 func (o *ValidateFilepathPatternForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *ValidateFilepathPatternTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the validate filepath pattern too many requests response
+func (o *ValidateFilepathPatternTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ValidateFilepathPatternTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type ValidateFilepathPatternDefault struct {
 	Payload *models.FwmgrAPIValidateFilepathResponse
 }
 
-// Code gets the status code for the validate filepath pattern default response
-func (o *ValidateFilepathPatternDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this validate filepath pattern default response has a 2xx status code
 func (o *ValidateFilepathPatternDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *ValidateFilepathPatternDefault) IsServerError() bool {
 // IsCode returns true when this validate filepath pattern default response a status code equal to that given
 func (o *ValidateFilepathPatternDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the validate filepath pattern default response
+func (o *ValidateFilepathPatternDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ValidateFilepathPatternDefault) Error() string {

@@ -106,6 +106,11 @@ func (o *QueryScanHostMetadataOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query scan host metadata o k response
+func (o *QueryScanHostMetadataOK) Code() int {
+	return 200
+}
+
 func (o *QueryScanHostMetadataOK) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scan-hosts/v1][%d] queryScanHostMetadataOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryScanHostMetadataForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query scan host metadata forbidden response
+func (o *QueryScanHostMetadataForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryScanHostMetadataForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scan-hosts/v1][%d] queryScanHostMetadataForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryScanHostMetadataNotFound) IsServerError() bool {
 // IsCode returns true when this query scan host metadata not found response a status code equal to that given
 func (o *QueryScanHostMetadataNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query scan host metadata not found response
+func (o *QueryScanHostMetadataNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryScanHostMetadataNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryScanHostMetadataTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query scan host metadata too many requests response a status code equal to that given
 func (o *QueryScanHostMetadataTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query scan host metadata too many requests response
+func (o *QueryScanHostMetadataTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryScanHostMetadataTooManyRequests) Error() string {

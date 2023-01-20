@@ -112,6 +112,11 @@ func (o *DeleteHostGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete host groups o k response
+func (o *DeleteHostGroupsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteHostGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteHostGroupsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete host groups forbidden response
+func (o *DeleteHostGroupsForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /devices/entities/host-groups/v1][%d] deleteHostGroupsForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteHostGroupsNotFound) IsServerError() bool {
 // IsCode returns true when this delete host groups not found response a status code equal to that given
 func (o *DeleteHostGroupsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete host groups not found response
+func (o *DeleteHostGroupsNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteHostGroupsNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteHostGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete host groups too many requests response a status code equal to that given
 func (o *DeleteHostGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete host groups too many requests response
+func (o *DeleteHostGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteHostGroupsTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteHostGroupsInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete host groups internal server error response a status code equal to that given
 func (o *DeleteHostGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete host groups internal server error response
+func (o *DeleteHostGroupsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteHostGroupsInternalServerError) Error() string {

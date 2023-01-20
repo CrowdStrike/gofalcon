@@ -119,6 +119,11 @@ func (o *GetRulesEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rules entities o k response
+func (o *GetRulesEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetRulesEntitiesOK) Error() string {
 	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetRulesEntitiesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get rules entities bad request response
+func (o *GetRulesEntitiesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetRulesEntitiesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetRulesEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get rules entities forbidden response
+func (o *GetRulesEntitiesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRulesEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesForbidden ", 403)
 }
@@ -423,6 +438,11 @@ func (o *GetRulesEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get rules entities too many requests response a status code equal to that given
 func (o *GetRulesEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get rules entities too many requests response
+func (o *GetRulesEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRulesEntitiesTooManyRequests) Error() string {
@@ -541,6 +561,11 @@ func (o *GetRulesEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get rules entities internal server error response
+func (o *GetRulesEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetRulesEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /ti/rules/entities/rules/GET/v2][%d] getRulesEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -612,11 +637,6 @@ type GetRulesEntitiesDefault struct {
 	Payload *models.DomainRuleEntitiesResponse
 }
 
-// Code gets the status code for the get rules entities default response
-func (o *GetRulesEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get rules entities default response has a 2xx status code
 func (o *GetRulesEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -640,6 +660,11 @@ func (o *GetRulesEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get rules entities default response a status code equal to that given
 func (o *GetRulesEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get rules entities default response
+func (o *GetRulesEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRulesEntitiesDefault) Error() string {

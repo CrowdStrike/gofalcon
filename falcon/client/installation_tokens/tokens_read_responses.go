@@ -115,6 +115,11 @@ func (o *TokensReadOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tokens read o k response
+func (o *TokensReadOK) Code() int {
+	return 200
+}
+
 func (o *TokensReadOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *TokensReadBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the tokens read bad request response
+func (o *TokensReadBadRequest) Code() int {
+	return 400
+}
+
 func (o *TokensReadBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *TokensReadForbidden) IsServerError() bool {
 // IsCode returns true when this tokens read forbidden response a status code equal to that given
 func (o *TokensReadForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the tokens read forbidden response
+func (o *TokensReadForbidden) Code() int {
+	return 403
 }
 
 func (o *TokensReadForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *TokensReadTooManyRequests) IsServerError() bool {
 // IsCode returns true when this tokens read too many requests response a status code equal to that given
 func (o *TokensReadTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the tokens read too many requests response
+func (o *TokensReadTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TokensReadTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *TokensReadInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the tokens read internal server error response
+func (o *TokensReadInternalServerError) Code() int {
+	return 500
+}
+
 func (o *TokensReadInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type TokensReadDefault struct {
 	Payload *models.APITokenDetailsResponseV1
 }
 
-// Code gets the status code for the tokens read default response
-func (o *TokensReadDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tokens read default response has a 2xx status code
 func (o *TokensReadDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *TokensReadDefault) IsServerError() bool {
 // IsCode returns true when this tokens read default response a status code equal to that given
 func (o *TokensReadDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tokens read default response
+func (o *TokensReadDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TokensReadDefault) Error() string {

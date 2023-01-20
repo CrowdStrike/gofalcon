@@ -106,6 +106,11 @@ func (o *GetScansByScanIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get scans by scan ids o k response
+func (o *GetScansByScanIdsOK) Code() int {
+	return 200
+}
+
 func (o *GetScansByScanIdsOK) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *GetScansByScanIdsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get scans by scan ids forbidden response
+func (o *GetScansByScanIdsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetScansByScanIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/scans/v1][%d] getScansByScanIdsForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *GetScansByScanIdsNotFound) IsServerError() bool {
 // IsCode returns true when this get scans by scan ids not found response a status code equal to that given
 func (o *GetScansByScanIdsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get scans by scan ids not found response
+func (o *GetScansByScanIdsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetScansByScanIdsNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *GetScansByScanIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get scans by scan ids too many requests response a status code equal to that given
 func (o *GetScansByScanIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get scans by scan ids too many requests response
+func (o *GetScansByScanIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetScansByScanIdsTooManyRequests) Error() string {

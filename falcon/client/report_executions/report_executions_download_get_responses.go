@@ -119,6 +119,11 @@ func (o *ReportExecutionsDownloadGetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the report executions download get o k response
+func (o *ReportExecutionsDownloadGetOK) Code() int {
+	return 200
+}
+
 func (o *ReportExecutionsDownloadGetOK) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetOK  %+v", 200, o.Payload)
 }
@@ -220,6 +225,11 @@ func (o *ReportExecutionsDownloadGetBadRequest) IsServerError() bool {
 // IsCode returns true when this report executions download get bad request response a status code equal to that given
 func (o *ReportExecutionsDownloadGetBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the report executions download get bad request response
+func (o *ReportExecutionsDownloadGetBadRequest) Code() int {
+	return 400
 }
 
 func (o *ReportExecutionsDownloadGetBadRequest) Error() string {
@@ -325,6 +335,11 @@ func (o *ReportExecutionsDownloadGetForbidden) IsServerError() bool {
 // IsCode returns true when this report executions download get forbidden response a status code equal to that given
 func (o *ReportExecutionsDownloadGetForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the report executions download get forbidden response
+func (o *ReportExecutionsDownloadGetForbidden) Code() int {
+	return 403
 }
 
 func (o *ReportExecutionsDownloadGetForbidden) Error() string {
@@ -434,6 +449,11 @@ func (o *ReportExecutionsDownloadGetTooManyRequests) IsServerError() bool {
 // IsCode returns true when this report executions download get too many requests response a status code equal to that given
 func (o *ReportExecutionsDownloadGetTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the report executions download get too many requests response
+func (o *ReportExecutionsDownloadGetTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ReportExecutionsDownloadGetTooManyRequests) Error() string {
@@ -552,6 +572,11 @@ func (o *ReportExecutionsDownloadGetInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the report executions download get internal server error response
+func (o *ReportExecutionsDownloadGetInternalServerError) Code() int {
+	return 500
+}
+
 func (o *ReportExecutionsDownloadGetInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] reportExecutionsDownloadGetInternalServerError  %+v", 500, o.Payload)
 }
@@ -623,11 +648,6 @@ type ReportExecutionsDownloadGetDefault struct {
 	Payload []int64
 }
 
-// Code gets the status code for the report executions download get default response
-func (o *ReportExecutionsDownloadGetDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this report executions download get default response has a 2xx status code
 func (o *ReportExecutionsDownloadGetDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -651,6 +671,11 @@ func (o *ReportExecutionsDownloadGetDefault) IsServerError() bool {
 // IsCode returns true when this report executions download get default response a status code equal to that given
 func (o *ReportExecutionsDownloadGetDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the report executions download get default response
+func (o *ReportExecutionsDownloadGetDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ReportExecutionsDownloadGetDefault) Error() string {

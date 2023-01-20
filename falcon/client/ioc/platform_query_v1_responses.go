@@ -107,6 +107,11 @@ func (o *PlatformQueryV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the platform query v1 o k response
+func (o *PlatformQueryV1OK) Code() int {
+	return 200
+}
+
 func (o *PlatformQueryV1OK) Error() string {
 	return fmt.Sprintf("[GET /iocs/queries/platforms/v1][%d] platformQueryV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *PlatformQueryV1Forbidden) IsServerError() bool {
 // IsCode returns true when this platform query v1 forbidden response a status code equal to that given
 func (o *PlatformQueryV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the platform query v1 forbidden response
+func (o *PlatformQueryV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *PlatformQueryV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *PlatformQueryV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the platform query v1 too many requests response
+func (o *PlatformQueryV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *PlatformQueryV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /iocs/queries/platforms/v1][%d] platformQueryV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type PlatformQueryV1Default struct {
 	Payload *models.APIIndicatorQueryRespV1
 }
 
-// Code gets the status code for the platform query v1 default response
-func (o *PlatformQueryV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this platform query v1 default response has a 2xx status code
 func (o *PlatformQueryV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *PlatformQueryV1Default) IsServerError() bool {
 // IsCode returns true when this platform query v1 default response a status code equal to that given
 func (o *PlatformQueryV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the platform query v1 default response
+func (o *PlatformQueryV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *PlatformQueryV1Default) Error() string {

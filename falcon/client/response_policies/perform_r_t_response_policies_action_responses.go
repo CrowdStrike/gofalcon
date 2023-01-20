@@ -125,6 +125,11 @@ func (o *PerformRTResponsePoliciesActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform r t response policies action o k response
+func (o *PerformRTResponsePoliciesActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformRTResponsePoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *PerformRTResponsePoliciesActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform r t response policies action bad request response a status code equal to that given
 func (o *PerformRTResponsePoliciesActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform r t response policies action bad request response
+func (o *PerformRTResponsePoliciesActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformRTResponsePoliciesActionBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *PerformRTResponsePoliciesActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform r t response policies action forbidden response
+func (o *PerformRTResponsePoliciesActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformRTResponsePoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *PerformRTResponsePoliciesActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform r t response policies action not found response a status code equal to that given
 func (o *PerformRTResponsePoliciesActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform r t response policies action not found response
+func (o *PerformRTResponsePoliciesActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformRTResponsePoliciesActionNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *PerformRTResponsePoliciesActionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform r t response policies action too many requests response a status code equal to that given
 func (o *PerformRTResponsePoliciesActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform r t response policies action too many requests response
+func (o *PerformRTResponsePoliciesActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformRTResponsePoliciesActionTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *PerformRTResponsePoliciesActionInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the perform r t response policies action internal server error response
+func (o *PerformRTResponsePoliciesActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformRTResponsePoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type PerformRTResponsePoliciesActionDefault struct {
 	Payload *models.ResponsesRTResponsePoliciesV1
 }
 
-// Code gets the status code for the perform r t response policies action default response
-func (o *PerformRTResponsePoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform r t response policies action default response has a 2xx status code
 func (o *PerformRTResponsePoliciesActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *PerformRTResponsePoliciesActionDefault) IsServerError() bool {
 // IsCode returns true when this perform r t response policies action default response a status code equal to that given
 func (o *PerformRTResponsePoliciesActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform r t response policies action default response
+func (o *PerformRTResponsePoliciesActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformRTResponsePoliciesActionDefault) Error() string {

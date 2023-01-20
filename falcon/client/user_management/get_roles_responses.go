@@ -125,6 +125,11 @@ func (o *GetRolesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get roles o k response
+func (o *GetRolesOK) Code() int {
+	return 200
+}
+
 func (o *GetRolesOK) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetRolesBadRequest) IsServerError() bool {
 // IsCode returns true when this get roles bad request response a status code equal to that given
 func (o *GetRolesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get roles bad request response
+func (o *GetRolesBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetRolesBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *GetRolesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get roles forbidden response
+func (o *GetRolesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRolesForbidden) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetRolesNotFound) IsServerError() bool {
 // IsCode returns true when this get roles not found response a status code equal to that given
 func (o *GetRolesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get roles not found response
+func (o *GetRolesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetRolesNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *GetRolesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get roles too many requests response a status code equal to that given
 func (o *GetRolesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get roles too many requests response
+func (o *GetRolesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRolesTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetRolesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get roles internal server error response
+func (o *GetRolesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetRolesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] getRolesInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetRolesDefault struct {
 	Payload *models.APIUserRoleResponse
 }
 
-// Code gets the status code for the get roles default response
-func (o *GetRolesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get roles default response has a 2xx status code
 func (o *GetRolesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetRolesDefault) IsServerError() bool {
 // IsCode returns true when this get roles default response a status code equal to that given
 func (o *GetRolesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get roles default response
+func (o *GetRolesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRolesDefault) Error() string {

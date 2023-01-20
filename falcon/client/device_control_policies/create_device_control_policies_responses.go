@@ -114,6 +114,11 @@ func (o *CreateDeviceControlPoliciesCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create device control policies created response
+func (o *CreateDeviceControlPoliciesCreated) Code() int {
+	return 201
+}
+
 func (o *CreateDeviceControlPoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesCreated  %+v", 201, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *CreateDeviceControlPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this create device control policies bad request response a status code equal to that given
 func (o *CreateDeviceControlPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create device control policies bad request response
+func (o *CreateDeviceControlPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateDeviceControlPoliciesBadRequest) Error() string {
@@ -302,6 +312,11 @@ func (o *CreateDeviceControlPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create device control policies forbidden response
+func (o *CreateDeviceControlPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control/v1][%d] createDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *CreateDeviceControlPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this create device control policies not found response a status code equal to that given
 func (o *CreateDeviceControlPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create device control policies not found response
+func (o *CreateDeviceControlPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *CreateDeviceControlPoliciesNotFound) Error() string {
@@ -492,6 +512,11 @@ func (o *CreateDeviceControlPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create device control policies too many requests response a status code equal to that given
 func (o *CreateDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create device control policies too many requests response
+func (o *CreateDeviceControlPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateDeviceControlPoliciesTooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *CreateDeviceControlPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this create device control policies internal server error response a status code equal to that given
 func (o *CreateDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create device control policies internal server error response
+func (o *CreateDeviceControlPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateDeviceControlPoliciesInternalServerError) Error() string {

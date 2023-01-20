@@ -112,6 +112,11 @@ func (o *DeleteMLExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete m l exclusions v1 o k response
+func (o *DeleteMLExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *DeleteMLExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteMLExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete m l exclusions v1 bad request response
+func (o *DeleteMLExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteMLExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteMLExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this delete m l exclusions v1 forbidden response a status code equal to that given
 func (o *DeleteMLExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete m l exclusions v1 forbidden response
+func (o *DeleteMLExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteMLExclusionsV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteMLExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete m l exclusions v1 too many requests response a status code equal to that given
 func (o *DeleteMLExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete m l exclusions v1 too many requests response
+func (o *DeleteMLExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteMLExclusionsV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteMLExclusionsV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this delete m l exclusions v1 internal server error response a status code equal to that given
 func (o *DeleteMLExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete m l exclusions v1 internal server error response
+func (o *DeleteMLExclusionsV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteMLExclusionsV1InternalServerError) Error() string {

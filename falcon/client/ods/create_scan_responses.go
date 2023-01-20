@@ -100,6 +100,11 @@ func (o *CreateScanCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create scan created response
+func (o *CreateScanCreated) Code() int {
+	return 201
+}
+
 func (o *CreateScanCreated) Error() string {
 	return fmt.Sprintf("[POST /ods/entities/scans/v1][%d] createScanCreated  %+v", 201, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *CreateScanForbidden) IsServerError() bool {
 // IsCode returns true when this create scan forbidden response a status code equal to that given
 func (o *CreateScanForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create scan forbidden response
+func (o *CreateScanForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateScanForbidden) Error() string {
@@ -312,6 +322,11 @@ func (o *CreateScanTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create scan too many requests response a status code equal to that given
 func (o *CreateScanTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create scan too many requests response
+func (o *CreateScanTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateScanTooManyRequests) Error() string {

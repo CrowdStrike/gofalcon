@@ -98,6 +98,11 @@ func (o *QueryMitreAttacksOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query mitre attacks o k response
+func (o *QueryMitreAttacksOK) Code() int {
+	return 200
+}
+
 func (o *QueryMitreAttacksOK) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/mitre/v1][%d] queryMitreAttacksOK ", 200)
 }
@@ -190,6 +195,11 @@ func (o *QueryMitreAttacksForbidden) IsServerError() bool {
 // IsCode returns true when this query mitre attacks forbidden response a status code equal to that given
 func (o *QueryMitreAttacksForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query mitre attacks forbidden response
+func (o *QueryMitreAttacksForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryMitreAttacksForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *QueryMitreAttacksTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query mitre attacks too many requests response a status code equal to that given
 func (o *QueryMitreAttacksTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query mitre attacks too many requests response
+func (o *QueryMitreAttacksTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryMitreAttacksTooManyRequests) Error() string {

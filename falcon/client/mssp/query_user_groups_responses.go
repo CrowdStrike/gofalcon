@@ -109,6 +109,11 @@ func (o *QueryUserGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query user groups o k response
+func (o *QueryUserGroupsOK) Code() int {
+	return 200
+}
+
 func (o *QueryUserGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *QueryUserGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query user groups bad request response
+func (o *QueryUserGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *QueryUserGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this query user groups forbidden response a status code equal to that given
 func (o *QueryUserGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query user groups forbidden response
+func (o *QueryUserGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryUserGroupsForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *QueryUserGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query user groups too many requests response
+func (o *QueryUserGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/user-groups/v1][%d] queryUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type QueryUserGroupsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query user groups default response
-func (o *QueryUserGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query user groups default response has a 2xx status code
 func (o *QueryUserGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *QueryUserGroupsDefault) IsServerError() bool {
 // IsCode returns true when this query user groups default response a status code equal to that given
 func (o *QueryUserGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query user groups default response
+func (o *QueryUserGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryUserGroupsDefault) Error() string {

@@ -125,6 +125,11 @@ func (o *GetIntelRuleFileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get intel rule file o k response
+func (o *GetIntelRuleFileOK) Code() int {
+	return 200
+}
+
 func (o *GetIntelRuleFileOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileOK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *GetIntelRuleFileBadRequest) IsServerError() bool {
 // IsCode returns true when this get intel rule file bad request response a status code equal to that given
 func (o *GetIntelRuleFileBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get intel rule file bad request response
+func (o *GetIntelRuleFileBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetIntelRuleFileBadRequest) Error() string {
@@ -311,6 +321,11 @@ func (o *GetIntelRuleFileForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get intel rule file forbidden response
+func (o *GetIntelRuleFileForbidden) Code() int {
+	return 403
+}
+
 func (o *GetIntelRuleFileForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileForbidden  %+v", 403, o.Payload)
 }
@@ -403,6 +418,11 @@ func (o *GetIntelRuleFileNotFound) IsServerError() bool {
 // IsCode returns true when this get intel rule file not found response a status code equal to that given
 func (o *GetIntelRuleFileNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get intel rule file not found response
+func (o *GetIntelRuleFileNotFound) Code() int {
+	return 404
 }
 
 func (o *GetIntelRuleFileNotFound) Error() string {
@@ -501,6 +521,11 @@ func (o *GetIntelRuleFileTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get intel rule file too many requests response a status code equal to that given
 func (o *GetIntelRuleFileTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get intel rule file too many requests response
+func (o *GetIntelRuleFileTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIntelRuleFileTooManyRequests) Error() string {
@@ -608,6 +633,11 @@ func (o *GetIntelRuleFileInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get intel rule file internal server error response
+func (o *GetIntelRuleFileInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIntelRuleFileInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-files/v1][%d] getIntelRuleFileInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetIntelRuleFileDefault struct {
 	_statusCode int
 }
 
-// Code gets the status code for the get intel rule file default response
-func (o *GetIntelRuleFileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get intel rule file default response has a 2xx status code
 func (o *GetIntelRuleFileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetIntelRuleFileDefault) IsServerError() bool {
 // IsCode returns true when this get intel rule file default response a status code equal to that given
 func (o *GetIntelRuleFileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get intel rule file default response
+func (o *GetIntelRuleFileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIntelRuleFileDefault) Error() string {

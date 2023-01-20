@@ -125,6 +125,11 @@ func (o *GetSampleV3OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get sample v3 o k response
+func (o *GetSampleV3OK) Code() int {
+	return 200
+}
+
 func (o *GetSampleV3OK) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3OK  %+v", 200, o.Payload)
 }
@@ -226,6 +231,11 @@ func (o *GetSampleV3BadRequest) IsServerError() bool {
 // IsCode returns true when this get sample v3 bad request response a status code equal to that given
 func (o *GetSampleV3BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get sample v3 bad request response
+func (o *GetSampleV3BadRequest) Code() int {
+	return 400
 }
 
 func (o *GetSampleV3BadRequest) Error() string {
@@ -333,6 +343,11 @@ func (o *GetSampleV3Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get sample v3 forbidden response
+func (o *GetSampleV3Forbidden) Code() int {
+	return 403
+}
+
 func (o *GetSampleV3Forbidden) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3Forbidden  %+v", 403, o.Payload)
 }
@@ -436,6 +451,11 @@ func (o *GetSampleV3NotFound) IsServerError() bool {
 // IsCode returns true when this get sample v3 not found response a status code equal to that given
 func (o *GetSampleV3NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get sample v3 not found response
+func (o *GetSampleV3NotFound) Code() int {
+	return 404
 }
 
 func (o *GetSampleV3NotFound) Error() string {
@@ -545,6 +565,11 @@ func (o *GetSampleV3TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get sample v3 too many requests response a status code equal to that given
 func (o *GetSampleV3TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get sample v3 too many requests response
+func (o *GetSampleV3TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetSampleV3TooManyRequests) Error() string {
@@ -663,6 +688,11 @@ func (o *GetSampleV3InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get sample v3 internal server error response
+func (o *GetSampleV3InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetSampleV3InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /samples/entities/samples/v3][%d] getSampleV3InternalServerError  %+v", 500, o.Payload)
 }
@@ -734,11 +764,6 @@ type GetSampleV3Default struct {
 	Payload string
 }
 
-// Code gets the status code for the get sample v3 default response
-func (o *GetSampleV3Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get sample v3 default response has a 2xx status code
 func (o *GetSampleV3Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -762,6 +787,11 @@ func (o *GetSampleV3Default) IsServerError() bool {
 // IsCode returns true when this get sample v3 default response a status code equal to that given
 func (o *GetSampleV3Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get sample v3 default response
+func (o *GetSampleV3Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSampleV3Default) Error() string {

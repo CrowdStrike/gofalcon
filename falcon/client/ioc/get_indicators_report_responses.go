@@ -107,6 +107,11 @@ func (o *GetIndicatorsReportOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get indicators report o k response
+func (o *GetIndicatorsReportOK) Code() int {
+	return 200
+}
+
 func (o *GetIndicatorsReportOK) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *GetIndicatorsReportForbidden) IsServerError() bool {
 // IsCode returns true when this get indicators report forbidden response a status code equal to that given
 func (o *GetIndicatorsReportForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get indicators report forbidden response
+func (o *GetIndicatorsReportForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIndicatorsReportForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *GetIndicatorsReportTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get indicators report too many requests response
+func (o *GetIndicatorsReportTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetIndicatorsReportTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] getIndicatorsReportTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type GetIndicatorsReportDefault struct {
 	Payload *models.MsaEntitiesResponse
 }
 
-// Code gets the status code for the get indicators report default response
-func (o *GetIndicatorsReportDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get indicators report default response has a 2xx status code
 func (o *GetIndicatorsReportDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *GetIndicatorsReportDefault) IsServerError() bool {
 // IsCode returns true when this get indicators report default response a status code equal to that given
 func (o *GetIndicatorsReportDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get indicators report default response
+func (o *GetIndicatorsReportDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIndicatorsReportDefault) Error() string {

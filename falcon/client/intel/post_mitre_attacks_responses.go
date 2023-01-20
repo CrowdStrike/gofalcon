@@ -98,6 +98,11 @@ func (o *PostMitreAttacksOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the post mitre attacks o k response
+func (o *PostMitreAttacksOK) Code() int {
+	return 200
+}
+
 func (o *PostMitreAttacksOK) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/mitre/v1][%d] postMitreAttacksOK ", 200)
 }
@@ -190,6 +195,11 @@ func (o *PostMitreAttacksForbidden) IsServerError() bool {
 // IsCode returns true when this post mitre attacks forbidden response a status code equal to that given
 func (o *PostMitreAttacksForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the post mitre attacks forbidden response
+func (o *PostMitreAttacksForbidden) Code() int {
+	return 403
 }
 
 func (o *PostMitreAttacksForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *PostMitreAttacksTooManyRequests) IsServerError() bool {
 // IsCode returns true when this post mitre attacks too many requests response a status code equal to that given
 func (o *PostMitreAttacksTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the post mitre attacks too many requests response
+func (o *PostMitreAttacksTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PostMitreAttacksTooManyRequests) Error() string {

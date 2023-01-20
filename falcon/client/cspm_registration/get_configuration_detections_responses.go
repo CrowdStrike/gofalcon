@@ -119,6 +119,11 @@ func (o *GetConfigurationDetectionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get configuration detections o k response
+func (o *GetConfigurationDetectionsOK) Code() int {
+	return 200
+}
+
 func (o *GetConfigurationDetectionsOK) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetConfigurationDetectionsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get configuration detections bad request response
+func (o *GetConfigurationDetectionsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetConfigurationDetectionsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetConfigurationDetectionsForbidden) IsServerError() bool {
 // IsCode returns true when this get configuration detections forbidden response a status code equal to that given
 func (o *GetConfigurationDetectionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get configuration detections forbidden response
+func (o *GetConfigurationDetectionsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetConfigurationDetectionsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetConfigurationDetectionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get configuration detections too many requests response a status code equal to that given
 func (o *GetConfigurationDetectionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get configuration detections too many requests response
+func (o *GetConfigurationDetectionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetConfigurationDetectionsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetConfigurationDetectionsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get configuration detections internal server error response
+func (o *GetConfigurationDetectionsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetConfigurationDetectionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] getConfigurationDetectionsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetConfigurationDetectionsDefault struct {
 	Payload *models.RegistrationExternalIOMEventResponse
 }
 
-// Code gets the status code for the get configuration detections default response
-func (o *GetConfigurationDetectionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get configuration detections default response has a 2xx status code
 func (o *GetConfigurationDetectionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetConfigurationDetectionsDefault) IsServerError() bool {
 // IsCode returns true when this get configuration detections default response a status code equal to that given
 func (o *GetConfigurationDetectionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get configuration detections default response
+func (o *GetConfigurationDetectionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetConfigurationDetectionsDefault) Error() string {

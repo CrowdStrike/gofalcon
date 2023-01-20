@@ -115,6 +115,11 @@ func (o *QuerySubmissionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query submissions o k response
+func (o *QuerySubmissionsOK) Code() int {
+	return 200
+}
+
 func (o *QuerySubmissionsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QuerySubmissionsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query submissions bad request response
+func (o *QuerySubmissionsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QuerySubmissionsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QuerySubmissionsForbidden) IsServerError() bool {
 // IsCode returns true when this query submissions forbidden response a status code equal to that given
 func (o *QuerySubmissionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query submissions forbidden response
+func (o *QuerySubmissionsForbidden) Code() int {
+	return 403
 }
 
 func (o *QuerySubmissionsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QuerySubmissionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query submissions too many requests response a status code equal to that given
 func (o *QuerySubmissionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query submissions too many requests response
+func (o *QuerySubmissionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QuerySubmissionsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QuerySubmissionsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query submissions internal server error response
+func (o *QuerySubmissionsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QuerySubmissionsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/submissions/v1][%d] querySubmissionsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QuerySubmissionsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query submissions default response
-func (o *QuerySubmissionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query submissions default response has a 2xx status code
 func (o *QuerySubmissionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QuerySubmissionsDefault) IsServerError() bool {
 // IsCode returns true when this query submissions default response a status code equal to that given
 func (o *QuerySubmissionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query submissions default response
+func (o *QuerySubmissionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QuerySubmissionsDefault) Error() string {

@@ -119,6 +119,11 @@ func (o *GetQueriesAlertsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get queries alerts v1 o k response
+func (o *GetQueriesAlertsV1OK) Code() int {
+	return 200
+}
+
 func (o *GetQueriesAlertsV1OK) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1OK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetQueriesAlertsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get queries alerts v1 bad request response
+func (o *GetQueriesAlertsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *GetQueriesAlertsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetQueriesAlertsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this get queries alerts v1 forbidden response a status code equal to that given
 func (o *GetQueriesAlertsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get queries alerts v1 forbidden response
+func (o *GetQueriesAlertsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetQueriesAlertsV1Forbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetQueriesAlertsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get queries alerts v1 too many requests response a status code equal to that given
 func (o *GetQueriesAlertsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get queries alerts v1 too many requests response
+func (o *GetQueriesAlertsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetQueriesAlertsV1TooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetQueriesAlertsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get queries alerts v1 internal server error response
+func (o *GetQueriesAlertsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetQueriesAlertsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetQueriesAlertsV1Default struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the get queries alerts v1 default response
-func (o *GetQueriesAlertsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get queries alerts v1 default response has a 2xx status code
 func (o *GetQueriesAlertsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetQueriesAlertsV1Default) IsServerError() bool {
 // IsCode returns true when this get queries alerts v1 default response a status code equal to that given
 func (o *GetQueriesAlertsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get queries alerts v1 default response
+func (o *GetQueriesAlertsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetQueriesAlertsV1Default) Error() string {

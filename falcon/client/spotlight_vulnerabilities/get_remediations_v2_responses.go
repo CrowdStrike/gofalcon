@@ -107,6 +107,11 @@ func (o *GetRemediationsV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get remediations v2 o k response
+func (o *GetRemediationsV2OK) Code() int {
+	return 200
+}
+
 func (o *GetRemediationsV2OK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *GetRemediationsV2Forbidden) IsServerError() bool {
 // IsCode returns true when this get remediations v2 forbidden response a status code equal to that given
 func (o *GetRemediationsV2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get remediations v2 forbidden response
+func (o *GetRemediationsV2Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetRemediationsV2Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *GetRemediationsV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get remediations v2 too many requests response
+func (o *GetRemediationsV2TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetRemediationsV2TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type GetRemediationsV2Default struct {
 	Payload *models.DomainSPAPIRemediationEntitiesResponseV2
 }
 
-// Code gets the status code for the get remediations v2 default response
-func (o *GetRemediationsV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get remediations v2 default response has a 2xx status code
 func (o *GetRemediationsV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *GetRemediationsV2Default) IsServerError() bool {
 // IsCode returns true when this get remediations v2 default response a status code equal to that given
 func (o *GetRemediationsV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get remediations v2 default response
+func (o *GetRemediationsV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRemediationsV2Default) Error() string {

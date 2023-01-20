@@ -119,6 +119,11 @@ func (o *ExtractionListV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the extraction list v1 o k response
+func (o *ExtractionListV1OK) Code() int {
+	return 200
+}
+
 func (o *ExtractionListV1OK) Error() string {
 	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1OK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *ExtractionListV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the extraction list v1 bad request response
+func (o *ExtractionListV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *ExtractionListV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1BadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *ExtractionListV1Forbidden) IsServerError() bool {
 // IsCode returns true when this extraction list v1 forbidden response a status code equal to that given
 func (o *ExtractionListV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the extraction list v1 forbidden response
+func (o *ExtractionListV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *ExtractionListV1Forbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *ExtractionListV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this extraction list v1 too many requests response a status code equal to that given
 func (o *ExtractionListV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the extraction list v1 too many requests response
+func (o *ExtractionListV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ExtractionListV1TooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *ExtractionListV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the extraction list v1 internal server error response
+func (o *ExtractionListV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *ExtractionListV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] extractionListV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type ExtractionListV1Default struct {
 	Payload *models.ClientExtractionListFilesResponseV1
 }
 
-// Code gets the status code for the extraction list v1 default response
-func (o *ExtractionListV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this extraction list v1 default response has a 2xx status code
 func (o *ExtractionListV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *ExtractionListV1Default) IsServerError() bool {
 // IsCode returns true when this extraction list v1 default response a status code equal to that given
 func (o *ExtractionListV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the extraction list v1 default response
+func (o *ExtractionListV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ExtractionListV1Default) Error() string {

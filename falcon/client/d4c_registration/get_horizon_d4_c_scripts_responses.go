@@ -100,6 +100,11 @@ func (o *GetHorizonD4CScriptsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get horizon d4 c scripts o k response
+func (o *GetHorizonD4CScriptsOK) Code() int {
+	return 200
+}
+
 func (o *GetHorizonD4CScriptsOK) Error() string {
 	return fmt.Sprintf("[GET /settings-discover/entities/gen/scripts/v1][%d] getHorizonD4CScriptsOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *GetHorizonD4CScriptsForbidden) IsServerError() bool {
 // IsCode returns true when this get horizon d4 c scripts forbidden response a status code equal to that given
 func (o *GetHorizonD4CScriptsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get horizon d4 c scripts forbidden response
+func (o *GetHorizonD4CScriptsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetHorizonD4CScriptsForbidden) Error() string {
@@ -312,6 +322,11 @@ func (o *GetHorizonD4CScriptsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get horizon d4 c scripts too many requests response a status code equal to that given
 func (o *GetHorizonD4CScriptsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get horizon d4 c scripts too many requests response
+func (o *GetHorizonD4CScriptsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetHorizonD4CScriptsTooManyRequests) Error() string {

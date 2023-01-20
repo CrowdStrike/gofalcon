@@ -106,6 +106,11 @@ func (o *CreateRuleCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create rule created response
+func (o *CreateRuleCreated) Code() int {
+	return 201
+}
+
 func (o *CreateRuleCreated) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleCreated  %+v", 201, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CreateRuleForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create rule forbidden response
+func (o *CreateRuleForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateRuleForbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/v1][%d] createRuleForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CreateRuleNotFound) IsServerError() bool {
 // IsCode returns true when this create rule not found response a status code equal to that given
 func (o *CreateRuleNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create rule not found response
+func (o *CreateRuleNotFound) Code() int {
+	return 404
 }
 
 func (o *CreateRuleNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *CreateRuleTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create rule too many requests response a status code equal to that given
 func (o *CreateRuleTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create rule too many requests response
+func (o *CreateRuleTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateRuleTooManyRequests) Error() string {

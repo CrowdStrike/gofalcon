@@ -125,6 +125,11 @@ func (o *QueryPreventionPolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query prevention policy members o k response
+func (o *QueryPreventionPolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryPreventionPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention-members/v1][%d] queryPreventionPolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *QueryPreventionPolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query prevention policy members bad request response a status code equal to that given
 func (o *QueryPreventionPolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query prevention policy members bad request response
+func (o *QueryPreventionPolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryPreventionPolicyMembersBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *QueryPreventionPolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query prevention policy members forbidden response
+func (o *QueryPreventionPolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryPreventionPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention-members/v1][%d] queryPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *QueryPreventionPolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query prevention policy members not found response a status code equal to that given
 func (o *QueryPreventionPolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query prevention policy members not found response
+func (o *QueryPreventionPolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryPreventionPolicyMembersNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *QueryPreventionPolicyMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query prevention policy members too many requests response a status code equal to that given
 func (o *QueryPreventionPolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query prevention policy members too many requests response
+func (o *QueryPreventionPolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryPreventionPolicyMembersTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *QueryPreventionPolicyMembersInternalServerError) IsCode(code int) bool 
 	return code == 500
 }
 
+// Code gets the status code for the query prevention policy members internal server error response
+func (o *QueryPreventionPolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryPreventionPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/prevention-members/v1][%d] queryPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type QueryPreventionPolicyMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query prevention policy members default response
-func (o *QueryPreventionPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query prevention policy members default response has a 2xx status code
 func (o *QueryPreventionPolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *QueryPreventionPolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query prevention policy members default response a status code equal to that given
 func (o *QueryPreventionPolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query prevention policy members default response
+func (o *QueryPreventionPolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryPreventionPolicyMembersDefault) Error() string {

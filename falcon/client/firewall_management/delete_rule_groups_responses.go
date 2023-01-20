@@ -113,6 +113,11 @@ func (o *DeleteRuleGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete rule groups o k response
+func (o *DeleteRuleGroupsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *DeleteRuleGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete rule groups bad request response
+func (o *DeleteRuleGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *DeleteRuleGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this delete rule groups forbidden response a status code equal to that given
 func (o *DeleteRuleGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete rule groups forbidden response
+func (o *DeleteRuleGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteRuleGroupsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *DeleteRuleGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the delete rule groups too many requests response
+func (o *DeleteRuleGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeleteRuleGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/rule-groups/v1][%d] deleteRuleGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type DeleteRuleGroupsDefault struct {
 	Payload *models.FwmgrAPIQueryResponse
 }
 
-// Code gets the status code for the delete rule groups default response
-func (o *DeleteRuleGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete rule groups default response has a 2xx status code
 func (o *DeleteRuleGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *DeleteRuleGroupsDefault) IsServerError() bool {
 // IsCode returns true when this delete rule groups default response a status code equal to that given
 func (o *DeleteRuleGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete rule groups default response
+func (o *DeleteRuleGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteRuleGroupsDefault) Error() string {

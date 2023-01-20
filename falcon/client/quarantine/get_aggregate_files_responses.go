@@ -107,6 +107,11 @@ func (o *GetAggregateFilesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get aggregate files o k response
+func (o *GetAggregateFilesOK) Code() int {
+	return 200
+}
+
 func (o *GetAggregateFilesOK) Error() string {
 	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *GetAggregateFilesForbidden) IsServerError() bool {
 // IsCode returns true when this get aggregate files forbidden response a status code equal to that given
 func (o *GetAggregateFilesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get aggregate files forbidden response
+func (o *GetAggregateFilesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetAggregateFilesForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *GetAggregateFilesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get aggregate files too many requests response
+func (o *GetAggregateFilesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetAggregateFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /quarantine/aggregates/quarantined-files/GET/v1][%d] getAggregateFilesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type GetAggregateFilesDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the get aggregate files default response
-func (o *GetAggregateFilesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get aggregate files default response has a 2xx status code
 func (o *GetAggregateFilesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *GetAggregateFilesDefault) IsServerError() bool {
 // IsCode returns true when this get aggregate files default response a status code equal to that given
 func (o *GetAggregateFilesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get aggregate files default response
+func (o *GetAggregateFilesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAggregateFilesDefault) Error() string {

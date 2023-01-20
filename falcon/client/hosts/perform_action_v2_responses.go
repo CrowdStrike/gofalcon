@@ -114,6 +114,11 @@ func (o *PerformActionV2Accepted) IsCode(code int) bool {
 	return code == 202
 }
 
+// Code gets the status code for the perform action v2 accepted response
+func (o *PerformActionV2Accepted) Code() int {
+	return 202
+}
+
 func (o *PerformActionV2Accepted) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Accepted  %+v", 202, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *PerformActionV2BadRequest) IsServerError() bool {
 // IsCode returns true when this perform action v2 bad request response a status code equal to that given
 func (o *PerformActionV2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform action v2 bad request response
+func (o *PerformActionV2BadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformActionV2BadRequest) Error() string {
@@ -302,6 +312,11 @@ func (o *PerformActionV2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform action v2 forbidden response
+func (o *PerformActionV2Forbidden) Code() int {
+	return 403
+}
+
 func (o *PerformActionV2Forbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/devices-actions/v2][%d] performActionV2Forbidden  %+v", 403, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *PerformActionV2Conflict) IsServerError() bool {
 // IsCode returns true when this perform action v2 conflict response a status code equal to that given
 func (o *PerformActionV2Conflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the perform action v2 conflict response
+func (o *PerformActionV2Conflict) Code() int {
+	return 409
 }
 
 func (o *PerformActionV2Conflict) Error() string {
@@ -492,6 +512,11 @@ func (o *PerformActionV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform action v2 too many requests response a status code equal to that given
 func (o *PerformActionV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform action v2 too many requests response
+func (o *PerformActionV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformActionV2TooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *PerformActionV2InternalServerError) IsServerError() bool {
 // IsCode returns true when this perform action v2 internal server error response a status code equal to that given
 func (o *PerformActionV2InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the perform action v2 internal server error response
+func (o *PerformActionV2InternalServerError) Code() int {
+	return 500
 }
 
 func (o *PerformActionV2InternalServerError) Error() string {

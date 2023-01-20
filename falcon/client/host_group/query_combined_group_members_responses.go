@@ -121,6 +121,11 @@ func (o *QueryCombinedGroupMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined group members o k response
+func (o *QueryCombinedGroupMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QueryCombinedGroupMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query combined group members bad request response a status code equal to that given
 func (o *QueryCombinedGroupMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query combined group members bad request response
+func (o *QueryCombinedGroupMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryCombinedGroupMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QueryCombinedGroupMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query combined group members forbidden response
+func (o *QueryCombinedGroupMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryCombinedGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QueryCombinedGroupMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query combined group members not found response a status code equal to that given
 func (o *QueryCombinedGroupMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query combined group members not found response
+func (o *QueryCombinedGroupMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryCombinedGroupMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QueryCombinedGroupMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query combined group members too many requests response a status code equal to that given
 func (o *QueryCombinedGroupMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined group members too many requests response
+func (o *QueryCombinedGroupMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedGroupMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QueryCombinedGroupMembersInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query combined group members internal server error response
+func (o *QueryCombinedGroupMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedGroupMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/combined/host-group-members/v1][%d] queryCombinedGroupMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QueryCombinedGroupMembersDefault struct {
 	Payload *models.ResponsesHostGroupMembersV1
 }
 
-// Code gets the status code for the query combined group members default response
-func (o *QueryCombinedGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined group members default response has a 2xx status code
 func (o *QueryCombinedGroupMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QueryCombinedGroupMembersDefault) IsServerError() bool {
 // IsCode returns true when this query combined group members default response a status code equal to that given
 func (o *QueryCombinedGroupMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined group members default response
+func (o *QueryCombinedGroupMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedGroupMembersDefault) Error() string {

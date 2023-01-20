@@ -112,6 +112,11 @@ func (o *DeletePreventionPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete prevention policies o k response
+func (o *DeletePreventionPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *DeletePreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeletePreventionPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete prevention policies forbidden response
+func (o *DeletePreventionPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *DeletePreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/prevention/v1][%d] deletePreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeletePreventionPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this delete prevention policies not found response a status code equal to that given
 func (o *DeletePreventionPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete prevention policies not found response
+func (o *DeletePreventionPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *DeletePreventionPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *DeletePreventionPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete prevention policies too many requests response a status code equal to that given
 func (o *DeletePreventionPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete prevention policies too many requests response
+func (o *DeletePreventionPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeletePreventionPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeletePreventionPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete prevention policies internal server error response a status code equal to that given
 func (o *DeletePreventionPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete prevention policies internal server error response
+func (o *DeletePreventionPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeletePreventionPoliciesInternalServerError) Error() string {

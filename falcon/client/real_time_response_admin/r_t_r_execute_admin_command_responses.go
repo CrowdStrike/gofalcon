@@ -102,6 +102,11 @@ func (o *RTRExecuteAdminCommandCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the r t r execute admin command created response
+func (o *RTRExecuteAdminCommandCreated) Code() int {
+	return 201
+}
+
 func (o *RTRExecuteAdminCommandCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandCreated  %+v", 201, o.Payload)
 }
@@ -196,6 +201,11 @@ func (o *RTRExecuteAdminCommandBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r execute admin command bad request response
+func (o *RTRExecuteAdminCommandBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRExecuteAdminCommandBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/admin-command/v1][%d] rTRExecuteAdminCommandBadRequest  %+v", 400, o.Payload)
 }
@@ -288,6 +298,11 @@ func (o *RTRExecuteAdminCommandForbidden) IsServerError() bool {
 // IsCode returns true when this r t r execute admin command forbidden response a status code equal to that given
 func (o *RTRExecuteAdminCommandForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r execute admin command forbidden response
+func (o *RTRExecuteAdminCommandForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRExecuteAdminCommandForbidden) Error() string {
@@ -386,6 +401,11 @@ func (o *RTRExecuteAdminCommandTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r execute admin command too many requests response a status code equal to that given
 func (o *RTRExecuteAdminCommandTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r execute admin command too many requests response
+func (o *RTRExecuteAdminCommandTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRExecuteAdminCommandTooManyRequests) Error() string {

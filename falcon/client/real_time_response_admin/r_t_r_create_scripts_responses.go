@@ -109,6 +109,11 @@ func (o *RTRCreateScriptsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r create scripts o k response
+func (o *RTRCreateScriptsOK) Code() int {
+	return 200
+}
+
 func (o *RTRCreateScriptsOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *RTRCreateScriptsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r create scripts bad request response
+func (o *RTRCreateScriptsBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRCreateScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *RTRCreateScriptsForbidden) IsServerError() bool {
 // IsCode returns true when this r t r create scripts forbidden response a status code equal to that given
 func (o *RTRCreateScriptsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r create scripts forbidden response
+func (o *RTRCreateScriptsForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRCreateScriptsForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *RTRCreateScriptsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r create scripts too many requests response
+func (o *RTRCreateScriptsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRCreateScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/scripts/v1][%d] rTRCreateScriptsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type RTRCreateScriptsDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the r t r create scripts default response
-func (o *RTRCreateScriptsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r create scripts default response has a 2xx status code
 func (o *RTRCreateScriptsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *RTRCreateScriptsDefault) IsServerError() bool {
 // IsCode returns true when this r t r create scripts default response a status code equal to that given
 func (o *RTRCreateScriptsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r create scripts default response
+func (o *RTRCreateScriptsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRCreateScriptsDefault) Error() string {

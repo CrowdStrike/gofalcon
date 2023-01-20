@@ -107,6 +107,11 @@ func (o *ActionGetV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the action get v1 o k response
+func (o *ActionGetV1OK) Code() int {
+	return 200
+}
+
 func (o *ActionGetV1OK) Error() string {
 	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *ActionGetV1Forbidden) IsServerError() bool {
 // IsCode returns true when this action get v1 forbidden response a status code equal to that given
 func (o *ActionGetV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the action get v1 forbidden response
+func (o *ActionGetV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *ActionGetV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *ActionGetV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the action get v1 too many requests response
+func (o *ActionGetV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ActionGetV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /iocs/entities/actions/v1][%d] actionGetV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type ActionGetV1Default struct {
 	Payload *models.APIActionRespV1
 }
 
-// Code gets the status code for the action get v1 default response
-func (o *ActionGetV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this action get v1 default response has a 2xx status code
 func (o *ActionGetV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *ActionGetV1Default) IsServerError() bool {
 // IsCode returns true when this action get v1 default response a status code equal to that given
 func (o *ActionGetV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the action get v1 default response
+func (o *ActionGetV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ActionGetV1Default) Error() string {

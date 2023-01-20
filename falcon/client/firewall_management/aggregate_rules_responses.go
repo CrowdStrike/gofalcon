@@ -113,6 +113,11 @@ func (o *AggregateRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate rules o k response
+func (o *AggregateRulesOK) Code() int {
+	return 200
+}
+
 func (o *AggregateRulesOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *AggregateRulesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the aggregate rules bad request response
+func (o *AggregateRulesBadRequest) Code() int {
+	return 400
+}
+
 func (o *AggregateRulesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *AggregateRulesForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate rules forbidden response a status code equal to that given
 func (o *AggregateRulesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate rules forbidden response
+func (o *AggregateRulesForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateRulesForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *AggregateRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate rules too many requests response
+func (o *AggregateRulesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rules/GET/v1][%d] aggregateRulesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type AggregateRulesDefault struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
-// Code gets the status code for the aggregate rules default response
-func (o *AggregateRulesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate rules default response has a 2xx status code
 func (o *AggregateRulesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *AggregateRulesDefault) IsServerError() bool {
 // IsCode returns true when this aggregate rules default response a status code equal to that given
 func (o *AggregateRulesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate rules default response
+func (o *AggregateRulesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateRulesDefault) Error() string {

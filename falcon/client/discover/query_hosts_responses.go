@@ -56,14 +56,7 @@ func (o *QueryHostsReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return nil, result
 	default:
-		result := NewQueryHostsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type QueryHostsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query hosts o k response has a 2xx status code
@@ -119,6 +112,11 @@ func (o *QueryHostsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query hosts o k response
+func (o *QueryHostsOK) Code() int {
+	return 200
+}
+
 func (o *QueryHostsOK) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
 }
@@ -127,7 +125,7 @@ func (o *QueryHostsOK) String() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryHostsOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryHostsOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -162,7 +160,7 @@ func (o *QueryHostsOK) readResponse(response runtime.ClientResponse, consumer ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -196,7 +194,7 @@ type QueryHostsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query hosts bad request response has a 2xx status code
@@ -224,6 +222,11 @@ func (o *QueryHostsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query hosts bad request response
+func (o *QueryHostsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryHostsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
 }
@@ -232,7 +235,7 @@ func (o *QueryHostsBadRequest) String() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryHostsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryHostsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -267,7 +270,7 @@ func (o *QueryHostsBadRequest) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -327,6 +330,11 @@ func (o *QueryHostsForbidden) IsServerError() bool {
 // IsCode returns true when this query hosts forbidden response a status code equal to that given
 func (o *QueryHostsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query hosts forbidden response
+func (o *QueryHostsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryHostsForbidden) Error() string {
@@ -438,6 +446,11 @@ func (o *QueryHostsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query hosts too many requests response
+func (o *QueryHostsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryHostsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -526,7 +539,7 @@ type QueryHostsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query hosts internal server error response has a 2xx status code
@@ -554,6 +567,11 @@ func (o *QueryHostsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query hosts internal server error response
+func (o *QueryHostsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryHostsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
 }
@@ -562,7 +580,7 @@ func (o *QueryHostsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] queryHostsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryHostsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryHostsInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -597,79 +615,7 @@ func (o *QueryHostsInternalServerError) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryHostsDefault creates a QueryHostsDefault with default headers values
-func NewQueryHostsDefault(code int) *QueryHostsDefault {
-	return &QueryHostsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryHostsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryHostsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// Code gets the status code for the query hosts default response
-func (o *QueryHostsDefault) Code() int {
-	return o._statusCode
-}
-
-// IsSuccess returns true when this query hosts default response has a 2xx status code
-func (o *QueryHostsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query hosts default response has a 3xx status code
-func (o *QueryHostsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query hosts default response has a 4xx status code
-func (o *QueryHostsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query hosts default response has a 5xx status code
-func (o *QueryHostsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query hosts default response a status code equal to that given
-func (o *QueryHostsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-func (o *QueryHostsDefault) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] query-hosts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryHostsDefault) String() string {
-	return fmt.Sprintf("[GET /discover/queries/hosts/v1][%d] query-hosts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryHostsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryHostsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

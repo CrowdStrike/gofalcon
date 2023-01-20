@@ -115,6 +115,11 @@ func (o *QueryHostGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query host groups o k response
+func (o *QueryHostGroupsOK) Code() int {
+	return 200
+}
+
 func (o *QueryHostGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryHostGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query host groups bad request response
+func (o *QueryHostGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryHostGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryHostGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this query host groups forbidden response a status code equal to that given
 func (o *QueryHostGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query host groups forbidden response
+func (o *QueryHostGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryHostGroupsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryHostGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query host groups too many requests response a status code equal to that given
 func (o *QueryHostGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query host groups too many requests response
+func (o *QueryHostGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryHostGroupsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryHostGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query host groups internal server error response
+func (o *QueryHostGroupsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-groups/v1][%d] queryHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryHostGroupsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query host groups default response
-func (o *QueryHostGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query host groups default response has a 2xx status code
 func (o *QueryHostGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryHostGroupsDefault) IsServerError() bool {
 // IsCode returns true when this query host groups default response a status code equal to that given
 func (o *QueryHostGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query host groups default response
+func (o *QueryHostGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryHostGroupsDefault) Error() string {

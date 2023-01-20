@@ -113,6 +113,11 @@ func (o *GetPolicyContainersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get policy containers o k response
+func (o *GetPolicyContainersOK) Code() int {
+	return 200
+}
+
 func (o *GetPolicyContainersOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *GetPolicyContainersBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get policy containers bad request response
+func (o *GetPolicyContainersBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetPolicyContainersBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *GetPolicyContainersForbidden) IsServerError() bool {
 // IsCode returns true when this get policy containers forbidden response a status code equal to that given
 func (o *GetPolicyContainersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get policy containers forbidden response
+func (o *GetPolicyContainersForbidden) Code() int {
+	return 403
 }
 
 func (o *GetPolicyContainersForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *GetPolicyContainersTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get policy containers too many requests response
+func (o *GetPolicyContainersTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetPolicyContainersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/policies/v1][%d] getPolicyContainersTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type GetPolicyContainersDefault struct {
 	Payload *models.FwmgrAPIPolicyContainersResponse
 }
 
-// Code gets the status code for the get policy containers default response
-func (o *GetPolicyContainersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get policy containers default response has a 2xx status code
 func (o *GetPolicyContainersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GetPolicyContainersDefault) IsServerError() bool {
 // IsCode returns true when this get policy containers default response a status code equal to that given
 func (o *GetPolicyContainersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get policy containers default response
+func (o *GetPolicyContainersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetPolicyContainersDefault) Error() string {

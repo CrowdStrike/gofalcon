@@ -116,6 +116,11 @@ func (o *ArchiveDeleteV1Accepted) IsCode(code int) bool {
 	return code == 202
 }
 
+// Code gets the status code for the archive delete v1 accepted response
+func (o *ArchiveDeleteV1Accepted) Code() int {
+	return 202
+}
+
 func (o *ArchiveDeleteV1Accepted) Error() string {
 	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1Accepted ", 202)
 }
@@ -206,6 +211,11 @@ func (o *ArchiveDeleteV1BadRequest) IsServerError() bool {
 // IsCode returns true when this archive delete v1 bad request response a status code equal to that given
 func (o *ArchiveDeleteV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the archive delete v1 bad request response
+func (o *ArchiveDeleteV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *ArchiveDeleteV1BadRequest) Error() string {
@@ -300,6 +310,11 @@ func (o *ArchiveDeleteV1Forbidden) IsServerError() bool {
 // IsCode returns true when this archive delete v1 forbidden response a status code equal to that given
 func (o *ArchiveDeleteV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the archive delete v1 forbidden response
+func (o *ArchiveDeleteV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *ArchiveDeleteV1Forbidden) Error() string {
@@ -405,6 +420,11 @@ func (o *ArchiveDeleteV1NotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the archive delete v1 not found response
+func (o *ArchiveDeleteV1NotFound) Code() int {
+	return 404
+}
+
 func (o *ArchiveDeleteV1NotFound) Error() string {
 	return fmt.Sprintf("[DELETE /archives/entities/archives/v1][%d] archiveDeleteV1NotFound ", 404)
 }
@@ -501,6 +521,11 @@ func (o *ArchiveDeleteV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this archive delete v1 too many requests response a status code equal to that given
 func (o *ArchiveDeleteV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the archive delete v1 too many requests response
+func (o *ArchiveDeleteV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ArchiveDeleteV1TooManyRequests) Error() string {
@@ -615,6 +640,11 @@ func (o *ArchiveDeleteV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this archive delete v1 internal server error response a status code equal to that given
 func (o *ArchiveDeleteV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the archive delete v1 internal server error response
+func (o *ArchiveDeleteV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *ArchiveDeleteV1InternalServerError) Error() string {

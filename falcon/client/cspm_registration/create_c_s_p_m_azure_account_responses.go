@@ -114,6 +114,11 @@ func (o *CreateCSPMAzureAccountCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create c s p m azure account created response
+func (o *CreateCSPMAzureAccountCreated) Code() int {
+	return 201
+}
+
 func (o *CreateCSPMAzureAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/account/v1][%d] createCSPMAzureAccountCreated  %+v", 201, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *CreateCSPMAzureAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this create c s p m azure account multi status response a status code equal to that given
 func (o *CreateCSPMAzureAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create c s p m azure account multi status response
+func (o *CreateCSPMAzureAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateCSPMAzureAccountMultiStatus) Error() string {
@@ -302,6 +312,11 @@ func (o *CreateCSPMAzureAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create c s p m azure account bad request response
+func (o *CreateCSPMAzureAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateCSPMAzureAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/account/v1][%d] createCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *CreateCSPMAzureAccountForbidden) IsServerError() bool {
 // IsCode returns true when this create c s p m azure account forbidden response a status code equal to that given
 func (o *CreateCSPMAzureAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create c s p m azure account forbidden response
+func (o *CreateCSPMAzureAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateCSPMAzureAccountForbidden) Error() string {
@@ -492,6 +512,11 @@ func (o *CreateCSPMAzureAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create c s p m azure account too many requests response a status code equal to that given
 func (o *CreateCSPMAzureAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create c s p m azure account too many requests response
+func (o *CreateCSPMAzureAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateCSPMAzureAccountTooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *CreateCSPMAzureAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this create c s p m azure account internal server error response a status code equal to that given
 func (o *CreateCSPMAzureAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create c s p m azure account internal server error response
+func (o *CreateCSPMAzureAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateCSPMAzureAccountInternalServerError) Error() string {

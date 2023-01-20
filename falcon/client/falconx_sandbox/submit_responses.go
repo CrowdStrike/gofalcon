@@ -119,6 +119,11 @@ func (o *SubmitOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the submit o k response
+func (o *SubmitOK) Code() int {
+	return 200
+}
+
 func (o *SubmitOK) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *SubmitBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the submit bad request response
+func (o *SubmitBadRequest) Code() int {
+	return 400
+}
+
 func (o *SubmitBadRequest) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *SubmitForbidden) IsServerError() bool {
 // IsCode returns true when this submit forbidden response a status code equal to that given
 func (o *SubmitForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the submit forbidden response
+func (o *SubmitForbidden) Code() int {
+	return 403
 }
 
 func (o *SubmitForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *SubmitTooManyRequests) IsServerError() bool {
 // IsCode returns true when this submit too many requests response a status code equal to that given
 func (o *SubmitTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the submit too many requests response
+func (o *SubmitTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *SubmitTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *SubmitInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the submit internal server error response
+func (o *SubmitInternalServerError) Code() int {
+	return 500
+}
+
 func (o *SubmitInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /falconx/entities/submissions/v1][%d] submitInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type SubmitDefault struct {
 	Payload *models.FalconxSubmissionV1Response
 }
 
-// Code gets the status code for the submit default response
-func (o *SubmitDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this submit default response has a 2xx status code
 func (o *SubmitDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *SubmitDefault) IsServerError() bool {
 // IsCode returns true when this submit default response a status code equal to that given
 func (o *SubmitDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the submit default response
+func (o *SubmitDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SubmitDefault) Error() string {

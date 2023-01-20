@@ -103,6 +103,11 @@ func (o *QueryHiddenDevicesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query hidden devices o k response
+func (o *QueryHiddenDevicesOK) Code() int {
+	return 200
+}
+
 func (o *QueryHiddenDevicesOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryHiddenDevicesForbidden) IsServerError() bool {
 // IsCode returns true when this query hidden devices forbidden response a status code equal to that given
 func (o *QueryHiddenDevicesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query hidden devices forbidden response
+func (o *QueryHiddenDevicesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryHiddenDevicesForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryHiddenDevicesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query hidden devices too many requests response
+func (o *QueryHiddenDevicesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryHiddenDevicesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] queryHiddenDevicesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryHiddenDevicesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query hidden devices default response
-func (o *QueryHiddenDevicesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query hidden devices default response has a 2xx status code
 func (o *QueryHiddenDevicesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryHiddenDevicesDefault) IsServerError() bool {
 // IsCode returns true when this query hidden devices default response a status code equal to that given
 func (o *QueryHiddenDevicesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query hidden devices default response
+func (o *QueryHiddenDevicesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryHiddenDevicesDefault) Error() string {

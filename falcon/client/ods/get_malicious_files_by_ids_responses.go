@@ -106,6 +106,11 @@ func (o *GetMaliciousFilesByIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get malicious files by ids o k response
+func (o *GetMaliciousFilesByIdsOK) Code() int {
+	return 200
+}
+
 func (o *GetMaliciousFilesByIdsOK) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *GetMaliciousFilesByIdsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get malicious files by ids forbidden response
+func (o *GetMaliciousFilesByIdsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetMaliciousFilesByIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/malicious-files/v1][%d] getMaliciousFilesByIdsForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *GetMaliciousFilesByIdsNotFound) IsServerError() bool {
 // IsCode returns true when this get malicious files by ids not found response a status code equal to that given
 func (o *GetMaliciousFilesByIdsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get malicious files by ids not found response
+func (o *GetMaliciousFilesByIdsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetMaliciousFilesByIdsNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *GetMaliciousFilesByIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get malicious files by ids too many requests response a status code equal to that given
 func (o *GetMaliciousFilesByIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get malicious files by ids too many requests response
+func (o *GetMaliciousFilesByIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetMaliciousFilesByIdsTooManyRequests) Error() string {

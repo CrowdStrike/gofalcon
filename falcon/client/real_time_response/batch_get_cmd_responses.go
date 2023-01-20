@@ -112,6 +112,11 @@ func (o *BatchGetCmdCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the batch get cmd created response
+func (o *BatchGetCmdCreated) Code() int {
+	return 201
+}
+
 func (o *BatchGetCmdCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *BatchGetCmdBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the batch get cmd bad request response
+func (o *BatchGetCmdBadRequest) Code() int {
+	return 400
+}
+
 func (o *BatchGetCmdBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-get-command/v1][%d] batchGetCmdBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *BatchGetCmdForbidden) IsServerError() bool {
 // IsCode returns true when this batch get cmd forbidden response a status code equal to that given
 func (o *BatchGetCmdForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the batch get cmd forbidden response
+func (o *BatchGetCmdForbidden) Code() int {
+	return 403
 }
 
 func (o *BatchGetCmdForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *BatchGetCmdTooManyRequests) IsServerError() bool {
 // IsCode returns true when this batch get cmd too many requests response a status code equal to that given
 func (o *BatchGetCmdTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the batch get cmd too many requests response
+func (o *BatchGetCmdTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *BatchGetCmdTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *BatchGetCmdInternalServerError) IsServerError() bool {
 // IsCode returns true when this batch get cmd internal server error response a status code equal to that given
 func (o *BatchGetCmdInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the batch get cmd internal server error response
+func (o *BatchGetCmdInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BatchGetCmdInternalServerError) Error() string {

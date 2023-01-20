@@ -115,6 +115,11 @@ func (o *QuerySubmissionsMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query submissions mixin0 o k response
+func (o *QuerySubmissionsMixin0OK) Code() int {
+	return 200
+}
+
 func (o *QuerySubmissionsMixin0OK) Error() string {
 	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QuerySubmissionsMixin0BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query submissions mixin0 bad request response
+func (o *QuerySubmissionsMixin0BadRequest) Code() int {
+	return 400
+}
+
 func (o *QuerySubmissionsMixin0BadRequest) Error() string {
 	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QuerySubmissionsMixin0Forbidden) IsServerError() bool {
 // IsCode returns true when this query submissions mixin0 forbidden response a status code equal to that given
 func (o *QuerySubmissionsMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query submissions mixin0 forbidden response
+func (o *QuerySubmissionsMixin0Forbidden) Code() int {
+	return 403
 }
 
 func (o *QuerySubmissionsMixin0Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QuerySubmissionsMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this query submissions mixin0 too many requests response a status code equal to that given
 func (o *QuerySubmissionsMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query submissions mixin0 too many requests response
+func (o *QuerySubmissionsMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QuerySubmissionsMixin0TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QuerySubmissionsMixin0InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query submissions mixin0 internal server error response
+func (o *QuerySubmissionsMixin0InternalServerError) Code() int {
+	return 500
+}
+
 func (o *QuerySubmissionsMixin0InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /scanner/queries/scans/v1][%d] querySubmissionsMixin0InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QuerySubmissionsMixin0Default struct {
 	Payload *models.MlscannerQueryResponse
 }
 
-// Code gets the status code for the query submissions mixin0 default response
-func (o *QuerySubmissionsMixin0Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query submissions mixin0 default response has a 2xx status code
 func (o *QuerySubmissionsMixin0Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QuerySubmissionsMixin0Default) IsServerError() bool {
 // IsCode returns true when this query submissions mixin0 default response a status code equal to that given
 func (o *QuerySubmissionsMixin0Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query submissions mixin0 default response
+func (o *QuerySubmissionsMixin0Default) Code() int {
+	return o._statusCode
 }
 
 func (o *QuerySubmissionsMixin0Default) Error() string {

@@ -118,6 +118,11 @@ func (o *PatchCSPMAwsAccountCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the patch c s p m aws account created response
+func (o *PatchCSPMAwsAccountCreated) Code() int {
+	return 201
+}
+
 func (o *PatchCSPMAwsAccountCreated) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *PatchCSPMAwsAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this patch c s p m aws account multi status response a status code equal to that given
 func (o *PatchCSPMAwsAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the patch c s p m aws account multi status response
+func (o *PatchCSPMAwsAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *PatchCSPMAwsAccountMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *PatchCSPMAwsAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the patch c s p m aws account bad request response
+func (o *PatchCSPMAwsAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *PatchCSPMAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-cspm-aws/entities/account/v1][%d] patchCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *PatchCSPMAwsAccountForbidden) IsServerError() bool {
 // IsCode returns true when this patch c s p m aws account forbidden response a status code equal to that given
 func (o *PatchCSPMAwsAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch c s p m aws account forbidden response
+func (o *PatchCSPMAwsAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchCSPMAwsAccountForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *PatchCSPMAwsAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this patch c s p m aws account too many requests response a status code equal to that given
 func (o *PatchCSPMAwsAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the patch c s p m aws account too many requests response
+func (o *PatchCSPMAwsAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PatchCSPMAwsAccountTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *PatchCSPMAwsAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this patch c s p m aws account internal server error response a status code equal to that given
 func (o *PatchCSPMAwsAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the patch c s p m aws account internal server error response
+func (o *PatchCSPMAwsAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *PatchCSPMAwsAccountInternalServerError) Error() string {

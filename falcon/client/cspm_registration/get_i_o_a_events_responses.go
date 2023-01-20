@@ -119,6 +119,11 @@ func (o *GetIOAEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get i o a events o k response
+func (o *GetIOAEventsOK) Code() int {
+	return 200
+}
+
 func (o *GetIOAEventsOK) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetIOAEventsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get i o a events bad request response
+func (o *GetIOAEventsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetIOAEventsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetIOAEventsForbidden) IsServerError() bool {
 // IsCode returns true when this get i o a events forbidden response a status code equal to that given
 func (o *GetIOAEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get i o a events forbidden response
+func (o *GetIOAEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIOAEventsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetIOAEventsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get i o a events too many requests response a status code equal to that given
 func (o *GetIOAEventsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get i o a events too many requests response
+func (o *GetIOAEventsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIOAEventsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetIOAEventsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get i o a events internal server error response
+func (o *GetIOAEventsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIOAEventsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /ioa/entities/events/v1][%d] getIOAEventsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetIOAEventsDefault struct {
 	Payload *models.RegistrationExternalIOAEventResponse
 }
 
-// Code gets the status code for the get i o a events default response
-func (o *GetIOAEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get i o a events default response has a 2xx status code
 func (o *GetIOAEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetIOAEventsDefault) IsServerError() bool {
 // IsCode returns true when this get i o a events default response a status code equal to that given
 func (o *GetIOAEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get i o a events default response
+func (o *GetIOAEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIOAEventsDefault) Error() string {

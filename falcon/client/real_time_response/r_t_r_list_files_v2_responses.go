@@ -119,6 +119,11 @@ func (o *RTRListFilesV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r list files v2 o k response
+func (o *RTRListFilesV2OK) Code() int {
+	return 200
+}
+
 func (o *RTRListFilesV2OK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2OK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *RTRListFilesV2BadRequest) IsServerError() bool {
 // IsCode returns true when this r t r list files v2 bad request response a status code equal to that given
 func (o *RTRListFilesV2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r list files v2 bad request response
+func (o *RTRListFilesV2BadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRListFilesV2BadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *RTRListFilesV2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r list files v2 forbidden response
+func (o *RTRListFilesV2Forbidden) Code() int {
+	return 403
+}
+
 func (o *RTRListFilesV2Forbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2Forbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *RTRListFilesV2NotFound) IsServerError() bool {
 // IsCode returns true when this r t r list files v2 not found response a status code equal to that given
 func (o *RTRListFilesV2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r list files v2 not found response
+func (o *RTRListFilesV2NotFound) Code() int {
+	return 404
 }
 
 func (o *RTRListFilesV2NotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *RTRListFilesV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r list files v2 too many requests response
+func (o *RTRListFilesV2TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRListFilesV2TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/file/v2][%d] rTRListFilesV2TooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type RTRListFilesV2Default struct {
 	Payload *models.DomainListFilesV2ResponseWrapper
 }
 
-// Code gets the status code for the r t r list files v2 default response
-func (o *RTRListFilesV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r list files v2 default response has a 2xx status code
 func (o *RTRListFilesV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *RTRListFilesV2Default) IsServerError() bool {
 // IsCode returns true when this r t r list files v2 default response a status code equal to that given
 func (o *RTRListFilesV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r list files v2 default response
+func (o *RTRListFilesV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRListFilesV2Default) Error() string {

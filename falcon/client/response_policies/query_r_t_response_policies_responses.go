@@ -119,6 +119,11 @@ func (o *QueryRTResponsePoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query r t response policies o k response
+func (o *QueryRTResponsePoliciesOK) Code() int {
+	return 200
+}
+
 func (o *QueryRTResponsePoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *QueryRTResponsePoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query r t response policies bad request response
+func (o *QueryRTResponsePoliciesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryRTResponsePoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *QueryRTResponsePoliciesForbidden) IsServerError() bool {
 // IsCode returns true when this query r t response policies forbidden response a status code equal to that given
 func (o *QueryRTResponsePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query r t response policies forbidden response
+func (o *QueryRTResponsePoliciesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRTResponsePoliciesForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *QueryRTResponsePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query r t response policies too many requests response a status code equal to that given
 func (o *QueryRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query r t response policies too many requests response
+func (o *QueryRTResponsePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryRTResponsePoliciesTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *QueryRTResponsePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query r t response policies internal server error response
+func (o *QueryRTResponsePoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryRTResponsePoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response/v1][%d] queryRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type QueryRTResponsePoliciesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query r t response policies default response
-func (o *QueryRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query r t response policies default response has a 2xx status code
 func (o *QueryRTResponsePoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *QueryRTResponsePoliciesDefault) IsServerError() bool {
 // IsCode returns true when this query r t response policies default response a status code equal to that given
 func (o *QueryRTResponsePoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query r t response policies default response
+func (o *QueryRTResponsePoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRTResponsePoliciesDefault) Error() string {

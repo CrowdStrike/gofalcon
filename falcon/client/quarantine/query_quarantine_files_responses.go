@@ -107,6 +107,11 @@ func (o *QueryQuarantineFilesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query quarantine files o k response
+func (o *QueryQuarantineFilesOK) Code() int {
+	return 200
+}
+
 func (o *QueryQuarantineFilesOK) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *QueryQuarantineFilesForbidden) IsServerError() bool {
 // IsCode returns true when this query quarantine files forbidden response a status code equal to that given
 func (o *QueryQuarantineFilesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query quarantine files forbidden response
+func (o *QueryQuarantineFilesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryQuarantineFilesForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *QueryQuarantineFilesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query quarantine files too many requests response
+func (o *QueryQuarantineFilesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryQuarantineFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] queryQuarantineFilesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type QueryQuarantineFilesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query quarantine files default response
-func (o *QueryQuarantineFilesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query quarantine files default response has a 2xx status code
 func (o *QueryQuarantineFilesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *QueryQuarantineFilesDefault) IsServerError() bool {
 // IsCode returns true when this query quarantine files default response a status code equal to that given
 func (o *QueryQuarantineFilesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query quarantine files default response
+func (o *QueryQuarantineFilesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryQuarantineFilesDefault) Error() string {

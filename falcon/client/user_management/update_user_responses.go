@@ -119,6 +119,11 @@ func (o *UpdateUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update user o k response
+func (o *UpdateUserOK) Code() int {
+	return 200
+}
+
 func (o *UpdateUserOK) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *UpdateUserBadRequest) IsServerError() bool {
 // IsCode returns true when this update user bad request response a status code equal to that given
 func (o *UpdateUserBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update user bad request response
+func (o *UpdateUserBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateUserBadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *UpdateUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update user forbidden response
+func (o *UpdateUserForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateUserForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserForbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *UpdateUserNotFound) IsServerError() bool {
 // IsCode returns true when this update user not found response a status code equal to that given
 func (o *UpdateUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update user not found response
+func (o *UpdateUserNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateUserNotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *UpdateUserTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the update user too many requests response
+func (o *UpdateUserTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *UpdateUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /users/entities/users/v1][%d] updateUserTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type UpdateUserDefault struct {
 	Payload *models.APIUserMetadataResponse
 }
 
-// Code gets the status code for the update user default response
-func (o *UpdateUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update user default response has a 2xx status code
 func (o *UpdateUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *UpdateUserDefault) IsServerError() bool {
 // IsCode returns true when this update user default response a status code equal to that given
 func (o *UpdateUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update user default response
+func (o *UpdateUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateUserDefault) Error() string {

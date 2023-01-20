@@ -106,6 +106,11 @@ func (o *CancelScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the cancel scans o k response
+func (o *CancelScansOK) Code() int {
+	return 200
+}
+
 func (o *CancelScansOK) Error() string {
 	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CancelScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the cancel scans forbidden response
+func (o *CancelScansForbidden) Code() int {
+	return 403
+}
+
 func (o *CancelScansForbidden) Error() string {
 	return fmt.Sprintf("[POST /ods/entities/scan-control-actions/cancel/v1][%d] cancelScansForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CancelScansNotFound) IsServerError() bool {
 // IsCode returns true when this cancel scans not found response a status code equal to that given
 func (o *CancelScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the cancel scans not found response
+func (o *CancelScansNotFound) Code() int {
+	return 404
 }
 
 func (o *CancelScansNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *CancelScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this cancel scans too many requests response a status code equal to that given
 func (o *CancelScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the cancel scans too many requests response
+func (o *CancelScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CancelScansTooManyRequests) Error() string {

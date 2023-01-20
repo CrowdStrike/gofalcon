@@ -119,6 +119,11 @@ func (o *DeleteUserGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete user groups o k response
+func (o *DeleteUserGroupsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteUserGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *DeleteUserGroupsMultiStatus) IsServerError() bool {
 // IsCode returns true when this delete user groups multi status response a status code equal to that given
 func (o *DeleteUserGroupsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the delete user groups multi status response
+func (o *DeleteUserGroupsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeleteUserGroupsMultiStatus) Error() string {
@@ -329,6 +339,11 @@ func (o *DeleteUserGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete user groups bad request response
+func (o *DeleteUserGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *DeleteUserGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this delete user groups forbidden response a status code equal to that given
 func (o *DeleteUserGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete user groups forbidden response
+func (o *DeleteUserGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteUserGroupsForbidden) Error() string {
@@ -543,6 +563,11 @@ func (o *DeleteUserGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the delete user groups too many requests response
+func (o *DeleteUserGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeleteUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type DeleteUserGroupsDefault struct {
 	Payload *models.MsaEntitiesResponse
 }
 
-// Code gets the status code for the delete user groups default response
-func (o *DeleteUserGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete user groups default response has a 2xx status code
 func (o *DeleteUserGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *DeleteUserGroupsDefault) IsServerError() bool {
 // IsCode returns true when this delete user groups default response a status code equal to that given
 func (o *DeleteUserGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete user groups default response
+func (o *DeleteUserGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteUserGroupsDefault) Error() string {

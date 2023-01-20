@@ -109,6 +109,11 @@ func (o *RTRCreatePutFilesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r create put files o k response
+func (o *RTRCreatePutFilesOK) Code() int {
+	return 200
+}
+
 func (o *RTRCreatePutFilesOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *RTRCreatePutFilesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r create put files bad request response
+func (o *RTRCreatePutFilesBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRCreatePutFilesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *RTRCreatePutFilesForbidden) IsServerError() bool {
 // IsCode returns true when this r t r create put files forbidden response a status code equal to that given
 func (o *RTRCreatePutFilesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r create put files forbidden response
+func (o *RTRCreatePutFilesForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRCreatePutFilesForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *RTRCreatePutFilesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r create put files too many requests response
+func (o *RTRCreatePutFilesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRCreatePutFilesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/put-files/v1][%d] rTRCreatePutFilesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type RTRCreatePutFilesDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the r t r create put files default response
-func (o *RTRCreatePutFilesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r create put files default response has a 2xx status code
 func (o *RTRCreatePutFilesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *RTRCreatePutFilesDefault) IsServerError() bool {
 // IsCode returns true when this r t r create put files default response a status code equal to that given
 func (o *RTRCreatePutFilesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r create put files default response
+func (o *RTRCreatePutFilesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRCreatePutFilesDefault) Error() string {

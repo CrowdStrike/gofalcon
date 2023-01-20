@@ -106,6 +106,11 @@ func (o *UpdateDeviceTagsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update device tags o k response
+func (o *UpdateDeviceTagsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateDeviceTagsOK) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateDeviceTagsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update device tags bad request response
+func (o *UpdateDeviceTagsBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateDeviceTagsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateDeviceTagsForbidden) IsServerError() bool {
 // IsCode returns true when this update device tags forbidden response a status code equal to that given
 func (o *UpdateDeviceTagsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update device tags forbidden response
+func (o *UpdateDeviceTagsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateDeviceTagsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateDeviceTagsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update device tags too many requests response a status code equal to that given
 func (o *UpdateDeviceTagsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update device tags too many requests response
+func (o *UpdateDeviceTagsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateDeviceTagsTooManyRequests) Error() string {

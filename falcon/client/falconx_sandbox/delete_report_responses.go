@@ -114,6 +114,11 @@ func (o *DeleteReportAccepted) IsCode(code int) bool {
 	return code == 202
 }
 
+// Code gets the status code for the delete report accepted response
+func (o *DeleteReportAccepted) Code() int {
+	return 202
+}
+
 func (o *DeleteReportAccepted) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportAccepted  %+v", 202, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *DeleteReportBadRequest) IsServerError() bool {
 // IsCode returns true when this delete report bad request response a status code equal to that given
 func (o *DeleteReportBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete report bad request response
+func (o *DeleteReportBadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteReportBadRequest) Error() string {
@@ -302,6 +312,11 @@ func (o *DeleteReportForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete report forbidden response
+func (o *DeleteReportForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteReportForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /falconx/entities/reports/v1][%d] deleteReportForbidden  %+v", 403, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *DeleteReportNotFound) IsServerError() bool {
 // IsCode returns true when this delete report not found response a status code equal to that given
 func (o *DeleteReportNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete report not found response
+func (o *DeleteReportNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteReportNotFound) Error() string {
@@ -492,6 +512,11 @@ func (o *DeleteReportTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete report too many requests response a status code equal to that given
 func (o *DeleteReportTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete report too many requests response
+func (o *DeleteReportTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteReportTooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *DeleteReportInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete report internal server error response a status code equal to that given
 func (o *DeleteReportInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete report internal server error response
+func (o *DeleteReportInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteReportInternalServerError) Error() string {
