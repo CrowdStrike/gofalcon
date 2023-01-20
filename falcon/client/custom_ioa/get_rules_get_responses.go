@@ -106,6 +106,11 @@ func (o *GetRulesGetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get rules get o k response
+func (o *GetRulesGetOK) Code() int {
+	return 200
+}
+
 func (o *GetRulesGetOK) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/GET/v1][%d] getRulesGetOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *GetRulesGetForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get rules get forbidden response
+func (o *GetRulesGetForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRulesGetForbidden) Error() string {
 	return fmt.Sprintf("[POST /ioarules/entities/rules/GET/v1][%d] getRulesGetForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *GetRulesGetNotFound) IsServerError() bool {
 // IsCode returns true when this get rules get not found response a status code equal to that given
 func (o *GetRulesGetNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get rules get not found response
+func (o *GetRulesGetNotFound) Code() int {
+	return 404
 }
 
 func (o *GetRulesGetNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *GetRulesGetTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get rules get too many requests response a status code equal to that given
 func (o *GetRulesGetTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get rules get too many requests response
+func (o *GetRulesGetTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRulesGetTooManyRequests) Error() string {

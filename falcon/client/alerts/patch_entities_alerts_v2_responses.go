@@ -119,6 +119,11 @@ func (o *PatchEntitiesAlertsV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch entities alerts v2 o k response
+func (o *PatchEntitiesAlertsV2OK) Code() int {
+	return 200
+}
+
 func (o *PatchEntitiesAlertsV2OK) Error() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2OK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *PatchEntitiesAlertsV2BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the patch entities alerts v2 bad request response
+func (o *PatchEntitiesAlertsV2BadRequest) Code() int {
+	return 400
+}
+
 func (o *PatchEntitiesAlertsV2BadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2BadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *PatchEntitiesAlertsV2Forbidden) IsServerError() bool {
 // IsCode returns true when this patch entities alerts v2 forbidden response a status code equal to that given
 func (o *PatchEntitiesAlertsV2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch entities alerts v2 forbidden response
+func (o *PatchEntitiesAlertsV2Forbidden) Code() int {
+	return 403
 }
 
 func (o *PatchEntitiesAlertsV2Forbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *PatchEntitiesAlertsV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this patch entities alerts v2 too many requests response a status code equal to that given
 func (o *PatchEntitiesAlertsV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the patch entities alerts v2 too many requests response
+func (o *PatchEntitiesAlertsV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PatchEntitiesAlertsV2TooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *PatchEntitiesAlertsV2InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the patch entities alerts v2 internal server error response
+func (o *PatchEntitiesAlertsV2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *PatchEntitiesAlertsV2InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2InternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type PatchEntitiesAlertsV2Default struct {
 	Payload *models.MsaspecResponseFields
 }
 
-// Code gets the status code for the patch entities alerts v2 default response
-func (o *PatchEntitiesAlertsV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch entities alerts v2 default response has a 2xx status code
 func (o *PatchEntitiesAlertsV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *PatchEntitiesAlertsV2Default) IsServerError() bool {
 // IsCode returns true when this patch entities alerts v2 default response a status code equal to that given
 func (o *PatchEntitiesAlertsV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch entities alerts v2 default response
+func (o *PatchEntitiesAlertsV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchEntitiesAlertsV2Default) Error() string {

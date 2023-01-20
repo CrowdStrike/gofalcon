@@ -125,6 +125,11 @@ func (o *PerformGroupActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform group action o k response
+func (o *PerformGroupActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformGroupActionOK) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *PerformGroupActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform group action bad request response a status code equal to that given
 func (o *PerformGroupActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform group action bad request response
+func (o *PerformGroupActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformGroupActionBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *PerformGroupActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform group action forbidden response
+func (o *PerformGroupActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformGroupActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *PerformGroupActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform group action not found response a status code equal to that given
 func (o *PerformGroupActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform group action not found response
+func (o *PerformGroupActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformGroupActionNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *PerformGroupActionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform group action too many requests response a status code equal to that given
 func (o *PerformGroupActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform group action too many requests response
+func (o *PerformGroupActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformGroupActionTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *PerformGroupActionInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the perform group action internal server error response
+func (o *PerformGroupActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformGroupActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /devices/entities/host-group-actions/v1][%d] performGroupActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type PerformGroupActionDefault struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
-// Code gets the status code for the perform group action default response
-func (o *PerformGroupActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform group action default response has a 2xx status code
 func (o *PerformGroupActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *PerformGroupActionDefault) IsServerError() bool {
 // IsCode returns true when this perform group action default response a status code equal to that given
 func (o *PerformGroupActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform group action default response
+func (o *PerformGroupActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformGroupActionDefault) Error() string {

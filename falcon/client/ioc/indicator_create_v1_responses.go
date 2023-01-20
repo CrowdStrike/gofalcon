@@ -100,6 +100,11 @@ func (o *IndicatorCreateV1Created) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the indicator create v1 created response
+func (o *IndicatorCreateV1Created) Code() int {
+	return 201
+}
+
 func (o *IndicatorCreateV1Created) Error() string {
 	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1Created  %+v", 201, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *IndicatorCreateV1Forbidden) IsServerError() bool {
 // IsCode returns true when this indicator create v1 forbidden response a status code equal to that given
 func (o *IndicatorCreateV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the indicator create v1 forbidden response
+func (o *IndicatorCreateV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *IndicatorCreateV1Forbidden) Error() string {
@@ -312,6 +322,11 @@ func (o *IndicatorCreateV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this indicator create v1 too many requests response a status code equal to that given
 func (o *IndicatorCreateV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the indicator create v1 too many requests response
+func (o *IndicatorCreateV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *IndicatorCreateV1TooManyRequests) Error() string {

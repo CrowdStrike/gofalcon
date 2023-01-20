@@ -121,6 +121,11 @@ func (o *QueryDeviceControlPolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query device control policy members o k response
+func (o *QueryDeviceControlPolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryDeviceControlPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control-members/v1][%d] queryDeviceControlPolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QueryDeviceControlPolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query device control policy members bad request response a status code equal to that given
 func (o *QueryDeviceControlPolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query device control policy members bad request response
+func (o *QueryDeviceControlPolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryDeviceControlPolicyMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QueryDeviceControlPolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query device control policy members forbidden response
+func (o *QueryDeviceControlPolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryDeviceControlPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control-members/v1][%d] queryDeviceControlPolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QueryDeviceControlPolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query device control policy members not found response a status code equal to that given
 func (o *QueryDeviceControlPolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query device control policy members not found response
+func (o *QueryDeviceControlPolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryDeviceControlPolicyMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QueryDeviceControlPolicyMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query device control policy members too many requests response a status code equal to that given
 func (o *QueryDeviceControlPolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query device control policy members too many requests response
+func (o *QueryDeviceControlPolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryDeviceControlPolicyMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QueryDeviceControlPolicyMembersInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the query device control policy members internal server error response
+func (o *QueryDeviceControlPolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryDeviceControlPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/device-control-members/v1][%d] queryDeviceControlPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QueryDeviceControlPolicyMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query device control policy members default response
-func (o *QueryDeviceControlPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query device control policy members default response has a 2xx status code
 func (o *QueryDeviceControlPolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QueryDeviceControlPolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query device control policy members default response a status code equal to that given
 func (o *QueryDeviceControlPolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query device control policy members default response
+func (o *QueryDeviceControlPolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDeviceControlPolicyMembersDefault) Error() string {

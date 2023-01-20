@@ -103,6 +103,11 @@ func (o *QueryDevicesByFilterScrollOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query devices by filter scroll o k response
+func (o *QueryDevicesByFilterScrollOK) Code() int {
+	return 200
+}
+
 func (o *QueryDevicesByFilterScrollOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryDevicesByFilterScrollForbidden) IsServerError() bool {
 // IsCode returns true when this query devices by filter scroll forbidden response a status code equal to that given
 func (o *QueryDevicesByFilterScrollForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query devices by filter scroll forbidden response
+func (o *QueryDevicesByFilterScrollForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryDevicesByFilterScrollForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryDevicesByFilterScrollTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query devices by filter scroll too many requests response
+func (o *QueryDevicesByFilterScrollTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryDevicesByFilterScrollTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices-scroll/v1][%d] queryDevicesByFilterScrollTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryDevicesByFilterScrollDefault struct {
 	Payload *models.DomainDeviceResponse
 }
 
-// Code gets the status code for the query devices by filter scroll default response
-func (o *QueryDevicesByFilterScrollDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query devices by filter scroll default response has a 2xx status code
 func (o *QueryDevicesByFilterScrollDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryDevicesByFilterScrollDefault) IsServerError() bool {
 // IsCode returns true when this query devices by filter scroll default response a status code equal to that given
 func (o *QueryDevicesByFilterScrollDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query devices by filter scroll default response
+func (o *QueryDevicesByFilterScrollDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDevicesByFilterScrollDefault) Error() string {

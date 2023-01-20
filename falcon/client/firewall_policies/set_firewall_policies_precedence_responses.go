@@ -115,6 +115,11 @@ func (o *SetFirewallPoliciesPrecedenceOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the set firewall policies precedence o k response
+func (o *SetFirewallPoliciesPrecedenceOK) Code() int {
+	return 200
+}
+
 func (o *SetFirewallPoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *SetFirewallPoliciesPrecedenceBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the set firewall policies precedence bad request response
+func (o *SetFirewallPoliciesPrecedenceBadRequest) Code() int {
+	return 400
+}
+
 func (o *SetFirewallPoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *SetFirewallPoliciesPrecedenceForbidden) IsServerError() bool {
 // IsCode returns true when this set firewall policies precedence forbidden response a status code equal to that given
 func (o *SetFirewallPoliciesPrecedenceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the set firewall policies precedence forbidden response
+func (o *SetFirewallPoliciesPrecedenceForbidden) Code() int {
+	return 403
 }
 
 func (o *SetFirewallPoliciesPrecedenceForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsServerError() bool {
 // IsCode returns true when this set firewall policies precedence too many requests response a status code equal to that given
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the set firewall policies precedence too many requests response
+func (o *SetFirewallPoliciesPrecedenceTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *SetFirewallPoliciesPrecedenceInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the set firewall policies precedence internal server error response
+func (o *SetFirewallPoliciesPrecedenceInternalServerError) Code() int {
+	return 500
+}
+
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type SetFirewallPoliciesPrecedenceDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the set firewall policies precedence default response
-func (o *SetFirewallPoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this set firewall policies precedence default response has a 2xx status code
 func (o *SetFirewallPoliciesPrecedenceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *SetFirewallPoliciesPrecedenceDefault) IsServerError() bool {
 // IsCode returns true when this set firewall policies precedence default response a status code equal to that given
 func (o *SetFirewallPoliciesPrecedenceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the set firewall policies precedence default response
+func (o *SetFirewallPoliciesPrecedenceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SetFirewallPoliciesPrecedenceDefault) Error() string {

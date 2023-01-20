@@ -119,6 +119,11 @@ func (o *GetEvaluationLogicOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get evaluation logic o k response
+func (o *GetEvaluationLogicOK) Code() int {
+	return 200
+}
+
 func (o *GetEvaluationLogicOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *GetEvaluationLogicBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get evaluation logic bad request response
+func (o *GetEvaluationLogicBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetEvaluationLogicBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicBadRequest ", 400)
 }
@@ -314,6 +324,11 @@ func (o *GetEvaluationLogicForbidden) IsServerError() bool {
 // IsCode returns true when this get evaluation logic forbidden response a status code equal to that given
 func (o *GetEvaluationLogicForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get evaluation logic forbidden response
+func (o *GetEvaluationLogicForbidden) Code() int {
+	return 403
 }
 
 func (o *GetEvaluationLogicForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *GetEvaluationLogicTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get evaluation logic too many requests response a status code equal to that given
 func (o *GetEvaluationLogicTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get evaluation logic too many requests response
+func (o *GetEvaluationLogicTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetEvaluationLogicTooManyRequests) Error() string {
@@ -539,6 +559,11 @@ func (o *GetEvaluationLogicInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get evaluation logic internal server error response
+func (o *GetEvaluationLogicInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetEvaluationLogicInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicInternalServerError ", 500)
 }
@@ -599,11 +624,6 @@ type GetEvaluationLogicDefault struct {
 	Payload *models.DomainSPAPIEvaluationLogicEntitiesResponseV1
 }
 
-// Code gets the status code for the get evaluation logic default response
-func (o *GetEvaluationLogicDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get evaluation logic default response has a 2xx status code
 func (o *GetEvaluationLogicDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -627,6 +647,11 @@ func (o *GetEvaluationLogicDefault) IsServerError() bool {
 // IsCode returns true when this get evaluation logic default response a status code equal to that given
 func (o *GetEvaluationLogicDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get evaluation logic default response
+func (o *GetEvaluationLogicDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetEvaluationLogicDefault) Error() string {

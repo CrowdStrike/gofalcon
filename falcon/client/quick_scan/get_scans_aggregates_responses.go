@@ -94,6 +94,11 @@ func (o *GetScansAggregatesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get scans aggregates o k response
+func (o *GetScansAggregatesOK) Code() int {
+	return 200
+}
+
 func (o *GetScansAggregatesOK) Error() string {
 	return fmt.Sprintf("[POST /scanner/aggregates/scans/GET/v1][%d] getScansAggregatesOK ", 200)
 }
@@ -175,6 +180,11 @@ func (o *GetScansAggregatesForbidden) IsServerError() bool {
 // IsCode returns true when this get scans aggregates forbidden response a status code equal to that given
 func (o *GetScansAggregatesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get scans aggregates forbidden response
+func (o *GetScansAggregatesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetScansAggregatesForbidden) Error() string {
@@ -273,6 +283,11 @@ func (o *GetScansAggregatesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get scans aggregates too many requests response a status code equal to that given
 func (o *GetScansAggregatesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get scans aggregates too many requests response
+func (o *GetScansAggregatesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetScansAggregatesTooManyRequests) Error() string {

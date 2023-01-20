@@ -115,6 +115,11 @@ func (o *UpdateCIDGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update c Id groups o k response
+func (o *UpdateCIDGroupsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateCIDGroupsOK) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *UpdateCIDGroupsMultiStatus) IsServerError() bool {
 // IsCode returns true when this update c Id groups multi status response a status code equal to that given
 func (o *UpdateCIDGroupsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the update c Id groups multi status response
+func (o *UpdateCIDGroupsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *UpdateCIDGroupsMultiStatus) Error() string {
@@ -303,6 +313,11 @@ func (o *UpdateCIDGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update c Id groups bad request response
+func (o *UpdateCIDGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCIDGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *UpdateCIDGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this update c Id groups forbidden response a status code equal to that given
 func (o *UpdateCIDGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update c Id groups forbidden response
+func (o *UpdateCIDGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCIDGroupsForbidden) Error() string {
@@ -495,6 +515,11 @@ func (o *UpdateCIDGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the update c Id groups too many requests response
+func (o *UpdateCIDGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *UpdateCIDGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /mssp/entities/cid-groups/v1][%d] updateCIdGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type UpdateCIDGroupsDefault struct {
 	Payload *models.DomainCIDGroupsResponseV1
 }
 
-// Code gets the status code for the update c ID groups default response
-func (o *UpdateCIDGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update c ID groups default response has a 2xx status code
 func (o *UpdateCIDGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *UpdateCIDGroupsDefault) IsServerError() bool {
 // IsCode returns true when this update c ID groups default response a status code equal to that given
 func (o *UpdateCIDGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update c ID groups default response
+func (o *UpdateCIDGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateCIDGroupsDefault) Error() string {

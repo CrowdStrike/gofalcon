@@ -106,6 +106,11 @@ func (o *QueryRulesMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rules mixin0 o k response
+func (o *QueryRulesMixin0OK) Code() int {
+	return 200
+}
+
 func (o *QueryRulesMixin0OK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rules/v1][%d] queryRulesMixin0OK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryRulesMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query rules mixin0 forbidden response
+func (o *QueryRulesMixin0Forbidden) Code() int {
+	return 403
+}
+
 func (o *QueryRulesMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rules/v1][%d] queryRulesMixin0Forbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryRulesMixin0NotFound) IsServerError() bool {
 // IsCode returns true when this query rules mixin0 not found response a status code equal to that given
 func (o *QueryRulesMixin0NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query rules mixin0 not found response
+func (o *QueryRulesMixin0NotFound) Code() int {
+	return 404
 }
 
 func (o *QueryRulesMixin0NotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryRulesMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this query rules mixin0 too many requests response a status code equal to that given
 func (o *QueryRulesMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query rules mixin0 too many requests response
+func (o *QueryRulesMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryRulesMixin0TooManyRequests) Error() string {

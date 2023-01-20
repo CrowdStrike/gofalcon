@@ -125,6 +125,11 @@ func (o *UpdateCSPMPolicySettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update c s p m policy settings o k response
+func (o *UpdateCSPMPolicySettingsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateCSPMPolicySettingsOK) Error() string {
 	return fmt.Sprintf("[PATCH /settings/entities/policy/v1][%d] updateCSPMPolicySettingsOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *UpdateCSPMPolicySettingsMultiStatus) IsServerError() bool {
 // IsCode returns true when this update c s p m policy settings multi status response a status code equal to that given
 func (o *UpdateCSPMPolicySettingsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the update c s p m policy settings multi status response
+func (o *UpdateCSPMPolicySettingsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *UpdateCSPMPolicySettingsMultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *UpdateCSPMPolicySettingsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update c s p m policy settings bad request response
+func (o *UpdateCSPMPolicySettingsBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCSPMPolicySettingsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /settings/entities/policy/v1][%d] updateCSPMPolicySettingsBadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *UpdateCSPMPolicySettingsForbidden) IsServerError() bool {
 // IsCode returns true when this update c s p m policy settings forbidden response a status code equal to that given
 func (o *UpdateCSPMPolicySettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update c s p m policy settings forbidden response
+func (o *UpdateCSPMPolicySettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCSPMPolicySettingsForbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *UpdateCSPMPolicySettingsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update c s p m policy settings too many requests response a status code equal to that given
 func (o *UpdateCSPMPolicySettingsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update c s p m policy settings too many requests response
+func (o *UpdateCSPMPolicySettingsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateCSPMPolicySettingsTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *UpdateCSPMPolicySettingsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update c s p m policy settings internal server error response
+func (o *UpdateCSPMPolicySettingsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateCSPMPolicySettingsInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /settings/entities/policy/v1][%d] updateCSPMPolicySettingsInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type UpdateCSPMPolicySettingsDefault struct {
 	Payload *models.RegistrationPolicySettingsResponseV1
 }
 
-// Code gets the status code for the update c s p m policy settings default response
-func (o *UpdateCSPMPolicySettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update c s p m policy settings default response has a 2xx status code
 func (o *UpdateCSPMPolicySettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *UpdateCSPMPolicySettingsDefault) IsServerError() bool {
 // IsCode returns true when this update c s p m policy settings default response a status code equal to that given
 func (o *UpdateCSPMPolicySettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update c s p m policy settings default response
+func (o *UpdateCSPMPolicySettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateCSPMPolicySettingsDefault) Error() string {

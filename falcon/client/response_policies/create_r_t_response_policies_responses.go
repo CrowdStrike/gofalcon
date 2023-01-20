@@ -118,6 +118,11 @@ func (o *CreateRTResponsePoliciesCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create r t response policies created response
+func (o *CreateRTResponsePoliciesCreated) Code() int {
+	return 201
+}
+
 func (o *CreateRTResponsePoliciesCreated) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *CreateRTResponsePoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this create r t response policies bad request response a status code equal to that given
 func (o *CreateRTResponsePoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create r t response policies bad request response
+func (o *CreateRTResponsePoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateRTResponsePoliciesBadRequest) Error() string {
@@ -328,6 +338,11 @@ func (o *CreateRTResponsePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create r t response policies forbidden response
+func (o *CreateRTResponsePoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateRTResponsePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *CreateRTResponsePoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this create r t response policies not found response a status code equal to that given
 func (o *CreateRTResponsePoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create r t response policies not found response
+func (o *CreateRTResponsePoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *CreateRTResponsePoliciesNotFound) Error() string {
@@ -540,6 +560,11 @@ func (o *CreateRTResponsePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create r t response policies too many requests response a status code equal to that given
 func (o *CreateRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create r t response policies too many requests response
+func (o *CreateRTResponsePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateRTResponsePoliciesTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *CreateRTResponsePoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this create r t response policies internal server error response a status code equal to that given
 func (o *CreateRTResponsePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create r t response policies internal server error response
+func (o *CreateRTResponsePoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateRTResponsePoliciesInternalServerError) Error() string {

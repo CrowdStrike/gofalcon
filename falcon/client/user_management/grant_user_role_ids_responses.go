@@ -113,6 +113,11 @@ func (o *GrantUserRoleIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the grant user role ids o k response
+func (o *GrantUserRoleIdsOK) Code() int {
+	return 200
+}
+
 func (o *GrantUserRoleIdsOK) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *GrantUserRoleIdsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the grant user role ids bad request response
+func (o *GrantUserRoleIdsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GrantUserRoleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *GrantUserRoleIdsForbidden) IsServerError() bool {
 // IsCode returns true when this grant user role ids forbidden response a status code equal to that given
 func (o *GrantUserRoleIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the grant user role ids forbidden response
+func (o *GrantUserRoleIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *GrantUserRoleIdsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *GrantUserRoleIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the grant user role ids too many requests response
+func (o *GrantUserRoleIdsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GrantUserRoleIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /user-roles/entities/user-roles/v1][%d] grantUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type GrantUserRoleIdsDefault struct {
 	Payload *models.APIUserRoleIDsResponse
 }
 
-// Code gets the status code for the grant user role ids default response
-func (o *GrantUserRoleIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this grant user role ids default response has a 2xx status code
 func (o *GrantUserRoleIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GrantUserRoleIdsDefault) IsServerError() bool {
 // IsCode returns true when this grant user role ids default response a status code equal to that given
 func (o *GrantUserRoleIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the grant user role ids default response
+func (o *GrantUserRoleIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GrantUserRoleIdsDefault) Error() string {

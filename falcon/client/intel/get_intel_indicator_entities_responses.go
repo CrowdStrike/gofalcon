@@ -113,6 +113,11 @@ func (o *GetIntelIndicatorEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get intel indicator entities o k response
+func (o *GetIntelIndicatorEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetIntelIndicatorEntitiesOK) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesOK  %+v", 200, o.Payload)
 }
@@ -216,6 +221,11 @@ func (o *GetIntelIndicatorEntitiesForbidden) IsServerError() bool {
 // IsCode returns true when this get intel indicator entities forbidden response a status code equal to that given
 func (o *GetIntelIndicatorEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get intel indicator entities forbidden response
+func (o *GetIntelIndicatorEntitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIntelIndicatorEntitiesForbidden) Error() string {
@@ -325,6 +335,11 @@ func (o *GetIntelIndicatorEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get intel indicator entities too many requests response a status code equal to that given
 func (o *GetIntelIndicatorEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get intel indicator entities too many requests response
+func (o *GetIntelIndicatorEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIntelIndicatorEntitiesTooManyRequests) Error() string {
@@ -443,6 +458,11 @@ func (o *GetIntelIndicatorEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get intel indicator entities internal server error response
+func (o *GetIntelIndicatorEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIntelIndicatorEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] getIntelIndicatorEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -514,11 +534,6 @@ type GetIntelIndicatorEntitiesDefault struct {
 	Payload *models.DomainPublicIndicatorsV3Response
 }
 
-// Code gets the status code for the get intel indicator entities default response
-func (o *GetIntelIndicatorEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get intel indicator entities default response has a 2xx status code
 func (o *GetIntelIndicatorEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *GetIntelIndicatorEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get intel indicator entities default response a status code equal to that given
 func (o *GetIntelIndicatorEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get intel indicator entities default response
+func (o *GetIntelIndicatorEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIntelIndicatorEntitiesDefault) Error() string {

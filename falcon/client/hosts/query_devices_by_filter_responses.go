@@ -103,6 +103,11 @@ func (o *QueryDevicesByFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query devices by filter o k response
+func (o *QueryDevicesByFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryDevicesByFilterOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryDevicesByFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query devices by filter forbidden response a status code equal to that given
 func (o *QueryDevicesByFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query devices by filter forbidden response
+func (o *QueryDevicesByFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryDevicesByFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryDevicesByFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query devices by filter too many requests response
+func (o *QueryDevicesByFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryDevicesByFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] queryDevicesByFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryDevicesByFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query devices by filter default response
-func (o *QueryDevicesByFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query devices by filter default response has a 2xx status code
 func (o *QueryDevicesByFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryDevicesByFilterDefault) IsServerError() bool {
 // IsCode returns true when this query devices by filter default response a status code equal to that given
 func (o *QueryDevicesByFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query devices by filter default response
+func (o *QueryDevicesByFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDevicesByFilterDefault) Error() string {

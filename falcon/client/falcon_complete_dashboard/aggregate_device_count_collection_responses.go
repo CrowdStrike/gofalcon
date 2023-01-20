@@ -103,6 +103,11 @@ func (o *AggregateDeviceCountCollectionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate device count collection o k response
+func (o *AggregateDeviceCountCollectionOK) Code() int {
+	return 200
+}
+
 func (o *AggregateDeviceCountCollectionOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregateDeviceCountCollectionForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate device count collection forbidden response a status code equal to that given
 func (o *AggregateDeviceCountCollectionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate device count collection forbidden response
+func (o *AggregateDeviceCountCollectionForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateDeviceCountCollectionForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregateDeviceCountCollectionTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate device count collection too many requests response
+func (o *AggregateDeviceCountCollectionTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateDeviceCountCollectionTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1][%d] aggregateDeviceCountCollectionTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregateDeviceCountCollectionDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate device count collection default response
-func (o *AggregateDeviceCountCollectionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate device count collection default response has a 2xx status code
 func (o *AggregateDeviceCountCollectionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregateDeviceCountCollectionDefault) IsServerError() bool {
 // IsCode returns true when this aggregate device count collection default response a status code equal to that given
 func (o *AggregateDeviceCountCollectionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate device count collection default response
+func (o *AggregateDeviceCountCollectionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateDeviceCountCollectionDefault) Error() string {

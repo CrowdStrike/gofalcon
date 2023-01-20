@@ -112,6 +112,11 @@ func (o *GetChildrenV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get children v2 o k response
+func (o *GetChildrenV2OK) Code() int {
+	return 200
+}
+
 func (o *GetChildrenV2OK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2OK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *GetChildrenV2MultiStatus) IsServerError() bool {
 // IsCode returns true when this get children v2 multi status response a status code equal to that given
 func (o *GetChildrenV2MultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get children v2 multi status response
+func (o *GetChildrenV2MultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetChildrenV2MultiStatus) Error() string {
@@ -322,6 +332,11 @@ func (o *GetChildrenV2BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get children v2 bad request response
+func (o *GetChildrenV2BadRequest) Code() int {
+	return 400
+}
+
 func (o *GetChildrenV2BadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/children/GET/v2][%d] getChildrenV2BadRequest  %+v", 400, o.Payload)
 }
@@ -425,6 +440,11 @@ func (o *GetChildrenV2Forbidden) IsServerError() bool {
 // IsCode returns true when this get children v2 forbidden response a status code equal to that given
 func (o *GetChildrenV2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get children v2 forbidden response
+func (o *GetChildrenV2Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetChildrenV2Forbidden) Error() string {
@@ -534,6 +554,11 @@ func (o *GetChildrenV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get children v2 too many requests response a status code equal to that given
 func (o *GetChildrenV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get children v2 too many requests response
+func (o *GetChildrenV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetChildrenV2TooManyRequests) Error() string {

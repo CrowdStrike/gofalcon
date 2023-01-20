@@ -121,6 +121,11 @@ func (o *PerformSensorUpdatePoliciesActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform sensor update policies action o k response
+func (o *PerformSensorUpdatePoliciesActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformSensorUpdatePoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *PerformSensorUpdatePoliciesActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform sensor update policies action bad request response a status code equal to that given
 func (o *PerformSensorUpdatePoliciesActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform sensor update policies action bad request response
+func (o *PerformSensorUpdatePoliciesActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformSensorUpdatePoliciesActionBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *PerformSensorUpdatePoliciesActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform sensor update policies action forbidden response
+func (o *PerformSensorUpdatePoliciesActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformSensorUpdatePoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *PerformSensorUpdatePoliciesActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform sensor update policies action not found response a status code equal to that given
 func (o *PerformSensorUpdatePoliciesActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform sensor update policies action not found response
+func (o *PerformSensorUpdatePoliciesActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformSensorUpdatePoliciesActionNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *PerformSensorUpdatePoliciesActionTooManyRequests) IsServerError() bool 
 // IsCode returns true when this perform sensor update policies action too many requests response a status code equal to that given
 func (o *PerformSensorUpdatePoliciesActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform sensor update policies action too many requests response
+func (o *PerformSensorUpdatePoliciesActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformSensorUpdatePoliciesActionTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *PerformSensorUpdatePoliciesActionInternalServerError) IsCode(code int) 
 	return code == 500
 }
 
+// Code gets the status code for the perform sensor update policies action internal server error response
+func (o *PerformSensorUpdatePoliciesActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformSensorUpdatePoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type PerformSensorUpdatePoliciesActionDefault struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV1
 }
 
-// Code gets the status code for the perform sensor update policies action default response
-func (o *PerformSensorUpdatePoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform sensor update policies action default response has a 2xx status code
 func (o *PerformSensorUpdatePoliciesActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *PerformSensorUpdatePoliciesActionDefault) IsServerError() bool {
 // IsCode returns true when this perform sensor update policies action default response a status code equal to that given
 func (o *PerformSensorUpdatePoliciesActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform sensor update policies action default response
+func (o *PerformSensorUpdatePoliciesActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformSensorUpdatePoliciesActionDefault) Error() string {

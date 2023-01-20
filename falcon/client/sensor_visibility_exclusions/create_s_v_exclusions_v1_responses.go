@@ -115,6 +115,11 @@ func (o *CreateSVExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create s v exclusions v1 o k response
+func (o *CreateSVExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *CreateSVExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *CreateSVExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create s v exclusions v1 bad request response
+func (o *CreateSVExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateSVExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *CreateSVExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this create s v exclusions v1 forbidden response a status code equal to that given
 func (o *CreateSVExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create s v exclusions v1 forbidden response
+func (o *CreateSVExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *CreateSVExclusionsV1Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *CreateSVExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this create s v exclusions v1 too many requests response a status code equal to that given
 func (o *CreateSVExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create s v exclusions v1 too many requests response
+func (o *CreateSVExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateSVExclusionsV1TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *CreateSVExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create s v exclusions v1 internal server error response
+func (o *CreateSVExclusionsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateSVExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/sv-exclusions/v1][%d] createSVExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type CreateSVExclusionsV1Default struct {
 	Payload *models.ResponsesMlExclusionRespV1
 }
 
-// Code gets the status code for the create s v exclusions v1 default response
-func (o *CreateSVExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create s v exclusions v1 default response has a 2xx status code
 func (o *CreateSVExclusionsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *CreateSVExclusionsV1Default) IsServerError() bool {
 // IsCode returns true when this create s v exclusions v1 default response a status code equal to that given
 func (o *CreateSVExclusionsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create s v exclusions v1 default response
+func (o *CreateSVExclusionsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateSVExclusionsV1Default) Error() string {

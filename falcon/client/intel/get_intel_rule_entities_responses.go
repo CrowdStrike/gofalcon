@@ -109,6 +109,11 @@ func (o *GetIntelRuleEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get intel rule entities o k response
+func (o *GetIntelRuleEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetIntelRuleEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules/v1][%d] getIntelRuleEntitiesOK  %+v", 200, o.Payload)
 }
@@ -201,6 +206,11 @@ func (o *GetIntelRuleEntitiesForbidden) IsServerError() bool {
 // IsCode returns true when this get intel rule entities forbidden response a status code equal to that given
 func (o *GetIntelRuleEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get intel rule entities forbidden response
+func (o *GetIntelRuleEntitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIntelRuleEntitiesForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *GetIntelRuleEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get intel rule entities too many requests response a status code equal to that given
 func (o *GetIntelRuleEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get intel rule entities too many requests response
+func (o *GetIntelRuleEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIntelRuleEntitiesTooManyRequests) Error() string {
@@ -406,6 +421,11 @@ func (o *GetIntelRuleEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get intel rule entities internal server error response
+func (o *GetIntelRuleEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIntelRuleEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules/v1][%d] getIntelRuleEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetIntelRuleEntitiesDefault struct {
 	Payload *models.DomainRulesResponse
 }
 
-// Code gets the status code for the get intel rule entities default response
-func (o *GetIntelRuleEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get intel rule entities default response has a 2xx status code
 func (o *GetIntelRuleEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetIntelRuleEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get intel rule entities default response a status code equal to that given
 func (o *GetIntelRuleEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get intel rule entities default response
+func (o *GetIntelRuleEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIntelRuleEntitiesDefault) Error() string {

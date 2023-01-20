@@ -121,6 +121,11 @@ func (o *RTRListQueuedSessionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r list queued sessions o k response
+func (o *RTRListQueuedSessionsOK) Code() int {
+	return 200
+}
+
 func (o *RTRListQueuedSessionsOK) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *RTRListQueuedSessionsBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r list queued sessions bad request response a status code equal to that given
 func (o *RTRListQueuedSessionsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r list queued sessions bad request response
+func (o *RTRListQueuedSessionsBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRListQueuedSessionsBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *RTRListQueuedSessionsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the r t r list queued sessions unauthorized response
+func (o *RTRListQueuedSessionsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *RTRListQueuedSessionsUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsUnauthorized  %+v", 401, o.Payload)
 }
@@ -403,6 +418,11 @@ func (o *RTRListQueuedSessionsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r list queued sessions forbidden response
+func (o *RTRListQueuedSessionsForbidden) Code() int {
+	return 403
+}
+
 func (o *RTRListQueuedSessionsForbidden) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsForbidden  %+v", 403, o.Payload)
 }
@@ -495,6 +515,11 @@ func (o *RTRListQueuedSessionsNotFound) IsServerError() bool {
 // IsCode returns true when this r t r list queued sessions not found response a status code equal to that given
 func (o *RTRListQueuedSessionsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r list queued sessions not found response
+func (o *RTRListQueuedSessionsNotFound) Code() int {
+	return 404
 }
 
 func (o *RTRListQueuedSessionsNotFound) Error() string {
@@ -595,6 +620,11 @@ func (o *RTRListQueuedSessionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r list queued sessions too many requests response
+func (o *RTRListQueuedSessionsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRListQueuedSessionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] rTRListQueuedSessionsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -670,11 +700,6 @@ type RTRListQueuedSessionsDefault struct {
 	Payload *models.DomainQueuedSessionResponseWrapper
 }
 
-// Code gets the status code for the r t r list queued sessions default response
-func (o *RTRListQueuedSessionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r list queued sessions default response has a 2xx status code
 func (o *RTRListQueuedSessionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *RTRListQueuedSessionsDefault) IsServerError() bool {
 // IsCode returns true when this r t r list queued sessions default response a status code equal to that given
 func (o *RTRListQueuedSessionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r list queued sessions default response
+func (o *RTRListQueuedSessionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRListQueuedSessionsDefault) Error() string {

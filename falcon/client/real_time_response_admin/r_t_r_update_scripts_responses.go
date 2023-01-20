@@ -109,6 +109,11 @@ func (o *RTRUpdateScriptsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r update scripts o k response
+func (o *RTRUpdateScriptsOK) Code() int {
+	return 200
+}
+
 func (o *RTRUpdateScriptsOK) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *RTRUpdateScriptsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r update scripts bad request response
+func (o *RTRUpdateScriptsBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRUpdateScriptsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsBadRequest  %+v", 400, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *RTRUpdateScriptsForbidden) IsServerError() bool {
 // IsCode returns true when this r t r update scripts forbidden response a status code equal to that given
 func (o *RTRUpdateScriptsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r update scripts forbidden response
+func (o *RTRUpdateScriptsForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRUpdateScriptsForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *RTRUpdateScriptsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r update scripts too many requests response
+func (o *RTRUpdateScriptsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRUpdateScriptsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type RTRUpdateScriptsDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the r t r update scripts default response
-func (o *RTRUpdateScriptsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r update scripts default response has a 2xx status code
 func (o *RTRUpdateScriptsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *RTRUpdateScriptsDefault) IsServerError() bool {
 // IsCode returns true when this r t r update scripts default response a status code equal to that given
 func (o *RTRUpdateScriptsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r update scripts default response
+func (o *RTRUpdateScriptsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRUpdateScriptsDefault) Error() string {

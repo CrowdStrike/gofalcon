@@ -106,6 +106,11 @@ func (o *CreateRuleGroupCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create rule group created response
+func (o *CreateRuleGroupCreated) Code() int {
+	return 201
+}
+
 func (o *CreateRuleGroupCreated) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupCreated  %+v", 201, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CreateRuleGroupBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create rule group bad request response
+func (o *CreateRuleGroupBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateRuleGroupBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rule-groups/v1][%d] createRuleGroupBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CreateRuleGroupForbidden) IsServerError() bool {
 // IsCode returns true when this create rule group forbidden response a status code equal to that given
 func (o *CreateRuleGroupForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create rule group forbidden response
+func (o *CreateRuleGroupForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateRuleGroupForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *CreateRuleGroupTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create rule group too many requests response a status code equal to that given
 func (o *CreateRuleGroupTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create rule group too many requests response
+func (o *CreateRuleGroupTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateRuleGroupTooManyRequests) Error() string {

@@ -106,6 +106,11 @@ func (o *UpdateRuleGroupMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update rule group mixin0 o k response
+func (o *UpdateRuleGroupMixin0OK) Code() int {
+	return 200
+}
+
 func (o *UpdateRuleGroupMixin0OK) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0OK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateRuleGroupMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update rule group mixin0 forbidden response
+func (o *UpdateRuleGroupMixin0Forbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateRuleGroupMixin0Forbidden) Error() string {
 	return fmt.Sprintf("[PATCH /ioarules/entities/rule-groups/v1][%d] updateRuleGroupMixin0Forbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateRuleGroupMixin0NotFound) IsServerError() bool {
 // IsCode returns true when this update rule group mixin0 not found response a status code equal to that given
 func (o *UpdateRuleGroupMixin0NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update rule group mixin0 not found response
+func (o *UpdateRuleGroupMixin0NotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateRuleGroupMixin0NotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateRuleGroupMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this update rule group mixin0 too many requests response a status code equal to that given
 func (o *UpdateRuleGroupMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update rule group mixin0 too many requests response
+func (o *UpdateRuleGroupMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateRuleGroupMixin0TooManyRequests) Error() string {

@@ -106,6 +106,11 @@ func (o *CreateNetworkLocationsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create network locations created response
+func (o *CreateNetworkLocationsCreated) Code() int {
+	return 201
+}
+
 func (o *CreateNetworkLocationsCreated) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsCreated  %+v", 201, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CreateNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create network locations bad request response
+func (o *CreateNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations/v1][%d] createNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CreateNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this create network locations forbidden response a status code equal to that given
 func (o *CreateNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create network locations forbidden response
+func (o *CreateNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *CreateNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create network locations too many requests response a status code equal to that given
 func (o *CreateNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create network locations too many requests response
+func (o *CreateNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateNetworkLocationsTooManyRequests) Error() string {

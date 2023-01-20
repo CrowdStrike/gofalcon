@@ -103,6 +103,11 @@ func (o *AggregateBlockListOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate block list o k response
+func (o *AggregateBlockListOK) Code() int {
+	return 200
+}
+
 func (o *AggregateBlockListOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/blocklist/GET/v1][%d] aggregateBlockListOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregateBlockListForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate block list forbidden response a status code equal to that given
 func (o *AggregateBlockListForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate block list forbidden response
+func (o *AggregateBlockListForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateBlockListForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregateBlockListTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate block list too many requests response
+func (o *AggregateBlockListTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateBlockListTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/blocklist/GET/v1][%d] aggregateBlockListTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregateBlockListDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate block list default response
-func (o *AggregateBlockListDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate block list default response has a 2xx status code
 func (o *AggregateBlockListDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregateBlockListDefault) IsServerError() bool {
 // IsCode returns true when this aggregate block list default response a status code equal to that given
 func (o *AggregateBlockListDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate block list default response
+func (o *AggregateBlockListDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateBlockListDefault) Error() string {

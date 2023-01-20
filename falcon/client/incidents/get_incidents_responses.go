@@ -115,6 +115,11 @@ func (o *GetIncidentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get incidents o k response
+func (o *GetIncidentsOK) Code() int {
+	return 200
+}
+
 func (o *GetIncidentsOK) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetIncidentsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get incidents bad request response
+func (o *GetIncidentsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetIncidentsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetIncidentsForbidden) IsServerError() bool {
 // IsCode returns true when this get incidents forbidden response a status code equal to that given
 func (o *GetIncidentsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get incidents forbidden response
+func (o *GetIncidentsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIncidentsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetIncidentsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get incidents too many requests response a status code equal to that given
 func (o *GetIncidentsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get incidents too many requests response
+func (o *GetIncidentsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIncidentsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetIncidentsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get incidents internal server error response
+func (o *GetIncidentsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIncidentsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incidents/GET/v1][%d] getIncidentsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetIncidentsDefault struct {
 	Payload *models.APIMsaExternalIncidentResponse
 }
 
-// Code gets the status code for the get incidents default response
-func (o *GetIncidentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get incidents default response has a 2xx status code
 func (o *GetIncidentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetIncidentsDefault) IsServerError() bool {
 // IsCode returns true when this get incidents default response a status code equal to that given
 func (o *GetIncidentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get incidents default response
+func (o *GetIncidentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIncidentsDefault) Error() string {

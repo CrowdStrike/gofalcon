@@ -115,6 +115,11 @@ func (o *CreateUserGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create user groups o k response
+func (o *CreateUserGroupsOK) Code() int {
+	return 200
+}
+
 func (o *CreateUserGroupsOK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *CreateUserGroupsMultiStatus) IsServerError() bool {
 // IsCode returns true when this create user groups multi status response a status code equal to that given
 func (o *CreateUserGroupsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create user groups multi status response
+func (o *CreateUserGroupsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateUserGroupsMultiStatus) Error() string {
@@ -303,6 +313,11 @@ func (o *CreateUserGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create user groups bad request response
+func (o *CreateUserGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateUserGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *CreateUserGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this create user groups forbidden response a status code equal to that given
 func (o *CreateUserGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create user groups forbidden response
+func (o *CreateUserGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateUserGroupsForbidden) Error() string {
@@ -495,6 +515,11 @@ func (o *CreateUserGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the create user groups too many requests response
+func (o *CreateUserGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *CreateUserGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/user-groups/v1][%d] createUserGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type CreateUserGroupsDefault struct {
 	Payload *models.DomainUserGroupsResponseV1
 }
 
-// Code gets the status code for the create user groups default response
-func (o *CreateUserGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create user groups default response has a 2xx status code
 func (o *CreateUserGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *CreateUserGroupsDefault) IsServerError() bool {
 // IsCode returns true when this create user groups default response a status code equal to that given
 func (o *CreateUserGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create user groups default response
+func (o *CreateUserGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateUserGroupsDefault) Error() string {

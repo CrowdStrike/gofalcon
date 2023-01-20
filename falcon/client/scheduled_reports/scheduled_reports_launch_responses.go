@@ -113,6 +113,11 @@ func (o *ScheduledReportsLaunchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the scheduled reports launch o k response
+func (o *ScheduledReportsLaunchOK) Code() int {
+	return 200
+}
+
 func (o *ScheduledReportsLaunchOK) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *ScheduledReportsLaunchBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the scheduled reports launch bad request response
+func (o *ScheduledReportsLaunchBadRequest) Code() int {
+	return 400
+}
+
 func (o *ScheduledReportsLaunchBadRequest) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *ScheduledReportsLaunchForbidden) IsServerError() bool {
 // IsCode returns true when this scheduled reports launch forbidden response a status code equal to that given
 func (o *ScheduledReportsLaunchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the scheduled reports launch forbidden response
+func (o *ScheduledReportsLaunchForbidden) Code() int {
+	return 403
 }
 
 func (o *ScheduledReportsLaunchForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *ScheduledReportsLaunchTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the scheduled reports launch too many requests response
+func (o *ScheduledReportsLaunchTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ScheduledReportsLaunchTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type ScheduledReportsLaunchDefault struct {
 	Payload *models.APIReportExecutionsResponseV1
 }
 
-// Code gets the status code for the scheduled reports launch default response
-func (o *ScheduledReportsLaunchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this scheduled reports launch default response has a 2xx status code
 func (o *ScheduledReportsLaunchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *ScheduledReportsLaunchDefault) IsServerError() bool {
 // IsCode returns true when this scheduled reports launch default response a status code equal to that given
 func (o *ScheduledReportsLaunchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the scheduled reports launch default response
+func (o *ScheduledReportsLaunchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ScheduledReportsLaunchDefault) Error() string {

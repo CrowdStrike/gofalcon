@@ -125,6 +125,11 @@ func (o *CaseDownloadAttachmentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the case download attachment o k response
+func (o *CaseDownloadAttachmentOK) Code() int {
+	return 200
+}
+
 func (o *CaseDownloadAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentOK  %+v", 200, o.Payload)
 }
@@ -226,6 +231,11 @@ func (o *CaseDownloadAttachmentBadRequest) IsServerError() bool {
 // IsCode returns true when this case download attachment bad request response a status code equal to that given
 func (o *CaseDownloadAttachmentBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the case download attachment bad request response
+func (o *CaseDownloadAttachmentBadRequest) Code() int {
+	return 400
 }
 
 func (o *CaseDownloadAttachmentBadRequest) Error() string {
@@ -333,6 +343,11 @@ func (o *CaseDownloadAttachmentForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the case download attachment forbidden response
+func (o *CaseDownloadAttachmentForbidden) Code() int {
+	return 403
+}
+
 func (o *CaseDownloadAttachmentForbidden) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
 }
@@ -436,6 +451,11 @@ func (o *CaseDownloadAttachmentNotFound) IsServerError() bool {
 // IsCode returns true when this case download attachment not found response a status code equal to that given
 func (o *CaseDownloadAttachmentNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the case download attachment not found response
+func (o *CaseDownloadAttachmentNotFound) Code() int {
+	return 404
 }
 
 func (o *CaseDownloadAttachmentNotFound) Error() string {
@@ -545,6 +565,11 @@ func (o *CaseDownloadAttachmentTooManyRequests) IsServerError() bool {
 // IsCode returns true when this case download attachment too many requests response a status code equal to that given
 func (o *CaseDownloadAttachmentTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the case download attachment too many requests response
+func (o *CaseDownloadAttachmentTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CaseDownloadAttachmentTooManyRequests) Error() string {
@@ -663,6 +688,11 @@ func (o *CaseDownloadAttachmentInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the case download attachment internal server error response
+func (o *CaseDownloadAttachmentInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CaseDownloadAttachmentInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
 }
@@ -734,11 +764,6 @@ type CaseDownloadAttachmentDefault struct {
 	Payload string
 }
 
-// Code gets the status code for the case download attachment default response
-func (o *CaseDownloadAttachmentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this case download attachment default response has a 2xx status code
 func (o *CaseDownloadAttachmentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -762,6 +787,11 @@ func (o *CaseDownloadAttachmentDefault) IsServerError() bool {
 // IsCode returns true when this case download attachment default response a status code equal to that given
 func (o *CaseDownloadAttachmentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the case download attachment default response
+func (o *CaseDownloadAttachmentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CaseDownloadAttachmentDefault) Error() string {

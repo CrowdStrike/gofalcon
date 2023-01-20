@@ -121,6 +121,11 @@ func (o *PerformIncidentActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform incident action o k response
+func (o *PerformIncidentActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformIncidentActionOK) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *PerformIncidentActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform incident action bad request response a status code equal to that given
 func (o *PerformIncidentActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform incident action bad request response
+func (o *PerformIncidentActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformIncidentActionBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *PerformIncidentActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform incident action forbidden response
+func (o *PerformIncidentActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformIncidentActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *PerformIncidentActionConflict) IsServerError() bool {
 // IsCode returns true when this perform incident action conflict response a status code equal to that given
 func (o *PerformIncidentActionConflict) IsCode(code int) bool {
 	return code == 409
+}
+
+// Code gets the status code for the perform incident action conflict response
+func (o *PerformIncidentActionConflict) Code() int {
+	return 409
 }
 
 func (o *PerformIncidentActionConflict) Error() string {
@@ -499,6 +519,11 @@ func (o *PerformIncidentActionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform incident action too many requests response a status code equal to that given
 func (o *PerformIncidentActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform incident action too many requests response
+func (o *PerformIncidentActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformIncidentActionTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *PerformIncidentActionInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the perform incident action internal server error response
+func (o *PerformIncidentActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformIncidentActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type PerformIncidentActionDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the perform incident action default response
-func (o *PerformIncidentActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform incident action default response has a 2xx status code
 func (o *PerformIncidentActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *PerformIncidentActionDefault) IsServerError() bool {
 // IsCode returns true when this perform incident action default response a status code equal to that given
 func (o *PerformIncidentActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform incident action default response
+func (o *PerformIncidentActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformIncidentActionDefault) Error() string {

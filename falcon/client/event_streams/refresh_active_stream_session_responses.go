@@ -115,6 +115,11 @@ func (o *RefreshActiveStreamSessionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the refresh active stream session o k response
+func (o *RefreshActiveStreamSessionOK) Code() int {
+	return 200
+}
+
 func (o *RefreshActiveStreamSessionOK) Error() string {
 	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *RefreshActiveStreamSessionBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the refresh active stream session bad request response
+func (o *RefreshActiveStreamSessionBadRequest) Code() int {
+	return 400
+}
+
 func (o *RefreshActiveStreamSessionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *RefreshActiveStreamSessionForbidden) IsServerError() bool {
 // IsCode returns true when this refresh active stream session forbidden response a status code equal to that given
 func (o *RefreshActiveStreamSessionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the refresh active stream session forbidden response
+func (o *RefreshActiveStreamSessionForbidden) Code() int {
+	return 403
 }
 
 func (o *RefreshActiveStreamSessionForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *RefreshActiveStreamSessionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this refresh active stream session too many requests response a status code equal to that given
 func (o *RefreshActiveStreamSessionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the refresh active stream session too many requests response
+func (o *RefreshActiveStreamSessionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RefreshActiveStreamSessionTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *RefreshActiveStreamSessionInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the refresh active stream session internal server error response
+func (o *RefreshActiveStreamSessionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *RefreshActiveStreamSessionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /sensors/entities/datafeed-actions/v1/{partition}][%d] refreshActiveStreamSessionInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type RefreshActiveStreamSessionDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the refresh active stream session default response
-func (o *RefreshActiveStreamSessionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this refresh active stream session default response has a 2xx status code
 func (o *RefreshActiveStreamSessionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *RefreshActiveStreamSessionDefault) IsServerError() bool {
 // IsCode returns true when this refresh active stream session default response a status code equal to that given
 func (o *RefreshActiveStreamSessionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the refresh active stream session default response
+func (o *RefreshActiveStreamSessionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RefreshActiveStreamSessionDefault) Error() string {

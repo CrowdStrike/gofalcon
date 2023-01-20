@@ -125,6 +125,11 @@ func (o *ArchiveUploadV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the archive upload v2 o k response
+func (o *ArchiveUploadV2OK) Code() int {
+	return 200
+}
+
 func (o *ArchiveUploadV2OK) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *ArchiveUploadV2Accepted) IsServerError() bool {
 // IsCode returns true when this archive upload v2 accepted response a status code equal to that given
 func (o *ArchiveUploadV2Accepted) IsCode(code int) bool {
 	return code == 202
+}
+
+// Code gets the status code for the archive upload v2 accepted response
+func (o *ArchiveUploadV2Accepted) Code() int {
+	return 202
 }
 
 func (o *ArchiveUploadV2Accepted) Error() string {
@@ -335,6 +345,11 @@ func (o *ArchiveUploadV2BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the archive upload v2 bad request response
+func (o *ArchiveUploadV2BadRequest) Code() int {
+	return 400
+}
+
 func (o *ArchiveUploadV2BadRequest) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2BadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *ArchiveUploadV2Forbidden) IsServerError() bool {
 // IsCode returns true when this archive upload v2 forbidden response a status code equal to that given
 func (o *ArchiveUploadV2Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the archive upload v2 forbidden response
+func (o *ArchiveUploadV2Forbidden) Code() int {
+	return 403
 }
 
 func (o *ArchiveUploadV2Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *ArchiveUploadV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this archive upload v2 too many requests response a status code equal to that given
 func (o *ArchiveUploadV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the archive upload v2 too many requests response
+func (o *ArchiveUploadV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ArchiveUploadV2TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *ArchiveUploadV2InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the archive upload v2 internal server error response
+func (o *ArchiveUploadV2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *ArchiveUploadV2InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /archives/entities/archives/v2][%d] archiveUploadV2InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type ArchiveUploadV2Default struct {
 	Payload *models.ClientArchiveCreateResponseV1
 }
 
-// Code gets the status code for the archive upload v2 default response
-func (o *ArchiveUploadV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this archive upload v2 default response has a 2xx status code
 func (o *ArchiveUploadV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *ArchiveUploadV2Default) IsServerError() bool {
 // IsCode returns true when this archive upload v2 default response a status code equal to that given
 func (o *ArchiveUploadV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the archive upload v2 default response
+func (o *ArchiveUploadV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *ArchiveUploadV2Default) Error() string {

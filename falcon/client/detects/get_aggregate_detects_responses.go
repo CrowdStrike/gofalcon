@@ -115,6 +115,11 @@ func (o *GetAggregateDetectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get aggregate detects o k response
+func (o *GetAggregateDetectsOK) Code() int {
+	return 200
+}
+
 func (o *GetAggregateDetectsOK) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetAggregateDetectsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get aggregate detects bad request response
+func (o *GetAggregateDetectsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetAggregateDetectsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetAggregateDetectsForbidden) IsServerError() bool {
 // IsCode returns true when this get aggregate detects forbidden response a status code equal to that given
 func (o *GetAggregateDetectsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get aggregate detects forbidden response
+func (o *GetAggregateDetectsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetAggregateDetectsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetAggregateDetectsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get aggregate detects too many requests response a status code equal to that given
 func (o *GetAggregateDetectsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get aggregate detects too many requests response
+func (o *GetAggregateDetectsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetAggregateDetectsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetAggregateDetectsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get aggregate detects internal server error response
+func (o *GetAggregateDetectsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetAggregateDetectsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /detects/aggregates/detects/GET/v1][%d] getAggregateDetectsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetAggregateDetectsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the get aggregate detects default response
-func (o *GetAggregateDetectsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get aggregate detects default response has a 2xx status code
 func (o *GetAggregateDetectsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetAggregateDetectsDefault) IsServerError() bool {
 // IsCode returns true when this get aggregate detects default response a status code equal to that given
 func (o *GetAggregateDetectsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get aggregate detects default response
+func (o *GetAggregateDetectsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAggregateDetectsDefault) Error() string {

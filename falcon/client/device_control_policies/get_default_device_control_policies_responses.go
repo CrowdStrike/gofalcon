@@ -112,6 +112,11 @@ func (o *GetDefaultDeviceControlPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get default device control policies o k response
+func (o *GetDefaultDeviceControlPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *GetDefaultDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetDefaultDeviceControlPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get default device control policies forbidden response
+func (o *GetDefaultDeviceControlPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetDefaultDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/default-device-control/v1][%d] getDefaultDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetDefaultDeviceControlPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this get default device control policies not found response a status code equal to that given
 func (o *GetDefaultDeviceControlPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get default device control policies not found response
+func (o *GetDefaultDeviceControlPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetDefaultDeviceControlPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetDefaultDeviceControlPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get default device control policies too many requests response a status code equal to that given
 func (o *GetDefaultDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get default device control policies too many requests response
+func (o *GetDefaultDeviceControlPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetDefaultDeviceControlPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetDefaultDeviceControlPoliciesInternalServerError) IsServerError() boo
 // IsCode returns true when this get default device control policies internal server error response a status code equal to that given
 func (o *GetDefaultDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get default device control policies internal server error response
+func (o *GetDefaultDeviceControlPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetDefaultDeviceControlPoliciesInternalServerError) Error() string {

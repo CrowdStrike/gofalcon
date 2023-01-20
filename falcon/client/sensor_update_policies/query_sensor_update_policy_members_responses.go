@@ -121,6 +121,11 @@ func (o *QuerySensorUpdatePolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query sensor update policy members o k response
+func (o *QuerySensorUpdatePolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QuerySensorUpdatePolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update-members/v1][%d] querySensorUpdatePolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QuerySensorUpdatePolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query sensor update policy members bad request response a status code equal to that given
 func (o *QuerySensorUpdatePolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query sensor update policy members bad request response
+func (o *QuerySensorUpdatePolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QuerySensorUpdatePolicyMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QuerySensorUpdatePolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query sensor update policy members forbidden response
+func (o *QuerySensorUpdatePolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QuerySensorUpdatePolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update-members/v1][%d] querySensorUpdatePolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QuerySensorUpdatePolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query sensor update policy members not found response a status code equal to that given
 func (o *QuerySensorUpdatePolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query sensor update policy members not found response
+func (o *QuerySensorUpdatePolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QuerySensorUpdatePolicyMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QuerySensorUpdatePolicyMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query sensor update policy members too many requests response a status code equal to that given
 func (o *QuerySensorUpdatePolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query sensor update policy members too many requests response
+func (o *QuerySensorUpdatePolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QuerySensorUpdatePolicyMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QuerySensorUpdatePolicyMembersInternalServerError) IsCode(code int) boo
 	return code == 500
 }
 
+// Code gets the status code for the query sensor update policy members internal server error response
+func (o *QuerySensorUpdatePolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QuerySensorUpdatePolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/sensor-update-members/v1][%d] querySensorUpdatePolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QuerySensorUpdatePolicyMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query sensor update policy members default response
-func (o *QuerySensorUpdatePolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query sensor update policy members default response has a 2xx status code
 func (o *QuerySensorUpdatePolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QuerySensorUpdatePolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query sensor update policy members default response a status code equal to that given
 func (o *QuerySensorUpdatePolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query sensor update policy members default response
+func (o *QuerySensorUpdatePolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QuerySensorUpdatePolicyMembersDefault) Error() string {

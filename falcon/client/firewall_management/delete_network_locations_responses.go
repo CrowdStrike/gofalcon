@@ -106,6 +106,11 @@ func (o *DeleteNetworkLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete network locations o k response
+func (o *DeleteNetworkLocationsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteNetworkLocationsOK) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *DeleteNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete network locations bad request response
+func (o *DeleteNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /fwmgr/entities/network-locations/v1][%d] deleteNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *DeleteNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this delete network locations forbidden response a status code equal to that given
 func (o *DeleteNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete network locations forbidden response
+func (o *DeleteNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *DeleteNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete network locations too many requests response a status code equal to that given
 func (o *DeleteNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete network locations too many requests response
+func (o *DeleteNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteNetworkLocationsTooManyRequests) Error() string {

@@ -114,6 +114,11 @@ func (o *CreateCSPMGCPAccountCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create c s p m g c p account created response
+func (o *CreateCSPMGCPAccountCreated) Code() int {
+	return 201
+}
+
 func (o *CreateCSPMGCPAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountCreated  %+v", 201, o.Payload)
 }
@@ -206,6 +211,11 @@ func (o *CreateCSPMGCPAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this create c s p m g c p account multi status response a status code equal to that given
 func (o *CreateCSPMGCPAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create c s p m g c p account multi status response
+func (o *CreateCSPMGCPAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateCSPMGCPAccountMultiStatus) Error() string {
@@ -302,6 +312,11 @@ func (o *CreateCSPMGCPAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create c s p m g c p account bad request response
+func (o *CreateCSPMGCPAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateCSPMGCPAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-gcp/entities/account/v1][%d] createCSPMGCPAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -394,6 +409,11 @@ func (o *CreateCSPMGCPAccountForbidden) IsServerError() bool {
 // IsCode returns true when this create c s p m g c p account forbidden response a status code equal to that given
 func (o *CreateCSPMGCPAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create c s p m g c p account forbidden response
+func (o *CreateCSPMGCPAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateCSPMGCPAccountForbidden) Error() string {
@@ -492,6 +512,11 @@ func (o *CreateCSPMGCPAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create c s p m g c p account too many requests response a status code equal to that given
 func (o *CreateCSPMGCPAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create c s p m g c p account too many requests response
+func (o *CreateCSPMGCPAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateCSPMGCPAccountTooManyRequests) Error() string {
@@ -597,6 +622,11 @@ func (o *CreateCSPMGCPAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this create c s p m g c p account internal server error response a status code equal to that given
 func (o *CreateCSPMGCPAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create c s p m g c p account internal server error response
+func (o *CreateCSPMGCPAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateCSPMGCPAccountInternalServerError) Error() string {

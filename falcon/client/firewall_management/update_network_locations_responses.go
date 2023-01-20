@@ -106,6 +106,11 @@ func (o *UpdateNetworkLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update network locations o k response
+func (o *UpdateNetworkLocationsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateNetworkLocationsOK) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update network locations bad request response
+func (o *UpdateNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/network-locations/v1][%d] updateNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this update network locations forbidden response a status code equal to that given
 func (o *UpdateNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update network locations forbidden response
+func (o *UpdateNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update network locations too many requests response a status code equal to that given
 func (o *UpdateNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update network locations too many requests response
+func (o *UpdateNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateNetworkLocationsTooManyRequests) Error() string {

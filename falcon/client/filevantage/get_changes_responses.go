@@ -119,6 +119,11 @@ func (o *GetChangesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get changes o k response
+func (o *GetChangesOK) Code() int {
+	return 200
+}
+
 func (o *GetChangesOK) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetChangesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get changes bad request response
+func (o *GetChangesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetChangesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetChangesForbidden) IsServerError() bool {
 // IsCode returns true when this get changes forbidden response a status code equal to that given
 func (o *GetChangesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get changes forbidden response
+func (o *GetChangesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetChangesForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetChangesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get changes too many requests response a status code equal to that given
 func (o *GetChangesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get changes too many requests response
+func (o *GetChangesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetChangesTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetChangesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get changes internal server error response
+func (o *GetChangesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetChangesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetChangesDefault struct {
 	Payload *models.ExternalGetChangesResponse
 }
 
-// Code gets the status code for the get changes default response
-func (o *GetChangesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get changes default response has a 2xx status code
 func (o *GetChangesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetChangesDefault) IsServerError() bool {
 // IsCode returns true when this get changes default response a status code equal to that given
 func (o *GetChangesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get changes default response
+func (o *GetChangesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetChangesDefault) Error() string {

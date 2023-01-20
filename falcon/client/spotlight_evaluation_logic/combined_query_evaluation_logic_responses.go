@@ -119,6 +119,11 @@ func (o *CombinedQueryEvaluationLogicOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the combined query evaluation logic o k response
+func (o *CombinedQueryEvaluationLogicOK) Code() int {
+	return 200
+}
+
 func (o *CombinedQueryEvaluationLogicOK) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *CombinedQueryEvaluationLogicBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the combined query evaluation logic bad request response
+func (o *CombinedQueryEvaluationLogicBadRequest) Code() int {
+	return 400
+}
+
 func (o *CombinedQueryEvaluationLogicBadRequest) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicBadRequest ", 400)
 }
@@ -314,6 +324,11 @@ func (o *CombinedQueryEvaluationLogicForbidden) IsServerError() bool {
 // IsCode returns true when this combined query evaluation logic forbidden response a status code equal to that given
 func (o *CombinedQueryEvaluationLogicForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the combined query evaluation logic forbidden response
+func (o *CombinedQueryEvaluationLogicForbidden) Code() int {
+	return 403
 }
 
 func (o *CombinedQueryEvaluationLogicForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *CombinedQueryEvaluationLogicTooManyRequests) IsServerError() bool {
 // IsCode returns true when this combined query evaluation logic too many requests response a status code equal to that given
 func (o *CombinedQueryEvaluationLogicTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the combined query evaluation logic too many requests response
+func (o *CombinedQueryEvaluationLogicTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CombinedQueryEvaluationLogicTooManyRequests) Error() string {
@@ -539,6 +559,11 @@ func (o *CombinedQueryEvaluationLogicInternalServerError) IsCode(code int) bool 
 	return code == 500
 }
 
+// Code gets the status code for the combined query evaluation logic internal server error response
+func (o *CombinedQueryEvaluationLogicInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CombinedQueryEvaluationLogicInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicInternalServerError ", 500)
 }
@@ -599,11 +624,6 @@ type CombinedQueryEvaluationLogicDefault struct {
 	Payload *models.DomainSPAPIEvaluationLogicCombinedResponseV1
 }
 
-// Code gets the status code for the combined query evaluation logic default response
-func (o *CombinedQueryEvaluationLogicDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this combined query evaluation logic default response has a 2xx status code
 func (o *CombinedQueryEvaluationLogicDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -627,6 +647,11 @@ func (o *CombinedQueryEvaluationLogicDefault) IsServerError() bool {
 // IsCode returns true when this combined query evaluation logic default response a status code equal to that given
 func (o *CombinedQueryEvaluationLogicDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the combined query evaluation logic default response
+func (o *CombinedQueryEvaluationLogicDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CombinedQueryEvaluationLogicDefault) Error() string {

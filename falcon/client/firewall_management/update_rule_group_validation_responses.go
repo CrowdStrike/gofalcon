@@ -113,6 +113,11 @@ func (o *UpdateRuleGroupValidationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update rule group validation o k response
+func (o *UpdateRuleGroupValidationOK) Code() int {
+	return 200
+}
+
 func (o *UpdateRuleGroupValidationOK) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *UpdateRuleGroupValidationBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update rule group validation bad request response
+func (o *UpdateRuleGroupValidationBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateRuleGroupValidationBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *UpdateRuleGroupValidationForbidden) IsServerError() bool {
 // IsCode returns true when this update rule group validation forbidden response a status code equal to that given
 func (o *UpdateRuleGroupValidationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update rule group validation forbidden response
+func (o *UpdateRuleGroupValidationForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateRuleGroupValidationForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *UpdateRuleGroupValidationTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the update rule group validation too many requests response
+func (o *UpdateRuleGroupValidationTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *UpdateRuleGroupValidationTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type UpdateRuleGroupValidationDefault struct {
 	Payload *models.FwmgrMsaQueryResponse
 }
 
-// Code gets the status code for the update rule group validation default response
-func (o *UpdateRuleGroupValidationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update rule group validation default response has a 2xx status code
 func (o *UpdateRuleGroupValidationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *UpdateRuleGroupValidationDefault) IsServerError() bool {
 // IsCode returns true when this update rule group validation default response a status code equal to that given
 func (o *UpdateRuleGroupValidationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update rule group validation default response
+func (o *UpdateRuleGroupValidationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateRuleGroupValidationDefault) Error() string {

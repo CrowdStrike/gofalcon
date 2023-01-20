@@ -109,6 +109,11 @@ func (o *RTRCheckCommandStatusOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r check command status o k response
+func (o *RTRCheckCommandStatusOK) Code() int {
+	return 200
+}
+
 func (o *RTRCheckCommandStatusOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/command/v1][%d] rTRCheckCommandStatusOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *RTRCheckCommandStatusUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the r t r check command status unauthorized response
+func (o *RTRCheckCommandStatusUnauthorized) Code() int {
+	return 401
+}
+
 func (o *RTRCheckCommandStatusUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/command/v1][%d] rTRCheckCommandStatusUnauthorized  %+v", 401, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *RTRCheckCommandStatusForbidden) IsServerError() bool {
 // IsCode returns true when this r t r check command status forbidden response a status code equal to that given
 func (o *RTRCheckCommandStatusForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r check command status forbidden response
+func (o *RTRCheckCommandStatusForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRCheckCommandStatusForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *RTRCheckCommandStatusTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the r t r check command status too many requests response
+func (o *RTRCheckCommandStatusTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRCheckCommandStatusTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/command/v1][%d] rTRCheckCommandStatusTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type RTRCheckCommandStatusDefault struct {
 	Payload *models.DomainStatusResponseWrapper
 }
 
-// Code gets the status code for the r t r check command status default response
-func (o *RTRCheckCommandStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r check command status default response has a 2xx status code
 func (o *RTRCheckCommandStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *RTRCheckCommandStatusDefault) IsServerError() bool {
 // IsCode returns true when this r t r check command status default response a status code equal to that given
 func (o *RTRCheckCommandStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r check command status default response
+func (o *RTRCheckCommandStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRCheckCommandStatusDefault) Error() string {

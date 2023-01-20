@@ -112,6 +112,11 @@ func (o *GetSensorUpdatePoliciesV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get sensor update policies v2 o k response
+func (o *GetSensorUpdatePoliciesV2OK) Code() int {
+	return 200
+}
+
 func (o *GetSensorUpdatePoliciesV2OK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sensor-update/v2][%d] getSensorUpdatePoliciesV2OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetSensorUpdatePoliciesV2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get sensor update policies v2 forbidden response
+func (o *GetSensorUpdatePoliciesV2Forbidden) Code() int {
+	return 403
+}
+
 func (o *GetSensorUpdatePoliciesV2Forbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sensor-update/v2][%d] getSensorUpdatePoliciesV2Forbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetSensorUpdatePoliciesV2NotFound) IsServerError() bool {
 // IsCode returns true when this get sensor update policies v2 not found response a status code equal to that given
 func (o *GetSensorUpdatePoliciesV2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get sensor update policies v2 not found response
+func (o *GetSensorUpdatePoliciesV2NotFound) Code() int {
+	return 404
 }
 
 func (o *GetSensorUpdatePoliciesV2NotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetSensorUpdatePoliciesV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get sensor update policies v2 too many requests response a status code equal to that given
 func (o *GetSensorUpdatePoliciesV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get sensor update policies v2 too many requests response
+func (o *GetSensorUpdatePoliciesV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetSensorUpdatePoliciesV2TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetSensorUpdatePoliciesV2InternalServerError) IsServerError() bool {
 // IsCode returns true when this get sensor update policies v2 internal server error response a status code equal to that given
 func (o *GetSensorUpdatePoliciesV2InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get sensor update policies v2 internal server error response
+func (o *GetSensorUpdatePoliciesV2InternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetSensorUpdatePoliciesV2InternalServerError) Error() string {

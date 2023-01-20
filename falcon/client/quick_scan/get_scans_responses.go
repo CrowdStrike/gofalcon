@@ -121,6 +121,11 @@ func (o *GetScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get scans o k response
+func (o *GetScansOK) Code() int {
+	return 200
+}
+
 func (o *GetScansOK) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetScansBadRequest) IsServerError() bool {
 // IsCode returns true when this get scans bad request response a status code equal to that given
 func (o *GetScansBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get scans bad request response
+func (o *GetScansBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetScansBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *GetScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get scans forbidden response
+func (o *GetScansForbidden) Code() int {
+	return 403
+}
+
 func (o *GetScansForbidden) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetScansNotFound) IsServerError() bool {
 // IsCode returns true when this get scans not found response a status code equal to that given
 func (o *GetScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get scans not found response
+func (o *GetScansNotFound) Code() int {
+	return 404
 }
 
 func (o *GetScansNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *GetScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get scans too many requests response a status code equal to that given
 func (o *GetScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get scans too many requests response
+func (o *GetScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetScansTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetScansInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get scans internal server error response
+func (o *GetScansInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetScansInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetScansDefault struct {
 	Payload *models.MlscannerScanV1Response
 }
 
-// Code gets the status code for the get scans default response
-func (o *GetScansDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get scans default response has a 2xx status code
 func (o *GetScansDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetScansDefault) IsServerError() bool {
 // IsCode returns true when this get scans default response a status code equal to that given
 func (o *GetScansDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get scans default response
+func (o *GetScansDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetScansDefault) Error() string {

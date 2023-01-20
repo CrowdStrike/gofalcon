@@ -106,6 +106,11 @@ func (o *GetNetworkLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get network locations o k response
+func (o *GetNetworkLocationsOK) Code() int {
+	return 200
+}
+
 func (o *GetNetworkLocationsOK) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *GetNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get network locations bad request response
+func (o *GetNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /fwmgr/entities/network-locations/v1][%d] getNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *GetNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this get network locations forbidden response a status code equal to that given
 func (o *GetNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get network locations forbidden response
+func (o *GetNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *GetNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get network locations too many requests response a status code equal to that given
 func (o *GetNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get network locations too many requests response
+func (o *GetNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetNetworkLocationsTooManyRequests) Error() string {

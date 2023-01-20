@@ -112,6 +112,11 @@ func (o *GetFirewallPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get firewall policies o k response
+func (o *GetFirewallPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *GetFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetFirewallPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get firewall policies forbidden response
+func (o *GetFirewallPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetFirewallPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this get firewall policies not found response a status code equal to that given
 func (o *GetFirewallPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get firewall policies not found response
+func (o *GetFirewallPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetFirewallPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetFirewallPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get firewall policies too many requests response a status code equal to that given
 func (o *GetFirewallPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get firewall policies too many requests response
+func (o *GetFirewallPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetFirewallPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetFirewallPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this get firewall policies internal server error response a status code equal to that given
 func (o *GetFirewallPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get firewall policies internal server error response
+func (o *GetFirewallPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetFirewallPoliciesInternalServerError) Error() string {

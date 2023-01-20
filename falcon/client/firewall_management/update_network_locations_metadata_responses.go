@@ -106,6 +106,11 @@ func (o *UpdateNetworkLocationsMetadataOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update network locations metadata o k response
+func (o *UpdateNetworkLocationsMetadataOK) Code() int {
+	return 200
+}
+
 func (o *UpdateNetworkLocationsMetadataOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateNetworkLocationsMetadataBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update network locations metadata bad request response
+func (o *UpdateNetworkLocationsMetadataBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateNetworkLocationsMetadataBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-metadata/v1][%d] updateNetworkLocationsMetadataBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateNetworkLocationsMetadataForbidden) IsServerError() bool {
 // IsCode returns true when this update network locations metadata forbidden response a status code equal to that given
 func (o *UpdateNetworkLocationsMetadataForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update network locations metadata forbidden response
+func (o *UpdateNetworkLocationsMetadataForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateNetworkLocationsMetadataForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateNetworkLocationsMetadataTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update network locations metadata too many requests response a status code equal to that given
 func (o *UpdateNetworkLocationsMetadataTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update network locations metadata too many requests response
+func (o *UpdateNetworkLocationsMetadataTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateNetworkLocationsMetadataTooManyRequests) Error() string {

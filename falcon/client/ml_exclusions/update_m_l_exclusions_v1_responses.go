@@ -115,6 +115,11 @@ func (o *UpdateMLExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update m l exclusions v1 o k response
+func (o *UpdateMLExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *UpdateMLExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *UpdateMLExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update m l exclusions v1 bad request response
+func (o *UpdateMLExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateMLExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *UpdateMLExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this update m l exclusions v1 forbidden response a status code equal to that given
 func (o *UpdateMLExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update m l exclusions v1 forbidden response
+func (o *UpdateMLExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateMLExclusionsV1Forbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *UpdateMLExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this update m l exclusions v1 too many requests response a status code equal to that given
 func (o *UpdateMLExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update m l exclusions v1 too many requests response
+func (o *UpdateMLExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateMLExclusionsV1TooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *UpdateMLExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update m l exclusions v1 internal server error response
+func (o *UpdateMLExclusionsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateMLExclusionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type UpdateMLExclusionsV1Default struct {
 	Payload *models.ResponsesMlExclusionRespV1
 }
 
-// Code gets the status code for the update m l exclusions v1 default response
-func (o *UpdateMLExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update m l exclusions v1 default response has a 2xx status code
 func (o *UpdateMLExclusionsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *UpdateMLExclusionsV1Default) IsServerError() bool {
 // IsCode returns true when this update m l exclusions v1 default response a status code equal to that given
 func (o *UpdateMLExclusionsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update m l exclusions v1 default response
+func (o *UpdateMLExclusionsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateMLExclusionsV1Default) Error() string {

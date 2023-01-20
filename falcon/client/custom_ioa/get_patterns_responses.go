@@ -103,6 +103,11 @@ func (o *GetPatternsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get patterns o k response
+func (o *GetPatternsOK) Code() int {
+	return 200
+}
+
 func (o *GetPatternsOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *GetPatternsForbidden) IsServerError() bool {
 // IsCode returns true when this get patterns forbidden response a status code equal to that given
 func (o *GetPatternsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get patterns forbidden response
+func (o *GetPatternsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetPatternsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *GetPatternsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get patterns too many requests response
+func (o *GetPatternsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetPatternsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/entities/pattern-severities/v1][%d] getPatternsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type GetPatternsDefault struct {
 	Payload *models.APIPatternsResponse
 }
 
-// Code gets the status code for the get patterns default response
-func (o *GetPatternsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get patterns default response has a 2xx status code
 func (o *GetPatternsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *GetPatternsDefault) IsServerError() bool {
 // IsCode returns true when this get patterns default response a status code equal to that given
 func (o *GetPatternsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get patterns default response
+func (o *GetPatternsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetPatternsDefault) Error() string {

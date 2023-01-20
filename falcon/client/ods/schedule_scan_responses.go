@@ -100,6 +100,11 @@ func (o *ScheduleScanCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the schedule scan created response
+func (o *ScheduleScanCreated) Code() int {
+	return 201
+}
+
 func (o *ScheduleScanCreated) Error() string {
 	return fmt.Sprintf("[POST /ods/entities/scheduled-scans/v1][%d] scheduleScanCreated  %+v", 201, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *ScheduleScanForbidden) IsServerError() bool {
 // IsCode returns true when this schedule scan forbidden response a status code equal to that given
 func (o *ScheduleScanForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the schedule scan forbidden response
+func (o *ScheduleScanForbidden) Code() int {
+	return 403
 }
 
 func (o *ScheduleScanForbidden) Error() string {
@@ -312,6 +322,11 @@ func (o *ScheduleScanTooManyRequests) IsServerError() bool {
 // IsCode returns true when this schedule scan too many requests response a status code equal to that given
 func (o *ScheduleScanTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the schedule scan too many requests response
+func (o *ScheduleScanTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ScheduleScanTooManyRequests) Error() string {

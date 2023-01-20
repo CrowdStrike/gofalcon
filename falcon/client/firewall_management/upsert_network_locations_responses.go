@@ -106,6 +106,11 @@ func (o *UpsertNetworkLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the upsert network locations o k response
+func (o *UpsertNetworkLocationsOK) Code() int {
+	return 200
+}
+
 func (o *UpsertNetworkLocationsOK) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/network-locations/v1][%d] upsertNetworkLocationsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpsertNetworkLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the upsert network locations bad request response
+func (o *UpsertNetworkLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpsertNetworkLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/network-locations/v1][%d] upsertNetworkLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpsertNetworkLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this upsert network locations forbidden response a status code equal to that given
 func (o *UpsertNetworkLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the upsert network locations forbidden response
+func (o *UpsertNetworkLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpsertNetworkLocationsForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *UpsertNetworkLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this upsert network locations too many requests response a status code equal to that given
 func (o *UpsertNetworkLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the upsert network locations too many requests response
+func (o *UpsertNetworkLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpsertNetworkLocationsTooManyRequests) Error() string {

@@ -125,6 +125,11 @@ func (o *RTRGetExtractedFileContentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r get extracted file contents o k response
+func (o *RTRGetExtractedFileContentsOK) Code() int {
+	return 200
+}
+
 func (o *RTRGetExtractedFileContentsOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsOK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *RTRGetExtractedFileContentsBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r get extracted file contents bad request response a status code equal to that given
 func (o *RTRGetExtractedFileContentsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r get extracted file contents bad request response
+func (o *RTRGetExtractedFileContentsBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRGetExtractedFileContentsBadRequest) Error() string {
@@ -311,6 +321,11 @@ func (o *RTRGetExtractedFileContentsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r get extracted file contents forbidden response
+func (o *RTRGetExtractedFileContentsForbidden) Code() int {
+	return 403
+}
+
 func (o *RTRGetExtractedFileContentsForbidden) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsForbidden  %+v", 403, o.Payload)
 }
@@ -403,6 +418,11 @@ func (o *RTRGetExtractedFileContentsNotFound) IsServerError() bool {
 // IsCode returns true when this r t r get extracted file contents not found response a status code equal to that given
 func (o *RTRGetExtractedFileContentsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r get extracted file contents not found response
+func (o *RTRGetExtractedFileContentsNotFound) Code() int {
+	return 404
 }
 
 func (o *RTRGetExtractedFileContentsNotFound) Error() string {
@@ -501,6 +521,11 @@ func (o *RTRGetExtractedFileContentsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r get extracted file contents too many requests response a status code equal to that given
 func (o *RTRGetExtractedFileContentsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r get extracted file contents too many requests response
+func (o *RTRGetExtractedFileContentsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRGetExtractedFileContentsTooManyRequests) Error() string {
@@ -608,6 +633,11 @@ func (o *RTRGetExtractedFileContentsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the r t r get extracted file contents internal server error response
+func (o *RTRGetExtractedFileContentsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *RTRGetExtractedFileContentsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/extracted-file-contents/v1][%d] rTRGetExtractedFileContentsInternalServerError  %+v", 500, o.Payload)
 }
@@ -672,11 +702,6 @@ type RTRGetExtractedFileContentsDefault struct {
 	Payload []int64
 }
 
-// Code gets the status code for the r t r get extracted file contents default response
-func (o *RTRGetExtractedFileContentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r get extracted file contents default response has a 2xx status code
 func (o *RTRGetExtractedFileContentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -700,6 +725,11 @@ func (o *RTRGetExtractedFileContentsDefault) IsServerError() bool {
 // IsCode returns true when this r t r get extracted file contents default response a status code equal to that given
 func (o *RTRGetExtractedFileContentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r get extracted file contents default response
+func (o *RTRGetExtractedFileContentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRGetExtractedFileContentsDefault) Error() string {

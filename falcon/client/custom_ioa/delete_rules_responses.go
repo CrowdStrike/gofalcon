@@ -106,6 +106,11 @@ func (o *DeleteRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete rules o k response
+func (o *DeleteRulesOK) Code() int {
+	return 200
+}
+
 func (o *DeleteRulesOK) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *DeleteRulesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete rules forbidden response
+func (o *DeleteRulesForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteRulesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /ioarules/entities/rules/v1][%d] deleteRulesForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *DeleteRulesNotFound) IsServerError() bool {
 // IsCode returns true when this delete rules not found response a status code equal to that given
 func (o *DeleteRulesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete rules not found response
+func (o *DeleteRulesNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteRulesNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *DeleteRulesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete rules too many requests response a status code equal to that given
 func (o *DeleteRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete rules too many requests response
+func (o *DeleteRulesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteRulesTooManyRequests) Error() string {

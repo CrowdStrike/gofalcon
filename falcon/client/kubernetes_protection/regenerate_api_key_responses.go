@@ -125,6 +125,11 @@ func (o *RegenerateAPIKeyOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the regenerate Api key o k response
+func (o *RegenerateAPIKeyOK) Code() int {
+	return 200
+}
+
 func (o *RegenerateAPIKeyOK) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *RegenerateAPIKeyMultiStatus) IsServerError() bool {
 // IsCode returns true when this regenerate Api key multi status response a status code equal to that given
 func (o *RegenerateAPIKeyMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the regenerate Api key multi status response
+func (o *RegenerateAPIKeyMultiStatus) Code() int {
+	return 207
 }
 
 func (o *RegenerateAPIKeyMultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *RegenerateAPIKeyBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the regenerate Api key bad request response
+func (o *RegenerateAPIKeyBadRequest) Code() int {
+	return 400
+}
+
 func (o *RegenerateAPIKeyBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyBadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *RegenerateAPIKeyForbidden) IsServerError() bool {
 // IsCode returns true when this regenerate Api key forbidden response a status code equal to that given
 func (o *RegenerateAPIKeyForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the regenerate Api key forbidden response
+func (o *RegenerateAPIKeyForbidden) Code() int {
+	return 403
 }
 
 func (o *RegenerateAPIKeyForbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *RegenerateAPIKeyTooManyRequests) IsServerError() bool {
 // IsCode returns true when this regenerate Api key too many requests response a status code equal to that given
 func (o *RegenerateAPIKeyTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the regenerate Api key too many requests response
+func (o *RegenerateAPIKeyTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RegenerateAPIKeyTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *RegenerateAPIKeyInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the regenerate Api key internal server error response
+func (o *RegenerateAPIKeyInternalServerError) Code() int {
+	return 500
+}
+
 func (o *RegenerateAPIKeyInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] regenerateApiKeyInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type RegenerateAPIKeyDefault struct {
 	Payload *models.K8sregRegenAPIKeyResp
 }
 
-// Code gets the status code for the regenerate API key default response
-func (o *RegenerateAPIKeyDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this regenerate API key default response has a 2xx status code
 func (o *RegenerateAPIKeyDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *RegenerateAPIKeyDefault) IsServerError() bool {
 // IsCode returns true when this regenerate API key default response a status code equal to that given
 func (o *RegenerateAPIKeyDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the regenerate API key default response
+func (o *RegenerateAPIKeyDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RegenerateAPIKeyDefault) Error() string {

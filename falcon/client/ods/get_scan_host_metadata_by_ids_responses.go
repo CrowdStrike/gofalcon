@@ -106,6 +106,11 @@ func (o *GetScanHostMetadataByIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get scan host metadata by ids o k response
+func (o *GetScanHostMetadataByIdsOK) Code() int {
+	return 200
+}
+
 func (o *GetScanHostMetadataByIdsOK) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *GetScanHostMetadataByIdsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get scan host metadata by ids forbidden response
+func (o *GetScanHostMetadataByIdsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetScanHostMetadataByIdsForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/entities/scan-hosts/v1][%d] getScanHostMetadataByIdsForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *GetScanHostMetadataByIdsNotFound) IsServerError() bool {
 // IsCode returns true when this get scan host metadata by ids not found response a status code equal to that given
 func (o *GetScanHostMetadataByIdsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get scan host metadata by ids not found response
+func (o *GetScanHostMetadataByIdsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetScanHostMetadataByIdsNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *GetScanHostMetadataByIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get scan host metadata by ids too many requests response a status code equal to that given
 func (o *GetScanHostMetadataByIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get scan host metadata by ids too many requests response
+func (o *GetScanHostMetadataByIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetScanHostMetadataByIdsTooManyRequests) Error() string {

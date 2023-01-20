@@ -107,6 +107,11 @@ func (o *UpdateQfByQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update qf by query o k response
+func (o *UpdateQfByQueryOK) Code() int {
+	return 200
+}
+
 func (o *UpdateQfByQueryOK) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *UpdateQfByQueryForbidden) IsServerError() bool {
 // IsCode returns true when this update qf by query forbidden response a status code equal to that given
 func (o *UpdateQfByQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update qf by query forbidden response
+func (o *UpdateQfByQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateQfByQueryForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *UpdateQfByQueryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the update qf by query too many requests response
+func (o *UpdateQfByQueryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *UpdateQfByQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] updateQfByQueryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type UpdateQfByQueryDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the update qf by query default response
-func (o *UpdateQfByQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update qf by query default response has a 2xx status code
 func (o *UpdateQfByQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *UpdateQfByQueryDefault) IsServerError() bool {
 // IsCode returns true when this update qf by query default response a status code equal to that given
 func (o *UpdateQfByQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update qf by query default response
+func (o *UpdateQfByQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateQfByQueryDefault) Error() string {

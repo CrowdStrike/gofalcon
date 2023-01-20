@@ -112,6 +112,11 @@ func (o *BatchActiveResponderCmdCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the batch active responder cmd created response
+func (o *BatchActiveResponderCmdCreated) Code() int {
+	return 201
+}
+
 func (o *BatchActiveResponderCmdCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *BatchActiveResponderCmdBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the batch active responder cmd bad request response
+func (o *BatchActiveResponderCmdBadRequest) Code() int {
+	return 400
+}
+
 func (o *BatchActiveResponderCmdBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-active-responder-command/v1][%d] batchActiveResponderCmdBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *BatchActiveResponderCmdForbidden) IsServerError() bool {
 // IsCode returns true when this batch active responder cmd forbidden response a status code equal to that given
 func (o *BatchActiveResponderCmdForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the batch active responder cmd forbidden response
+func (o *BatchActiveResponderCmdForbidden) Code() int {
+	return 403
 }
 
 func (o *BatchActiveResponderCmdForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *BatchActiveResponderCmdTooManyRequests) IsServerError() bool {
 // IsCode returns true when this batch active responder cmd too many requests response a status code equal to that given
 func (o *BatchActiveResponderCmdTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the batch active responder cmd too many requests response
+func (o *BatchActiveResponderCmdTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *BatchActiveResponderCmdTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *BatchActiveResponderCmdInternalServerError) IsServerError() bool {
 // IsCode returns true when this batch active responder cmd internal server error response a status code equal to that given
 func (o *BatchActiveResponderCmdInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the batch active responder cmd internal server error response
+func (o *BatchActiveResponderCmdInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BatchActiveResponderCmdInternalServerError) Error() string {

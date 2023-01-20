@@ -118,6 +118,11 @@ func (o *DeleteAzureSubscriptionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete azure subscription o k response
+func (o *DeleteAzureSubscriptionOK) Code() int {
+	return 200
+}
+
 func (o *DeleteAzureSubscriptionOK) Error() string {
 	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *DeleteAzureSubscriptionMultiStatus) IsServerError() bool {
 // IsCode returns true when this delete azure subscription multi status response a status code equal to that given
 func (o *DeleteAzureSubscriptionMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the delete azure subscription multi status response
+func (o *DeleteAzureSubscriptionMultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeleteAzureSubscriptionMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *DeleteAzureSubscriptionBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete azure subscription bad request response
+func (o *DeleteAzureSubscriptionBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteAzureSubscriptionBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/azure/v1][%d] deleteAzureSubscriptionBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *DeleteAzureSubscriptionForbidden) IsServerError() bool {
 // IsCode returns true when this delete azure subscription forbidden response a status code equal to that given
 func (o *DeleteAzureSubscriptionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete azure subscription forbidden response
+func (o *DeleteAzureSubscriptionForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteAzureSubscriptionForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *DeleteAzureSubscriptionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete azure subscription too many requests response a status code equal to that given
 func (o *DeleteAzureSubscriptionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete azure subscription too many requests response
+func (o *DeleteAzureSubscriptionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteAzureSubscriptionTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *DeleteAzureSubscriptionInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete azure subscription internal server error response a status code equal to that given
 func (o *DeleteAzureSubscriptionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete azure subscription internal server error response
+func (o *DeleteAzureSubscriptionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteAzureSubscriptionInternalServerError) Error() string {

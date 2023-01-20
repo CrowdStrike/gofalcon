@@ -103,6 +103,11 @@ func (o *AggregatesEventsCollectionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregates events collections o k response
+func (o *AggregatesEventsCollectionsOK) Code() int {
+	return 200
+}
+
 func (o *AggregatesEventsCollectionsOK) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregatesEventsCollectionsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregates events collections forbidden response a status code equal to that given
 func (o *AggregatesEventsCollectionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregates events collections forbidden response
+func (o *AggregatesEventsCollectionsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregatesEventsCollectionsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregatesEventsCollectionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregates events collections too many requests response
+func (o *AggregatesEventsCollectionsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregatesEventsCollectionsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] aggregatesEventsCollectionsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregatesEventsCollectionsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregates events collections default response
-func (o *AggregatesEventsCollectionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregates events collections default response has a 2xx status code
 func (o *AggregatesEventsCollectionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregatesEventsCollectionsDefault) IsServerError() bool {
 // IsCode returns true when this aggregates events collections default response a status code equal to that given
 func (o *AggregatesEventsCollectionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregates events collections default response
+func (o *AggregatesEventsCollectionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregatesEventsCollectionsDefault) Error() string {

@@ -113,6 +113,11 @@ func (o *RetrieveEmailsByCIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the retrieve emails by c Id o k response
+func (o *RetrieveEmailsByCIDOK) Code() int {
+	return 200
+}
+
 func (o *RetrieveEmailsByCIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *RetrieveEmailsByCIDBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the retrieve emails by c Id bad request response
+func (o *RetrieveEmailsByCIDBadRequest) Code() int {
+	return 400
+}
+
 func (o *RetrieveEmailsByCIDBadRequest) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *RetrieveEmailsByCIDForbidden) IsServerError() bool {
 // IsCode returns true when this retrieve emails by c Id forbidden response a status code equal to that given
 func (o *RetrieveEmailsByCIDForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the retrieve emails by c Id forbidden response
+func (o *RetrieveEmailsByCIDForbidden) Code() int {
+	return 403
 }
 
 func (o *RetrieveEmailsByCIDForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *RetrieveEmailsByCIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the retrieve emails by c Id too many requests response
+func (o *RetrieveEmailsByCIDTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RetrieveEmailsByCIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] retrieveEmailsByCIdTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type RetrieveEmailsByCIDDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the retrieve emails by c ID default response
-func (o *RetrieveEmailsByCIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this retrieve emails by c ID default response has a 2xx status code
 func (o *RetrieveEmailsByCIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *RetrieveEmailsByCIDDefault) IsServerError() bool {
 // IsCode returns true when this retrieve emails by c ID default response a status code equal to that given
 func (o *RetrieveEmailsByCIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the retrieve emails by c ID default response
+func (o *RetrieveEmailsByCIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RetrieveEmailsByCIDDefault) Error() string {

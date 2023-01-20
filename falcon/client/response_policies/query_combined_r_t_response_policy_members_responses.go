@@ -125,6 +125,11 @@ func (o *QueryCombinedRTResponsePolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined r t response policy members o k response
+func (o *QueryCombinedRTResponsePolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedRTResponsePolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/response-members/v1][%d] queryCombinedRTResponsePolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *QueryCombinedRTResponsePolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query combined r t response policy members bad request response a status code equal to that given
 func (o *QueryCombinedRTResponsePolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query combined r t response policy members bad request response
+func (o *QueryCombinedRTResponsePolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryCombinedRTResponsePolicyMembersBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *QueryCombinedRTResponsePolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query combined r t response policy members forbidden response
+func (o *QueryCombinedRTResponsePolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryCombinedRTResponsePolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/response-members/v1][%d] queryCombinedRTResponsePolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *QueryCombinedRTResponsePolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query combined r t response policy members not found response a status code equal to that given
 func (o *QueryCombinedRTResponsePolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query combined r t response policy members not found response
+func (o *QueryCombinedRTResponsePolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryCombinedRTResponsePolicyMembersNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *QueryCombinedRTResponsePolicyMembersTooManyRequests) IsServerError() bo
 // IsCode returns true when this query combined r t response policy members too many requests response a status code equal to that given
 func (o *QueryCombinedRTResponsePolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined r t response policy members too many requests response
+func (o *QueryCombinedRTResponsePolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedRTResponsePolicyMembersTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *QueryCombinedRTResponsePolicyMembersInternalServerError) IsCode(code in
 	return code == 500
 }
 
+// Code gets the status code for the query combined r t response policy members internal server error response
+func (o *QueryCombinedRTResponsePolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedRTResponsePolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/response-members/v1][%d] queryCombinedRTResponsePolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type QueryCombinedRTResponsePolicyMembersDefault struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
-// Code gets the status code for the query combined r t response policy members default response
-func (o *QueryCombinedRTResponsePolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined r t response policy members default response has a 2xx status code
 func (o *QueryCombinedRTResponsePolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *QueryCombinedRTResponsePolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query combined r t response policy members default response a status code equal to that given
 func (o *QueryCombinedRTResponsePolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined r t response policy members default response
+func (o *QueryCombinedRTResponsePolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedRTResponsePolicyMembersDefault) Error() string {

@@ -125,6 +125,11 @@ func (o *QueryRTResponsePolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query r t response policy members o k response
+func (o *QueryRTResponsePolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryRTResponsePolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *QueryRTResponsePolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query r t response policy members bad request response a status code equal to that given
 func (o *QueryRTResponsePolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query r t response policy members bad request response
+func (o *QueryRTResponsePolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryRTResponsePolicyMembersBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *QueryRTResponsePolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query r t response policy members forbidden response
+func (o *QueryRTResponsePolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryRTResponsePolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *QueryRTResponsePolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query r t response policy members not found response a status code equal to that given
 func (o *QueryRTResponsePolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query r t response policy members not found response
+func (o *QueryRTResponsePolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryRTResponsePolicyMembersNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *QueryRTResponsePolicyMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query r t response policy members too many requests response a status code equal to that given
 func (o *QueryRTResponsePolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query r t response policy members too many requests response
+func (o *QueryRTResponsePolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryRTResponsePolicyMembersTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *QueryRTResponsePolicyMembersInternalServerError) IsCode(code int) bool 
 	return code == 500
 }
 
+// Code gets the status code for the query r t response policy members internal server error response
+func (o *QueryRTResponsePolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryRTResponsePolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/response-members/v1][%d] queryRTResponsePolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type QueryRTResponsePolicyMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query r t response policy members default response
-func (o *QueryRTResponsePolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query r t response policy members default response has a 2xx status code
 func (o *QueryRTResponsePolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *QueryRTResponsePolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query r t response policy members default response a status code equal to that given
 func (o *QueryRTResponsePolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query r t response policy members default response
+func (o *QueryRTResponsePolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRTResponsePolicyMembersDefault) Error() string {

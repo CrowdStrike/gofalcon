@@ -118,6 +118,11 @@ func (o *CreateAWSAccountCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create a w s account created response
+func (o *CreateAWSAccountCreated) Code() int {
+	return 201
+}
+
 func (o *CreateAWSAccountCreated) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *CreateAWSAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this create a w s account multi status response a status code equal to that given
 func (o *CreateAWSAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create a w s account multi status response
+func (o *CreateAWSAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateAWSAccountMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *CreateAWSAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create a w s account bad request response
+func (o *CreateAWSAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateAWSAccountBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *CreateAWSAccountForbidden) IsServerError() bool {
 // IsCode returns true when this create a w s account forbidden response a status code equal to that given
 func (o *CreateAWSAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create a w s account forbidden response
+func (o *CreateAWSAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateAWSAccountForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *CreateAWSAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create a w s account too many requests response a status code equal to that given
 func (o *CreateAWSAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create a w s account too many requests response
+func (o *CreateAWSAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateAWSAccountTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *CreateAWSAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this create a w s account internal server error response a status code equal to that given
 func (o *CreateAWSAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create a w s account internal server error response
+func (o *CreateAWSAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateAWSAccountInternalServerError) Error() string {

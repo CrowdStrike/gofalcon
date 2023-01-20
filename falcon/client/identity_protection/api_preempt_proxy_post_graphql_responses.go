@@ -98,6 +98,11 @@ func (o *APIPreemptProxyPostGraphqlOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the api preempt proxy post graphql o k response
+func (o *APIPreemptProxyPostGraphqlOK) Code() int {
+	return 200
+}
+
 func (o *APIPreemptProxyPostGraphqlOK) Error() string {
 	return fmt.Sprintf("[POST /identity-protection/combined/graphql/v1][%d] apiPreemptProxyPostGraphqlOK ", 200)
 }
@@ -190,6 +195,11 @@ func (o *APIPreemptProxyPostGraphqlForbidden) IsServerError() bool {
 // IsCode returns true when this api preempt proxy post graphql forbidden response a status code equal to that given
 func (o *APIPreemptProxyPostGraphqlForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the api preempt proxy post graphql forbidden response
+func (o *APIPreemptProxyPostGraphqlForbidden) Code() int {
+	return 403
 }
 
 func (o *APIPreemptProxyPostGraphqlForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsServerError() bool {
 // IsCode returns true when this api preempt proxy post graphql too many requests response a status code equal to that given
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the api preempt proxy post graphql too many requests response
+func (o *APIPreemptProxyPostGraphqlTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *APIPreemptProxyPostGraphqlTooManyRequests) Error() string {

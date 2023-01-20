@@ -121,6 +121,11 @@ func (o *GetSensorInstallersEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get sensor installers entities o k response
+func (o *GetSensorInstallersEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetSensorInstallersEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetSensorInstallersEntitiesMultiStatus) IsServerError() bool {
 // IsCode returns true when this get sensor installers entities multi status response a status code equal to that given
 func (o *GetSensorInstallersEntitiesMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get sensor installers entities multi status response
+func (o *GetSensorInstallersEntitiesMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetSensorInstallersEntitiesMultiStatus) Error() string {
@@ -309,6 +319,11 @@ func (o *GetSensorInstallersEntitiesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get sensor installers entities bad request response
+func (o *GetSensorInstallersEntitiesBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetSensorInstallersEntitiesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesBadRequest  %+v", 400, o.Payload)
 }
@@ -403,6 +418,11 @@ func (o *GetSensorInstallersEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get sensor installers entities forbidden response
+func (o *GetSensorInstallersEntitiesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetSensorInstallersEntitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesForbidden  %+v", 403, o.Payload)
 }
@@ -495,6 +515,11 @@ func (o *GetSensorInstallersEntitiesNotFound) IsServerError() bool {
 // IsCode returns true when this get sensor installers entities not found response a status code equal to that given
 func (o *GetSensorInstallersEntitiesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get sensor installers entities not found response
+func (o *GetSensorInstallersEntitiesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetSensorInstallersEntitiesNotFound) Error() string {
@@ -595,6 +620,11 @@ func (o *GetSensorInstallersEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get sensor installers entities too many requests response
+func (o *GetSensorInstallersEntitiesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetSensorInstallersEntitiesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetSensorInstallersEntitiesDefault struct {
 	Payload *models.DomainSensorInstallersV1
 }
 
-// Code gets the status code for the get sensor installers entities default response
-func (o *GetSensorInstallersEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get sensor installers entities default response has a 2xx status code
 func (o *GetSensorInstallersEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetSensorInstallersEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get sensor installers entities default response a status code equal to that given
 func (o *GetSensorInstallersEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get sensor installers entities default response
+func (o *GetSensorInstallersEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSensorInstallersEntitiesDefault) Error() string {

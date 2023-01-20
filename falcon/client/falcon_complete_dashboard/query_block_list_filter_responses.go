@@ -103,6 +103,11 @@ func (o *QueryBlockListFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query block list filter o k response
+func (o *QueryBlockListFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryBlockListFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryBlockListFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query block list filter forbidden response a status code equal to that given
 func (o *QueryBlockListFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query block list filter forbidden response
+func (o *QueryBlockListFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryBlockListFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryBlockListFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query block list filter too many requests response
+func (o *QueryBlockListFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryBlockListFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/blocklist/v1][%d] queryBlockListFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryBlockListFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query block list filter default response
-func (o *QueryBlockListFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query block list filter default response has a 2xx status code
 func (o *QueryBlockListFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryBlockListFilterDefault) IsServerError() bool {
 // IsCode returns true when this query block list filter default response a status code equal to that given
 func (o *QueryBlockListFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query block list filter default response
+func (o *QueryBlockListFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryBlockListFilterDefault) Error() string {

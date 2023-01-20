@@ -125,6 +125,11 @@ func (o *GetLocationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get locations o k response
+func (o *GetLocationsOK) Code() int {
+	return 200
+}
+
 func (o *GetLocationsOK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetLocationsMultiStatus) IsServerError() bool {
 // IsCode returns true when this get locations multi status response a status code equal to that given
 func (o *GetLocationsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get locations multi status response
+func (o *GetLocationsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetLocationsMultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *GetLocationsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get locations bad request response
+func (o *GetLocationsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetLocationsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsBadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetLocationsForbidden) IsServerError() bool {
 // IsCode returns true when this get locations forbidden response a status code equal to that given
 func (o *GetLocationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get locations forbidden response
+func (o *GetLocationsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetLocationsForbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *GetLocationsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get locations too many requests response a status code equal to that given
 func (o *GetLocationsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get locations too many requests response
+func (o *GetLocationsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetLocationsTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetLocationsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get locations internal server error response
+func (o *GetLocationsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetLocationsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/cloud-locations/v1][%d] getLocationsInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetLocationsDefault struct {
 	Payload *models.K8sregGetLocationsResp
 }
 
-// Code gets the status code for the get locations default response
-func (o *GetLocationsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get locations default response has a 2xx status code
 func (o *GetLocationsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetLocationsDefault) IsServerError() bool {
 // IsCode returns true when this get locations default response a status code equal to that given
 func (o *GetLocationsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get locations default response
+func (o *GetLocationsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLocationsDefault) Error() string {

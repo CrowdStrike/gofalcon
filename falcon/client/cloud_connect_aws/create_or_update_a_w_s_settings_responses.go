@@ -108,6 +108,11 @@ func (o *CreateOrUpdateAWSSettingsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create or update a w s settings created response
+func (o *CreateOrUpdateAWSSettingsCreated) Code() int {
+	return 201
+}
+
 func (o *CreateOrUpdateAWSSettingsCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *CreateOrUpdateAWSSettingsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create or update a w s settings bad request response
+func (o *CreateOrUpdateAWSSettingsBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateOrUpdateAWSSettingsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/settings/v1][%d] createOrUpdateAWSSettingsBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *CreateOrUpdateAWSSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this create or update a w s settings forbidden response a status code equal to that given
 func (o *CreateOrUpdateAWSSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create or update a w s settings forbidden response
+func (o *CreateOrUpdateAWSSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateOrUpdateAWSSettingsForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create or update a w s settings too many requests response a status code equal to that given
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create or update a w s settings too many requests response
+func (o *CreateOrUpdateAWSSettingsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateOrUpdateAWSSettingsTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *CreateOrUpdateAWSSettingsInternalServerError) IsServerError() bool {
 // IsCode returns true when this create or update a w s settings internal server error response a status code equal to that given
 func (o *CreateOrUpdateAWSSettingsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create or update a w s settings internal server error response
+func (o *CreateOrUpdateAWSSettingsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateOrUpdateAWSSettingsInternalServerError) Error() string {

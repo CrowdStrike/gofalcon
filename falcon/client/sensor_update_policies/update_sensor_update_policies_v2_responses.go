@@ -125,6 +125,11 @@ func (o *UpdateSensorUpdatePoliciesV2OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update sensor update policies v2 o k response
+func (o *UpdateSensorUpdatePoliciesV2OK) Code() int {
+	return 200
+}
+
 func (o *UpdateSensorUpdatePoliciesV2OK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v2][%d] updateSensorUpdatePoliciesV2OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *UpdateSensorUpdatePoliciesV2BadRequest) IsServerError() bool {
 // IsCode returns true when this update sensor update policies v2 bad request response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesV2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update sensor update policies v2 bad request response
+func (o *UpdateSensorUpdatePoliciesV2BadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateSensorUpdatePoliciesV2BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *UpdateSensorUpdatePoliciesV2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update sensor update policies v2 forbidden response
+func (o *UpdateSensorUpdatePoliciesV2Forbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateSensorUpdatePoliciesV2Forbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v2][%d] updateSensorUpdatePoliciesV2Forbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *UpdateSensorUpdatePoliciesV2NotFound) IsServerError() bool {
 // IsCode returns true when this update sensor update policies v2 not found response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesV2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update sensor update policies v2 not found response
+func (o *UpdateSensorUpdatePoliciesV2NotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateSensorUpdatePoliciesV2NotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this update sensor update policies v2 too many requests response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update sensor update policies v2 too many requests response
+func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateSensorUpdatePoliciesV2TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *UpdateSensorUpdatePoliciesV2InternalServerError) IsCode(code int) bool 
 	return code == 500
 }
 
+// Code gets the status code for the update sensor update policies v2 internal server error response
+func (o *UpdateSensorUpdatePoliciesV2InternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateSensorUpdatePoliciesV2InternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sensor-update/v2][%d] updateSensorUpdatePoliciesV2InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type UpdateSensorUpdatePoliciesV2Default struct {
 	Payload *models.ResponsesSensorUpdatePoliciesV2
 }
 
-// Code gets the status code for the update sensor update policies v2 default response
-func (o *UpdateSensorUpdatePoliciesV2Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update sensor update policies v2 default response has a 2xx status code
 func (o *UpdateSensorUpdatePoliciesV2Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *UpdateSensorUpdatePoliciesV2Default) IsServerError() bool {
 // IsCode returns true when this update sensor update policies v2 default response a status code equal to that given
 func (o *UpdateSensorUpdatePoliciesV2Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update sensor update policies v2 default response
+func (o *UpdateSensorUpdatePoliciesV2Default) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateSensorUpdatePoliciesV2Default) Error() string {

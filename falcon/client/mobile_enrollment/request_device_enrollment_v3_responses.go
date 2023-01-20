@@ -119,6 +119,11 @@ func (o *RequestDeviceEnrollmentV3OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the request device enrollment v3 o k response
+func (o *RequestDeviceEnrollmentV3OK) Code() int {
+	return 200
+}
+
 func (o *RequestDeviceEnrollmentV3OK) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3OK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *RequestDeviceEnrollmentV3BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the request device enrollment v3 bad request response
+func (o *RequestDeviceEnrollmentV3BadRequest) Code() int {
+	return 400
+}
+
 func (o *RequestDeviceEnrollmentV3BadRequest) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3BadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *RequestDeviceEnrollmentV3Forbidden) IsServerError() bool {
 // IsCode returns true when this request device enrollment v3 forbidden response a status code equal to that given
 func (o *RequestDeviceEnrollmentV3Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the request device enrollment v3 forbidden response
+func (o *RequestDeviceEnrollmentV3Forbidden) Code() int {
+	return 403
 }
 
 func (o *RequestDeviceEnrollmentV3Forbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *RequestDeviceEnrollmentV3TooManyRequests) IsServerError() bool {
 // IsCode returns true when this request device enrollment v3 too many requests response a status code equal to that given
 func (o *RequestDeviceEnrollmentV3TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the request device enrollment v3 too many requests response
+func (o *RequestDeviceEnrollmentV3TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RequestDeviceEnrollmentV3TooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *RequestDeviceEnrollmentV3InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the request device enrollment v3 internal server error response
+func (o *RequestDeviceEnrollmentV3InternalServerError) Code() int {
+	return 500
+}
+
 func (o *RequestDeviceEnrollmentV3InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] requestDeviceEnrollmentV3InternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type RequestDeviceEnrollmentV3Default struct {
 	Payload *models.APIPostEnrollmentDetailsResponse
 }
 
-// Code gets the status code for the request device enrollment v3 default response
-func (o *RequestDeviceEnrollmentV3Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this request device enrollment v3 default response has a 2xx status code
 func (o *RequestDeviceEnrollmentV3Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *RequestDeviceEnrollmentV3Default) IsServerError() bool {
 // IsCode returns true when this request device enrollment v3 default response a status code equal to that given
 func (o *RequestDeviceEnrollmentV3Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the request device enrollment v3 default response
+func (o *RequestDeviceEnrollmentV3Default) Code() int {
+	return o._statusCode
 }
 
 func (o *RequestDeviceEnrollmentV3Default) Error() string {

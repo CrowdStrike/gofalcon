@@ -125,6 +125,11 @@ func (o *GetAWSAccountsMixin0OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get a w s accounts mixin0 o k response
+func (o *GetAWSAccountsMixin0OK) Code() int {
+	return 200
+}
+
 func (o *GetAWSAccountsMixin0OK) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *GetAWSAccountsMixin0MultiStatus) IsServerError() bool {
 // IsCode returns true when this get a w s accounts mixin0 multi status response a status code equal to that given
 func (o *GetAWSAccountsMixin0MultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get a w s accounts mixin0 multi status response
+func (o *GetAWSAccountsMixin0MultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetAWSAccountsMixin0MultiStatus) Error() string {
@@ -335,6 +345,11 @@ func (o *GetAWSAccountsMixin0BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get a w s accounts mixin0 bad request response
+func (o *GetAWSAccountsMixin0BadRequest) Code() int {
+	return 400
+}
+
 func (o *GetAWSAccountsMixin0BadRequest) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0BadRequest  %+v", 400, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *GetAWSAccountsMixin0Forbidden) IsServerError() bool {
 // IsCode returns true when this get a w s accounts mixin0 forbidden response a status code equal to that given
 func (o *GetAWSAccountsMixin0Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get a w s accounts mixin0 forbidden response
+func (o *GetAWSAccountsMixin0Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetAWSAccountsMixin0Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *GetAWSAccountsMixin0TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get a w s accounts mixin0 too many requests response a status code equal to that given
 func (o *GetAWSAccountsMixin0TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get a w s accounts mixin0 too many requests response
+func (o *GetAWSAccountsMixin0TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetAWSAccountsMixin0TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *GetAWSAccountsMixin0InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get a w s accounts mixin0 internal server error response
+func (o *GetAWSAccountsMixin0InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetAWSAccountsMixin0InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] getAWSAccountsMixin0InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type GetAWSAccountsMixin0Default struct {
 	Payload *models.K8sregGetAWSAccountsResp
 }
 
-// Code gets the status code for the get a w s accounts mixin0 default response
-func (o *GetAWSAccountsMixin0Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get a w s accounts mixin0 default response has a 2xx status code
 func (o *GetAWSAccountsMixin0Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *GetAWSAccountsMixin0Default) IsServerError() bool {
 // IsCode returns true when this get a w s accounts mixin0 default response a status code equal to that given
 func (o *GetAWSAccountsMixin0Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get a w s accounts mixin0 default response
+func (o *GetAWSAccountsMixin0Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAWSAccountsMixin0Default) Error() string {

@@ -121,6 +121,11 @@ func (o *UpdateHostGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update host groups o k response
+func (o *UpdateHostGroupsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateHostGroupsOK) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *UpdateHostGroupsBadRequest) IsServerError() bool {
 // IsCode returns true when this update host groups bad request response a status code equal to that given
 func (o *UpdateHostGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update host groups bad request response
+func (o *UpdateHostGroupsBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateHostGroupsBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *UpdateHostGroupsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update host groups forbidden response
+func (o *UpdateHostGroupsForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *UpdateHostGroupsNotFound) IsServerError() bool {
 // IsCode returns true when this update host groups not found response a status code equal to that given
 func (o *UpdateHostGroupsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update host groups not found response
+func (o *UpdateHostGroupsNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateHostGroupsNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *UpdateHostGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update host groups too many requests response a status code equal to that given
 func (o *UpdateHostGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update host groups too many requests response
+func (o *UpdateHostGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateHostGroupsTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *UpdateHostGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update host groups internal server error response
+func (o *UpdateHostGroupsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateHostGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type UpdateHostGroupsDefault struct {
 	Payload *models.ResponsesHostGroupsV1
 }
 
-// Code gets the status code for the update host groups default response
-func (o *UpdateHostGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update host groups default response has a 2xx status code
 func (o *UpdateHostGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *UpdateHostGroupsDefault) IsServerError() bool {
 // IsCode returns true when this update host groups default response a status code equal to that given
 func (o *UpdateHostGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update host groups default response
+func (o *UpdateHostGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateHostGroupsDefault) Error() string {

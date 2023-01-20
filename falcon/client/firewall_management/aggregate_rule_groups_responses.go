@@ -119,6 +119,11 @@ func (o *AggregateRuleGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate rule groups o k response
+func (o *AggregateRuleGroupsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateRuleGroupsOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *AggregateRuleGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the aggregate rule groups bad request response
+func (o *AggregateRuleGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *AggregateRuleGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *AggregateRuleGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate rule groups forbidden response a status code equal to that given
 func (o *AggregateRuleGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate rule groups forbidden response
+func (o *AggregateRuleGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateRuleGroupsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *AggregateRuleGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this aggregate rule groups too many requests response a status code equal to that given
 func (o *AggregateRuleGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the aggregate rule groups too many requests response
+func (o *AggregateRuleGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *AggregateRuleGroupsTooManyRequests) Error() string {
@@ -552,6 +572,11 @@ func (o *AggregateRuleGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the aggregate rule groups internal server error response
+func (o *AggregateRuleGroupsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *AggregateRuleGroupsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/rule-groups/GET/v1][%d] aggregateRuleGroupsInternalServerError ", 500)
 }
@@ -612,11 +637,6 @@ type AggregateRuleGroupsDefault struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
-// Code gets the status code for the aggregate rule groups default response
-func (o *AggregateRuleGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate rule groups default response has a 2xx status code
 func (o *AggregateRuleGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -640,6 +660,11 @@ func (o *AggregateRuleGroupsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate rule groups default response a status code equal to that given
 func (o *AggregateRuleGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate rule groups default response
+func (o *AggregateRuleGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateRuleGroupsDefault) Error() string {

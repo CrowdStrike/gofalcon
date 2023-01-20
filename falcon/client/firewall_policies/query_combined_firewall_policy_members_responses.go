@@ -121,6 +121,11 @@ func (o *QueryCombinedFirewallPolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined firewall policy members o k response
+func (o *QueryCombinedFirewallPolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedFirewallPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query combined firewall policy members bad request response a status code equal to that given
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query combined firewall policy members bad request response
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QueryCombinedFirewallPolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query combined firewall policy members forbidden response
+func (o *QueryCombinedFirewallPolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryCombinedFirewallPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QueryCombinedFirewallPolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query combined firewall policy members not found response a status code equal to that given
 func (o *QueryCombinedFirewallPolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query combined firewall policy members not found response
+func (o *QueryCombinedFirewallPolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryCombinedFirewallPolicyMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsServerError() bool
 // IsCode returns true when this query combined firewall policy members too many requests response a status code equal to that given
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined firewall policy members too many requests response
+func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QueryCombinedFirewallPolicyMembersInternalServerError) IsCode(code int)
 	return code == 500
 }
 
+// Code gets the status code for the query combined firewall policy members internal server error response
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QueryCombinedFirewallPolicyMembersDefault struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
-// Code gets the status code for the query combined firewall policy members default response
-func (o *QueryCombinedFirewallPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined firewall policy members default response has a 2xx status code
 func (o *QueryCombinedFirewallPolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QueryCombinedFirewallPolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query combined firewall policy members default response a status code equal to that given
 func (o *QueryCombinedFirewallPolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined firewall policy members default response
+func (o *QueryCombinedFirewallPolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedFirewallPolicyMembersDefault) Error() string {

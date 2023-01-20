@@ -121,6 +121,11 @@ func (o *GetCSPMCGPAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m c g p account o k response
+func (o *GetCSPMCGPAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMCGPAccountOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/account/v1][%d] getCSPMCGPAccountOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetCSPMCGPAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c s p m c g p account multi status response a status code equal to that given
 func (o *GetCSPMCGPAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c s p m c g p account multi status response
+func (o *GetCSPMCGPAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCSPMCGPAccountMultiStatus) Error() string {
@@ -309,6 +319,11 @@ func (o *GetCSPMCGPAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m c g p account bad request response
+func (o *GetCSPMCGPAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMCGPAccountBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/account/v1][%d] getCSPMCGPAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetCSPMCGPAccountForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m c g p account forbidden response a status code equal to that given
 func (o *GetCSPMCGPAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m c g p account forbidden response
+func (o *GetCSPMCGPAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMCGPAccountForbidden) Error() string {
@@ -499,6 +519,11 @@ func (o *GetCSPMCGPAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c s p m c g p account too many requests response a status code equal to that given
 func (o *GetCSPMCGPAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m c g p account too many requests response
+func (o *GetCSPMCGPAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMCGPAccountTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetCSPMCGPAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m c g p account internal server error response
+func (o *GetCSPMCGPAccountInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMCGPAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/account/v1][%d] getCSPMCGPAccountInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetCSPMCGPAccountDefault struct {
 	Payload *models.RegistrationGCPAccountResponseV1
 }
 
-// Code gets the status code for the get c s p m c g p account default response
-func (o *GetCSPMCGPAccountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m c g p account default response has a 2xx status code
 func (o *GetCSPMCGPAccountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetCSPMCGPAccountDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m c g p account default response a status code equal to that given
 func (o *GetCSPMCGPAccountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m c g p account default response
+func (o *GetCSPMCGPAccountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMCGPAccountDefault) Error() string {

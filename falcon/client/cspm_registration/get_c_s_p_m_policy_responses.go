@@ -121,6 +121,11 @@ func (o *GetCSPMPolicyOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m policy o k response
+func (o *GetCSPMPolicyOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMPolicyOK) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetCSPMPolicyMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c s p m policy multi status response a status code equal to that given
 func (o *GetCSPMPolicyMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c s p m policy multi status response
+func (o *GetCSPMPolicyMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCSPMPolicyMultiStatus) Error() string {
@@ -309,6 +319,11 @@ func (o *GetCSPMPolicyBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m policy bad request response
+func (o *GetCSPMPolicyBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMPolicyBadRequest) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyBadRequest  %+v", 400, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetCSPMPolicyForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m policy forbidden response a status code equal to that given
 func (o *GetCSPMPolicyForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m policy forbidden response
+func (o *GetCSPMPolicyForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMPolicyForbidden) Error() string {
@@ -499,6 +519,11 @@ func (o *GetCSPMPolicyTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c s p m policy too many requests response a status code equal to that given
 func (o *GetCSPMPolicyTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m policy too many requests response
+func (o *GetCSPMPolicyTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMPolicyTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetCSPMPolicyInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m policy internal server error response
+func (o *GetCSPMPolicyInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMPolicyInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /settings/entities/policy-details/v1][%d] getCSPMPolicyInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetCSPMPolicyDefault struct {
 	Payload *models.RegistrationPolicyResponseV1
 }
 
-// Code gets the status code for the get c s p m policy default response
-func (o *GetCSPMPolicyDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m policy default response has a 2xx status code
 func (o *GetCSPMPolicyDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetCSPMPolicyDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m policy default response a status code equal to that given
 func (o *GetCSPMPolicyDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m policy default response
+func (o *GetCSPMPolicyDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMPolicyDefault) Error() string {

@@ -131,6 +131,11 @@ func (o *CreateActionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create actions v1 o k response
+func (o *CreateActionsV1OK) Code() int {
+	return 200
+}
+
 func (o *CreateActionsV1OK) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1OK  %+v", 200, o.Payload)
 }
@@ -234,6 +239,11 @@ func (o *CreateActionsV1BadRequest) IsServerError() bool {
 // IsCode returns true when this create actions v1 bad request response a status code equal to that given
 func (o *CreateActionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the create actions v1 bad request response
+func (o *CreateActionsV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *CreateActionsV1BadRequest) Error() string {
@@ -341,6 +351,11 @@ func (o *CreateActionsV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the create actions v1 unauthorized response
+func (o *CreateActionsV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *CreateActionsV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -446,6 +461,11 @@ func (o *CreateActionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create actions v1 forbidden response
+func (o *CreateActionsV1Forbidden) Code() int {
+	return 403
+}
+
 func (o *CreateActionsV1Forbidden) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1Forbidden  %+v", 403, o.Payload)
 }
@@ -549,6 +569,11 @@ func (o *CreateActionsV1NotFound) IsServerError() bool {
 // IsCode returns true when this create actions v1 not found response a status code equal to that given
 func (o *CreateActionsV1NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the create actions v1 not found response
+func (o *CreateActionsV1NotFound) Code() int {
+	return 404
 }
 
 func (o *CreateActionsV1NotFound) Error() string {
@@ -658,6 +683,11 @@ func (o *CreateActionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this create actions v1 too many requests response a status code equal to that given
 func (o *CreateActionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create actions v1 too many requests response
+func (o *CreateActionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateActionsV1TooManyRequests) Error() string {
@@ -776,6 +806,11 @@ func (o *CreateActionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the create actions v1 internal server error response
+func (o *CreateActionsV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *CreateActionsV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -847,11 +882,6 @@ type CreateActionsV1Default struct {
 	Payload *models.DomainActionEntitiesResponseV1
 }
 
-// Code gets the status code for the create actions v1 default response
-func (o *CreateActionsV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create actions v1 default response has a 2xx status code
 func (o *CreateActionsV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -875,6 +905,11 @@ func (o *CreateActionsV1Default) IsServerError() bool {
 // IsCode returns true when this create actions v1 default response a status code equal to that given
 func (o *CreateActionsV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create actions v1 default response
+func (o *CreateActionsV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateActionsV1Default) Error() string {

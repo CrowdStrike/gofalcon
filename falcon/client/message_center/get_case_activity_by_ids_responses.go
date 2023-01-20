@@ -119,6 +119,11 @@ func (o *GetCaseActivityByIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get case activity by ids o k response
+func (o *GetCaseActivityByIdsOK) Code() int {
+	return 200
+}
+
 func (o *GetCaseActivityByIdsOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetCaseActivityByIdsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get case activity by ids bad request response
+func (o *GetCaseActivityByIdsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCaseActivityByIdsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetCaseActivityByIdsForbidden) IsServerError() bool {
 // IsCode returns true when this get case activity by ids forbidden response a status code equal to that given
 func (o *GetCaseActivityByIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get case activity by ids forbidden response
+func (o *GetCaseActivityByIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCaseActivityByIdsForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *GetCaseActivityByIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get case activity by ids too many requests response a status code equal to that given
 func (o *GetCaseActivityByIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get case activity by ids too many requests response
+func (o *GetCaseActivityByIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCaseActivityByIdsTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetCaseActivityByIdsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get case activity by ids internal server error response
+func (o *GetCaseActivityByIdsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCaseActivityByIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetCaseActivityByIdsDefault struct {
 	Payload *models.APIMessageCenterActivityResponse
 }
 
-// Code gets the status code for the get case activity by ids default response
-func (o *GetCaseActivityByIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get case activity by ids default response has a 2xx status code
 func (o *GetCaseActivityByIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetCaseActivityByIdsDefault) IsServerError() bool {
 // IsCode returns true when this get case activity by ids default response a status code equal to that given
 func (o *GetCaseActivityByIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get case activity by ids default response
+func (o *GetCaseActivityByIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCaseActivityByIdsDefault) Error() string {

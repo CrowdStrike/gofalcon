@@ -115,6 +115,11 @@ func (o *QueryCombinedFirewallPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined firewall policies o k response
+func (o *QueryCombinedFirewallPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryCombinedFirewallPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query combined firewall policies bad request response
+func (o *QueryCombinedFirewallPoliciesBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryCombinedFirewallPoliciesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryCombinedFirewallPoliciesForbidden) IsServerError() bool {
 // IsCode returns true when this query combined firewall policies forbidden response a status code equal to that given
 func (o *QueryCombinedFirewallPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query combined firewall policies forbidden response
+func (o *QueryCombinedFirewallPoliciesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCombinedFirewallPoliciesForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryCombinedFirewallPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query combined firewall policies too many requests response a status code equal to that given
 func (o *QueryCombinedFirewallPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined firewall policies too many requests response
+func (o *QueryCombinedFirewallPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedFirewallPoliciesTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryCombinedFirewallPoliciesInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the query combined firewall policies internal server error response
+func (o *QueryCombinedFirewallPoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryCombinedFirewallPoliciesDefault struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
-// Code gets the status code for the query combined firewall policies default response
-func (o *QueryCombinedFirewallPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined firewall policies default response has a 2xx status code
 func (o *QueryCombinedFirewallPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryCombinedFirewallPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this query combined firewall policies default response a status code equal to that given
 func (o *QueryCombinedFirewallPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined firewall policies default response
+func (o *QueryCombinedFirewallPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedFirewallPoliciesDefault) Error() string {

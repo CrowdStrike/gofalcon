@@ -118,6 +118,11 @@ func (o *DeleteD4CAwsAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete d4 c aws account o k response
+func (o *DeleteD4CAwsAccountOK) Code() int {
+	return 200
+}
+
 func (o *DeleteD4CAwsAccountOK) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *DeleteD4CAwsAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this delete d4 c aws account multi status response a status code equal to that given
 func (o *DeleteD4CAwsAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the delete d4 c aws account multi status response
+func (o *DeleteD4CAwsAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeleteD4CAwsAccountMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *DeleteD4CAwsAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete d4 c aws account bad request response
+func (o *DeleteD4CAwsAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteD4CAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/account/v2][%d] deleteD4CAwsAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *DeleteD4CAwsAccountForbidden) IsServerError() bool {
 // IsCode returns true when this delete d4 c aws account forbidden response a status code equal to that given
 func (o *DeleteD4CAwsAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete d4 c aws account forbidden response
+func (o *DeleteD4CAwsAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteD4CAwsAccountForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *DeleteD4CAwsAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete d4 c aws account too many requests response a status code equal to that given
 func (o *DeleteD4CAwsAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete d4 c aws account too many requests response
+func (o *DeleteD4CAwsAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteD4CAwsAccountTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *DeleteD4CAwsAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete d4 c aws account internal server error response a status code equal to that given
 func (o *DeleteD4CAwsAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete d4 c aws account internal server error response
+func (o *DeleteD4CAwsAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteD4CAwsAccountInternalServerError) Error() string {

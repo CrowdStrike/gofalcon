@@ -125,6 +125,11 @@ func (o *QueryCombinedPreventionPolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined prevention policy members o k response
+func (o *QueryCombinedPreventionPolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedPreventionPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query combined prevention policy members bad request response a status code equal to that given
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query combined prevention policy members bad request response
+func (o *QueryCombinedPreventionPolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryCombinedPreventionPolicyMembersBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *QueryCombinedPreventionPolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query combined prevention policy members forbidden response
+func (o *QueryCombinedPreventionPolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryCombinedPreventionPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *QueryCombinedPreventionPolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query combined prevention policy members not found response a status code equal to that given
 func (o *QueryCombinedPreventionPolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query combined prevention policy members not found response
+func (o *QueryCombinedPreventionPolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryCombinedPreventionPolicyMembersNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsServerError() bo
 // IsCode returns true when this query combined prevention policy members too many requests response a status code equal to that given
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined prevention policy members too many requests response
+func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedPreventionPolicyMembersTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *QueryCombinedPreventionPolicyMembersInternalServerError) IsCode(code in
 	return code == 500
 }
 
+// Code gets the status code for the query combined prevention policy members internal server error response
+func (o *QueryCombinedPreventionPolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedPreventionPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/prevention-members/v1][%d] queryCombinedPreventionPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type QueryCombinedPreventionPolicyMembersDefault struct {
 	Payload *models.ResponsesPolicyMembersRespV1
 }
 
-// Code gets the status code for the query combined prevention policy members default response
-func (o *QueryCombinedPreventionPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined prevention policy members default response has a 2xx status code
 func (o *QueryCombinedPreventionPolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *QueryCombinedPreventionPolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query combined prevention policy members default response a status code equal to that given
 func (o *QueryCombinedPreventionPolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined prevention policy members default response
+func (o *QueryCombinedPreventionPolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedPreventionPolicyMembersDefault) Error() string {

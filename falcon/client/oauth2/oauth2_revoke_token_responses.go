@@ -115,6 +115,11 @@ func (o *Oauth2RevokeTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the oauth2 revoke token o k response
+func (o *Oauth2RevokeTokenOK) Code() int {
+	return 200
+}
+
 func (o *Oauth2RevokeTokenOK) Error() string {
 	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *Oauth2RevokeTokenBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the oauth2 revoke token bad request response
+func (o *Oauth2RevokeTokenBadRequest) Code() int {
+	return 400
+}
+
 func (o *Oauth2RevokeTokenBadRequest) Error() string {
 	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *Oauth2RevokeTokenForbidden) IsServerError() bool {
 // IsCode returns true when this oauth2 revoke token forbidden response a status code equal to that given
 func (o *Oauth2RevokeTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the oauth2 revoke token forbidden response
+func (o *Oauth2RevokeTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *Oauth2RevokeTokenForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *Oauth2RevokeTokenTooManyRequests) IsServerError() bool {
 // IsCode returns true when this oauth2 revoke token too many requests response a status code equal to that given
 func (o *Oauth2RevokeTokenTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the oauth2 revoke token too many requests response
+func (o *Oauth2RevokeTokenTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *Oauth2RevokeTokenTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *Oauth2RevokeTokenInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the oauth2 revoke token internal server error response
+func (o *Oauth2RevokeTokenInternalServerError) Code() int {
+	return 500
+}
+
 func (o *Oauth2RevokeTokenInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeTokenInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type Oauth2RevokeTokenDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the oauth2 revoke token default response
-func (o *Oauth2RevokeTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this oauth2 revoke token default response has a 2xx status code
 func (o *Oauth2RevokeTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *Oauth2RevokeTokenDefault) IsServerError() bool {
 // IsCode returns true when this oauth2 revoke token default response a status code equal to that given
 func (o *Oauth2RevokeTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the oauth2 revoke token default response
+func (o *Oauth2RevokeTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *Oauth2RevokeTokenDefault) Error() string {

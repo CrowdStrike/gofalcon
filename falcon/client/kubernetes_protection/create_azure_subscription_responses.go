@@ -118,6 +118,11 @@ func (o *CreateAzureSubscriptionCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create azure subscription created response
+func (o *CreateAzureSubscriptionCreated) Code() int {
+	return 201
+}
+
 func (o *CreateAzureSubscriptionCreated) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *CreateAzureSubscriptionMultiStatus) IsServerError() bool {
 // IsCode returns true when this create azure subscription multi status response a status code equal to that given
 func (o *CreateAzureSubscriptionMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the create azure subscription multi status response
+func (o *CreateAzureSubscriptionMultiStatus) Code() int {
+	return 207
 }
 
 func (o *CreateAzureSubscriptionMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *CreateAzureSubscriptionBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create azure subscription bad request response
+func (o *CreateAzureSubscriptionBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateAzureSubscriptionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/azure/v1][%d] createAzureSubscriptionBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *CreateAzureSubscriptionForbidden) IsServerError() bool {
 // IsCode returns true when this create azure subscription forbidden response a status code equal to that given
 func (o *CreateAzureSubscriptionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create azure subscription forbidden response
+func (o *CreateAzureSubscriptionForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateAzureSubscriptionForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *CreateAzureSubscriptionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create azure subscription too many requests response a status code equal to that given
 func (o *CreateAzureSubscriptionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create azure subscription too many requests response
+func (o *CreateAzureSubscriptionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateAzureSubscriptionTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *CreateAzureSubscriptionInternalServerError) IsServerError() bool {
 // IsCode returns true when this create azure subscription internal server error response a status code equal to that given
 func (o *CreateAzureSubscriptionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create azure subscription internal server error response
+func (o *CreateAzureSubscriptionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateAzureSubscriptionInternalServerError) Error() string {

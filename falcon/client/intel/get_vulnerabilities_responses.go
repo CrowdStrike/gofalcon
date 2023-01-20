@@ -119,6 +119,11 @@ func (o *GetVulnerabilitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get vulnerabilities o k response
+func (o *GetVulnerabilitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetVulnerabilitiesOK) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/vulnerabilities/GET/v1][%d] getVulnerabilitiesOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *GetVulnerabilitiesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get vulnerabilities forbidden response
+func (o *GetVulnerabilitiesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetVulnerabilitiesForbidden) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/vulnerabilities/GET/v1][%d] getVulnerabilitiesForbidden  %+v", 403, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *GetVulnerabilitiesNotFound) IsServerError() bool {
 // IsCode returns true when this get vulnerabilities not found response a status code equal to that given
 func (o *GetVulnerabilitiesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get vulnerabilities not found response
+func (o *GetVulnerabilitiesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetVulnerabilitiesNotFound) Error() string {
@@ -436,6 +451,11 @@ func (o *GetVulnerabilitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get vulnerabilities too many requests response a status code equal to that given
 func (o *GetVulnerabilitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get vulnerabilities too many requests response
+func (o *GetVulnerabilitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetVulnerabilitiesTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *GetVulnerabilitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get vulnerabilities internal server error response
+func (o *GetVulnerabilitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetVulnerabilitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /intel/entities/vulnerabilities/GET/v1][%d] getVulnerabilitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetVulnerabilitiesDefault struct {
 	Payload *models.DomainVulnerabilityResponse
 }
 
-// Code gets the status code for the get vulnerabilities default response
-func (o *GetVulnerabilitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get vulnerabilities default response has a 2xx status code
 func (o *GetVulnerabilitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetVulnerabilitiesDefault) IsServerError() bool {
 // IsCode returns true when this get vulnerabilities default response a status code equal to that given
 func (o *GetVulnerabilitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get vulnerabilities default response
+func (o *GetVulnerabilitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetVulnerabilitiesDefault) Error() string {

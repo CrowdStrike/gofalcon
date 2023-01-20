@@ -118,6 +118,11 @@ func (o *GetD4CAwsAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get d4 c aws account o k response
+func (o *GetD4CAwsAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetD4CAwsAccountOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *GetD4CAwsAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this get d4 c aws account multi status response a status code equal to that given
 func (o *GetD4CAwsAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get d4 c aws account multi status response
+func (o *GetD4CAwsAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetD4CAwsAccountMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *GetD4CAwsAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get d4 c aws account bad request response
+func (o *GetD4CAwsAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetD4CAwsAccountBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/account/v2][%d] getD4CAwsAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *GetD4CAwsAccountForbidden) IsServerError() bool {
 // IsCode returns true when this get d4 c aws account forbidden response a status code equal to that given
 func (o *GetD4CAwsAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get d4 c aws account forbidden response
+func (o *GetD4CAwsAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *GetD4CAwsAccountForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *GetD4CAwsAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get d4 c aws account too many requests response a status code equal to that given
 func (o *GetD4CAwsAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get d4 c aws account too many requests response
+func (o *GetD4CAwsAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetD4CAwsAccountTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *GetD4CAwsAccountInternalServerError) IsServerError() bool {
 // IsCode returns true when this get d4 c aws account internal server error response a status code equal to that given
 func (o *GetD4CAwsAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get d4 c aws account internal server error response
+func (o *GetD4CAwsAccountInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetD4CAwsAccountInternalServerError) Error() string {

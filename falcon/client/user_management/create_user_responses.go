@@ -106,6 +106,11 @@ func (o *CreateUserCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create user created response
+func (o *CreateUserCreated) Code() int {
+	return 201
+}
+
 func (o *CreateUserCreated) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserCreated  %+v", 201, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *CreateUserBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create user bad request response
+func (o *CreateUserBadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateUserBadRequest) Error() string {
 	return fmt.Sprintf("[POST /users/entities/users/v1][%d] createUserBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *CreateUserForbidden) IsServerError() bool {
 // IsCode returns true when this create user forbidden response a status code equal to that given
 func (o *CreateUserForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create user forbidden response
+func (o *CreateUserForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateUserForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *CreateUserTooManyRequests) IsServerError() bool {
 // IsCode returns true when this create user too many requests response a status code equal to that given
 func (o *CreateUserTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create user too many requests response
+func (o *CreateUserTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateUserTooManyRequests) Error() string {

@@ -112,6 +112,11 @@ func (o *BatchAdminCmdCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the batch admin cmd created response
+func (o *BatchAdminCmdCreated) Code() int {
+	return 201
+}
+
 func (o *BatchAdminCmdCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *BatchAdminCmdBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the batch admin cmd bad request response
+func (o *BatchAdminCmdBadRequest) Code() int {
+	return 400
+}
+
 func (o *BatchAdminCmdBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-admin-command/v1][%d] batchAdminCmdBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *BatchAdminCmdForbidden) IsServerError() bool {
 // IsCode returns true when this batch admin cmd forbidden response a status code equal to that given
 func (o *BatchAdminCmdForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the batch admin cmd forbidden response
+func (o *BatchAdminCmdForbidden) Code() int {
+	return 403
 }
 
 func (o *BatchAdminCmdForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *BatchAdminCmdTooManyRequests) IsServerError() bool {
 // IsCode returns true when this batch admin cmd too many requests response a status code equal to that given
 func (o *BatchAdminCmdTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the batch admin cmd too many requests response
+func (o *BatchAdminCmdTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *BatchAdminCmdTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *BatchAdminCmdInternalServerError) IsServerError() bool {
 // IsCode returns true when this batch admin cmd internal server error response a status code equal to that given
 func (o *BatchAdminCmdInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the batch admin cmd internal server error response
+func (o *BatchAdminCmdInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BatchAdminCmdInternalServerError) Error() string {

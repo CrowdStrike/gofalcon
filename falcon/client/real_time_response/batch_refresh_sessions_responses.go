@@ -108,6 +108,11 @@ func (o *BatchRefreshSessionsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the batch refresh sessions created response
+func (o *BatchRefreshSessionsCreated) Code() int {
+	return 201
+}
+
 func (o *BatchRefreshSessionsCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *BatchRefreshSessionsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the batch refresh sessions bad request response
+func (o *BatchRefreshSessionsBadRequest) Code() int {
+	return 400
+}
+
 func (o *BatchRefreshSessionsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-refresh-session/v1][%d] batchRefreshSessionsBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *BatchRefreshSessionsForbidden) IsServerError() bool {
 // IsCode returns true when this batch refresh sessions forbidden response a status code equal to that given
 func (o *BatchRefreshSessionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the batch refresh sessions forbidden response
+func (o *BatchRefreshSessionsForbidden) Code() int {
+	return 403
 }
 
 func (o *BatchRefreshSessionsForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *BatchRefreshSessionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this batch refresh sessions too many requests response a status code equal to that given
 func (o *BatchRefreshSessionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the batch refresh sessions too many requests response
+func (o *BatchRefreshSessionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *BatchRefreshSessionsTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *BatchRefreshSessionsInternalServerError) IsServerError() bool {
 // IsCode returns true when this batch refresh sessions internal server error response a status code equal to that given
 func (o *BatchRefreshSessionsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the batch refresh sessions internal server error response
+func (o *BatchRefreshSessionsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BatchRefreshSessionsInternalServerError) Error() string {

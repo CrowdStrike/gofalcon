@@ -102,6 +102,11 @@ func (o *RTRExecuteCommandCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the r t r execute command created response
+func (o *RTRExecuteCommandCreated) Code() int {
+	return 201
+}
+
 func (o *RTRExecuteCommandCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandCreated  %+v", 201, o.Payload)
 }
@@ -196,6 +201,11 @@ func (o *RTRExecuteCommandBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r execute command bad request response
+func (o *RTRExecuteCommandBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRExecuteCommandBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/command/v1][%d] rTRExecuteCommandBadRequest  %+v", 400, o.Payload)
 }
@@ -288,6 +298,11 @@ func (o *RTRExecuteCommandForbidden) IsServerError() bool {
 // IsCode returns true when this r t r execute command forbidden response a status code equal to that given
 func (o *RTRExecuteCommandForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r execute command forbidden response
+func (o *RTRExecuteCommandForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRExecuteCommandForbidden) Error() string {
@@ -386,6 +401,11 @@ func (o *RTRExecuteCommandTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r execute command too many requests response a status code equal to that given
 func (o *RTRExecuteCommandTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r execute command too many requests response
+func (o *RTRExecuteCommandTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRExecuteCommandTooManyRequests) Error() string {

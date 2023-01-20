@@ -106,6 +106,11 @@ func (o *QueryScheduledScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query scheduled scans o k response
+func (o *QueryScheduledScansOK) Code() int {
+	return 200
+}
+
 func (o *QueryScheduledScansOK) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryScheduledScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query scheduled scans forbidden response
+func (o *QueryScheduledScansForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryScheduledScansForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scheduled-scans/v1][%d] queryScheduledScansForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryScheduledScansNotFound) IsServerError() bool {
 // IsCode returns true when this query scheduled scans not found response a status code equal to that given
 func (o *QueryScheduledScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query scheduled scans not found response
+func (o *QueryScheduledScansNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryScheduledScansNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryScheduledScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query scheduled scans too many requests response a status code equal to that given
 func (o *QueryScheduledScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query scheduled scans too many requests response
+func (o *QueryScheduledScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryScheduledScansTooManyRequests) Error() string {

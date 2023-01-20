@@ -103,6 +103,11 @@ func (o *AggregateFCIncidentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate f c incidents o k response
+func (o *AggregateFCIncidentsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateFCIncidentsOK) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregateFCIncidentsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate f c incidents forbidden response a status code equal to that given
 func (o *AggregateFCIncidentsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate f c incidents forbidden response
+func (o *AggregateFCIncidentsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateFCIncidentsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregateFCIncidentsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate f c incidents too many requests response
+func (o *AggregateFCIncidentsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateFCIncidentsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] aggregateFCIncidentsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregateFCIncidentsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate f c incidents default response
-func (o *AggregateFCIncidentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate f c incidents default response has a 2xx status code
 func (o *AggregateFCIncidentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregateFCIncidentsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate f c incidents default response a status code equal to that given
 func (o *AggregateFCIncidentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate f c incidents default response
+func (o *AggregateFCIncidentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateFCIncidentsDefault) Error() string {

@@ -108,6 +108,11 @@ func (o *RTRDeleteQueuedSessionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the r t r delete queued session no content response
+func (o *RTRDeleteQueuedSessionNoContent) Code() int {
+	return 204
+}
+
 func (o *RTRDeleteQueuedSessionNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionNoContent  %+v", 204, o.Payload)
 }
@@ -200,6 +205,11 @@ func (o *RTRDeleteQueuedSessionBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r delete queued session bad request response a status code equal to that given
 func (o *RTRDeleteQueuedSessionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r delete queued session bad request response
+func (o *RTRDeleteQueuedSessionBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRDeleteQueuedSessionBadRequest) Error() string {
@@ -296,6 +306,11 @@ func (o *RTRDeleteQueuedSessionUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the r t r delete queued session unauthorized response
+func (o *RTRDeleteQueuedSessionUnauthorized) Code() int {
+	return 401
+}
+
 func (o *RTRDeleteQueuedSessionUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/queued-sessions/command/v1][%d] rTRDeleteQueuedSessionUnauthorized  %+v", 401, o.Payload)
 }
@@ -388,6 +403,11 @@ func (o *RTRDeleteQueuedSessionForbidden) IsServerError() bool {
 // IsCode returns true when this r t r delete queued session forbidden response a status code equal to that given
 func (o *RTRDeleteQueuedSessionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r delete queued session forbidden response
+func (o *RTRDeleteQueuedSessionForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRDeleteQueuedSessionForbidden) Error() string {
@@ -486,6 +506,11 @@ func (o *RTRDeleteQueuedSessionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r delete queued session too many requests response a status code equal to that given
 func (o *RTRDeleteQueuedSessionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r delete queued session too many requests response
+func (o *RTRDeleteQueuedSessionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRDeleteQueuedSessionTooManyRequests) Error() string {

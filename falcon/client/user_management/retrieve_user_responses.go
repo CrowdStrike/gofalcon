@@ -119,6 +119,11 @@ func (o *RetrieveUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the retrieve user o k response
+func (o *RetrieveUserOK) Code() int {
+	return 200
+}
+
 func (o *RetrieveUserOK) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *RetrieveUserBadRequest) IsServerError() bool {
 // IsCode returns true when this retrieve user bad request response a status code equal to that given
 func (o *RetrieveUserBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the retrieve user bad request response
+func (o *RetrieveUserBadRequest) Code() int {
+	return 400
 }
 
 func (o *RetrieveUserBadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *RetrieveUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the retrieve user forbidden response
+func (o *RetrieveUserForbidden) Code() int {
+	return 403
+}
+
 func (o *RetrieveUserForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserForbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *RetrieveUserNotFound) IsServerError() bool {
 // IsCode returns true when this retrieve user not found response a status code equal to that given
 func (o *RetrieveUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the retrieve user not found response
+func (o *RetrieveUserNotFound) Code() int {
+	return 404
 }
 
 func (o *RetrieveUserNotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *RetrieveUserTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the retrieve user too many requests response
+func (o *RetrieveUserTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RetrieveUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/entities/users/v1][%d] retrieveUserTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type RetrieveUserDefault struct {
 	Payload *models.APIUserMetadataResponse
 }
 
-// Code gets the status code for the retrieve user default response
-func (o *RetrieveUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this retrieve user default response has a 2xx status code
 func (o *RetrieveUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *RetrieveUserDefault) IsServerError() bool {
 // IsCode returns true when this retrieve user default response a status code equal to that given
 func (o *RetrieveUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the retrieve user default response
+func (o *RetrieveUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RetrieveUserDefault) Error() string {

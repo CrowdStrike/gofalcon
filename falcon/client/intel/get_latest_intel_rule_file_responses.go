@@ -131,6 +131,11 @@ func (o *GetLatestIntelRuleFileOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get latest intel rule file o k response
+func (o *GetLatestIntelRuleFileOK) Code() int {
+	return 200
+}
+
 func (o *GetLatestIntelRuleFileOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetLatestIntelRuleFileNotModified) IsCode(code int) bool {
 	return code == 304
 }
 
+// Code gets the status code for the get latest intel rule file not modified response
+func (o *GetLatestIntelRuleFileNotModified) Code() int {
+	return 304
+}
+
 func (o *GetLatestIntelRuleFileNotModified) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileNotModified ", 304)
 }
@@ -272,6 +282,11 @@ func (o *GetLatestIntelRuleFileBadRequest) IsServerError() bool {
 // IsCode returns true when this get latest intel rule file bad request response a status code equal to that given
 func (o *GetLatestIntelRuleFileBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get latest intel rule file bad request response
+func (o *GetLatestIntelRuleFileBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetLatestIntelRuleFileBadRequest) Error() string {
@@ -368,6 +383,11 @@ func (o *GetLatestIntelRuleFileForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get latest intel rule file forbidden response
+func (o *GetLatestIntelRuleFileForbidden) Code() int {
+	return 403
+}
+
 func (o *GetLatestIntelRuleFileForbidden) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileForbidden  %+v", 403, o.Payload)
 }
@@ -460,6 +480,11 @@ func (o *GetLatestIntelRuleFileNotFound) IsServerError() bool {
 // IsCode returns true when this get latest intel rule file not found response a status code equal to that given
 func (o *GetLatestIntelRuleFileNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get latest intel rule file not found response
+func (o *GetLatestIntelRuleFileNotFound) Code() int {
+	return 404
 }
 
 func (o *GetLatestIntelRuleFileNotFound) Error() string {
@@ -558,6 +583,11 @@ func (o *GetLatestIntelRuleFileTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get latest intel rule file too many requests response a status code equal to that given
 func (o *GetLatestIntelRuleFileTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get latest intel rule file too many requests response
+func (o *GetLatestIntelRuleFileTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetLatestIntelRuleFileTooManyRequests) Error() string {
@@ -665,6 +695,11 @@ func (o *GetLatestIntelRuleFileInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get latest intel rule file internal server error response
+func (o *GetLatestIntelRuleFileInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetLatestIntelRuleFileInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/rules-latest-files/v1][%d] getLatestIntelRuleFileInternalServerError  %+v", 500, o.Payload)
 }
@@ -727,11 +762,6 @@ type GetLatestIntelRuleFileDefault struct {
 	_statusCode int
 }
 
-// Code gets the status code for the get latest intel rule file default response
-func (o *GetLatestIntelRuleFileDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get latest intel rule file default response has a 2xx status code
 func (o *GetLatestIntelRuleFileDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -755,6 +785,11 @@ func (o *GetLatestIntelRuleFileDefault) IsServerError() bool {
 // IsCode returns true when this get latest intel rule file default response a status code equal to that given
 func (o *GetLatestIntelRuleFileDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get latest intel rule file default response
+func (o *GetLatestIntelRuleFileDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLatestIntelRuleFileDefault) Error() string {

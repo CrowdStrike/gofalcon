@@ -115,6 +115,11 @@ func (o *AddCIDGroupMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the add c Id group members o k response
+func (o *AddCIDGroupMembersOK) Code() int {
+	return 200
+}
+
 func (o *AddCIDGroupMembersOK) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/cid-group-members/v1][%d] addCIdGroupMembersOK  %+v", 200, o.Payload)
 }
@@ -207,6 +212,11 @@ func (o *AddCIDGroupMembersMultiStatus) IsServerError() bool {
 // IsCode returns true when this add c Id group members multi status response a status code equal to that given
 func (o *AddCIDGroupMembersMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the add c Id group members multi status response
+func (o *AddCIDGroupMembersMultiStatus) Code() int {
+	return 207
 }
 
 func (o *AddCIDGroupMembersMultiStatus) Error() string {
@@ -303,6 +313,11 @@ func (o *AddCIDGroupMembersBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the add c Id group members bad request response
+func (o *AddCIDGroupMembersBadRequest) Code() int {
+	return 400
+}
+
 func (o *AddCIDGroupMembersBadRequest) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/cid-group-members/v1][%d] addCIdGroupMembersBadRequest  %+v", 400, o.Payload)
 }
@@ -395,6 +410,11 @@ func (o *AddCIDGroupMembersForbidden) IsServerError() bool {
 // IsCode returns true when this add c Id group members forbidden response a status code equal to that given
 func (o *AddCIDGroupMembersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the add c Id group members forbidden response
+func (o *AddCIDGroupMembersForbidden) Code() int {
+	return 403
 }
 
 func (o *AddCIDGroupMembersForbidden) Error() string {
@@ -495,6 +515,11 @@ func (o *AddCIDGroupMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the add c Id group members too many requests response
+func (o *AddCIDGroupMembersTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AddCIDGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /mssp/entities/cid-group-members/v1][%d] addCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
@@ -570,11 +595,6 @@ type AddCIDGroupMembersDefault struct {
 	Payload *models.DomainCIDGroupMembersResponseV1
 }
 
-// Code gets the status code for the add c ID group members default response
-func (o *AddCIDGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this add c ID group members default response has a 2xx status code
 func (o *AddCIDGroupMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *AddCIDGroupMembersDefault) IsServerError() bool {
 // IsCode returns true when this add c ID group members default response a status code equal to that given
 func (o *AddCIDGroupMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the add c ID group members default response
+func (o *AddCIDGroupMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AddCIDGroupMembersDefault) Error() string {

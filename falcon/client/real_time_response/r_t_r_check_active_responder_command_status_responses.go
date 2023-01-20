@@ -109,6 +109,11 @@ func (o *RTRCheckActiveResponderCommandStatusOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the r t r check active responder command status o k response
+func (o *RTRCheckActiveResponderCommandStatusOK) Code() int {
+	return 200
+}
+
 func (o *RTRCheckActiveResponderCommandStatusOK) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusOK  %+v", 200, o.Payload)
 }
@@ -203,6 +208,11 @@ func (o *RTRCheckActiveResponderCommandStatusUnauthorized) IsCode(code int) bool
 	return code == 401
 }
 
+// Code gets the status code for the r t r check active responder command status unauthorized response
+func (o *RTRCheckActiveResponderCommandStatusUnauthorized) Code() int {
+	return 401
+}
+
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusUnauthorized  %+v", 401, o.Payload)
 }
@@ -295,6 +305,11 @@ func (o *RTRCheckActiveResponderCommandStatusForbidden) IsServerError() bool {
 // IsCode returns true when this r t r check active responder command status forbidden response a status code equal to that given
 func (o *RTRCheckActiveResponderCommandStatusForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r check active responder command status forbidden response
+func (o *RTRCheckActiveResponderCommandStatusForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRCheckActiveResponderCommandStatusForbidden) Error() string {
@@ -395,6 +410,11 @@ func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) IsCode(code int) b
 	return code == 429
 }
 
+// Code gets the status code for the r t r check active responder command status too many requests response
+func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] rTRCheckActiveResponderCommandStatusTooManyRequests  %+v", 429, o.Payload)
 }
@@ -470,11 +490,6 @@ type RTRCheckActiveResponderCommandStatusDefault struct {
 	Payload *models.DomainStatusResponseWrapper
 }
 
-// Code gets the status code for the r t r check active responder command status default response
-func (o *RTRCheckActiveResponderCommandStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this r t r check active responder command status default response has a 2xx status code
 func (o *RTRCheckActiveResponderCommandStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *RTRCheckActiveResponderCommandStatusDefault) IsServerError() bool {
 // IsCode returns true when this r t r check active responder command status default response a status code equal to that given
 func (o *RTRCheckActiveResponderCommandStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the r t r check active responder command status default response
+func (o *RTRCheckActiveResponderCommandStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RTRCheckActiveResponderCommandStatusDefault) Error() string {

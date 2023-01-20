@@ -112,6 +112,11 @@ func (o *RTRDeleteFileV2NoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the r t r delete file v2 no content response
+func (o *RTRDeleteFileV2NoContent) Code() int {
+	return 204
+}
+
 func (o *RTRDeleteFileV2NoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v2][%d] rTRDeleteFileV2NoContent  %+v", 204, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *RTRDeleteFileV2BadRequest) IsServerError() bool {
 // IsCode returns true when this r t r delete file v2 bad request response a status code equal to that given
 func (o *RTRDeleteFileV2BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r delete file v2 bad request response
+func (o *RTRDeleteFileV2BadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRDeleteFileV2BadRequest) Error() string {
@@ -322,6 +332,11 @@ func (o *RTRDeleteFileV2Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the r t r delete file v2 forbidden response
+func (o *RTRDeleteFileV2Forbidden) Code() int {
+	return 403
+}
+
 func (o *RTRDeleteFileV2Forbidden) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/file/v2][%d] rTRDeleteFileV2Forbidden  %+v", 403, o.Payload)
 }
@@ -425,6 +440,11 @@ func (o *RTRDeleteFileV2NotFound) IsServerError() bool {
 // IsCode returns true when this r t r delete file v2 not found response a status code equal to that given
 func (o *RTRDeleteFileV2NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the r t r delete file v2 not found response
+func (o *RTRDeleteFileV2NotFound) Code() int {
+	return 404
 }
 
 func (o *RTRDeleteFileV2NotFound) Error() string {
@@ -534,6 +554,11 @@ func (o *RTRDeleteFileV2TooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r delete file v2 too many requests response a status code equal to that given
 func (o *RTRDeleteFileV2TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r delete file v2 too many requests response
+func (o *RTRDeleteFileV2TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRDeleteFileV2TooManyRequests) Error() string {

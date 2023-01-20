@@ -115,6 +115,11 @@ func (o *QueryDetectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query detects o k response
+func (o *QueryDetectsOK) Code() int {
+	return 200
+}
+
 func (o *QueryDetectsOK) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryDetectsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query detects bad request response
+func (o *QueryDetectsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryDetectsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryDetectsForbidden) IsServerError() bool {
 // IsCode returns true when this query detects forbidden response a status code equal to that given
 func (o *QueryDetectsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query detects forbidden response
+func (o *QueryDetectsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryDetectsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryDetectsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query detects too many requests response a status code equal to that given
 func (o *QueryDetectsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query detects too many requests response
+func (o *QueryDetectsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryDetectsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryDetectsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query detects internal server error response
+func (o *QueryDetectsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryDetectsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /detects/queries/detects/v1][%d] queryDetectsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryDetectsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query detects default response
-func (o *QueryDetectsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query detects default response has a 2xx status code
 func (o *QueryDetectsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryDetectsDefault) IsServerError() bool {
 // IsCode returns true when this query detects default response a status code equal to that given
 func (o *QueryDetectsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query detects default response
+func (o *QueryDetectsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryDetectsDefault) Error() string {

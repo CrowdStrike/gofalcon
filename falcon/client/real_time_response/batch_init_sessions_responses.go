@@ -112,6 +112,11 @@ func (o *BatchInitSessionsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the batch init sessions created response
+func (o *BatchInitSessionsCreated) Code() int {
+	return 201
+}
+
 func (o *BatchInitSessionsCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *BatchInitSessionsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the batch init sessions bad request response
+func (o *BatchInitSessionsBadRequest) Code() int {
+	return 400
+}
+
 func (o *BatchInitSessionsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/combined/batch-init-session/v1][%d] batchInitSessionsBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *BatchInitSessionsForbidden) IsServerError() bool {
 // IsCode returns true when this batch init sessions forbidden response a status code equal to that given
 func (o *BatchInitSessionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the batch init sessions forbidden response
+func (o *BatchInitSessionsForbidden) Code() int {
+	return 403
 }
 
 func (o *BatchInitSessionsForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *BatchInitSessionsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this batch init sessions too many requests response a status code equal to that given
 func (o *BatchInitSessionsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the batch init sessions too many requests response
+func (o *BatchInitSessionsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *BatchInitSessionsTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *BatchInitSessionsInternalServerError) IsServerError() bool {
 // IsCode returns true when this batch init sessions internal server error response a status code equal to that given
 func (o *BatchInitSessionsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the batch init sessions internal server error response
+func (o *BatchInitSessionsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *BatchInitSessionsInternalServerError) Error() string {

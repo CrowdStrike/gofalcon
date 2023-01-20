@@ -106,6 +106,11 @@ func (o *QueryScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query scans o k response
+func (o *QueryScansOK) Code() int {
+	return 200
+}
+
 func (o *QueryScansOK) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query scans forbidden response
+func (o *QueryScansForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryScansForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/scans/v1][%d] queryScansForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryScansNotFound) IsServerError() bool {
 // IsCode returns true when this query scans not found response a status code equal to that given
 func (o *QueryScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query scans not found response
+func (o *QueryScansNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryScansNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query scans too many requests response a status code equal to that given
 func (o *QueryScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query scans too many requests response
+func (o *QueryScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryScansTooManyRequests) Error() string {

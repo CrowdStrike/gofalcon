@@ -115,6 +115,11 @@ func (o *CustomerSettingsReadOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the customer settings read o k response
+func (o *CustomerSettingsReadOK) Code() int {
+	return 200
+}
+
 func (o *CustomerSettingsReadOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *CustomerSettingsReadBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the customer settings read bad request response
+func (o *CustomerSettingsReadBadRequest) Code() int {
+	return 400
+}
+
 func (o *CustomerSettingsReadBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *CustomerSettingsReadForbidden) IsServerError() bool {
 // IsCode returns true when this customer settings read forbidden response a status code equal to that given
 func (o *CustomerSettingsReadForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the customer settings read forbidden response
+func (o *CustomerSettingsReadForbidden) Code() int {
+	return 403
 }
 
 func (o *CustomerSettingsReadForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *CustomerSettingsReadTooManyRequests) IsServerError() bool {
 // IsCode returns true when this customer settings read too many requests response a status code equal to that given
 func (o *CustomerSettingsReadTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the customer settings read too many requests response
+func (o *CustomerSettingsReadTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CustomerSettingsReadTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *CustomerSettingsReadInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the customer settings read internal server error response
+func (o *CustomerSettingsReadInternalServerError) Code() int {
+	return 500
+}
+
 func (o *CustomerSettingsReadInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type CustomerSettingsReadDefault struct {
 	Payload *models.APICustomerSettingsResponseV1
 }
 
-// Code gets the status code for the customer settings read default response
-func (o *CustomerSettingsReadDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this customer settings read default response has a 2xx status code
 func (o *CustomerSettingsReadDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *CustomerSettingsReadDefault) IsServerError() bool {
 // IsCode returns true when this customer settings read default response a status code equal to that given
 func (o *CustomerSettingsReadDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the customer settings read default response
+func (o *CustomerSettingsReadDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CustomerSettingsReadDefault) Error() string {

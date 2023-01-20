@@ -115,6 +115,11 @@ func (o *TokensQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tokens query o k response
+func (o *TokensQueryOK) Code() int {
+	return 200
+}
+
 func (o *TokensQueryOK) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *TokensQueryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the tokens query bad request response
+func (o *TokensQueryBadRequest) Code() int {
+	return 400
+}
+
 func (o *TokensQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *TokensQueryForbidden) IsServerError() bool {
 // IsCode returns true when this tokens query forbidden response a status code equal to that given
 func (o *TokensQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the tokens query forbidden response
+func (o *TokensQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *TokensQueryForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *TokensQueryTooManyRequests) IsServerError() bool {
 // IsCode returns true when this tokens query too many requests response a status code equal to that given
 func (o *TokensQueryTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the tokens query too many requests response
+func (o *TokensQueryTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TokensQueryTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *TokensQueryInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the tokens query internal server error response
+func (o *TokensQueryInternalServerError) Code() int {
+	return 500
+}
+
 func (o *TokensQueryInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type TokensQueryDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the tokens query default response
-func (o *TokensQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tokens query default response has a 2xx status code
 func (o *TokensQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *TokensQueryDefault) IsServerError() bool {
 // IsCode returns true when this tokens query default response a status code equal to that given
 func (o *TokensQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tokens query default response
+func (o *TokensQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TokensQueryDefault) Error() string {

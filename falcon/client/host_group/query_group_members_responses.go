@@ -121,6 +121,11 @@ func (o *QueryGroupMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query group members o k response
+func (o *QueryGroupMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QueryGroupMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query group members bad request response a status code equal to that given
 func (o *QueryGroupMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query group members bad request response
+func (o *QueryGroupMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryGroupMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QueryGroupMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query group members forbidden response
+func (o *QueryGroupMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryGroupMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QueryGroupMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query group members not found response a status code equal to that given
 func (o *QueryGroupMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query group members not found response
+func (o *QueryGroupMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryGroupMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QueryGroupMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query group members too many requests response a status code equal to that given
 func (o *QueryGroupMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query group members too many requests response
+func (o *QueryGroupMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryGroupMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QueryGroupMembersInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query group members internal server error response
+func (o *QueryGroupMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryGroupMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/queries/host-group-members/v1][%d] queryGroupMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QueryGroupMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query group members default response
-func (o *QueryGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query group members default response has a 2xx status code
 func (o *QueryGroupMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QueryGroupMembersDefault) IsServerError() bool {
 // IsCode returns true when this query group members default response a status code equal to that given
 func (o *QueryGroupMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query group members default response
+func (o *QueryGroupMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryGroupMembersDefault) Error() string {

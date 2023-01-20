@@ -108,6 +108,11 @@ func (o *RTRPulseSessionCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the r t r pulse session created response
+func (o *RTRPulseSessionCreated) Code() int {
+	return 201
+}
+
 func (o *RTRPulseSessionCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *RTRPulseSessionBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r pulse session bad request response
+func (o *RTRPulseSessionBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRPulseSessionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/refresh-session/v1][%d] rTRPulseSessionBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *RTRPulseSessionForbidden) IsServerError() bool {
 // IsCode returns true when this r t r pulse session forbidden response a status code equal to that given
 func (o *RTRPulseSessionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r pulse session forbidden response
+func (o *RTRPulseSessionForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRPulseSessionForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *RTRPulseSessionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r pulse session too many requests response a status code equal to that given
 func (o *RTRPulseSessionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r pulse session too many requests response
+func (o *RTRPulseSessionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRPulseSessionTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *RTRPulseSessionInternalServerError) IsServerError() bool {
 // IsCode returns true when this r t r pulse session internal server error response a status code equal to that given
 func (o *RTRPulseSessionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the r t r pulse session internal server error response
+func (o *RTRPulseSessionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *RTRPulseSessionInternalServerError) Error() string {

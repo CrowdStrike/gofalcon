@@ -112,6 +112,11 @@ func (o *GetRTResponsePoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get r t response policies o k response
+func (o *GetRTResponsePoliciesOK) Code() int {
+	return 200
+}
+
 func (o *GetRTResponsePoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/response/v1][%d] getRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetRTResponsePoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get r t response policies forbidden response
+func (o *GetRTResponsePoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRTResponsePoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/response/v1][%d] getRTResponsePoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetRTResponsePoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this get r t response policies not found response a status code equal to that given
 func (o *GetRTResponsePoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get r t response policies not found response
+func (o *GetRTResponsePoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetRTResponsePoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetRTResponsePoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get r t response policies too many requests response a status code equal to that given
 func (o *GetRTResponsePoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get r t response policies too many requests response
+func (o *GetRTResponsePoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetRTResponsePoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetRTResponsePoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this get r t response policies internal server error response a status code equal to that given
 func (o *GetRTResponsePoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get r t response policies internal server error response
+func (o *GetRTResponsePoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetRTResponsePoliciesInternalServerError) Error() string {

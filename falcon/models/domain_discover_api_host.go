@@ -35,6 +35,27 @@ type DomainDiscoverAPIHost struct {
 	// The first and last name of the person who is assigned to this asset.
 	AssignedTo string `json:"assigned_to,omitempty"`
 
+	// The available disk space in the last 15 minutes on the host
+	AvailableDiskSpace int32 `json:"available_disk_space,omitempty"`
+
+	// The available disk space percent in the last 15 minutes on the host
+	AvailableDiskSpacePct int32 `json:"available_disk_space_pct,omitempty"`
+
+	// The average memory usage in the last 15 minutes on the host
+	AverageMemoryUsage int32 `json:"average_memory_usage,omitempty"`
+
+	// The average memory usage percent in the last 15 minutes on the host
+	AverageMemoryUsagePct int32 `json:"average_memory_usage_pct,omitempty"`
+
+	// The average processor usage in the last 15 minutes on the host
+	AverageProcessorUsage int32 `json:"average_processor_usage,omitempty"`
+
+	// The list of found sha256 and their measurement types
+	BiosHashesData []*DomainDiscoverAPIBiosHashesData `json:"bios_hashes_data"`
+
+	// The id of the bios on the host
+	BiosID string `json:"bios_id,omitempty"`
+
 	// The name of the asset's BIOS manufacturer.
 	BiosManufacturer string `json:"bios_manufacturer,omitempty"`
 
@@ -59,6 +80,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The manufacturer of the asset's CPU.
 	CPUManufacturer string `json:"cpu_manufacturer,omitempty"`
+
+	// The name of the processor on the system
+	CPUProcessorName string `json:"cpu_processor_name,omitempty"`
 
 	// The time the asset was created in Active Directory, according to LDAP info.
 	CreationTimestamp string `json:"creation_timestamp,omitempty"`
@@ -93,8 +117,20 @@ type DomainDiscoverAPIHost struct {
 	// The tags of the sources that discovered the asset.
 	DiscovererTags []string `json:"discoverer_tags"`
 
+	// The names and sizes of the disks on the asset
+	DiskSizes []*DomainDiscoverAPIDiskSize `json:"disk_sizes"`
+
 	// The email of the asset as listed in Active Directory.
 	Email string `json:"email,omitempty"`
+
+	// The list of encrypted drives on the host
+	EncryptedDrives []string `json:"encrypted_drives"`
+
+	// The count of encrypted drives on the host
+	EncryptedDrivesCount int32 `json:"encrypted_drives_count,omitempty"`
+
+	// The encryption status of the host
+	EncryptionStatus string `json:"encryption_status,omitempty"`
 
 	// The type of asset (managed, unmanaged, unsupported).
 	EntityType string `json:"entity_type,omitempty"`
@@ -145,6 +181,9 @@ type DomainDiscoverAPIHost struct {
 	// The location of the asset.
 	Location string `json:"location,omitempty"`
 
+	// The number of logical cores available on the system
+	LogicalCoreCount int32 `json:"logical_core_count,omitempty"`
+
 	// Historical MAC addresses associated with the asset.
 	MacAddresses []string `json:"mac_addresses"`
 
@@ -153,6 +192,18 @@ type DomainDiscoverAPIHost struct {
 
 	// The first and last name of the person who manages this asset.
 	ManagedBy string `json:"managed_by,omitempty"`
+
+	// The max memory usage in the last 15 minutes on the host
+	MaxMemoryUsage int32 `json:"max_memory_usage,omitempty"`
+
+	// The max memory usage percent in the last 15 minutes on the host
+	MaxMemoryUsagePct int32 `json:"max_memory_usage_pct,omitempty"`
+
+	// The max processor usage in the last 15 minutes on the host
+	MaxProcessorUsage int32 `json:"max_processor_usage,omitempty"`
+
+	// The path, used and available space on mounted disks
+	MountStorageInfo []*DomainDiscoverAPIMountStorageInfo `json:"mount_storage_info"`
 
 	// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
 	NetworkInterfaces []*DomainDiscoverAPINetworkInterface `json:"network_interfaces"`
@@ -168,6 +219,9 @@ type DomainDiscoverAPIHost struct {
 
 	// Whether the asset is at end of support (Yes, No, or Unknown).
 	OsIsEol string `json:"os_is_eol,omitempty"`
+
+	// The os security features of the asset
+	OsSecurity *DomainDiscoverAPIOsSecurity `json:"os_security,omitempty"`
 
 	// The OS service pack on the asset.
 	OsServicePack string `json:"os_service_pack,omitempty"`
@@ -220,6 +274,27 @@ type DomainDiscoverAPIHost struct {
 	// The sensor and cloud tags of the asset.
 	Tags []string `json:"tags"`
 
+	// The count of bios files measured by the firmware image
+	TotalBiosFiles int32 `json:"total_bios_files,omitempty"`
+
+	// Total amount of disk space available on the system
+	TotalDiskSpace int32 `json:"total_disk_space,omitempty"`
+
+	// The total memory of the asset
+	TotalMemory int32 `json:"total_memory,omitempty"`
+
+	// The list of unencrypted drives on the host
+	UnencryptedDrives []string `json:"unencrypted_drives"`
+
+	// The count of unencrypted drives on the host
+	UnencryptedDrivesCount int32 `json:"unencrypted_drives_count,omitempty"`
+
+	// The used disk space in the last 15 minutes on the host
+	UsedDiskSpace int32 `json:"used_disk_space,omitempty"`
+
+	// The used disk space percent in the last 15 minutes on the host
+	UsedDiskSpacePct int32 `json:"used_disk_space_pct,omitempty"`
+
 	// What the asset is used for, such as production, staging, or QA.
 	UsedFor string `json:"used_for,omitempty"`
 }
@@ -228,7 +303,15 @@ type DomainDiscoverAPIHost struct {
 func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBiosHashesData(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDiskSizes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -240,7 +323,15 @@ func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMountStorageInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateNetworkInterfaces(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOsSecurity(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -250,10 +341,62 @@ func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) validateBiosHashesData(formats strfmt.Registry) error {
+	if swag.IsZero(m.BiosHashesData) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.BiosHashesData); i++ {
+		if swag.IsZero(m.BiosHashesData[i]) { // not required
+			continue
+		}
+
+		if m.BiosHashesData[i] != nil {
+			if err := m.BiosHashesData[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bios_hashes_data" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bios_hashes_data" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIHost) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) validateDiskSizes(formats strfmt.Registry) error {
+	if swag.IsZero(m.DiskSizes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DiskSizes); i++ {
+		if swag.IsZero(m.DiskSizes[i]) { // not required
+			continue
+		}
+
+		if m.DiskSizes[i] != nil {
+			if err := m.DiskSizes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disk_sizes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disk_sizes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -294,6 +437,32 @@ func (m *DomainDiscoverAPIHost) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) validateMountStorageInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.MountStorageInfo) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.MountStorageInfo); i++ {
+		if swag.IsZero(m.MountStorageInfo[i]) { // not required
+			continue
+		}
+
+		if m.MountStorageInfo[i] != nil {
+			if err := m.MountStorageInfo[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mount_storage_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mount_storage_info" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIHost) validateNetworkInterfaces(formats strfmt.Registry) error {
 	if swag.IsZero(m.NetworkInterfaces) { // not required
 		return nil
@@ -320,15 +489,50 @@ func (m *DomainDiscoverAPIHost) validateNetworkInterfaces(formats strfmt.Registr
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) validateOsSecurity(formats strfmt.Registry) error {
+	if swag.IsZero(m.OsSecurity) { // not required
+		return nil
+	}
+
+	if m.OsSecurity != nil {
+		if err := m.OsSecurity.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("os_security")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("os_security")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain discover API host based on the context it is used
 func (m *DomainDiscoverAPIHost) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateBiosHashesData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDiskSizes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateFieldMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateMountStorageInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateNetworkInterfaces(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOsSecurity(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -338,12 +542,72 @@ func (m *DomainDiscoverAPIHost) ContextValidate(ctx context.Context, formats str
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) contextValidateBiosHashesData(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.BiosHashesData); i++ {
+
+		if m.BiosHashesData[i] != nil {
+			if err := m.BiosHashesData[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bios_hashes_data" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bios_hashes_data" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateDiskSizes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DiskSizes); i++ {
+
+		if m.DiskSizes[i] != nil {
+			if err := m.DiskSizes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disk_sizes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disk_sizes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverAPIHost) contextValidateFieldMetadata(ctx context.Context, formats strfmt.Registry) error {
 
 	for k := range m.FieldMetadata {
 
 		if val, ok := m.FieldMetadata[k]; ok {
 			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateMountStorageInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MountStorageInfo); i++ {
+
+		if m.MountStorageInfo[i] != nil {
+			if err := m.MountStorageInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mount_storage_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mount_storage_info" + "." + strconv.Itoa(i))
+				}
 				return err
 			}
 		}
@@ -368,6 +632,22 @@ func (m *DomainDiscoverAPIHost) contextValidateNetworkInterfaces(ctx context.Con
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateOsSecurity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OsSecurity != nil {
+		if err := m.OsSecurity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("os_security")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("os_security")
+			}
+			return err
+		}
 	}
 
 	return nil

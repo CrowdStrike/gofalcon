@@ -112,6 +112,11 @@ func (o *GetPreventionPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get prevention policies o k response
+func (o *GetPreventionPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *GetPreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetPreventionPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get prevention policies forbidden response
+func (o *GetPreventionPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetPreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetPreventionPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this get prevention policies not found response a status code equal to that given
 func (o *GetPreventionPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get prevention policies not found response
+func (o *GetPreventionPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *GetPreventionPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *GetPreventionPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get prevention policies too many requests response a status code equal to that given
 func (o *GetPreventionPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get prevention policies too many requests response
+func (o *GetPreventionPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetPreventionPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetPreventionPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this get prevention policies internal server error response a status code equal to that given
 func (o *GetPreventionPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get prevention policies internal server error response
+func (o *GetPreventionPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetPreventionPoliciesInternalServerError) Error() string {

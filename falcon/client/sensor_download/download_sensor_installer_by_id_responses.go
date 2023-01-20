@@ -119,6 +119,11 @@ func (o *DownloadSensorInstallerByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the download sensor installer by Id o k response
+func (o *DownloadSensorInstallerByIDOK) Code() int {
+	return 200
+}
+
 func (o *DownloadSensorInstallerByIDOK) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *DownloadSensorInstallerByIDBadRequest) IsServerError() bool {
 // IsCode returns true when this download sensor installer by Id bad request response a status code equal to that given
 func (o *DownloadSensorInstallerByIDBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the download sensor installer by Id bad request response
+func (o *DownloadSensorInstallerByIDBadRequest) Code() int {
+	return 400
 }
 
 func (o *DownloadSensorInstallerByIDBadRequest) Error() string {
@@ -305,6 +315,11 @@ func (o *DownloadSensorInstallerByIDForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the download sensor installer by Id forbidden response
+func (o *DownloadSensorInstallerByIDForbidden) Code() int {
+	return 403
+}
+
 func (o *DownloadSensorInstallerByIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdForbidden  %+v", 403, o.Payload)
 }
@@ -397,6 +412,11 @@ func (o *DownloadSensorInstallerByIDNotFound) IsServerError() bool {
 // IsCode returns true when this download sensor installer by Id not found response a status code equal to that given
 func (o *DownloadSensorInstallerByIDNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the download sensor installer by Id not found response
+func (o *DownloadSensorInstallerByIDNotFound) Code() int {
+	return 404
 }
 
 func (o *DownloadSensorInstallerByIDNotFound) Error() string {
@@ -497,6 +517,11 @@ func (o *DownloadSensorInstallerByIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the download sensor installer by Id too many requests response
+func (o *DownloadSensorInstallerByIDTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DownloadSensorInstallerByIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /sensors/entities/download-installer/v1][%d] downloadSensorInstallerByIdTooManyRequests  %+v", 429, o.Payload)
 }
@@ -574,11 +599,6 @@ type DownloadSensorInstallerByIDDefault struct {
 	Payload io.Writer
 }
 
-// Code gets the status code for the download sensor installer by Id default response
-func (o *DownloadSensorInstallerByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this download sensor installer by Id default response has a 2xx status code
 func (o *DownloadSensorInstallerByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -602,6 +622,11 @@ func (o *DownloadSensorInstallerByIDDefault) IsServerError() bool {
 // IsCode returns true when this download sensor installer by Id default response a status code equal to that given
 func (o *DownloadSensorInstallerByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the download sensor installer by Id default response
+func (o *DownloadSensorInstallerByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DownloadSensorInstallerByIDDefault) Error() string {

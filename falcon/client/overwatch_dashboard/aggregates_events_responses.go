@@ -103,6 +103,11 @@ func (o *AggregatesEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregates events o k response
+func (o *AggregatesEventsOK) Code() int {
+	return 200
+}
+
 func (o *AggregatesEventsOK) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events/GET/v1][%d] aggregatesEventsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *AggregatesEventsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregates events forbidden response a status code equal to that given
 func (o *AggregatesEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregates events forbidden response
+func (o *AggregatesEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregatesEventsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *AggregatesEventsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregates events too many requests response
+func (o *AggregatesEventsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregatesEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events/GET/v1][%d] aggregatesEventsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type AggregatesEventsDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregates events default response
-func (o *AggregatesEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregates events default response has a 2xx status code
 func (o *AggregatesEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *AggregatesEventsDefault) IsServerError() bool {
 // IsCode returns true when this aggregates events default response a status code equal to that given
 func (o *AggregatesEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregates events default response
+func (o *AggregatesEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregatesEventsDefault) Error() string {

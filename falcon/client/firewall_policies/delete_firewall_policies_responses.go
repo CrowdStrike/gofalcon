@@ -112,6 +112,11 @@ func (o *DeleteFirewallPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete firewall policies o k response
+func (o *DeleteFirewallPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *DeleteFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *DeleteFirewallPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete firewall policies forbidden response
+func (o *DeleteFirewallPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /policy/entities/firewall/v1][%d] deleteFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *DeleteFirewallPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this delete firewall policies not found response a status code equal to that given
 func (o *DeleteFirewallPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete firewall policies not found response
+func (o *DeleteFirewallPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteFirewallPoliciesNotFound) Error() string {
@@ -429,6 +444,11 @@ func (o *DeleteFirewallPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete firewall policies too many requests response a status code equal to that given
 func (o *DeleteFirewallPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete firewall policies too many requests response
+func (o *DeleteFirewallPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteFirewallPoliciesTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *DeleteFirewallPoliciesInternalServerError) IsServerError() bool {
 // IsCode returns true when this delete firewall policies internal server error response a status code equal to that given
 func (o *DeleteFirewallPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the delete firewall policies internal server error response
+func (o *DeleteFirewallPoliciesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *DeleteFirewallPoliciesInternalServerError) Error() string {

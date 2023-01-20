@@ -119,6 +119,11 @@ func (o *RetrieveUsersGETV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the retrieve users g e t v1 o k response
+func (o *RetrieveUsersGETV1OK) Code() int {
+	return 200
+}
+
 func (o *RetrieveUsersGETV1OK) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/GET/v1][%d] retrieveUsersGETV1OK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *RetrieveUsersGETV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the retrieve users g e t v1 bad request response
+func (o *RetrieveUsersGETV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *RetrieveUsersGETV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/GET/v1][%d] retrieveUsersGETV1BadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *RetrieveUsersGETV1Forbidden) IsServerError() bool {
 // IsCode returns true when this retrieve users g e t v1 forbidden response a status code equal to that given
 func (o *RetrieveUsersGETV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the retrieve users g e t v1 forbidden response
+func (o *RetrieveUsersGETV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *RetrieveUsersGETV1Forbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *RetrieveUsersGETV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this retrieve users g e t v1 too many requests response a status code equal to that given
 func (o *RetrieveUsersGETV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the retrieve users g e t v1 too many requests response
+func (o *RetrieveUsersGETV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RetrieveUsersGETV1TooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *RetrieveUsersGETV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the retrieve users g e t v1 internal server error response
+func (o *RetrieveUsersGETV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *RetrieveUsersGETV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/GET/v1][%d] retrieveUsersGETV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type RetrieveUsersGETV1Default struct {
 	Payload *models.DomainMsaEntitiesUsersResponse
 }
 
-// Code gets the status code for the retrieve users g e t v1 default response
-func (o *RetrieveUsersGETV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this retrieve users g e t v1 default response has a 2xx status code
 func (o *RetrieveUsersGETV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *RetrieveUsersGETV1Default) IsServerError() bool {
 // IsCode returns true when this retrieve users g e t v1 default response a status code equal to that given
 func (o *RetrieveUsersGETV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the retrieve users g e t v1 default response
+func (o *RetrieveUsersGETV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *RetrieveUsersGETV1Default) Error() string {

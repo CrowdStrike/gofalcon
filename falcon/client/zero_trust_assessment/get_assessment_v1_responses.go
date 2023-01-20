@@ -119,6 +119,11 @@ func (o *GetAssessmentV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get assessment v1 o k response
+func (o *GetAssessmentV1OK) Code() int {
+	return 200
+}
+
 func (o *GetAssessmentV1OK) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1OK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *GetAssessmentV1BadRequest) IsServerError() bool {
 // IsCode returns true when this get assessment v1 bad request response a status code equal to that given
 func (o *GetAssessmentV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get assessment v1 bad request response
+func (o *GetAssessmentV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *GetAssessmentV1BadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *GetAssessmentV1Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get assessment v1 forbidden response
+func (o *GetAssessmentV1Forbidden) Code() int {
+	return 403
+}
+
 func (o *GetAssessmentV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1Forbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *GetAssessmentV1NotFound) IsServerError() bool {
 // IsCode returns true when this get assessment v1 not found response a status code equal to that given
 func (o *GetAssessmentV1NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get assessment v1 not found response
+func (o *GetAssessmentV1NotFound) Code() int {
+	return 404
 }
 
 func (o *GetAssessmentV1NotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *GetAssessmentV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get assessment v1 too many requests response
+func (o *GetAssessmentV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetAssessmentV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetAssessmentV1Default struct {
 	Payload *models.DomainAssessmentsResponse
 }
 
-// Code gets the status code for the get assessment v1 default response
-func (o *GetAssessmentV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get assessment v1 default response has a 2xx status code
 func (o *GetAssessmentV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetAssessmentV1Default) IsServerError() bool {
 // IsCode returns true when this get assessment v1 default response a status code equal to that given
 func (o *GetAssessmentV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get assessment v1 default response
+func (o *GetAssessmentV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAssessmentV1Default) Error() string {

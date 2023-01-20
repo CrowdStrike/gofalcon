@@ -107,6 +107,11 @@ func (o *QueryCIDGroupMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query c Id group members o k response
+func (o *QueryCIDGroupMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryCIDGroupMembersOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *QueryCIDGroupMembersForbidden) IsServerError() bool {
 // IsCode returns true when this query c Id group members forbidden response a status code equal to that given
 func (o *QueryCIDGroupMembersForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query c Id group members forbidden response
+func (o *QueryCIDGroupMembersForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCIDGroupMembersForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *QueryCIDGroupMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query c Id group members too many requests response
+func (o *QueryCIDGroupMembersTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryCIDGroupMembersTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIdGroupMembersTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type QueryCIDGroupMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query c ID group members default response
-func (o *QueryCIDGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query c ID group members default response has a 2xx status code
 func (o *QueryCIDGroupMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *QueryCIDGroupMembersDefault) IsServerError() bool {
 // IsCode returns true when this query c ID group members default response a status code equal to that given
 func (o *QueryCIDGroupMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query c ID group members default response
+func (o *QueryCIDGroupMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCIDGroupMembersDefault) Error() string {

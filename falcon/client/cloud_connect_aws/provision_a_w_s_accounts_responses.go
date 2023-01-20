@@ -108,6 +108,11 @@ func (o *ProvisionAWSAccountsCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the provision a w s accounts created response
+func (o *ProvisionAWSAccountsCreated) Code() int {
+	return 201
+}
+
 func (o *ProvisionAWSAccountsCreated) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *ProvisionAWSAccountsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the provision a w s accounts bad request response
+func (o *ProvisionAWSAccountsBadRequest) Code() int {
+	return 400
+}
+
 func (o *ProvisionAWSAccountsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /cloud-connect-aws/entities/accounts/v1][%d] provisionAWSAccountsBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *ProvisionAWSAccountsForbidden) IsServerError() bool {
 // IsCode returns true when this provision a w s accounts forbidden response a status code equal to that given
 func (o *ProvisionAWSAccountsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the provision a w s accounts forbidden response
+func (o *ProvisionAWSAccountsForbidden) Code() int {
+	return 403
 }
 
 func (o *ProvisionAWSAccountsForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *ProvisionAWSAccountsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this provision a w s accounts too many requests response a status code equal to that given
 func (o *ProvisionAWSAccountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the provision a w s accounts too many requests response
+func (o *ProvisionAWSAccountsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *ProvisionAWSAccountsTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *ProvisionAWSAccountsInternalServerError) IsServerError() bool {
 // IsCode returns true when this provision a w s accounts internal server error response a status code equal to that given
 func (o *ProvisionAWSAccountsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the provision a w s accounts internal server error response
+func (o *ProvisionAWSAccountsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *ProvisionAWSAccountsInternalServerError) Error() string {

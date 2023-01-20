@@ -115,6 +115,11 @@ func (o *UpdateCSPMScanScheduleOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update c s p m scan schedule o k response
+func (o *UpdateCSPMScanScheduleOK) Code() int {
+	return 200
+}
+
 func (o *UpdateCSPMScanScheduleOK) Error() string {
 	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *UpdateCSPMScanScheduleBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update c s p m scan schedule bad request response
+func (o *UpdateCSPMScanScheduleBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateCSPMScanScheduleBadRequest) Error() string {
 	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *UpdateCSPMScanScheduleForbidden) IsServerError() bool {
 // IsCode returns true when this update c s p m scan schedule forbidden response a status code equal to that given
 func (o *UpdateCSPMScanScheduleForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update c s p m scan schedule forbidden response
+func (o *UpdateCSPMScanScheduleForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateCSPMScanScheduleForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *UpdateCSPMScanScheduleTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update c s p m scan schedule too many requests response a status code equal to that given
 func (o *UpdateCSPMScanScheduleTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update c s p m scan schedule too many requests response
+func (o *UpdateCSPMScanScheduleTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateCSPMScanScheduleTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *UpdateCSPMScanScheduleInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update c s p m scan schedule internal server error response
+func (o *UpdateCSPMScanScheduleInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateCSPMScanScheduleInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /settings/scan-schedule/v1][%d] updateCSPMScanScheduleInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type UpdateCSPMScanScheduleDefault struct {
 	Payload *models.RegistrationScanScheduleResponseV1
 }
 
-// Code gets the status code for the update c s p m scan schedule default response
-func (o *UpdateCSPMScanScheduleDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update c s p m scan schedule default response has a 2xx status code
 func (o *UpdateCSPMScanScheduleDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *UpdateCSPMScanScheduleDefault) IsServerError() bool {
 // IsCode returns true when this update c s p m scan schedule default response a status code equal to that given
 func (o *UpdateCSPMScanScheduleDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update c s p m scan schedule default response
+func (o *UpdateCSPMScanScheduleDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateCSPMScanScheduleDefault) Error() string {

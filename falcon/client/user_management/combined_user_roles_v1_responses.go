@@ -112,6 +112,11 @@ func (o *CombinedUserRolesV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the combined user roles v1 o k response
+func (o *CombinedUserRolesV1OK) Code() int {
+	return 200
+}
+
 func (o *CombinedUserRolesV1OK) Error() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *CombinedUserRolesV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the combined user roles v1 bad request response
+func (o *CombinedUserRolesV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *CombinedUserRolesV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *CombinedUserRolesV1Forbidden) IsServerError() bool {
 // IsCode returns true when this combined user roles v1 forbidden response a status code equal to that given
 func (o *CombinedUserRolesV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the combined user roles v1 forbidden response
+func (o *CombinedUserRolesV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *CombinedUserRolesV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *CombinedUserRolesV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this combined user roles v1 too many requests response a status code equal to that given
 func (o *CombinedUserRolesV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the combined user roles v1 too many requests response
+func (o *CombinedUserRolesV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CombinedUserRolesV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *CombinedUserRolesV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this combined user roles v1 internal server error response a status code equal to that given
 func (o *CombinedUserRolesV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the combined user roles v1 internal server error response
+func (o *CombinedUserRolesV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *CombinedUserRolesV1InternalServerError) Error() string {

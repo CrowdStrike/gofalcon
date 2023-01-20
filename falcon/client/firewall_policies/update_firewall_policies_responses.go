@@ -121,6 +121,11 @@ func (o *UpdateFirewallPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update firewall policies o k response
+func (o *UpdateFirewallPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *UpdateFirewallPoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *UpdateFirewallPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this update firewall policies bad request response a status code equal to that given
 func (o *UpdateFirewallPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update firewall policies bad request response
+func (o *UpdateFirewallPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateFirewallPoliciesBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *UpdateFirewallPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update firewall policies forbidden response
+func (o *UpdateFirewallPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateFirewallPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *UpdateFirewallPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this update firewall policies not found response a status code equal to that given
 func (o *UpdateFirewallPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update firewall policies not found response
+func (o *UpdateFirewallPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateFirewallPoliciesNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *UpdateFirewallPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update firewall policies too many requests response a status code equal to that given
 func (o *UpdateFirewallPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update firewall policies too many requests response
+func (o *UpdateFirewallPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateFirewallPoliciesTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *UpdateFirewallPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update firewall policies internal server error response
+func (o *UpdateFirewallPoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateFirewallPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/firewall/v1][%d] updateFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type UpdateFirewallPoliciesDefault struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
-// Code gets the status code for the update firewall policies default response
-func (o *UpdateFirewallPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update firewall policies default response has a 2xx status code
 func (o *UpdateFirewallPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *UpdateFirewallPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this update firewall policies default response a status code equal to that given
 func (o *UpdateFirewallPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update firewall policies default response
+func (o *UpdateFirewallPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateFirewallPoliciesDefault) Error() string {

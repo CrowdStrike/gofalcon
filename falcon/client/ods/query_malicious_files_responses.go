@@ -106,6 +106,11 @@ func (o *QueryMaliciousFilesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query malicious files o k response
+func (o *QueryMaliciousFilesOK) Code() int {
+	return 200
+}
+
 func (o *QueryMaliciousFilesOK) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/malicious-files/v1][%d] queryMaliciousFilesOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryMaliciousFilesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query malicious files forbidden response
+func (o *QueryMaliciousFilesForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryMaliciousFilesForbidden) Error() string {
 	return fmt.Sprintf("[GET /ods/queries/malicious-files/v1][%d] queryMaliciousFilesForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryMaliciousFilesNotFound) IsServerError() bool {
 // IsCode returns true when this query malicious files not found response a status code equal to that given
 func (o *QueryMaliciousFilesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query malicious files not found response
+func (o *QueryMaliciousFilesNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryMaliciousFilesNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryMaliciousFilesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query malicious files too many requests response a status code equal to that given
 func (o *QueryMaliciousFilesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query malicious files too many requests response
+func (o *QueryMaliciousFilesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryMaliciousFilesTooManyRequests) Error() string {

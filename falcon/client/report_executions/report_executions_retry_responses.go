@@ -113,6 +113,11 @@ func (o *ReportExecutionsRetryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the report executions retry o k response
+func (o *ReportExecutionsRetryOK) Code() int {
+	return 200
+}
+
 func (o *ReportExecutionsRetryOK) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *ReportExecutionsRetryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the report executions retry bad request response
+func (o *ReportExecutionsRetryBadRequest) Code() int {
+	return 400
+}
+
 func (o *ReportExecutionsRetryBadRequest) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *ReportExecutionsRetryForbidden) IsServerError() bool {
 // IsCode returns true when this report executions retry forbidden response a status code equal to that given
 func (o *ReportExecutionsRetryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the report executions retry forbidden response
+func (o *ReportExecutionsRetryForbidden) Code() int {
+	return 403
 }
 
 func (o *ReportExecutionsRetryForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *ReportExecutionsRetryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the report executions retry too many requests response
+func (o *ReportExecutionsRetryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ReportExecutionsRetryTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type ReportExecutionsRetryDefault struct {
 	Payload *models.APIReportExecutionsResponseV1
 }
 
-// Code gets the status code for the report executions retry default response
-func (o *ReportExecutionsRetryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this report executions retry default response has a 2xx status code
 func (o *ReportExecutionsRetryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *ReportExecutionsRetryDefault) IsServerError() bool {
 // IsCode returns true when this report executions retry default response a status code equal to that given
 func (o *ReportExecutionsRetryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the report executions retry default response
+func (o *ReportExecutionsRetryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ReportExecutionsRetryDefault) Error() string {

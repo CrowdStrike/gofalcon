@@ -125,6 +125,11 @@ func (o *UpdateDeviceControlPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update device control policies o k response
+func (o *UpdateDeviceControlPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *UpdateDeviceControlPoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *UpdateDeviceControlPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this update device control policies bad request response a status code equal to that given
 func (o *UpdateDeviceControlPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update device control policies bad request response
+func (o *UpdateDeviceControlPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateDeviceControlPoliciesBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *UpdateDeviceControlPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update device control policies forbidden response
+func (o *UpdateDeviceControlPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateDeviceControlPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *UpdateDeviceControlPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this update device control policies not found response a status code equal to that given
 func (o *UpdateDeviceControlPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update device control policies not found response
+func (o *UpdateDeviceControlPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateDeviceControlPoliciesNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *UpdateDeviceControlPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update device control policies too many requests response a status code equal to that given
 func (o *UpdateDeviceControlPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update device control policies too many requests response
+func (o *UpdateDeviceControlPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateDeviceControlPoliciesTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *UpdateDeviceControlPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update device control policies internal server error response
+func (o *UpdateDeviceControlPoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateDeviceControlPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/device-control/v1][%d] updateDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type UpdateDeviceControlPoliciesDefault struct {
 	Payload *models.ResponsesDeviceControlPoliciesV1
 }
 
-// Code gets the status code for the update device control policies default response
-func (o *UpdateDeviceControlPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update device control policies default response has a 2xx status code
 func (o *UpdateDeviceControlPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *UpdateDeviceControlPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this update device control policies default response a status code equal to that given
 func (o *UpdateDeviceControlPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update device control policies default response
+func (o *UpdateDeviceControlPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateDeviceControlPoliciesDefault) Error() string {

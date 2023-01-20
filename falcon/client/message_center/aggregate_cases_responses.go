@@ -107,6 +107,11 @@ func (o *AggregateCasesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate cases o k response
+func (o *AggregateCasesOK) Code() int {
+	return 200
+}
+
 func (o *AggregateCasesOK) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *AggregateCasesForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate cases forbidden response a status code equal to that given
 func (o *AggregateCasesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate cases forbidden response
+func (o *AggregateCasesForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateCasesForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *AggregateCasesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate cases too many requests response
+func (o *AggregateCasesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateCasesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type AggregateCasesDefault struct {
 	Payload *models.MsaAggregatesResponse
 }
 
-// Code gets the status code for the aggregate cases default response
-func (o *AggregateCasesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate cases default response has a 2xx status code
 func (o *AggregateCasesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *AggregateCasesDefault) IsServerError() bool {
 // IsCode returns true when this aggregate cases default response a status code equal to that given
 func (o *AggregateCasesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate cases default response
+func (o *AggregateCasesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateCasesDefault) Error() string {

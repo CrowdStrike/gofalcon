@@ -121,6 +121,11 @@ func (o *UpdateAWSAccountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update a w s accounts o k response
+func (o *UpdateAWSAccountsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateAWSAccountsOK) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *UpdateAWSAccountsBadRequest) IsServerError() bool {
 // IsCode returns true when this update a w s accounts bad request response a status code equal to that given
 func (o *UpdateAWSAccountsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update a w s accounts bad request response
+func (o *UpdateAWSAccountsBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdateAWSAccountsBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *UpdateAWSAccountsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update a w s accounts forbidden response
+func (o *UpdateAWSAccountsForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateAWSAccountsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *UpdateAWSAccountsNotFound) IsServerError() bool {
 // IsCode returns true when this update a w s accounts not found response a status code equal to that given
 func (o *UpdateAWSAccountsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update a w s accounts not found response
+func (o *UpdateAWSAccountsNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdateAWSAccountsNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *UpdateAWSAccountsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update a w s accounts too many requests response a status code equal to that given
 func (o *UpdateAWSAccountsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update a w s accounts too many requests response
+func (o *UpdateAWSAccountsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateAWSAccountsTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *UpdateAWSAccountsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update a w s accounts internal server error response
+func (o *UpdateAWSAccountsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdateAWSAccountsInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /cloud-connect-aws/entities/accounts/v1][%d] updateAWSAccountsInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type UpdateAWSAccountsDefault struct {
 	Payload *models.ModelsAWSAccountsV1
 }
 
-// Code gets the status code for the update a w s accounts default response
-func (o *UpdateAWSAccountsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update a w s accounts default response has a 2xx status code
 func (o *UpdateAWSAccountsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *UpdateAWSAccountsDefault) IsServerError() bool {
 // IsCode returns true when this update a w s accounts default response a status code equal to that given
 func (o *UpdateAWSAccountsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update a w s accounts default response
+func (o *UpdateAWSAccountsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateAWSAccountsDefault) Error() string {

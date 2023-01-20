@@ -115,6 +115,11 @@ func (o *QueryReportsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query reports o k response
+func (o *QueryReportsOK) Code() int {
+	return 200
+}
+
 func (o *QueryReportsOK) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryReportsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query reports bad request response
+func (o *QueryReportsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryReportsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryReportsForbidden) IsServerError() bool {
 // IsCode returns true when this query reports forbidden response a status code equal to that given
 func (o *QueryReportsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query reports forbidden response
+func (o *QueryReportsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryReportsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryReportsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query reports too many requests response a status code equal to that given
 func (o *QueryReportsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query reports too many requests response
+func (o *QueryReportsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryReportsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryReportsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query reports internal server error response
+func (o *QueryReportsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryReportsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryReportsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query reports default response
-func (o *QueryReportsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query reports default response has a 2xx status code
 func (o *QueryReportsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryReportsDefault) IsServerError() bool {
 // IsCode returns true when this query reports default response a status code equal to that given
 func (o *QueryReportsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query reports default response
+func (o *QueryReportsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryReportsDefault) Error() string {

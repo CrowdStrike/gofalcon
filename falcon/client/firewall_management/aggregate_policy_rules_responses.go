@@ -113,6 +113,11 @@ func (o *AggregatePolicyRulesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate policy rules o k response
+func (o *AggregatePolicyRulesOK) Code() int {
+	return 200
+}
+
 func (o *AggregatePolicyRulesOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *AggregatePolicyRulesBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the aggregate policy rules bad request response
+func (o *AggregatePolicyRulesBadRequest) Code() int {
+	return 400
+}
+
 func (o *AggregatePolicyRulesBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *AggregatePolicyRulesForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate policy rules forbidden response a status code equal to that given
 func (o *AggregatePolicyRulesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate policy rules forbidden response
+func (o *AggregatePolicyRulesForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregatePolicyRulesForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *AggregatePolicyRulesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate policy rules too many requests response
+func (o *AggregatePolicyRulesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregatePolicyRulesTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/policy-rules/GET/v1][%d] aggregatePolicyRulesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type AggregatePolicyRulesDefault struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
-// Code gets the status code for the aggregate policy rules default response
-func (o *AggregatePolicyRulesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate policy rules default response has a 2xx status code
 func (o *AggregatePolicyRulesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *AggregatePolicyRulesDefault) IsServerError() bool {
 // IsCode returns true when this aggregate policy rules default response a status code equal to that given
 func (o *AggregatePolicyRulesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate policy rules default response
+func (o *AggregatePolicyRulesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregatePolicyRulesDefault) Error() string {

@@ -119,6 +119,11 @@ func (o *RetrieveUserUUIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the retrieve user Uuid o k response
+func (o *RetrieveUserUUIDOK) Code() int {
+	return 200
+}
+
 func (o *RetrieveUserUUIDOK) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *RetrieveUserUUIDBadRequest) IsServerError() bool {
 // IsCode returns true when this retrieve user Uuid bad request response a status code equal to that given
 func (o *RetrieveUserUUIDBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the retrieve user Uuid bad request response
+func (o *RetrieveUserUUIDBadRequest) Code() int {
+	return 400
 }
 
 func (o *RetrieveUserUUIDBadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *RetrieveUserUUIDForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the retrieve user Uuid forbidden response
+func (o *RetrieveUserUUIDForbidden) Code() int {
+	return 403
+}
+
 func (o *RetrieveUserUUIDForbidden) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidForbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *RetrieveUserUUIDNotFound) IsServerError() bool {
 // IsCode returns true when this retrieve user Uuid not found response a status code equal to that given
 func (o *RetrieveUserUUIDNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the retrieve user Uuid not found response
+func (o *RetrieveUserUUIDNotFound) Code() int {
+	return 404
 }
 
 func (o *RetrieveUserUUIDNotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *RetrieveUserUUIDTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the retrieve user Uuid too many requests response
+func (o *RetrieveUserUUIDTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RetrieveUserUUIDTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] retrieveUserUuidTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type RetrieveUserUUIDDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the retrieve user UUID default response
-func (o *RetrieveUserUUIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this retrieve user UUID default response has a 2xx status code
 func (o *RetrieveUserUUIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *RetrieveUserUUIDDefault) IsServerError() bool {
 // IsCode returns true when this retrieve user UUID default response a status code equal to that given
 func (o *RetrieveUserUUIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the retrieve user UUID default response
+func (o *RetrieveUserUUIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RetrieveUserUUIDDefault) Error() string {

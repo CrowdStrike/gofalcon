@@ -121,6 +121,11 @@ func (o *QueryFirewallPolicyMembersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query firewall policy members o k response
+func (o *QueryFirewallPolicyMembersOK) Code() int {
+	return 200
+}
+
 func (o *QueryFirewallPolicyMembersOK) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall-members/v1][%d] queryFirewallPolicyMembersOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *QueryFirewallPolicyMembersBadRequest) IsServerError() bool {
 // IsCode returns true when this query firewall policy members bad request response a status code equal to that given
 func (o *QueryFirewallPolicyMembersBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the query firewall policy members bad request response
+func (o *QueryFirewallPolicyMembersBadRequest) Code() int {
+	return 400
 }
 
 func (o *QueryFirewallPolicyMembersBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *QueryFirewallPolicyMembersForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query firewall policy members forbidden response
+func (o *QueryFirewallPolicyMembersForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryFirewallPolicyMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall-members/v1][%d] queryFirewallPolicyMembersForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *QueryFirewallPolicyMembersNotFound) IsServerError() bool {
 // IsCode returns true when this query firewall policy members not found response a status code equal to that given
 func (o *QueryFirewallPolicyMembersNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query firewall policy members not found response
+func (o *QueryFirewallPolicyMembersNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryFirewallPolicyMembersNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *QueryFirewallPolicyMembersTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query firewall policy members too many requests response a status code equal to that given
 func (o *QueryFirewallPolicyMembersTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query firewall policy members too many requests response
+func (o *QueryFirewallPolicyMembersTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryFirewallPolicyMembersTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *QueryFirewallPolicyMembersInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query firewall policy members internal server error response
+func (o *QueryFirewallPolicyMembersInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryFirewallPolicyMembersInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/queries/firewall-members/v1][%d] queryFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type QueryFirewallPolicyMembersDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query firewall policy members default response
-func (o *QueryFirewallPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query firewall policy members default response has a 2xx status code
 func (o *QueryFirewallPolicyMembersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *QueryFirewallPolicyMembersDefault) IsServerError() bool {
 // IsCode returns true when this query firewall policy members default response a status code equal to that given
 func (o *QueryFirewallPolicyMembersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query firewall policy members default response
+func (o *QueryFirewallPolicyMembersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryFirewallPolicyMembersDefault) Error() string {

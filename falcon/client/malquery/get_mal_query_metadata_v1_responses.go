@@ -121,6 +121,11 @@ func (o *GetMalQueryMetadataV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get mal query metadata v1 o k response
+func (o *GetMalQueryMetadataV1OK) Code() int {
+	return 200
+}
+
 func (o *GetMalQueryMetadataV1OK) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/metadata/v1][%d] getMalQueryMetadataV1OK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetMalQueryMetadataV1BadRequest) IsServerError() bool {
 // IsCode returns true when this get mal query metadata v1 bad request response a status code equal to that given
 func (o *GetMalQueryMetadataV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get mal query metadata v1 bad request response
+func (o *GetMalQueryMetadataV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *GetMalQueryMetadataV1BadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *GetMalQueryMetadataV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get mal query metadata v1 unauthorized response
+func (o *GetMalQueryMetadataV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *GetMalQueryMetadataV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/metadata/v1][%d] getMalQueryMetadataV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetMalQueryMetadataV1Forbidden) IsServerError() bool {
 // IsCode returns true when this get mal query metadata v1 forbidden response a status code equal to that given
 func (o *GetMalQueryMetadataV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get mal query metadata v1 forbidden response
+func (o *GetMalQueryMetadataV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetMalQueryMetadataV1Forbidden) Error() string {
@@ -499,6 +519,11 @@ func (o *GetMalQueryMetadataV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get mal query metadata v1 too many requests response a status code equal to that given
 func (o *GetMalQueryMetadataV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get mal query metadata v1 too many requests response
+func (o *GetMalQueryMetadataV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetMalQueryMetadataV1TooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetMalQueryMetadataV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get mal query metadata v1 internal server error response
+func (o *GetMalQueryMetadataV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetMalQueryMetadataV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /malquery/entities/metadata/v1][%d] getMalQueryMetadataV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetMalQueryMetadataV1Default struct {
 	Payload *models.MalquerySampleMetadataResponse
 }
 
-// Code gets the status code for the get mal query metadata v1 default response
-func (o *GetMalQueryMetadataV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get mal query metadata v1 default response has a 2xx status code
 func (o *GetMalQueryMetadataV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetMalQueryMetadataV1Default) IsServerError() bool {
 // IsCode returns true when this get mal query metadata v1 default response a status code equal to that given
 func (o *GetMalQueryMetadataV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get mal query metadata v1 default response
+func (o *GetMalQueryMetadataV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetMalQueryMetadataV1Default) Error() string {

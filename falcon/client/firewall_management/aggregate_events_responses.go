@@ -113,6 +113,11 @@ func (o *AggregateEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate events o k response
+func (o *AggregateEventsOK) Code() int {
+	return 200
+}
+
 func (o *AggregateEventsOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *AggregateEventsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the aggregate events bad request response
+func (o *AggregateEventsBadRequest) Code() int {
+	return 400
+}
+
 func (o *AggregateEventsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *AggregateEventsForbidden) IsServerError() bool {
 // IsCode returns true when this aggregate events forbidden response a status code equal to that given
 func (o *AggregateEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the aggregate events forbidden response
+func (o *AggregateEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *AggregateEventsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *AggregateEventsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the aggregate events too many requests response
+func (o *AggregateEventsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *AggregateEventsTooManyRequests) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/aggregates/events/GET/v1][%d] aggregateEventsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type AggregateEventsDefault struct {
 	Payload *models.FwmgrAPIAggregatesResponse
 }
 
-// Code gets the status code for the aggregate events default response
-func (o *AggregateEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this aggregate events default response has a 2xx status code
 func (o *AggregateEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *AggregateEventsDefault) IsServerError() bool {
 // IsCode returns true when this aggregate events default response a status code equal to that given
 func (o *AggregateEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the aggregate events default response
+func (o *AggregateEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *AggregateEventsDefault) Error() string {

@@ -118,6 +118,11 @@ func (o *GetHostGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get host groups o k response
+func (o *GetHostGroupsOK) Code() int {
+	return 200
+}
+
 func (o *GetHostGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *GetHostGroupsBadRequest) IsServerError() bool {
 // IsCode returns true when this get host groups bad request response a status code equal to that given
 func (o *GetHostGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get host groups bad request response
+func (o *GetHostGroupsBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetHostGroupsBadRequest) Error() string {
@@ -328,6 +338,11 @@ func (o *GetHostGroupsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get host groups forbidden response
+func (o *GetHostGroupsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetHostGroupsForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsForbidden  %+v", 403, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *GetHostGroupsNotFound) IsServerError() bool {
 // IsCode returns true when this get host groups not found response a status code equal to that given
 func (o *GetHostGroupsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get host groups not found response
+func (o *GetHostGroupsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetHostGroupsNotFound) Error() string {
@@ -540,6 +560,11 @@ func (o *GetHostGroupsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get host groups too many requests response a status code equal to that given
 func (o *GetHostGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get host groups too many requests response
+func (o *GetHostGroupsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetHostGroupsTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *GetHostGroupsInternalServerError) IsServerError() bool {
 // IsCode returns true when this get host groups internal server error response a status code equal to that given
 func (o *GetHostGroupsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get host groups internal server error response
+func (o *GetHostGroupsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetHostGroupsInternalServerError) Error() string {

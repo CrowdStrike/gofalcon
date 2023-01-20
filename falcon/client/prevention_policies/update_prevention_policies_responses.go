@@ -125,6 +125,11 @@ func (o *UpdatePreventionPoliciesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update prevention policies o k response
+func (o *UpdatePreventionPoliciesOK) Code() int {
+	return 200
+}
+
 func (o *UpdatePreventionPoliciesOK) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *UpdatePreventionPoliciesBadRequest) IsServerError() bool {
 // IsCode returns true when this update prevention policies bad request response a status code equal to that given
 func (o *UpdatePreventionPoliciesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the update prevention policies bad request response
+func (o *UpdatePreventionPoliciesBadRequest) Code() int {
+	return 400
 }
 
 func (o *UpdatePreventionPoliciesBadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *UpdatePreventionPoliciesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the update prevention policies forbidden response
+func (o *UpdatePreventionPoliciesForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdatePreventionPoliciesForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesForbidden  %+v", 403, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *UpdatePreventionPoliciesNotFound) IsServerError() bool {
 // IsCode returns true when this update prevention policies not found response a status code equal to that given
 func (o *UpdatePreventionPoliciesNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the update prevention policies not found response
+func (o *UpdatePreventionPoliciesNotFound) Code() int {
+	return 404
 }
 
 func (o *UpdatePreventionPoliciesNotFound) Error() string {
@@ -547,6 +567,11 @@ func (o *UpdatePreventionPoliciesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update prevention policies too many requests response a status code equal to that given
 func (o *UpdatePreventionPoliciesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update prevention policies too many requests response
+func (o *UpdatePreventionPoliciesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdatePreventionPoliciesTooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *UpdatePreventionPoliciesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the update prevention policies internal server error response
+func (o *UpdatePreventionPoliciesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *UpdatePreventionPoliciesInternalServerError) Error() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type UpdatePreventionPoliciesDefault struct {
 	Payload *models.ResponsesPreventionPoliciesV1
 }
 
-// Code gets the status code for the update prevention policies default response
-func (o *UpdatePreventionPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update prevention policies default response has a 2xx status code
 func (o *UpdatePreventionPoliciesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *UpdatePreventionPoliciesDefault) IsServerError() bool {
 // IsCode returns true when this update prevention policies default response a status code equal to that given
 func (o *UpdatePreventionPoliciesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update prevention policies default response
+func (o *UpdatePreventionPoliciesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdatePreventionPoliciesDefault) Error() string {

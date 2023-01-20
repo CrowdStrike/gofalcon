@@ -123,6 +123,11 @@ func (o *QueryIntelIndicatorIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query intel indicator ids o k response
+func (o *QueryIntelIndicatorIdsOK) Code() int {
+	return 200
+}
+
 func (o *QueryIntelIndicatorIdsOK) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsOK  %+v", 200, o.Payload)
 }
@@ -235,6 +240,11 @@ func (o *QueryIntelIndicatorIdsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query intel indicator ids bad request response
+func (o *QueryIntelIndicatorIdsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryIntelIndicatorIdsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsBadRequest  %+v", 400, o.Payload)
 }
@@ -338,6 +348,11 @@ func (o *QueryIntelIndicatorIdsForbidden) IsServerError() bool {
 // IsCode returns true when this query intel indicator ids forbidden response a status code equal to that given
 func (o *QueryIntelIndicatorIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query intel indicator ids forbidden response
+func (o *QueryIntelIndicatorIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryIntelIndicatorIdsForbidden) Error() string {
@@ -447,6 +462,11 @@ func (o *QueryIntelIndicatorIdsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query intel indicator ids too many requests response a status code equal to that given
 func (o *QueryIntelIndicatorIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query intel indicator ids too many requests response
+func (o *QueryIntelIndicatorIdsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryIntelIndicatorIdsTooManyRequests) Error() string {
@@ -565,6 +585,11 @@ func (o *QueryIntelIndicatorIdsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query intel indicator ids internal server error response
+func (o *QueryIntelIndicatorIdsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryIntelIndicatorIdsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/queries/indicators/v1][%d] queryIntelIndicatorIdsInternalServerError  %+v", 500, o.Payload)
 }
@@ -640,11 +665,6 @@ type QueryIntelIndicatorIdsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query intel indicator ids default response
-func (o *QueryIntelIndicatorIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query intel indicator ids default response has a 2xx status code
 func (o *QueryIntelIndicatorIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -668,6 +688,11 @@ func (o *QueryIntelIndicatorIdsDefault) IsServerError() bool {
 // IsCode returns true when this query intel indicator ids default response a status code equal to that given
 func (o *QueryIntelIndicatorIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query intel indicator ids default response
+func (o *QueryIntelIndicatorIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryIntelIndicatorIdsDefault) Error() string {

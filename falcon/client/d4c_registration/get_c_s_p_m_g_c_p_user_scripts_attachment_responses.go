@@ -115,6 +115,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m g c p user scripts attachment o k response
+func (o *GetCSPMGCPUserScriptsAttachmentOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMGCPUserScriptsAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getCSPMGCPUserScriptsAttachmentOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m g c p user scripts attachment bad request response
+func (o *GetCSPMGCPUserScriptsAttachmentBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMGCPUserScriptsAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getCSPMGCPUserScriptsAttachmentBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m g c p user scripts attachment forbidden response a status code equal to that given
 func (o *GetCSPMGCPUserScriptsAttachmentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m g c p user scripts attachment forbidden response
+func (o *GetCSPMGCPUserScriptsAttachmentForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMGCPUserScriptsAttachmentForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c s p m g c p user scripts attachment too many requests response a status code equal to that given
 func (o *GetCSPMGCPUserScriptsAttachmentTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m g c p user scripts attachment too many requests response
+func (o *GetCSPMGCPUserScriptsAttachmentTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMGCPUserScriptsAttachmentTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m g c p user scripts attachment internal server error response
+func (o *GetCSPMGCPUserScriptsAttachmentInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMGCPUserScriptsAttachmentInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-gcp/entities/user-scripts-download/v1][%d] getCSPMGCPUserScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type GetCSPMGCPUserScriptsAttachmentDefault struct {
 	Payload *models.RegistrationGCPProvisionGetUserScriptResponseV1
 }
 
-// Code gets the status code for the get c s p m g c p user scripts attachment default response
-func (o *GetCSPMGCPUserScriptsAttachmentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m g c p user scripts attachment default response has a 2xx status code
 func (o *GetCSPMGCPUserScriptsAttachmentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *GetCSPMGCPUserScriptsAttachmentDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m g c p user scripts attachment default response a status code equal to that given
 func (o *GetCSPMGCPUserScriptsAttachmentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m g c p user scripts attachment default response
+func (o *GetCSPMGCPUserScriptsAttachmentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMGCPUserScriptsAttachmentDefault) Error() string {

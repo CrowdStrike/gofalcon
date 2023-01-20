@@ -112,6 +112,11 @@ func (o *GetCIDGroupMembersByOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c Id group members by o k response
+func (o *GetCIDGroupMembersByOK) Code() int {
+	return 200
+}
+
 func (o *GetCIDGroupMembersByOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByOK  %+v", 200, o.Payload)
 }
@@ -215,6 +220,11 @@ func (o *GetCIDGroupMembersByMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c Id group members by multi status response a status code equal to that given
 func (o *GetCIDGroupMembersByMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c Id group members by multi status response
+func (o *GetCIDGroupMembersByMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCIDGroupMembersByMultiStatus) Error() string {
@@ -322,6 +332,11 @@ func (o *GetCIDGroupMembersByBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c Id group members by bad request response
+func (o *GetCIDGroupMembersByBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCIDGroupMembersByBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/cid-group-members/v1][%d] getCIdGroupMembersByBadRequest  %+v", 400, o.Payload)
 }
@@ -425,6 +440,11 @@ func (o *GetCIDGroupMembersByForbidden) IsServerError() bool {
 // IsCode returns true when this get c Id group members by forbidden response a status code equal to that given
 func (o *GetCIDGroupMembersByForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c Id group members by forbidden response
+func (o *GetCIDGroupMembersByForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCIDGroupMembersByForbidden) Error() string {
@@ -534,6 +554,11 @@ func (o *GetCIDGroupMembersByTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c Id group members by too many requests response a status code equal to that given
 func (o *GetCIDGroupMembersByTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c Id group members by too many requests response
+func (o *GetCIDGroupMembersByTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCIDGroupMembersByTooManyRequests) Error() string {

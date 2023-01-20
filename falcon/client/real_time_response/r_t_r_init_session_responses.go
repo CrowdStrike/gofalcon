@@ -112,6 +112,11 @@ func (o *RTRInitSessionCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the r t r init session created response
+func (o *RTRInitSessionCreated) Code() int {
+	return 201
+}
+
 func (o *RTRInitSessionCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionCreated  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *RTRInitSessionBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r init session bad request response
+func (o *RTRInitSessionBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRInitSessionBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/sessions/v1][%d] rTRInitSessionBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *RTRInitSessionForbidden) IsServerError() bool {
 // IsCode returns true when this r t r init session forbidden response a status code equal to that given
 func (o *RTRInitSessionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r init session forbidden response
+func (o *RTRInitSessionForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRInitSessionForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *RTRInitSessionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r init session too many requests response a status code equal to that given
 func (o *RTRInitSessionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r init session too many requests response
+func (o *RTRInitSessionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRInitSessionTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *RTRInitSessionInternalServerError) IsServerError() bool {
 // IsCode returns true when this r t r init session internal server error response a status code equal to that given
 func (o *RTRInitSessionInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the r t r init session internal server error response
+func (o *RTRInitSessionInternalServerError) Code() int {
+	return 500
 }
 
 func (o *RTRInitSessionInternalServerError) Error() string {

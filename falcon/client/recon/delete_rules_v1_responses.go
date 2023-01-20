@@ -125,6 +125,11 @@ func (o *DeleteRulesV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete rules v1 o k response
+func (o *DeleteRulesV1OK) Code() int {
+	return 200
+}
+
 func (o *DeleteRulesV1OK) Error() string {
 	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *DeleteRulesV1BadRequest) IsServerError() bool {
 // IsCode returns true when this delete rules v1 bad request response a status code equal to that given
 func (o *DeleteRulesV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete rules v1 bad request response
+func (o *DeleteRulesV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteRulesV1BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *DeleteRulesV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the delete rules v1 unauthorized response
+func (o *DeleteRulesV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *DeleteRulesV1Unauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *DeleteRulesV1Forbidden) IsServerError() bool {
 // IsCode returns true when this delete rules v1 forbidden response a status code equal to that given
 func (o *DeleteRulesV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete rules v1 forbidden response
+func (o *DeleteRulesV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteRulesV1Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *DeleteRulesV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete rules v1 too many requests response a status code equal to that given
 func (o *DeleteRulesV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete rules v1 too many requests response
+func (o *DeleteRulesV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteRulesV1TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *DeleteRulesV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the delete rules v1 internal server error response
+func (o *DeleteRulesV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *DeleteRulesV1InternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /recon/entities/rules/v1][%d] deleteRulesV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type DeleteRulesV1Default struct {
 	Payload *models.DomainRuleQueryResponseV1
 }
 
-// Code gets the status code for the delete rules v1 default response
-func (o *DeleteRulesV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete rules v1 default response has a 2xx status code
 func (o *DeleteRulesV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *DeleteRulesV1Default) IsServerError() bool {
 // IsCode returns true when this delete rules v1 default response a status code equal to that given
 func (o *DeleteRulesV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete rules v1 default response
+func (o *DeleteRulesV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteRulesV1Default) Error() string {

@@ -108,6 +108,11 @@ func (o *RTRDeleteSessionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the r t r delete session no content response
+func (o *RTRDeleteSessionNoContent) Code() int {
+	return 204
+}
+
 func (o *RTRDeleteSessionNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionNoContent  %+v", 204, o.Payload)
 }
@@ -200,6 +205,11 @@ func (o *RTRDeleteSessionBadRequest) IsServerError() bool {
 // IsCode returns true when this r t r delete session bad request response a status code equal to that given
 func (o *RTRDeleteSessionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the r t r delete session bad request response
+func (o *RTRDeleteSessionBadRequest) Code() int {
+	return 400
 }
 
 func (o *RTRDeleteSessionBadRequest) Error() string {
@@ -296,6 +306,11 @@ func (o *RTRDeleteSessionUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the r t r delete session unauthorized response
+func (o *RTRDeleteSessionUnauthorized) Code() int {
+	return 401
+}
+
 func (o *RTRDeleteSessionUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /real-time-response/entities/sessions/v1][%d] rTRDeleteSessionUnauthorized  %+v", 401, o.Payload)
 }
@@ -388,6 +403,11 @@ func (o *RTRDeleteSessionForbidden) IsServerError() bool {
 // IsCode returns true when this r t r delete session forbidden response a status code equal to that given
 func (o *RTRDeleteSessionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r delete session forbidden response
+func (o *RTRDeleteSessionForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRDeleteSessionForbidden) Error() string {
@@ -486,6 +506,11 @@ func (o *RTRDeleteSessionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r delete session too many requests response a status code equal to that given
 func (o *RTRDeleteSessionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r delete session too many requests response
+func (o *RTRDeleteSessionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRDeleteSessionTooManyRequests) Error() string {

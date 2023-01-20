@@ -121,6 +121,11 @@ func (o *TokensDeleteOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tokens delete o k response
+func (o *TokensDeleteOK) Code() int {
+	return 200
+}
+
 func (o *TokensDeleteOK) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *TokensDeleteBadRequest) IsServerError() bool {
 // IsCode returns true when this tokens delete bad request response a status code equal to that given
 func (o *TokensDeleteBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the tokens delete bad request response
+func (o *TokensDeleteBadRequest) Code() int {
+	return 400
 }
 
 func (o *TokensDeleteBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *TokensDeleteForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the tokens delete forbidden response
+func (o *TokensDeleteForbidden) Code() int {
+	return 403
+}
+
 func (o *TokensDeleteForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *TokensDeleteNotFound) IsServerError() bool {
 // IsCode returns true when this tokens delete not found response a status code equal to that given
 func (o *TokensDeleteNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the tokens delete not found response
+func (o *TokensDeleteNotFound) Code() int {
+	return 404
 }
 
 func (o *TokensDeleteNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *TokensDeleteTooManyRequests) IsServerError() bool {
 // IsCode returns true when this tokens delete too many requests response a status code equal to that given
 func (o *TokensDeleteTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the tokens delete too many requests response
+func (o *TokensDeleteTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TokensDeleteTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *TokensDeleteInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the tokens delete internal server error response
+func (o *TokensDeleteInternalServerError) Code() int {
+	return 500
+}
+
 func (o *TokensDeleteInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type TokensDeleteDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the tokens delete default response
-func (o *TokensDeleteDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tokens delete default response has a 2xx status code
 func (o *TokensDeleteDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *TokensDeleteDefault) IsServerError() bool {
 // IsCode returns true when this tokens delete default response a status code equal to that given
 func (o *TokensDeleteDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tokens delete default response
+func (o *TokensDeleteDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TokensDeleteDefault) Error() string {

@@ -106,6 +106,11 @@ func (o *UpdateNetworkLocationsPrecedenceOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update network locations precedence o k response
+func (o *UpdateNetworkLocationsPrecedenceOK) Code() int {
+	return 200
+}
+
 func (o *UpdateNetworkLocationsPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *UpdateNetworkLocationsPrecedenceBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the update network locations precedence bad request response
+func (o *UpdateNetworkLocationsPrecedenceBadRequest) Code() int {
+	return 400
+}
+
 func (o *UpdateNetworkLocationsPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/network-locations-precedence/v1][%d] updateNetworkLocationsPrecedenceBadRequest  %+v", 400, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *UpdateNetworkLocationsPrecedenceForbidden) IsServerError() bool {
 // IsCode returns true when this update network locations precedence forbidden response a status code equal to that given
 func (o *UpdateNetworkLocationsPrecedenceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update network locations precedence forbidden response
+func (o *UpdateNetworkLocationsPrecedenceForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateNetworkLocationsPrecedenceForbidden) Error() string {
@@ -423,6 +438,11 @@ func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) IsServerError() bool {
 // IsCode returns true when this update network locations precedence too many requests response a status code equal to that given
 func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the update network locations precedence too many requests response
+func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *UpdateNetworkLocationsPrecedenceTooManyRequests) Error() string {

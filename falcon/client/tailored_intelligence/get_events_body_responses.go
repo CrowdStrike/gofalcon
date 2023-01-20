@@ -119,6 +119,11 @@ func (o *GetEventsBodyOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get events body o k response
+func (o *GetEventsBodyOK) Code() int {
+	return 200
+}
+
 func (o *GetEventsBodyOK) Error() string {
 	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *GetEventsBodyBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get events body bad request response
+func (o *GetEventsBodyBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetEventsBodyBadRequest) Error() string {
 	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyBadRequest  %+v", 400, o.Payload)
 }
@@ -323,6 +333,11 @@ func (o *GetEventsBodyForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get events body forbidden response
+func (o *GetEventsBodyForbidden) Code() int {
+	return 403
+}
+
 func (o *GetEventsBodyForbidden) Error() string {
 	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyForbidden ", 403)
 }
@@ -419,6 +434,11 @@ func (o *GetEventsBodyTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get events body too many requests response a status code equal to that given
 func (o *GetEventsBodyTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get events body too many requests response
+func (o *GetEventsBodyTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetEventsBodyTooManyRequests) Error() string {
@@ -537,6 +557,11 @@ func (o *GetEventsBodyInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get events body internal server error response
+func (o *GetEventsBodyInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetEventsBodyInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] getEventsBodyInternalServerError  %+v", 500, o.Payload)
 }
@@ -606,11 +631,6 @@ type GetEventsBodyDefault struct {
 	Payload []int64
 }
 
-// Code gets the status code for the get events body default response
-func (o *GetEventsBodyDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get events body default response has a 2xx status code
 func (o *GetEventsBodyDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -634,6 +654,11 @@ func (o *GetEventsBodyDefault) IsServerError() bool {
 // IsCode returns true when this get events body default response a status code equal to that given
 func (o *GetEventsBodyDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get events body default response
+func (o *GetEventsBodyDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetEventsBodyDefault) Error() string {

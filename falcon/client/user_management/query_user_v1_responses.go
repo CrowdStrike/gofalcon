@@ -112,6 +112,11 @@ func (o *QueryUserV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query user v1 o k response
+func (o *QueryUserV1OK) Code() int {
+	return 200
+}
+
 func (o *QueryUserV1OK) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *QueryUserV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query user v1 bad request response
+func (o *QueryUserV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryUserV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *QueryUserV1Forbidden) IsServerError() bool {
 // IsCode returns true when this query user v1 forbidden response a status code equal to that given
 func (o *QueryUserV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query user v1 forbidden response
+func (o *QueryUserV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *QueryUserV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *QueryUserV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this query user v1 too many requests response a status code equal to that given
 func (o *QueryUserV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query user v1 too many requests response
+func (o *QueryUserV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryUserV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *QueryUserV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this query user v1 internal server error response a status code equal to that given
 func (o *QueryUserV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the query user v1 internal server error response
+func (o *QueryUserV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *QueryUserV1InternalServerError) Error() string {

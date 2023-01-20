@@ -103,6 +103,11 @@ func (o *QueryCIDGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query c Id groups o k response
+func (o *QueryCIDGroupsOK) Code() int {
+	return 200
+}
+
 func (o *QueryCIDGroupsOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryCIDGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this query c Id groups forbidden response a status code equal to that given
 func (o *QueryCIDGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query c Id groups forbidden response
+func (o *QueryCIDGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCIDGroupsForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryCIDGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query c Id groups too many requests response
+func (o *QueryCIDGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryCIDGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIdGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryCIDGroupsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query c ID groups default response
-func (o *QueryCIDGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query c ID groups default response has a 2xx status code
 func (o *QueryCIDGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryCIDGroupsDefault) IsServerError() bool {
 // IsCode returns true when this query c ID groups default response a status code equal to that given
 func (o *QueryCIDGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query c ID groups default response
+func (o *QueryCIDGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCIDGroupsDefault) Error() string {

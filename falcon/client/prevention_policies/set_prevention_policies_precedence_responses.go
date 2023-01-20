@@ -119,6 +119,11 @@ func (o *SetPreventionPoliciesPrecedenceOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the set prevention policies precedence o k response
+func (o *SetPreventionPoliciesPrecedenceOK) Code() int {
+	return 200
+}
+
 func (o *SetPreventionPoliciesPrecedenceOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceOK  %+v", 200, o.Payload)
 }
@@ -224,6 +229,11 @@ func (o *SetPreventionPoliciesPrecedenceBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the set prevention policies precedence bad request response
+func (o *SetPreventionPoliciesPrecedenceBadRequest) Code() int {
+	return 400
+}
+
 func (o *SetPreventionPoliciesPrecedenceBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceBadRequest  %+v", 400, o.Payload)
 }
@@ -327,6 +337,11 @@ func (o *SetPreventionPoliciesPrecedenceForbidden) IsServerError() bool {
 // IsCode returns true when this set prevention policies precedence forbidden response a status code equal to that given
 func (o *SetPreventionPoliciesPrecedenceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the set prevention policies precedence forbidden response
+func (o *SetPreventionPoliciesPrecedenceForbidden) Code() int {
+	return 403
 }
 
 func (o *SetPreventionPoliciesPrecedenceForbidden) Error() string {
@@ -436,6 +451,11 @@ func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsServerError() bool {
 // IsCode returns true when this set prevention policies precedence too many requests response a status code equal to that given
 func (o *SetPreventionPoliciesPrecedenceTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the set prevention policies precedence too many requests response
+func (o *SetPreventionPoliciesPrecedenceTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *SetPreventionPoliciesPrecedenceTooManyRequests) Error() string {
@@ -554,6 +574,11 @@ func (o *SetPreventionPoliciesPrecedenceInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the set prevention policies precedence internal server error response
+func (o *SetPreventionPoliciesPrecedenceInternalServerError) Code() int {
+	return 500
+}
+
 func (o *SetPreventionPoliciesPrecedenceInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedenceInternalServerError  %+v", 500, o.Payload)
 }
@@ -625,11 +650,6 @@ type SetPreventionPoliciesPrecedenceDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the set prevention policies precedence default response
-func (o *SetPreventionPoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this set prevention policies precedence default response has a 2xx status code
 func (o *SetPreventionPoliciesPrecedenceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *SetPreventionPoliciesPrecedenceDefault) IsServerError() bool {
 // IsCode returns true when this set prevention policies precedence default response a status code equal to that given
 func (o *SetPreventionPoliciesPrecedenceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the set prevention policies precedence default response
+func (o *SetPreventionPoliciesPrecedenceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SetPreventionPoliciesPrecedenceDefault) Error() string {

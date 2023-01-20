@@ -109,6 +109,11 @@ func (o *GetIntelActorEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get intel actor entities o k response
+func (o *GetIntelActorEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetIntelActorEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesOK  %+v", 200, o.Payload)
 }
@@ -201,6 +206,11 @@ func (o *GetIntelActorEntitiesForbidden) IsServerError() bool {
 // IsCode returns true when this get intel actor entities forbidden response a status code equal to that given
 func (o *GetIntelActorEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get intel actor entities forbidden response
+func (o *GetIntelActorEntitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIntelActorEntitiesForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *GetIntelActorEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get intel actor entities too many requests response a status code equal to that given
 func (o *GetIntelActorEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get intel actor entities too many requests response
+func (o *GetIntelActorEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIntelActorEntitiesTooManyRequests) Error() string {
@@ -406,6 +421,11 @@ func (o *GetIntelActorEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get intel actor entities internal server error response
+func (o *GetIntelActorEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIntelActorEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/actors/v1][%d] getIntelActorEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetIntelActorEntitiesDefault struct {
 	Payload *models.DomainActorsResponse
 }
 
-// Code gets the status code for the get intel actor entities default response
-func (o *GetIntelActorEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get intel actor entities default response has a 2xx status code
 func (o *GetIntelActorEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetIntelActorEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get intel actor entities default response a status code equal to that given
 func (o *GetIntelActorEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get intel actor entities default response
+func (o *GetIntelActorEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIntelActorEntitiesDefault) Error() string {

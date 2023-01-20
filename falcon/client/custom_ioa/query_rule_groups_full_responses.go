@@ -106,6 +106,11 @@ func (o *QueryRuleGroupsFullOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rule groups full o k response
+func (o *QueryRuleGroupsFullOK) Code() int {
+	return 200
+}
+
 func (o *QueryRuleGroupsFullOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *QueryRuleGroupsFullForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the query rule groups full forbidden response
+func (o *QueryRuleGroupsFullForbidden) Code() int {
+	return 403
+}
+
 func (o *QueryRuleGroupsFullForbidden) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-groups-full/v1][%d] queryRuleGroupsFullForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *QueryRuleGroupsFullNotFound) IsServerError() bool {
 // IsCode returns true when this query rule groups full not found response a status code equal to that given
 func (o *QueryRuleGroupsFullNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the query rule groups full not found response
+func (o *QueryRuleGroupsFullNotFound) Code() int {
+	return 404
 }
 
 func (o *QueryRuleGroupsFullNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *QueryRuleGroupsFullTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query rule groups full too many requests response a status code equal to that given
 func (o *QueryRuleGroupsFullTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query rule groups full too many requests response
+func (o *QueryRuleGroupsFullTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryRuleGroupsFullTooManyRequests) Error() string {

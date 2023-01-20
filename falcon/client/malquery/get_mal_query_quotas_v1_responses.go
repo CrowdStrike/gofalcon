@@ -127,6 +127,11 @@ func (o *GetMalQueryQuotasV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get mal query quotas v1 o k response
+func (o *GetMalQueryQuotasV1OK) Code() int {
+	return 200
+}
+
 func (o *GetMalQueryQuotasV1OK) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1OK  %+v", 200, o.Payload)
 }
@@ -219,6 +224,11 @@ func (o *GetMalQueryQuotasV1BadRequest) IsServerError() bool {
 // IsCode returns true when this get mal query quotas v1 bad request response a status code equal to that given
 func (o *GetMalQueryQuotasV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get mal query quotas v1 bad request response
+func (o *GetMalQueryQuotasV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *GetMalQueryQuotasV1BadRequest) Error() string {
@@ -315,6 +325,11 @@ func (o *GetMalQueryQuotasV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get mal query quotas v1 unauthorized response
+func (o *GetMalQueryQuotasV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *GetMalQueryQuotasV1Unauthorized) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -409,6 +424,11 @@ func (o *GetMalQueryQuotasV1Forbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get mal query quotas v1 forbidden response
+func (o *GetMalQueryQuotasV1Forbidden) Code() int {
+	return 403
+}
+
 func (o *GetMalQueryQuotasV1Forbidden) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1Forbidden  %+v", 403, o.Payload)
 }
@@ -501,6 +521,11 @@ func (o *GetMalQueryQuotasV1NotFound) IsServerError() bool {
 // IsCode returns true when this get mal query quotas v1 not found response a status code equal to that given
 func (o *GetMalQueryQuotasV1NotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get mal query quotas v1 not found response
+func (o *GetMalQueryQuotasV1NotFound) Code() int {
+	return 404
 }
 
 func (o *GetMalQueryQuotasV1NotFound) Error() string {
@@ -599,6 +624,11 @@ func (o *GetMalQueryQuotasV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get mal query quotas v1 too many requests response a status code equal to that given
 func (o *GetMalQueryQuotasV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get mal query quotas v1 too many requests response
+func (o *GetMalQueryQuotasV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetMalQueryQuotasV1TooManyRequests) Error() string {
@@ -706,6 +736,11 @@ func (o *GetMalQueryQuotasV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get mal query quotas v1 internal server error response
+func (o *GetMalQueryQuotasV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetMalQueryQuotasV1InternalServerError) Error() string {
 	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] getMalQueryQuotasV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -770,11 +805,6 @@ type GetMalQueryQuotasV1Default struct {
 	Payload *models.MalqueryRateLimitsResponse
 }
 
-// Code gets the status code for the get mal query quotas v1 default response
-func (o *GetMalQueryQuotasV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get mal query quotas v1 default response has a 2xx status code
 func (o *GetMalQueryQuotasV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -798,6 +828,11 @@ func (o *GetMalQueryQuotasV1Default) IsServerError() bool {
 // IsCode returns true when this get mal query quotas v1 default response a status code equal to that given
 func (o *GetMalQueryQuotasV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get mal query quotas v1 default response
+func (o *GetMalQueryQuotasV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *GetMalQueryQuotasV1Default) Error() string {

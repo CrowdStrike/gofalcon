@@ -103,6 +103,11 @@ func (o *QueryEscalationsFilterOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query escalations filter o k response
+func (o *QueryEscalationsFilterOK) Code() int {
+	return 200
+}
+
 func (o *QueryEscalationsFilterOK) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryEscalationsFilterForbidden) IsServerError() bool {
 // IsCode returns true when this query escalations filter forbidden response a status code equal to that given
 func (o *QueryEscalationsFilterForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query escalations filter forbidden response
+func (o *QueryEscalationsFilterForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryEscalationsFilterForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryEscalationsFilterTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query escalations filter too many requests response
+func (o *QueryEscalationsFilterTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryEscalationsFilterTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/escalations/v1][%d] queryEscalationsFilterTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryEscalationsFilterDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query escalations filter default response
-func (o *QueryEscalationsFilterDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query escalations filter default response has a 2xx status code
 func (o *QueryEscalationsFilterDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryEscalationsFilterDefault) IsServerError() bool {
 // IsCode returns true when this query escalations filter default response a status code equal to that given
 func (o *QueryEscalationsFilterDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query escalations filter default response
+func (o *QueryEscalationsFilterDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryEscalationsFilterDefault) Error() string {

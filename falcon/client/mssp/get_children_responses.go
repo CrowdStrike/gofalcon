@@ -119,6 +119,11 @@ func (o *GetChildrenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get children o k response
+func (o *GetChildrenOK) Code() int {
+	return 200
+}
+
 func (o *GetChildrenOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *GetChildrenMultiStatus) IsServerError() bool {
 // IsCode returns true when this get children multi status response a status code equal to that given
 func (o *GetChildrenMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get children multi status response
+func (o *GetChildrenMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetChildrenMultiStatus) Error() string {
@@ -329,6 +339,11 @@ func (o *GetChildrenBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get children bad request response
+func (o *GetChildrenBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetChildrenBadRequest) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenBadRequest  %+v", 400, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *GetChildrenForbidden) IsServerError() bool {
 // IsCode returns true when this get children forbidden response a status code equal to that given
 func (o *GetChildrenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get children forbidden response
+func (o *GetChildrenForbidden) Code() int {
+	return 403
 }
 
 func (o *GetChildrenForbidden) Error() string {
@@ -543,6 +563,11 @@ func (o *GetChildrenTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get children too many requests response
+func (o *GetChildrenTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetChildrenTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/entities/children/v1][%d] getChildrenTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type GetChildrenDefault struct {
 	Payload *models.DomainChildrenResponseV1
 }
 
-// Code gets the status code for the get children default response
-func (o *GetChildrenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get children default response has a 2xx status code
 func (o *GetChildrenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *GetChildrenDefault) IsServerError() bool {
 // IsCode returns true when this get children default response a status code equal to that given
 func (o *GetChildrenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get children default response
+func (o *GetChildrenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetChildrenDefault) Error() string {

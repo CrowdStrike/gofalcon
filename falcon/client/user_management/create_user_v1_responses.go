@@ -112,6 +112,11 @@ func (o *CreateUserV1Created) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create user v1 created response
+func (o *CreateUserV1Created) Code() int {
+	return 201
+}
+
 func (o *CreateUserV1Created) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created  %+v", 201, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *CreateUserV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the create user v1 bad request response
+func (o *CreateUserV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *CreateUserV1BadRequest) Error() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *CreateUserV1Forbidden) IsServerError() bool {
 // IsCode returns true when this create user v1 forbidden response a status code equal to that given
 func (o *CreateUserV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create user v1 forbidden response
+func (o *CreateUserV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *CreateUserV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *CreateUserV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this create user v1 too many requests response a status code equal to that given
 func (o *CreateUserV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the create user v1 too many requests response
+func (o *CreateUserV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *CreateUserV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *CreateUserV1InternalServerError) IsServerError() bool {
 // IsCode returns true when this create user v1 internal server error response a status code equal to that given
 func (o *CreateUserV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the create user v1 internal server error response
+func (o *CreateUserV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *CreateUserV1InternalServerError) Error() string {

@@ -107,6 +107,11 @@ func (o *QueryRolesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query roles o k response
+func (o *QueryRolesOK) Code() int {
+	return 200
+}
+
 func (o *QueryRolesOK) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *QueryRolesForbidden) IsServerError() bool {
 // IsCode returns true when this query roles forbidden response a status code equal to that given
 func (o *QueryRolesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query roles forbidden response
+func (o *QueryRolesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRolesForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *QueryRolesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query roles too many requests response
+func (o *QueryRolesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryRolesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /mssp/queries/mssp-roles/v1][%d] queryRolesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type QueryRolesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query roles default response
-func (o *QueryRolesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query roles default response has a 2xx status code
 func (o *QueryRolesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *QueryRolesDefault) IsServerError() bool {
 // IsCode returns true when this query roles default response a status code equal to that given
 func (o *QueryRolesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query roles default response
+func (o *QueryRolesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRolesDefault) Error() string {

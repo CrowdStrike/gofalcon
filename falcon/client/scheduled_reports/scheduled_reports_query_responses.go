@@ -113,6 +113,11 @@ func (o *ScheduledReportsQueryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the scheduled reports query o k response
+func (o *ScheduledReportsQueryOK) Code() int {
+	return 200
+}
+
 func (o *ScheduledReportsQueryOK) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *ScheduledReportsQueryBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the scheduled reports query bad request response
+func (o *ScheduledReportsQueryBadRequest) Code() int {
+	return 400
+}
+
 func (o *ScheduledReportsQueryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *ScheduledReportsQueryForbidden) IsServerError() bool {
 // IsCode returns true when this scheduled reports query forbidden response a status code equal to that given
 func (o *ScheduledReportsQueryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the scheduled reports query forbidden response
+func (o *ScheduledReportsQueryForbidden) Code() int {
+	return 403
 }
 
 func (o *ScheduledReportsQueryForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *ScheduledReportsQueryTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the scheduled reports query too many requests response
+func (o *ScheduledReportsQueryTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *ScheduledReportsQueryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduledReportsQueryTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type ScheduledReportsQueryDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the scheduled reports query default response
-func (o *ScheduledReportsQueryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this scheduled reports query default response has a 2xx status code
 func (o *ScheduledReportsQueryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *ScheduledReportsQueryDefault) IsServerError() bool {
 // IsCode returns true when this scheduled reports query default response a status code equal to that given
 func (o *ScheduledReportsQueryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the scheduled reports query default response
+func (o *ScheduledReportsQueryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ScheduledReportsQueryDefault) Error() string {

@@ -106,6 +106,11 @@ func (o *AggregateScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the aggregate scans o k response
+func (o *AggregateScansOK) Code() int {
+	return 200
+}
+
 func (o *AggregateScansOK) Error() string {
 	return fmt.Sprintf("[POST /ods/aggregates/scans/v1][%d] aggregateScansOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *AggregateScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the aggregate scans forbidden response
+func (o *AggregateScansForbidden) Code() int {
+	return 403
+}
+
 func (o *AggregateScansForbidden) Error() string {
 	return fmt.Sprintf("[POST /ods/aggregates/scans/v1][%d] aggregateScansForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *AggregateScansNotFound) IsServerError() bool {
 // IsCode returns true when this aggregate scans not found response a status code equal to that given
 func (o *AggregateScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the aggregate scans not found response
+func (o *AggregateScansNotFound) Code() int {
+	return 404
 }
 
 func (o *AggregateScansNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *AggregateScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this aggregate scans too many requests response a status code equal to that given
 func (o *AggregateScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the aggregate scans too many requests response
+func (o *AggregateScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *AggregateScansTooManyRequests) Error() string {

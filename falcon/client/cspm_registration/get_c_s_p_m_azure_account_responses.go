@@ -121,6 +121,11 @@ func (o *GetCSPMAzureAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get c s p m azure account o k response
+func (o *GetCSPMAzureAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetCSPMAzureAccountOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/account/v1][%d] getCSPMAzureAccountOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *GetCSPMAzureAccountMultiStatus) IsServerError() bool {
 // IsCode returns true when this get c s p m azure account multi status response a status code equal to that given
 func (o *GetCSPMAzureAccountMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get c s p m azure account multi status response
+func (o *GetCSPMAzureAccountMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetCSPMAzureAccountMultiStatus) Error() string {
@@ -309,6 +319,11 @@ func (o *GetCSPMAzureAccountBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get c s p m azure account bad request response
+func (o *GetCSPMAzureAccountBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetCSPMAzureAccountBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/account/v1][%d] getCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *GetCSPMAzureAccountForbidden) IsServerError() bool {
 // IsCode returns true when this get c s p m azure account forbidden response a status code equal to that given
 func (o *GetCSPMAzureAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get c s p m azure account forbidden response
+func (o *GetCSPMAzureAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCSPMAzureAccountForbidden) Error() string {
@@ -499,6 +519,11 @@ func (o *GetCSPMAzureAccountTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get c s p m azure account too many requests response a status code equal to that given
 func (o *GetCSPMAzureAccountTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get c s p m azure account too many requests response
+func (o *GetCSPMAzureAccountTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetCSPMAzureAccountTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *GetCSPMAzureAccountInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get c s p m azure account internal server error response
+func (o *GetCSPMAzureAccountInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetCSPMAzureAccountInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/account/v1][%d] getCSPMAzureAccountInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type GetCSPMAzureAccountDefault struct {
 	Payload *models.RegistrationAzureAccountResponseV1
 }
 
-// Code gets the status code for the get c s p m azure account default response
-func (o *GetCSPMAzureAccountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get c s p m azure account default response has a 2xx status code
 func (o *GetCSPMAzureAccountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *GetCSPMAzureAccountDefault) IsServerError() bool {
 // IsCode returns true when this get c s p m azure account default response a status code equal to that given
 func (o *GetCSPMAzureAccountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get c s p m azure account default response
+func (o *GetCSPMAzureAccountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCSPMAzureAccountDefault) Error() string {

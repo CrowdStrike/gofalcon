@@ -125,6 +125,11 @@ func (o *PreviewRuleV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the preview rule v1 o k response
+func (o *PreviewRuleV1OK) Code() int {
+	return 200
+}
+
 func (o *PreviewRuleV1OK) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1OK  %+v", 200, o.Payload)
 }
@@ -228,6 +233,11 @@ func (o *PreviewRuleV1BadRequest) IsServerError() bool {
 // IsCode returns true when this preview rule v1 bad request response a status code equal to that given
 func (o *PreviewRuleV1BadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the preview rule v1 bad request response
+func (o *PreviewRuleV1BadRequest) Code() int {
+	return 400
 }
 
 func (o *PreviewRuleV1BadRequest) Error() string {
@@ -335,6 +345,11 @@ func (o *PreviewRuleV1Unauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the preview rule v1 unauthorized response
+func (o *PreviewRuleV1Unauthorized) Code() int {
+	return 401
+}
+
 func (o *PreviewRuleV1Unauthorized) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1Unauthorized  %+v", 401, o.Payload)
 }
@@ -438,6 +453,11 @@ func (o *PreviewRuleV1Forbidden) IsServerError() bool {
 // IsCode returns true when this preview rule v1 forbidden response a status code equal to that given
 func (o *PreviewRuleV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the preview rule v1 forbidden response
+func (o *PreviewRuleV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *PreviewRuleV1Forbidden) Error() string {
@@ -547,6 +567,11 @@ func (o *PreviewRuleV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this preview rule v1 too many requests response a status code equal to that given
 func (o *PreviewRuleV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the preview rule v1 too many requests response
+func (o *PreviewRuleV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PreviewRuleV1TooManyRequests) Error() string {
@@ -665,6 +690,11 @@ func (o *PreviewRuleV1InternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the preview rule v1 internal server error response
+func (o *PreviewRuleV1InternalServerError) Code() int {
+	return 500
+}
+
 func (o *PreviewRuleV1InternalServerError) Error() string {
 	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] previewRuleV1InternalServerError  %+v", 500, o.Payload)
 }
@@ -736,11 +766,6 @@ type PreviewRuleV1Default struct {
 	Payload *models.DomainAggregatesResponse
 }
 
-// Code gets the status code for the preview rule v1 default response
-func (o *PreviewRuleV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this preview rule v1 default response has a 2xx status code
 func (o *PreviewRuleV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -764,6 +789,11 @@ func (o *PreviewRuleV1Default) IsServerError() bool {
 // IsCode returns true when this preview rule v1 default response a status code equal to that given
 func (o *PreviewRuleV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the preview rule v1 default response
+func (o *PreviewRuleV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *PreviewRuleV1Default) Error() string {

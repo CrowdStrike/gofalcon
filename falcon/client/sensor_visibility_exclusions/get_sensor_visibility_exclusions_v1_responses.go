@@ -112,6 +112,11 @@ func (o *GetSensorVisibilityExclusionsV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get sensor visibility exclusions v1 o k response
+func (o *GetSensorVisibilityExclusionsV1OK) Code() int {
+	return 200
+}
+
 func (o *GetSensorVisibilityExclusionsV1OK) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetSensorVisibilityExclusionsV1BadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get sensor visibility exclusions v1 bad request response
+func (o *GetSensorVisibilityExclusionsV1BadRequest) Code() int {
+	return 400
+}
+
 func (o *GetSensorVisibilityExclusionsV1BadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetSensorVisibilityExclusionsV1Forbidden) IsServerError() bool {
 // IsCode returns true when this get sensor visibility exclusions v1 forbidden response a status code equal to that given
 func (o *GetSensorVisibilityExclusionsV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get sensor visibility exclusions v1 forbidden response
+func (o *GetSensorVisibilityExclusionsV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *GetSensorVisibilityExclusionsV1Forbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsServerError() bool {
 // IsCode returns true when this get sensor visibility exclusions v1 too many requests response a status code equal to that given
 func (o *GetSensorVisibilityExclusionsV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get sensor visibility exclusions v1 too many requests response
+func (o *GetSensorVisibilityExclusionsV1TooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetSensorVisibilityExclusionsV1TooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsServerError() boo
 // IsCode returns true when this get sensor visibility exclusions v1 internal server error response a status code equal to that given
 func (o *GetSensorVisibilityExclusionsV1InternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get sensor visibility exclusions v1 internal server error response
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetSensorVisibilityExclusionsV1InternalServerError) Error() string {

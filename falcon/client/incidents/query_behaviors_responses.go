@@ -115,6 +115,11 @@ func (o *QueryBehaviorsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query behaviors o k response
+func (o *QueryBehaviorsOK) Code() int {
+	return 200
+}
+
 func (o *QueryBehaviorsOK) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryBehaviorsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query behaviors bad request response
+func (o *QueryBehaviorsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryBehaviorsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryBehaviorsForbidden) IsServerError() bool {
 // IsCode returns true when this query behaviors forbidden response a status code equal to that given
 func (o *QueryBehaviorsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query behaviors forbidden response
+func (o *QueryBehaviorsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryBehaviorsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryBehaviorsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query behaviors too many requests response a status code equal to that given
 func (o *QueryBehaviorsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query behaviors too many requests response
+func (o *QueryBehaviorsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryBehaviorsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryBehaviorsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query behaviors internal server error response
+func (o *QueryBehaviorsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryBehaviorsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/behaviors/v1][%d] queryBehaviorsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryBehaviorsDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query behaviors default response
-func (o *QueryBehaviorsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query behaviors default response has a 2xx status code
 func (o *QueryBehaviorsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryBehaviorsDefault) IsServerError() bool {
 // IsCode returns true when this query behaviors default response a status code equal to that given
 func (o *QueryBehaviorsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query behaviors default response
+func (o *QueryBehaviorsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryBehaviorsDefault) Error() string {

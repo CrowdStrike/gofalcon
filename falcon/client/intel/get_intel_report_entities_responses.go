@@ -109,6 +109,11 @@ func (o *GetIntelReportEntitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get intel report entities o k response
+func (o *GetIntelReportEntitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetIntelReportEntitiesOK) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/reports/v1][%d] getIntelReportEntitiesOK  %+v", 200, o.Payload)
 }
@@ -201,6 +206,11 @@ func (o *GetIntelReportEntitiesForbidden) IsServerError() bool {
 // IsCode returns true when this get intel report entities forbidden response a status code equal to that given
 func (o *GetIntelReportEntitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get intel report entities forbidden response
+func (o *GetIntelReportEntitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetIntelReportEntitiesForbidden) Error() string {
@@ -299,6 +309,11 @@ func (o *GetIntelReportEntitiesTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get intel report entities too many requests response a status code equal to that given
 func (o *GetIntelReportEntitiesTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get intel report entities too many requests response
+func (o *GetIntelReportEntitiesTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetIntelReportEntitiesTooManyRequests) Error() string {
@@ -406,6 +421,11 @@ func (o *GetIntelReportEntitiesInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the get intel report entities internal server error response
+func (o *GetIntelReportEntitiesInternalServerError) Code() int {
+	return 500
+}
+
 func (o *GetIntelReportEntitiesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /intel/entities/reports/v1][%d] getIntelReportEntitiesInternalServerError  %+v", 500, o.Payload)
 }
@@ -470,11 +490,6 @@ type GetIntelReportEntitiesDefault struct {
 	Payload *models.DomainNewsResponse
 }
 
-// Code gets the status code for the get intel report entities default response
-func (o *GetIntelReportEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get intel report entities default response has a 2xx status code
 func (o *GetIntelReportEntitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -498,6 +513,11 @@ func (o *GetIntelReportEntitiesDefault) IsServerError() bool {
 // IsCode returns true when this get intel report entities default response a status code equal to that given
 func (o *GetIntelReportEntitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get intel report entities default response
+func (o *GetIntelReportEntitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetIntelReportEntitiesDefault) Error() string {

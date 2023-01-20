@@ -115,6 +115,11 @@ func (o *QueryCombinedSensorUpdateBuildsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query combined sensor update builds o k response
+func (o *QueryCombinedSensorUpdateBuildsOK) Code() int {
+	return 200
+}
+
 func (o *QueryCombinedSensorUpdateBuildsOK) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryCombinedSensorUpdateBuildsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query combined sensor update builds bad request response
+func (o *QueryCombinedSensorUpdateBuildsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryCombinedSensorUpdateBuildsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryCombinedSensorUpdateBuildsForbidden) IsServerError() bool {
 // IsCode returns true when this query combined sensor update builds forbidden response a status code equal to that given
 func (o *QueryCombinedSensorUpdateBuildsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query combined sensor update builds forbidden response
+func (o *QueryCombinedSensorUpdateBuildsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryCombinedSensorUpdateBuildsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query combined sensor update builds too many requests response a status code equal to that given
 func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query combined sensor update builds too many requests response
+func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryCombinedSensorUpdateBuildsInternalServerError) IsCode(code int) bo
 	return code == 500
 }
 
+// Code gets the status code for the query combined sensor update builds internal server error response
+func (o *QueryCombinedSensorUpdateBuildsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryCombinedSensorUpdateBuildsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryCombinedSensorUpdateBuildsDefault struct {
 	Payload *models.ResponsesSensorUpdateBuildsV1
 }
 
-// Code gets the status code for the query combined sensor update builds default response
-func (o *QueryCombinedSensorUpdateBuildsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query combined sensor update builds default response has a 2xx status code
 func (o *QueryCombinedSensorUpdateBuildsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryCombinedSensorUpdateBuildsDefault) IsServerError() bool {
 // IsCode returns true when this query combined sensor update builds default response a status code equal to that given
 func (o *QueryCombinedSensorUpdateBuildsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query combined sensor update builds default response
+func (o *QueryCombinedSensorUpdateBuildsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryCombinedSensorUpdateBuildsDefault) Error() string {

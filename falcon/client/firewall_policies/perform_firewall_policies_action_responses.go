@@ -121,6 +121,11 @@ func (o *PerformFirewallPoliciesActionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the perform firewall policies action o k response
+func (o *PerformFirewallPoliciesActionOK) Code() int {
+	return 200
+}
+
 func (o *PerformFirewallPoliciesActionOK) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-actions/v1][%d] performFirewallPoliciesActionOK  %+v", 200, o.Payload)
 }
@@ -213,6 +218,11 @@ func (o *PerformFirewallPoliciesActionBadRequest) IsServerError() bool {
 // IsCode returns true when this perform firewall policies action bad request response a status code equal to that given
 func (o *PerformFirewallPoliciesActionBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the perform firewall policies action bad request response
+func (o *PerformFirewallPoliciesActionBadRequest) Code() int {
+	return 400
 }
 
 func (o *PerformFirewallPoliciesActionBadRequest) Error() string {
@@ -309,6 +319,11 @@ func (o *PerformFirewallPoliciesActionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the perform firewall policies action forbidden response
+func (o *PerformFirewallPoliciesActionForbidden) Code() int {
+	return 403
+}
+
 func (o *PerformFirewallPoliciesActionForbidden) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-actions/v1][%d] performFirewallPoliciesActionForbidden  %+v", 403, o.Payload)
 }
@@ -401,6 +416,11 @@ func (o *PerformFirewallPoliciesActionNotFound) IsServerError() bool {
 // IsCode returns true when this perform firewall policies action not found response a status code equal to that given
 func (o *PerformFirewallPoliciesActionNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the perform firewall policies action not found response
+func (o *PerformFirewallPoliciesActionNotFound) Code() int {
+	return 404
 }
 
 func (o *PerformFirewallPoliciesActionNotFound) Error() string {
@@ -499,6 +519,11 @@ func (o *PerformFirewallPoliciesActionTooManyRequests) IsServerError() bool {
 // IsCode returns true when this perform firewall policies action too many requests response a status code equal to that given
 func (o *PerformFirewallPoliciesActionTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the perform firewall policies action too many requests response
+func (o *PerformFirewallPoliciesActionTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PerformFirewallPoliciesActionTooManyRequests) Error() string {
@@ -606,6 +631,11 @@ func (o *PerformFirewallPoliciesActionInternalServerError) IsCode(code int) bool
 	return code == 500
 }
 
+// Code gets the status code for the perform firewall policies action internal server error response
+func (o *PerformFirewallPoliciesActionInternalServerError) Code() int {
+	return 500
+}
+
 func (o *PerformFirewallPoliciesActionInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall-actions/v1][%d] performFirewallPoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
@@ -670,11 +700,6 @@ type PerformFirewallPoliciesActionDefault struct {
 	Payload *models.ResponsesFirewallPoliciesV1
 }
 
-// Code gets the status code for the perform firewall policies action default response
-func (o *PerformFirewallPoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this perform firewall policies action default response has a 2xx status code
 func (o *PerformFirewallPoliciesActionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -698,6 +723,11 @@ func (o *PerformFirewallPoliciesActionDefault) IsServerError() bool {
 // IsCode returns true when this perform firewall policies action default response a status code equal to that given
 func (o *PerformFirewallPoliciesActionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the perform firewall policies action default response
+func (o *PerformFirewallPoliciesActionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PerformFirewallPoliciesActionDefault) Error() string {

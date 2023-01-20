@@ -107,6 +107,11 @@ func (o *GetDeviceDetailsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get device details o k response
+func (o *GetDeviceDetailsOK) Code() int {
+	return 200
+}
+
 func (o *GetDeviceDetailsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *GetDeviceDetailsForbidden) IsServerError() bool {
 // IsCode returns true when this get device details forbidden response a status code equal to that given
 func (o *GetDeviceDetailsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get device details forbidden response
+func (o *GetDeviceDetailsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetDeviceDetailsForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *GetDeviceDetailsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the get device details too many requests response
+func (o *GetDeviceDetailsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *GetDeviceDetailsTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /devices/entities/devices//v2][%d] getDeviceDetailsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type GetDeviceDetailsDefault struct {
 	Payload *models.DomainDeviceDetailsResponseSwagger
 }
 
-// Code gets the status code for the get device details default response
-func (o *GetDeviceDetailsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get device details default response has a 2xx status code
 func (o *GetDeviceDetailsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *GetDeviceDetailsDefault) IsServerError() bool {
 // IsCode returns true when this get device details default response a status code equal to that given
 func (o *GetDeviceDetailsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get device details default response
+func (o *GetDeviceDetailsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetDeviceDetailsDefault) Error() string {

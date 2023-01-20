@@ -103,6 +103,11 @@ func (o *QueryRuleTypesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query rule types o k response
+func (o *QueryRuleTypesOK) Code() int {
+	return 200
+}
+
 func (o *QueryRuleTypesOK) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesOK  %+v", 200, o.Payload)
 }
@@ -195,6 +200,11 @@ func (o *QueryRuleTypesForbidden) IsServerError() bool {
 // IsCode returns true when this query rule types forbidden response a status code equal to that given
 func (o *QueryRuleTypesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query rule types forbidden response
+func (o *QueryRuleTypesForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryRuleTypesForbidden) Error() string {
@@ -295,6 +305,11 @@ func (o *QueryRuleTypesTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the query rule types too many requests response
+func (o *QueryRuleTypesTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *QueryRuleTypesTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] queryRuleTypesTooManyRequests  %+v", 429, o.Payload)
 }
@@ -370,11 +385,6 @@ type QueryRuleTypesDefault struct {
 	Payload *models.MsaQueryResponse
 }
 
-// Code gets the status code for the query rule types default response
-func (o *QueryRuleTypesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query rule types default response has a 2xx status code
 func (o *QueryRuleTypesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -398,6 +408,11 @@ func (o *QueryRuleTypesDefault) IsServerError() bool {
 // IsCode returns true when this query rule types default response a status code equal to that given
 func (o *QueryRuleTypesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query rule types default response
+func (o *QueryRuleTypesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryRuleTypesDefault) Error() string {

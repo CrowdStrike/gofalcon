@@ -118,6 +118,11 @@ func (o *PatchAzureServicePrincipalCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the patch azure service principal created response
+func (o *PatchAzureServicePrincipalCreated) Code() int {
+	return 201
+}
+
 func (o *PatchAzureServicePrincipalCreated) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalCreated  %+v", 201, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *PatchAzureServicePrincipalMultiStatus) IsServerError() bool {
 // IsCode returns true when this patch azure service principal multi status response a status code equal to that given
 func (o *PatchAzureServicePrincipalMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the patch azure service principal multi status response
+func (o *PatchAzureServicePrincipalMultiStatus) Code() int {
+	return 207
 }
 
 func (o *PatchAzureServicePrincipalMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *PatchAzureServicePrincipalBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the patch azure service principal bad request response
+func (o *PatchAzureServicePrincipalBadRequest) Code() int {
+	return 400
+}
+
 func (o *PatchAzureServicePrincipalBadRequest) Error() string {
 	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/service-principal/azure/v1][%d] patchAzureServicePrincipalBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *PatchAzureServicePrincipalForbidden) IsServerError() bool {
 // IsCode returns true when this patch azure service principal forbidden response a status code equal to that given
 func (o *PatchAzureServicePrincipalForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch azure service principal forbidden response
+func (o *PatchAzureServicePrincipalForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchAzureServicePrincipalForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *PatchAzureServicePrincipalTooManyRequests) IsServerError() bool {
 // IsCode returns true when this patch azure service principal too many requests response a status code equal to that given
 func (o *PatchAzureServicePrincipalTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the patch azure service principal too many requests response
+func (o *PatchAzureServicePrincipalTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *PatchAzureServicePrincipalTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *PatchAzureServicePrincipalInternalServerError) IsServerError() bool {
 // IsCode returns true when this patch azure service principal internal server error response a status code equal to that given
 func (o *PatchAzureServicePrincipalInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the patch azure service principal internal server error response
+func (o *PatchAzureServicePrincipalInternalServerError) Code() int {
+	return 500
 }
 
 func (o *PatchAzureServicePrincipalInternalServerError) Error() string {

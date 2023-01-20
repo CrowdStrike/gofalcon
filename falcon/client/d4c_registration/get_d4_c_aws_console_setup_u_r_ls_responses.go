@@ -118,6 +118,11 @@ func (o *GetD4CAwsConsoleSetupURLsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get d4 c aws console setup u r ls o k response
+func (o *GetD4CAwsConsoleSetupURLsOK) Code() int {
+	return 200
+}
+
 func (o *GetD4CAwsConsoleSetupURLsOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsOK  %+v", 200, o.Payload)
 }
@@ -221,6 +226,11 @@ func (o *GetD4CAwsConsoleSetupURLsMultiStatus) IsServerError() bool {
 // IsCode returns true when this get d4 c aws console setup u r ls multi status response a status code equal to that given
 func (o *GetD4CAwsConsoleSetupURLsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the get d4 c aws console setup u r ls multi status response
+func (o *GetD4CAwsConsoleSetupURLsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *GetD4CAwsConsoleSetupURLsMultiStatus) Error() string {
@@ -328,6 +338,11 @@ func (o *GetD4CAwsConsoleSetupURLsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get d4 c aws console setup u r ls bad request response
+func (o *GetD4CAwsConsoleSetupURLsBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetD4CAwsConsoleSetupURLsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/console-setup-urls/v1][%d] getD4CAwsConsoleSetupURLsBadRequest  %+v", 400, o.Payload)
 }
@@ -431,6 +446,11 @@ func (o *GetD4CAwsConsoleSetupURLsForbidden) IsServerError() bool {
 // IsCode returns true when this get d4 c aws console setup u r ls forbidden response a status code equal to that given
 func (o *GetD4CAwsConsoleSetupURLsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get d4 c aws console setup u r ls forbidden response
+func (o *GetD4CAwsConsoleSetupURLsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetD4CAwsConsoleSetupURLsForbidden) Error() string {
@@ -540,6 +560,11 @@ func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this get d4 c aws console setup u r ls too many requests response a status code equal to that given
 func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get d4 c aws console setup u r ls too many requests response
+func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetD4CAwsConsoleSetupURLsTooManyRequests) Error() string {
@@ -656,6 +681,11 @@ func (o *GetD4CAwsConsoleSetupURLsInternalServerError) IsServerError() bool {
 // IsCode returns true when this get d4 c aws console setup u r ls internal server error response a status code equal to that given
 func (o *GetD4CAwsConsoleSetupURLsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get d4 c aws console setup u r ls internal server error response
+func (o *GetD4CAwsConsoleSetupURLsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetD4CAwsConsoleSetupURLsInternalServerError) Error() string {

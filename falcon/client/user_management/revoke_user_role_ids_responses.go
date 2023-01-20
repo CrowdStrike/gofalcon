@@ -113,6 +113,11 @@ func (o *RevokeUserRoleIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the revoke user role ids o k response
+func (o *RevokeUserRoleIdsOK) Code() int {
+	return 200
+}
+
 func (o *RevokeUserRoleIdsOK) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsOK  %+v", 200, o.Payload)
 }
@@ -218,6 +223,11 @@ func (o *RevokeUserRoleIdsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the revoke user role ids bad request response
+func (o *RevokeUserRoleIdsBadRequest) Code() int {
+	return 400
+}
+
 func (o *RevokeUserRoleIdsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsBadRequest  %+v", 400, o.Payload)
 }
@@ -321,6 +331,11 @@ func (o *RevokeUserRoleIdsForbidden) IsServerError() bool {
 // IsCode returns true when this revoke user role ids forbidden response a status code equal to that given
 func (o *RevokeUserRoleIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the revoke user role ids forbidden response
+func (o *RevokeUserRoleIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *RevokeUserRoleIdsForbidden) Error() string {
@@ -432,6 +447,11 @@ func (o *RevokeUserRoleIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the revoke user role ids too many requests response
+func (o *RevokeUserRoleIdsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *RevokeUserRoleIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /user-roles/entities/user-roles/v1][%d] revokeUserRoleIdsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -514,11 +534,6 @@ type RevokeUserRoleIdsDefault struct {
 	Payload *models.APIUserRoleIDsResponse
 }
 
-// Code gets the status code for the revoke user role ids default response
-func (o *RevokeUserRoleIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this revoke user role ids default response has a 2xx status code
 func (o *RevokeUserRoleIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -542,6 +557,11 @@ func (o *RevokeUserRoleIdsDefault) IsServerError() bool {
 // IsCode returns true when this revoke user role ids default response a status code equal to that given
 func (o *RevokeUserRoleIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the revoke user role ids default response
+func (o *RevokeUserRoleIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RevokeUserRoleIdsDefault) Error() string {

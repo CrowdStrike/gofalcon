@@ -115,6 +115,11 @@ func (o *RevealUninstallTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the reveal uninstall token o k response
+func (o *RevealUninstallTokenOK) Code() int {
+	return 200
+}
+
 func (o *RevealUninstallTokenOK) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *RevealUninstallTokenBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the reveal uninstall token bad request response
+func (o *RevealUninstallTokenBadRequest) Code() int {
+	return 400
+}
+
 func (o *RevealUninstallTokenBadRequest) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *RevealUninstallTokenForbidden) IsServerError() bool {
 // IsCode returns true when this reveal uninstall token forbidden response a status code equal to that given
 func (o *RevealUninstallTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the reveal uninstall token forbidden response
+func (o *RevealUninstallTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *RevealUninstallTokenForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *RevealUninstallTokenTooManyRequests) IsServerError() bool {
 // IsCode returns true when this reveal uninstall token too many requests response a status code equal to that given
 func (o *RevealUninstallTokenTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the reveal uninstall token too many requests response
+func (o *RevealUninstallTokenTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RevealUninstallTokenTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *RevealUninstallTokenInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the reveal uninstall token internal server error response
+func (o *RevealUninstallTokenInternalServerError) Code() int {
+	return 500
+}
+
 func (o *RevealUninstallTokenInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /policy/combined/reveal-uninstall-token/v1][%d] revealUninstallTokenInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type RevealUninstallTokenDefault struct {
 	Payload *models.ResponsesRevealUninstallTokenRespV1
 }
 
-// Code gets the status code for the reveal uninstall token default response
-func (o *RevealUninstallTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this reveal uninstall token default response has a 2xx status code
 func (o *RevealUninstallTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *RevealUninstallTokenDefault) IsServerError() bool {
 // IsCode returns true when this reveal uninstall token default response a status code equal to that given
 func (o *RevealUninstallTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the reveal uninstall token default response
+func (o *RevealUninstallTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RevealUninstallTokenDefault) Error() string {

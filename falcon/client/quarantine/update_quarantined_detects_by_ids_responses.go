@@ -107,6 +107,11 @@ func (o *UpdateQuarantinedDetectsByIdsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update quarantined detects by ids o k response
+func (o *UpdateQuarantinedDetectsByIdsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateQuarantinedDetectsByIdsOK) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsOK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *UpdateQuarantinedDetectsByIdsForbidden) IsServerError() bool {
 // IsCode returns true when this update quarantined detects by ids forbidden response a status code equal to that given
 func (o *UpdateQuarantinedDetectsByIdsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update quarantined detects by ids forbidden response
+func (o *UpdateQuarantinedDetectsByIdsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateQuarantinedDetectsByIdsForbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the update quarantined detects by ids too many requests response
+func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *UpdateQuarantinedDetectsByIdsTooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /quarantine/entities/quarantined-files/v1][%d] updateQuarantinedDetectsByIdsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type UpdateQuarantinedDetectsByIdsDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the update quarantined detects by ids default response
-func (o *UpdateQuarantinedDetectsByIdsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update quarantined detects by ids default response has a 2xx status code
 func (o *UpdateQuarantinedDetectsByIdsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *UpdateQuarantinedDetectsByIdsDefault) IsServerError() bool {
 // IsCode returns true when this update quarantined detects by ids default response a status code equal to that given
 func (o *UpdateQuarantinedDetectsByIdsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update quarantined detects by ids default response
+func (o *UpdateQuarantinedDetectsByIdsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateQuarantinedDetectsByIdsDefault) Error() string {

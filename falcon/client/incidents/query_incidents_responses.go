@@ -115,6 +115,11 @@ func (o *QueryIncidentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the query incidents o k response
+func (o *QueryIncidentsOK) Code() int {
+	return 200
+}
+
 func (o *QueryIncidentsOK) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsOK  %+v", 200, o.Payload)
 }
@@ -209,6 +214,11 @@ func (o *QueryIncidentsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the query incidents bad request response
+func (o *QueryIncidentsBadRequest) Code() int {
+	return 400
+}
+
 func (o *QueryIncidentsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsBadRequest  %+v", 400, o.Payload)
 }
@@ -301,6 +311,11 @@ func (o *QueryIncidentsForbidden) IsServerError() bool {
 // IsCode returns true when this query incidents forbidden response a status code equal to that given
 func (o *QueryIncidentsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the query incidents forbidden response
+func (o *QueryIncidentsForbidden) Code() int {
+	return 403
 }
 
 func (o *QueryIncidentsForbidden) Error() string {
@@ -399,6 +414,11 @@ func (o *QueryIncidentsTooManyRequests) IsServerError() bool {
 // IsCode returns true when this query incidents too many requests response a status code equal to that given
 func (o *QueryIncidentsTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the query incidents too many requests response
+func (o *QueryIncidentsTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *QueryIncidentsTooManyRequests) Error() string {
@@ -506,6 +526,11 @@ func (o *QueryIncidentsInternalServerError) IsCode(code int) bool {
 	return code == 500
 }
 
+// Code gets the status code for the query incidents internal server error response
+func (o *QueryIncidentsInternalServerError) Code() int {
+	return 500
+}
+
 func (o *QueryIncidentsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsInternalServerError  %+v", 500, o.Payload)
 }
@@ -570,11 +595,6 @@ type QueryIncidentsDefault struct {
 	Payload *models.APIMsaIncidentQueryResponse
 }
 
-// Code gets the status code for the query incidents default response
-func (o *QueryIncidentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this query incidents default response has a 2xx status code
 func (o *QueryIncidentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -598,6 +618,11 @@ func (o *QueryIncidentsDefault) IsServerError() bool {
 // IsCode returns true when this query incidents default response a status code equal to that given
 func (o *QueryIncidentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the query incidents default response
+func (o *QueryIncidentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *QueryIncidentsDefault) Error() string {

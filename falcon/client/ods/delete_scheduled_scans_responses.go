@@ -106,6 +106,11 @@ func (o *DeleteScheduledScansOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete scheduled scans o k response
+func (o *DeleteScheduledScansOK) Code() int {
+	return 200
+}
+
 func (o *DeleteScheduledScansOK) Error() string {
 	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansOK  %+v", 200, o.Payload)
 }
@@ -211,6 +216,11 @@ func (o *DeleteScheduledScansForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete scheduled scans forbidden response
+func (o *DeleteScheduledScansForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteScheduledScansForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /ods/entities/scheduled-scans/v1][%d] deleteScheduledScansForbidden  %+v", 403, o.Payload)
 }
@@ -314,6 +324,11 @@ func (o *DeleteScheduledScansNotFound) IsServerError() bool {
 // IsCode returns true when this delete scheduled scans not found response a status code equal to that given
 func (o *DeleteScheduledScansNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete scheduled scans not found response
+func (o *DeleteScheduledScansNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteScheduledScansNotFound) Error() string {
@@ -423,6 +438,11 @@ func (o *DeleteScheduledScansTooManyRequests) IsServerError() bool {
 // IsCode returns true when this delete scheduled scans too many requests response a status code equal to that given
 func (o *DeleteScheduledScansTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the delete scheduled scans too many requests response
+func (o *DeleteScheduledScansTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *DeleteScheduledScansTooManyRequests) Error() string {

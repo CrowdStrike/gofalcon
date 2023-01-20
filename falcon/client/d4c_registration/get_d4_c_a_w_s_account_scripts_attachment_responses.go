@@ -112,6 +112,11 @@ func (o *GetD4CAWSAccountScriptsAttachmentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get d4 c a w s account scripts attachment o k response
+func (o *GetD4CAWSAccountScriptsAttachmentOK) Code() int {
+	return 200
+}
+
 func (o *GetD4CAWSAccountScriptsAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentOK  %+v", 200, o.Payload)
 }
@@ -217,6 +222,11 @@ func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the get d4 c a w s account scripts attachment bad request response
+func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) Code() int {
+	return 400
+}
+
 func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
 }
@@ -320,6 +330,11 @@ func (o *GetD4CAWSAccountScriptsAttachmentForbidden) IsServerError() bool {
 // IsCode returns true when this get d4 c a w s account scripts attachment forbidden response a status code equal to that given
 func (o *GetD4CAWSAccountScriptsAttachmentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get d4 c a w s account scripts attachment forbidden response
+func (o *GetD4CAWSAccountScriptsAttachmentForbidden) Code() int {
+	return 403
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentForbidden) Error() string {
@@ -429,6 +444,11 @@ func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) IsServerError() bool 
 // IsCode returns true when this get d4 c a w s account scripts attachment too many requests response a status code equal to that given
 func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the get d4 c a w s account scripts attachment too many requests response
+func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentTooManyRequests) Error() string {
@@ -545,6 +565,11 @@ func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) IsServerError() b
 // IsCode returns true when this get d4 c a w s account scripts attachment internal server error response a status code equal to that given
 func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get d4 c a w s account scripts attachment internal server error response
+func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) Error() string {

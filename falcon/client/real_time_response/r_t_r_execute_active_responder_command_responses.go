@@ -102,6 +102,11 @@ func (o *RTRExecuteActiveResponderCommandCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the r t r execute active responder command created response
+func (o *RTRExecuteActiveResponderCommandCreated) Code() int {
+	return 201
+}
+
 func (o *RTRExecuteActiveResponderCommandCreated) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandCreated  %+v", 201, o.Payload)
 }
@@ -196,6 +201,11 @@ func (o *RTRExecuteActiveResponderCommandBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the r t r execute active responder command bad request response
+func (o *RTRExecuteActiveResponderCommandBadRequest) Code() int {
+	return 400
+}
+
 func (o *RTRExecuteActiveResponderCommandBadRequest) Error() string {
 	return fmt.Sprintf("[POST /real-time-response/entities/active-responder-command/v1][%d] rTRExecuteActiveResponderCommandBadRequest  %+v", 400, o.Payload)
 }
@@ -288,6 +298,11 @@ func (o *RTRExecuteActiveResponderCommandForbidden) IsServerError() bool {
 // IsCode returns true when this r t r execute active responder command forbidden response a status code equal to that given
 func (o *RTRExecuteActiveResponderCommandForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the r t r execute active responder command forbidden response
+func (o *RTRExecuteActiveResponderCommandForbidden) Code() int {
+	return 403
 }
 
 func (o *RTRExecuteActiveResponderCommandForbidden) Error() string {
@@ -386,6 +401,11 @@ func (o *RTRExecuteActiveResponderCommandTooManyRequests) IsServerError() bool {
 // IsCode returns true when this r t r execute active responder command too many requests response a status code equal to that given
 func (o *RTRExecuteActiveResponderCommandTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the r t r execute active responder command too many requests response
+func (o *RTRExecuteActiveResponderCommandTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *RTRExecuteActiveResponderCommandTooManyRequests) Error() string {

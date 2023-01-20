@@ -119,6 +119,11 @@ func (o *DeleteUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete user o k response
+func (o *DeleteUserOK) Code() int {
+	return 200
+}
+
 func (o *DeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *DeleteUserBadRequest) IsServerError() bool {
 // IsCode returns true when this delete user bad request response a status code equal to that given
 func (o *DeleteUserBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the delete user bad request response
+func (o *DeleteUserBadRequest) Code() int {
+	return 400
 }
 
 func (o *DeleteUserBadRequest) Error() string {
@@ -329,6 +339,11 @@ func (o *DeleteUserForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete user forbidden response
+func (o *DeleteUserForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteUserForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserForbidden  %+v", 403, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *DeleteUserNotFound) IsServerError() bool {
 // IsCode returns true when this delete user not found response a status code equal to that given
 func (o *DeleteUserNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the delete user not found response
+func (o *DeleteUserNotFound) Code() int {
+	return 404
 }
 
 func (o *DeleteUserNotFound) Error() string {
@@ -543,6 +563,11 @@ func (o *DeleteUserTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the delete user too many requests response
+func (o *DeleteUserTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeleteUserTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /users/entities/users/v1][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type DeleteUserDefault struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// Code gets the status code for the delete user default response
-func (o *DeleteUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete user default response has a 2xx status code
 func (o *DeleteUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *DeleteUserDefault) IsServerError() bool {
 // IsCode returns true when this delete user default response a status code equal to that given
 func (o *DeleteUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete user default response
+func (o *DeleteUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteUserDefault) Error() string {

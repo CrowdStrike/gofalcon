@@ -119,6 +119,11 @@ func (o *DeleteCIDGroupsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete c Id groups o k response
+func (o *DeleteCIDGroupsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteCIDGroupsOK) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/cid-groups/v1][%d] deleteCIdGroupsOK  %+v", 200, o.Payload)
 }
@@ -222,6 +227,11 @@ func (o *DeleteCIDGroupsMultiStatus) IsServerError() bool {
 // IsCode returns true when this delete c Id groups multi status response a status code equal to that given
 func (o *DeleteCIDGroupsMultiStatus) IsCode(code int) bool {
 	return code == 207
+}
+
+// Code gets the status code for the delete c Id groups multi status response
+func (o *DeleteCIDGroupsMultiStatus) Code() int {
+	return 207
 }
 
 func (o *DeleteCIDGroupsMultiStatus) Error() string {
@@ -329,6 +339,11 @@ func (o *DeleteCIDGroupsBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the delete c Id groups bad request response
+func (o *DeleteCIDGroupsBadRequest) Code() int {
+	return 400
+}
+
 func (o *DeleteCIDGroupsBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/cid-groups/v1][%d] deleteCIdGroupsBadRequest  %+v", 400, o.Payload)
 }
@@ -432,6 +447,11 @@ func (o *DeleteCIDGroupsForbidden) IsServerError() bool {
 // IsCode returns true when this delete c Id groups forbidden response a status code equal to that given
 func (o *DeleteCIDGroupsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the delete c Id groups forbidden response
+func (o *DeleteCIDGroupsForbidden) Code() int {
+	return 403
 }
 
 func (o *DeleteCIDGroupsForbidden) Error() string {
@@ -543,6 +563,11 @@ func (o *DeleteCIDGroupsTooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the delete c Id groups too many requests response
+func (o *DeleteCIDGroupsTooManyRequests) Code() int {
+	return 429
+}
+
 func (o *DeleteCIDGroupsTooManyRequests) Error() string {
 	return fmt.Sprintf("[DELETE /mssp/entities/cid-groups/v1][%d] deleteCIdGroupsTooManyRequests  %+v", 429, o.Payload)
 }
@@ -625,11 +650,6 @@ type DeleteCIDGroupsDefault struct {
 	Payload *models.MsaEntitiesResponse
 }
 
-// Code gets the status code for the delete c ID groups default response
-func (o *DeleteCIDGroupsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete c ID groups default response has a 2xx status code
 func (o *DeleteCIDGroupsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -653,6 +673,11 @@ func (o *DeleteCIDGroupsDefault) IsServerError() bool {
 // IsCode returns true when this delete c ID groups default response a status code equal to that given
 func (o *DeleteCIDGroupsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete c ID groups default response
+func (o *DeleteCIDGroupsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteCIDGroupsDefault) Error() string {

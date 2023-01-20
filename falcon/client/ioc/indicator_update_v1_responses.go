@@ -107,6 +107,11 @@ func (o *IndicatorUpdateV1OK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the indicator update v1 o k response
+func (o *IndicatorUpdateV1OK) Code() int {
+	return 200
+}
+
 func (o *IndicatorUpdateV1OK) Error() string {
 	return fmt.Sprintf("[PATCH /iocs/entities/indicators/v1][%d] indicatorUpdateV1OK  %+v", 200, o.Payload)
 }
@@ -210,6 +215,11 @@ func (o *IndicatorUpdateV1Forbidden) IsServerError() bool {
 // IsCode returns true when this indicator update v1 forbidden response a status code equal to that given
 func (o *IndicatorUpdateV1Forbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the indicator update v1 forbidden response
+func (o *IndicatorUpdateV1Forbidden) Code() int {
+	return 403
 }
 
 func (o *IndicatorUpdateV1Forbidden) Error() string {
@@ -321,6 +331,11 @@ func (o *IndicatorUpdateV1TooManyRequests) IsCode(code int) bool {
 	return code == 429
 }
 
+// Code gets the status code for the indicator update v1 too many requests response
+func (o *IndicatorUpdateV1TooManyRequests) Code() int {
+	return 429
+}
+
 func (o *IndicatorUpdateV1TooManyRequests) Error() string {
 	return fmt.Sprintf("[PATCH /iocs/entities/indicators/v1][%d] indicatorUpdateV1TooManyRequests  %+v", 429, o.Payload)
 }
@@ -403,11 +418,6 @@ type IndicatorUpdateV1Default struct {
 	Payload *models.APIIndicatorRespV1
 }
 
-// Code gets the status code for the indicator update v1 default response
-func (o *IndicatorUpdateV1Default) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this indicator update v1 default response has a 2xx status code
 func (o *IndicatorUpdateV1Default) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -431,6 +441,11 @@ func (o *IndicatorUpdateV1Default) IsServerError() bool {
 // IsCode returns true when this indicator update v1 default response a status code equal to that given
 func (o *IndicatorUpdateV1Default) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the indicator update v1 default response
+func (o *IndicatorUpdateV1Default) Code() int {
+	return o._statusCode
 }
 
 func (o *IndicatorUpdateV1Default) Error() string {

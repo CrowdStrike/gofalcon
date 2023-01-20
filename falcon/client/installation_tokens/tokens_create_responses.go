@@ -108,6 +108,11 @@ func (o *TokensCreateCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the tokens create created response
+func (o *TokensCreateCreated) Code() int {
+	return 201
+}
+
 func (o *TokensCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateCreated  %+v", 201, o.Payload)
 }
@@ -202,6 +207,11 @@ func (o *TokensCreateBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the tokens create bad request response
+func (o *TokensCreateBadRequest) Code() int {
+	return 400
+}
+
 func (o *TokensCreateBadRequest) Error() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
 }
@@ -294,6 +304,11 @@ func (o *TokensCreateForbidden) IsServerError() bool {
 // IsCode returns true when this tokens create forbidden response a status code equal to that given
 func (o *TokensCreateForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the tokens create forbidden response
+func (o *TokensCreateForbidden) Code() int {
+	return 403
 }
 
 func (o *TokensCreateForbidden) Error() string {
@@ -392,6 +407,11 @@ func (o *TokensCreateTooManyRequests) IsServerError() bool {
 // IsCode returns true when this tokens create too many requests response a status code equal to that given
 func (o *TokensCreateTooManyRequests) IsCode(code int) bool {
 	return code == 429
+}
+
+// Code gets the status code for the tokens create too many requests response
+func (o *TokensCreateTooManyRequests) Code() int {
+	return 429
 }
 
 func (o *TokensCreateTooManyRequests) Error() string {
@@ -497,6 +517,11 @@ func (o *TokensCreateInternalServerError) IsServerError() bool {
 // IsCode returns true when this tokens create internal server error response a status code equal to that given
 func (o *TokensCreateInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the tokens create internal server error response
+func (o *TokensCreateInternalServerError) Code() int {
+	return 500
 }
 
 func (o *TokensCreateInternalServerError) Error() string {
