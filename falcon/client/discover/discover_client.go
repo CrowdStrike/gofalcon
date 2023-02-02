@@ -32,11 +32,15 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetAccounts(params *GetAccountsParams, opts ...ClientOption) (*GetAccountsOK, error)
 
+	GetApplications(params *GetApplicationsParams, opts ...ClientOption) (*GetApplicationsOK, error)
+
 	GetHosts(params *GetHostsParams, opts ...ClientOption) (*GetHostsOK, error)
 
 	GetLogins(params *GetLoginsParams, opts ...ClientOption) (*GetLoginsOK, error)
 
 	QueryAccounts(params *QueryAccountsParams, opts ...ClientOption) (*QueryAccountsOK, error)
+
+	QueryApplications(params *QueryApplicationsParams, opts ...ClientOption) (*QueryApplicationsOK, error)
 
 	QueryHosts(params *QueryHostsParams, opts ...ClientOption) (*QueryHostsOK, error)
 
@@ -80,6 +84,44 @@ func (a *Client) GetAccounts(params *GetAccountsParams, opts ...ClientOption) (*
 	// unexpected success response
 	unexpectedSuccess := result.(*GetAccountsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetApplications gets details on applications by providing one or more i ds
+*/
+func (a *Client) GetApplications(params *GetApplicationsParams, opts ...ClientOption) (*GetApplicationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetApplicationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get-applications",
+		Method:             "GET",
+		PathPattern:        "/discover/entities/applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetApplicationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetApplicationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-applications: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -192,6 +234,44 @@ func (a *Client) QueryAccounts(params *QueryAccountsParams, opts ...ClientOption
 	// unexpected success response
 	unexpectedSuccess := result.(*QueryAccountsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+QueryApplications searches for applications in your environment by providing an f q l filter and paging details returns a set of application i ds which match the filter criteria
+*/
+func (a *Client) QueryApplications(params *QueryApplicationsParams, opts ...ClientOption) (*QueryApplicationsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryApplicationsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "query-applications",
+		Method:             "GET",
+		PathPattern:        "/discover/queries/applications/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryApplicationsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryApplicationsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-applications: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
