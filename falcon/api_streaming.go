@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -94,8 +95,6 @@ func (sh *StreamingHandle) open() error {
 
 	sh.Events = make(chan *streaming_models.EventItem)
 	go func() {
-		defer resp.Body.Close()
-
 		dec := json.NewDecoder(resp.Body)
 		for dec.More() {
 			var detection streaming_models.EventItem
@@ -111,6 +110,10 @@ func (sh *StreamingHandle) open() error {
 			Err:   errors.New("streaming connection closed"),
 		}
 		close(sh.Events)
+		err = resp.Body.Close()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error while closing the streaming connection: %v", err)
+		}
 	}()
 
 	return nil
