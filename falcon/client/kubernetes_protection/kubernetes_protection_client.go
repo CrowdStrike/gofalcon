@@ -40,11 +40,21 @@ type ClientService interface {
 
 	GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts ...ClientOption) (*GetAWSAccountsMixin0OK, *GetAWSAccountsMixin0MultiStatus, error)
 
+	GetAzureInstallScript(params *GetAzureInstallScriptParams, opts ...ClientOption) (*GetAzureInstallScriptOK, *GetAzureInstallScriptMultiStatus, error)
+
+	GetAzureTenantConfig(params *GetAzureTenantConfigParams, opts ...ClientOption) (*GetAzureTenantConfigOK, *GetAzureTenantConfigMultiStatus, error)
+
+	GetAzureTenantIDs(params *GetAzureTenantIDsParams, opts ...ClientOption) (*GetAzureTenantIDsOK, *GetAzureTenantIDsMultiStatus, error)
+
 	GetClusters(params *GetClustersParams, opts ...ClientOption) (*GetClustersOK, *GetClustersMultiStatus, error)
+
+	GetCombinedCloudClusters(params *GetCombinedCloudClustersParams, opts ...ClientOption) (*GetCombinedCloudClustersOK, *GetCombinedCloudClustersMultiStatus, error)
 
 	GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...ClientOption) (*GetHelmValuesYamlOK, error)
 
 	GetLocations(params *GetLocationsParams, opts ...ClientOption) (*GetLocationsOK, *GetLocationsMultiStatus, error)
+
+	GetStaticScripts(params *GetStaticScriptsParams, opts ...ClientOption) (*GetStaticScriptsOK, *GetStaticScriptsMultiStatus, error)
 
 	ListAzureAccounts(params *ListAzureAccountsParams, opts ...ClientOption) (*ListAzureAccountsOK, *ListAzureAccountsMultiStatus, error)
 
@@ -255,6 +265,123 @@ func (a *Client) GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts .
 }
 
 /*
+GetAzureInstallScript provides the script to run for a given tenant id and subscription i ds
+*/
+func (a *Client) GetAzureInstallScript(params *GetAzureInstallScriptParams, opts ...ClientOption) (*GetAzureInstallScriptOK, *GetAzureInstallScriptMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAzureInstallScriptParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAzureInstallScript",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/user-script/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAzureInstallScriptReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAzureInstallScriptOK:
+		return value, nil, nil
+	case *GetAzureInstallScriptMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAzureTenantConfig gets the azure tenant config
+*/
+func (a *Client) GetAzureTenantConfig(params *GetAzureTenantConfigParams, opts ...ClientOption) (*GetAzureTenantConfigOK, *GetAzureTenantConfigMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAzureTenantConfigParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAzureTenantConfig",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/config/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAzureTenantConfigReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAzureTenantConfigOK:
+		return value, nil, nil
+	case *GetAzureTenantConfigMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAzureTenantIDs provides all the azure subscriptions and tenants
+*/
+func (a *Client) GetAzureTenantIDs(params *GetAzureTenantIDsParams, opts ...ClientOption) (*GetAzureTenantIDsOK, *GetAzureTenantIDsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAzureTenantIDsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAzureTenantIDs",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/tenants/azure/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAzureTenantIDsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAzureTenantIDsOK:
+		return value, nil, nil
+	case *GetAzureTenantIDsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetClusters provides the clusters acknowledged by the kubernetes protection service
 */
 func (a *Client) GetClusters(params *GetClustersParams, opts ...ClientOption) (*GetClustersOK, *GetClustersMultiStatus, error) {
@@ -291,6 +418,45 @@ func (a *Client) GetClusters(params *GetClustersParams, opts ...ClientOption) (*
 	// unexpected success response
 	unexpectedSuccess := result.(*GetClustersDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetCombinedCloudClusters returns a combined list of provisioned cloud accounts and known kubernetes clusters
+*/
+func (a *Client) GetCombinedCloudClusters(params *GetCombinedCloudClustersParams, opts ...ClientOption) (*GetCombinedCloudClustersOK, *GetCombinedCloudClustersMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedCloudClustersParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedCloudClusters",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/cloud_cluster/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedCloudClustersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetCombinedCloudClustersOK:
+		return value, nil, nil
+	case *GetCombinedCloudClustersMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -367,6 +533,45 @@ func (a *Client) GetLocations(params *GetLocationsParams, opts ...ClientOption) 
 	// unexpected success response
 	unexpectedSuccess := result.(*GetLocationsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetStaticScripts gets static bash scripts that are used during registration
+*/
+func (a *Client) GetStaticScripts(params *GetStaticScriptsParams, opts ...ClientOption) (*GetStaticScriptsOK, *GetStaticScriptsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetStaticScriptsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetStaticScripts",
+		Method:             "GET",
+		PathPattern:        "/kubernetes-protection/entities/gen/scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetStaticScriptsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetStaticScriptsOK:
+		return value, nil, nil
+	case *GetStaticScriptsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
