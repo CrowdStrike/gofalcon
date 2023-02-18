@@ -56,14 +56,7 @@ func (o *CombinedQueryVulnerabilitiesReader) ReadResponse(response runtime.Clien
 		}
 		return nil, result
 	default:
-		result := NewCombinedQueryVulnerabilitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *CombinedQueryVulnerabilitiesInternalServerError) readResponse(response 
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.DomainSPAPICombinedVulnerabilitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewCombinedQueryVulnerabilitiesDefault creates a CombinedQueryVulnerabilitiesDefault with default headers values
-func NewCombinedQueryVulnerabilitiesDefault(code int) *CombinedQueryVulnerabilitiesDefault {
-	return &CombinedQueryVulnerabilitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-CombinedQueryVulnerabilitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type CombinedQueryVulnerabilitiesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainSPAPICombinedVulnerabilitiesResponse
-}
-
-// IsSuccess returns true when this combined query vulnerabilities default response has a 2xx status code
-func (o *CombinedQueryVulnerabilitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this combined query vulnerabilities default response has a 3xx status code
-func (o *CombinedQueryVulnerabilitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this combined query vulnerabilities default response has a 4xx status code
-func (o *CombinedQueryVulnerabilitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this combined query vulnerabilities default response has a 5xx status code
-func (o *CombinedQueryVulnerabilitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this combined query vulnerabilities default response a status code equal to that given
-func (o *CombinedQueryVulnerabilitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the combined query vulnerabilities default response
-func (o *CombinedQueryVulnerabilitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *CombinedQueryVulnerabilitiesDefault) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CombinedQueryVulnerabilitiesDefault) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/vulnerabilities/v1][%d] combinedQueryVulnerabilities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CombinedQueryVulnerabilitiesDefault) GetPayload() *models.DomainSPAPICombinedVulnerabilitiesResponse {
-	return o.Payload
-}
-
-func (o *CombinedQueryVulnerabilitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DomainSPAPICombinedVulnerabilitiesResponse)
 
