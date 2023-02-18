@@ -56,14 +56,7 @@ func (o *CombinedQueryEvaluationLogicReader) ReadResponse(response runtime.Clien
 		}
 		return nil, result
 	default:
-		result := NewCombinedQueryEvaluationLogicDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -601,78 +594,6 @@ func (o *CombinedQueryEvaluationLogicInternalServerError) readResponse(response 
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	return nil
-}
-
-// NewCombinedQueryEvaluationLogicDefault creates a CombinedQueryEvaluationLogicDefault with default headers values
-func NewCombinedQueryEvaluationLogicDefault(code int) *CombinedQueryEvaluationLogicDefault {
-	return &CombinedQueryEvaluationLogicDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-CombinedQueryEvaluationLogicDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type CombinedQueryEvaluationLogicDefault struct {
-	_statusCode int
-
-	Payload *models.DomainSPAPIEvaluationLogicCombinedResponseV1
-}
-
-// IsSuccess returns true when this combined query evaluation logic default response has a 2xx status code
-func (o *CombinedQueryEvaluationLogicDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this combined query evaluation logic default response has a 3xx status code
-func (o *CombinedQueryEvaluationLogicDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this combined query evaluation logic default response has a 4xx status code
-func (o *CombinedQueryEvaluationLogicDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this combined query evaluation logic default response has a 5xx status code
-func (o *CombinedQueryEvaluationLogicDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this combined query evaluation logic default response a status code equal to that given
-func (o *CombinedQueryEvaluationLogicDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the combined query evaluation logic default response
-func (o *CombinedQueryEvaluationLogicDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *CombinedQueryEvaluationLogicDefault) Error() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogic default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CombinedQueryEvaluationLogicDefault) String() string {
-	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogic default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CombinedQueryEvaluationLogicDefault) GetPayload() *models.DomainSPAPIEvaluationLogicCombinedResponseV1 {
-	return o.Payload
-}
-
-func (o *CombinedQueryEvaluationLogicDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainSPAPIEvaluationLogicCombinedResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

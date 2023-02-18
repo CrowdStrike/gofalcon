@@ -20,9 +20,26 @@ import (
 // swagger:model domain.APIEvaluationLogicItemV1
 type DomainAPIEvaluationLogicItemV1 struct {
 
+	// comparison check
+	ComparisonCheck string `json:"comparison_check,omitempty"`
+
+	// comparisons
+	Comparisons *DomainAPIEvaluationLogicComparisonsV1 `json:"comparisons,omitempty"`
+
+	// determined by comparison
+	DeterminedByComparison bool `json:"determined_by_comparison,omitempty"`
+
+	// existence check
+	ExistenceCheck string `json:"existence_check,omitempty"`
+
 	// id
-	// Required: true
-	ID *jsonext.Number `json:"id"`
+	ID jsonext.Number `json:"id,omitempty"`
+
+	// items
+	Items []DomainAPIEvaluationLogicSystemCharacteristicV1 `json:"items"`
+
+	// negate
+	Negate bool `json:"negate,omitempty"`
 
 	// title
 	// Required: true
@@ -37,7 +54,7 @@ type DomainAPIEvaluationLogicItemV1 struct {
 func (m *DomainAPIEvaluationLogicItemV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateID(formats); err != nil {
+	if err := m.validateComparisons(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,10 +72,20 @@ func (m *DomainAPIEvaluationLogicItemV1) Validate(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *DomainAPIEvaluationLogicItemV1) validateID(formats strfmt.Registry) error {
+func (m *DomainAPIEvaluationLogicItemV1) validateComparisons(formats strfmt.Registry) error {
+	if swag.IsZero(m.Comparisons) { // not required
+		return nil
+	}
 
-	if err := validate.Required("id", "body", m.ID); err != nil {
-		return err
+	if m.Comparisons != nil {
+		if err := m.Comparisons.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("comparisons")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("comparisons")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -82,8 +109,33 @@ func (m *DomainAPIEvaluationLogicItemV1) validateType(formats strfmt.Registry) e
 	return nil
 }
 
-// ContextValidate validates this domain API evaluation logic item v1 based on context it is used
+// ContextValidate validate this domain API evaluation logic item v1 based on the context it is used
 func (m *DomainAPIEvaluationLogicItemV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateComparisons(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainAPIEvaluationLogicItemV1) contextValidateComparisons(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Comparisons != nil {
+		if err := m.Comparisons.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("comparisons")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("comparisons")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
