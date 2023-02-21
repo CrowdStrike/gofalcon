@@ -13,4 +13,7 @@ require (
 	golang.org/x/oauth2 v0.0.0-20220822191816-0ebed06d0094
 )
 
-replace gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
+replace (
+	golang.org/x/net => golang.org/x/net v0.7.0
+	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
+)
