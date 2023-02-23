@@ -19,23 +19,23 @@ import (
 // swagger:model domain.CreateActionRequest
 type DomainCreateActionRequest struct {
 
-	// content format
+	// The level of detail in which the content will be delivered. It can be either 'standard' or 'enhanced'
 	// Required: true
 	ContentFormat *string `json:"content_format"`
 
-	// frequency
+	// The time interval between the action's triggers. It can be one of the values: 'asap', 'daily' or 'weekly'
 	// Required: true
 	Frequency *string `json:"frequency"`
 
-	// recipients
+	// The address list who will be notified by this action.
 	// Required: true
 	Recipients []string `json:"recipients"`
 
-	// trigger matchless
+	// Whether to periodically trigger the action based on the frequency, even when there are no new matches for the associated monitoring rule
 	// Required: true
 	TriggerMatchless *bool `json:"trigger_matchless"`
 
-	// type
+	// The action type. The only type currently supported is 'email'
 	// Required: true
 	Type *string `json:"type"`
 }

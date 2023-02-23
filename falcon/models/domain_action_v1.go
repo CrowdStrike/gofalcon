@@ -23,7 +23,7 @@ type DomainActionV1 struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// The level of detail in which the content will be delivered
+	// The level of detail in which the content will be delivered. It can be either 'standard' or 'enhanced'
 	// Required: true
 	ContentFormat *string `json:"content_format"`
 
@@ -32,7 +32,7 @@ type DomainActionV1 struct {
 	// Format: date-time
 	CreatedTimestamp *strfmt.DateTime `json:"created_timestamp"`
 
-	// The time interval between the action's triggers
+	// The time interval between the action's triggers. It can be one of the values: 'asap', 'daily' or 'weekly'
 	// Required: true
 	Frequency *string `json:"frequency"`
 
