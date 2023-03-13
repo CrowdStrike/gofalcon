@@ -51,5 +51,5 @@
   # IOA Rule Groups Combined API has incorrect swagger response object: list of ids instead of list of objects
   | .paths."/ioarules/queries/rule-groups-full/v1".get.responses."200" = .paths."/ioarules/entities/rule-groups/v1".get.responses."200"
 
-  # Update the response code value for "/devices/entities/devices/tags/v1" to 202 instead of 200
-  | .paths."/devices/entities/devices/tags/v1".patch.responses |= with_entries(if .key == "200" then .key = "202" else . end)
+  # Add response code "202" to "/devices/entities/devices/tags/v1" endpoint
+  | .paths."/devices/entities/devices/tags/v1".patch.responses."202" = .paths."/devices/entities/devices/tags/v1".patch.responses."200"

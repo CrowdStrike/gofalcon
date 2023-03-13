@@ -50,7 +50,7 @@ type ClientService interface {
 
 	QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...ClientOption) (*QueryHiddenDevicesOK, error)
 
-	UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error)
+	UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, *UpdateDeviceTagsAccepted, error)
 
 	EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error)
 
@@ -431,7 +431,7 @@ func (a *Client) QueryHiddenDevices(params *QueryHiddenDevicesParams, opts ...Cl
 /*
 UpdateDeviceTags appends or remove one or more falcon grouping tags on one or more hosts tags must be of the form falcon grouping tags
 */
-func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, error) {
+func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...ClientOption) (*UpdateDeviceTagsOK, *UpdateDeviceTagsAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDeviceTagsParams()
@@ -454,15 +454,16 @@ func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...Client
 
 	result, err := a.transport.Submit(op)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	success, ok := result.(*UpdateDeviceTagsOK)
-	if ok {
-		return success, nil
+	switch value := result.(type) {
+	case *UpdateDeviceTagsOK:
+		return value, nil, nil
+	case *UpdateDeviceTagsAccepted:
+		return nil, value, nil
 	}
-	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpdateDeviceTags: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for hosts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
