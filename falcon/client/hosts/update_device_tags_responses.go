@@ -31,6 +31,12 @@ func (o *UpdateDeviceTagsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return result, nil
+	case 202:
+		result := NewUpdateDeviceTagsAccepted()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 	case 400:
 		result := NewUpdateDeviceTagsBadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -124,6 +130,116 @@ func (o *UpdateDeviceTagsOK) GetPayload() *models.DeviceapiUpdateDeviceTagsSwagg
 }
 
 func (o *UpdateDeviceTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.DeviceapiUpdateDeviceTagsSwaggerV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpdateDeviceTagsAccepted creates a UpdateDeviceTagsAccepted with default headers values
+func NewUpdateDeviceTagsAccepted() *UpdateDeviceTagsAccepted {
+	return &UpdateDeviceTagsAccepted{}
+}
+
+/*
+UpdateDeviceTagsAccepted describes a response with status code 202, with default header values.
+
+OK
+*/
+type UpdateDeviceTagsAccepted struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.DeviceapiUpdateDeviceTagsSwaggerV1
+}
+
+// IsSuccess returns true when this update device tags accepted response has a 2xx status code
+func (o *UpdateDeviceTagsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update device tags accepted response has a 3xx status code
+func (o *UpdateDeviceTagsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update device tags accepted response has a 4xx status code
+func (o *UpdateDeviceTagsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update device tags accepted response has a 5xx status code
+func (o *UpdateDeviceTagsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update device tags accepted response a status code equal to that given
+func (o *UpdateDeviceTagsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
+// Code gets the status code for the update device tags accepted response
+func (o *UpdateDeviceTagsAccepted) Code() int {
+	return 202
+}
+
+func (o *UpdateDeviceTagsAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *UpdateDeviceTagsAccepted) String() string {
+	return fmt.Sprintf("[PATCH /devices/entities/devices/tags/v1][%d] updateDeviceTagsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *UpdateDeviceTagsAccepted) GetPayload() *models.DeviceapiUpdateDeviceTagsSwaggerV1 {
+	return o.Payload
+}
+
+func (o *UpdateDeviceTagsAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
