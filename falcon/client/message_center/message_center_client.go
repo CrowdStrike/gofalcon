@@ -6,6 +6,8 @@ package message_center
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -37,6 +39,8 @@ type ClientService interface {
 	CaseDownloadAttachment(params *CaseDownloadAttachmentParams, opts ...ClientOption) (*CaseDownloadAttachmentOK, error)
 
 	CreateCase(params *CreateCaseParams, opts ...ClientOption) (*CreateCaseOK, error)
+
+	CreateCaseV2(params *CreateCaseV2Params, opts ...ClientOption) (*CreateCaseV2OK, error)
 
 	GetCaseActivityByIds(params *GetCaseActivityByIdsParams, opts ...ClientOption) (*GetCaseActivityByIdsOK, error)
 
@@ -270,6 +274,44 @@ func (a *Client) CreateCase(params *CreateCaseParams, opts ...ClientOption) (*Cr
 	// unexpected success response
 	unexpectedSuccess := result.(*CreateCaseDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+CreateCaseV2 creates a new case
+*/
+func (a *Client) CreateCaseV2(params *CreateCaseV2Params, opts ...ClientOption) (*CreateCaseV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateCaseV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateCaseV2",
+		Method:             "POST",
+		PathPattern:        "/message-center/entities/case/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateCaseV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateCaseV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateCaseV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
