@@ -45,3 +45,4 @@ linux
 macOS
 Zsh
 PowerShell
+SemVer
