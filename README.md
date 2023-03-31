@@ -4,6 +4,7 @@
 [![CodeQL](https://github.com/CrowdStrike/gofalcon/actions/workflows/codeql.yml/badge.svg)](https://github.com/CrowdStrike/gofalcon/actions/workflows/codeql.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/crowdstrike/gofalcon)](https://goreportcard.com/report/github.com/crowdstrike/gofalcon)
 [![Go Reference](https://pkg.go.dev/badge/github.com/crowdstrike/gofalcon.svg)](https://pkg.go.dev/github.com/crowdstrike/gofalcon)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/CrowdStrike/gofalcon)
 
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
