@@ -17,13 +17,14 @@ import (
 
 // StreamingHandle is higher order type that allows for easy use of CrowdStrike Falcon Streaming API
 type StreamingHandle struct {
-	ctx    context.Context
-	client *client.CrowdStrikeAPISpecification
-	appId  string
-	offset uint64
-	stream *models.MainAvailableStreamV2
-	Events chan *streaming_models.EventItem
-	Errors chan StreamingError
+	ctx        context.Context
+	client     *client.CrowdStrikeAPISpecification
+	appId      string
+	offset     uint64
+	stream     *models.MainAvailableStreamV2
+	Events     chan *streaming_models.EventItem
+	Errors     chan StreamingError
+	HTTPClient *http.Client
 }
 
 // NewStream initializes new StreamingHandle and connects to the Streaming API.
@@ -87,8 +88,10 @@ func (sh *StreamingHandle) open() error {
 	req.Header.Add("Connection", "Keep-Alive")
 	req.Header.Add("Date", time.Now().Format(time.RFC1123Z))
 
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	if sh.HTTPClient == nil {
+		sh.HTTPClient = &http.Client{}
+	}
+	resp, err := sh.HTTPClient.Do(req)
 	if err != nil {
 		return err
 	}
@@ -123,6 +126,7 @@ func (sh *StreamingHandle) open() error {
 func (sh *StreamingHandle) Close() {
 	close(sh.Errors)
 	sh.Errors = nil
+	sh.HTTPClient.CloseIdleConnections()
 }
 
 func (sh *StreamingHandle) url() string {
