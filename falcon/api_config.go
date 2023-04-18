@@ -28,7 +28,8 @@ type ApiConfig struct {
 	HttpTimeOutOverride *time.Duration
 	// UserAgentOverride allows to override default User-Agent HTTP header when talking with CrowdStrike API (default: gofalcon/$VERSION)
 	UserAgentOverride string
-
+	// TransportDecorator allows users to decorate and customize default authenticated client http.RoundTripper behavior.
+	TransportDecorator TransportDecorator
 	// Debug forces print out of all http traffic going through the API Runtime
 	Debug bool
 }

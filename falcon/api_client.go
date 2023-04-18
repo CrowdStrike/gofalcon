@@ -46,6 +46,12 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		},
 		UserAgent: ac.UserAgent(),
 	}
+
+	if ac.TransportDecorator != nil {
+		authenticatedClient.Transport = ac.TransportDecorator(
+			authenticatedClient.Transport)
+	}
+
 	customTransport := httptransport.NewWithClient(
 		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
 	customTransport.Debug = ac.Debug
@@ -92,3 +98,8 @@ func (w *workaround) RoundTrip(req *http.Request) (*http.Response, error) {
 	}
 	return w.T.RoundTrip(req)
 }
+
+// TransportDecorator accepts a RoundTripper and returns a RoundTripper.
+// This can be used to wrap or decorate the authenticated client's built-in
+// HTTP client operation behavior for all API requests.
+type TransportDecorator func(http.RoundTripper) http.RoundTripper
