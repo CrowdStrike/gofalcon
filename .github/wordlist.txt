@@ -46,3 +46,4 @@ macOS
 Zsh
 PowerShell
 SemVer
+TransportDecorator
