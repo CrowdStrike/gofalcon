@@ -265,9 +265,7 @@ nfpms:
     maintainer: integrations@crowdstrike.com
 
     file_name_template: >-
-      {{ .ProjectName }}-
-      {{ .Version }}-
-      {{ .Release }}.
+      {{ .ProjectName }}-{{ .Version }}-{{ .Release }}.
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i686
       {{- else if eq .Arch "arm" }}aarch32
