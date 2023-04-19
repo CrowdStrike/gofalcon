@@ -57,7 +57,7 @@ func (ac *ApiConfig) HttpTimeout() time.Duration {
 	return *ac.HttpTimeOutOverride
 }
 
-var userAgent = "gofalcon/" + Version.String()
+var userAgent = "crowdstrike-gofalcon/" + Version.String()
 
 func (ac *ApiConfig) UserAgent() string {
 	// If you are editing this part of the code, you may want to familiarise yourself with
