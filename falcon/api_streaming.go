@@ -27,8 +27,8 @@ type StreamingHandle struct {
 	HTTPClient *http.Client
 }
 
-// NewStreamWithClient initializes new StreamingHandle and connects to the Streaming API, providing an http.Client to make the connection.
-func NewStreamWithClient(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
+// newStream initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
+func newStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
 	sh := &StreamingHandle{
 		ctx:        ctx,
 		client:     client,
@@ -48,27 +48,17 @@ func NewStreamWithClient(ctx context.Context, client *client.CrowdStrikeAPISpeci
 	return sh, nil
 }
 
+// NewStreamWithClient initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
+func NewStreamWithClient(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
+	return newStream(ctx, client, appId, stream, offset, httpClient)
+}
+
 // NewStream initializes new StreamingHandle and connects to the Streaming API.
 // The streams need to be discovered first by event_streams.ListAvailableStreamsOAuth2() method.
 // The appId must be an ID that is unique within your CrowdStrike account. Each running instance of your application must provide unique ID.
 // The offset value can then be used to skip seen events, should the stream disconnect. Users are advised to use zero (0) value at start. Each event then contains its own offset.
 func NewStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64) (*StreamingHandle, error) {
-	sh := &StreamingHandle{
-		ctx:    ctx,
-		client: client,
-		appId:  appId,
-		stream: stream,
-		offset: offset,
-		Events: make(chan *streaming_models.EventItem),
-		Errors: make(chan StreamingError),
-	}
-	sh.maintainSession()
-	err := sh.open()
-	if err != nil {
-		sh.Close()
-		return nil, err
-	}
-	return sh, nil
+	return newStream(ctx, client, appId, stream, offset, &http.Client{})
 }
 
 func (sh *StreamingHandle) maintainSession() {
