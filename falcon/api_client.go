@@ -69,6 +69,7 @@ type roundTripper struct {
 
 func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	req.Header.Add("User-Agent", rt.UserAgent)
+	req.Header.Add("CrowdStrike-SDK", "crowdstrike-gofalcon/"+Version.String())
 
 	if rt.LastRateLimitDigits == 1 || rt.LastRateLimitDigits == 2 {
 		log.Debug("Approaching CrowdStrike API rate limits. Waiting 500 millisecond.")
