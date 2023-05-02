@@ -474,6 +474,124 @@ func (s *RTRSession) AdminWaitForExecution(ctx context.Context, cloudRequestId s
 	}
 }
 
+// NewBatchSession initiates a batch session for the given hosts. Use the returned BatchID in subsequent call via the
+// command methods in this type to then execute RTR commands on them.
+// timeout and timeoutDuration are pointers because only one is required and they are mutually exclusive. timeoutDuration is preferred.
+func (r *RTR) NewBatchSession(ctx context.Context, timeout *int64, timeoutDuration *time.Duration, hostTimeoutDuration time.Duration, hostIDs []string, existingBatchID *string, queueOffline bool, opts ...real_time_response.ClientOption) (*models.DomainBatchInitSessionResponse, error) {
+	var timeoutDurationParam *string = nil
+	if timeoutDuration != nil {
+		timeoutDurationParam = falcon_util.StrPtr(timeoutDuration.String())
+	}
+	response, err := r.client.BatchInitSessions(&real_time_response.BatchInitSessionsParams{
+		Timeout:             timeout,
+		TimeoutDuration:     timeoutDurationParam,
+		HostTimeoutDuration: falcon_util.StrPtr(hostTimeoutDuration.String()),
+		Body: &models.DomainBatchInitSessionRequest{
+			ExistingBatchID: existingBatchID,
+			HostIds:         hostIDs,
+			QueueOffline:    &queueOffline,
+		},
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload, nil
+}
+
+// BatchCmd executes an RTR Read Only Analyst command against a batch of hosts.
+// timeout and timeoutDuration are pointers because only one is required and they are mutually exclusive. timeoutDuration is preferred.
+func (r *RTR) BatchCmd(ctx context.Context, timeout *int64, timeoutDuration *time.Duration, hostTimeoutDuration time.Duration,
+	baseCommand, batchID, commandString string, optionalHosts []string, opts ...real_time_response.ClientOption) (map[string]models.DomainMultiStatusSensorResponse, error) {
+
+	var timeoutDurationParam *string = nil
+	if timeoutDuration != nil {
+		timeoutDurationParam = falcon_util.StrPtr(timeoutDuration.String())
+	}
+	response, err := r.client.BatchCmd(&real_time_response.BatchCmdParams{
+		HostTimeoutDuration: falcon_util.StrPtr(hostTimeoutDuration.String()),
+		Timeout:             timeout,
+		TimeoutDuration:     timeoutDurationParam,
+		Body: &models.DomainBatchExecuteCommandRequest{
+			BaseCommand:   &baseCommand,
+			BatchID:       &batchID,
+			CommandString: &commandString,
+			OptionalHosts: optionalHosts,
+		},
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload.Combined.Resources, nil
+}
+
+// BatchActiveResponderCmd executes an RTR Active Responder command against a batch of hosts.
+// timeout and timeoutDuration are pointers because only one is required and they are mutually exclusive. timeoutDuration is preferred.
+func (r *RTR) BatchActiveResponderCmd(ctx context.Context, timeout *int64, timeoutDuration *time.Duration, hostTimeoutDuration time.Duration,
+	baseCommand, batchID, commandString string, optionalHosts []string, opts ...real_time_response.ClientOption) (map[string]models.DomainMultiStatusSensorResponse, error) {
+
+	var timeoutDurationParam *string = nil
+	if timeoutDuration != nil {
+		timeoutDurationParam = falcon_util.StrPtr(timeoutDuration.String())
+	}
+	response, err := r.client.BatchActiveResponderCmd(&real_time_response.BatchActiveResponderCmdParams{
+		HostTimeoutDuration: falcon_util.StrPtr(hostTimeoutDuration.String()),
+		Timeout:             timeout,
+		TimeoutDuration:     timeoutDurationParam,
+		Body: &models.DomainBatchExecuteCommandRequest{
+			BaseCommand:   &baseCommand,
+			BatchID:       &batchID,
+			CommandString: &commandString,
+			OptionalHosts: optionalHosts,
+		},
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload.Combined.Resources, nil
+}
+
+// BatchAdminCmd executes an RTR Admin command against a batch of hosts.
+// timeout and timeoutDuration are pointers because only one is required and they are mutually exclusive. timeoutDuration is preferred.
+func (r *RTR) BatchAdminCmd(ctx context.Context, timeout *int64, timeoutDuration *time.Duration, hostTimeoutDuration time.Duration,
+	baseCommand, batchID, commandString string, optionalHosts []string, opts ...real_time_response_admin.ClientOption) (map[string]models.DomainMultiStatusSensorResponse, error) {
+
+	var timeoutDurationParam *string = nil
+	if timeoutDuration != nil {
+		timeoutDurationParam = falcon_util.StrPtr(timeoutDuration.String())
+	}
+	response, err := r.adminClient.BatchAdminCmd(&real_time_response_admin.BatchAdminCmdParams{
+		HostTimeoutDuration: falcon_util.StrPtr(hostTimeoutDuration.String()),
+		Timeout:             timeout,
+		TimeoutDuration:     timeoutDurationParam,
+		Body: &models.DomainBatchExecuteCommandRequest{
+			BaseCommand:   &baseCommand,
+			BatchID:       &batchID,
+			CommandString: &commandString,
+			OptionalHosts: optionalHosts,
+		},
+		Context: ctx,
+	}, opts...)
+	if err != nil {
+		return nil, err
+	}
+	if err = AssertNoError(response.Payload.Errors); err != nil {
+		return nil, err
+	}
+	return response.Payload.Combined.Resources, nil
+}
+
 func (s *RTRSession) ListFiles(ctx context.Context) ([]*models.DomainFileV2, error) {
 	response, err := s.client.RTRListFilesV2(&real_time_response.RTRListFilesV2Params{
 		Context:   ctx,
