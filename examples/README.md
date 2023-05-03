@@ -18,6 +18,7 @@ Some of these examples ready to be used as stand-alone programs.
  * [falcon_registry_token](falcon_registry_token) - helper to generate container registry logic information for `docker login`
  * [falcon_rtr_read_only_command](falcon_rtr_read_only_command) - stand-alone example to run basic read-only RTR (Real-Time Response) command against a specific agent
  * [falcon_rtr_admin_create_and_run_script](falcon_rtr_admin_create_and_run_script) - stand-alone example of running custom script on the specific agent using RTR (Real-Time Response) API
+ * [falcon_rtr_batch_read_only_command](falcon_rtr_batch_read_only_command) - stand-alone example to run basic read-only RTR (Real-Time Response) command against several agents at once.
  * [falcon_spotlight_vulnerabilities](falcon_spotlight_vulnerabilities) - stand-alone tool that outputs inventory of vulnerabilities affecting your environment
  * [falcon_supported_kernels](falcon_supported_kernels) - stand-alone tool that outputs short list recent Linux kernels supported by CrowdStrike Falcon for a given distribution
  * [falcon_zta](falcon_zta) - stand-alone tool that utilises Hosts and ZTA APIs and outputs ZTA findings for your environment
