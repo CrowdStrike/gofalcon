@@ -19,26 +19,26 @@ type Metadata struct {
 
 // Event - The event data for the detection
 type Event struct {
-	OperationName     string  `json:"OperationName"`
-	ServiceName       string  `json:"ServiceName"`
-	UTCTimestamp      uint64  `json:"UTCTimestamp"`
-	UserId            string  `json:"UserId"`
+	OperationName     *string `json:"OperationName,omitempty"`
+	ServiceName       *string `json:"ServiceName,omitempty"`
+	UTCTimestamp      *uint64 `json:"UTCTimestamp,omitempty"`
+	UserId            *string `json:"UserId,omitempty"`
 	UserIp            *string `json:"UserIp,omitempty"`
 	Success           *bool   `json:"Success,omitempty"`
 	ComputerName      *string `json:"ComputerName,omitempty"`
 	DetectDescription *string `json:"DetectDescription,omitempty"`
-	DetectID          string  `json:"DetectId,omitempty"`
+	DetectID          *string `json:"DetectId,omitempty"`
 	FalconHostLink    *string `json:"FalconHostLink,omitempty"`
 
-	IOARuleInstanceId      *string     `json:"IOARuleInstanceId,omitempty"`
-	IOARuleInstanceVersion json.Number `json:"IOARuleInstanceVersion,omitempty"`
-	IOARuleName            *string     `json:"IOARuleName,omitempty"`
-	IOARuleGroupName       *string     `json:"IOARuleGroupName,omitempty"`
+	IOARuleInstanceId      *string      `json:"IOARuleInstanceId,omitempty"`
+	IOARuleInstanceVersion *json.Number `json:"IOARuleInstanceVersion,omitempty"`
+	IOARuleName            *string      `json:"IOARuleName,omitempty"`
+	IOARuleGroupName       *string      `json:"IOARuleGroupName,omitempty"`
 
 	FileName                      *string                  `json:"FileName,omitempty"`
 	FilePath                      *string                  `json:"FilePath,omitempty"`
-	ProcessStartTime              json.Number              `json:"ProcessStartTime,omitempty"`
-	ProcessEndTime                json.Number              `json:"ProcessEndTime,omitempty"`
+	ProcessStartTime              *json.Number             `json:"ProcessStartTime,omitempty"`
+	ProcessEndTime                *json.Number             `json:"ProcessEndTime,omitempty"`
 	ProcessId                     *IntOrString             `json:"ProcessId,omitempty"`
 	UserName                      *string                  `json:"UserName,omitempty"`
 	DetectName                    *string                  `json:"DetectName,omitempty"`
@@ -52,34 +52,34 @@ type Event struct {
 	MACAddress                    *string                  `json:"MACAddress,omitempty"`
 	Objective                     *string                  `json:"Objective,omitempty"`
 	PatternDispositionDescription *string                  `json:"PatternDispositionDescription,omitempty"`
-	PatternDispositionValue       json.Number              `json:"PatternDispositionValue,omitempty"`
+	PatternDispositionValue       *json.Number             `json:"PatternDispositionValue,omitempty"`
 	PatternDispositionFlags       *PatternDispositionFlags `json:"PatternDispositionFlags,omitempty"`
-	DocumentsAccessed             []DocumentsAccessed      `json:"DocumentsAccessed,omitempty"`
-	Commands                      []string                 `json:"Commands,omitempty"`
+	DocumentsAccessed             *[]DocumentsAccessed     `json:"DocumentsAccessed,omitempty"`
+	Commands                      *[]string                `json:"Commands,omitempty"`
 
-	ParentProcesssId         *IntOrString `json:"ParentProcessId,omitempty"`
+	ParentProcessId          *IntOrString `json:"ParentProcessId,omitempty"`
 	ParentCommandLine        *string      `json:"ParentCommandLine,omitempty"`
 	ParentImageFileName      *string      `json:"ParentImageFileName,omitempty"`
 	GrandparentCommandLine   *string      `json:"GrandparentCommandLine,omitempty"`
 	GrandparentImageFileName *string      `json:"GrandparentImageFilename,omitempty"`
 
-	NetworkAccesses   []NetworkAccess  `json:"NetworkAccesses,omitempty"`
-	Severity          *float64         `json:"Severity,omitempty"`
-	SeverityName      *string          `json:"SeverityName,omitempty"`
-	Tactic            *string          `json:"Tactic,omitempty"`
-	Technique         *string          `json:"Technique,omitempty"`
-	AuditKeyValues    []AuditKeyValues `json:"AuditKeyValues"`
-	IncidentType      IntOrString      `json:"IncidentType,omitempty"`
-	IncidentStartTime json.Number      `json:"IncidentStartTime,omitempty"`
-	IncidentEndTime   json.Number      `json:"IncidentEndTime,omitempty"`
-	State             *string          `json:"State,omitempty"`
-	FineScore         *float64         `json:"FineScore,omitempty"`
-	LateralMovement   json.Number      `json:"LateralMovement,omitempty"`
+	NetworkAccesses   *[]NetworkAccess  `json:"NetworkAccesses,omitempty"`
+	Severity          *float64          `json:"Severity,omitempty"`
+	SeverityName      *string           `json:"SeverityName,omitempty"`
+	Tactic            *string           `json:"Tactic,omitempty"`
+	Technique         *string           `json:"Technique,omitempty"`
+	AuditKeyValues    *[]AuditKeyValues `json:"AuditKeyValues,omitempty"`
+	IncidentType      *IntOrString      `json:"IncidentType,omitempty"`
+	IncidentStartTime *json.Number      `json:"IncidentStartTime,omitempty"`
+	IncidentEndTime   *json.Number      `json:"IncidentEndTime,omitempty"`
+	State             *string           `json:"State,omitempty"`
+	FineScore         *float64          `json:"FineScore,omitempty"`
+	LateralMovement   *json.Number      `json:"LateralMovement,omitempty"`
 
-	SessionId      *string     `json:"SessionId,omitempty"`
-	HostnameField  *string     `json:"HostnameField,omitempty"`
-	StartTimestamp json.Number `json:"StartTimestamp,omitempty"`
-	EndTimestamp   json.Number `json:"EndTimestamp,omitempty"`
+	SessionId      *string      `json:"SessionId,omitempty"`
+	HostnameField  *string      `json:"HostnameField,omitempty"`
+	StartTimestamp *json.Number `json:"StartTimestamp,omitempty"`
+	EndTimestamp   *json.Number `json:"EndTimestamp,omitempty"`
 }
 
 type PatternDispositionFlags struct {
