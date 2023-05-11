@@ -80,3 +80,10 @@ func main() {
 		payload.Resources[0].Timestamp.String(), *payload.Resources[0].Score)
 }
 ```
+
+## Versioning
+
+This module adheres to the Go Module version numbering system, as described in detail at [Go Module version numbering](https://go.dev/doc/modules/version-numbers).
+
+It is important to note that since this module is currently in the `v0.x.x` stage, backward compatibility cannot be guaranteed between minor versions (`vMAJOR.MINOR.PATCH`). Any breaking changes that may occur between versions will be explicitly mentioned in the release notes. It is highly recommended to pin the version of this module in your `go.mod` file to a specific patch version, and to update it only after reviewing the release notes and thorough testing.
+
