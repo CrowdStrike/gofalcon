@@ -23,6 +23,7 @@ cybersecurity
 detections
 dev
 gofalcon
+Gofalcon
 golang
 gosec
 hostname
