@@ -31,8 +31,7 @@ Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.co
 | [falcon_zta](examples/falcon_zta)                                             | stand-alone tool that utilises Hosts and ZTA APIs and outputs ZTA findings for your environment                                     |
 | [customize_transport](examples/customize_transport)                           | use a falcon.TransportDecorator to modify all outgoing HTTP requests to the Falcon API |
 
-Gofalcon is an open source project, not a CrowdStrike product. As such, it carries
-no formal support, expressed or implied.
+Gofalcon is a community-driven, open source project designed to aid developers in utilizing the CrowdStrike APIs effectively within their applications. While not a formal CrowdStrike product, Gofalcon is maintained by CrowdStrike and supported in partnership with the open source developer community.
 
 Gofalcon is periodically refreshed to reflect the newest additions to the CrowdStrike API. Users of the SDK are advised to track the latest releases rather closely to ensure proper function in the unlikely event of an incompatible change to a CrowdStrike API.
 
