@@ -62,14 +62,7 @@ func (o *DeleteCSPMAwsAccountReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewDeleteCSPMAwsAccountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type DeleteCSPMAwsAccountOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type DeleteCSPMAwsAccountOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m aws account o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *DeleteCSPMAwsAccountOK) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteCSPMAwsAccountOK) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAwsAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAwsAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *DeleteCSPMAwsAccountOK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Multi-Status
 */
 type DeleteCSPMAwsAccountMultiStatus struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type DeleteCSPMAwsAccountMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m aws account multi status response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *DeleteCSPMAwsAccountMultiStatus) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *DeleteCSPMAwsAccountMultiStatus) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAwsAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAwsAccountMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *DeleteCSPMAwsAccountMultiStatus) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -283,6 +298,10 @@ Bad Request
 */
 type DeleteCSPMAwsAccountBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -291,7 +310,7 @@ type DeleteCSPMAwsAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m aws account bad request response has a 2xx status code
@@ -332,11 +351,18 @@ func (o *DeleteCSPMAwsAccountBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteCSPMAwsAccountBadRequest) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAwsAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAwsAccountBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -360,7 +386,7 @@ func (o *DeleteCSPMAwsAccountBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -381,6 +407,10 @@ DeleteCSPMAwsAccountForbidden describes a response with status code 403, with de
 Forbidden
 */
 type DeleteCSPMAwsAccountForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *DeleteCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteCSPMAwsAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ DeleteCSPMAwsAccountTooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type DeleteCSPMAwsAccountTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *DeleteCSPMAwsAccountTooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *DeleteCSPMAwsAccountTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type DeleteCSPMAwsAccountInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type DeleteCSPMAwsAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m aws account internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *DeleteCSPMAwsAccountInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] deleteCSPMAwsAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteCSPMAwsAccountInternalServerError) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAwsAccountInternalServerError) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAwsAccountInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *DeleteCSPMAwsAccountInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteCSPMAwsAccountDefault creates a DeleteCSPMAwsAccountDefault with default headers values
-func NewDeleteCSPMAwsAccountDefault(code int) *DeleteCSPMAwsAccountDefault {
-	return &DeleteCSPMAwsAccountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteCSPMAwsAccountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteCSPMAwsAccountDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationBaseResponseV1
-}
-
-// IsSuccess returns true when this delete c s p m aws account default response has a 2xx status code
-func (o *DeleteCSPMAwsAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete c s p m aws account default response has a 3xx status code
-func (o *DeleteCSPMAwsAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete c s p m aws account default response has a 4xx status code
-func (o *DeleteCSPMAwsAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete c s p m aws account default response has a 5xx status code
-func (o *DeleteCSPMAwsAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete c s p m aws account default response a status code equal to that given
-func (o *DeleteCSPMAwsAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete c s p m aws account default response
-func (o *DeleteCSPMAwsAccountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteCSPMAwsAccountDefault) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] DeleteCSPMAwsAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCSPMAwsAccountDefault) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-aws/entities/account/v1][%d] DeleteCSPMAwsAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCSPMAwsAccountDefault) GetPayload() *models.RegistrationBaseResponseV1 {
-	return o.Payload
-}
-
-func (o *DeleteCSPMAwsAccountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -23,9 +23,25 @@ type RegistrationAWSAccountPatch struct {
 	// Required: true
 	AccountID *string `json:"account_id"`
 
+	// behavior assessment enabled
+	BehaviorAssessmentEnabled bool `json:"behavior_assessment_enabled,omitempty"`
+
 	// cloudtrail region
+	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
+
+	// iam role arn
 	// Required: true
-	CloudtrailRegion *string `json:"cloudtrail_region"`
+	IamRoleArn *string `json:"iam_role_arn"`
+
+	// remediation region
+	RemediationRegion string `json:"remediation_region,omitempty"`
+
+	// remediation tou accepted
+	// Format: date-time
+	RemediationTouAccepted strfmt.DateTime `json:"remediation_tou_accepted,omitempty"`
+
+	// sensor management enabled
+	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
 }
 
 // Validate validates this registration a w s account patch
@@ -36,7 +52,11 @@ func (m *RegistrationAWSAccountPatch) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateCloudtrailRegion(formats); err != nil {
+	if err := m.validateIamRoleArn(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRemediationTouAccepted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,9 +75,21 @@ func (m *RegistrationAWSAccountPatch) validateAccountID(formats strfmt.Registry)
 	return nil
 }
 
-func (m *RegistrationAWSAccountPatch) validateCloudtrailRegion(formats strfmt.Registry) error {
+func (m *RegistrationAWSAccountPatch) validateIamRoleArn(formats strfmt.Registry) error {
 
-	if err := validate.Required("cloudtrail_region", "body", m.CloudtrailRegion); err != nil {
+	if err := validate.Required("iam_role_arn", "body", m.IamRoleArn); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountPatch) validateRemediationTouAccepted(formats strfmt.Registry) error {
+	if swag.IsZero(m.RemediationTouAccepted) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("remediation_tou_accepted", "body", "date-time", m.RemediationTouAccepted.String(), formats); err != nil {
 		return err
 	}
 
