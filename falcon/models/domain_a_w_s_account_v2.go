@@ -45,6 +45,9 @@ type DomainAWSAccountV2 struct {
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 
+	// active regions
+	ActiveRegions []string `json:"active_regions"`
+
 	// AWS CloudTrail bucket name to store logs.
 	AwsCloudtrailBucketName string `json:"aws_cloudtrail_bucket_name,omitempty"`
 
@@ -66,6 +69,12 @@ type DomainAWSAccountV2 struct {
 
 	// cloudformation url
 	CloudformationURL string `json:"cloudformation_url,omitempty"`
+
+	// conditions
+	Conditions []*DomainCondition `json:"conditions"`
+
+	// cspm enabled
+	CspmEnabled bool `json:"cspm_enabled,omitempty"`
 
 	// d4c
 	D4c *DomainAWSD4CAccountV1 `json:"d4c,omitempty"`
@@ -114,8 +123,12 @@ type DomainAWSAccountV2 struct {
 	// secondary role arn
 	SecondaryRoleArn string `json:"secondary_role_arn,omitempty"`
 
+	// sensor management enabled
+	// Required: true
+	SensorManagementEnabled *bool `json:"sensor_management_enabled"`
+
 	// settings
-	Settings string `json:"settings,omitempty"`
+	Settings interface{} `json:"settings,omitempty"`
 
 	// Account registration status.
 	Status string `json:"status,omitempty"`
@@ -151,6 +164,10 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateConditions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateD4c(formats); err != nil {
 		res = append(res, err)
 	}
@@ -160,6 +177,10 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRemediationTouAccepted(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSensorManagementEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -244,6 +265,32 @@ func (m *DomainAWSAccountV2) validateAwsPermissionsStatus(formats strfmt.Registr
 	return nil
 }
 
+func (m *DomainAWSAccountV2) validateConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Conditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Conditions); i++ {
+		if swag.IsZero(m.Conditions[i]) { // not required
+			continue
+		}
+
+		if m.Conditions[i] != nil {
+			if err := m.Conditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAWSAccountV2) validateD4c(formats strfmt.Registry) error {
 	if swag.IsZero(m.D4c) { // not required
 		return nil
@@ -284,11 +331,24 @@ func (m *DomainAWSAccountV2) validateRemediationTouAccepted(formats strfmt.Regis
 	return nil
 }
 
+func (m *DomainAWSAccountV2) validateSensorManagementEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("sensor_management_enabled", "body", m.SensorManagementEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain a w s account v2 based on the context it is used
 func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateAwsPermissionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -312,6 +372,26 @@ func (m *DomainAWSAccountV2) contextValidateAwsPermissionsStatus(ctx context.Con
 					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountV2) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Conditions); i++ {
+
+		if m.Conditions[i] != nil {
+			if err := m.Conditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

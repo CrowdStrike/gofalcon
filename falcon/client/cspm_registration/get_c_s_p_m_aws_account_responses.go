@@ -62,14 +62,7 @@ func (o *GetCSPMAwsAccountReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewGetCSPMAwsAccountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
 }
 
@@ -427,7 +420,7 @@ type GetCSPMAwsAccountForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account forbidden response has a 2xx status code
@@ -468,7 +461,7 @@ func (o *GetCSPMAwsAccountForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] getCSPMAwsAccountForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCSPMAwsAccountForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -503,7 +496,7 @@ func (o *GetCSPMAwsAccountForbidden) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -737,78 +730,6 @@ func (o *GetCSPMAwsAccountInternalServerError) readResponse(response runtime.Cli
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.RegistrationAWSAccountResponseV2)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCSPMAwsAccountDefault creates a GetCSPMAwsAccountDefault with default headers values
-func NewGetCSPMAwsAccountDefault(code int) *GetCSPMAwsAccountDefault {
-	return &GetCSPMAwsAccountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCSPMAwsAccountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCSPMAwsAccountDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationAWSAccountResponseV2
-}
-
-// IsSuccess returns true when this get c s p m aws account default response has a 2xx status code
-func (o *GetCSPMAwsAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get c s p m aws account default response has a 3xx status code
-func (o *GetCSPMAwsAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get c s p m aws account default response has a 4xx status code
-func (o *GetCSPMAwsAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get c s p m aws account default response has a 5xx status code
-func (o *GetCSPMAwsAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get c s p m aws account default response a status code equal to that given
-func (o *GetCSPMAwsAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get c s p m aws account default response
-func (o *GetCSPMAwsAccountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCSPMAwsAccountDefault) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] GetCSPMAwsAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMAwsAccountDefault) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/account/v1][%d] GetCSPMAwsAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMAwsAccountDefault) GetPayload() *models.RegistrationAWSAccountResponseV2 {
-	return o.Payload
-}
-
-func (o *GetCSPMAwsAccountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RegistrationAWSAccountResponseV2)
 

@@ -68,6 +68,12 @@ type GetCSPMAwsAccountParams struct {
 	*/
 	GroupBy *string
 
+	/* IamRoleArns.
+
+	   AWS IAM role ARNs
+	*/
+	IamRoleArns []string
+
 	/* Ids.
 
 	   AWS account IDs
@@ -81,6 +87,12 @@ type GetCSPMAwsAccountParams struct {
 	   Default: 100
 	*/
 	Limit *int64
+
+	/* Migrated.
+
+	   Only return migrated d4c accounts
+	*/
+	Migrated *string
 
 	/* Offset.
 
@@ -181,6 +193,17 @@ func (o *GetCSPMAwsAccountParams) SetGroupBy(groupBy *string) {
 	o.GroupBy = groupBy
 }
 
+// WithIamRoleArns adds the iamRoleArns to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) WithIamRoleArns(iamRoleArns []string) *GetCSPMAwsAccountParams {
+	o.SetIamRoleArns(iamRoleArns)
+	return o
+}
+
+// SetIamRoleArns adds the iamRoleArns to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) SetIamRoleArns(iamRoleArns []string) {
+	o.IamRoleArns = iamRoleArns
+}
+
 // WithIds adds the ids to the get c s p m aws account params
 func (o *GetCSPMAwsAccountParams) WithIds(ids []string) *GetCSPMAwsAccountParams {
 	o.SetIds(ids)
@@ -201,6 +224,17 @@ func (o *GetCSPMAwsAccountParams) WithLimit(limit *int64) *GetCSPMAwsAccountPara
 // SetLimit adds the limit to the get c s p m aws account params
 func (o *GetCSPMAwsAccountParams) SetLimit(limit *int64) {
 	o.Limit = limit
+}
+
+// WithMigrated adds the migrated to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) WithMigrated(migrated *string) *GetCSPMAwsAccountParams {
+	o.SetMigrated(migrated)
+	return o
+}
+
+// SetMigrated adds the migrated to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) SetMigrated(migrated *string) {
+	o.Migrated = migrated
 }
 
 // WithOffset adds the offset to the get c s p m aws account params
@@ -272,6 +306,17 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
+	if o.IamRoleArns != nil {
+
+		// binding items for iam_role_arns
+		joinedIamRoleArns := o.bindParamIamRoleArns(reg)
+
+		// query array param iam_role_arns
+		if err := r.SetQueryParam("iam_role_arns", joinedIamRoleArns...); err != nil {
+			return err
+		}
+	}
+
 	if o.Ids != nil {
 
 		// binding items for ids
@@ -295,6 +340,23 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Migrated != nil {
+
+		// query param migrated
+		var qrMigrated string
+
+		if o.Migrated != nil {
+			qrMigrated = *o.Migrated
+		}
+		qMigrated := qrMigrated
+		if qMigrated != "" {
+
+			if err := r.SetQueryParam("migrated", qMigrated); err != nil {
 				return err
 			}
 		}
@@ -366,6 +428,23 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAwsAccount binds the parameter iam_role_arns
+func (o *GetCSPMAwsAccountParams) bindParamIamRoleArns(formats strfmt.Registry) []string {
+	iamRoleArnsIR := o.IamRoleArns
+
+	var iamRoleArnsIC []string
+	for _, iamRoleArnsIIR := range iamRoleArnsIR { // explode []string
+
+		iamRoleArnsIIV := iamRoleArnsIIR // string as string
+		iamRoleArnsIC = append(iamRoleArnsIC, iamRoleArnsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iamRoleArnsIS := swag.JoinByFormat(iamRoleArnsIC, "multi")
+
+	return iamRoleArnsIS
 }
 
 // bindParamGetCSPMAwsAccount binds the parameter ids
