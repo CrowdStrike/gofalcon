@@ -11,22 +11,62 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 	log "github.com/sirupsen/logrus"
+	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
 )
 
 // NewClient return newly configured API Client based on configuration supplied by user.
 // NewClient function is preferred entry-point to gofalcon SDK.
 func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
-	if ac.ClientId == "" || ac.ClientSecret == "" {
-		return nil, errors.New("Invalid Falcon API Credentials, received empty value")
+	if ok, err := credentialsOk(ac); !ok {
+		return nil, err
 	}
 	if ac.Context == nil {
 		return nil, errors.New("Invalid Context for falcon.ApiConfig.Context. Make that ApiConfig.Context is set.")
 	}
-	if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
-		return nil, err
+
+	if ac.AccessToken == "" {
+		if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
+			return nil, err
+		}
+	} else if ac.Cloud == CloudAutoDiscover {
+		// There is nothing in the access token (JWT) which identifies the cloud.
+		// API gateway can determine the appropriate cloud based off the client ID.
+		// Forwarding to US-1 as a default.
+		ac.Cloud = CloudUs1
 	}
 
+	var authenticatedClient *http.Client
+	if ac.AccessToken == "" {
+		authenticatedClient = clientCredentialsHTTPClient(ac)
+	} else {
+		authenticatedClient = accessTokenHTTPClient(ac)
+	}
+
+	customTransport := httptransport.NewWithClient(ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
+	customTransport.Debug = ac.Debug
+	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
+	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
+
+	return client.New(customTransport, strfmt.Default), nil
+}
+
+func credentialsOk(ac *ApiConfig) (bool, error) {
+	hasAccessToken := ac.AccessToken != ""
+	hasClientIDSecret := ac.ClientId != "" && ac.ClientSecret != ""
+
+	if (hasAccessToken && hasClientIDSecret) || (!hasAccessToken && !hasClientIDSecret) {
+		return false, errors.New("Must provide either an access token or a client ID and secret, but not both and not neither.")
+	}
+	return true, nil
+}
+
+func accessTokenHTTPClient(ac *ApiConfig) *http.Client {
+	ts := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: ac.AccessToken})
+	return commonHTTPClientConfig(oauth2.NewClient(ac.Context, ts), ac)
+}
+
+func clientCredentialsHTTPClient(ac *ApiConfig) *http.Client {
 	config := clientcredentials.Config{
 		ClientID:     ac.ClientId,
 		ClientSecret: ac.ClientSecret,
@@ -38,27 +78,21 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 			"member_cid": []string{ac.MemberCID},
 		}
 	}
-	authenticatedClient := config.Client(ac.Context)
-	authenticatedClient.Timeout = ac.HttpTimeout()
-	authenticatedClient.Transport = &roundTripper{
-		T: &workaround{
-			T: authenticatedClient.Transport,
-		},
+	return commonHTTPClientConfig(config.Client(ac.Context), ac)
+}
+
+func commonHTTPClientConfig(c *http.Client, ac *ApiConfig) *http.Client {
+	c.Timeout = ac.HttpTimeout()
+	c.Transport = &roundTripper{
+		T:         &workaround{T: c.Transport},
 		UserAgent: ac.UserAgent(),
 	}
 
 	if ac.TransportDecorator != nil {
-		authenticatedClient.Transport = ac.TransportDecorator(
-			authenticatedClient.Transport)
+		c.Transport = ac.TransportDecorator(c.Transport)
 	}
 
-	customTransport := httptransport.NewWithClient(
-		ac.Host(), ac.BasePath(), []string{}, authenticatedClient)
-	customTransport.Debug = ac.Debug
-	customTransport.Consumers["application/pdf"] = httpruntime.ByteStreamConsumer()
-	customTransport.Consumers["application/x-7z-compressed"] = httpruntime.ByteStreamConsumer()
-
-	return client.New(customTransport, strfmt.Default), nil
+	return c
 }
 
 type roundTripper struct {

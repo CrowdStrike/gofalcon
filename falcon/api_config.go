@@ -10,9 +10,14 @@ import (
 
 // ApiConfig object is used to initialise and configure API Client. Together with NewClient function, ApiConfig provides preferred way to initiate API communication.
 type ApiConfig struct {
-	// Client ID used for authentication with CrowdStrike Falcon platform. *required*
+	// AccessToken is the access token used to access the CrowdStrike Falcon platform.
+	// *required* if ClientId and ClientSecret are empty.
+	AccessToken string
+	// Client ID used for authentication with CrowdStrike Falcon platform.
+	// *required* if AccessToken is empty.
 	ClientId string
-	// Client Secret used for authentication with CrowdStrike Falcon platform. *required*
+	// Client Secret used for authentication with CrowdStrike Falcon platform.
+	// *required* if AccessToken is empty.
 	ClientSecret string
 	// Optional: CID selector for cases when the ClientID/ClientSecret has access to multiple CIDs
 	MemberCID string
@@ -42,7 +47,7 @@ func (ac *ApiConfig) Host() string {
 	return ac.Cloud.Host()
 }
 
-// Host returns base URL path to be used by this ApiConfig
+// BasePath returns base URL path to be used by this ApiConfig
 func (ac *ApiConfig) BasePath() string {
 	if ac.BasePathOverride == "" {
 		return client.DefaultBasePath
