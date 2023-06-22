@@ -31,9 +31,7 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		}
 	} else if ac.Cloud == CloudAutoDiscover {
 		// There is nothing in the access token (JWT) which identifies the cloud.
-		// API gateway can determine the appropriate cloud based off the client ID.
-		// Forwarding to US-1 as a default.
-		ac.Cloud = CloudUs1
+		return nil, errors.New("Cannot autodiscover cloud when using an access token. Please specify the cloud explicitly.")
 	}
 
 	var authenticatedClient *http.Client

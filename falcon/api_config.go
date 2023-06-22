@@ -23,7 +23,8 @@ type ApiConfig struct {
 	MemberCID string
 	// This Context object will be used only when authenticating with the OAuth interface.
 	Context context.Context
-	// Cloud allows us to select Falcon Cloud to connect
+	// Cloud allows us to select Falcon Cloud to connect.
+	// *required* if AccessToken is used.
 	Cloud CloudType
 	// HostOverride allows to override default host (default: api.crowdstrike.com)
 	HostOverride string
