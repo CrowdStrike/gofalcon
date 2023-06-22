@@ -1,4 +1,4 @@
-# Auth with Access Token
+# Authentication with Access Token
 
 Minimalist example to showcase authentication and initialization of client library using an existing access token. The very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
 
