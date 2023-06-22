@@ -21,13 +21,13 @@ const (
 	CloudUsGov1
 )
 
-// Cloud parses clould string (example: us-1, us-2, eu-1, us-gov-1, etc). If a string is not recognised CloudUs1 is returned.
+// Cloud parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc). If a string is not recognized CloudUs1 is returned.
 func Cloud(cloudString string) CloudType {
 	c, _ := CloudValidate(cloudString)
 	return c
 }
 
-// CloudValidate parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc.). Error is returned when string cannot be recognised
+// CloudValidate parses cloud string (example: us-1, us-2, eu-1, us-gov-1, etc.). Error is returned when string cannot be recognized.
 func CloudValidate(cloudString string) (CloudType, error) {
 	trimmed := strings.TrimSpace(cloudString)
 	lower := strings.ToLower(trimmed)
