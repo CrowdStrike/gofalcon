@@ -64,7 +64,7 @@ CreateCaseParams contains all the parameters to send to the API endpoint
 type CreateCaseParams struct {
 
 	// Body.
-	Body *models.APICaseCreationRequest
+	Body *models.DomainCaseCreationRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CreateCaseParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create case params
-func (o *CreateCaseParams) WithBody(body *models.APICaseCreationRequest) *CreateCaseParams {
+func (o *CreateCaseParams) WithBody(body *models.DomainCaseCreationRequest) *CreateCaseParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create case params
-func (o *CreateCaseParams) SetBody(body *models.APICaseCreationRequest) {
+func (o *CreateCaseParams) SetBody(body *models.DomainCaseCreationRequest) {
 	o.Body = body
 }
 

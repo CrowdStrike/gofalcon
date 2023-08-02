@@ -21,9 +21,8 @@ import (
 type DomainUserAction struct {
 
 	// Action name
-	// Required: true
 	// Enum: [reset_password reset_2fa]
-	ActionName *string `json:"action_name"`
+	ActionName string `json:"action_name,omitempty"`
 
 	// Value for action, if any
 	ActionValue string `json:"action_value,omitempty"`
@@ -73,13 +72,12 @@ func (m *DomainUserAction) validateActionNameEnum(path, location string, value s
 }
 
 func (m *DomainUserAction) validateActionName(formats strfmt.Registry) error {
-
-	if err := validate.Required("action_name", "body", m.ActionName); err != nil {
-		return err
+	if swag.IsZero(m.ActionName) { // not required
+		return nil
 	}
 
 	// value enum
-	if err := m.validateActionNameEnum("action_name", "body", *m.ActionName); err != nil {
+	if err := m.validateActionNameEnum("action_name", "body", m.ActionName); err != nil {
 		return err
 	}
 

@@ -82,6 +82,11 @@ func (m *FalconxIntelSummaryReportV1) contextValidateActors(ctx context.Context,
 	for i := 0; i < len(m.Actors); i++ {
 
 		if m.Actors[i] != nil {
+
+			if swag.IsZero(m.Actors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))

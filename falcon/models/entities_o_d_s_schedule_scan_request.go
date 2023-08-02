@@ -71,6 +71,10 @@ type EntitiesODSScheduleScanRequest struct {
 	// Required: true
 	ScanExclusions []string `json:"scan_exclusions"`
 
+	// scan inclusions
+	// Required: true
+	ScanInclusions []string `json:"scan_inclusions"`
+
 	// schedule
 	// Required: true
 	Schedule *DomainSchedule `json:"schedule"`
@@ -137,6 +141,10 @@ func (m *EntitiesODSScheduleScanRequest) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validateScanExclusions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanInclusions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -275,6 +283,15 @@ func (m *EntitiesODSScheduleScanRequest) validateScanExclusions(formats strfmt.R
 	return nil
 }
 
+func (m *EntitiesODSScheduleScanRequest) validateScanInclusions(formats strfmt.Registry) error {
+
+	if err := validate.Required("scan_inclusions", "body", m.ScanInclusions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *EntitiesODSScheduleScanRequest) validateSchedule(formats strfmt.Registry) error {
 
 	if err := validate.Required("schedule", "body", m.Schedule); err != nil {
@@ -330,6 +347,7 @@ func (m *EntitiesODSScheduleScanRequest) ContextValidate(ctx context.Context, fo
 func (m *EntitiesODSScheduleScanRequest) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Schedule != nil {
+
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")

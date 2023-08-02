@@ -64,7 +64,7 @@ UpdateDeviceControlPoliciesParams contains all the parameters to send to the API
 type UpdateDeviceControlPoliciesParams struct {
 
 	// Body.
-	Body *models.RequestsUpdateDeviceControlPoliciesV1
+	Body *models.DeviceControlUpdatePoliciesReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateDeviceControlPoliciesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update device control policies params
-func (o *UpdateDeviceControlPoliciesParams) WithBody(body *models.RequestsUpdateDeviceControlPoliciesV1) *UpdateDeviceControlPoliciesParams {
+func (o *UpdateDeviceControlPoliciesParams) WithBody(body *models.DeviceControlUpdatePoliciesReqV1) *UpdateDeviceControlPoliciesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update device control policies params
-func (o *UpdateDeviceControlPoliciesParams) SetBody(body *models.RequestsUpdateDeviceControlPoliciesV1) {
+func (o *UpdateDeviceControlPoliciesParams) SetBody(body *models.DeviceControlUpdatePoliciesReqV1) {
 	o.Body = body
 }
 

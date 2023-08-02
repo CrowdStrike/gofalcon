@@ -56,14 +56,7 @@ func (o *AddCIDGroupMembersReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewAddCIDGroupMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /mssp/entities/cid-group-members/v1] addCIDGroupMembers", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ AddCIDGroupMembersOK describes a response with status code 200, with default hea
 OK
 */
 type AddCIDGroupMembersOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *AddCIDGroupMembersOK) GetPayload() *models.DomainCIDGroupMembersRespons
 
 func (o *AddCIDGroupMembersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ AddCIDGroupMembersMultiStatus describes a response with status code 207, with de
 Multi-Status
 */
 type AddCIDGroupMembersMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *AddCIDGroupMembersMultiStatus) GetPayload() *models.DomainCIDGroupMembe
 
 func (o *AddCIDGroupMembersMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ AddCIDGroupMembersBadRequest describes a response with status code 400, with def
 Bad Request
 */
 type AddCIDGroupMembersBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *AddCIDGroupMembersBadRequest) GetPayload() *models.MsaErrorsOnly {
 
 func (o *AddCIDGroupMembersBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ AddCIDGroupMembersForbidden describes a response with status code 403, with defa
 Forbidden
 */
 type AddCIDGroupMembersForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *AddCIDGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *AddCIDGroupMembersForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ AddCIDGroupMembersTooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type AddCIDGroupMembersTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *AddCIDGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *AddCIDGroupMembersTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *AddCIDGroupMembersTooManyRequests) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAddCIDGroupMembersDefault creates a AddCIDGroupMembersDefault with default headers values
-func NewAddCIDGroupMembersDefault(code int) *AddCIDGroupMembersDefault {
-	return &AddCIDGroupMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AddCIDGroupMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AddCIDGroupMembersDefault struct {
-	_statusCode int
-
-	Payload *models.DomainCIDGroupMembersResponseV1
-}
-
-// IsSuccess returns true when this add c ID group members default response has a 2xx status code
-func (o *AddCIDGroupMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this add c ID group members default response has a 3xx status code
-func (o *AddCIDGroupMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this add c ID group members default response has a 4xx status code
-func (o *AddCIDGroupMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this add c ID group members default response has a 5xx status code
-func (o *AddCIDGroupMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this add c ID group members default response a status code equal to that given
-func (o *AddCIDGroupMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the add c ID group members default response
-func (o *AddCIDGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AddCIDGroupMembersDefault) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-group-members/v1][%d] addCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AddCIDGroupMembersDefault) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/cid-group-members/v1][%d] addCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AddCIDGroupMembersDefault) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
-	return o.Payload
-}
-
-func (o *AddCIDGroupMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainCIDGroupMembersResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

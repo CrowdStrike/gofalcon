@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetCSPMAzureUserScriptsAttachmentParams creates a new GetCSPMAzureUserScriptsAttachmentParams object,
@@ -60,6 +61,21 @@ GetCSPMAzureUserScriptsAttachmentParams contains all the parameters to send to t
 	Typically these are written to a http.Request.
 */
 type GetCSPMAzureUserScriptsAttachmentParams struct {
+
+	// AccountType.
+	AccountType *string
+
+	/* SubscriptionIds.
+
+	   Subscription IDs to generate script for. Defaults to all.
+	*/
+	SubscriptionIds []string
+
+	/* Template.
+
+	   Template to be rendered
+	*/
+	Template *string
 
 	/* TenantID.
 
@@ -120,6 +136,39 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) SetHTTPClient(client *http.Cli
 	o.HTTPClient = client
 }
 
+// WithAccountType adds the accountType to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) WithAccountType(accountType *string) *GetCSPMAzureUserScriptsAttachmentParams {
+	o.SetAccountType(accountType)
+	return o
+}
+
+// SetAccountType adds the accountType to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) SetAccountType(accountType *string) {
+	o.AccountType = accountType
+}
+
+// WithSubscriptionIds adds the subscriptionIds to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) WithSubscriptionIds(subscriptionIds []string) *GetCSPMAzureUserScriptsAttachmentParams {
+	o.SetSubscriptionIds(subscriptionIds)
+	return o
+}
+
+// SetSubscriptionIds adds the subscriptionIds to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) SetSubscriptionIds(subscriptionIds []string) {
+	o.SubscriptionIds = subscriptionIds
+}
+
+// WithTemplate adds the template to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) WithTemplate(template *string) *GetCSPMAzureUserScriptsAttachmentParams {
+	o.SetTemplate(template)
+	return o
+}
+
+// SetTemplate adds the template to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) SetTemplate(template *string) {
+	o.Template = template
+}
+
 // WithTenantID adds the tenantID to the get c s p m azure user scripts attachment params
 func (o *GetCSPMAzureUserScriptsAttachmentParams) WithTenantID(tenantID *string) *GetCSPMAzureUserScriptsAttachmentParams {
 	o.SetTenantID(tenantID)
@@ -138,6 +187,51 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
+
+	if o.AccountType != nil {
+
+		// query param account_type
+		var qrAccountType string
+
+		if o.AccountType != nil {
+			qrAccountType = *o.AccountType
+		}
+		qAccountType := qrAccountType
+		if qAccountType != "" {
+
+			if err := r.SetQueryParam("account_type", qAccountType); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SubscriptionIds != nil {
+
+		// binding items for subscription_ids
+		joinedSubscriptionIds := o.bindParamSubscriptionIds(reg)
+
+		// query array param subscription_ids
+		if err := r.SetQueryParam("subscription_ids", joinedSubscriptionIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.Template != nil {
+
+		// query param template
+		var qrTemplate string
+
+		if o.Template != nil {
+			qrTemplate = *o.Template
+		}
+		qTemplate := qrTemplate
+		if qTemplate != "" {
+
+			if err := r.SetQueryParam("template", qTemplate); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.TenantID != nil {
 
@@ -160,4 +254,21 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAzureUserScriptsAttachment binds the parameter subscription_ids
+func (o *GetCSPMAzureUserScriptsAttachmentParams) bindParamSubscriptionIds(formats strfmt.Registry) []string {
+	subscriptionIdsIR := o.SubscriptionIds
+
+	var subscriptionIdsIC []string
+	for _, subscriptionIdsIIR := range subscriptionIdsIR { // explode []string
+
+		subscriptionIdsIIV := subscriptionIdsIIR // string as string
+		subscriptionIdsIC = append(subscriptionIdsIC, subscriptionIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	subscriptionIdsIS := swag.JoinByFormat(subscriptionIdsIC, "multi")
+
+	return subscriptionIdsIS
 }

@@ -383,6 +383,7 @@ func (m *FwmgrAPINetworkLocationsV1) ContextValidate(ctx context.Context, format
 func (m *FwmgrAPINetworkLocationsV1) contextValidateConnectionTypes(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ConnectionTypes != nil {
+
 		if err := m.ConnectionTypes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection_types")
@@ -399,6 +400,7 @@ func (m *FwmgrAPINetworkLocationsV1) contextValidateConnectionTypes(ctx context.
 func (m *FwmgrAPINetworkLocationsV1) contextValidateDNSResolutionTargets(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DNSResolutionTargets != nil {
+
 		if err := m.DNSResolutionTargets.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns_resolution_targets")
@@ -415,6 +417,7 @@ func (m *FwmgrAPINetworkLocationsV1) contextValidateDNSResolutionTargets(ctx con
 func (m *FwmgrAPINetworkLocationsV1) contextValidateHTTPSReachableHosts(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HTTPSReachableHosts != nil {
+
 		if err := m.HTTPSReachableHosts.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("https_reachable_hosts")
@@ -431,6 +434,7 @@ func (m *FwmgrAPINetworkLocationsV1) contextValidateHTTPSReachableHosts(ctx cont
 func (m *FwmgrAPINetworkLocationsV1) contextValidateIcmpRequestTargets(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IcmpRequestTargets != nil {
+
 		if err := m.IcmpRequestTargets.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("icmp_request_targets")
@@ -447,6 +451,11 @@ func (m *FwmgrAPINetworkLocationsV1) contextValidateIcmpRequestTargets(ctx conte
 func (m *FwmgrAPINetworkLocationsV1) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metadata != nil {
+
+		if swag.IsZero(m.Metadata) { // not required
+			return nil
+		}
+
 		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")

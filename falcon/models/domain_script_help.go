@@ -209,6 +209,11 @@ func (m *DomainScriptHelp) contextValidateArgs(ctx context.Context, formats strf
 	for i := 0; i < len(m.Args); i++ {
 
 		if m.Args[i] != nil {
+
+			if swag.IsZero(m.Args[i]) { // not required
+				return nil
+			}
+
 			if err := m.Args[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("args" + "." + strconv.Itoa(i))
@@ -229,6 +234,11 @@ func (m *DomainScriptHelp) contextValidateSubCommands(ctx context.Context, forma
 	for i := 0; i < len(m.SubCommands); i++ {
 
 		if m.SubCommands[i] != nil {
+
+			if swag.IsZero(m.SubCommands[i]) { // not required
+				return nil
+			}
+
 			if err := m.SubCommands[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_commands" + "." + strconv.Itoa(i))

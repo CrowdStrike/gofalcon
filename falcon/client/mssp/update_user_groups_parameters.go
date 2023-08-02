@@ -63,7 +63,10 @@ UpdateUserGroupsParams contains all the parameters to send to the API endpoint
 */
 type UpdateUserGroupsParams struct {
 
-	// Body.
+	/* Body.
+
+	   'user_group_id' field is required to identify the user group to update along with 'name' and/or 'description' fields to be updated.
+	*/
 	Body *models.DomainUserGroupsRequestV1
 
 	timeout    time.Duration

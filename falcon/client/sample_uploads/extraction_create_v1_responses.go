@@ -62,14 +62,7 @@ func (o *ExtractionCreateV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewExtractionCreateV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /archives/entities/extractions/v1] ExtractionCreateV1", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *ExtractionCreateV1InternalServerError) readResponse(response runtime.Cl
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ClientExtractionCreateResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewExtractionCreateV1Default creates a ExtractionCreateV1Default with default headers values
-func NewExtractionCreateV1Default(code int) *ExtractionCreateV1Default {
-	return &ExtractionCreateV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-ExtractionCreateV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type ExtractionCreateV1Default struct {
-	_statusCode int
-
-	Payload *models.ClientExtractionCreateResponseV1
-}
-
-// IsSuccess returns true when this extraction create v1 default response has a 2xx status code
-func (o *ExtractionCreateV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this extraction create v1 default response has a 3xx status code
-func (o *ExtractionCreateV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this extraction create v1 default response has a 4xx status code
-func (o *ExtractionCreateV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this extraction create v1 default response has a 5xx status code
-func (o *ExtractionCreateV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this extraction create v1 default response a status code equal to that given
-func (o *ExtractionCreateV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the extraction create v1 default response
-func (o *ExtractionCreateV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *ExtractionCreateV1Default) Error() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] ExtractionCreateV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ExtractionCreateV1Default) String() string {
-	return fmt.Sprintf("[POST /archives/entities/extractions/v1][%d] ExtractionCreateV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ExtractionCreateV1Default) GetPayload() *models.ClientExtractionCreateResponseV1 {
-	return o.Payload
-}
-
-func (o *ExtractionCreateV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ClientExtractionCreateResponseV1)
 

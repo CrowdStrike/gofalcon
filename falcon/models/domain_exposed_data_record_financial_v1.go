@@ -27,9 +27,9 @@ type DomainExposedDataRecordFinancialV1 struct {
 	// Required: true
 	CreditCard *string `json:"credit_card"`
 
-	// crypto currency address
+	// crypto currency addresses
 	// Required: true
-	CryptoCurrencyAddress *string `json:"crypto_currency_address"`
+	CryptoCurrencyAddresses []string `json:"crypto_currency_addresses"`
 }
 
 // Validate validates this domain exposed data record financial v1
@@ -44,7 +44,7 @@ func (m *DomainExposedDataRecordFinancialV1) Validate(formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
-	if err := m.validateCryptoCurrencyAddress(formats); err != nil {
+	if err := m.validateCryptoCurrencyAddresses(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,9 +72,9 @@ func (m *DomainExposedDataRecordFinancialV1) validateCreditCard(formats strfmt.R
 	return nil
 }
 
-func (m *DomainExposedDataRecordFinancialV1) validateCryptoCurrencyAddress(formats strfmt.Registry) error {
+func (m *DomainExposedDataRecordFinancialV1) validateCryptoCurrencyAddresses(formats strfmt.Registry) error {
 
-	if err := validate.Required("crypto_currency_address", "body", m.CryptoCurrencyAddress); err != nil {
+	if err := validate.Required("crypto_currency_addresses", "body", m.CryptoCurrencyAddresses); err != nil {
 		return err
 	}
 

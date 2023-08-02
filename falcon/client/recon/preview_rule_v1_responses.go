@@ -62,14 +62,7 @@ func (o *PreviewRuleV1Reader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		result := NewPreviewRuleV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /recon/aggregates/rules-preview/GET/v1] PreviewRuleV1", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *PreviewRuleV1InternalServerError) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.DomainErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPreviewRuleV1Default creates a PreviewRuleV1Default with default headers values
-func NewPreviewRuleV1Default(code int) *PreviewRuleV1Default {
-	return &PreviewRuleV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PreviewRuleV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PreviewRuleV1Default struct {
-	_statusCode int
-
-	Payload *models.DomainAggregatesResponse
-}
-
-// IsSuccess returns true when this preview rule v1 default response has a 2xx status code
-func (o *PreviewRuleV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this preview rule v1 default response has a 3xx status code
-func (o *PreviewRuleV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this preview rule v1 default response has a 4xx status code
-func (o *PreviewRuleV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this preview rule v1 default response has a 5xx status code
-func (o *PreviewRuleV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this preview rule v1 default response a status code equal to that given
-func (o *PreviewRuleV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the preview rule v1 default response
-func (o *PreviewRuleV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PreviewRuleV1Default) Error() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] PreviewRuleV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PreviewRuleV1Default) String() string {
-	return fmt.Sprintf("[POST /recon/aggregates/rules-preview/GET/v1][%d] PreviewRuleV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PreviewRuleV1Default) GetPayload() *models.DomainAggregatesResponse {
-	return o.Payload
-}
-
-func (o *PreviewRuleV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

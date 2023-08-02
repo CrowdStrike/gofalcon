@@ -62,14 +62,7 @@ func (o *DeleteCSPMAzureAccountReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewDeleteCSPMAzureAccountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /cloud-connect-cspm-azure/entities/account/v1] DeleteCSPMAzureAccount", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type DeleteCSPMAzureAccountOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type DeleteCSPMAzureAccountOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m azure account o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *DeleteCSPMAzureAccountOK) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteCSPMAzureAccountOK) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAzureAccountOK) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *DeleteCSPMAzureAccountOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Multi-Status
 */
 type DeleteCSPMAzureAccountMultiStatus struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type DeleteCSPMAzureAccountMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m azure account multi status response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *DeleteCSPMAzureAccountMultiStatus) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *DeleteCSPMAzureAccountMultiStatus) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAzureAccountMultiStatus) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *DeleteCSPMAzureAccountMultiStatus) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -283,6 +298,10 @@ Bad Request
 */
 type DeleteCSPMAzureAccountBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -291,7 +310,7 @@ type DeleteCSPMAzureAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationBaseResponseV1
+	Payload *models.MsaBaseEntitiesResponse
 }
 
 // IsSuccess returns true when this delete c s p m azure account bad request response has a 2xx status code
@@ -332,11 +351,18 @@ func (o *DeleteCSPMAzureAccountBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] deleteCSPMAzureAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteCSPMAzureAccountBadRequest) GetPayload() *models.RegistrationBaseResponseV1 {
+func (o *DeleteCSPMAzureAccountBadRequest) GetPayload() *models.MsaBaseEntitiesResponse {
 	return o.Payload
 }
 
 func (o *DeleteCSPMAzureAccountBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -360,7 +386,7 @@ func (o *DeleteCSPMAzureAccountBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationBaseResponseV1)
+	o.Payload = new(models.MsaBaseEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -381,6 +407,10 @@ DeleteCSPMAzureAccountForbidden describes a response with status code 403, with 
 Forbidden
 */
 type DeleteCSPMAzureAccountForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *DeleteCSPMAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *DeleteCSPMAzureAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ DeleteCSPMAzureAccountTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type DeleteCSPMAzureAccountTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *DeleteCSPMAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMet
 
 func (o *DeleteCSPMAzureAccountTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ DeleteCSPMAzureAccountInternalServerError describes a response with status code 
 Internal Server Error
 */
 type DeleteCSPMAzureAccountInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *DeleteCSPMAzureAccountInternalServerError) GetPayload() *models.Registr
 
 func (o *DeleteCSPMAzureAccountInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -673,78 +732,6 @@ func (o *DeleteCSPMAzureAccountInternalServerError) readResponse(response runtim
 	}
 
 	o.Payload = new(models.RegistrationAzureAccountResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteCSPMAzureAccountDefault creates a DeleteCSPMAzureAccountDefault with default headers values
-func NewDeleteCSPMAzureAccountDefault(code int) *DeleteCSPMAzureAccountDefault {
-	return &DeleteCSPMAzureAccountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteCSPMAzureAccountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteCSPMAzureAccountDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationBaseResponseV1
-}
-
-// IsSuccess returns true when this delete c s p m azure account default response has a 2xx status code
-func (o *DeleteCSPMAzureAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete c s p m azure account default response has a 3xx status code
-func (o *DeleteCSPMAzureAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete c s p m azure account default response has a 4xx status code
-func (o *DeleteCSPMAzureAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete c s p m azure account default response has a 5xx status code
-func (o *DeleteCSPMAzureAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete c s p m azure account default response a status code equal to that given
-func (o *DeleteCSPMAzureAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete c s p m azure account default response
-func (o *DeleteCSPMAzureAccountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteCSPMAzureAccountDefault) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] DeleteCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCSPMAzureAccountDefault) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-cspm-azure/entities/account/v1][%d] DeleteCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCSPMAzureAccountDefault) GetPayload() *models.RegistrationBaseResponseV1 {
-	return o.Payload
-}
-
-func (o *DeleteCSPMAzureAccountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.RegistrationBaseResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

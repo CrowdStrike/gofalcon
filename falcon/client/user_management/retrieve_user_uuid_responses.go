@@ -56,14 +56,7 @@ func (o *RetrieveUserUUIDReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewRetrieveUserUUIDDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /users/queries/user-uuids-by-email/v1] RetrieveUserUUID", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *RetrieveUserUUIDTooManyRequests) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRetrieveUserUUIDDefault creates a RetrieveUserUUIDDefault with default headers values
-func NewRetrieveUserUUIDDefault(code int) *RetrieveUserUUIDDefault {
-	return &RetrieveUserUUIDDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RetrieveUserUUIDDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RetrieveUserUUIDDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this retrieve user UUID default response has a 2xx status code
-func (o *RetrieveUserUUIDDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this retrieve user UUID default response has a 3xx status code
-func (o *RetrieveUserUUIDDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this retrieve user UUID default response has a 4xx status code
-func (o *RetrieveUserUUIDDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this retrieve user UUID default response has a 5xx status code
-func (o *RetrieveUserUUIDDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this retrieve user UUID default response a status code equal to that given
-func (o *RetrieveUserUUIDDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the retrieve user UUID default response
-func (o *RetrieveUserUUIDDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RetrieveUserUUIDDefault) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] RetrieveUserUUID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveUserUUIDDefault) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-email/v1][%d] RetrieveUserUUID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveUserUUIDDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *RetrieveUserUUIDDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

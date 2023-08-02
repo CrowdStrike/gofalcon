@@ -26,7 +26,7 @@ type DomainKillChain struct {
 	// delivery
 	Delivery string `json:"delivery,omitempty"`
 
-	// exploitation
+	// comma separated values of vulnerabilities by CVE codes that are exploited by actor
 	Exploitation string `json:"exploitation,omitempty"`
 
 	// installation

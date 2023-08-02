@@ -122,8 +122,9 @@ func (a *Client) DeleteAWSAccounts(params *DeleteAWSAccountsParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DeleteAWSAccountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteAWSAccounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -159,8 +160,9 @@ func (a *Client) GetAWSAccounts(params *GetAWSAccountsParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetAWSAccountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAWSAccounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -196,8 +198,9 @@ func (a *Client) GetAWSSettings(params *GetAWSSettingsParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetAWSSettingsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAWSSettings: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -271,8 +274,9 @@ func (a *Client) QueryAWSAccounts(params *QueryAWSAccountsParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryAWSAccountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryAWSAccounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -308,8 +312,9 @@ func (a *Client) QueryAWSAccountsForIDs(params *QueryAWSAccountsForIDsParams, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryAWSAccountsForIDsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryAWSAccountsForIDs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -345,8 +350,9 @@ func (a *Client) UpdateAWSAccounts(params *UpdateAWSAccountsParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateAWSAccountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateAWSAccounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -382,8 +388,9 @@ func (a *Client) VerifyAWSAccountAccess(params *VerifyAWSAccountAccessParams, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*VerifyAWSAccountAccessDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for VerifyAWSAccountAccess: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

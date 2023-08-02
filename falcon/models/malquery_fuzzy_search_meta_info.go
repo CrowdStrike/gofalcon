@@ -42,7 +42,7 @@ type MalqueryFuzzySearchMetaInfo struct {
 	TraceID *string `json:"trace_id"`
 
 	// writes
-	Writes *MsaResources `json:"writes,omitempty"`
+	Writes *MsaspecWrites `json:"writes,omitempty"`
 }
 
 // Validate validates this malquery fuzzy search meta info
@@ -162,6 +162,11 @@ func (m *MalqueryFuzzySearchMetaInfo) ContextValidate(ctx context.Context, forma
 func (m *MalqueryFuzzySearchMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -178,6 +183,11 @@ func (m *MalqueryFuzzySearchMetaInfo) contextValidatePagination(ctx context.Cont
 func (m *MalqueryFuzzySearchMetaInfo) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Stats != nil {
+
+		if swag.IsZero(m.Stats) { // not required
+			return nil
+		}
+
 		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("stats")
@@ -194,6 +204,11 @@ func (m *MalqueryFuzzySearchMetaInfo) contextValidateStats(ctx context.Context, 
 func (m *MalqueryFuzzySearchMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Writes != nil {
+
+		if swag.IsZero(m.Writes) { // not required
+			return nil
+		}
+
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")

@@ -56,14 +56,7 @@ func (o *GetCaseEntitiesByIDsReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewGetCaseEntitiesByIDsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /message-center/entities/cases/GET/v1] GetCaseEntitiesByIDs", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *GetCaseEntitiesByIDsInternalServerError) readResponse(response runtime.
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCaseEntitiesByIDsDefault creates a GetCaseEntitiesByIDsDefault with default headers values
-func NewGetCaseEntitiesByIDsDefault(code int) *GetCaseEntitiesByIDsDefault {
-	return &GetCaseEntitiesByIDsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCaseEntitiesByIDsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCaseEntitiesByIDsDefault struct {
-	_statusCode int
-
-	Payload *models.APIMessageCenterCasesResponse
-}
-
-// IsSuccess returns true when this get case entities by i ds default response has a 2xx status code
-func (o *GetCaseEntitiesByIDsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get case entities by i ds default response has a 3xx status code
-func (o *GetCaseEntitiesByIDsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get case entities by i ds default response has a 4xx status code
-func (o *GetCaseEntitiesByIDsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get case entities by i ds default response has a 5xx status code
-func (o *GetCaseEntitiesByIDsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get case entities by i ds default response a status code equal to that given
-func (o *GetCaseEntitiesByIDsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get case entities by i ds default response
-func (o *GetCaseEntitiesByIDsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCaseEntitiesByIDsDefault) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] GetCaseEntitiesByIDs default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCaseEntitiesByIDsDefault) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/cases/GET/v1][%d] GetCaseEntitiesByIDs default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCaseEntitiesByIDsDefault) GetPayload() *models.APIMessageCenterCasesResponse {
-	return o.Payload
-}
-
-func (o *GetCaseEntitiesByIDsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMessageCenterCasesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

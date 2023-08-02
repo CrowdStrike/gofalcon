@@ -62,14 +62,7 @@ func (o *UpdateRTResponsePoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		result := NewUpdateRTResponsePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /policy/entities/response/v1] updateRTResponsePolicies", response, response.Code())
 	}
 }
 
@@ -97,7 +90,7 @@ type UpdateRTResponsePoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this update r t response policies o k response has a 2xx status code
@@ -138,7 +131,7 @@ func (o *UpdateRTResponsePoliciesOK) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRTResponsePoliciesOK) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *UpdateRTResponsePoliciesOK) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -173,7 +166,7 @@ func (o *UpdateRTResponsePoliciesOK) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -207,7 +200,7 @@ type UpdateRTResponsePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this update r t response policies bad request response has a 2xx status code
@@ -248,7 +241,7 @@ func (o *UpdateRTResponsePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateRTResponsePoliciesBadRequest) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *UpdateRTResponsePoliciesBadRequest) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -283,7 +276,7 @@ func (o *UpdateRTResponsePoliciesBadRequest) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -427,7 +420,7 @@ type UpdateRTResponsePoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this update r t response policies not found response has a 2xx status code
@@ -468,7 +461,7 @@ func (o *UpdateRTResponsePoliciesNotFound) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *UpdateRTResponsePoliciesNotFound) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *UpdateRTResponsePoliciesNotFound) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -503,7 +496,7 @@ func (o *UpdateRTResponsePoliciesNotFound) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -662,7 +655,7 @@ type UpdateRTResponsePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this update r t response policies internal server error response has a 2xx status code
@@ -703,7 +696,7 @@ func (o *UpdateRTResponsePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateRTResponsePoliciesInternalServerError) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *UpdateRTResponsePoliciesInternalServerError) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -738,79 +731,7 @@ func (o *UpdateRTResponsePoliciesInternalServerError) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRTResponsePoliciesDefault creates a UpdateRTResponsePoliciesDefault with default headers values
-func NewUpdateRTResponsePoliciesDefault(code int) *UpdateRTResponsePoliciesDefault {
-	return &UpdateRTResponsePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateRTResponsePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateRTResponsePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesRTResponsePoliciesV1
-}
-
-// IsSuccess returns true when this update r t response policies default response has a 2xx status code
-func (o *UpdateRTResponsePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update r t response policies default response has a 3xx status code
-func (o *UpdateRTResponsePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update r t response policies default response has a 4xx status code
-func (o *UpdateRTResponsePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update r t response policies default response has a 5xx status code
-func (o *UpdateRTResponsePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update r t response policies default response a status code equal to that given
-func (o *UpdateRTResponsePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update r t response policies default response
-func (o *UpdateRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateRTResponsePoliciesDefault) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRTResponsePoliciesDefault) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/response/v1][%d] updateRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRTResponsePoliciesDefault) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
-	return o.Payload
-}
-
-func (o *UpdateRTResponsePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

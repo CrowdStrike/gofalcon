@@ -64,7 +64,7 @@ SetDeviceControlPoliciesPrecedenceParams contains all the parameters to send to 
 type SetDeviceControlPoliciesPrecedenceParams struct {
 
 	// Body.
-	Body *models.RequestsSetPolicyPrecedenceReqV1
+	Body *models.BaseSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *SetDeviceControlPoliciesPrecedenceParams) SetHTTPClient(client *http.Cl
 }
 
 // WithBody adds the body to the set device control policies precedence params
-func (o *SetDeviceControlPoliciesPrecedenceParams) WithBody(body *models.RequestsSetPolicyPrecedenceReqV1) *SetDeviceControlPoliciesPrecedenceParams {
+func (o *SetDeviceControlPoliciesPrecedenceParams) WithBody(body *models.BaseSetPolicyPrecedenceReqV1) *SetDeviceControlPoliciesPrecedenceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the set device control policies precedence params
-func (o *SetDeviceControlPoliciesPrecedenceParams) SetBody(body *models.RequestsSetPolicyPrecedenceReqV1) {
+func (o *SetDeviceControlPoliciesPrecedenceParams) SetBody(body *models.BaseSetPolicyPrecedenceReqV1) {
 	o.Body = body
 }
 

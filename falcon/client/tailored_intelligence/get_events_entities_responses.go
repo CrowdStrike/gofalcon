@@ -56,14 +56,7 @@ func (o *GetEventsEntitiesReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewGetEventsEntitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /ti/events/entities/events/GET/v2] GetEventsEntities", response, response.Code())
 	}
 }
 
@@ -608,78 +601,6 @@ func (o *GetEventsEntitiesInternalServerError) readResponse(response runtime.Cli
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.DomainEventEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetEventsEntitiesDefault creates a GetEventsEntitiesDefault with default headers values
-func NewGetEventsEntitiesDefault(code int) *GetEventsEntitiesDefault {
-	return &GetEventsEntitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetEventsEntitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetEventsEntitiesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainEventEntitiesResponse
-}
-
-// IsSuccess returns true when this get events entities default response has a 2xx status code
-func (o *GetEventsEntitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get events entities default response has a 3xx status code
-func (o *GetEventsEntitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get events entities default response has a 4xx status code
-func (o *GetEventsEntitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get events entities default response has a 5xx status code
-func (o *GetEventsEntitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get events entities default response a status code equal to that given
-func (o *GetEventsEntitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get events entities default response
-func (o *GetEventsEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetEventsEntitiesDefault) Error() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] GetEventsEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetEventsEntitiesDefault) String() string {
-	return fmt.Sprintf("[POST /ti/events/entities/events/GET/v2][%d] GetEventsEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetEventsEntitiesDefault) GetPayload() *models.DomainEventEntitiesResponse {
-	return o.Payload
-}
-
-func (o *GetEventsEntitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DomainEventEntitiesResponse)
 

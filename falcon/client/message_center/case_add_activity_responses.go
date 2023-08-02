@@ -56,14 +56,7 @@ func (o *CaseAddActivityReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		result := NewCaseAddActivityDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /message-center/entities/case-activity/v1] CaseAddActivity", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *CaseAddActivityInternalServerError) readResponse(response runtime.Clien
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewCaseAddActivityDefault creates a CaseAddActivityDefault with default headers values
-func NewCaseAddActivityDefault(code int) *CaseAddActivityDefault {
-	return &CaseAddActivityDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-CaseAddActivityDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type CaseAddActivityDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this case add activity default response has a 2xx status code
-func (o *CaseAddActivityDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this case add activity default response has a 3xx status code
-func (o *CaseAddActivityDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this case add activity default response has a 4xx status code
-func (o *CaseAddActivityDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this case add activity default response has a 5xx status code
-func (o *CaseAddActivityDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this case add activity default response a status code equal to that given
-func (o *CaseAddActivityDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the case add activity default response
-func (o *CaseAddActivityDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *CaseAddActivityDefault) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] CaseAddActivity default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CaseAddActivityDefault) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] CaseAddActivity default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CaseAddActivityDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *CaseAddActivityDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

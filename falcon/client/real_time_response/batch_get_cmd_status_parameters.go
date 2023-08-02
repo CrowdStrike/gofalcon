@@ -70,7 +70,7 @@ type BatchGetCmdStatusParams struct {
 
 	/* Timeout.
 
-	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
 
 	   Default: 30
 	*/
@@ -78,7 +78,7 @@ type BatchGetCmdStatusParams struct {
 
 	/* TimeoutDuration.
 
-	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 
 	   Default: "30s"
 	*/

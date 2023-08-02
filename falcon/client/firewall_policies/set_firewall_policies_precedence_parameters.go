@@ -64,7 +64,7 @@ SetFirewallPoliciesPrecedenceParams contains all the parameters to send to the A
 type SetFirewallPoliciesPrecedenceParams struct {
 
 	// Body.
-	Body *models.RequestsSetPolicyPrecedenceReqV1
+	Body *models.BaseSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *SetFirewallPoliciesPrecedenceParams) SetHTTPClient(client *http.Client)
 }
 
 // WithBody adds the body to the set firewall policies precedence params
-func (o *SetFirewallPoliciesPrecedenceParams) WithBody(body *models.RequestsSetPolicyPrecedenceReqV1) *SetFirewallPoliciesPrecedenceParams {
+func (o *SetFirewallPoliciesPrecedenceParams) WithBody(body *models.BaseSetPolicyPrecedenceReqV1) *SetFirewallPoliciesPrecedenceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the set firewall policies precedence params
-func (o *SetFirewallPoliciesPrecedenceParams) SetBody(body *models.RequestsSetPolicyPrecedenceReqV1) {
+func (o *SetFirewallPoliciesPrecedenceParams) SetBody(body *models.BaseSetPolicyPrecedenceReqV1) {
 	o.Body = body
 }
 

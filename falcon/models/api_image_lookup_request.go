@@ -20,6 +20,9 @@ import (
 // swagger:model api.ImageLookupRequest
 type APIImageLookupRequest struct {
 
+	// application packages
+	ApplicationPackages []*ModelsApplicationPackageInfoType `json:"applicationPackages"`
+
 	// osversion
 	// Required: true
 	Osversion *string `json:"osversion"`
@@ -33,6 +36,10 @@ type APIImageLookupRequest struct {
 func (m *APIImageLookupRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateApplicationPackages(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOsversion(formats); err != nil {
 		res = append(res, err)
 	}
@@ -44,6 +51,32 @@ func (m *APIImageLookupRequest) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIImageLookupRequest) validateApplicationPackages(formats strfmt.Registry) error {
+	if swag.IsZero(m.ApplicationPackages) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ApplicationPackages); i++ {
+		if swag.IsZero(m.ApplicationPackages[i]) { // not required
+			continue
+		}
+
+		if m.ApplicationPackages[i] != nil {
+			if err := m.ApplicationPackages[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("applicationPackages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("applicationPackages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -87,6 +120,10 @@ func (m *APIImageLookupRequest) validatePackages(formats strfmt.Registry) error 
 func (m *APIImageLookupRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateApplicationPackages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePackages(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -97,11 +134,41 @@ func (m *APIImageLookupRequest) ContextValidate(ctx context.Context, formats str
 	return nil
 }
 
+func (m *APIImageLookupRequest) contextValidateApplicationPackages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ApplicationPackages); i++ {
+
+		if m.ApplicationPackages[i] != nil {
+
+			if swag.IsZero(m.ApplicationPackages[i]) { // not required
+				return nil
+			}
+
+			if err := m.ApplicationPackages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("applicationPackages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("applicationPackages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *APIImageLookupRequest) contextValidatePackages(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Packages); i++ {
 
 		if m.Packages[i] != nil {
+
+			if swag.IsZero(m.Packages[i]) { // not required
+				return nil
+			}
+
 			if err := m.Packages[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("packages" + "." + strconv.Itoa(i))

@@ -56,14 +56,7 @@ func (o *QueryFirewallPoliciesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewQueryFirewallPoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/queries/firewall/v1] queryFirewallPolicies", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ QueryFirewallPoliciesOK describes a response with status code 200, with default 
 OK
 */
 type QueryFirewallPoliciesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *QueryFirewallPoliciesOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryFirewallPoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ QueryFirewallPoliciesBadRequest describes a response with status code 400, with 
 Bad Request
 */
 type QueryFirewallPoliciesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *QueryFirewallPoliciesBadRequest) GetPayload() *models.MsaQueryResponse 
 
 func (o *QueryFirewallPoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ QueryFirewallPoliciesForbidden describes a response with status code 403, with d
 Forbidden
 */
 type QueryFirewallPoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *QueryFirewallPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryFirewallPoliciesTooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type QueryFirewallPoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *QueryFirewallPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ QueryFirewallPoliciesInternalServerError describes a response with status code 5
 Internal Server Error
 */
 type QueryFirewallPoliciesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *QueryFirewallPoliciesInternalServerError) GetPayload() *models.MsaQuery
 
 func (o *QueryFirewallPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *QueryFirewallPoliciesInternalServerError) readResponse(response runtime
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryFirewallPoliciesDefault creates a QueryFirewallPoliciesDefault with default headers values
-func NewQueryFirewallPoliciesDefault(code int) *QueryFirewallPoliciesDefault {
-	return &QueryFirewallPoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryFirewallPoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryFirewallPoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query firewall policies default response has a 2xx status code
-func (o *QueryFirewallPoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query firewall policies default response has a 3xx status code
-func (o *QueryFirewallPoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query firewall policies default response has a 4xx status code
-func (o *QueryFirewallPoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query firewall policies default response has a 5xx status code
-func (o *QueryFirewallPoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query firewall policies default response a status code equal to that given
-func (o *QueryFirewallPoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query firewall policies default response
-func (o *QueryFirewallPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryFirewallPoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryFirewallPoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/queries/firewall/v1][%d] queryFirewallPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryFirewallPoliciesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryFirewallPoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

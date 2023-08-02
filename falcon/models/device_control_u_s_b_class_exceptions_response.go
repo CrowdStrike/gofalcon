@@ -158,6 +158,11 @@ func (m *DeviceControlUSBClassExceptionsResponse) contextValidateExceptions(ctx 
 	for i := 0; i < len(m.Exceptions); i++ {
 
 		if m.Exceptions[i] != nil {
+
+			if swag.IsZero(m.Exceptions[i]) { // not required
+				return nil
+			}
+
 			if err := m.Exceptions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("exceptions" + "." + strconv.Itoa(i))

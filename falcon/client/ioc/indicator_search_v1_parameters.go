@@ -74,6 +74,12 @@ type IndicatorSearchV1Params struct {
 	*/
 	Filter *string
 
+	/* FromParent.
+
+	   The filter for returning either only indicators for the request customer or its MSSP parents
+	*/
+	FromParent *bool
+
 	/* Limit.
 
 	   The maximum records to return.
@@ -167,6 +173,17 @@ func (o *IndicatorSearchV1Params) SetFilter(filter *string) {
 	o.Filter = filter
 }
 
+// WithFromParent adds the fromParent to the indicator search v1 params
+func (o *IndicatorSearchV1Params) WithFromParent(fromParent *bool) *IndicatorSearchV1Params {
+	o.SetFromParent(fromParent)
+	return o
+}
+
+// SetFromParent adds the fromParent to the indicator search v1 params
+func (o *IndicatorSearchV1Params) SetFromParent(fromParent *bool) {
+	o.FromParent = fromParent
+}
+
 // WithLimit adds the limit to the indicator search v1 params
 func (o *IndicatorSearchV1Params) WithLimit(limit *int64) *IndicatorSearchV1Params {
 	o.SetLimit(limit)
@@ -237,6 +254,23 @@ func (o *IndicatorSearchV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.FromParent != nil {
+
+		// query param from_parent
+		var qrFromParent bool
+
+		if o.FromParent != nil {
+			qrFromParent = *o.FromParent
+		}
+		qFromParent := swag.FormatBool(qrFromParent)
+		if qFromParent != "" {
+
+			if err := r.SetQueryParam("from_parent", qFromParent); err != nil {
 				return err
 			}
 		}

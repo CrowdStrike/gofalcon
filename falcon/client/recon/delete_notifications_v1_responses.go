@@ -62,14 +62,7 @@ func (o *DeleteNotificationsV1Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewDeleteNotificationsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /recon/entities/notifications/v1] DeleteNotificationsV1", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *DeleteNotificationsV1InternalServerError) readResponse(response runtime
 	}
 
 	o.Payload = new(models.DomainErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteNotificationsV1Default creates a DeleteNotificationsV1Default with default headers values
-func NewDeleteNotificationsV1Default(code int) *DeleteNotificationsV1Default {
-	return &DeleteNotificationsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteNotificationsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteNotificationsV1Default struct {
-	_statusCode int
-
-	Payload *models.DomainNotificationIDResponse
-}
-
-// IsSuccess returns true when this delete notifications v1 default response has a 2xx status code
-func (o *DeleteNotificationsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete notifications v1 default response has a 3xx status code
-func (o *DeleteNotificationsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete notifications v1 default response has a 4xx status code
-func (o *DeleteNotificationsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete notifications v1 default response has a 5xx status code
-func (o *DeleteNotificationsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete notifications v1 default response a status code equal to that given
-func (o *DeleteNotificationsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete notifications v1 default response
-func (o *DeleteNotificationsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteNotificationsV1Default) Error() string {
-	return fmt.Sprintf("[DELETE /recon/entities/notifications/v1][%d] DeleteNotificationsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteNotificationsV1Default) String() string {
-	return fmt.Sprintf("[DELETE /recon/entities/notifications/v1][%d] DeleteNotificationsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteNotificationsV1Default) GetPayload() *models.DomainNotificationIDResponse {
-	return o.Payload
-}
-
-func (o *DeleteNotificationsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainNotificationIDResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

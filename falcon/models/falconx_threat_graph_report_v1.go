@@ -82,6 +82,11 @@ func (m *FalconxThreatGraphReportV1) contextValidateIndicators(ctx context.Conte
 	for i := 0; i < len(m.Indicators); i++ {
 
 		if m.Indicators[i] != nil {
+
+			if swag.IsZero(m.Indicators[i]) { // not required
+				return nil
+			}
+
 			if err := m.Indicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("indicators" + "." + strconv.Itoa(i))

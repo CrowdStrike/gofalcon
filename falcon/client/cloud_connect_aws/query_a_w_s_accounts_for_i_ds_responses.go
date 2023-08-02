@@ -56,14 +56,7 @@ func (o *QueryAWSAccountsForIDsReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewQueryAWSAccountsForIDsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /cloud-connect-aws/queries/accounts/v1] QueryAWSAccountsForIDs", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ QueryAWSAccountsForIDsOK describes a response with status code 200, with default
 OK
 */
 type QueryAWSAccountsForIDsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *QueryAWSAccountsForIDsOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryAWSAccountsForIDsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ QueryAWSAccountsForIDsBadRequest describes a response with status code 400, with
 Bad Request
 */
 type QueryAWSAccountsForIDsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *QueryAWSAccountsForIDsBadRequest) GetPayload() *models.MsaQueryResponse
 
 func (o *QueryAWSAccountsForIDsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ QueryAWSAccountsForIDsForbidden describes a response with status code 403, with 
 Forbidden
 */
 type QueryAWSAccountsForIDsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryAWSAccountsForIDsForbidden) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *QueryAWSAccountsForIDsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryAWSAccountsForIDsTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type QueryAWSAccountsForIDsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryAWSAccountsForIDsTooManyRequests) GetPayload() *models.MsaReplyMet
 
 func (o *QueryAWSAccountsForIDsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ QueryAWSAccountsForIDsInternalServerError describes a response with status code 
 Internal Server Error
 */
 type QueryAWSAccountsForIDsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *QueryAWSAccountsForIDsInternalServerError) GetPayload() *models.MsaQuer
 
 func (o *QueryAWSAccountsForIDsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *QueryAWSAccountsForIDsInternalServerError) readResponse(response runtim
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryAWSAccountsForIDsDefault creates a QueryAWSAccountsForIDsDefault with default headers values
-func NewQueryAWSAccountsForIDsDefault(code int) *QueryAWSAccountsForIDsDefault {
-	return &QueryAWSAccountsForIDsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryAWSAccountsForIDsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryAWSAccountsForIDsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query a w s accounts for i ds default response has a 2xx status code
-func (o *QueryAWSAccountsForIDsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query a w s accounts for i ds default response has a 3xx status code
-func (o *QueryAWSAccountsForIDsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query a w s accounts for i ds default response has a 4xx status code
-func (o *QueryAWSAccountsForIDsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query a w s accounts for i ds default response has a 5xx status code
-func (o *QueryAWSAccountsForIDsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query a w s accounts for i ds default response a status code equal to that given
-func (o *QueryAWSAccountsForIDsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query a w s accounts for i ds default response
-func (o *QueryAWSAccountsForIDsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryAWSAccountsForIDsDefault) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] QueryAWSAccountsForIDs default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAWSAccountsForIDsDefault) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/queries/accounts/v1][%d] QueryAWSAccountsForIDs default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAWSAccountsForIDsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryAWSAccountsForIDsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

@@ -68,14 +68,7 @@ func (o *GetMalQueryQuotasV1Reader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewGetMalQueryQuotasV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /malquery/aggregates/quotas/v1] GetMalQueryQuotasV1", response, response.Code())
 	}
 }
 
@@ -90,6 +83,10 @@ GetMalQueryQuotasV1OK describes a response with status code 200, with default he
 OK
 */
 type GetMalQueryQuotasV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -146,6 +143,13 @@ func (o *GetMalQueryQuotasV1OK) GetPayload() *models.MalqueryRateLimitsResponse 
 
 func (o *GetMalQueryQuotasV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -189,6 +193,10 @@ GetMalQueryQuotasV1BadRequest describes a response with status code 400, with de
 Bad Request
 */
 type GetMalQueryQuotasV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -245,6 +253,13 @@ func (o *GetMalQueryQuotasV1BadRequest) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryQuotasV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -288,6 +303,10 @@ GetMalQueryQuotasV1Unauthorized describes a response with status code 401, with 
 Unauthorized
 */
 type GetMalQueryQuotasV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -344,6 +363,13 @@ func (o *GetMalQueryQuotasV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryQuotasV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -387,6 +413,10 @@ GetMalQueryQuotasV1Forbidden describes a response with status code 403, with def
 Forbidden
 */
 type GetMalQueryQuotasV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -443,6 +473,13 @@ func (o *GetMalQueryQuotasV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryQuotasV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -486,6 +523,10 @@ GetMalQueryQuotasV1NotFound describes a response with status code 404, with defa
 Not Found
 */
 type GetMalQueryQuotasV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -542,6 +583,13 @@ func (o *GetMalQueryQuotasV1NotFound) GetPayload() *models.MalqueryRateLimitsRes
 
 func (o *GetMalQueryQuotasV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -585,6 +633,10 @@ GetMalQueryQuotasV1TooManyRequests describes a response with status code 429, wi
 Too Many Requests
 */
 type GetMalQueryQuotasV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -645,6 +697,13 @@ func (o *GetMalQueryQuotasV1TooManyRequests) GetPayload() *models.MsaReplyMetaOn
 
 func (o *GetMalQueryQuotasV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -699,6 +758,10 @@ GetMalQueryQuotasV1InternalServerError describes a response with status code 500
 Internal Server Error
 */
 type GetMalQueryQuotasV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -755,6 +818,13 @@ func (o *GetMalQueryQuotasV1InternalServerError) GetPayload() *models.MalqueryRa
 
 func (o *GetMalQueryQuotasV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -776,78 +846,6 @@ func (o *GetMalQueryQuotasV1InternalServerError) readResponse(response runtime.C
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryRateLimitsResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetMalQueryQuotasV1Default creates a GetMalQueryQuotasV1Default with default headers values
-func NewGetMalQueryQuotasV1Default(code int) *GetMalQueryQuotasV1Default {
-	return &GetMalQueryQuotasV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetMalQueryQuotasV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetMalQueryQuotasV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryRateLimitsResponse
-}
-
-// IsSuccess returns true when this get mal query quotas v1 default response has a 2xx status code
-func (o *GetMalQueryQuotasV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get mal query quotas v1 default response has a 3xx status code
-func (o *GetMalQueryQuotasV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get mal query quotas v1 default response has a 4xx status code
-func (o *GetMalQueryQuotasV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get mal query quotas v1 default response has a 5xx status code
-func (o *GetMalQueryQuotasV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get mal query quotas v1 default response a status code equal to that given
-func (o *GetMalQueryQuotasV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get mal query quotas v1 default response
-func (o *GetMalQueryQuotasV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetMalQueryQuotasV1Default) Error() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] GetMalQueryQuotasV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetMalQueryQuotasV1Default) String() string {
-	return fmt.Sprintf("[GET /malquery/aggregates/quotas/v1][%d] GetMalQueryQuotasV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetMalQueryQuotasV1Default) GetPayload() *models.MalqueryRateLimitsResponse {
-	return o.Payload
-}
-
-func (o *GetMalQueryQuotasV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryRateLimitsResponse)
 

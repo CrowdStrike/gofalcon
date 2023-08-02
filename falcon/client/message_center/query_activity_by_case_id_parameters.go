@@ -70,7 +70,10 @@ type QueryActivityByCaseIDParams struct {
 
 	/* Filter.
 
-	   Optional filter and sort criteria in the form of an FQL query.
+	     Optional filter and sort criteria in the form of an FQL query. Allowed filters are:
+
+	activity.created_time
+	activity.type
 	*/
 	Filter *string
 

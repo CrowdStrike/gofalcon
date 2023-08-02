@@ -17,11 +17,23 @@ import (
 // swagger:model registration.AzureAccountExternalV1
 type RegistrationAzureAccountExternalV1 struct {
 
+	// account type
+	AccountType string `json:"account_type,omitempty"`
+
+	// client id
+	ClientID string `json:"client_id,omitempty"`
+
+	// default subscription
+	DefaultSubscription bool `json:"default_subscription,omitempty"`
+
 	// Azure Subscription ID.
 	SubscriptionID string `json:"subscription_id,omitempty"`
 
 	// Azure Tenant ID to use.
 	TenantID string `json:"tenant_id,omitempty"`
+
+	// years valid
+	YearsValid int64 `json:"years_valid,omitempty"`
 }
 
 // Validate validates this registration azure account external v1

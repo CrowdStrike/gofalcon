@@ -39,17 +39,22 @@ type RegistrationIOMEvent struct {
 	// Required: true
 	CloudProvider *string `json:"cloud_provider"`
 
+	// custom policy id
+	CustomPolicyID string `json:"custom_policy_id,omitempty"`
+
 	// finding
 	// Required: true
 	Finding *string `json:"finding"`
 
 	// policy id
-	// Required: true
-	PolicyID *string `json:"policy_id"`
+	PolicyID string `json:"policy_id,omitempty"`
 
 	// policy statement
 	// Required: true
 	PolicyStatement *string `json:"policy_statement"`
+
+	// policy type
+	PolicyType string `json:"policy_type,omitempty"`
 
 	// region
 	// Required: true
@@ -121,10 +126,6 @@ func (m *RegistrationIOMEvent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFinding(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePolicyID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -230,15 +231,6 @@ func (m *RegistrationIOMEvent) validateCloudProvider(formats strfmt.Registry) er
 func (m *RegistrationIOMEvent) validateFinding(formats strfmt.Registry) error {
 
 	if err := validate.Required("finding", "body", m.Finding); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *RegistrationIOMEvent) validatePolicyID(formats strfmt.Registry) error {
-
-	if err := validate.Required("policy_id", "body", m.PolicyID); err != nil {
 		return err
 	}
 

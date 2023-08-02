@@ -56,14 +56,7 @@ func (o *UploadSampleV2Reader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewUploadSampleV2Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /samples/entities/samples/v2] UploadSampleV2", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *UploadSampleV2InternalServerError) readResponse(response runtime.Client
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ClientSampleMetadataResponseV2)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUploadSampleV2Default creates a UploadSampleV2Default with default headers values
-func NewUploadSampleV2Default(code int) *UploadSampleV2Default {
-	return &UploadSampleV2Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UploadSampleV2Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UploadSampleV2Default struct {
-	_statusCode int
-
-	Payload *models.ClientSampleMetadataResponseV2
-}
-
-// IsSuccess returns true when this upload sample v2 default response has a 2xx status code
-func (o *UploadSampleV2Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this upload sample v2 default response has a 3xx status code
-func (o *UploadSampleV2Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this upload sample v2 default response has a 4xx status code
-func (o *UploadSampleV2Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this upload sample v2 default response has a 5xx status code
-func (o *UploadSampleV2Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this upload sample v2 default response a status code equal to that given
-func (o *UploadSampleV2Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the upload sample v2 default response
-func (o *UploadSampleV2Default) Code() int {
-	return o._statusCode
-}
-
-func (o *UploadSampleV2Default) Error() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] UploadSampleV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UploadSampleV2Default) String() string {
-	return fmt.Sprintf("[POST /samples/entities/samples/v2][%d] UploadSampleV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UploadSampleV2Default) GetPayload() *models.ClientSampleMetadataResponseV2 {
-	return o.Payload
-}
-
-func (o *UploadSampleV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ClientSampleMetadataResponseV2)
 

@@ -56,7 +56,7 @@ func (o *RTRInitSessionReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /real-time-response/entities/sessions/v1] RTR-InitSession", response, response.Code())
 	}
 }
 

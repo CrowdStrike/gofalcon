@@ -124,6 +124,11 @@ func (m *DomainAssessmentItems) contextValidateOsSignals(ctx context.Context, fo
 	for i := 0; i < len(m.OsSignals); i++ {
 
 		if m.OsSignals[i] != nil {
+
+			if swag.IsZero(m.OsSignals[i]) { // not required
+				return nil
+			}
+
 			if err := m.OsSignals[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("os_signals" + "." + strconv.Itoa(i))
@@ -144,6 +149,11 @@ func (m *DomainAssessmentItems) contextValidateSensorSignals(ctx context.Context
 	for i := 0; i < len(m.SensorSignals); i++ {
 
 		if m.SensorSignals[i] != nil {
+
+			if swag.IsZero(m.SensorSignals[i]) { // not required
+				return nil
+			}
+
 			if err := m.SensorSignals[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sensor_signals" + "." + strconv.Itoa(i))

@@ -44,14 +44,7 @@ func (o *ProcessesRanOnReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewProcessesRanOnDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /indicators/queries/processes/v1] ProcessesRanOn", response, response.Code())
 	}
 }
 
@@ -67,6 +60,10 @@ OK
 */
 type ProcessesRanOnOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -75,7 +72,7 @@ type ProcessesRanOnOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMsaReplyProcessesRanOn
+	Payload *models.IocapiMsaReplyProcessesRanOn
 }
 
 // IsSuccess returns true when this processes ran on o k response has a 2xx status code
@@ -116,11 +113,18 @@ func (o *ProcessesRanOnOK) String() string {
 	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] processesRanOnOK  %+v", 200, o.Payload)
 }
 
-func (o *ProcessesRanOnOK) GetPayload() *models.APIMsaReplyProcessesRanOn {
+func (o *ProcessesRanOnOK) GetPayload() *models.IocapiMsaReplyProcessesRanOn {
 	return o.Payload
 }
 
 func (o *ProcessesRanOnOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -144,7 +148,7 @@ func (o *ProcessesRanOnOK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMsaReplyProcessesRanOn)
+	o.Payload = new(models.IocapiMsaReplyProcessesRanOn)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -165,6 +169,10 @@ ProcessesRanOnForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type ProcessesRanOnForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *ProcessesRanOnForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *ProcessesRanOnForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ ProcessesRanOnTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type ProcessesRanOnTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *ProcessesRanOnTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *ProcessesRanOnTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *ProcessesRanOnTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewProcessesRanOnDefault creates a ProcessesRanOnDefault with default headers values
-func NewProcessesRanOnDefault(code int) *ProcessesRanOnDefault {
-	return &ProcessesRanOnDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ProcessesRanOnDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ProcessesRanOnDefault struct {
-	_statusCode int
-
-	Payload *models.APIMsaReplyProcessesRanOn
-}
-
-// IsSuccess returns true when this processes ran on default response has a 2xx status code
-func (o *ProcessesRanOnDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this processes ran on default response has a 3xx status code
-func (o *ProcessesRanOnDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this processes ran on default response has a 4xx status code
-func (o *ProcessesRanOnDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this processes ran on default response has a 5xx status code
-func (o *ProcessesRanOnDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this processes ran on default response a status code equal to that given
-func (o *ProcessesRanOnDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the processes ran on default response
-func (o *ProcessesRanOnDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ProcessesRanOnDefault) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] ProcessesRanOn default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ProcessesRanOnDefault) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/processes/v1][%d] ProcessesRanOn default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ProcessesRanOnDefault) GetPayload() *models.APIMsaReplyProcessesRanOn {
-	return o.Payload
-}
-
-func (o *ProcessesRanOnDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMsaReplyProcessesRanOn)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

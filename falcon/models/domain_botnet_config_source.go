@@ -248,6 +248,11 @@ func (m *DomainBotnetConfigSource) contextValidateActions(ctx context.Context, f
 	for i := 0; i < len(m.Actions); i++ {
 
 		if m.Actions[i] != nil {
+
+			if swag.IsZero(m.Actions[i]) { // not required
+				return nil
+			}
+
 			if err := m.Actions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actions" + "." + strconv.Itoa(i))
@@ -268,6 +273,11 @@ func (m *DomainBotnetConfigSource) contextValidateInjects(ctx context.Context, f
 	for i := 0; i < len(m.Injects); i++ {
 
 		if m.Injects[i] != nil {
+
+			if swag.IsZero(m.Injects[i]) { // not required
+				return nil
+			}
+
 			if err := m.Injects[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("injects" + "." + strconv.Itoa(i))
@@ -288,6 +298,11 @@ func (m *DomainBotnetConfigSource) contextValidateVariables(ctx context.Context,
 	for i := 0; i < len(m.Variables); i++ {
 
 		if m.Variables[i] != nil {
+
+			if swag.IsZero(m.Variables[i]) { // not required
+				return nil
+			}
+
 			if err := m.Variables[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variables" + "." + strconv.Itoa(i))

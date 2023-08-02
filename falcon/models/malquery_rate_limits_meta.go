@@ -256,6 +256,11 @@ func (m *MalqueryRateLimitsMeta) contextValidateDownloadCounts(ctx context.Conte
 	for i := 0; i < len(m.DownloadCounts); i++ {
 
 		if m.DownloadCounts[i] != nil {
+
+			if swag.IsZero(m.DownloadCounts[i]) { // not required
+				return nil
+			}
+
 			if err := m.DownloadCounts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("download_counts" + "." + strconv.Itoa(i))
@@ -276,6 +281,11 @@ func (m *MalqueryRateLimitsMeta) contextValidateHuntCounts(ctx context.Context, 
 	for i := 0; i < len(m.HuntCounts); i++ {
 
 		if m.HuntCounts[i] != nil {
+
+			if swag.IsZero(m.HuntCounts[i]) { // not required
+				return nil
+			}
+
 			if err := m.HuntCounts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hunt_counts" + "." + strconv.Itoa(i))

@@ -56,7 +56,7 @@ func (o *CombinedUserRolesV1Reader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /user-management/combined/user-roles/v1] combinedUserRolesV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type CombinedUserRolesV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaUserGrantsResponse
+	Payload *models.FlightcontrolapiUserGrantResponse
 }
 
 // IsSuccess returns true when this combined user roles v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CombinedUserRolesV1OK) String() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1OK  %+v", 200, o.Payload)
 }
 
-func (o *CombinedUserRolesV1OK) GetPayload() *models.DomainMsaUserGrantsResponse {
+func (o *CombinedUserRolesV1OK) GetPayload() *models.FlightcontrolapiUserGrantResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CombinedUserRolesV1OK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaUserGrantsResponse)
+	o.Payload = new(models.FlightcontrolapiUserGrantResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type CombinedUserRolesV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaUserGrantsResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this combined user roles v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CombinedUserRolesV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CombinedUserRolesV1BadRequest) GetPayload() *models.DomainMsaUserGrantsResponse {
+func (o *CombinedUserRolesV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CombinedUserRolesV1BadRequest) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaUserGrantsResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CombinedUserRolesV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaUserGrantsResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this combined user roles v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CombinedUserRolesV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CombinedUserRolesV1Forbidden) GetPayload() *models.DomainMsaUserGrantsResponse {
+func (o *CombinedUserRolesV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CombinedUserRolesV1Forbidden) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaUserGrantsResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CombinedUserRolesV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaUserGrantsResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this combined user roles v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CombinedUserRolesV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /user-management/combined/user-roles/v1][%d] combinedUserRolesV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CombinedUserRolesV1InternalServerError) GetPayload() *models.DomainMsaUserGrantsResponse {
+func (o *CombinedUserRolesV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CombinedUserRolesV1InternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaUserGrantsResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

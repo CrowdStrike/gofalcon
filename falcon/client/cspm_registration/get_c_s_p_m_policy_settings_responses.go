@@ -62,14 +62,7 @@ func (o *GetCSPMPolicySettingsReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewGetCSPMPolicySettingsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /settings/entities/policy/v1] GetCSPMPolicySettings", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *GetCSPMPolicySettingsInternalServerError) readResponse(response runtime
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.RegistrationPolicySettingsResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCSPMPolicySettingsDefault creates a GetCSPMPolicySettingsDefault with default headers values
-func NewGetCSPMPolicySettingsDefault(code int) *GetCSPMPolicySettingsDefault {
-	return &GetCSPMPolicySettingsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCSPMPolicySettingsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCSPMPolicySettingsDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationPolicySettingsResponseV1
-}
-
-// IsSuccess returns true when this get c s p m policy settings default response has a 2xx status code
-func (o *GetCSPMPolicySettingsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get c s p m policy settings default response has a 3xx status code
-func (o *GetCSPMPolicySettingsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get c s p m policy settings default response has a 4xx status code
-func (o *GetCSPMPolicySettingsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get c s p m policy settings default response has a 5xx status code
-func (o *GetCSPMPolicySettingsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get c s p m policy settings default response a status code equal to that given
-func (o *GetCSPMPolicySettingsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get c s p m policy settings default response
-func (o *GetCSPMPolicySettingsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCSPMPolicySettingsDefault) Error() string {
-	return fmt.Sprintf("[GET /settings/entities/policy/v1][%d] GetCSPMPolicySettings default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMPolicySettingsDefault) String() string {
-	return fmt.Sprintf("[GET /settings/entities/policy/v1][%d] GetCSPMPolicySettings default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMPolicySettingsDefault) GetPayload() *models.RegistrationPolicySettingsResponseV1 {
-	return o.Payload
-}
-
-func (o *GetCSPMPolicySettingsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RegistrationPolicySettingsResponseV1)
 

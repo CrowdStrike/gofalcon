@@ -62,14 +62,7 @@ func (o *PostMalQueryHuntV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewPostMalQueryHuntV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /malquery/queries/hunt/v1] PostMalQueryHuntV1", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ PostMalQueryHuntV1OK describes a response with status code 200, with default hea
 OK
 */
 type PostMalQueryHuntV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *PostMalQueryHuntV1OK) GetPayload() *models.MalqueryExternalQueryRespons
 
 func (o *PostMalQueryHuntV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ PostMalQueryHuntV1BadRequest describes a response with status code 400, with def
 Bad Request
 */
 type PostMalQueryHuntV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *PostMalQueryHuntV1BadRequest) GetPayload() *models.MalqueryExternalQuer
 
 func (o *PostMalQueryHuntV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ PostMalQueryHuntV1Unauthorized describes a response with status code 401, with d
 Unauthorized
 */
 type PostMalQueryHuntV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PostMalQueryHuntV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 
 func (o *PostMalQueryHuntV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ PostMalQueryHuntV1Forbidden describes a response with status code 403, with defa
 Forbidden
 */
 type PostMalQueryHuntV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *PostMalQueryHuntV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *PostMalQueryHuntV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ PostMalQueryHuntV1TooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type PostMalQueryHuntV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PostMalQueryHuntV1TooManyRequests) GetPayload() *models.MalqueryExterna
 
 func (o *PostMalQueryHuntV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ PostMalQueryHuntV1InternalServerError describes a response with status code 500,
 Internal Server Error
 */
 type PostMalQueryHuntV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *PostMalQueryHuntV1InternalServerError) GetPayload() *models.MalqueryExt
 
 func (o *PostMalQueryHuntV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *PostMalQueryHuntV1InternalServerError) readResponse(response runtime.Cl
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryExternalQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostMalQueryHuntV1Default creates a PostMalQueryHuntV1Default with default headers values
-func NewPostMalQueryHuntV1Default(code int) *PostMalQueryHuntV1Default {
-	return &PostMalQueryHuntV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostMalQueryHuntV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostMalQueryHuntV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryExternalQueryResponse
-}
-
-// IsSuccess returns true when this post mal query hunt v1 default response has a 2xx status code
-func (o *PostMalQueryHuntV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post mal query hunt v1 default response has a 3xx status code
-func (o *PostMalQueryHuntV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post mal query hunt v1 default response has a 4xx status code
-func (o *PostMalQueryHuntV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post mal query hunt v1 default response has a 5xx status code
-func (o *PostMalQueryHuntV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post mal query hunt v1 default response a status code equal to that given
-func (o *PostMalQueryHuntV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post mal query hunt v1 default response
-func (o *PostMalQueryHuntV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostMalQueryHuntV1Default) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] PostMalQueryHuntV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryHuntV1Default) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/hunt/v1][%d] PostMalQueryHuntV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryHuntV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
-	return o.Payload
-}
-
-func (o *PostMalQueryHuntV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 

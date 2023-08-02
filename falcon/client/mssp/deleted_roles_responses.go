@@ -56,14 +56,7 @@ func (o *DeletedRolesReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewDeletedRolesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /mssp/entities/mssp-roles/v1] deletedRoles", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeletedRolesOK describes a response with status code 200, with default header va
 OK
 */
 type DeletedRolesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *DeletedRolesOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
 
 func (o *DeletedRolesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ DeletedRolesMultiStatus describes a response with status code 207, with default 
 Multi-Status
 */
 type DeletedRolesMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *DeletedRolesMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 
 
 func (o *DeletedRolesMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ DeletedRolesBadRequest describes a response with status code 400, with default h
 Bad Request
 */
 type DeletedRolesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *DeletedRolesBadRequest) GetPayload() *models.MsaErrorsOnly {
 
 func (o *DeletedRolesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ DeletedRolesForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type DeletedRolesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *DeletedRolesForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *DeletedRolesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ DeletedRolesTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type DeletedRolesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *DeletedRolesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeletedRolesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *DeletedRolesTooManyRequests) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeletedRolesDefault creates a DeletedRolesDefault with default headers values
-func NewDeletedRolesDefault(code int) *DeletedRolesDefault {
-	return &DeletedRolesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeletedRolesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeletedRolesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainMSSPRoleResponseV1
-}
-
-// IsSuccess returns true when this deleted roles default response has a 2xx status code
-func (o *DeletedRolesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this deleted roles default response has a 3xx status code
-func (o *DeletedRolesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this deleted roles default response has a 4xx status code
-func (o *DeletedRolesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this deleted roles default response has a 5xx status code
-func (o *DeletedRolesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this deleted roles default response a status code equal to that given
-func (o *DeletedRolesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the deleted roles default response
-func (o *DeletedRolesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeletedRolesDefault) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRoles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeletedRolesDefault) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/mssp-roles/v1][%d] deletedRoles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeletedRolesDefault) GetPayload() *models.DomainMSSPRoleResponseV1 {
-	return o.Payload
-}
-
-func (o *DeletedRolesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainMSSPRoleResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

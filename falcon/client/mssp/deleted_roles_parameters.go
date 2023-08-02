@@ -63,7 +63,10 @@ DeletedRolesParams contains all the parameters to send to the API endpoint
 */
 type DeletedRolesParams struct {
 
-	// Body.
+	/* Body.
+
+	   'user_group_id' and 'cid_group_id' fields are required. 'role_ids' field is optional. Remaining fields are ignored.
+	*/
 	Body *models.DomainMSSPRoleRequestV1
 
 	timeout    time.Duration

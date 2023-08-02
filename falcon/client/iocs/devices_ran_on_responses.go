@@ -44,14 +44,7 @@ func (o *DevicesRanOnReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewDevicesRanOnDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /indicators/queries/devices/v1] DevicesRanOn", response, response.Code())
 	}
 }
 
@@ -67,6 +60,10 @@ OK
 */
 type DevicesRanOnOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -75,7 +72,7 @@ type DevicesRanOnOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMsaReplyDevicesRanOn
+	Payload *models.IocapiMsaReplyDevicesRanOn
 }
 
 // IsSuccess returns true when this devices ran on o k response has a 2xx status code
@@ -116,11 +113,18 @@ func (o *DevicesRanOnOK) String() string {
 	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] devicesRanOnOK  %+v", 200, o.Payload)
 }
 
-func (o *DevicesRanOnOK) GetPayload() *models.APIMsaReplyDevicesRanOn {
+func (o *DevicesRanOnOK) GetPayload() *models.IocapiMsaReplyDevicesRanOn {
 	return o.Payload
 }
 
 func (o *DevicesRanOnOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -144,7 +148,7 @@ func (o *DevicesRanOnOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMsaReplyDevicesRanOn)
+	o.Payload = new(models.IocapiMsaReplyDevicesRanOn)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -165,6 +169,10 @@ DevicesRanOnForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type DevicesRanOnForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *DevicesRanOnForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DevicesRanOnForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ DevicesRanOnTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type DevicesRanOnTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *DevicesRanOnTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DevicesRanOnTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *DevicesRanOnTooManyRequests) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDevicesRanOnDefault creates a DevicesRanOnDefault with default headers values
-func NewDevicesRanOnDefault(code int) *DevicesRanOnDefault {
-	return &DevicesRanOnDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DevicesRanOnDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DevicesRanOnDefault struct {
-	_statusCode int
-
-	Payload *models.APIMsaReplyDevicesRanOn
-}
-
-// IsSuccess returns true when this devices ran on default response has a 2xx status code
-func (o *DevicesRanOnDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this devices ran on default response has a 3xx status code
-func (o *DevicesRanOnDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this devices ran on default response has a 4xx status code
-func (o *DevicesRanOnDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this devices ran on default response has a 5xx status code
-func (o *DevicesRanOnDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this devices ran on default response a status code equal to that given
-func (o *DevicesRanOnDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the devices ran on default response
-func (o *DevicesRanOnDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DevicesRanOnDefault) Error() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] DevicesRanOn default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DevicesRanOnDefault) String() string {
-	return fmt.Sprintf("[GET /indicators/queries/devices/v1][%d] DevicesRanOn default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DevicesRanOnDefault) GetPayload() *models.APIMsaReplyDevicesRanOn {
-	return o.Payload
-}
-
-func (o *DevicesRanOnDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMsaReplyDevicesRanOn)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

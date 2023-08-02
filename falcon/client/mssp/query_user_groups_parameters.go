@@ -64,7 +64,7 @@ type QueryUserGroupsParams struct {
 
 	/* Limit.
 
-	   Number of ids to return
+	   Maximum number of results to return
 
 	   Default: 10
 	*/

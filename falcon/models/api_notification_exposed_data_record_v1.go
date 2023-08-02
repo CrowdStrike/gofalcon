@@ -38,14 +38,23 @@ type APINotificationExposedDataRecordV1 struct {
 	// Format: date-time
 	CreatedDate *strfmt.DateTime `json:"created_date"`
 
+	// The domain where the credentials are valid
+	CredentialsDomain string `json:"credentials_domain,omitempty"`
+
+	// The IP where the credentials are valid
+	CredentialsIP string `json:"credentials_ip,omitempty"`
+
+	// The URL where the credentials are valid
+	CredentialsURL string `json:"credentials_url,omitempty"`
+
 	// The nickname of the user on the impacted site
 	DisplayName string `json:"display_name,omitempty"`
 
+	// The domain of the email linked to the impacted site
+	Domain string `json:"domain,omitempty"`
+
 	// The email linked to the impacted site
 	Email string `json:"email,omitempty"`
-
-	// The domain of the email
-	EmailDomain string `json:"email_domain,omitempty"`
 
 	// The approximate date when the event occurred
 	// Required: true
@@ -71,15 +80,6 @@ type APINotificationExposedDataRecordV1 struct {
 	// The ID of this entity
 	// Required: true
 	ID *string `json:"id"`
-
-	// The domain where the credentials are valid
-	ImpactedDomain string `json:"impacted_domain,omitempty"`
-
-	// The IP where the credentials are valid
-	ImpactedIP string `json:"impacted_ip,omitempty"`
-
-	// The URL where the credentials are valid
-	ImpactedURL string `json:"impacted_url,omitempty"`
 
 	// The users job at the company
 	JobPosition string `json:"job_position,omitempty"`
@@ -449,6 +449,11 @@ func (m *APINotificationExposedDataRecordV1) ContextValidate(ctx context.Context
 func (m *APINotificationExposedDataRecordV1) contextValidateFile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.File != nil {
+
+		if swag.IsZero(m.File) { // not required
+			return nil
+		}
+
 		if err := m.File.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("file")
@@ -465,6 +470,11 @@ func (m *APINotificationExposedDataRecordV1) contextValidateFile(ctx context.Con
 func (m *APINotificationExposedDataRecordV1) contextValidateFinancial(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Financial != nil {
+
+		if swag.IsZero(m.Financial) { // not required
+			return nil
+		}
+
 		if err := m.Financial.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("financial")
@@ -481,6 +491,11 @@ func (m *APINotificationExposedDataRecordV1) contextValidateFinancial(ctx contex
 func (m *APINotificationExposedDataRecordV1) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Location != nil {
+
+		if swag.IsZero(m.Location) { // not required
+			return nil
+		}
+
 		if err := m.Location.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
@@ -497,6 +512,7 @@ func (m *APINotificationExposedDataRecordV1) contextValidateLocation(ctx context
 func (m *APINotificationExposedDataRecordV1) contextValidateRule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Rule != nil {
+
 		if err := m.Rule.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rule")
@@ -513,6 +529,11 @@ func (m *APINotificationExposedDataRecordV1) contextValidateRule(ctx context.Con
 func (m *APINotificationExposedDataRecordV1) contextValidateSocial(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Social != nil {
+
+		if swag.IsZero(m.Social) { // not required
+			return nil
+		}
+
 		if err := m.Social.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("social")

@@ -74,7 +74,7 @@ type BatchInitSessionsParams struct {
 
 	/* HostTimeoutDuration.
 
-	   Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.
+	   Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.
 
 	   Default: "tiny bit less than overall request timeout"
 	*/
@@ -82,7 +82,7 @@ type BatchInitSessionsParams struct {
 
 	/* Timeout.
 
-	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
 
 	   Default: 30
 	*/
@@ -90,7 +90,7 @@ type BatchInitSessionsParams struct {
 
 	/* TimeoutDuration.
 
-	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 
 	   Default: "30s"
 	*/

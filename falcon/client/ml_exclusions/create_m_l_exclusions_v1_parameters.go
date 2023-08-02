@@ -64,7 +64,7 @@ CreateMLExclusionsV1Params contains all the parameters to send to the API endpoi
 type CreateMLExclusionsV1Params struct {
 
 	// Body.
-	Body *models.RequestsMlExclusionCreateReqV1
+	Body *models.ExclusionsCreateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CreateMLExclusionsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create m l exclusions v1 params
-func (o *CreateMLExclusionsV1Params) WithBody(body *models.RequestsMlExclusionCreateReqV1) *CreateMLExclusionsV1Params {
+func (o *CreateMLExclusionsV1Params) WithBody(body *models.ExclusionsCreateReqV1) *CreateMLExclusionsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create m l exclusions v1 params
-func (o *CreateMLExclusionsV1Params) SetBody(body *models.RequestsMlExclusionCreateReqV1) {
+func (o *CreateMLExclusionsV1Params) SetBody(body *models.ExclusionsCreateReqV1) {
 	o.Body = body
 }
 

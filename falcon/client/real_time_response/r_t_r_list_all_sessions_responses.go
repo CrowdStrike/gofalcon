@@ -56,14 +56,7 @@ func (o *RTRListAllSessionsReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewRTRListAllSessionsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /real-time-response/queries/sessions/v1] RTR-ListAllSessions", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ RTRListAllSessionsOK describes a response with status code 200, with default hea
 OK
 */
 type RTRListAllSessionsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *RTRListAllSessionsOK) GetPayload() *models.DomainListSessionsResponseMs
 
 func (o *RTRListAllSessionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ RTRListAllSessionsBadRequest describes a response with status code 400, with def
 Bad Request
 */
 type RTRListAllSessionsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *RTRListAllSessionsBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRListAllSessionsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ RTRListAllSessionsForbidden describes a response with status code 403, with defa
 Forbidden
 */
 type RTRListAllSessionsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *RTRListAllSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRListAllSessionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ RTRListAllSessionsNotFound describes a response with status code 404, with defau
 Not Found
 */
 type RTRListAllSessionsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *RTRListAllSessionsNotFound) GetPayload() *models.DomainAPIError {
 
 func (o *RTRListAllSessionsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ RTRListAllSessionsTooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type RTRListAllSessionsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *RTRListAllSessionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *RTRListAllSessionsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *RTRListAllSessionsTooManyRequests) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRListAllSessionsDefault creates a RTRListAllSessionsDefault with default headers values
-func NewRTRListAllSessionsDefault(code int) *RTRListAllSessionsDefault {
-	return &RTRListAllSessionsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRListAllSessionsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RTRListAllSessionsDefault struct {
-	_statusCode int
-
-	Payload *models.DomainListSessionsResponseMsa
-}
-
-// IsSuccess returns true when this r t r list all sessions default response has a 2xx status code
-func (o *RTRListAllSessionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r list all sessions default response has a 3xx status code
-func (o *RTRListAllSessionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r list all sessions default response has a 4xx status code
-func (o *RTRListAllSessionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r list all sessions default response has a 5xx status code
-func (o *RTRListAllSessionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r list all sessions default response a status code equal to that given
-func (o *RTRListAllSessionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r list all sessions default response
-func (o *RTRListAllSessionsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRListAllSessionsDefault) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] RTR-ListAllSessions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRListAllSessionsDefault) String() string {
-	return fmt.Sprintf("[GET /real-time-response/queries/sessions/v1][%d] RTR-ListAllSessions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRListAllSessionsDefault) GetPayload() *models.DomainListSessionsResponseMsa {
-	return o.Payload
-}
-
-func (o *RTRListAllSessionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainListSessionsResponseMsa)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

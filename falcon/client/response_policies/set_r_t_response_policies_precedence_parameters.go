@@ -64,7 +64,7 @@ SetRTResponsePoliciesPrecedenceParams contains all the parameters to send to the
 type SetRTResponsePoliciesPrecedenceParams struct {
 
 	// Body.
-	Body *models.RequestsSetPolicyPrecedenceReqV1
+	Body *models.BaseSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *SetRTResponsePoliciesPrecedenceParams) SetHTTPClient(client *http.Clien
 }
 
 // WithBody adds the body to the set r t response policies precedence params
-func (o *SetRTResponsePoliciesPrecedenceParams) WithBody(body *models.RequestsSetPolicyPrecedenceReqV1) *SetRTResponsePoliciesPrecedenceParams {
+func (o *SetRTResponsePoliciesPrecedenceParams) WithBody(body *models.BaseSetPolicyPrecedenceReqV1) *SetRTResponsePoliciesPrecedenceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the set r t response policies precedence params
-func (o *SetRTResponsePoliciesPrecedenceParams) SetBody(body *models.RequestsSetPolicyPrecedenceReqV1) {
+func (o *SetRTResponsePoliciesPrecedenceParams) SetBody(body *models.BaseSetPolicyPrecedenceReqV1) {
 	o.Body = body
 }
 

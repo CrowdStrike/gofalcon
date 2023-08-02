@@ -56,14 +56,7 @@ func (o *QueryEvaluationLogicReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewQueryEvaluationLogicDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /spotlight/queries/evaluation-logic/v1] queryEvaluationLogic", response, response.Code())
 	}
 }
 
@@ -601,78 +594,6 @@ func (o *QueryEvaluationLogicInternalServerError) readResponse(response runtime.
 			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	return nil
-}
-
-// NewQueryEvaluationLogicDefault creates a QueryEvaluationLogicDefault with default headers values
-func NewQueryEvaluationLogicDefault(code int) *QueryEvaluationLogicDefault {
-	return &QueryEvaluationLogicDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryEvaluationLogicDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryEvaluationLogicDefault struct {
-	_statusCode int
-
-	Payload *models.DomainSPAPIQueryResponse
-}
-
-// IsSuccess returns true when this query evaluation logic default response has a 2xx status code
-func (o *QueryEvaluationLogicDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query evaluation logic default response has a 3xx status code
-func (o *QueryEvaluationLogicDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query evaluation logic default response has a 4xx status code
-func (o *QueryEvaluationLogicDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query evaluation logic default response has a 5xx status code
-func (o *QueryEvaluationLogicDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query evaluation logic default response a status code equal to that given
-func (o *QueryEvaluationLogicDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query evaluation logic default response
-func (o *QueryEvaluationLogicDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryEvaluationLogicDefault) Error() string {
-	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogic default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryEvaluationLogicDefault) String() string {
-	return fmt.Sprintf("[GET /spotlight/queries/evaluation-logic/v1][%d] queryEvaluationLogic default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryEvaluationLogicDefault) GetPayload() *models.DomainSPAPIQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryEvaluationLogicDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainSPAPIQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

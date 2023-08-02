@@ -600,6 +600,7 @@ func (m *DetectsBehavior) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *DetectsBehavior) contextValidateParentDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ParentDetails != nil {
+
 		if err := m.ParentDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parent_details")
@@ -616,6 +617,7 @@ func (m *DetectsBehavior) contextValidateParentDetails(ctx context.Context, form
 func (m *DetectsBehavior) contextValidatePatternDispositionDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PatternDispositionDetails != nil {
+
 		if err := m.PatternDispositionDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern_disposition_details")

@@ -50,7 +50,7 @@ func (o *DeleteRuleGroupsMixin0Reader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /ioarules/entities/rule-groups/v1] delete-rule-groupsMixin0", response, response.Code())
 	}
 }
 

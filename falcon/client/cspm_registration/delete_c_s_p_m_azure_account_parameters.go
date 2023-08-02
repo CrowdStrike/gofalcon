@@ -68,6 +68,15 @@ type DeleteCSPMAzureAccountParams struct {
 	*/
 	Ids []string
 
+	// RetainTenant.
+	RetainTenant *string
+
+	/* TenantIds.
+
+	   Tenant ids to remove
+	*/
+	TenantIds []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +141,28 @@ func (o *DeleteCSPMAzureAccountParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithRetainTenant adds the retainTenant to the delete c s p m azure account params
+func (o *DeleteCSPMAzureAccountParams) WithRetainTenant(retainTenant *string) *DeleteCSPMAzureAccountParams {
+	o.SetRetainTenant(retainTenant)
+	return o
+}
+
+// SetRetainTenant adds the retainTenant to the delete c s p m azure account params
+func (o *DeleteCSPMAzureAccountParams) SetRetainTenant(retainTenant *string) {
+	o.RetainTenant = retainTenant
+}
+
+// WithTenantIds adds the tenantIds to the delete c s p m azure account params
+func (o *DeleteCSPMAzureAccountParams) WithTenantIds(tenantIds []string) *DeleteCSPMAzureAccountParams {
+	o.SetTenantIds(tenantIds)
+	return o
+}
+
+// SetTenantIds adds the tenantIds to the delete c s p m azure account params
+func (o *DeleteCSPMAzureAccountParams) SetTenantIds(tenantIds []string) {
+	o.TenantIds = tenantIds
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *DeleteCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -147,6 +178,34 @@ func (o *DeleteCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// query array param ids
 		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.RetainTenant != nil {
+
+		// query param retain_tenant
+		var qrRetainTenant string
+
+		if o.RetainTenant != nil {
+			qrRetainTenant = *o.RetainTenant
+		}
+		qRetainTenant := qrRetainTenant
+		if qRetainTenant != "" {
+
+			if err := r.SetQueryParam("retain_tenant", qRetainTenant); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.TenantIds != nil {
+
+		// binding items for tenant_ids
+		joinedTenantIds := o.bindParamTenantIds(reg)
+
+		// query array param tenant_ids
+		if err := r.SetQueryParam("tenant_ids", joinedTenantIds...); err != nil {
 			return err
 		}
 	}
@@ -172,4 +231,21 @@ func (o *DeleteCSPMAzureAccountParams) bindParamIds(formats strfmt.Registry) []s
 	idsIS := swag.JoinByFormat(idsIC, "multi")
 
 	return idsIS
+}
+
+// bindParamDeleteCSPMAzureAccount binds the parameter tenant_ids
+func (o *DeleteCSPMAzureAccountParams) bindParamTenantIds(formats strfmt.Registry) []string {
+	tenantIdsIR := o.TenantIds
+
+	var tenantIdsIC []string
+	for _, tenantIdsIIR := range tenantIdsIR { // explode []string
+
+		tenantIdsIIV := tenantIdsIIR // string as string
+		tenantIdsIC = append(tenantIdsIC, tenantIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	tenantIdsIS := swag.JoinByFormat(tenantIdsIC, "multi")
+
+	return tenantIdsIS
 }

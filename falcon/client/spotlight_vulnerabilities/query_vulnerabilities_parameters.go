@@ -88,7 +88,7 @@ type QueryVulnerabilitiesParams struct {
 
 	     Sort vulnerabilities by their properties. Common sort options include:
 
-	<ul><li>created_timestamp|desc</li><li>closed_timestamp|asc</li></ul>
+	<ul><li>updated_timestamp|asc</li><li>closed_timestamp|asc</li></ul>
 	*/
 	Sort *string
 

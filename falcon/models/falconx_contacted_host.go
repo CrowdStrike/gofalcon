@@ -97,6 +97,11 @@ func (m *FalconxContactedHost) contextValidateAssociatedRuntime(ctx context.Cont
 	for i := 0; i < len(m.AssociatedRuntime); i++ {
 
 		if m.AssociatedRuntime[i] != nil {
+
+			if swag.IsZero(m.AssociatedRuntime[i]) { // not required
+				return nil
+			}
+
 			if err := m.AssociatedRuntime[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("associated_runtime" + "." + strconv.Itoa(i))

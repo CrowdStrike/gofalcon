@@ -78,7 +78,7 @@ type QueryHostsParams struct {
 
 	/* Offset.
 
-	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, provide the `offset` from the previous response to continue from that place in the results.
+	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
 	*/
 	Offset *int64
 

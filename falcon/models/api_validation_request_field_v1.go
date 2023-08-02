@@ -136,6 +136,11 @@ func (m *APIValidationRequestFieldV1) contextValidateValues(ctx context.Context,
 	for i := 0; i < len(m.Values); i++ {
 
 		if m.Values[i] != nil {
+
+			if swag.IsZero(m.Values[i]) { // not required
+				return nil
+			}
+
 			if err := m.Values[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("values" + "." + strconv.Itoa(i))

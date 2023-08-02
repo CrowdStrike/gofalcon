@@ -62,14 +62,7 @@ func (o *GetRolesReader) ReadResponse(response runtime.ClientResponse, consumer 
 		}
 		return nil, result
 	default:
-		result := NewGetRolesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /user-roles/entities/user-roles/v1] GetRoles", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *GetRolesInternalServerError) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetRolesDefault creates a GetRolesDefault with default headers values
-func NewGetRolesDefault(code int) *GetRolesDefault {
-	return &GetRolesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetRolesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetRolesDefault struct {
-	_statusCode int
-
-	Payload *models.APIUserRoleResponse
-}
-
-// IsSuccess returns true when this get roles default response has a 2xx status code
-func (o *GetRolesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get roles default response has a 3xx status code
-func (o *GetRolesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get roles default response has a 4xx status code
-func (o *GetRolesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get roles default response has a 5xx status code
-func (o *GetRolesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get roles default response a status code equal to that given
-func (o *GetRolesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get roles default response
-func (o *GetRolesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetRolesDefault) Error() string {
-	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] GetRoles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRolesDefault) String() string {
-	return fmt.Sprintf("[GET /user-roles/entities/user-roles/v1][%d] GetRoles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRolesDefault) GetPayload() *models.APIUserRoleResponse {
-	return o.Payload
-}
-
-func (o *GetRolesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIUserRoleResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

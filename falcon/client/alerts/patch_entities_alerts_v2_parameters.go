@@ -67,7 +67,7 @@ type PatchEntitiesAlertsV2Params struct {
 
 	   request body takes a list of action parameter request that is applied against all "ids" provided
 	*/
-	Body *models.DetectsapiPatchEntitiesInvestigatablesV2Request
+	Body *models.DetectsapiPatchEntitiesAlertsV2Request
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PatchEntitiesAlertsV2Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the patch entities alerts v2 params
-func (o *PatchEntitiesAlertsV2Params) WithBody(body *models.DetectsapiPatchEntitiesInvestigatablesV2Request) *PatchEntitiesAlertsV2Params {
+func (o *PatchEntitiesAlertsV2Params) WithBody(body *models.DetectsapiPatchEntitiesAlertsV2Request) *PatchEntitiesAlertsV2Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the patch entities alerts v2 params
-func (o *PatchEntitiesAlertsV2Params) SetBody(body *models.DetectsapiPatchEntitiesInvestigatablesV2Request) {
+func (o *PatchEntitiesAlertsV2Params) SetBody(body *models.DetectsapiPatchEntitiesAlertsV2Request) {
 	o.Body = body
 }
 

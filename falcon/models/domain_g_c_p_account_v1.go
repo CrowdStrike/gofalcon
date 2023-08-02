@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,13 +20,79 @@ import (
 // swagger:model domain.GCPAccountV1
 type DomainGCPAccountV1 struct {
 
+	// created at
+	// Required: true
+	// Format: date-time
+	CreatedAt *strfmt.DateTime `json:"CreatedAt"`
+
+	// deleted at
+	// Required: true
+	// Format: date-time
+	DeletedAt *strfmt.DateTime `json:"DeletedAt"`
+
+	// ID
+	// Required: true
+	ID *int64 `json:"ID"`
+
+	// updated at
+	// Required: true
+	// Format: date-time
+	UpdatedAt *strfmt.DateTime `json:"UpdatedAt"`
+
 	// cid
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// GCP ParentID.
+	// cloud scopes
+	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+
+	// cspm enabled
+	// Required: true
+	CspmEnabled *bool `json:"cspm_enabled"`
+
+	// GCP Display Name
+	DisplayName string `json:"display_name,omitempty"`
+
+	// environment
+	Environment string `json:"environment,omitempty"`
+
+	// GCP folder ID
+	FolderID string `json:"folder_id,omitempty"`
+
+	// GCP folder Name
+	FolderName string `json:"folder_name,omitempty"`
+
+	// Permissions status returned via API.
+	// Required: true
+	GcpPermissionsStatus []*DomainPermission `json:"gcp_permissions_status"`
+
+	// GCP organization ID
+	OrganizationID string `json:"organization_id,omitempty"`
+
+	// GCP organization name
+	OrganizationName string `json:"organization_name,omitempty"`
+
+	// GCP Account ID for organization/folder/projects.
 	// Required: true
 	ParentID *string `json:"parent_id"`
+
+	// GCP Parent Type.
+	ParentType string `json:"parent_type,omitempty"`
+
+	// GCP Project ID
+	ProjectID string `json:"project_id,omitempty"`
+
+	// service account client email
+	ServiceAccountClientEmail string `json:"service_account_client_email,omitempty"`
+
+	// service account client id
+	ServiceAccountClientID string `json:"service_account_client_id,omitempty"`
+
+	// GCP service account ID
+	ServiceAccountID int64 `json:"service_account_id,omitempty"`
+
+	// service account private key id
+	ServiceAccountPrivateKeyID string `json:"service_account_private_key_id,omitempty"`
 
 	// Account registration status.
 	Status string `json:"status,omitempty"`
@@ -35,7 +102,35 @@ type DomainGCPAccountV1 struct {
 func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeletedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudScopes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCspmEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGcpPermissionsStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -49,10 +144,120 @@ func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainGCPAccountV1) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("CreatedAt", "body", m.CreatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("CreatedAt", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateDeletedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("DeletedAt", "body", m.DeletedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("DeletedAt", "body", "date-time", m.DeletedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("ID", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateUpdatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("UpdatedAt", "body", m.UpdatedAt); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("UpdatedAt", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainGCPAccountV1) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateCloudScopes(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudScopes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+		if swag.IsZero(m.CloudScopes[i]) { // not required
+			continue
+		}
+
+		if m.CloudScopes[i] != nil {
+			if err := m.CloudScopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateCspmEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("cspm_enabled", "body", m.CspmEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateGcpPermissionsStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("gcp_permissions_status", "body", m.GcpPermissionsStatus); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.GcpPermissionsStatus); i++ {
+		if swag.IsZero(m.GcpPermissionsStatus[i]) { // not required
+			continue
+		}
+
+		if m.GcpPermissionsStatus[i] != nil {
+			if err := m.GcpPermissionsStatus[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -67,8 +272,71 @@ func (m *DomainGCPAccountV1) validateParentID(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain g c p account v1 based on context it is used
+// ContextValidate validate this domain g c p account v1 based on the context it is used
 func (m *DomainGCPAccountV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCloudScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGcpPermissionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainGCPAccountV1) contextValidateCloudScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+
+		if m.CloudScopes[i] != nil {
+
+			if swag.IsZero(m.CloudScopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudScopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) contextValidateGcpPermissionsStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.GcpPermissionsStatus); i++ {
+
+		if m.GcpPermissionsStatus[i] != nil {
+
+			if swag.IsZero(m.GcpPermissionsStatus[i]) { // not required
+				return nil
+			}
+
+			if err := m.GcpPermissionsStatus[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

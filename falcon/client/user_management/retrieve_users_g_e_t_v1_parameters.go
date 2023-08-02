@@ -67,7 +67,7 @@ type RetrieveUsersGETV1Params struct {
 
 	   Maximum of 5000 User UUIDs can be specified per request.
 	*/
-	Body *models.MsaIdsRequest
+	Body *models.MsaspecIdsRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *RetrieveUsersGETV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the retrieve users g e t v1 params
-func (o *RetrieveUsersGETV1Params) WithBody(body *models.MsaIdsRequest) *RetrieveUsersGETV1Params {
+func (o *RetrieveUsersGETV1Params) WithBody(body *models.MsaspecIdsRequest) *RetrieveUsersGETV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the retrieve users g e t v1 params
-func (o *RetrieveUsersGETV1Params) SetBody(body *models.MsaIdsRequest) {
+func (o *RetrieveUsersGETV1Params) SetBody(body *models.MsaspecIdsRequest) {
 	o.Body = body
 }
 

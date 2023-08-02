@@ -62,14 +62,7 @@ func (o *PostMalQueryFuzzySearchV1Reader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		result := NewPostMalQueryFuzzySearchV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /malquery/combined/fuzzy-search/v1] PostMalQueryFuzzySearchV1", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ PostMalQueryFuzzySearchV1OK describes a response with status code 200, with defa
 OK
 */
 type PostMalQueryFuzzySearchV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *PostMalQueryFuzzySearchV1OK) GetPayload() *models.MalqueryFuzzySearchRe
 
 func (o *PostMalQueryFuzzySearchV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ PostMalQueryFuzzySearchV1BadRequest describes a response with status code 400, w
 Bad Request
 */
 type PostMalQueryFuzzySearchV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *PostMalQueryFuzzySearchV1BadRequest) GetPayload() *models.MalqueryFuzzy
 
 func (o *PostMalQueryFuzzySearchV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ PostMalQueryFuzzySearchV1Unauthorized describes a response with status code 401,
 Unauthorized
 */
 type PostMalQueryFuzzySearchV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PostMalQueryFuzzySearchV1Unauthorized) GetPayload() *models.MsaErrorsOn
 
 func (o *PostMalQueryFuzzySearchV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ PostMalQueryFuzzySearchV1Forbidden describes a response with status code 403, wi
 Forbidden
 */
 type PostMalQueryFuzzySearchV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *PostMalQueryFuzzySearchV1Forbidden) GetPayload() *models.MsaErrorsOnly 
 
 func (o *PostMalQueryFuzzySearchV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ PostMalQueryFuzzySearchV1TooManyRequests describes a response with status code 4
 Too Many Requests
 */
 type PostMalQueryFuzzySearchV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PostMalQueryFuzzySearchV1TooManyRequests) GetPayload() *models.MsaReply
 
 func (o *PostMalQueryFuzzySearchV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ PostMalQueryFuzzySearchV1InternalServerError describes a response with status co
 Internal Server Error
 */
 type PostMalQueryFuzzySearchV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *PostMalQueryFuzzySearchV1InternalServerError) GetPayload() *models.Malq
 
 func (o *PostMalQueryFuzzySearchV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *PostMalQueryFuzzySearchV1InternalServerError) readResponse(response run
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryFuzzySearchResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostMalQueryFuzzySearchV1Default creates a PostMalQueryFuzzySearchV1Default with default headers values
-func NewPostMalQueryFuzzySearchV1Default(code int) *PostMalQueryFuzzySearchV1Default {
-	return &PostMalQueryFuzzySearchV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostMalQueryFuzzySearchV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostMalQueryFuzzySearchV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryFuzzySearchResponse
-}
-
-// IsSuccess returns true when this post mal query fuzzy search v1 default response has a 2xx status code
-func (o *PostMalQueryFuzzySearchV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post mal query fuzzy search v1 default response has a 3xx status code
-func (o *PostMalQueryFuzzySearchV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post mal query fuzzy search v1 default response has a 4xx status code
-func (o *PostMalQueryFuzzySearchV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post mal query fuzzy search v1 default response has a 5xx status code
-func (o *PostMalQueryFuzzySearchV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post mal query fuzzy search v1 default response a status code equal to that given
-func (o *PostMalQueryFuzzySearchV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post mal query fuzzy search v1 default response
-func (o *PostMalQueryFuzzySearchV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostMalQueryFuzzySearchV1Default) Error() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] PostMalQueryFuzzySearchV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryFuzzySearchV1Default) String() string {
-	return fmt.Sprintf("[POST /malquery/combined/fuzzy-search/v1][%d] PostMalQueryFuzzySearchV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryFuzzySearchV1Default) GetPayload() *models.MalqueryFuzzySearchResponse {
-	return o.Payload
-}
-
-func (o *PostMalQueryFuzzySearchV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryFuzzySearchResponse)
 

@@ -23,6 +23,9 @@ type MessagesAuthor struct {
 	// Required: true
 	DisplayName *string `json:"display_name"`
 
+	// email address
+	EmailAddress string `json:"email_address,omitempty"`
+
 	// first name
 	// Required: true
 	FirstName *string `json:"first_name"`

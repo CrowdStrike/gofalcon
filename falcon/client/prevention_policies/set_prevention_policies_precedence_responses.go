@@ -56,14 +56,7 @@ func (o *SetPreventionPoliciesPrecedenceReader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewSetPreventionPoliciesPrecedenceDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/prevention-precedence/v1] setPreventionPoliciesPrecedence", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *SetPreventionPoliciesPrecedenceInternalServerError) readResponse(respon
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewSetPreventionPoliciesPrecedenceDefault creates a SetPreventionPoliciesPrecedenceDefault with default headers values
-func NewSetPreventionPoliciesPrecedenceDefault(code int) *SetPreventionPoliciesPrecedenceDefault {
-	return &SetPreventionPoliciesPrecedenceDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-SetPreventionPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type SetPreventionPoliciesPrecedenceDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this set prevention policies precedence default response has a 2xx status code
-func (o *SetPreventionPoliciesPrecedenceDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this set prevention policies precedence default response has a 3xx status code
-func (o *SetPreventionPoliciesPrecedenceDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this set prevention policies precedence default response has a 4xx status code
-func (o *SetPreventionPoliciesPrecedenceDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this set prevention policies precedence default response has a 5xx status code
-func (o *SetPreventionPoliciesPrecedenceDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this set prevention policies precedence default response a status code equal to that given
-func (o *SetPreventionPoliciesPrecedenceDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the set prevention policies precedence default response
-func (o *SetPreventionPoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *SetPreventionPoliciesPrecedenceDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetPreventionPoliciesPrecedenceDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/prevention-precedence/v1][%d] setPreventionPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetPreventionPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *SetPreventionPoliciesPrecedenceDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

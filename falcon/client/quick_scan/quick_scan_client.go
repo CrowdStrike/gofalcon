@@ -74,8 +74,9 @@ func (a *Client) GetScans(params *GetScansParams, opts ...ClientOption) (*GetSca
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetScansDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetScans: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -149,8 +150,9 @@ func (a *Client) QuerySubmissionsMixin0(params *QuerySubmissionsMixin0Params, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QuerySubmissionsMixin0Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QuerySubmissionsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -186,8 +188,9 @@ func (a *Client) ScanSamples(params *ScanSamplesParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*ScanSamplesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ScanSamples: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

@@ -56,14 +56,7 @@ func (o *QueriesRolesV1Reader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueriesRolesV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /user-management/queries/roles/v1] queriesRolesV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type QueriesRolesV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this queries roles v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *QueriesRolesV1OK) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1OK  %+v", 200, o.Payload)
 }
 
-func (o *QueriesRolesV1OK) GetPayload() *models.MsaQueryResponse {
+func (o *QueriesRolesV1OK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *QueriesRolesV1OK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type QueriesRolesV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this queries roles v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *QueriesRolesV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueriesRolesV1BadRequest) GetPayload() *models.MsaQueryResponse {
+func (o *QueriesRolesV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *QueriesRolesV1BadRequest) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -311,7 +304,7 @@ type QueriesRolesV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this queries roles v1 forbidden response has a 2xx status code
@@ -352,7 +345,7 @@ func (o *QueriesRolesV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *QueriesRolesV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *QueriesRolesV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -387,7 +380,7 @@ func (o *QueriesRolesV1Forbidden) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type QueriesRolesV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this queries roles v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *QueriesRolesV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueriesRolesV1InternalServerError) GetPayload() *models.MsaQueryResponse {
+func (o *QueriesRolesV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *QueriesRolesV1InternalServerError) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueriesRolesV1Default creates a QueriesRolesV1Default with default headers values
-func NewQueriesRolesV1Default(code int) *QueriesRolesV1Default {
-	return &QueriesRolesV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-QueriesRolesV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueriesRolesV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this queries roles v1 default response has a 2xx status code
-func (o *QueriesRolesV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this queries roles v1 default response has a 3xx status code
-func (o *QueriesRolesV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this queries roles v1 default response has a 4xx status code
-func (o *QueriesRolesV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this queries roles v1 default response has a 5xx status code
-func (o *QueriesRolesV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this queries roles v1 default response a status code equal to that given
-func (o *QueriesRolesV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the queries roles v1 default response
-func (o *QueriesRolesV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *QueriesRolesV1Default) Error() string {
-	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueriesRolesV1Default) String() string {
-	return fmt.Sprintf("[GET /user-management/queries/roles/v1][%d] queriesRolesV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueriesRolesV1Default) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueriesRolesV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

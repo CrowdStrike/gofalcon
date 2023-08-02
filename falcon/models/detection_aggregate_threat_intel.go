@@ -72,6 +72,11 @@ func (m *DetectionAggregateThreatIntel) ContextValidate(ctx context.Context, for
 func (m *DetectionAggregateThreatIntel) contextValidateIndicator(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Indicator != nil {
+
+		if swag.IsZero(m.Indicator) { // not required
+			return nil
+		}
+
 		if err := m.Indicator.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("indicator")

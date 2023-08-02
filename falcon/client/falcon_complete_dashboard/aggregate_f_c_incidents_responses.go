@@ -44,14 +44,7 @@ func (o *AggregateFCIncidentsReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewAggregateFCIncidentsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1] AggregateFCIncidents", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ AggregateFCIncidentsOK describes a response with status code 200, with default h
 OK
 */
 type AggregateFCIncidentsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *AggregateFCIncidentsOK) GetPayload() *models.MsaAggregatesResponse {
 
 func (o *AggregateFCIncidentsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ AggregateFCIncidentsForbidden describes a response with status code 403, with de
 Forbidden
 */
 type AggregateFCIncidentsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *AggregateFCIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *AggregateFCIncidentsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ AggregateFCIncidentsTooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type AggregateFCIncidentsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *AggregateFCIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *AggregateFCIncidentsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *AggregateFCIncidentsTooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAggregateFCIncidentsDefault creates a AggregateFCIncidentsDefault with default headers values
-func NewAggregateFCIncidentsDefault(code int) *AggregateFCIncidentsDefault {
-	return &AggregateFCIncidentsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AggregateFCIncidentsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AggregateFCIncidentsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this aggregate f c incidents default response has a 2xx status code
-func (o *AggregateFCIncidentsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this aggregate f c incidents default response has a 3xx status code
-func (o *AggregateFCIncidentsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this aggregate f c incidents default response has a 4xx status code
-func (o *AggregateFCIncidentsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this aggregate f c incidents default response has a 5xx status code
-func (o *AggregateFCIncidentsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this aggregate f c incidents default response a status code equal to that given
-func (o *AggregateFCIncidentsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the aggregate f c incidents default response
-func (o *AggregateFCIncidentsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AggregateFCIncidentsDefault) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] AggregateFCIncidents default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregateFCIncidentsDefault) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/incidents/GET/v1][%d] AggregateFCIncidents default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregateFCIncidentsDefault) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *AggregateFCIncidentsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

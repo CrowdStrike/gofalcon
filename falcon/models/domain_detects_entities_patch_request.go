@@ -26,6 +26,9 @@ type DomainDetectsEntitiesPatchRequest struct {
 	// ids
 	Ids []string `json:"ids"`
 
+	// new behaviors processed
+	NewBehaviorsProcessed []string `json:"new_behaviors_processed"`
+
 	// show in ui
 	ShowInUI bool `json:"show_in_ui,omitempty"`
 

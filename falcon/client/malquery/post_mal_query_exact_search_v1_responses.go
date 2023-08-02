@@ -62,14 +62,7 @@ func (o *PostMalQueryExactSearchV1Reader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		result := NewPostMalQueryExactSearchV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /malquery/queries/exact-search/v1] PostMalQueryExactSearchV1", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ PostMalQueryExactSearchV1OK describes a response with status code 200, with defa
 OK
 */
 type PostMalQueryExactSearchV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *PostMalQueryExactSearchV1OK) GetPayload() *models.MalqueryExternalQuery
 
 func (o *PostMalQueryExactSearchV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ PostMalQueryExactSearchV1BadRequest describes a response with status code 400, w
 Bad Request
 */
 type PostMalQueryExactSearchV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *PostMalQueryExactSearchV1BadRequest) GetPayload() *models.MalqueryExter
 
 func (o *PostMalQueryExactSearchV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ PostMalQueryExactSearchV1Unauthorized describes a response with status code 401,
 Unauthorized
 */
 type PostMalQueryExactSearchV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PostMalQueryExactSearchV1Unauthorized) GetPayload() *models.MsaErrorsOn
 
 func (o *PostMalQueryExactSearchV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ PostMalQueryExactSearchV1Forbidden describes a response with status code 403, wi
 Forbidden
 */
 type PostMalQueryExactSearchV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *PostMalQueryExactSearchV1Forbidden) GetPayload() *models.MsaErrorsOnly 
 
 func (o *PostMalQueryExactSearchV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ PostMalQueryExactSearchV1TooManyRequests describes a response with status code 4
 Too Many Requests
 */
 type PostMalQueryExactSearchV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PostMalQueryExactSearchV1TooManyRequests) GetPayload() *models.Malquery
 
 func (o *PostMalQueryExactSearchV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ PostMalQueryExactSearchV1InternalServerError describes a response with status co
 Internal Server Error
 */
 type PostMalQueryExactSearchV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *PostMalQueryExactSearchV1InternalServerError) GetPayload() *models.Malq
 
 func (o *PostMalQueryExactSearchV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *PostMalQueryExactSearchV1InternalServerError) readResponse(response run
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryExternalQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostMalQueryExactSearchV1Default creates a PostMalQueryExactSearchV1Default with default headers values
-func NewPostMalQueryExactSearchV1Default(code int) *PostMalQueryExactSearchV1Default {
-	return &PostMalQueryExactSearchV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostMalQueryExactSearchV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostMalQueryExactSearchV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryExternalQueryResponse
-}
-
-// IsSuccess returns true when this post mal query exact search v1 default response has a 2xx status code
-func (o *PostMalQueryExactSearchV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post mal query exact search v1 default response has a 3xx status code
-func (o *PostMalQueryExactSearchV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post mal query exact search v1 default response has a 4xx status code
-func (o *PostMalQueryExactSearchV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post mal query exact search v1 default response has a 5xx status code
-func (o *PostMalQueryExactSearchV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post mal query exact search v1 default response a status code equal to that given
-func (o *PostMalQueryExactSearchV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post mal query exact search v1 default response
-func (o *PostMalQueryExactSearchV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostMalQueryExactSearchV1Default) Error() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] PostMalQueryExactSearchV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryExactSearchV1Default) String() string {
-	return fmt.Sprintf("[POST /malquery/queries/exact-search/v1][%d] PostMalQueryExactSearchV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryExactSearchV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
-	return o.Payload
-}
-
-func (o *PostMalQueryExactSearchV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 

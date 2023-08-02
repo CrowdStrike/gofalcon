@@ -62,7 +62,7 @@ func (o *CreateSensorUpdatePoliciesReader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /policy/entities/sensor-update/v1] createSensorUpdatePolicies", response, response.Code())
 	}
 }
 
@@ -78,6 +78,10 @@ Created
 */
 type CreateSensorUpdatePoliciesCreated struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -86,7 +90,7 @@ type CreateSensorUpdatePoliciesCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this create sensor update policies created response has a 2xx status code
@@ -127,11 +131,18 @@ func (o *CreateSensorUpdatePoliciesCreated) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateSensorUpdatePoliciesCreated) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *CreateSensorUpdatePoliciesCreated) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *CreateSensorUpdatePoliciesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -155,7 +166,7 @@ func (o *CreateSensorUpdatePoliciesCreated) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -177,6 +188,10 @@ Bad Request
 */
 type CreateSensorUpdatePoliciesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -185,7 +200,7 @@ type CreateSensorUpdatePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this create sensor update policies bad request response has a 2xx status code
@@ -226,11 +241,18 @@ func (o *CreateSensorUpdatePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateSensorUpdatePoliciesBadRequest) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *CreateSensorUpdatePoliciesBadRequest) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *CreateSensorUpdatePoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -254,7 +276,7 @@ func (o *CreateSensorUpdatePoliciesBadRequest) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -275,6 +297,10 @@ CreateSensorUpdatePoliciesForbidden describes a response with status code 403, w
 Forbidden
 */
 type CreateSensorUpdatePoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -331,6 +357,13 @@ func (o *CreateSensorUpdatePoliciesForbidden) GetPayload() *models.MsaErrorsOnly
 
 func (o *CreateSensorUpdatePoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +408,10 @@ Not Found
 */
 type CreateSensorUpdatePoliciesNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -383,7 +420,7 @@ type CreateSensorUpdatePoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this create sensor update policies not found response has a 2xx status code
@@ -424,11 +461,18 @@ func (o *CreateSensorUpdatePoliciesNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CreateSensorUpdatePoliciesNotFound) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *CreateSensorUpdatePoliciesNotFound) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *CreateSensorUpdatePoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -452,7 +496,7 @@ func (o *CreateSensorUpdatePoliciesNotFound) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -473,6 +517,10 @@ CreateSensorUpdatePoliciesTooManyRequests describes a response with status code 
 Too Many Requests
 */
 type CreateSensorUpdatePoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -533,6 +581,13 @@ func (o *CreateSensorUpdatePoliciesTooManyRequests) GetPayload() *models.MsaRepl
 
 func (o *CreateSensorUpdatePoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -588,6 +643,10 @@ Internal Server Error
 */
 type CreateSensorUpdatePoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -596,7 +655,7 @@ type CreateSensorUpdatePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this create sensor update policies internal server error response has a 2xx status code
@@ -637,11 +696,18 @@ func (o *CreateSensorUpdatePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update/v1][%d] createSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateSensorUpdatePoliciesInternalServerError) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *CreateSensorUpdatePoliciesInternalServerError) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *CreateSensorUpdatePoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -665,7 +731,7 @@ func (o *CreateSensorUpdatePoliciesInternalServerError) readResponse(response ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

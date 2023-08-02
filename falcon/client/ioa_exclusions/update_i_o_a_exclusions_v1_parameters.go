@@ -64,7 +64,7 @@ UpdateIOAExclusionsV1Params contains all the parameters to send to the API endpo
 type UpdateIOAExclusionsV1Params struct {
 
 	// Body.
-	Body *models.RequestsIoaExclusionUpdateReqV1
+	Body *models.IoaExclusionsIoaExclusionUpdateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateIOAExclusionsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update i o a exclusions v1 params
-func (o *UpdateIOAExclusionsV1Params) WithBody(body *models.RequestsIoaExclusionUpdateReqV1) *UpdateIOAExclusionsV1Params {
+func (o *UpdateIOAExclusionsV1Params) WithBody(body *models.IoaExclusionsIoaExclusionUpdateReqV1) *UpdateIOAExclusionsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update i o a exclusions v1 params
-func (o *UpdateIOAExclusionsV1Params) SetBody(body *models.RequestsIoaExclusionUpdateReqV1) {
+func (o *UpdateIOAExclusionsV1Params) SetBody(body *models.IoaExclusionsIoaExclusionUpdateReqV1) {
 	o.Body = body
 }
 

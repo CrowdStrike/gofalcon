@@ -72,7 +72,7 @@ type QueryDetectsParams struct {
 	- `device.device_id`
 	- `max_severity`
 
-	The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/support/documentation/2/query-api-reference#detections_fql).
+	The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
 	*/
 	Filter *string
 
@@ -103,7 +103,7 @@ type QueryDetectsParams struct {
 	- `max_severity`: Highest severity of the behaviors associated with this detection
 	- `max_confidence`: Highest confidence of the behaviors associated with this detection
 	- `adversary_id`: ID of the adversary associated with this detection, if any
-	- `devices.hostname`: Hostname of the host where this detection was detected
+	- `device.hostname`: Hostname of the host where this detection was detected
 
 	Sort either `asc` (ascending) or `desc` (descending). For example: `last_behavior|asc`
 	*/

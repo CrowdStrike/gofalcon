@@ -200,8 +200,9 @@ func (a *Client) PerformRTResponsePoliciesAction(params *PerformRTResponsePolici
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PerformRTResponsePoliciesActionDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for performRTResponsePoliciesAction: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -237,8 +238,9 @@ func (a *Client) QueryCombinedRTResponsePolicies(params *QueryCombinedRTResponse
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedRTResponsePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedRTResponsePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -274,8 +276,9 @@ func (a *Client) QueryCombinedRTResponsePolicyMembers(params *QueryCombinedRTRes
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedRTResponsePolicyMembersDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedRTResponsePolicyMembers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -311,8 +314,9 @@ func (a *Client) QueryRTResponsePolicies(params *QueryRTResponsePoliciesParams, 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryRTResponsePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryRTResponsePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -348,8 +352,9 @@ func (a *Client) QueryRTResponsePolicyMembers(params *QueryRTResponsePolicyMembe
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryRTResponsePolicyMembersDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryRTResponsePolicyMembers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -385,8 +390,9 @@ func (a *Client) SetRTResponsePoliciesPrecedence(params *SetRTResponsePoliciesPr
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*SetRTResponsePoliciesPrecedenceDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for setRTResponsePoliciesPrecedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -422,8 +428,9 @@ func (a *Client) UpdateRTResponsePolicies(params *UpdateRTResponsePoliciesParams
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateRTResponsePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateRTResponsePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

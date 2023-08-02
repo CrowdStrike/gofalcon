@@ -50,14 +50,7 @@ func (o *ReportExecutionsRetryReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewReportExecutionsRetryDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /reports/entities/report-executions-retry/v1] report-executions.retry", response, response.Code())
 	}
 }
 
@@ -85,7 +78,7 @@ type ReportExecutionsRetryOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIReportExecutionsResponseV1
+	Payload *models.DomainReportExecutionsResponseV1
 }
 
 // IsSuccess returns true when this report executions retry o k response has a 2xx status code
@@ -126,7 +119,7 @@ func (o *ReportExecutionsRetryOK) String() string {
 	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] reportExecutionsRetryOK  %+v", 200, o.Payload)
 }
 
-func (o *ReportExecutionsRetryOK) GetPayload() *models.APIReportExecutionsResponseV1 {
+func (o *ReportExecutionsRetryOK) GetPayload() *models.DomainReportExecutionsResponseV1 {
 	return o.Payload
 }
 
@@ -161,7 +154,7 @@ func (o *ReportExecutionsRetryOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIReportExecutionsResponseV1)
+	o.Payload = new(models.DomainReportExecutionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -507,78 +500,6 @@ func (o *ReportExecutionsRetryTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewReportExecutionsRetryDefault creates a ReportExecutionsRetryDefault with default headers values
-func NewReportExecutionsRetryDefault(code int) *ReportExecutionsRetryDefault {
-	return &ReportExecutionsRetryDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ReportExecutionsRetryDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ReportExecutionsRetryDefault struct {
-	_statusCode int
-
-	Payload *models.APIReportExecutionsResponseV1
-}
-
-// IsSuccess returns true when this report executions retry default response has a 2xx status code
-func (o *ReportExecutionsRetryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this report executions retry default response has a 3xx status code
-func (o *ReportExecutionsRetryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this report executions retry default response has a 4xx status code
-func (o *ReportExecutionsRetryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this report executions retry default response has a 5xx status code
-func (o *ReportExecutionsRetryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this report executions retry default response a status code equal to that given
-func (o *ReportExecutionsRetryDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the report executions retry default response
-func (o *ReportExecutionsRetryDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ReportExecutionsRetryDefault) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] report-executions.retry default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsRetryDefault) String() string {
-	return fmt.Sprintf("[POST /reports/entities/report-executions-retry/v1][%d] report-executions.retry default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsRetryDefault) GetPayload() *models.APIReportExecutionsResponseV1 {
-	return o.Payload
-}
-
-func (o *ReportExecutionsRetryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIReportExecutionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

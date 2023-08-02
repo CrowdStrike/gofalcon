@@ -64,7 +64,7 @@ UpdateSensorUpdatePoliciesParams contains all the parameters to send to the API 
 type UpdateSensorUpdatePoliciesParams struct {
 
 	// Body.
-	Body *models.RequestsUpdateSensorUpdatePoliciesV1
+	Body *models.SensorUpdateUpdatePoliciesReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateSensorUpdatePoliciesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update sensor update policies params
-func (o *UpdateSensorUpdatePoliciesParams) WithBody(body *models.RequestsUpdateSensorUpdatePoliciesV1) *UpdateSensorUpdatePoliciesParams {
+func (o *UpdateSensorUpdatePoliciesParams) WithBody(body *models.SensorUpdateUpdatePoliciesReqV1) *UpdateSensorUpdatePoliciesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update sensor update policies params
-func (o *UpdateSensorUpdatePoliciesParams) SetBody(body *models.RequestsUpdateSensorUpdatePoliciesV1) {
+func (o *UpdateSensorUpdatePoliciesParams) SetBody(body *models.SensorUpdateUpdatePoliciesReqV1) {
 	o.Body = body
 }
 

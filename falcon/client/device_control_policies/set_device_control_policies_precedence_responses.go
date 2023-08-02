@@ -56,14 +56,7 @@ func (o *SetDeviceControlPoliciesPrecedenceReader) ReadResponse(response runtime
 		}
 		return nil, result
 	default:
-		result := NewSetDeviceControlPoliciesPrecedenceDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/device-control-precedence/v1] setDeviceControlPoliciesPrecedence", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ SetDeviceControlPoliciesPrecedenceOK describes a response with status code 200, 
 OK
 */
 type SetDeviceControlPoliciesPrecedenceOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *SetDeviceControlPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResp
 
 func (o *SetDeviceControlPoliciesPrecedenceOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ SetDeviceControlPoliciesPrecedenceBadRequest describes a response with status co
 Bad Request
 */
 type SetDeviceControlPoliciesPrecedenceBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *SetDeviceControlPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQ
 
 func (o *SetDeviceControlPoliciesPrecedenceBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ SetDeviceControlPoliciesPrecedenceForbidden describes a response with status cod
 Forbidden
 */
 type SetDeviceControlPoliciesPrecedenceForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *SetDeviceControlPoliciesPrecedenceForbidden) GetPayload() *models.MsaEr
 
 func (o *SetDeviceControlPoliciesPrecedenceForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ SetDeviceControlPoliciesPrecedenceTooManyRequests describes a response with stat
 Too Many Requests
 */
 type SetDeviceControlPoliciesPrecedenceTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) GetPayload() *models
 
 func (o *SetDeviceControlPoliciesPrecedenceTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ SetDeviceControlPoliciesPrecedenceInternalServerError describes a response with 
 Internal Server Error
 */
 type SetDeviceControlPoliciesPrecedenceInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) GetPayload() *mo
 
 func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *SetDeviceControlPoliciesPrecedenceInternalServerError) readResponse(res
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewSetDeviceControlPoliciesPrecedenceDefault creates a SetDeviceControlPoliciesPrecedenceDefault with default headers values
-func NewSetDeviceControlPoliciesPrecedenceDefault(code int) *SetDeviceControlPoliciesPrecedenceDefault {
-	return &SetDeviceControlPoliciesPrecedenceDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-SetDeviceControlPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type SetDeviceControlPoliciesPrecedenceDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this set device control policies precedence default response has a 2xx status code
-func (o *SetDeviceControlPoliciesPrecedenceDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this set device control policies precedence default response has a 3xx status code
-func (o *SetDeviceControlPoliciesPrecedenceDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this set device control policies precedence default response has a 4xx status code
-func (o *SetDeviceControlPoliciesPrecedenceDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this set device control policies precedence default response has a 5xx status code
-func (o *SetDeviceControlPoliciesPrecedenceDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this set device control policies precedence default response a status code equal to that given
-func (o *SetDeviceControlPoliciesPrecedenceDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the set device control policies precedence default response
-func (o *SetDeviceControlPoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *SetDeviceControlPoliciesPrecedenceDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetDeviceControlPoliciesPrecedenceDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-precedence/v1][%d] setDeviceControlPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetDeviceControlPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *SetDeviceControlPoliciesPrecedenceDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

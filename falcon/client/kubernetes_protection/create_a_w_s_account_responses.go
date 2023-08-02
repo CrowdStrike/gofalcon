@@ -62,7 +62,7 @@ func (o *CreateAWSAccountReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /kubernetes-protection/entities/accounts/aws/v1] CreateAWSAccount", response, response.Code())
 	}
 }
 
@@ -90,7 +90,7 @@ type CreateAWSAccountCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8sregCreateAWSAccReq
+	Payload *models.K8sregCreateAWSAccResp
 }
 
 // IsSuccess returns true when this create a w s account created response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CreateAWSAccountCreated) String() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateAWSAccountCreated) GetPayload() *models.K8sregCreateAWSAccReq {
+func (o *CreateAWSAccountCreated) GetPayload() *models.K8sregCreateAWSAccResp {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CreateAWSAccountCreated) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8sregCreateAWSAccReq)
+	o.Payload = new(models.K8sregCreateAWSAccResp)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type CreateAWSAccountMultiStatus struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8sregCreateAWSAccReq
+	Payload *models.K8sregCreateAWSAccResp
 }
 
 // IsSuccess returns true when this create a w s account multi status response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *CreateAWSAccountMultiStatus) String() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountMultiStatus  %+v", 207, o.Payload)
 }
 
-func (o *CreateAWSAccountMultiStatus) GetPayload() *models.K8sregCreateAWSAccReq {
+func (o *CreateAWSAccountMultiStatus) GetPayload() *models.K8sregCreateAWSAccResp {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *CreateAWSAccountMultiStatus) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8sregCreateAWSAccReq)
+	o.Payload = new(models.K8sregCreateAWSAccResp)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type CreateAWSAccountBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8sregCreateAWSAccReq
+	Payload *models.K8sregCreateAWSAccResp
 }
 
 // IsSuccess returns true when this create a w s account bad request response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *CreateAWSAccountBadRequest) String() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateAWSAccountBadRequest) GetPayload() *models.K8sregCreateAWSAccReq {
+func (o *CreateAWSAccountBadRequest) GetPayload() *models.K8sregCreateAWSAccResp {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *CreateAWSAccountBadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8sregCreateAWSAccReq)
+	o.Payload = new(models.K8sregCreateAWSAccResp)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type CreateAWSAccountInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.K8sregCreateAWSAccReq
+	Payload *models.K8sregCreateAWSAccResp
 }
 
 // IsSuccess returns true when this create a w s account internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *CreateAWSAccountInternalServerError) String() string {
 	return fmt.Sprintf("[POST /kubernetes-protection/entities/accounts/aws/v1][%d] createAWSAccountInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateAWSAccountInternalServerError) GetPayload() *models.K8sregCreateAWSAccReq {
+func (o *CreateAWSAccountInternalServerError) GetPayload() *models.K8sregCreateAWSAccResp {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *CreateAWSAccountInternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.K8sregCreateAWSAccReq)
+	o.Payload = new(models.K8sregCreateAWSAccResp)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

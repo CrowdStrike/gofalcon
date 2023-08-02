@@ -44,14 +44,7 @@ func (o *IndicatorAggregateV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewIndicatorAggregateV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /iocs/aggregates/indicators/v1] indicator.aggregate.v1", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *IndicatorAggregateV1TooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewIndicatorAggregateV1Default creates a IndicatorAggregateV1Default with default headers values
-func NewIndicatorAggregateV1Default(code int) *IndicatorAggregateV1Default {
-	return &IndicatorAggregateV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-IndicatorAggregateV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type IndicatorAggregateV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this indicator aggregate v1 default response has a 2xx status code
-func (o *IndicatorAggregateV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this indicator aggregate v1 default response has a 3xx status code
-func (o *IndicatorAggregateV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this indicator aggregate v1 default response has a 4xx status code
-func (o *IndicatorAggregateV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this indicator aggregate v1 default response has a 5xx status code
-func (o *IndicatorAggregateV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this indicator aggregate v1 default response a status code equal to that given
-func (o *IndicatorAggregateV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the indicator aggregate v1 default response
-func (o *IndicatorAggregateV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *IndicatorAggregateV1Default) Error() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicator.aggregate.v1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *IndicatorAggregateV1Default) String() string {
-	return fmt.Sprintf("[POST /iocs/aggregates/indicators/v1][%d] indicator.aggregate.v1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *IndicatorAggregateV1Default) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *IndicatorAggregateV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

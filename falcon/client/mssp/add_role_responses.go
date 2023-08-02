@@ -56,14 +56,7 @@ func (o *AddRoleReader) ReadResponse(response runtime.ClientResponse, consumer r
 		}
 		return nil, result
 	default:
-		result := NewAddRoleDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /mssp/entities/mssp-roles/v1] addRole", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ AddRoleOK describes a response with status code 200, with default header values.
 OK
 */
 type AddRoleOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *AddRoleOK) GetPayload() *models.DomainMSSPRoleResponseV1 {
 
 func (o *AddRoleOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ AddRoleMultiStatus describes a response with status code 207, with default heade
 Multi-Status
 */
 type AddRoleMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *AddRoleMultiStatus) GetPayload() *models.DomainMSSPRoleResponseV1 {
 
 func (o *AddRoleMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ AddRoleBadRequest describes a response with status code 400, with default header
 Bad Request
 */
 type AddRoleBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *AddRoleBadRequest) GetPayload() *models.MsaErrorsOnly {
 
 func (o *AddRoleBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ AddRoleForbidden describes a response with status code 403, with default header 
 Forbidden
 */
 type AddRoleForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *AddRoleForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *AddRoleForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ AddRoleTooManyRequests describes a response with status code 429, with default h
 Too Many Requests
 */
 type AddRoleTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *AddRoleTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *AddRoleTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *AddRoleTooManyRequests) readResponse(response runtime.ClientResponse, c
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAddRoleDefault creates a AddRoleDefault with default headers values
-func NewAddRoleDefault(code int) *AddRoleDefault {
-	return &AddRoleDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AddRoleDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AddRoleDefault struct {
-	_statusCode int
-
-	Payload *models.DomainMSSPRoleResponseV1
-}
-
-// IsSuccess returns true when this add role default response has a 2xx status code
-func (o *AddRoleDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this add role default response has a 3xx status code
-func (o *AddRoleDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this add role default response has a 4xx status code
-func (o *AddRoleDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this add role default response has a 5xx status code
-func (o *AddRoleDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this add role default response a status code equal to that given
-func (o *AddRoleDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the add role default response
-func (o *AddRoleDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AddRoleDefault) Error() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRole default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AddRoleDefault) String() string {
-	return fmt.Sprintf("[POST /mssp/entities/mssp-roles/v1][%d] addRole default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AddRoleDefault) GetPayload() *models.DomainMSSPRoleResponseV1 {
-	return o.Payload
-}
-
-func (o *AddRoleDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainMSSPRoleResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

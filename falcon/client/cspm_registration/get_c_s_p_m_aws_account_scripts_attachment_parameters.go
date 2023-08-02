@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetCSPMAwsAccountScriptsAttachmentParams creates a new GetCSPMAwsAccountScriptsAttachmentParams object,
@@ -60,6 +61,13 @@ GetCSPMAwsAccountScriptsAttachmentParams contains all the parameters to send to 
 	Typically these are written to a http.Request.
 */
 type GetCSPMAwsAccountScriptsAttachmentParams struct {
+
+	/* Ids.
+
+	   AWS account IDs
+	*/
+	Ids []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -113,6 +121,17 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetHTTPClient(client *http.Cl
 	o.HTTPClient = client
 }
 
+// WithIds adds the ids to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) WithIds(ids []string) *GetCSPMAwsAccountScriptsAttachmentParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get c s p m aws account scripts attachment params
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) SetIds(ids []string) {
+	o.Ids = ids
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetCSPMAwsAccountScriptsAttachmentParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -121,8 +140,36 @@ func (o *GetCSPMAwsAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clie
 	}
 	var res []error
 
+	if o.Ids != nil {
+
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAwsAccountScriptsAttachment binds the parameter ids
+func (o *GetCSPMAwsAccountScriptsAttachmentParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

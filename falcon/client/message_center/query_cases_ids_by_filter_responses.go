@@ -56,14 +56,7 @@ func (o *QueryCasesIdsByFilterReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewQueryCasesIdsByFilterDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /message-center/queries/cases/v1] QueryCasesIdsByFilter", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *QueryCasesIdsByFilterInternalServerError) readResponse(response runtime
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCasesIdsByFilterDefault creates a QueryCasesIdsByFilterDefault with default headers values
-func NewQueryCasesIdsByFilterDefault(code int) *QueryCasesIdsByFilterDefault {
-	return &QueryCasesIdsByFilterDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCasesIdsByFilterDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCasesIdsByFilterDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query cases ids by filter default response has a 2xx status code
-func (o *QueryCasesIdsByFilterDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query cases ids by filter default response has a 3xx status code
-func (o *QueryCasesIdsByFilterDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query cases ids by filter default response has a 4xx status code
-func (o *QueryCasesIdsByFilterDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query cases ids by filter default response has a 5xx status code
-func (o *QueryCasesIdsByFilterDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query cases ids by filter default response a status code equal to that given
-func (o *QueryCasesIdsByFilterDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query cases ids by filter default response
-func (o *QueryCasesIdsByFilterDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCasesIdsByFilterDefault) Error() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] QueryCasesIdsByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCasesIdsByFilterDefault) String() string {
-	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] QueryCasesIdsByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCasesIdsByFilterDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryCasesIdsByFilterDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

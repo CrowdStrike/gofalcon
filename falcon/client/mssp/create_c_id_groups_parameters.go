@@ -63,7 +63,10 @@ CreateCIDGroupsParams contains all the parameters to send to the API endpoint
 */
 type CreateCIDGroupsParams struct {
 
-	// Body.
+	/* Body.
+
+	   Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
+	*/
 	Body *models.DomainCIDGroupsRequestV1
 
 	timeout    time.Duration

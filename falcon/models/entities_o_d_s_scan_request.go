@@ -75,6 +75,10 @@ type EntitiesODSScanRequest struct {
 	// Required: true
 	ScanExclusions []string `json:"scan_exclusions"`
 
+	// scan inclusions
+	// Required: true
+	ScanInclusions []string `json:"scan_inclusions"`
+
 	// sensor ml level detection
 	// Required: true
 	SensorMlLevelDetection *int32 `json:"sensor_ml_level_detection"`
@@ -141,6 +145,10 @@ func (m *EntitiesODSScanRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateScanExclusions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanInclusions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -278,6 +286,15 @@ func (m *EntitiesODSScanRequest) validateQuarantine(formats strfmt.Registry) err
 func (m *EntitiesODSScanRequest) validateScanExclusions(formats strfmt.Registry) error {
 
 	if err := validate.Required("scan_exclusions", "body", m.ScanExclusions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EntitiesODSScanRequest) validateScanInclusions(formats strfmt.Registry) error {
+
+	if err := validate.Required("scan_inclusions", "body", m.ScanInclusions); err != nil {
 		return err
 	}
 

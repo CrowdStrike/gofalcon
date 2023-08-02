@@ -148,8 +148,9 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*De
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DeleteUserDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DeleteUser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -185,8 +186,9 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetAvailableRoleIdsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAvailableRoleIds: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -222,8 +224,9 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetRolesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetRoles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -259,8 +262,9 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetUserRoleIdsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetUserRoleIds: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -296,8 +300,9 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GrantUserRoleIdsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GrantUserRoleIds: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -333,8 +338,9 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveEmailsByCIDDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RetrieveEmailsByCID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -370,8 +376,9 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveUserUUIDDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RetrieveUserUUID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -407,8 +414,9 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveUserUUIDsByCIDDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RetrieveUserUUIDsByCID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -444,8 +452,9 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RevokeUserRoleIdsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RevokeUserRoleIds: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -481,8 +490,9 @@ func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*Up
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateUserDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateUser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -594,8 +604,9 @@ func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DeleteUserV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteUserV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -631,8 +642,9 @@ func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*EntitiesRolesV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for entitiesRolesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -668,8 +680,9 @@ func (a *Client) QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueriesRolesV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queriesRolesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -743,8 +756,9 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveUserDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for retrieveUser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -780,8 +794,9 @@ func (a *Client) RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RetrieveUsersGETV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for retrieveUsersGETV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -817,12 +832,13 @@ func (a *Client) UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateUserV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateUserV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-UserActionV1 applies actions to one or more user available action names reset 2fa reset password
+UserActionV1 applies actions to one or more user available action names reset 2fa reset password user u UI ds can be provided in ids param as part of request payload
 */
 func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) (*UserActionV1OK, error) {
 	// TODO: Validate the params before sending
@@ -854,12 +870,13 @@ func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UserActionV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for userActionV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-UserRolesActionV1 grants or revoke one or more role s to a user against a c ID
+UserRolesActionV1 grants or revoke one or more role s to a user against a c ID user UUID c ID and role ID s can be provided in request payload available action s grant revoke
 */
 func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error) {
 	// TODO: Validate the params before sending
@@ -891,8 +908,9 @@ func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UserRolesActionV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for userRolesActionV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

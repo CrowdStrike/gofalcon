@@ -56,7 +56,7 @@ func (o *GetSensorUpdatePoliciesReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/sensor-update/v1] getSensorUpdatePolicies", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetSensorUpdatePoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this get sensor update policies o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetSensorUpdatePoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetSensorUpdatePoliciesOK) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *GetSensorUpdatePoliciesOK) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetSensorUpdatePoliciesOK) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetSensorUpdatePoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this get sensor update policies not found response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetSensorUpdatePoliciesNotFound) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetSensorUpdatePoliciesNotFound) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *GetSensorUpdatePoliciesNotFound) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetSensorUpdatePoliciesNotFound) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetSensorUpdatePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this get sensor update policies internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetSensorUpdatePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sensor-update/v1][%d] getSensorUpdatePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetSensorUpdatePoliciesInternalServerError) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *GetSensorUpdatePoliciesInternalServerError) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetSensorUpdatePoliciesInternalServerError) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

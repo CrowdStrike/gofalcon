@@ -65,7 +65,13 @@ type GetIntelReportPDFParams struct {
 
 	   The ID of the report you want to download as a PDF.
 	*/
-	ID string
+	ID *string
+
+	/* Ids.
+
+	   The ID of the report you want to download as a PDF. This parameter is used only if no id parameter given.
+	*/
+	Ids *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -121,14 +127,25 @@ func (o *GetIntelReportPDFParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithID adds the id to the get intel report p d f params
-func (o *GetIntelReportPDFParams) WithID(id string) *GetIntelReportPDFParams {
+func (o *GetIntelReportPDFParams) WithID(id *string) *GetIntelReportPDFParams {
 	o.SetID(id)
 	return o
 }
 
 // SetID adds the id to the get intel report p d f params
-func (o *GetIntelReportPDFParams) SetID(id string) {
+func (o *GetIntelReportPDFParams) SetID(id *string) {
 	o.ID = id
+}
+
+// WithIds adds the ids to the get intel report p d f params
+func (o *GetIntelReportPDFParams) WithIds(ids *string) *GetIntelReportPDFParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get intel report p d f params
+func (o *GetIntelReportPDFParams) SetIds(ids *string) {
+	o.Ids = ids
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -139,13 +156,37 @@ func (o *GetIntelReportPDFParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	// query param id
-	qrID := o.ID
-	qID := qrID
-	if qID != "" {
+	if o.ID != nil {
 
-		if err := r.SetQueryParam("id", qID); err != nil {
-			return err
+		// query param id
+		var qrID string
+
+		if o.ID != nil {
+			qrID = *o.ID
+		}
+		qID := qrID
+		if qID != "" {
+
+			if err := r.SetQueryParam("id", qID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Ids != nil {
+
+		// query param ids
+		var qrIds string
+
+		if o.Ids != nil {
+			qrIds = *o.Ids
+		}
+		qIds := qrIds
+		if qIds != "" {
+
+			if err := r.SetQueryParam("ids", qIds); err != nil {
+				return err
+			}
 		}
 	}
 

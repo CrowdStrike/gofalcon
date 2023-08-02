@@ -64,7 +64,7 @@ type QueryMaliciousFilesParams struct {
 
 	/* Filter.
 
-	   A FQL compatible query string. Terms: [id cid scan_id host_id host_scan_id filepath filename hash pattern_id severity quarantined last_updated]
+	   A FQL compatible query string. Terms: [id scan_id host_id host_scan_id filepath filename hash pattern_id severity quarantined last_updated]
 	*/
 	Filter string
 

@@ -55,7 +55,7 @@ type MalqueryRequestMetaInfo struct {
 	TraceID *string `json:"trace_id"`
 
 	// writes
-	Writes *MsaResources `json:"writes,omitempty"`
+	Writes *MsaspecWrites `json:"writes,omitempty"`
 
 	// YARA rule to be monitored
 	YaraRule string `json:"yara_rule,omitempty"`
@@ -239,6 +239,11 @@ func (m *MalqueryRequestMetaInfo) ContextValidate(ctx context.Context, formats s
 func (m *MalqueryRequestMetaInfo) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Options != nil {
+
+		if swag.IsZero(m.Options) { // not required
+			return nil
+		}
+
 		if err := m.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
@@ -255,6 +260,11 @@ func (m *MalqueryRequestMetaInfo) contextValidateOptions(ctx context.Context, fo
 func (m *MalqueryRequestMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -273,6 +283,11 @@ func (m *MalqueryRequestMetaInfo) contextValidatePatterns(ctx context.Context, f
 	for i := 0; i < len(m.Patterns); i++ {
 
 		if m.Patterns[i] != nil {
+
+			if swag.IsZero(m.Patterns[i]) { // not required
+				return nil
+			}
+
 			if err := m.Patterns[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))
@@ -291,6 +306,11 @@ func (m *MalqueryRequestMetaInfo) contextValidatePatterns(ctx context.Context, f
 func (m *MalqueryRequestMetaInfo) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Stats != nil {
+
+		if swag.IsZero(m.Stats) { // not required
+			return nil
+		}
+
 		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("stats")
@@ -307,6 +327,11 @@ func (m *MalqueryRequestMetaInfo) contextValidateStats(ctx context.Context, form
 func (m *MalqueryRequestMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Writes != nil {
+
+		if swag.IsZero(m.Writes) { // not required
+			return nil
+		}
+
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")

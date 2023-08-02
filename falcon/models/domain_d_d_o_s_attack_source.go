@@ -279,6 +279,7 @@ func (m *DomainDDOSAttackSource) ContextValidate(ctx context.Context, formats st
 func (m *DomainDDOSAttackSource) contextValidateTargetDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TargetDetails != nil {
+
 		if err := m.TargetDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target_details")

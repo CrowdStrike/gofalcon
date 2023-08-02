@@ -50,14 +50,7 @@ func (o *ReportExecutionsQueryReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewReportExecutionsQueryDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /reports/queries/report-executions/v1] report-executions.query", response, response.Code())
 	}
 }
 
@@ -507,78 +500,6 @@ func (o *ReportExecutionsQueryTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewReportExecutionsQueryDefault creates a ReportExecutionsQueryDefault with default headers values
-func NewReportExecutionsQueryDefault(code int) *ReportExecutionsQueryDefault {
-	return &ReportExecutionsQueryDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ReportExecutionsQueryDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ReportExecutionsQueryDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this report executions query default response has a 2xx status code
-func (o *ReportExecutionsQueryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this report executions query default response has a 3xx status code
-func (o *ReportExecutionsQueryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this report executions query default response has a 4xx status code
-func (o *ReportExecutionsQueryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this report executions query default response has a 5xx status code
-func (o *ReportExecutionsQueryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this report executions query default response a status code equal to that given
-func (o *ReportExecutionsQueryDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the report executions query default response
-func (o *ReportExecutionsQueryDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ReportExecutionsQueryDefault) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] report-executions.query default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsQueryDefault) String() string {
-	return fmt.Sprintf("[GET /reports/queries/report-executions/v1][%d] report-executions.query default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsQueryDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *ReportExecutionsQueryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

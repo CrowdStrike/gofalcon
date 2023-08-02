@@ -62,14 +62,7 @@ func (o *DeleteAWSAccountsMixin0Reader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		result := NewDeleteAWSAccountsMixin0Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /kubernetes-protection/entities/accounts/aws/v1] DeleteAWSAccountsMixin0", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *DeleteAWSAccountsMixin0InternalServerError) readResponse(response runti
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaMetaInfo)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteAWSAccountsMixin0Default creates a DeleteAWSAccountsMixin0Default with default headers values
-func NewDeleteAWSAccountsMixin0Default(code int) *DeleteAWSAccountsMixin0Default {
-	return &DeleteAWSAccountsMixin0Default{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteAWSAccountsMixin0Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteAWSAccountsMixin0Default struct {
-	_statusCode int
-
-	Payload *models.MsaMetaInfo
-}
-
-// IsSuccess returns true when this delete a w s accounts mixin0 default response has a 2xx status code
-func (o *DeleteAWSAccountsMixin0Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete a w s accounts mixin0 default response has a 3xx status code
-func (o *DeleteAWSAccountsMixin0Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete a w s accounts mixin0 default response has a 4xx status code
-func (o *DeleteAWSAccountsMixin0Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete a w s accounts mixin0 default response has a 5xx status code
-func (o *DeleteAWSAccountsMixin0Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete a w s accounts mixin0 default response a status code equal to that given
-func (o *DeleteAWSAccountsMixin0Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete a w s accounts mixin0 default response
-func (o *DeleteAWSAccountsMixin0Default) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteAWSAccountsMixin0Default) Error() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] DeleteAWSAccountsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteAWSAccountsMixin0Default) String() string {
-	return fmt.Sprintf("[DELETE /kubernetes-protection/entities/accounts/aws/v1][%d] DeleteAWSAccountsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteAWSAccountsMixin0Default) GetPayload() *models.MsaMetaInfo {
-	return o.Payload
-}
-
-func (o *DeleteAWSAccountsMixin0Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaMetaInfo)
 

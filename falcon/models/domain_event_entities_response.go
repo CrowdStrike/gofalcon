@@ -154,6 +154,11 @@ func (m *DomainEventEntitiesResponse) contextValidateErrors(ctx context.Context,
 	for i := 0; i < len(m.Errors); i++ {
 
 		if m.Errors[i] != nil {
+
+			if swag.IsZero(m.Errors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
@@ -172,6 +177,7 @@ func (m *DomainEventEntitiesResponse) contextValidateErrors(ctx context.Context,
 func (m *DomainEventEntitiesResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
@@ -190,6 +196,11 @@ func (m *DomainEventEntitiesResponse) contextValidateResources(ctx context.Conte
 	for i := 0; i < len(m.Resources); i++ {
 
 		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
 			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))

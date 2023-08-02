@@ -21,11 +21,12 @@ import (
 type DomainQueryResponse struct {
 
 	// errors
-	Errors []*MsaAPIError `json:"errors"`
+	// Required: true
+	Errors []*DomainReconAPIError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *DomainMsaMetaInfo `json:"meta"`
+	Meta *MsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
@@ -55,8 +56,9 @@ func (m *DomainQueryResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainQueryResponse) validateErrors(formats strfmt.Registry) error {
-	if swag.IsZero(m.Errors) { // not required
-		return nil
+
+	if err := validate.Required("errors", "body", m.Errors); err != nil {
+		return err
 	}
 
 	for i := 0; i < len(m.Errors); i++ {
@@ -132,6 +134,11 @@ func (m *DomainQueryResponse) contextValidateErrors(ctx context.Context, formats
 	for i := 0; i < len(m.Errors); i++ {
 
 		if m.Errors[i] != nil {
+
+			if swag.IsZero(m.Errors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
@@ -150,6 +157,7 @@ func (m *DomainQueryResponse) contextValidateErrors(ctx context.Context, formats
 func (m *DomainQueryResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")

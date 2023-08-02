@@ -63,7 +63,10 @@ UpdateCIDGroupsParams contains all the parameters to send to the API endpoint
 */
 type UpdateCIDGroupsParams struct {
 
-	// Body.
+	/* Body.
+
+	   'cid_group_id' field is required to identify the CID group to update along with 'name' and/or 'description' fields to be updated.
+	*/
 	Body *models.DomainCIDGroupsRequestV1
 
 	timeout    time.Duration

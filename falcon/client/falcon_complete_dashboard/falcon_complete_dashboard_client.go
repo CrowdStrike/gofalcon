@@ -6,6 +6,8 @@ package falcon_complete_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -92,8 +94,9 @@ func (a *Client) AggregateAllowList(params *AggregateAllowListParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateAllowListDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateAllowList: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -129,8 +132,9 @@ func (a *Client) AggregateBlockList(params *AggregateBlockListParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateBlockListDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateBlockList: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -220,8 +224,9 @@ func (a *Client) AggregateDetections(params *AggregateDetectionsParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateDetectionsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateDetections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -257,8 +262,9 @@ func (a *Client) AggregateDeviceCountCollection(params *AggregateDeviceCountColl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateDeviceCountCollectionDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateDeviceCountCollection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -294,8 +300,9 @@ func (a *Client) AggregateEscalations(params *AggregateEscalationsParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateEscalationsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateEscalations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -331,8 +338,9 @@ func (a *Client) AggregateFCIncidents(params *AggregateFCIncidentsParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateFCIncidentsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateFCIncidents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -368,8 +376,9 @@ func (a *Client) AggregateRemediations(params *AggregateRemediationsParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregateRemediationsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregateRemediations: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -405,8 +414,9 @@ func (a *Client) GetDeviceCountCollectionQueriesByFilter(params *GetDeviceCountC
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetDeviceCountCollectionQueriesByFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDeviceCountCollectionQueriesByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -442,8 +452,9 @@ func (a *Client) QueryAllowListFilter(params *QueryAllowListFilterParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryAllowListFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryAllowListFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -479,8 +490,9 @@ func (a *Client) QueryBlockListFilter(params *QueryBlockListFilterParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryBlockListFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryBlockListFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -516,8 +528,9 @@ func (a *Client) QueryDetectionIdsByFilter(params *QueryDetectionIdsByFilterPara
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryDetectionIdsByFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryDetectionIdsByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -553,8 +566,9 @@ func (a *Client) QueryEscalationsFilter(params *QueryEscalationsFilterParams, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryEscalationsFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryEscalationsFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -590,8 +604,9 @@ func (a *Client) QueryIncidentIdsByFilter(params *QueryIncidentIdsByFilterParams
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryIncidentIdsByFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryIncidentIdsByFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -627,8 +642,9 @@ func (a *Client) QueryRemediationsFilter(params *QueryRemediationsFilterParams, 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryRemediationsFilterDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryRemediationsFilter: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

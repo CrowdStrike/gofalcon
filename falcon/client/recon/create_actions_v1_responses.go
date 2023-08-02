@@ -68,7 +68,7 @@ func (o *CreateActionsV1Reader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /recon/entities/actions/v1] CreateActionsV1", response, response.Code())
 	}
 }
 
@@ -206,7 +206,7 @@ type CreateActionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create actions v1 bad request response has a 2xx status code
@@ -247,7 +247,7 @@ func (o *CreateActionsV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateActionsV1BadRequest) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateActionsV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -282,7 +282,7 @@ func (o *CreateActionsV1BadRequest) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -316,7 +316,7 @@ type CreateActionsV1Unauthorized struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create actions v1 unauthorized response has a 2xx status code
@@ -357,7 +357,7 @@ func (o *CreateActionsV1Unauthorized) String() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1Unauthorized  %+v", 401, o.Payload)
 }
 
-func (o *CreateActionsV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateActionsV1Unauthorized) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -392,7 +392,7 @@ func (o *CreateActionsV1Unauthorized) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -426,7 +426,7 @@ type CreateActionsV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create actions v1 forbidden response has a 2xx status code
@@ -467,7 +467,7 @@ func (o *CreateActionsV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CreateActionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateActionsV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -502,7 +502,7 @@ func (o *CreateActionsV1Forbidden) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -536,7 +536,7 @@ type CreateActionsV1NotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create actions v1 not found response has a 2xx status code
@@ -577,7 +577,7 @@ func (o *CreateActionsV1NotFound) String() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1NotFound  %+v", 404, o.Payload)
 }
 
-func (o *CreateActionsV1NotFound) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateActionsV1NotFound) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -612,7 +612,7 @@ func (o *CreateActionsV1NotFound) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -771,7 +771,7 @@ type CreateActionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaErrorsOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create actions v1 internal server error response has a 2xx status code
@@ -812,7 +812,7 @@ func (o *CreateActionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /recon/entities/actions/v1][%d] createActionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateActionsV1InternalServerError) GetPayload() *models.MsaErrorsOnly {
+func (o *CreateActionsV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -847,7 +847,7 @@ func (o *CreateActionsV1InternalServerError) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaErrorsOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

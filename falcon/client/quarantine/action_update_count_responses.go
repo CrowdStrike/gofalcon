@@ -44,14 +44,7 @@ func (o *ActionUpdateCountReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewActionUpdateCountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /quarantine/aggregates/action-update-count/v1] ActionUpdateCount", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *ActionUpdateCountTooManyRequests) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewActionUpdateCountDefault creates a ActionUpdateCountDefault with default headers values
-func NewActionUpdateCountDefault(code int) *ActionUpdateCountDefault {
-	return &ActionUpdateCountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ActionUpdateCountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ActionUpdateCountDefault struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this action update count default response has a 2xx status code
-func (o *ActionUpdateCountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this action update count default response has a 3xx status code
-func (o *ActionUpdateCountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this action update count default response has a 4xx status code
-func (o *ActionUpdateCountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this action update count default response has a 5xx status code
-func (o *ActionUpdateCountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this action update count default response a status code equal to that given
-func (o *ActionUpdateCountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the action update count default response
-func (o *ActionUpdateCountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ActionUpdateCountDefault) Error() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] ActionUpdateCount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ActionUpdateCountDefault) String() string {
-	return fmt.Sprintf("[GET /quarantine/aggregates/action-update-count/v1][%d] ActionUpdateCount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ActionUpdateCountDefault) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *ActionUpdateCountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

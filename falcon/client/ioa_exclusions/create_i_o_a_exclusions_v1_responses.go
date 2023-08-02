@@ -56,14 +56,7 @@ func (o *CreateIOAExclusionsV1Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewCreateIOAExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/ioa-exclusions/v1] createIOAExclusionsV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type CreateIOAExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this create i o a exclusions v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *CreateIOAExclusionsV1OK) String() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *CreateIOAExclusionsV1OK) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *CreateIOAExclusionsV1OK) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *CreateIOAExclusionsV1OK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type CreateIOAExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this create i o a exclusions v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *CreateIOAExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateIOAExclusionsV1BadRequest) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *CreateIOAExclusionsV1BadRequest) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *CreateIOAExclusionsV1BadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type CreateIOAExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this create i o a exclusions v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *CreateIOAExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateIOAExclusionsV1InternalServerError) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *CreateIOAExclusionsV1InternalServerError) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *CreateIOAExclusionsV1InternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewCreateIOAExclusionsV1Default creates a CreateIOAExclusionsV1Default with default headers values
-func NewCreateIOAExclusionsV1Default(code int) *CreateIOAExclusionsV1Default {
-	return &CreateIOAExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-CreateIOAExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type CreateIOAExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesIoaExclusionRespV1
-}
-
-// IsSuccess returns true when this create i o a exclusions v1 default response has a 2xx status code
-func (o *CreateIOAExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this create i o a exclusions v1 default response has a 3xx status code
-func (o *CreateIOAExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this create i o a exclusions v1 default response has a 4xx status code
-func (o *CreateIOAExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this create i o a exclusions v1 default response has a 5xx status code
-func (o *CreateIOAExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this create i o a exclusions v1 default response a status code equal to that given
-func (o *CreateIOAExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the create i o a exclusions v1 default response
-func (o *CreateIOAExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *CreateIOAExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CreateIOAExclusionsV1Default) String() string {
-	return fmt.Sprintf("[POST /policy/entities/ioa-exclusions/v1][%d] createIOAExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CreateIOAExclusionsV1Default) GetPayload() *models.ResponsesIoaExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *CreateIOAExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

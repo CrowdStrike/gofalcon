@@ -64,7 +64,7 @@ CreateFirewallPoliciesParams contains all the parameters to send to the API endp
 type CreateFirewallPoliciesParams struct {
 
 	// Body.
-	Body *models.RequestsCreateFirewallPoliciesV1
+	Body *models.FirewallCreateFirewallPoliciesReqV1
 
 	/* CloneID.
 
@@ -126,13 +126,13 @@ func (o *CreateFirewallPoliciesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create firewall policies params
-func (o *CreateFirewallPoliciesParams) WithBody(body *models.RequestsCreateFirewallPoliciesV1) *CreateFirewallPoliciesParams {
+func (o *CreateFirewallPoliciesParams) WithBody(body *models.FirewallCreateFirewallPoliciesReqV1) *CreateFirewallPoliciesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create firewall policies params
-func (o *CreateFirewallPoliciesParams) SetBody(body *models.RequestsCreateFirewallPoliciesV1) {
+func (o *CreateFirewallPoliciesParams) SetBody(body *models.FirewallCreateFirewallPoliciesReqV1) {
 	o.Body = body
 }
 

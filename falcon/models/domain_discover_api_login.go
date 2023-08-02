@@ -59,6 +59,9 @@ type DomainDiscoverAPILogin struct {
 	// Whether the failed login is considered suspicious based on criteria including login failures and locations (true or false).
 	IsSuspicious bool `json:"is_suspicious,omitempty"`
 
+	// Whether the account has local administrator privileges (Yes, No).
+	LocalAdminPrivileges string `json:"local_admin_privileges,omitempty"`
+
 	// The external IP address of the asset where the login took place.
 	LocalIP string `json:"local_ip,omitempty"`
 

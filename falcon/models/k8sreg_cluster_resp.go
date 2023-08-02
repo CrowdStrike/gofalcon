@@ -324,6 +324,7 @@ func (m *K8sregClusterResp) ContextValidate(ctx context.Context, formats strfmt.
 func (m *K8sregClusterResp) contextValidateAgentVersion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AgentVersion != nil {
+
 		if err := m.AgentVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent_version")
@@ -340,6 +341,7 @@ func (m *K8sregClusterResp) contextValidateAgentVersion(ctx context.Context, for
 func (m *K8sregClusterResp) contextValidateHelmVersion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HelmVersion != nil {
+
 		if err := m.HelmVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("helm_version")
@@ -356,6 +358,7 @@ func (m *K8sregClusterResp) contextValidateHelmVersion(ctx context.Context, form
 func (m *K8sregClusterResp) contextValidateK8sVersion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.K8sVersion != nil {
+
 		if err := m.K8sVersion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("k8s_version")

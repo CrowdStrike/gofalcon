@@ -44,14 +44,7 @@ func (o *AggregatesEventsCollectionsReader) ReadResponse(response runtime.Client
 		}
 		return nil, result
 	default:
-		result := NewAggregatesEventsCollectionsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1] AggregatesEventsCollections", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ AggregatesEventsCollectionsOK describes a response with status code 200, with de
 OK
 */
 type AggregatesEventsCollectionsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *AggregatesEventsCollectionsOK) GetPayload() *models.MsaAggregatesRespon
 
 func (o *AggregatesEventsCollectionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ AggregatesEventsCollectionsForbidden describes a response with status code 403, 
 Forbidden
 */
 type AggregatesEventsCollectionsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *AggregatesEventsCollectionsForbidden) GetPayload() *models.MsaReplyMeta
 
 func (o *AggregatesEventsCollectionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ AggregatesEventsCollectionsTooManyRequests describes a response with status code
 Too Many Requests
 */
 type AggregatesEventsCollectionsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *AggregatesEventsCollectionsTooManyRequests) GetPayload() *models.MsaRep
 
 func (o *AggregatesEventsCollectionsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *AggregatesEventsCollectionsTooManyRequests) readResponse(response runti
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAggregatesEventsCollectionsDefault creates a AggregatesEventsCollectionsDefault with default headers values
-func NewAggregatesEventsCollectionsDefault(code int) *AggregatesEventsCollectionsDefault {
-	return &AggregatesEventsCollectionsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AggregatesEventsCollectionsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AggregatesEventsCollectionsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this aggregates events collections default response has a 2xx status code
-func (o *AggregatesEventsCollectionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this aggregates events collections default response has a 3xx status code
-func (o *AggregatesEventsCollectionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this aggregates events collections default response has a 4xx status code
-func (o *AggregatesEventsCollectionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this aggregates events collections default response has a 5xx status code
-func (o *AggregatesEventsCollectionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this aggregates events collections default response a status code equal to that given
-func (o *AggregatesEventsCollectionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the aggregates events collections default response
-func (o *AggregatesEventsCollectionsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AggregatesEventsCollectionsDefault) Error() string {
-	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] AggregatesEventsCollections default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregatesEventsCollectionsDefault) String() string {
-	return fmt.Sprintf("[POST /overwatch-dashboards/aggregates/events-collections/GET/v1][%d] AggregatesEventsCollections default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregatesEventsCollectionsDefault) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *AggregatesEventsCollectionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

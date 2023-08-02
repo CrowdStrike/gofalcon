@@ -64,7 +64,7 @@ RevealUninstallTokenParams contains all the parameters to send to the API endpoi
 type RevealUninstallTokenParams struct {
 
 	// Body.
-	Body *models.RequestsRevealUninstallTokenV1
+	Body *models.UninstallTokenRevealUninstallTokenReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *RevealUninstallTokenParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the reveal uninstall token params
-func (o *RevealUninstallTokenParams) WithBody(body *models.RequestsRevealUninstallTokenV1) *RevealUninstallTokenParams {
+func (o *RevealUninstallTokenParams) WithBody(body *models.UninstallTokenRevealUninstallTokenReqV1) *RevealUninstallTokenParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the reveal uninstall token params
-func (o *RevealUninstallTokenParams) SetBody(body *models.RequestsRevealUninstallTokenV1) {
+func (o *RevealUninstallTokenParams) SetBody(body *models.UninstallTokenRevealUninstallTokenReqV1) {
 	o.Body = body
 }
 

@@ -62,7 +62,7 @@ func (o *GetD4CAwsConsoleSetupURLsReader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /cloud-connect-aws/entities/console-setup-urls/v1] GetD4CAwsConsoleSetupURLs", response, response.Code())
 	}
 }
 

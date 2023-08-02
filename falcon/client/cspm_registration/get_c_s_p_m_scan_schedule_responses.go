@@ -56,14 +56,7 @@ func (o *GetCSPMScanScheduleReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewGetCSPMScanScheduleDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /settings/scan-schedule/v1] GetCSPMScanSchedule", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetCSPMScanScheduleOK describes a response with status code 200, with default he
 OK
 */
 type GetCSPMScanScheduleOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *GetCSPMScanScheduleOK) GetPayload() *models.RegistrationScanScheduleRes
 
 func (o *GetCSPMScanScheduleOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ GetCSPMScanScheduleBadRequest describes a response with status code 400, with de
 Bad Request
 */
 type GetCSPMScanScheduleBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *GetCSPMScanScheduleBadRequest) GetPayload() *models.RegistrationScanSch
 
 func (o *GetCSPMScanScheduleBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ GetCSPMScanScheduleForbidden describes a response with status code 403, with def
 Forbidden
 */
 type GetCSPMScanScheduleForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *GetCSPMScanScheduleForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetCSPMScanScheduleForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ GetCSPMScanScheduleTooManyRequests describes a response with status code 429, wi
 Too Many Requests
 */
 type GetCSPMScanScheduleTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *GetCSPMScanScheduleTooManyRequests) GetPayload() *models.MsaReplyMetaOn
 
 func (o *GetCSPMScanScheduleTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ GetCSPMScanScheduleInternalServerError describes a response with status code 500
 Internal Server Error
 */
 type GetCSPMScanScheduleInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *GetCSPMScanScheduleInternalServerError) GetPayload() *models.Registrati
 
 func (o *GetCSPMScanScheduleInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *GetCSPMScanScheduleInternalServerError) readResponse(response runtime.C
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.RegistrationScanScheduleResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCSPMScanScheduleDefault creates a GetCSPMScanScheduleDefault with default headers values
-func NewGetCSPMScanScheduleDefault(code int) *GetCSPMScanScheduleDefault {
-	return &GetCSPMScanScheduleDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCSPMScanScheduleDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCSPMScanScheduleDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationScanScheduleResponseV1
-}
-
-// IsSuccess returns true when this get c s p m scan schedule default response has a 2xx status code
-func (o *GetCSPMScanScheduleDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get c s p m scan schedule default response has a 3xx status code
-func (o *GetCSPMScanScheduleDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get c s p m scan schedule default response has a 4xx status code
-func (o *GetCSPMScanScheduleDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get c s p m scan schedule default response has a 5xx status code
-func (o *GetCSPMScanScheduleDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get c s p m scan schedule default response a status code equal to that given
-func (o *GetCSPMScanScheduleDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get c s p m scan schedule default response
-func (o *GetCSPMScanScheduleDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCSPMScanScheduleDefault) Error() string {
-	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] GetCSPMScanSchedule default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMScanScheduleDefault) String() string {
-	return fmt.Sprintf("[GET /settings/scan-schedule/v1][%d] GetCSPMScanSchedule default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMScanScheduleDefault) GetPayload() *models.RegistrationScanScheduleResponseV1 {
-	return o.Payload
-}
-
-func (o *GetCSPMScanScheduleDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RegistrationScanScheduleResponseV1)
 

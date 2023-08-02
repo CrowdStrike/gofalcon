@@ -44,14 +44,7 @@ func (o *UpdateQfByQueryReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		result := NewUpdateQfByQueryDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /quarantine/queries/quarantined-files/v1] UpdateQfByQuery", response, response.Code())
 	}
 }
 
@@ -389,78 +382,6 @@ func (o *UpdateQfByQueryTooManyRequests) readResponse(response runtime.ClientRes
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateQfByQueryDefault creates a UpdateQfByQueryDefault with default headers values
-func NewUpdateQfByQueryDefault(code int) *UpdateQfByQueryDefault {
-	return &UpdateQfByQueryDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateQfByQueryDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateQfByQueryDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update qf by query default response has a 2xx status code
-func (o *UpdateQfByQueryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update qf by query default response has a 3xx status code
-func (o *UpdateQfByQueryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update qf by query default response has a 4xx status code
-func (o *UpdateQfByQueryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update qf by query default response has a 5xx status code
-func (o *UpdateQfByQueryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update qf by query default response a status code equal to that given
-func (o *UpdateQfByQueryDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update qf by query default response
-func (o *UpdateQfByQueryDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateQfByQueryDefault) Error() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] UpdateQfByQuery default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateQfByQueryDefault) String() string {
-	return fmt.Sprintf("[PATCH /quarantine/queries/quarantined-files/v1][%d] UpdateQfByQuery default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateQfByQueryDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdateQfByQueryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

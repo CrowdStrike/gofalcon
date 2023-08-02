@@ -153,6 +153,11 @@ func (m *FwmgrAPIRuleGroupCreateRequestV1) contextValidateRules(ctx context.Cont
 	for i := 0; i < len(m.Rules); i++ {
 
 		if m.Rules[i] != nil {
+
+			if swag.IsZero(m.Rules[i]) { // not required
+				return nil
+			}
+
 			if err := m.Rules[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rules" + "." + strconv.Itoa(i))

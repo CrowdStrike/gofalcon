@@ -56,14 +56,7 @@ func (o *DeleteUserV1Reader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewDeleteUserV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /user-management/entities/users/v1] deleteUserV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type DeleteUserV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete user v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *DeleteUserV1OK) String() string {
 	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1OK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteUserV1OK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteUserV1OK) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *DeleteUserV1OK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type DeleteUserV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete user v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *DeleteUserV1BadRequest) String() string {
 	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteUserV1BadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteUserV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *DeleteUserV1BadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -311,7 +304,7 @@ type DeleteUserV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete user v1 forbidden response has a 2xx status code
@@ -352,7 +345,7 @@ func (o *DeleteUserV1Forbidden) String() string {
 	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *DeleteUserV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteUserV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -387,7 +380,7 @@ func (o *DeleteUserV1Forbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type DeleteUserV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this delete user v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *DeleteUserV1InternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteUserV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *DeleteUserV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *DeleteUserV1InternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteUserV1Default creates a DeleteUserV1Default with default headers values
-func NewDeleteUserV1Default(code int) *DeleteUserV1Default {
-	return &DeleteUserV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteUserV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteUserV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this delete user v1 default response has a 2xx status code
-func (o *DeleteUserV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete user v1 default response has a 3xx status code
-func (o *DeleteUserV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete user v1 default response has a 4xx status code
-func (o *DeleteUserV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete user v1 default response has a 5xx status code
-func (o *DeleteUserV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete user v1 default response a status code equal to that given
-func (o *DeleteUserV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete user v1 default response
-func (o *DeleteUserV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteUserV1Default) Error() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteUserV1Default) String() string {
-	return fmt.Sprintf("[DELETE /user-management/entities/users/v1][%d] deleteUserV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteUserV1Default) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *DeleteUserV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

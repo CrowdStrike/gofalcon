@@ -44,14 +44,7 @@ func (o *IndicatorUpdateV1Reader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewIndicatorUpdateV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /iocs/entities/indicators/v1] indicator.update.v1", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *IndicatorUpdateV1TooManyRequests) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewIndicatorUpdateV1Default creates a IndicatorUpdateV1Default with default headers values
-func NewIndicatorUpdateV1Default(code int) *IndicatorUpdateV1Default {
-	return &IndicatorUpdateV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-IndicatorUpdateV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type IndicatorUpdateV1Default struct {
-	_statusCode int
-
-	Payload *models.APIIndicatorRespV1
-}
-
-// IsSuccess returns true when this indicator update v1 default response has a 2xx status code
-func (o *IndicatorUpdateV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this indicator update v1 default response has a 3xx status code
-func (o *IndicatorUpdateV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this indicator update v1 default response has a 4xx status code
-func (o *IndicatorUpdateV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this indicator update v1 default response has a 5xx status code
-func (o *IndicatorUpdateV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this indicator update v1 default response a status code equal to that given
-func (o *IndicatorUpdateV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the indicator update v1 default response
-func (o *IndicatorUpdateV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *IndicatorUpdateV1Default) Error() string {
-	return fmt.Sprintf("[PATCH /iocs/entities/indicators/v1][%d] indicator.update.v1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *IndicatorUpdateV1Default) String() string {
-	return fmt.Sprintf("[PATCH /iocs/entities/indicators/v1][%d] indicator.update.v1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *IndicatorUpdateV1Default) GetPayload() *models.APIIndicatorRespV1 {
-	return o.Payload
-}
-
-func (o *IndicatorUpdateV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIIndicatorRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

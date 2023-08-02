@@ -6,6 +6,8 @@ package incidents
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -76,8 +78,9 @@ func (a *Client) CrowdScore(params *CrowdScoreParams, opts ...ClientOption) (*Cr
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*CrowdScoreDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CrowdScore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -113,8 +116,9 @@ func (a *Client) GetBehaviors(params *GetBehaviorsParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetBehaviorsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBehaviors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -150,8 +154,9 @@ func (a *Client) GetIncidents(params *GetIncidentsParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetIncidentsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetIncidents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -187,8 +192,9 @@ func (a *Client) PerformIncidentAction(params *PerformIncidentActionParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PerformIncidentActionDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PerformIncidentAction: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -224,8 +230,9 @@ func (a *Client) QueryBehaviors(params *QueryBehaviorsParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryBehaviorsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryBehaviors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -261,8 +268,9 @@ func (a *Client) QueryIncidents(params *QueryIncidentsParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryIncidentsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryIncidents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

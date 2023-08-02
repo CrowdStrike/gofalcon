@@ -31,6 +31,12 @@ func (o *IndicatorCreateV1Reader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewIndicatorCreateV1BadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewIndicatorCreateV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -44,7 +50,7 @@ func (o *IndicatorCreateV1Reader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /iocs/entities/indicators/v1] indicator.create.v1", response, response.Code())
 	}
 }
 
@@ -149,6 +155,116 @@ func (o *IndicatorCreateV1Created) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(models.APIIndicatorRespV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewIndicatorCreateV1BadRequest creates a IndicatorCreateV1BadRequest with default headers values
+func NewIndicatorCreateV1BadRequest() *IndicatorCreateV1BadRequest {
+	return &IndicatorCreateV1BadRequest{}
+}
+
+/*
+IndicatorCreateV1BadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type IndicatorCreateV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this indicator create v1 bad request response has a 2xx status code
+func (o *IndicatorCreateV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this indicator create v1 bad request response has a 3xx status code
+func (o *IndicatorCreateV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this indicator create v1 bad request response has a 4xx status code
+func (o *IndicatorCreateV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this indicator create v1 bad request response has a 5xx status code
+func (o *IndicatorCreateV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this indicator create v1 bad request response a status code equal to that given
+func (o *IndicatorCreateV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the indicator create v1 bad request response
+func (o *IndicatorCreateV1BadRequest) Code() int {
+	return 400
+}
+
+func (o *IndicatorCreateV1BadRequest) Error() string {
+	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *IndicatorCreateV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /iocs/entities/indicators/v1][%d] indicatorCreateV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *IndicatorCreateV1BadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *IndicatorCreateV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

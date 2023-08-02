@@ -44,14 +44,7 @@ func (o *GetDeviceCountCollectionQueriesByFilterReader) ReadResponse(response ru
 		}
 		return nil, result
 	default:
-		result := NewGetDeviceCountCollectionQueriesByFilterDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1] GetDeviceCountCollectionQueriesByFilter", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ GetDeviceCountCollectionQueriesByFilterOK describes a response with status code 
 OK
 */
 type GetDeviceCountCollectionQueriesByFilterOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterOK) GetPayload() *models.MsaQuer
 
 func (o *GetDeviceCountCollectionQueriesByFilterOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ GetDeviceCountCollectionQueriesByFilterForbidden describes a response with statu
 Forbidden
 */
 type GetDeviceCountCollectionQueriesByFilterForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterForbidden) GetPayload() *models.
 
 func (o *GetDeviceCountCollectionQueriesByFilterForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ GetDeviceCountCollectionQueriesByFilterTooManyRequests describes a response with
 Too Many Requests
 */
 type GetDeviceCountCollectionQueriesByFilterTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) GetPayload() *m
 
 func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *GetDeviceCountCollectionQueriesByFilterTooManyRequests) readResponse(re
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetDeviceCountCollectionQueriesByFilterDefault creates a GetDeviceCountCollectionQueriesByFilterDefault with default headers values
-func NewGetDeviceCountCollectionQueriesByFilterDefault(code int) *GetDeviceCountCollectionQueriesByFilterDefault {
-	return &GetDeviceCountCollectionQueriesByFilterDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetDeviceCountCollectionQueriesByFilterDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetDeviceCountCollectionQueriesByFilterDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this get device count collection queries by filter default response has a 2xx status code
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get device count collection queries by filter default response has a 3xx status code
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get device count collection queries by filter default response has a 4xx status code
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get device count collection queries by filter default response has a 5xx status code
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get device count collection queries by filter default response a status code equal to that given
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get device count collection queries by filter default response
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] GetDeviceCountCollectionQueriesByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/devicecount-collections/v1][%d] GetDeviceCountCollectionQueriesByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *GetDeviceCountCollectionQueriesByFilterDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

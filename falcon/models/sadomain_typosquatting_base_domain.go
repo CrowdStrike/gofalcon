@@ -161,6 +161,11 @@ func (m *SadomainTyposquattingBaseDomain) ContextValidate(ctx context.Context, f
 func (m *SadomainTyposquattingBaseDomain) contextValidateWhois(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Whois != nil {
+
+		if swag.IsZero(m.Whois) { // not required
+			return nil
+		}
+
 		if err := m.Whois.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("whois")

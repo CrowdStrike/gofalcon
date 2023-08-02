@@ -64,7 +64,7 @@ UpdateMLExclusionsV1Params contains all the parameters to send to the API endpoi
 type UpdateMLExclusionsV1Params struct {
 
 	// Body.
-	Body *models.RequestsSvExclusionUpdateReqV1
+	Body *models.SvExclusionsUpdateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateMLExclusionsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update m l exclusions v1 params
-func (o *UpdateMLExclusionsV1Params) WithBody(body *models.RequestsSvExclusionUpdateReqV1) *UpdateMLExclusionsV1Params {
+func (o *UpdateMLExclusionsV1Params) WithBody(body *models.SvExclusionsUpdateReqV1) *UpdateMLExclusionsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update m l exclusions v1 params
-func (o *UpdateMLExclusionsV1Params) SetBody(body *models.RequestsSvExclusionUpdateReqV1) {
+func (o *UpdateMLExclusionsV1Params) SetBody(body *models.SvExclusionsUpdateReqV1) {
 	o.Body = body
 }
 

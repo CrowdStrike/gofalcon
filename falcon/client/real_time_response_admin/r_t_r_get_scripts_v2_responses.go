@@ -56,14 +56,7 @@ func (o *RTRGetScriptsV2Reader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		result := NewRTRGetScriptsV2Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /real-time-response/entities/scripts/v2] RTR-GetScriptsV2", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type RTRGetScriptsV2OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaPFResponseV2
+	Payload *models.EmpowerapiMsaPFResponseV2
 }
 
 // IsSuccess returns true when this r t r get scripts v2 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *RTRGetScriptsV2OK) String() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] rTRGetScriptsV2OK  %+v", 200, o.Payload)
 }
 
-func (o *RTRGetScriptsV2OK) GetPayload() *models.DomainMsaPFResponseV2 {
+func (o *RTRGetScriptsV2OK) GetPayload() *models.EmpowerapiMsaPFResponseV2 {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *RTRGetScriptsV2OK) readResponse(response runtime.ClientResponse, consum
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaPFResponseV2)
+	o.Payload = new(models.EmpowerapiMsaPFResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -623,78 +616,6 @@ func (o *RTRGetScriptsV2TooManyRequests) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRGetScriptsV2Default creates a RTRGetScriptsV2Default with default headers values
-func NewRTRGetScriptsV2Default(code int) *RTRGetScriptsV2Default {
-	return &RTRGetScriptsV2Default{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRGetScriptsV2Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type RTRGetScriptsV2Default struct {
-	_statusCode int
-
-	Payload *models.DomainMsaPFResponseV2
-}
-
-// IsSuccess returns true when this r t r get scripts v2 default response has a 2xx status code
-func (o *RTRGetScriptsV2Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r get scripts v2 default response has a 3xx status code
-func (o *RTRGetScriptsV2Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r get scripts v2 default response has a 4xx status code
-func (o *RTRGetScriptsV2Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r get scripts v2 default response has a 5xx status code
-func (o *RTRGetScriptsV2Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r get scripts v2 default response a status code equal to that given
-func (o *RTRGetScriptsV2Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r get scripts v2 default response
-func (o *RTRGetScriptsV2Default) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRGetScriptsV2Default) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] RTR-GetScriptsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRGetScriptsV2Default) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/scripts/v2][%d] RTR-GetScriptsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRGetScriptsV2Default) GetPayload() *models.DomainMsaPFResponseV2 {
-	return o.Payload
-}
-
-func (o *RTRGetScriptsV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainMsaPFResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

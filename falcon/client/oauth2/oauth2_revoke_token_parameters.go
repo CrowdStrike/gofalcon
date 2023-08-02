@@ -61,6 +61,12 @@ Oauth2RevokeTokenParams contains all the parameters to send to the API endpoint
 */
 type Oauth2RevokeTokenParams struct {
 
+	/* ClientID.
+
+	   The OAuth2 client ID you are revoking the token for.
+	*/
+	ClientID *string
+
 	/* Token.
 
 	     The OAuth2 access token you want to revoke.
@@ -122,6 +128,17 @@ func (o *Oauth2RevokeTokenParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithClientID adds the clientID to the oauth2 revoke token params
+func (o *Oauth2RevokeTokenParams) WithClientID(clientID *string) *Oauth2RevokeTokenParams {
+	o.SetClientID(clientID)
+	return o
+}
+
+// SetClientID adds the clientId to the oauth2 revoke token params
+func (o *Oauth2RevokeTokenParams) SetClientID(clientID *string) {
+	o.ClientID = clientID
+}
+
 // WithToken adds the token to the oauth2 revoke token params
 func (o *Oauth2RevokeTokenParams) WithToken(token string) *Oauth2RevokeTokenParams {
 	o.SetToken(token)
@@ -140,6 +157,21 @@ func (o *Oauth2RevokeTokenParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.ClientID != nil {
+
+		// form param client_id
+		var frClientID string
+		if o.ClientID != nil {
+			frClientID = *o.ClientID
+		}
+		fClientID := frClientID
+		if fClientID != "" {
+			if err := r.SetFormParam("client_id", fClientID); err != nil {
+				return err
+			}
+		}
+	}
 
 	// form param token
 	frToken := o.Token

@@ -43,11 +43,17 @@ type QuarantineQuarantinedFile struct {
 	// id
 	ID string `json:"id,omitempty"`
 
+	// is on removable disk
+	IsOnRemovableDisk bool `json:"is_on_removable_disk,omitempty"`
+
 	// paths
 	Paths []*QuarantineQuarantinedFilePath `json:"paths"`
 
 	// primary module
 	PrimaryModule bool `json:"primary_module,omitempty"`
+
+	// release path for removable media
+	ReleasePathForRemovableMedia string `json:"release_path_for_removable_media,omitempty"`
 
 	// sandbox report id
 	SandboxReportID string `json:"sandbox_report_id,omitempty"`
@@ -124,6 +130,11 @@ func (m *QuarantineQuarantinedFile) contextValidatePaths(ctx context.Context, fo
 	for i := 0; i < len(m.Paths); i++ {
 
 		if m.Paths[i] != nil {
+
+			if swag.IsZero(m.Paths[i]) { // not required
+				return nil
+			}
+
 			if err := m.Paths[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("paths" + "." + strconv.Itoa(i))

@@ -56,14 +56,7 @@ func (o *ArchiveGetV1Reader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewArchiveGetV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /archives/entities/archives/v1] ArchiveGetV1", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *ArchiveGetV1InternalServerError) readResponse(response runtime.ClientRe
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ClientArchiveCreateResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewArchiveGetV1Default creates a ArchiveGetV1Default with default headers values
-func NewArchiveGetV1Default(code int) *ArchiveGetV1Default {
-	return &ArchiveGetV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-ArchiveGetV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type ArchiveGetV1Default struct {
-	_statusCode int
-
-	Payload *models.ClientArchiveCreateResponseV1
-}
-
-// IsSuccess returns true when this archive get v1 default response has a 2xx status code
-func (o *ArchiveGetV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this archive get v1 default response has a 3xx status code
-func (o *ArchiveGetV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this archive get v1 default response has a 4xx status code
-func (o *ArchiveGetV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this archive get v1 default response has a 5xx status code
-func (o *ArchiveGetV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this archive get v1 default response a status code equal to that given
-func (o *ArchiveGetV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the archive get v1 default response
-func (o *ArchiveGetV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *ArchiveGetV1Default) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] ArchiveGetV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ArchiveGetV1Default) String() string {
-	return fmt.Sprintf("[GET /archives/entities/archives/v1][%d] ArchiveGetV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ArchiveGetV1Default) GetPayload() *models.ClientArchiveCreateResponseV1 {
-	return o.Payload
-}
-
-func (o *ArchiveGetV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ClientArchiveCreateResponseV1)
 

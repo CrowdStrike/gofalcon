@@ -76,7 +76,7 @@ type QueryApplicationsParams struct {
 
 	/* Offset.
 
-	   The index of the starting resource.
+	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
 	*/
 	Offset *int64
 

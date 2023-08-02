@@ -50,14 +50,7 @@ func (o *RetrieveEmailsByCIDReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewRetrieveEmailsByCIDDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /users/queries/emails-by-cid/v1] RetrieveEmailsByCID", response, response.Code())
 	}
 }
 
@@ -507,78 +500,6 @@ func (o *RetrieveEmailsByCIDTooManyRequests) readResponse(response runtime.Clien
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRetrieveEmailsByCIDDefault creates a RetrieveEmailsByCIDDefault with default headers values
-func NewRetrieveEmailsByCIDDefault(code int) *RetrieveEmailsByCIDDefault {
-	return &RetrieveEmailsByCIDDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RetrieveEmailsByCIDDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RetrieveEmailsByCIDDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this retrieve emails by c ID default response has a 2xx status code
-func (o *RetrieveEmailsByCIDDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this retrieve emails by c ID default response has a 3xx status code
-func (o *RetrieveEmailsByCIDDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this retrieve emails by c ID default response has a 4xx status code
-func (o *RetrieveEmailsByCIDDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this retrieve emails by c ID default response has a 5xx status code
-func (o *RetrieveEmailsByCIDDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this retrieve emails by c ID default response a status code equal to that given
-func (o *RetrieveEmailsByCIDDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the retrieve emails by c ID default response
-func (o *RetrieveEmailsByCIDDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RetrieveEmailsByCIDDefault) Error() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] RetrieveEmailsByCID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveEmailsByCIDDefault) String() string {
-	return fmt.Sprintf("[GET /users/queries/emails-by-cid/v1][%d] RetrieveEmailsByCID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveEmailsByCIDDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *RetrieveEmailsByCIDDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

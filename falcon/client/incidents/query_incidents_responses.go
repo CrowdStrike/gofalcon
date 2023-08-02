@@ -56,14 +56,7 @@ func (o *QueryIncidentsReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueryIncidentsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /incidents/queries/incidents/v1] QueryIncidents", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type QueryIncidentsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type QueryIncidentsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMsaIncidentQueryResponse
+	Payload *models.DomainMsaIncidentQueryResponse
 }
 
 // IsSuccess returns true when this query incidents o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *QueryIncidentsOK) String() string {
 	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] queryIncidentsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryIncidentsOK) GetPayload() *models.APIMsaIncidentQueryResponse {
+func (o *QueryIncidentsOK) GetPayload() *models.DomainMsaIncidentQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryIncidentsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *QueryIncidentsOK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMsaIncidentQueryResponse)
+	o.Payload = new(models.DomainMsaIncidentQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -177,6 +181,10 @@ QueryIncidentsBadRequest describes a response with status code 400, with default
 Bad Request
 */
 type QueryIncidentsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *QueryIncidentsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryIncidentsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ QueryIncidentsForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type QueryIncidentsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryIncidentsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryIncidentsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryIncidentsTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type QueryIncidentsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryIncidentsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryIncidentsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ QueryIncidentsInternalServerError describes a response with status code 500, wit
 Internal Server Error
 */
 type QueryIncidentsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *QueryIncidentsInternalServerError) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *QueryIncidentsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *QueryIncidentsInternalServerError) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryIncidentsDefault creates a QueryIncidentsDefault with default headers values
-func NewQueryIncidentsDefault(code int) *QueryIncidentsDefault {
-	return &QueryIncidentsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryIncidentsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryIncidentsDefault struct {
-	_statusCode int
-
-	Payload *models.APIMsaIncidentQueryResponse
-}
-
-// IsSuccess returns true when this query incidents default response has a 2xx status code
-func (o *QueryIncidentsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query incidents default response has a 3xx status code
-func (o *QueryIncidentsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query incidents default response has a 4xx status code
-func (o *QueryIncidentsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query incidents default response has a 5xx status code
-func (o *QueryIncidentsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query incidents default response a status code equal to that given
-func (o *QueryIncidentsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query incidents default response
-func (o *QueryIncidentsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryIncidentsDefault) Error() string {
-	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] QueryIncidents default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryIncidentsDefault) String() string {
-	return fmt.Sprintf("[GET /incidents/queries/incidents/v1][%d] QueryIncidents default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryIncidentsDefault) GetPayload() *models.APIMsaIncidentQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryIncidentsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMsaIncidentQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -56,14 +56,7 @@ func (o *ReportExecutionsDownloadGetReader) ReadResponse(response runtime.Client
 		}
 		return nil, result
 	default:
-		result := NewReportExecutionsDownloadGetDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /reports/entities/report-executions-download/v1] report-executions-download.get", response, response.Code())
 	}
 }
 
@@ -624,76 +617,6 @@ func (o *ReportExecutionsDownloadGetInternalServerError) readResponse(response r
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewReportExecutionsDownloadGetDefault creates a ReportExecutionsDownloadGetDefault with default headers values
-func NewReportExecutionsDownloadGetDefault(code int) *ReportExecutionsDownloadGetDefault {
-	return &ReportExecutionsDownloadGetDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ReportExecutionsDownloadGetDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ReportExecutionsDownloadGetDefault struct {
-	_statusCode int
-
-	Payload []int64
-}
-
-// IsSuccess returns true when this report executions download get default response has a 2xx status code
-func (o *ReportExecutionsDownloadGetDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this report executions download get default response has a 3xx status code
-func (o *ReportExecutionsDownloadGetDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this report executions download get default response has a 4xx status code
-func (o *ReportExecutionsDownloadGetDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this report executions download get default response has a 5xx status code
-func (o *ReportExecutionsDownloadGetDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this report executions download get default response a status code equal to that given
-func (o *ReportExecutionsDownloadGetDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the report executions download get default response
-func (o *ReportExecutionsDownloadGetDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ReportExecutionsDownloadGetDefault) Error() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] report-executions-download.get default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsDownloadGetDefault) String() string {
-	return fmt.Sprintf("[GET /reports/entities/report-executions-download/v1][%d] report-executions-download.get default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ReportExecutionsDownloadGetDefault) GetPayload() []int64 {
-	return o.Payload
-}
-
-func (o *ReportExecutionsDownloadGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

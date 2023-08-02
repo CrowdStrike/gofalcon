@@ -14,8 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-
-	"github.com/crowdstrike/gofalcon/falcon/models"
 )
 
 // NewUpdateCSPMAzureAccountClientIDParams creates a new UpdateCSPMAzureAccountClientIDParams object,
@@ -62,12 +60,6 @@ UpdateCSPMAzureAccountClientIDParams contains all the parameters to send to the 
 	Typically these are written to a http.Request.
 */
 type UpdateCSPMAzureAccountClientIDParams struct {
-
-	/* Body.
-
-	   This is a placeholder only. Please ignore this field.
-	*/
-	Body models.RegistrationEmptyRequest
 
 	/* ID.
 
@@ -134,17 +126,6 @@ func (o *UpdateCSPMAzureAccountClientIDParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
-// WithBody adds the body to the update c s p m azure account client ID params
-func (o *UpdateCSPMAzureAccountClientIDParams) WithBody(body models.RegistrationEmptyRequest) *UpdateCSPMAzureAccountClientIDParams {
-	o.SetBody(body)
-	return o
-}
-
-// SetBody adds the body to the update c s p m azure account client ID params
-func (o *UpdateCSPMAzureAccountClientIDParams) SetBody(body models.RegistrationEmptyRequest) {
-	o.Body = body
-}
-
 // WithID adds the id to the update c s p m azure account client ID params
 func (o *UpdateCSPMAzureAccountClientIDParams) WithID(id string) *UpdateCSPMAzureAccountClientIDParams {
 	o.SetID(id)
@@ -174,11 +155,6 @@ func (o *UpdateCSPMAzureAccountClientIDParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-	if o.Body != nil {
-		if err := r.SetBodyParam(o.Body); err != nil {
-			return err
-		}
-	}
 
 	// query param id
 	qrID := o.ID

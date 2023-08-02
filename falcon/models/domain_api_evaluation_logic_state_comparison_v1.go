@@ -102,6 +102,11 @@ func (m *DomainAPIEvaluationLogicStateComparisonV1) contextValidateEntityCompari
 	for i := 0; i < len(m.EntityComparisons); i++ {
 
 		if m.EntityComparisons[i] != nil {
+
+			if swag.IsZero(m.EntityComparisons[i]) { // not required
+				return nil
+			}
+
 			if err := m.EntityComparisons[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entity_comparisons" + "." + strconv.Itoa(i))

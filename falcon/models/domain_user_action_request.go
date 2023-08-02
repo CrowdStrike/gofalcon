@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUserActionRequest ID(s) of users the action(s) are to applied to
+// DomainUserActionRequest ID(s) of users the action are to applied to
 //
 // swagger:model domain.UserActionRequest
 type DomainUserActionRequest struct {
@@ -92,6 +92,7 @@ func (m *DomainUserActionRequest) ContextValidate(ctx context.Context, formats s
 func (m *DomainUserActionRequest) contextValidateAction(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Action != nil {
+
 		if err := m.Action.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")

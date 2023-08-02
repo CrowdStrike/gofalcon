@@ -290,6 +290,7 @@ func (m *FwmgrAPINetworkLocationCreateRequestV1) ContextValidate(ctx context.Con
 func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateConnectionTypes(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ConnectionTypes != nil {
+
 		if err := m.ConnectionTypes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection_types")
@@ -306,6 +307,7 @@ func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateConnectionTypes(
 func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateDNSResolutionTargets(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DNSResolutionTargets != nil {
+
 		if err := m.DNSResolutionTargets.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dns_resolution_targets")
@@ -322,6 +324,7 @@ func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateDNSResolutionTar
 func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateHTTPSReachableHosts(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HTTPSReachableHosts != nil {
+
 		if err := m.HTTPSReachableHosts.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("https_reachable_hosts")
@@ -338,6 +341,7 @@ func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateHTTPSReachableHo
 func (m *FwmgrAPINetworkLocationCreateRequestV1) contextValidateIcmpRequestTargets(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IcmpRequestTargets != nil {
+
 		if err := m.IcmpRequestTargets.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("icmp_request_targets")

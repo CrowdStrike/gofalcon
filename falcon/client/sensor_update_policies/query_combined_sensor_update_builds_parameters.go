@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewQueryCombinedSensorUpdateBuildsParams creates a new QueryCombinedSensorUpdateBuildsParams object,
@@ -66,6 +67,12 @@ type QueryCombinedSensorUpdateBuildsParams struct {
 	   The platform to return builds for
 	*/
 	Platform *string
+
+	/* Stage.
+
+	   The stages to return builds for
+	*/
+	Stage []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -131,6 +138,17 @@ func (o *QueryCombinedSensorUpdateBuildsParams) SetPlatform(platform *string) {
 	o.Platform = platform
 }
 
+// WithStage adds the stage to the query combined sensor update builds params
+func (o *QueryCombinedSensorUpdateBuildsParams) WithStage(stage []string) *QueryCombinedSensorUpdateBuildsParams {
+	o.SetStage(stage)
+	return o
+}
+
+// SetStage adds the stage to the query combined sensor update builds params
+func (o *QueryCombinedSensorUpdateBuildsParams) SetStage(stage []string) {
+	o.Stage = stage
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *QueryCombinedSensorUpdateBuildsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -156,8 +174,36 @@ func (o *QueryCombinedSensorUpdateBuildsParams) WriteToRequest(r runtime.ClientR
 		}
 	}
 
+	if o.Stage != nil {
+
+		// binding items for stage
+		joinedStage := o.bindParamStage(reg)
+
+		// query array param stage
+		if err := r.SetQueryParam("stage", joinedStage...); err != nil {
+			return err
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamQueryCombinedSensorUpdateBuilds binds the parameter stage
+func (o *QueryCombinedSensorUpdateBuildsParams) bindParamStage(formats strfmt.Registry) []string {
+	stageIR := o.Stage
+
+	var stageIC []string
+	for _, stageIIR := range stageIR { // explode []string
+
+		stageIIV := stageIIR // string as string
+		stageIC = append(stageIC, stageIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	stageIS := swag.JoinByFormat(stageIC, "csv")
+
+	return stageIS
 }

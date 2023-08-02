@@ -44,14 +44,7 @@ func (o *GetRemediationsV2Reader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewGetRemediationsV2Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /spotlight/entities/remediations/v2] getRemediationsV2", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *GetRemediationsV2TooManyRequests) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetRemediationsV2Default creates a GetRemediationsV2Default with default headers values
-func NewGetRemediationsV2Default(code int) *GetRemediationsV2Default {
-	return &GetRemediationsV2Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetRemediationsV2Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetRemediationsV2Default struct {
-	_statusCode int
-
-	Payload *models.DomainSPAPIRemediationEntitiesResponseV2
-}
-
-// IsSuccess returns true when this get remediations v2 default response has a 2xx status code
-func (o *GetRemediationsV2Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get remediations v2 default response has a 3xx status code
-func (o *GetRemediationsV2Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get remediations v2 default response has a 4xx status code
-func (o *GetRemediationsV2Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get remediations v2 default response has a 5xx status code
-func (o *GetRemediationsV2Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get remediations v2 default response a status code equal to that given
-func (o *GetRemediationsV2Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get remediations v2 default response
-func (o *GetRemediationsV2Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetRemediationsV2Default) Error() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRemediationsV2Default) String() string {
-	return fmt.Sprintf("[GET /spotlight/entities/remediations/v2][%d] getRemediationsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRemediationsV2Default) GetPayload() *models.DomainSPAPIRemediationEntitiesResponseV2 {
-	return o.Payload
-}
-
-func (o *GetRemediationsV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainSPAPIRemediationEntitiesResponseV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

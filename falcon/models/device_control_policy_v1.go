@@ -336,6 +336,11 @@ func (m *DeviceControlPolicyV1) contextValidateGroups(ctx context.Context, forma
 	for i := 0; i < len(m.Groups); i++ {
 
 		if m.Groups[i] != nil {
+
+			if swag.IsZero(m.Groups[i]) { // not required
+				return nil
+			}
+
 			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
@@ -354,6 +359,7 @@ func (m *DeviceControlPolicyV1) contextValidateGroups(ctx context.Context, forma
 func (m *DeviceControlPolicyV1) contextValidateSettings(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Settings != nil {
+
 		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")

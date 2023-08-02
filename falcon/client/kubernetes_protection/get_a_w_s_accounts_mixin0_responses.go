@@ -62,14 +62,7 @@ func (o *GetAWSAccountsMixin0Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewGetAWSAccountsMixin0Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /kubernetes-protection/entities/accounts/aws/v1] GetAWSAccountsMixin0", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *GetAWSAccountsMixin0InternalServerError) readResponse(response runtime.
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.K8sregGetAWSAccountsResp)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetAWSAccountsMixin0Default creates a GetAWSAccountsMixin0Default with default headers values
-func NewGetAWSAccountsMixin0Default(code int) *GetAWSAccountsMixin0Default {
-	return &GetAWSAccountsMixin0Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetAWSAccountsMixin0Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetAWSAccountsMixin0Default struct {
-	_statusCode int
-
-	Payload *models.K8sregGetAWSAccountsResp
-}
-
-// IsSuccess returns true when this get a w s accounts mixin0 default response has a 2xx status code
-func (o *GetAWSAccountsMixin0Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get a w s accounts mixin0 default response has a 3xx status code
-func (o *GetAWSAccountsMixin0Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get a w s accounts mixin0 default response has a 4xx status code
-func (o *GetAWSAccountsMixin0Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get a w s accounts mixin0 default response has a 5xx status code
-func (o *GetAWSAccountsMixin0Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get a w s accounts mixin0 default response a status code equal to that given
-func (o *GetAWSAccountsMixin0Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get a w s accounts mixin0 default response
-func (o *GetAWSAccountsMixin0Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetAWSAccountsMixin0Default) Error() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] GetAWSAccountsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetAWSAccountsMixin0Default) String() string {
-	return fmt.Sprintf("[GET /kubernetes-protection/entities/accounts/aws/v1][%d] GetAWSAccountsMixin0 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetAWSAccountsMixin0Default) GetPayload() *models.K8sregGetAWSAccountsResp {
-	return o.Payload
-}
-
-func (o *GetAWSAccountsMixin0Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.K8sregGetAWSAccountsResp)
 

@@ -62,7 +62,7 @@ func (o *CreateFirewallPoliciesReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /policy/entities/firewall/v1] createFirewallPolicies", response, response.Code())
 	}
 }
 
@@ -78,6 +78,10 @@ Created
 */
 type CreateFirewallPoliciesCreated struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -86,7 +90,7 @@ type CreateFirewallPoliciesCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this create firewall policies created response has a 2xx status code
@@ -127,11 +131,18 @@ func (o *CreateFirewallPoliciesCreated) String() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateFirewallPoliciesCreated) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *CreateFirewallPoliciesCreated) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *CreateFirewallPoliciesCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -155,7 +166,7 @@ func (o *CreateFirewallPoliciesCreated) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -177,6 +188,10 @@ Bad Request
 */
 type CreateFirewallPoliciesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -185,7 +200,7 @@ type CreateFirewallPoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this create firewall policies bad request response has a 2xx status code
@@ -226,11 +241,18 @@ func (o *CreateFirewallPoliciesBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateFirewallPoliciesBadRequest) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *CreateFirewallPoliciesBadRequest) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *CreateFirewallPoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -254,7 +276,7 @@ func (o *CreateFirewallPoliciesBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -275,6 +297,10 @@ CreateFirewallPoliciesForbidden describes a response with status code 403, with 
 Forbidden
 */
 type CreateFirewallPoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -331,6 +357,13 @@ func (o *CreateFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *CreateFirewallPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +408,10 @@ Not Found
 */
 type CreateFirewallPoliciesNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -383,7 +420,7 @@ type CreateFirewallPoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this create firewall policies not found response has a 2xx status code
@@ -424,11 +461,18 @@ func (o *CreateFirewallPoliciesNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CreateFirewallPoliciesNotFound) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *CreateFirewallPoliciesNotFound) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *CreateFirewallPoliciesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -452,7 +496,7 @@ func (o *CreateFirewallPoliciesNotFound) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -473,6 +517,10 @@ CreateFirewallPoliciesTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type CreateFirewallPoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -533,6 +581,13 @@ func (o *CreateFirewallPoliciesTooManyRequests) GetPayload() *models.MsaReplyMet
 
 func (o *CreateFirewallPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -588,6 +643,10 @@ Internal Server Error
 */
 type CreateFirewallPoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -596,7 +655,7 @@ type CreateFirewallPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this create firewall policies internal server error response has a 2xx status code
@@ -637,11 +696,18 @@ func (o *CreateFirewallPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/firewall/v1][%d] createFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateFirewallPoliciesInternalServerError) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *CreateFirewallPoliciesInternalServerError) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *CreateFirewallPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -665,7 +731,7 @@ func (o *CreateFirewallPoliciesInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

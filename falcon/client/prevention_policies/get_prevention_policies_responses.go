@@ -56,7 +56,7 @@ func (o *GetPreventionPoliciesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/prevention/v1] getPreventionPolicies", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetPreventionPoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this get prevention policies o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetPreventionPoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetPreventionPoliciesOK) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *GetPreventionPoliciesOK) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetPreventionPoliciesOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetPreventionPoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this get prevention policies not found response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetPreventionPoliciesNotFound) String() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetPreventionPoliciesNotFound) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *GetPreventionPoliciesNotFound) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetPreventionPoliciesNotFound) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetPreventionPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this get prevention policies internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetPreventionPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/prevention/v1][%d] getPreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetPreventionPoliciesInternalServerError) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *GetPreventionPoliciesInternalServerError) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetPreventionPoliciesInternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

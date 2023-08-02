@@ -50,14 +50,7 @@ func (o *QueryRuleGroupsReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		result := NewQueryRuleGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /fwmgr/queries/rule-groups/v1] query-rule-groups", response, response.Code())
 	}
 }
 
@@ -195,7 +188,7 @@ type QueryRuleGroupsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this query rule groups bad request response has a 2xx status code
@@ -236,7 +229,7 @@ func (o *QueryRuleGroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] queryRuleGroupsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *QueryRuleGroupsBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -271,7 +264,7 @@ func (o *QueryRuleGroupsBadRequest) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -507,78 +500,6 @@ func (o *QueryRuleGroupsTooManyRequests) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRuleGroupsDefault creates a QueryRuleGroupsDefault with default headers values
-func NewQueryRuleGroupsDefault(code int) *QueryRuleGroupsDefault {
-	return &QueryRuleGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryRuleGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryRuleGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrAPIQueryResponse
-}
-
-// IsSuccess returns true when this query rule groups default response has a 2xx status code
-func (o *QueryRuleGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query rule groups default response has a 3xx status code
-func (o *QueryRuleGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query rule groups default response has a 4xx status code
-func (o *QueryRuleGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query rule groups default response has a 5xx status code
-func (o *QueryRuleGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query rule groups default response a status code equal to that given
-func (o *QueryRuleGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query rule groups default response
-func (o *QueryRuleGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryRuleGroupsDefault) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] query-rule-groups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleGroupsDefault) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/rule-groups/v1][%d] query-rule-groups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleGroupsDefault) GetPayload() *models.FwmgrAPIQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryRuleGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrAPIQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

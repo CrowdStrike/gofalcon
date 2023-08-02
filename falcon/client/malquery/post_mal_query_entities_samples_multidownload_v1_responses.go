@@ -68,14 +68,7 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Reader) ReadResponse(response
 		}
 		return nil, result
 	default:
-		result := NewPostMalQueryEntitiesSamplesMultidownloadV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /malquery/entities/samples-multidownload/v1] PostMalQueryEntitiesSamplesMultidownloadV1", response, response.Code())
 	}
 }
 
@@ -90,6 +83,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1OK describes a response with status co
 OK
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -146,6 +143,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) GetPayload() *models.Malq
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -189,6 +193,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1BadRequest describes a response with s
 Bad Request
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -245,6 +253,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) GetPayload() *mod
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -288,6 +303,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized describes a response with
 Unauthorized
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -344,6 +363,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) GetPayload() *m
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -387,6 +413,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1Forbidden describes a response with st
 Forbidden
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -443,6 +473,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) GetPayload() *mode
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -486,6 +523,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1NotFound describes a response with sta
 Not Found
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -542,6 +583,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) GetPayload() *model
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -585,6 +633,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests describes a response w
 Too Many Requests
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -645,6 +697,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) GetPayload()
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -699,6 +758,10 @@ PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError describes a respon
 Internal Server Error
 */
 type PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -755,6 +818,13 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) GetPaylo
 
 func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -776,78 +846,6 @@ func (o *PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError) readResp
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryExternalQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostMalQueryEntitiesSamplesMultidownloadV1Default creates a PostMalQueryEntitiesSamplesMultidownloadV1Default with default headers values
-func NewPostMalQueryEntitiesSamplesMultidownloadV1Default(code int) *PostMalQueryEntitiesSamplesMultidownloadV1Default {
-	return &PostMalQueryEntitiesSamplesMultidownloadV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostMalQueryEntitiesSamplesMultidownloadV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryExternalQueryResponse
-}
-
-// IsSuccess returns true when this post mal query entities samples multidownload v1 default response has a 2xx status code
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post mal query entities samples multidownload v1 default response has a 3xx status code
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post mal query entities samples multidownload v1 default response has a 4xx status code
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post mal query entities samples multidownload v1 default response has a 5xx status code
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post mal query entities samples multidownload v1 default response a status code equal to that given
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post mal query entities samples multidownload v1 default response
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) Error() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] PostMalQueryEntitiesSamplesMultidownloadV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) String() string {
-	return fmt.Sprintf("[POST /malquery/entities/samples-multidownload/v1][%d] PostMalQueryEntitiesSamplesMultidownloadV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) GetPayload() *models.MalqueryExternalQueryResponse {
-	return o.Payload
-}
-
-func (o *PostMalQueryEntitiesSamplesMultidownloadV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryExternalQueryResponse)
 

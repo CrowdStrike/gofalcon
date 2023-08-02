@@ -6,6 +6,8 @@ package overwatch_dashboard
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -74,8 +76,9 @@ func (a *Client) AggregatesDetectionsGlobalCounts(params *AggregatesDetectionsGl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregatesDetectionsGlobalCountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregatesDetectionsGlobalCounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -111,8 +114,9 @@ func (a *Client) AggregatesEvents(params *AggregatesEventsParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregatesEventsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregatesEvents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -148,8 +152,9 @@ func (a *Client) AggregatesEventsCollections(params *AggregatesEventsCollections
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregatesEventsCollectionsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregatesEventsCollections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -185,8 +190,9 @@ func (a *Client) AggregatesIncidentsGlobalCounts(params *AggregatesIncidentsGlob
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregatesIncidentsGlobalCountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregatesIncidentsGlobalCounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -222,8 +228,9 @@ func (a *Client) AggregatesOWEventsGlobalCounts(params *AggregatesOWEventsGlobal
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AggregatesOWEventsGlobalCountsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AggregatesOWEventsGlobalCounts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

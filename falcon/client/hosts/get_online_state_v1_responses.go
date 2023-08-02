@@ -31,6 +31,12 @@ func (o *GetOnlineStateV1Reader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewGetOnlineStateV1BadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetOnlineStateV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -44,14 +50,7 @@ func (o *GetOnlineStateV1Reader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewGetOnlineStateV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /devices/entities/online-state/v1] GetOnlineState.V1", response, response.Code())
 	}
 }
 
@@ -125,6 +124,116 @@ func (o *GetOnlineStateV1OK) GetPayload() *models.StateOnlineStateRespV1 {
 }
 
 func (o *GetOnlineStateV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.StateOnlineStateRespV1)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetOnlineStateV1BadRequest creates a GetOnlineStateV1BadRequest with default headers values
+func NewGetOnlineStateV1BadRequest() *GetOnlineStateV1BadRequest {
+	return &GetOnlineStateV1BadRequest{}
+}
+
+/*
+GetOnlineStateV1BadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type GetOnlineStateV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.StateOnlineStateRespV1
+}
+
+// IsSuccess returns true when this get online state v1 bad request response has a 2xx status code
+func (o *GetOnlineStateV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get online state v1 bad request response has a 3xx status code
+func (o *GetOnlineStateV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get online state v1 bad request response has a 4xx status code
+func (o *GetOnlineStateV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get online state v1 bad request response has a 5xx status code
+func (o *GetOnlineStateV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get online state v1 bad request response a status code equal to that given
+func (o *GetOnlineStateV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the get online state v1 bad request response
+func (o *GetOnlineStateV1BadRequest) Code() int {
+	return 400
+}
+
+func (o *GetOnlineStateV1BadRequest) Error() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOnlineStateV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] getOnlineStateV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOnlineStateV1BadRequest) GetPayload() *models.StateOnlineStateRespV1 {
+	return o.Payload
+}
+
+func (o *GetOnlineStateV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
@@ -391,78 +500,6 @@ func (o *GetOnlineStateV1TooManyRequests) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetOnlineStateV1Default creates a GetOnlineStateV1Default with default headers values
-func NewGetOnlineStateV1Default(code int) *GetOnlineStateV1Default {
-	return &GetOnlineStateV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetOnlineStateV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetOnlineStateV1Default struct {
-	_statusCode int
-
-	Payload *models.StateOnlineStateRespV1
-}
-
-// IsSuccess returns true when this get online state v1 default response has a 2xx status code
-func (o *GetOnlineStateV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get online state v1 default response has a 3xx status code
-func (o *GetOnlineStateV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get online state v1 default response has a 4xx status code
-func (o *GetOnlineStateV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get online state v1 default response has a 5xx status code
-func (o *GetOnlineStateV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get online state v1 default response a status code equal to that given
-func (o *GetOnlineStateV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get online state v1 default response
-func (o *GetOnlineStateV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetOnlineStateV1Default) Error() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] GetOnlineState.V1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetOnlineStateV1Default) String() string {
-	return fmt.Sprintf("[GET /devices/entities/online-state/v1][%d] GetOnlineState.V1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetOnlineStateV1Default) GetPayload() *models.StateOnlineStateRespV1 {
-	return o.Payload
-}
-
-func (o *GetOnlineStateV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.StateOnlineStateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

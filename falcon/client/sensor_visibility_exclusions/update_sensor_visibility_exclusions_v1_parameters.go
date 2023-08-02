@@ -64,7 +64,7 @@ UpdateSensorVisibilityExclusionsV1Params contains all the parameters to send to 
 type UpdateSensorVisibilityExclusionsV1Params struct {
 
 	// Body.
-	Body *models.RequestsSvExclusionUpdateReqV1
+	Body *models.SvExclusionsUpdateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateSensorVisibilityExclusionsV1Params) SetHTTPClient(client *http.Cl
 }
 
 // WithBody adds the body to the update sensor visibility exclusions v1 params
-func (o *UpdateSensorVisibilityExclusionsV1Params) WithBody(body *models.RequestsSvExclusionUpdateReqV1) *UpdateSensorVisibilityExclusionsV1Params {
+func (o *UpdateSensorVisibilityExclusionsV1Params) WithBody(body *models.SvExclusionsUpdateReqV1) *UpdateSensorVisibilityExclusionsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update sensor visibility exclusions v1 params
-func (o *UpdateSensorVisibilityExclusionsV1Params) SetBody(body *models.RequestsSvExclusionUpdateReqV1) {
+func (o *UpdateSensorVisibilityExclusionsV1Params) SetBody(body *models.SvExclusionsUpdateReqV1) {
 	o.Body = body
 }
 

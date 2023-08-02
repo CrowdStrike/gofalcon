@@ -226,6 +226,11 @@ func (m *APIRuleTypeV1) contextValidateDispositionMap(ctx context.Context, forma
 	for i := 0; i < len(m.DispositionMap); i++ {
 
 		if m.DispositionMap[i] != nil {
+
+			if swag.IsZero(m.DispositionMap[i]) { // not required
+				return nil
+			}
+
 			if err := m.DispositionMap[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disposition_map" + "." + strconv.Itoa(i))
@@ -246,6 +251,11 @@ func (m *APIRuleTypeV1) contextValidateFields(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Fields); i++ {
 
 		if m.Fields[i] != nil {
+
+			if swag.IsZero(m.Fields[i]) { // not required
+				return nil
+			}
+
 			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fields" + "." + strconv.Itoa(i))

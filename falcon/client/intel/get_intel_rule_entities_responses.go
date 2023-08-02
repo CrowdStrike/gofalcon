@@ -50,14 +50,7 @@ func (o *GetIntelRuleEntitiesReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewGetIntelRuleEntitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /intel/entities/rules/v1] GetIntelRuleEntities", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ GetIntelRuleEntitiesOK describes a response with status code 200, with default h
 OK
 */
 type GetIntelRuleEntitiesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -128,6 +125,13 @@ func (o *GetIntelRuleEntitiesOK) GetPayload() *models.DomainRulesResponse {
 
 func (o *GetIntelRuleEntitiesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -171,6 +175,10 @@ GetIntelRuleEntitiesForbidden describes a response with status code 403, with de
 Forbidden
 */
 type GetIntelRuleEntitiesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -227,6 +235,13 @@ func (o *GetIntelRuleEntitiesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetIntelRuleEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -270,6 +285,10 @@ GetIntelRuleEntitiesTooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type GetIntelRuleEntitiesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -330,6 +349,13 @@ func (o *GetIntelRuleEntitiesTooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *GetIntelRuleEntitiesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -384,6 +410,10 @@ GetIntelRuleEntitiesInternalServerError describes a response with status code 50
 Internal Server Error
 */
 type GetIntelRuleEntitiesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -440,6 +470,13 @@ func (o *GetIntelRuleEntitiesInternalServerError) GetPayload() *models.MsaErrors
 
 func (o *GetIntelRuleEntitiesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -463,78 +500,6 @@ func (o *GetIntelRuleEntitiesInternalServerError) readResponse(response runtime.
 	}
 
 	o.Payload = new(models.MsaErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetIntelRuleEntitiesDefault creates a GetIntelRuleEntitiesDefault with default headers values
-func NewGetIntelRuleEntitiesDefault(code int) *GetIntelRuleEntitiesDefault {
-	return &GetIntelRuleEntitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetIntelRuleEntitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetIntelRuleEntitiesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainRulesResponse
-}
-
-// IsSuccess returns true when this get intel rule entities default response has a 2xx status code
-func (o *GetIntelRuleEntitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get intel rule entities default response has a 3xx status code
-func (o *GetIntelRuleEntitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get intel rule entities default response has a 4xx status code
-func (o *GetIntelRuleEntitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get intel rule entities default response has a 5xx status code
-func (o *GetIntelRuleEntitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get intel rule entities default response a status code equal to that given
-func (o *GetIntelRuleEntitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get intel rule entities default response
-func (o *GetIntelRuleEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetIntelRuleEntitiesDefault) Error() string {
-	return fmt.Sprintf("[GET /intel/entities/rules/v1][%d] GetIntelRuleEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIntelRuleEntitiesDefault) String() string {
-	return fmt.Sprintf("[GET /intel/entities/rules/v1][%d] GetIntelRuleEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIntelRuleEntitiesDefault) GetPayload() *models.DomainRulesResponse {
-	return o.Payload
-}
-
-func (o *GetIntelRuleEntitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainRulesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package sensor_download
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
 	"io"
 
 	"github.com/go-openapi/runtime"
@@ -76,8 +77,9 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DownloadSensorInstallerByIDDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DownloadSensorInstallerById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -113,8 +115,9 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetCombinedSensorInstallersByQueryDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedSensorInstallersByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -150,8 +153,9 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetSensorInstallersByQueryDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSensorInstallersByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -187,8 +191,9 @@ func (a *Client) GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDB
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetSensorInstallersCCIDByQueryDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSensorInstallersCCIDByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -225,9 +230,9 @@ func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntities
 	case *GetSensorInstallersEntitiesMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetSensorInstallersEntitiesDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for sensor_download: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

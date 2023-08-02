@@ -102,6 +102,11 @@ func (m *DeviceControlUSBCustomNotifications) ContextValidate(ctx context.Contex
 func (m *DeviceControlUSBCustomNotifications) contextValidateBlockedNotification(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BlockedNotification != nil {
+
+		if swag.IsZero(m.BlockedNotification) { // not required
+			return nil
+		}
+
 		if err := m.BlockedNotification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("blocked_notification")
@@ -118,6 +123,11 @@ func (m *DeviceControlUSBCustomNotifications) contextValidateBlockedNotification
 func (m *DeviceControlUSBCustomNotifications) contextValidateRestrictedNotification(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RestrictedNotification != nil {
+
+		if swag.IsZero(m.RestrictedNotification) { // not required
+			return nil
+		}
+
 		if err := m.RestrictedNotification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("restricted_notification")

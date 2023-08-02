@@ -20,84 +20,84 @@ import (
 // swagger:model domain.NewsDocument
 type DomainNewsDocument struct {
 
-	// active
+	// legacy field, not used
 	Active bool `json:"active,omitempty"`
 
-	// actors
+	// Actors mentioned, related or referenced in the news/report
 	// Required: true
 	Actors []*DomainSimpleActor `json:"actors"`
 
-	// attachments
+	// News attachment, containing either pdf url or feeds zip and/or gzip archive
 	Attachments []*DomainFile `json:"attachments"`
 
-	// created date
+	// Date of the news document creation, unix timestampt
 	// Required: true
 	CreatedDate *int64 `json:"created_date"`
 
-	// description
+	// Full report description, extracted from the document
 	Description string `json:"description,omitempty"`
 
-	// entitlements
+	// internal property used for permissions check of access, not returned or explicitly filterable
 	Entitlements []*DomainEntity `json:"entitlements"`
 
-	// id
+	// Integer ID of the News document
 	// Required: true
 	ID *int64 `json:"id"`
 
-	// image
+	// News document image
 	Image *DomainImage `json:"image,omitempty"`
 
-	// last modified date
+	// Date of the news document last modification, unix timestampt
 	// Required: true
 	LastModifiedDate *int64 `json:"last_modified_date"`
 
-	// motivations
+	// News mentioned motivation or motivation of related actors and malware families
 	// Required: true
 	Motivations []*DomainEntity `json:"motivations"`
 
-	// name
+	// News title
 	// Required: true
 	Name *string `json:"name"`
 
-	// notify users
+	// internal field, not used
 	NotifyUsers bool `json:"notify_users,omitempty"`
 
-	// rich text description
+	// Rich text description with markup
 	RichTextDescription string `json:"rich_text_description,omitempty"`
 
-	// short description
+	// Short description of the report content
 	ShortDescription string `json:"short_description,omitempty"`
 
-	// slug
+	// News title in a url friendly way, which is title in lowercase and special characters including space replaced with dash
 	// Required: true
 	Slug *string `json:"slug"`
 
-	// sub type
+	// News document sub-type. For Feeds type it can be: Snort/Suricata, Yara, NetWitness, Common Event Format. For Periodic Report type it can be: Daily, Weekly, Monthly, Quarterly, Annual. For non feeds or periodic reports type it is empty.
 	SubType *DomainEntity `json:"sub_type,omitempty"`
 
-	// tags
+	// News tags, which contains MITRE, Vulnerability community identifiers, capabilities, malware family name, customer target, activity cluster, notable event, geopolitical issue
 	// Required: true
 	Tags []*DomainEntity `json:"tags"`
 
-	// target countries
+	// News mentioned target countries or related actor's target countries
 	// Required: true
 	TargetCountries []*DomainEntity `json:"target_countries"`
 
-	// target industries
+	// News mentioned target industries or related actor's target industries
 	// Required: true
 	TargetIndustries []*DomainEntity `json:"target_industries"`
 
-	// thumbnail
+	// News document thumbnail version of image
 	// Required: true
 	Thumbnail *DomainImage `json:"thumbnail"`
 
-	// topic
+	// legacy, unused field
 	Topic *DomainEntity `json:"topic,omitempty"`
 
-	// type
+	// News document type, one of: Notice, Feeds, Tipper, Periodic Report, Intelligence Report
 	Type *DomainEntity `json:"type,omitempty"`
 
-	// url
+	// URL of the news document where it can be accessed in the Falcon Portal
 	URL string `json:"url,omitempty"`
 }
 
@@ -570,6 +570,11 @@ func (m *DomainNewsDocument) contextValidateActors(ctx context.Context, formats 
 	for i := 0; i < len(m.Actors); i++ {
 
 		if m.Actors[i] != nil {
+
+			if swag.IsZero(m.Actors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
@@ -590,6 +595,11 @@ func (m *DomainNewsDocument) contextValidateAttachments(ctx context.Context, for
 	for i := 0; i < len(m.Attachments); i++ {
 
 		if m.Attachments[i] != nil {
+
+			if swag.IsZero(m.Attachments[i]) { // not required
+				return nil
+			}
+
 			if err := m.Attachments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
@@ -610,6 +620,11 @@ func (m *DomainNewsDocument) contextValidateEntitlements(ctx context.Context, fo
 	for i := 0; i < len(m.Entitlements); i++ {
 
 		if m.Entitlements[i] != nil {
+
+			if swag.IsZero(m.Entitlements[i]) { // not required
+				return nil
+			}
+
 			if err := m.Entitlements[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entitlements" + "." + strconv.Itoa(i))
@@ -628,6 +643,11 @@ func (m *DomainNewsDocument) contextValidateEntitlements(ctx context.Context, fo
 func (m *DomainNewsDocument) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Image != nil {
+
+		if swag.IsZero(m.Image) { // not required
+			return nil
+		}
+
 		if err := m.Image.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
@@ -646,6 +666,11 @@ func (m *DomainNewsDocument) contextValidateMotivations(ctx context.Context, for
 	for i := 0; i < len(m.Motivations); i++ {
 
 		if m.Motivations[i] != nil {
+
+			if swag.IsZero(m.Motivations[i]) { // not required
+				return nil
+			}
+
 			if err := m.Motivations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("motivations" + "." + strconv.Itoa(i))
@@ -664,6 +689,11 @@ func (m *DomainNewsDocument) contextValidateMotivations(ctx context.Context, for
 func (m *DomainNewsDocument) contextValidateSubType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SubType != nil {
+
+		if swag.IsZero(m.SubType) { // not required
+			return nil
+		}
+
 		if err := m.SubType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sub_type")
@@ -682,6 +712,11 @@ func (m *DomainNewsDocument) contextValidateTags(ctx context.Context, formats st
 	for i := 0; i < len(m.Tags); i++ {
 
 		if m.Tags[i] != nil {
+
+			if swag.IsZero(m.Tags[i]) { // not required
+				return nil
+			}
+
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
@@ -702,6 +737,11 @@ func (m *DomainNewsDocument) contextValidateTargetCountries(ctx context.Context,
 	for i := 0; i < len(m.TargetCountries); i++ {
 
 		if m.TargetCountries[i] != nil {
+
+			if swag.IsZero(m.TargetCountries[i]) { // not required
+				return nil
+			}
+
 			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
@@ -722,6 +762,11 @@ func (m *DomainNewsDocument) contextValidateTargetIndustries(ctx context.Context
 	for i := 0; i < len(m.TargetIndustries); i++ {
 
 		if m.TargetIndustries[i] != nil {
+
+			if swag.IsZero(m.TargetIndustries[i]) { // not required
+				return nil
+			}
+
 			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))
@@ -740,6 +785,7 @@ func (m *DomainNewsDocument) contextValidateTargetIndustries(ctx context.Context
 func (m *DomainNewsDocument) contextValidateThumbnail(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Thumbnail != nil {
+
 		if err := m.Thumbnail.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("thumbnail")
@@ -756,6 +802,11 @@ func (m *DomainNewsDocument) contextValidateThumbnail(ctx context.Context, forma
 func (m *DomainNewsDocument) contextValidateTopic(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Topic != nil {
+
+		if swag.IsZero(m.Topic) { // not required
+			return nil
+		}
+
 		if err := m.Topic.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("topic")
@@ -772,6 +823,11 @@ func (m *DomainNewsDocument) contextValidateTopic(ctx context.Context, formats s
 func (m *DomainNewsDocument) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Type != nil {
+
+		if swag.IsZero(m.Type) { // not required
+			return nil
+		}
+
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")

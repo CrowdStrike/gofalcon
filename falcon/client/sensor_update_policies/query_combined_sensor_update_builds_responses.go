@@ -79,6 +79,10 @@ OK
 */
 type QueryCombinedSensorUpdateBuildsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +91,7 @@ type QueryCombinedSensorUpdateBuildsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateBuildsV1
+	Payload *models.SensorUpdateBuildsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update builds o k response has a 2xx status code
@@ -128,11 +132,18 @@ func (o *QueryCombinedSensorUpdateBuildsOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateBuildsOK) GetPayload() *models.ResponsesSensorUpdateBuildsV1 {
+func (o *QueryCombinedSensorUpdateBuildsOK) GetPayload() *models.SensorUpdateBuildsRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedSensorUpdateBuildsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +167,7 @@ func (o *QueryCombinedSensorUpdateBuildsOK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateBuildsV1)
+	o.Payload = new(models.SensorUpdateBuildsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +189,10 @@ Bad Request
 */
 type QueryCombinedSensorUpdateBuildsBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -186,7 +201,7 @@ type QueryCombinedSensorUpdateBuildsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateBuildsV1
+	Payload *models.SensorUpdateBuildsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update builds bad request response has a 2xx status code
@@ -227,11 +242,18 @@ func (o *QueryCombinedSensorUpdateBuildsBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateBuildsBadRequest) GetPayload() *models.ResponsesSensorUpdateBuildsV1 {
+func (o *QueryCombinedSensorUpdateBuildsBadRequest) GetPayload() *models.SensorUpdateBuildsRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedSensorUpdateBuildsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -255,7 +277,7 @@ func (o *QueryCombinedSensorUpdateBuildsBadRequest) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateBuildsV1)
+	o.Payload = new(models.SensorUpdateBuildsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -276,6 +298,10 @@ QueryCombinedSensorUpdateBuildsForbidden describes a response with status code 4
 Forbidden
 */
 type QueryCombinedSensorUpdateBuildsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +358,13 @@ func (o *QueryCombinedSensorUpdateBuildsForbidden) GetPayload() *models.MsaError
 
 func (o *QueryCombinedSensorUpdateBuildsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +408,10 @@ QueryCombinedSensorUpdateBuildsTooManyRequests describes a response with status 
 Too Many Requests
 */
 type QueryCombinedSensorUpdateBuildsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +472,13 @@ func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) GetPayload() *models.Ms
 
 func (o *QueryCombinedSensorUpdateBuildsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -490,6 +534,10 @@ Internal Server Error
 */
 type QueryCombinedSensorUpdateBuildsInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -498,7 +546,7 @@ type QueryCombinedSensorUpdateBuildsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateBuildsV1
+	Payload *models.SensorUpdateBuildsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update builds internal server error response has a 2xx status code
@@ -539,11 +587,18 @@ func (o *QueryCombinedSensorUpdateBuildsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuildsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateBuildsInternalServerError) GetPayload() *models.ResponsesSensorUpdateBuildsV1 {
+func (o *QueryCombinedSensorUpdateBuildsInternalServerError) GetPayload() *models.SensorUpdateBuildsRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedSensorUpdateBuildsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,7 +622,7 @@ func (o *QueryCombinedSensorUpdateBuildsInternalServerError) readResponse(respon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateBuildsV1)
+	o.Payload = new(models.SensorUpdateBuildsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -587,12 +642,12 @@ func NewQueryCombinedSensorUpdateBuildsDefault(code int) *QueryCombinedSensorUpd
 /*
 QueryCombinedSensorUpdateBuildsDefault describes a response with status code -1, with default header values.
 
-OK
+default
 */
 type QueryCombinedSensorUpdateBuildsDefault struct {
 	_statusCode int
 
-	Payload *models.ResponsesSensorUpdateBuildsV1
+	Payload string
 }
 
 // IsSuccess returns true when this query combined sensor update builds default response has a 2xx status code
@@ -633,16 +688,14 @@ func (o *QueryCombinedSensorUpdateBuildsDefault) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-builds/v1][%d] queryCombinedSensorUpdateBuilds default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateBuildsDefault) GetPayload() *models.ResponsesSensorUpdateBuildsV1 {
+func (o *QueryCombinedSensorUpdateBuildsDefault) GetPayload() string {
 	return o.Payload
 }
 
 func (o *QueryCombinedSensorUpdateBuildsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.ResponsesSensorUpdateBuildsV1)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

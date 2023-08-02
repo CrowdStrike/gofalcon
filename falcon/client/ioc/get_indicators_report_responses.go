@@ -44,14 +44,7 @@ func (o *GetIndicatorsReportReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewGetIndicatorsReportDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /iocs/entities/indicators-reports/v1] GetIndicatorsReport", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *GetIndicatorsReportTooManyRequests) readResponse(response runtime.Clien
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetIndicatorsReportDefault creates a GetIndicatorsReportDefault with default headers values
-func NewGetIndicatorsReportDefault(code int) *GetIndicatorsReportDefault {
-	return &GetIndicatorsReportDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetIndicatorsReportDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetIndicatorsReportDefault struct {
-	_statusCode int
-
-	Payload *models.MsaEntitiesResponse
-}
-
-// IsSuccess returns true when this get indicators report default response has a 2xx status code
-func (o *GetIndicatorsReportDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get indicators report default response has a 3xx status code
-func (o *GetIndicatorsReportDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get indicators report default response has a 4xx status code
-func (o *GetIndicatorsReportDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get indicators report default response has a 5xx status code
-func (o *GetIndicatorsReportDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get indicators report default response a status code equal to that given
-func (o *GetIndicatorsReportDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get indicators report default response
-func (o *GetIndicatorsReportDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetIndicatorsReportDefault) Error() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] GetIndicatorsReport default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIndicatorsReportDefault) String() string {
-	return fmt.Sprintf("[POST /iocs/entities/indicators-reports/v1][%d] GetIndicatorsReport default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIndicatorsReportDefault) GetPayload() *models.MsaEntitiesResponse {
-	return o.Payload
-}
-
-func (o *GetIndicatorsReportDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

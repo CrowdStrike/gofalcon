@@ -44,14 +44,7 @@ func (o *AggregatesIncidentsGlobalCountsReader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewAggregatesIncidentsGlobalCountsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /overwatch-dashboards/aggregates/incidents-global-counts/v1] AggregatesIncidentsGlobalCounts", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ AggregatesIncidentsGlobalCountsOK describes a response with status code 200, wit
 OK
 */
 type AggregatesIncidentsGlobalCountsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *AggregatesIncidentsGlobalCountsOK) GetPayload() *models.MsaFacetsRespon
 
 func (o *AggregatesIncidentsGlobalCountsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ AggregatesIncidentsGlobalCountsForbidden describes a response with status code 4
 Forbidden
 */
 type AggregatesIncidentsGlobalCountsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *AggregatesIncidentsGlobalCountsForbidden) GetPayload() *models.MsaReply
 
 func (o *AggregatesIncidentsGlobalCountsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ AggregatesIncidentsGlobalCountsTooManyRequests describes a response with status 
 Too Many Requests
 */
 type AggregatesIncidentsGlobalCountsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *AggregatesIncidentsGlobalCountsTooManyRequests) GetPayload() *models.Ms
 
 func (o *AggregatesIncidentsGlobalCountsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *AggregatesIncidentsGlobalCountsTooManyRequests) readResponse(response r
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAggregatesIncidentsGlobalCountsDefault creates a AggregatesIncidentsGlobalCountsDefault with default headers values
-func NewAggregatesIncidentsGlobalCountsDefault(code int) *AggregatesIncidentsGlobalCountsDefault {
-	return &AggregatesIncidentsGlobalCountsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AggregatesIncidentsGlobalCountsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AggregatesIncidentsGlobalCountsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaFacetsResponse
-}
-
-// IsSuccess returns true when this aggregates incidents global counts default response has a 2xx status code
-func (o *AggregatesIncidentsGlobalCountsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this aggregates incidents global counts default response has a 3xx status code
-func (o *AggregatesIncidentsGlobalCountsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this aggregates incidents global counts default response has a 4xx status code
-func (o *AggregatesIncidentsGlobalCountsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this aggregates incidents global counts default response has a 5xx status code
-func (o *AggregatesIncidentsGlobalCountsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this aggregates incidents global counts default response a status code equal to that given
-func (o *AggregatesIncidentsGlobalCountsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the aggregates incidents global counts default response
-func (o *AggregatesIncidentsGlobalCountsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AggregatesIncidentsGlobalCountsDefault) Error() string {
-	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/incidents-global-counts/v1][%d] AggregatesIncidentsGlobalCounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregatesIncidentsGlobalCountsDefault) String() string {
-	return fmt.Sprintf("[GET /overwatch-dashboards/aggregates/incidents-global-counts/v1][%d] AggregatesIncidentsGlobalCounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregatesIncidentsGlobalCountsDefault) GetPayload() *models.MsaFacetsResponse {
-	return o.Payload
-}
-
-func (o *AggregatesIncidentsGlobalCountsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaFacetsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

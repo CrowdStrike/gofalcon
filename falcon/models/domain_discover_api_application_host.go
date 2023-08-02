@@ -25,14 +25,8 @@ type DomainDiscoverAPIApplicationHost struct {
 	// The agent ID of the Falcon sensor installed on the asset.
 	Aid string `json:"aid,omitempty"`
 
-	// The name of the asset's BIOS manufacturer.
-	BiosManufacturer string `json:"bios_manufacturer,omitempty"`
-
 	// The name of the country where the asset is located.
 	Country string `json:"country,omitempty"`
-
-	// The last seen local IPv4 address of the asset.
-	CurrentLocalIP string `json:"current_local_ip,omitempty"`
 
 	// The last seen MAC address of the asset.
 	CurrentMacAddress string `json:"current_mac_address,omitempty"`
@@ -71,9 +65,6 @@ type DomainDiscoverAPIApplicationHost struct {
 	// The platform name of the asset (Windows, Mac, Linux).
 	PlatformName string `json:"platform_name,omitempty"`
 
-	// The product type of the asset represented as a number (1 = Workstation, 2 = Domain Controller, 3 = Server).
-	ProductType string `json:"product_type,omitempty"`
-
 	// The product type of the asset (Workstation, Domain Controller, Server).
 	ProductTypeDesc string `json:"product_type_desc,omitempty"`
 
@@ -82,12 +73,6 @@ type DomainDiscoverAPIApplicationHost struct {
 
 	// The asset's system manufacturer.
 	SystemManufacturer string `json:"system_manufacturer,omitempty"`
-
-	// The asset's system product name.
-	SystemProductName string `json:"system_product_name,omitempty"`
-
-	// The asset's system serial number.
-	SystemSerialNumber string `json:"system_serial_number,omitempty"`
 
 	// The sensor and cloud tags of the asset.
 	Tags []string `json:"tags"`

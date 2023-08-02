@@ -26,6 +26,9 @@ type DomainECrimeKillChain struct {
 	// customers
 	Customers string `json:"customers,omitempty"`
 
+	// comma separated values of vulnerabilities by CVE codes that are exploited by actor
+	Exploitation string `json:"exploitation,omitempty"`
+
 	// marketing
 	Marketing string `json:"marketing,omitempty"`
 
@@ -40,6 +43,9 @@ type DomainECrimeKillChain struct {
 
 	// rich text customers
 	RichTextCustomers string `json:"rich_text_customers,omitempty"`
+
+	// rich text exploitation
+	RichTextExploitation string `json:"rich_text_exploitation,omitempty"`
 
 	// rich text marketing
 	RichTextMarketing string `json:"rich_text_marketing,omitempty"`

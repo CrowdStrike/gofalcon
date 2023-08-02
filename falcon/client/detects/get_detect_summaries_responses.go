@@ -56,14 +56,7 @@ func (o *GetDetectSummariesReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewGetDetectSummariesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /detects/entities/summaries/GET/v1] GetDetectSummaries", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetDetectSummariesOK describes a response with status code 200, with default hea
 OK
 */
 type GetDetectSummariesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *GetDetectSummariesOK) GetPayload() *models.DomainMsaDetectSummariesResp
 
 func (o *GetDetectSummariesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ GetDetectSummariesBadRequest describes a response with status code 400, with def
 Bad Request
 */
 type GetDetectSummariesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *GetDetectSummariesBadRequest) GetPayload() *models.DomainMsaDetectSumma
 
 func (o *GetDetectSummariesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ GetDetectSummariesForbidden describes a response with status code 403, with defa
 Forbidden
 */
 type GetDetectSummariesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *GetDetectSummariesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetDetectSummariesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ GetDetectSummariesTooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type GetDetectSummariesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *GetDetectSummariesTooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *GetDetectSummariesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ GetDetectSummariesInternalServerError describes a response with status code 500,
 Internal Server Error
 */
 type GetDetectSummariesInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *GetDetectSummariesInternalServerError) GetPayload() *models.DomainMsaDe
 
 func (o *GetDetectSummariesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *GetDetectSummariesInternalServerError) readResponse(response runtime.Cl
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.DomainMsaDetectSummariesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetDetectSummariesDefault creates a GetDetectSummariesDefault with default headers values
-func NewGetDetectSummariesDefault(code int) *GetDetectSummariesDefault {
-	return &GetDetectSummariesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetDetectSummariesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetDetectSummariesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainMsaDetectSummariesResponse
-}
-
-// IsSuccess returns true when this get detect summaries default response has a 2xx status code
-func (o *GetDetectSummariesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get detect summaries default response has a 3xx status code
-func (o *GetDetectSummariesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get detect summaries default response has a 4xx status code
-func (o *GetDetectSummariesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get detect summaries default response has a 5xx status code
-func (o *GetDetectSummariesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get detect summaries default response a status code equal to that given
-func (o *GetDetectSummariesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get detect summaries default response
-func (o *GetDetectSummariesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetDetectSummariesDefault) Error() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] GetDetectSummaries default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDetectSummariesDefault) String() string {
-	return fmt.Sprintf("[POST /detects/entities/summaries/GET/v1][%d] GetDetectSummaries default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetDetectSummariesDefault) GetPayload() *models.DomainMsaDetectSummariesResponse {
-	return o.Payload
-}
-
-func (o *GetDetectSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DomainMsaDetectSummariesResponse)
 

@@ -444,6 +444,7 @@ func (m *DomainSession) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *DomainSession) contextValidateDeviceDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceDetails != nil {
+
 		if err := m.DeviceDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device_details")
@@ -462,6 +463,11 @@ func (m *DomainSession) contextValidateLogs(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Logs); i++ {
 
 		if m.Logs[i] != nil {
+
+			if swag.IsZero(m.Logs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Logs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("logs" + "." + strconv.Itoa(i))

@@ -25,7 +25,7 @@ type APIActionV1 struct {
 
 	// platforms by type
 	// Required: true
-	PlatformsByType map[string]APIActionV1PlatformsByType `json:"platforms_by_type"`
+	PlatformsByType map[string][]string `json:"platforms_by_type"`
 
 	// severities
 	// Required: true
@@ -67,14 +67,6 @@ func (m *APIActionV1) validatePlatformsByType(formats strfmt.Registry) error {
 
 	if err := validate.Required("platforms_by_type", "body", m.PlatformsByType); err != nil {
 		return err
-	}
-
-	for k := range m.PlatformsByType {
-
-		if err := validate.Required("platforms_by_type"+"."+k, "body", m.PlatformsByType[k]); err != nil {
-			return err
-		}
-
 	}
 
 	return nil

@@ -56,14 +56,7 @@ func (o *ExtractionListV1Reader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewExtractionListV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /archives/entities/extraction-files/v1] ExtractionListV1", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *ExtractionListV1InternalServerError) readResponse(response runtime.Clie
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ClientExtractionListFilesResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewExtractionListV1Default creates a ExtractionListV1Default with default headers values
-func NewExtractionListV1Default(code int) *ExtractionListV1Default {
-	return &ExtractionListV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-ExtractionListV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type ExtractionListV1Default struct {
-	_statusCode int
-
-	Payload *models.ClientExtractionListFilesResponseV1
-}
-
-// IsSuccess returns true when this extraction list v1 default response has a 2xx status code
-func (o *ExtractionListV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this extraction list v1 default response has a 3xx status code
-func (o *ExtractionListV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this extraction list v1 default response has a 4xx status code
-func (o *ExtractionListV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this extraction list v1 default response has a 5xx status code
-func (o *ExtractionListV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this extraction list v1 default response a status code equal to that given
-func (o *ExtractionListV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the extraction list v1 default response
-func (o *ExtractionListV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *ExtractionListV1Default) Error() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] ExtractionListV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ExtractionListV1Default) String() string {
-	return fmt.Sprintf("[GET /archives/entities/extraction-files/v1][%d] ExtractionListV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ExtractionListV1Default) GetPayload() *models.ClientExtractionListFilesResponseV1 {
-	return o.Payload
-}
-
-func (o *ExtractionListV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ClientExtractionListFilesResponseV1)
 

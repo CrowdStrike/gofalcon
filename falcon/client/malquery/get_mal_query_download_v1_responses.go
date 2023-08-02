@@ -68,14 +68,7 @@ func (o *GetMalQueryDownloadV1Reader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewGetMalQueryDownloadV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /malquery/entities/download-files/v1] GetMalQueryDownloadV1", response, response.Code())
 	}
 }
 
@@ -90,6 +83,10 @@ GetMalQueryDownloadV1OK describes a response with status code 200, with default 
 The file content
 */
 type GetMalQueryDownloadV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *GetMalQueryDownloadV1OK) String() string {
 
 func (o *GetMalQueryDownloadV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -176,6 +180,10 @@ GetMalQueryDownloadV1BadRequest describes a response with status code 400, with 
 Bad Request
 */
 type GetMalQueryDownloadV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -232,6 +240,13 @@ func (o *GetMalQueryDownloadV1BadRequest) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *GetMalQueryDownloadV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -275,6 +290,10 @@ GetMalQueryDownloadV1Unauthorized describes a response with status code 401, wit
 Unauthorized
 */
 type GetMalQueryDownloadV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -331,6 +350,13 @@ func (o *GetMalQueryDownloadV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryDownloadV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -374,6 +400,10 @@ GetMalQueryDownloadV1Forbidden describes a response with status code 403, with d
 Forbidden
 */
 type GetMalQueryDownloadV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -430,6 +460,13 @@ func (o *GetMalQueryDownloadV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryDownloadV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -473,6 +510,10 @@ GetMalQueryDownloadV1NotFound describes a response with status code 404, with de
 Not Found
 */
 type GetMalQueryDownloadV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -529,6 +570,13 @@ func (o *GetMalQueryDownloadV1NotFound) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryDownloadV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -572,6 +620,10 @@ GetMalQueryDownloadV1TooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type GetMalQueryDownloadV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -632,6 +684,13 @@ func (o *GetMalQueryDownloadV1TooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *GetMalQueryDownloadV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -686,6 +745,10 @@ GetMalQueryDownloadV1InternalServerError describes a response with status code 5
 Internal Server Error
 */
 type GetMalQueryDownloadV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -742,6 +805,13 @@ func (o *GetMalQueryDownloadV1InternalServerError) GetPayload() *models.MsaReply
 
 func (o *GetMalQueryDownloadV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -770,65 +840,6 @@ func (o *GetMalQueryDownloadV1InternalServerError) readResponse(response runtime
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
-
-	return nil
-}
-
-// NewGetMalQueryDownloadV1Default creates a GetMalQueryDownloadV1Default with default headers values
-func NewGetMalQueryDownloadV1Default(code int) *GetMalQueryDownloadV1Default {
-	return &GetMalQueryDownloadV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetMalQueryDownloadV1Default describes a response with status code -1, with default header values.
-
-The file content
-*/
-type GetMalQueryDownloadV1Default struct {
-	_statusCode int
-}
-
-// IsSuccess returns true when this get mal query download v1 default response has a 2xx status code
-func (o *GetMalQueryDownloadV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get mal query download v1 default response has a 3xx status code
-func (o *GetMalQueryDownloadV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get mal query download v1 default response has a 4xx status code
-func (o *GetMalQueryDownloadV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get mal query download v1 default response has a 5xx status code
-func (o *GetMalQueryDownloadV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get mal query download v1 default response a status code equal to that given
-func (o *GetMalQueryDownloadV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get mal query download v1 default response
-func (o *GetMalQueryDownloadV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetMalQueryDownloadV1Default) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] GetMalQueryDownloadV1 default ", o._statusCode)
-}
-
-func (o *GetMalQueryDownloadV1Default) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/download-files/v1][%d] GetMalQueryDownloadV1 default ", o._statusCode)
-}
-
-func (o *GetMalQueryDownloadV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }

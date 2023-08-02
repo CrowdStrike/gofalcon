@@ -73,6 +73,12 @@ type EntitiesPerformActionParams struct {
 	// Body.
 	Body *models.MsaEntityActionRequest
 
+	/* DisableHostnameCheck.
+
+	   Bool to disable hostname check on add-member
+	*/
+	DisableHostnameCheck *bool
+
 	/* Ids.
 
 	   The group ids to act on
@@ -96,7 +102,18 @@ func (o *EntitiesPerformActionParams) WithDefaults() *EntitiesPerformActionParam
 //
 // All values with no default are reset to their zero value.
 func (o *EntitiesPerformActionParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		disableHostnameCheckDefault = bool(false)
+	)
+
+	val := EntitiesPerformActionParams{
+		DisableHostnameCheck: &disableHostnameCheckDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the entities perform action params
@@ -154,6 +171,17 @@ func (o *EntitiesPerformActionParams) SetBody(body *models.MsaEntityActionReques
 	o.Body = body
 }
 
+// WithDisableHostnameCheck adds the disableHostnameCheck to the entities perform action params
+func (o *EntitiesPerformActionParams) WithDisableHostnameCheck(disableHostnameCheck *bool) *EntitiesPerformActionParams {
+	o.SetDisableHostnameCheck(disableHostnameCheck)
+	return o
+}
+
+// SetDisableHostnameCheck adds the disableHostnameCheck to the entities perform action params
+func (o *EntitiesPerformActionParams) SetDisableHostnameCheck(disableHostnameCheck *bool) {
+	o.DisableHostnameCheck = disableHostnameCheck
+}
+
 // WithIds adds the ids to the entities perform action params
 func (o *EntitiesPerformActionParams) WithIds(ids []string) *EntitiesPerformActionParams {
 	o.SetIds(ids)
@@ -185,6 +213,23 @@ func (o *EntitiesPerformActionParams) WriteToRequest(r runtime.ClientRequest, re
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.DisableHostnameCheck != nil {
+
+		// query param disable_hostname_check
+		var qrDisableHostnameCheck bool
+
+		if o.DisableHostnameCheck != nil {
+			qrDisableHostnameCheck = *o.DisableHostnameCheck
+		}
+		qDisableHostnameCheck := swag.FormatBool(qrDisableHostnameCheck)
+		if qDisableHostnameCheck != "" {
+
+			if err := r.SetQueryParam("disable_hostname_check", qDisableHostnameCheck); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -44,14 +44,7 @@ func (o *AggregateAllowListReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewAggregateAllowListDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1] AggregateAllowList", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ AggregateAllowListOK describes a response with status code 200, with default hea
 OK
 */
 type AggregateAllowListOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *AggregateAllowListOK) GetPayload() *models.MsaAggregatesResponse {
 
 func (o *AggregateAllowListOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ AggregateAllowListForbidden describes a response with status code 403, with defa
 Forbidden
 */
 type AggregateAllowListForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *AggregateAllowListForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *AggregateAllowListForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ AggregateAllowListTooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type AggregateAllowListTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *AggregateAllowListTooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *AggregateAllowListTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *AggregateAllowListTooManyRequests) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAggregateAllowListDefault creates a AggregateAllowListDefault with default headers values
-func NewAggregateAllowListDefault(code int) *AggregateAllowListDefault {
-	return &AggregateAllowListDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-AggregateAllowListDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type AggregateAllowListDefault struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this aggregate allow list default response has a 2xx status code
-func (o *AggregateAllowListDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this aggregate allow list default response has a 3xx status code
-func (o *AggregateAllowListDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this aggregate allow list default response has a 4xx status code
-func (o *AggregateAllowListDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this aggregate allow list default response has a 5xx status code
-func (o *AggregateAllowListDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this aggregate allow list default response a status code equal to that given
-func (o *AggregateAllowListDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the aggregate allow list default response
-func (o *AggregateAllowListDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *AggregateAllowListDefault) Error() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] AggregateAllowList default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregateAllowListDefault) String() string {
-	return fmt.Sprintf("[POST /falcon-complete-dashboards/aggregates/allowlist/GET/v1][%d] AggregateAllowList default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *AggregateAllowListDefault) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *AggregateAllowListDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -44,14 +44,7 @@ func (o *QueryCIDGroupMembersReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewQueryCIDGroupMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /mssp/queries/cid-group-members/v1] queryCIDGroupMembers", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *QueryCIDGroupMembersTooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCIDGroupMembersDefault creates a QueryCIDGroupMembersDefault with default headers values
-func NewQueryCIDGroupMembersDefault(code int) *QueryCIDGroupMembersDefault {
-	return &QueryCIDGroupMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCIDGroupMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCIDGroupMembersDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query c ID group members default response has a 2xx status code
-func (o *QueryCIDGroupMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query c ID group members default response has a 3xx status code
-func (o *QueryCIDGroupMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query c ID group members default response has a 4xx status code
-func (o *QueryCIDGroupMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query c ID group members default response has a 5xx status code
-func (o *QueryCIDGroupMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query c ID group members default response a status code equal to that given
-func (o *QueryCIDGroupMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query c ID group members default response
-func (o *QueryCIDGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCIDGroupMembersDefault) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCIDGroupMembersDefault) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-group-members/v1][%d] queryCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCIDGroupMembersDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryCIDGroupMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

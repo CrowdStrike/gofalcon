@@ -98,6 +98,12 @@ type GetClustersParams struct {
 	*/
 	Offset *int64
 
+	/* Status.
+
+	   Cluster Status
+	*/
+	Status []string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -217,6 +223,17 @@ func (o *GetClustersParams) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithStatus adds the status to the get clusters params
+func (o *GetClustersParams) WithStatus(status []string) *GetClustersParams {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the get clusters params
+func (o *GetClustersParams) SetStatus(status []string) {
+	o.Status = status
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetClustersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -309,6 +326,17 @@ func (o *GetClustersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		}
 	}
 
+	if o.Status != nil {
+
+		// binding items for status
+		joinedStatus := o.bindParamStatus(reg)
+
+		// query array param status
+		if err := r.SetQueryParam("status", joinedStatus...); err != nil {
+			return err
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -364,4 +392,21 @@ func (o *GetClustersParams) bindParamLocations(formats strfmt.Registry) []string
 	locationsIS := swag.JoinByFormat(locationsIC, "csv")
 
 	return locationsIS
+}
+
+// bindParamGetClusters binds the parameter status
+func (o *GetClustersParams) bindParamStatus(formats strfmt.Registry) []string {
+	statusIR := o.Status
+
+	var statusIC []string
+	for _, statusIIR := range statusIR { // explode []string
+
+		statusIIV := statusIIR // string as string
+		statusIC = append(statusIC, statusIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	statusIS := swag.JoinByFormat(statusIC, "csv")
+
+	return statusIS
 }

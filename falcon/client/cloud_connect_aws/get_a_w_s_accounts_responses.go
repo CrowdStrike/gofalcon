@@ -62,14 +62,7 @@ func (o *GetAWSAccountsReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewGetAWSAccountsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /cloud-connect-aws/entities/accounts/v1] GetAWSAccounts", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ GetAWSAccountsOK describes a response with status code 200, with default header 
 OK
 */
 type GetAWSAccountsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *GetAWSAccountsOK) GetPayload() *models.ModelsAWSAccountsV1 {
 
 func (o *GetAWSAccountsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ GetAWSAccountsBadRequest describes a response with status code 400, with default
 Bad Request
 */
 type GetAWSAccountsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *GetAWSAccountsBadRequest) GetPayload() *models.ModelsAWSAccountsV1 {
 
 func (o *GetAWSAccountsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ GetAWSAccountsForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type GetAWSAccountsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *GetAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetAWSAccountsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ GetAWSAccountsNotFound describes a response with status code 404, with default h
 Not Found
 */
 type GetAWSAccountsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *GetAWSAccountsNotFound) GetPayload() *models.ModelsAWSAccountsV1 {
 
 func (o *GetAWSAccountsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ GetAWSAccountsTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type GetAWSAccountsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *GetAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetAWSAccountsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ GetAWSAccountsInternalServerError describes a response with status code 500, wit
 Internal Server Error
 */
 type GetAWSAccountsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *GetAWSAccountsInternalServerError) GetPayload() *models.ModelsAWSAccoun
 
 func (o *GetAWSAccountsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *GetAWSAccountsInternalServerError) readResponse(response runtime.Client
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ModelsAWSAccountsV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetAWSAccountsDefault creates a GetAWSAccountsDefault with default headers values
-func NewGetAWSAccountsDefault(code int) *GetAWSAccountsDefault {
-	return &GetAWSAccountsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetAWSAccountsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetAWSAccountsDefault struct {
-	_statusCode int
-
-	Payload *models.ModelsAWSAccountsV1
-}
-
-// IsSuccess returns true when this get a w s accounts default response has a 2xx status code
-func (o *GetAWSAccountsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get a w s accounts default response has a 3xx status code
-func (o *GetAWSAccountsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get a w s accounts default response has a 4xx status code
-func (o *GetAWSAccountsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get a w s accounts default response has a 5xx status code
-func (o *GetAWSAccountsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get a w s accounts default response a status code equal to that given
-func (o *GetAWSAccountsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get a w s accounts default response
-func (o *GetAWSAccountsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetAWSAccountsDefault) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] GetAWSAccounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetAWSAccountsDefault) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-aws/entities/accounts/v1][%d] GetAWSAccounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetAWSAccountsDefault) GetPayload() *models.ModelsAWSAccountsV1 {
-	return o.Payload
-}
-
-func (o *GetAWSAccountsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ModelsAWSAccountsV1)
 

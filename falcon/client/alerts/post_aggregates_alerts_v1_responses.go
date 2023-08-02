@@ -56,14 +56,7 @@ func (o *PostAggregatesAlertsV1Reader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewPostAggregatesAlertsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /alerts/aggregates/alerts/v1] PostAggregatesAlertsV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type PostAggregatesAlertsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaAggregatesResponse
+	Payload *models.APIAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *PostAggregatesAlertsV1OK) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1OK) GetPayload() *models.MsaAggregatesResponse {
+func (o *PostAggregatesAlertsV1OK) GetPayload() *models.APIAggregatesResponse {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *PostAggregatesAlertsV1OK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaAggregatesResponse)
+	o.Payload = new(models.APIAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type PostAggregatesAlertsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaAggregatesResponse
+	Payload *models.APIAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *PostAggregatesAlertsV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.MsaAggregatesResponse {
+func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.APIAggregatesResponse {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *PostAggregatesAlertsV1BadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaAggregatesResponse)
+	o.Payload = new(models.APIAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type PostAggregatesAlertsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaAggregatesResponse
+	Payload *models.APIAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *PostAggregatesAlertsV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.MsaAggregatesResponse {
+func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.APIAggregatesResponse {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *PostAggregatesAlertsV1InternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaAggregatesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostAggregatesAlertsV1Default creates a PostAggregatesAlertsV1Default with default headers values
-func NewPostAggregatesAlertsV1Default(code int) *PostAggregatesAlertsV1Default {
-	return &PostAggregatesAlertsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostAggregatesAlertsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostAggregatesAlertsV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaAggregatesResponse
-}
-
-// IsSuccess returns true when this post aggregates alerts v1 default response has a 2xx status code
-func (o *PostAggregatesAlertsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post aggregates alerts v1 default response has a 3xx status code
-func (o *PostAggregatesAlertsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post aggregates alerts v1 default response has a 4xx status code
-func (o *PostAggregatesAlertsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post aggregates alerts v1 default response has a 5xx status code
-func (o *PostAggregatesAlertsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post aggregates alerts v1 default response a status code equal to that given
-func (o *PostAggregatesAlertsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post aggregates alerts v1 default response
-func (o *PostAggregatesAlertsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostAggregatesAlertsV1Default) Error() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] PostAggregatesAlertsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostAggregatesAlertsV1Default) String() string {
-	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] PostAggregatesAlertsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostAggregatesAlertsV1Default) GetPayload() *models.MsaAggregatesResponse {
-	return o.Payload
-}
-
-func (o *PostAggregatesAlertsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaAggregatesResponse)
+	o.Payload = new(models.APIAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

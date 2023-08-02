@@ -204,6 +204,11 @@ func (m *APIRuleUpdateV1) contextValidateFieldValues(ctx context.Context, format
 	for i := 0; i < len(m.FieldValues); i++ {
 
 		if m.FieldValues[i] != nil {
+
+			if swag.IsZero(m.FieldValues[i]) { // not required
+				return nil
+			}
+
 			if err := m.FieldValues[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("field_values" + "." + strconv.Itoa(i))

@@ -154,6 +154,11 @@ func (m *ThreatgraphCrawlEdgesRequest) contextValidateNextRequests(ctx context.C
 	for i := 0; i < len(m.NextRequests); i++ {
 
 		if m.NextRequests[i] != nil {
+
+			if swag.IsZero(m.NextRequests[i]) { // not required
+				return nil
+			}
+
 			if err := m.NextRequests[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("next_requests" + "." + strconv.Itoa(i))

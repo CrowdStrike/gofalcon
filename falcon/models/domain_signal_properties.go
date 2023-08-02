@@ -231,6 +231,7 @@ func (m *DomainSignalProperties) ContextValidate(ctx context.Context, formats st
 func (m *DomainSignalProperties) contextValidateAssessment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Assessment != nil {
+
 		if err := m.Assessment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment")
@@ -247,6 +248,7 @@ func (m *DomainSignalProperties) contextValidateAssessment(ctx context.Context, 
 func (m *DomainSignalProperties) contextValidateAssessmentItems(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AssessmentItems != nil {
+
 		if err := m.AssessmentItems.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment_items")

@@ -70,7 +70,7 @@ type QueryAWSAccountsParams struct {
 
 	/* Limit.
 
-	   The maximum records to return. [1-500]. Defaults to 100.
+	   The maximum records to return. [1-1000]. Defaults to 100.
 
 	   Default: 100
 	*/

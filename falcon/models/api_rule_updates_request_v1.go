@@ -136,6 +136,11 @@ func (m *APIRuleUpdatesRequestV1) contextValidateRuleUpdates(ctx context.Context
 	for i := 0; i < len(m.RuleUpdates); i++ {
 
 		if m.RuleUpdates[i] != nil {
+
+			if swag.IsZero(m.RuleUpdates[i]) { // not required
+				return nil
+			}
+
 			if err := m.RuleUpdates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("rule_updates" + "." + strconv.Itoa(i))

@@ -92,8 +92,9 @@ func (a *Client) GetIndicatorsReport(params *GetIndicatorsReportParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetIndicatorsReportDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetIndicatorsReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -129,8 +130,9 @@ func (a *Client) ActionGetV1(params *ActionGetV1Params, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*ActionGetV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for action.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -166,8 +168,9 @@ func (a *Client) ActionQueryV1(params *ActionQueryV1Params, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*ActionQueryV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for action.query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -203,8 +206,9 @@ func (a *Client) IndicatorAggregateV1(params *IndicatorAggregateV1Params, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorAggregateV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.aggregate.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -240,8 +244,9 @@ func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorCombinedV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.combined.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -315,8 +320,9 @@ func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorDeleteV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -352,8 +358,9 @@ func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorGetV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.get.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -389,8 +396,9 @@ func (a *Client) IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorSearchV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.search.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -426,8 +434,9 @@ func (a *Client) IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IndicatorUpdateV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.update.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -463,8 +472,9 @@ func (a *Client) IocTypeQueryV1(params *IocTypeQueryV1Params, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*IocTypeQueryV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ioc_type.query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -500,8 +510,9 @@ func (a *Client) PlatformQueryV1(params *PlatformQueryV1Params, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PlatformQueryV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for platform.query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -537,8 +548,9 @@ func (a *Client) SeverityQueryV1(params *SeverityQueryV1Params, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*SeverityQueryV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for severity.query.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

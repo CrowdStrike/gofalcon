@@ -66,14 +66,14 @@ type BatchRefreshSessionsParams struct {
 
 	/* Body.
 
-	     **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`.
+	     **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`.
 	**`hosts_to_remove`** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire.
 	*/
 	Body *models.DomainBatchRefreshSessionRequest
 
 	/* Timeout.
 
-	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
+	   Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
 
 	   Default: 30
 	*/
@@ -81,7 +81,7 @@ type BatchRefreshSessionsParams struct {
 
 	/* TimeoutDuration.
 
-	   Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+	   Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 
 	   Default: "30s"
 	*/

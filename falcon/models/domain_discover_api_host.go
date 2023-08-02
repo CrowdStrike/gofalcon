@@ -23,6 +23,9 @@ type DomainDiscoverAPIHost struct {
 	// Whether the asset is account-enabled in Active Directory (Yes or No).
 	AccountEnabled string `json:"account_enabled,omitempty"`
 
+	// Represents information about this host obtained from active discovery.
+	ActiveDiscovery *DomainDiscoverAPIActiveDiscoveryHost `json:"active_discovery,omitempty"`
+
 	// The user account control properties in Active Directory.
 	AdUserAccountControl int32 `json:"ad_user_account_control,omitempty"`
 
@@ -31,6 +34,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The agent ID of the Falcon sensor installed on the asset.
 	Aid string `json:"aid,omitempty"`
+
+	// The list of roles that this asset has, computed or user provided. See override_asset_roles.
+	AssetRoles []string `json:"asset_roles"`
 
 	// The first and last name of the person who is assigned to this asset.
 	AssignedTo string `json:"assigned_to,omitempty"`
@@ -72,6 +78,30 @@ type DomainDiscoverAPIHost struct {
 	// How the server is classified, such as production, development, disaster recovery, or user acceptance testing.
 	Classification string `json:"classification,omitempty"`
 
+	// The cloud provider assigned identifier of the cloud account the instance is located in.
+	CloudAccountID string `json:"cloud_account_id,omitempty"`
+
+	// The id of the cloud instance.
+	CloudInstanceID string `json:"cloud_instance_id,omitempty"`
+
+	// The cloud provider environment the instance is located in (AWS/Azure/GCP).
+	CloudProvider string `json:"cloud_provider,omitempty"`
+
+	// The cloud provider assigned identifier of the cloud region the instance is located in (e.g. “us-west-1”, “westeurope”, “asia-northeast1)
+	CloudRegion string `json:"cloud_region,omitempty"`
+
+	// Whether or not the instance is located in a cloud account registered with cloud security posture.
+	CloudRegistered bool `json:"cloud_registered,omitempty"`
+
+	// The cloud provider assigned identifier of the instance.
+	CloudResourceID string `json:"cloud_resource_id,omitempty"`
+
+	// The list of roles automatically computed by Discover for this asset.
+	ComputedAssetRoles []string `json:"computed_asset_roles"`
+
+	// The internet exposure automatically computed by Discover for this asset
+	ComputedInternetExposure string `json:"computed_internet_exposure,omitempty"`
+
 	// The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
 	Confidence int32 `json:"confidence,omitempty"`
 
@@ -86,6 +116,21 @@ type DomainDiscoverAPIHost struct {
 
 	// The time the asset was created in Active Directory, according to LDAP info.
 	CreationTimestamp string `json:"creation_timestamp,omitempty"`
+
+	// The criticality level of the asset (Critical, High, Noncritical, or Unassigned)
+	Criticality string `json:"criticality,omitempty"`
+
+	// The description the user entered when manually assigning a criticality level
+	CriticalityDescription string `json:"criticality_description,omitempty"`
+
+	// The ID of the criticality rule that has most recently matched on this host.
+	CriticalityRuleID string `json:"criticality_rule_id,omitempty"`
+
+	// The date and time the criticality level was manually assigned
+	CriticalityTimestamp string `json:"criticality_timestamp,omitempty"`
+
+	// The username of the account that manually assigned the criticality level
+	CriticalityUsername string `json:"criticality_username,omitempty"`
 
 	// The last seen local IPv4 address of the asset.
 	CurrentLocalIP string `json:"current_local_ip,omitempty"`
@@ -117,6 +162,9 @@ type DomainDiscoverAPIHost struct {
 	// The tags of the sources that discovered the asset.
 	DiscovererTags []string `json:"discoverer_tags"`
 
+	// Represents the status of a managed host (“Not Discovering“, “Passive“, “Active“ or both).
+	DiscoveringBy []string `json:"discovering_by"`
+
 	// The names and sizes of the disks on the asset
 	DiskSizes []*DomainDiscoverAPIDiskSize `json:"disk_sizes"`
 
@@ -146,6 +194,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The first time the asset was seen in your environment.
 	FirstSeenTimestamp string `json:"first_seen_timestamp,omitempty"`
+
+	// The form factor of the host
+	FormFactor string `json:"form_factor,omitempty"`
 
 	// The fully qualified domain name of the asset.
 	Fqdn string `json:"fqdn,omitempty"`
@@ -232,6 +283,15 @@ type DomainDiscoverAPIHost struct {
 	// The organizational unit of the asset.
 	Ou string `json:"ou,omitempty"`
 
+	// True if computed asset roles were overridden on this asset.
+	OverrideAssetRoles bool `json:"override_asset_roles,omitempty"`
+
+	// True if manual criticality assignment was performed on this asset.
+	OverrideCriticalityRules bool `json:"override_criticality_rules,omitempty"`
+
+	// True if computed internet exposure was overridden on this asset.
+	OverrideInternetExposure bool `json:"override_internet_exposure,omitempty"`
+
 	// The first and last name of the person who owns this asset.
 	OwnedBy string `json:"owned_by,omitempty"`
 
@@ -274,6 +334,9 @@ type DomainDiscoverAPIHost struct {
 	// The sensor and cloud tags of the asset.
 	Tags []string `json:"tags"`
 
+	// Represents the unique identifier of an asset reported by Tenable
+	TenableioID string `json:"tenableio_id,omitempty"`
+
 	// The count of bios files measured by the firmware image
 	TotalBiosFiles int32 `json:"total_bios_files,omitempty"`
 
@@ -282,6 +345,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The total memory of the asset
 	TotalMemory int32 `json:"total_memory,omitempty"`
+
+	// Represents triage information about this host.
+	Triage *DomainDiscoverAPIHostTriage `json:"triage,omitempty"`
 
 	// The list of unencrypted drives on the host
 	UnencryptedDrives []string `json:"unencrypted_drives"`
@@ -302,6 +368,10 @@ type DomainDiscoverAPIHost struct {
 // Validate validates this domain discover API host
 func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateActiveDiscovery(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateBiosHashesData(formats); err != nil {
 		res = append(res, err)
@@ -335,9 +405,32 @@ func (m *DomainDiscoverAPIHost) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTriage(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) validateActiveDiscovery(formats strfmt.Registry) error {
+	if swag.IsZero(m.ActiveDiscovery) { // not required
+		return nil
+	}
+
+	if m.ActiveDiscovery != nil {
+		if err := m.ActiveDiscovery.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("active_discovery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("active_discovery")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -508,9 +601,32 @@ func (m *DomainDiscoverAPIHost) validateOsSecurity(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *DomainDiscoverAPIHost) validateTriage(formats strfmt.Registry) error {
+	if swag.IsZero(m.Triage) { // not required
+		return nil
+	}
+
+	if m.Triage != nil {
+		if err := m.Triage.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("triage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this domain discover API host based on the context it is used
 func (m *DomainDiscoverAPIHost) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateActiveDiscovery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateBiosHashesData(ctx, formats); err != nil {
 		res = append(res, err)
@@ -536,9 +652,34 @@ func (m *DomainDiscoverAPIHost) ContextValidate(ctx context.Context, formats str
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateTriage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateActiveDiscovery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActiveDiscovery != nil {
+
+		if swag.IsZero(m.ActiveDiscovery) { // not required
+			return nil
+		}
+
+		if err := m.ActiveDiscovery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("active_discovery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("active_discovery")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -547,6 +688,11 @@ func (m *DomainDiscoverAPIHost) contextValidateBiosHashesData(ctx context.Contex
 	for i := 0; i < len(m.BiosHashesData); i++ {
 
 		if m.BiosHashesData[i] != nil {
+
+			if swag.IsZero(m.BiosHashesData[i]) { // not required
+				return nil
+			}
+
 			if err := m.BiosHashesData[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bios_hashes_data" + "." + strconv.Itoa(i))
@@ -567,6 +713,11 @@ func (m *DomainDiscoverAPIHost) contextValidateDiskSizes(ctx context.Context, fo
 	for i := 0; i < len(m.DiskSizes); i++ {
 
 		if m.DiskSizes[i] != nil {
+
+			if swag.IsZero(m.DiskSizes[i]) { // not required
+				return nil
+			}
+
 			if err := m.DiskSizes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disk_sizes" + "." + strconv.Itoa(i))
@@ -602,6 +753,11 @@ func (m *DomainDiscoverAPIHost) contextValidateMountStorageInfo(ctx context.Cont
 	for i := 0; i < len(m.MountStorageInfo); i++ {
 
 		if m.MountStorageInfo[i] != nil {
+
+			if swag.IsZero(m.MountStorageInfo[i]) { // not required
+				return nil
+			}
+
 			if err := m.MountStorageInfo[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mount_storage_info" + "." + strconv.Itoa(i))
@@ -622,6 +778,11 @@ func (m *DomainDiscoverAPIHost) contextValidateNetworkInterfaces(ctx context.Con
 	for i := 0; i < len(m.NetworkInterfaces); i++ {
 
 		if m.NetworkInterfaces[i] != nil {
+
+			if swag.IsZero(m.NetworkInterfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.NetworkInterfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("network_interfaces" + "." + strconv.Itoa(i))
@@ -640,11 +801,37 @@ func (m *DomainDiscoverAPIHost) contextValidateNetworkInterfaces(ctx context.Con
 func (m *DomainDiscoverAPIHost) contextValidateOsSecurity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.OsSecurity != nil {
+
+		if swag.IsZero(m.OsSecurity) { // not required
+			return nil
+		}
+
 		if err := m.OsSecurity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("os_security")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("os_security")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIHost) contextValidateTriage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Triage != nil {
+
+		if swag.IsZero(m.Triage) { // not required
+			return nil
+		}
+
+		if err := m.Triage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("triage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triage")
 			}
 			return err
 		}

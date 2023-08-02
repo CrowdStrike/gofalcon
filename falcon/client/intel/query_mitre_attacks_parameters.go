@@ -63,7 +63,7 @@ type QueryMitreAttacksParams struct {
 
 	/* ID.
 
-	   The actor ID(derived from the actor's name) for which to retrieve a list of attacks.
+	   The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear.
 	*/
 	ID string
 

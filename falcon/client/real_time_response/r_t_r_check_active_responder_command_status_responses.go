@@ -50,14 +50,7 @@ func (o *RTRCheckActiveResponderCommandStatusReader) ReadResponse(response runti
 		}
 		return nil, result
 	default:
-		result := NewRTRCheckActiveResponderCommandStatusDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /real-time-response/entities/active-responder-command/v1] RTR-CheckActiveResponderCommandStatus", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ RTRCheckActiveResponderCommandStatusOK describes a response with status code 200
 success
 */
 type RTRCheckActiveResponderCommandStatusOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -128,6 +125,13 @@ func (o *RTRCheckActiveResponderCommandStatusOK) GetPayload() *models.DomainStat
 
 func (o *RTRCheckActiveResponderCommandStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -171,6 +175,10 @@ RTRCheckActiveResponderCommandStatusUnauthorized describes a response with statu
 Unauthorized
 */
 type RTRCheckActiveResponderCommandStatusUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -227,6 +235,13 @@ func (o *RTRCheckActiveResponderCommandStatusUnauthorized) GetPayload() *models.
 
 func (o *RTRCheckActiveResponderCommandStatusUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -270,6 +285,10 @@ RTRCheckActiveResponderCommandStatusForbidden describes a response with status c
 Forbidden
 */
 type RTRCheckActiveResponderCommandStatusForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -326,6 +345,13 @@ func (o *RTRCheckActiveResponderCommandStatusForbidden) GetPayload() *models.Msa
 
 func (o *RTRCheckActiveResponderCommandStatusForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -369,6 +395,10 @@ RTRCheckActiveResponderCommandStatusTooManyRequests describes a response with st
 Too Many Requests
 */
 type RTRCheckActiveResponderCommandStatusTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -429,6 +459,13 @@ func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) GetPayload() *mode
 
 func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -463,78 +500,6 @@ func (o *RTRCheckActiveResponderCommandStatusTooManyRequests) readResponse(respo
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRCheckActiveResponderCommandStatusDefault creates a RTRCheckActiveResponderCommandStatusDefault with default headers values
-func NewRTRCheckActiveResponderCommandStatusDefault(code int) *RTRCheckActiveResponderCommandStatusDefault {
-	return &RTRCheckActiveResponderCommandStatusDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRCheckActiveResponderCommandStatusDefault describes a response with status code -1, with default header values.
-
-success
-*/
-type RTRCheckActiveResponderCommandStatusDefault struct {
-	_statusCode int
-
-	Payload *models.DomainStatusResponseWrapper
-}
-
-// IsSuccess returns true when this r t r check active responder command status default response has a 2xx status code
-func (o *RTRCheckActiveResponderCommandStatusDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r check active responder command status default response has a 3xx status code
-func (o *RTRCheckActiveResponderCommandStatusDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r check active responder command status default response has a 4xx status code
-func (o *RTRCheckActiveResponderCommandStatusDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r check active responder command status default response has a 5xx status code
-func (o *RTRCheckActiveResponderCommandStatusDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r check active responder command status default response a status code equal to that given
-func (o *RTRCheckActiveResponderCommandStatusDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r check active responder command status default response
-func (o *RTRCheckActiveResponderCommandStatusDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRCheckActiveResponderCommandStatusDefault) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] RTR-CheckActiveResponderCommandStatus default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRCheckActiveResponderCommandStatusDefault) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/active-responder-command/v1][%d] RTR-CheckActiveResponderCommandStatus default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRCheckActiveResponderCommandStatusDefault) GetPayload() *models.DomainStatusResponseWrapper {
-	return o.Payload
-}
-
-func (o *RTRCheckActiveResponderCommandStatusDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainStatusResponseWrapper)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

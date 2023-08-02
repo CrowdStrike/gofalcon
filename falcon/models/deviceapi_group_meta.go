@@ -19,6 +19,9 @@ type DeviceapiGroupMeta struct {
 
 	// version
 	Version int64 `json:"version,omitempty"`
+
+	// version string
+	VersionString string `json:"version_string,omitempty"`
 }
 
 // Validate validates this deviceapi group meta

@@ -56,14 +56,7 @@ func (o *DeleteAWSAccountsReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewDeleteAWSAccountsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /cloud-connect-aws/entities/accounts/v1] DeleteAWSAccounts", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeleteAWSAccountsOK describes a response with status code 200, with default head
 OK
 */
 type DeleteAWSAccountsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *DeleteAWSAccountsOK) GetPayload() *models.ModelsBaseResponseV1 {
 
 func (o *DeleteAWSAccountsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ DeleteAWSAccountsBadRequest describes a response with status code 400, with defa
 Bad Request
 */
 type DeleteAWSAccountsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *DeleteAWSAccountsBadRequest) GetPayload() *models.ModelsBaseResponseV1 
 
 func (o *DeleteAWSAccountsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ DeleteAWSAccountsForbidden describes a response with status code 403, with defau
 Forbidden
 */
 type DeleteAWSAccountsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *DeleteAWSAccountsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *DeleteAWSAccountsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ DeleteAWSAccountsTooManyRequests describes a response with status code 429, with
 Too Many Requests
 */
 type DeleteAWSAccountsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *DeleteAWSAccountsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly
 
 func (o *DeleteAWSAccountsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ DeleteAWSAccountsInternalServerError describes a response with status code 500, 
 Internal Server Error
 */
 type DeleteAWSAccountsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *DeleteAWSAccountsInternalServerError) GetPayload() *models.ModelsBaseRe
 
 func (o *DeleteAWSAccountsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *DeleteAWSAccountsInternalServerError) readResponse(response runtime.Cli
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ModelsBaseResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteAWSAccountsDefault creates a DeleteAWSAccountsDefault with default headers values
-func NewDeleteAWSAccountsDefault(code int) *DeleteAWSAccountsDefault {
-	return &DeleteAWSAccountsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteAWSAccountsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteAWSAccountsDefault struct {
-	_statusCode int
-
-	Payload *models.ModelsBaseResponseV1
-}
-
-// IsSuccess returns true when this delete a w s accounts default response has a 2xx status code
-func (o *DeleteAWSAccountsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete a w s accounts default response has a 3xx status code
-func (o *DeleteAWSAccountsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete a w s accounts default response has a 4xx status code
-func (o *DeleteAWSAccountsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete a w s accounts default response has a 5xx status code
-func (o *DeleteAWSAccountsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete a w s accounts default response a status code equal to that given
-func (o *DeleteAWSAccountsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete a w s accounts default response
-func (o *DeleteAWSAccountsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteAWSAccountsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] DeleteAWSAccounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteAWSAccountsDefault) String() string {
-	return fmt.Sprintf("[DELETE /cloud-connect-aws/entities/accounts/v1][%d] DeleteAWSAccounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteAWSAccountsDefault) GetPayload() *models.ModelsBaseResponseV1 {
-	return o.Payload
-}
-
-func (o *DeleteAWSAccountsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ModelsBaseResponseV1)
 

@@ -64,7 +64,7 @@ CaseAddActivityParams contains all the parameters to send to the API endpoint
 type CaseAddActivityParams struct {
 
 	// Body.
-	Body *models.APIActivityCreationRequest
+	Body *models.DomainActivityCreationRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CaseAddActivityParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the case add activity params
-func (o *CaseAddActivityParams) WithBody(body *models.APIActivityCreationRequest) *CaseAddActivityParams {
+func (o *CaseAddActivityParams) WithBody(body *models.DomainActivityCreationRequest) *CaseAddActivityParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the case add activity params
-func (o *CaseAddActivityParams) SetBody(body *models.APIActivityCreationRequest) {
+func (o *CaseAddActivityParams) SetBody(body *models.DomainActivityCreationRequest) {
 	o.Body = body
 }
 

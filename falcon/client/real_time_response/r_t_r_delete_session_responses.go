@@ -56,7 +56,7 @@ func (o *RTRDeleteSessionReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /real-time-response/entities/sessions/v1] RTR-DeleteSession", response, response.Code())
 	}
 }
 
@@ -71,6 +71,10 @@ RTRDeleteSessionNoContent describes a response with status code 204, with defaul
 No Content
 */
 type RTRDeleteSessionNoContent struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -127,6 +131,13 @@ func (o *RTRDeleteSessionNoContent) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRDeleteSessionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -170,6 +181,10 @@ RTRDeleteSessionBadRequest describes a response with status code 400, with defau
 Bad Request
 */
 type RTRDeleteSessionBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -226,6 +241,13 @@ func (o *RTRDeleteSessionBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRDeleteSessionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -269,6 +291,10 @@ RTRDeleteSessionUnauthorized describes a response with status code 401, with def
 Unauthorized
 */
 type RTRDeleteSessionUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -325,6 +351,13 @@ func (o *RTRDeleteSessionUnauthorized) GetPayload() *models.DomainAPIError {
 
 func (o *RTRDeleteSessionUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -368,6 +401,10 @@ RTRDeleteSessionForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type RTRDeleteSessionForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -424,6 +461,13 @@ func (o *RTRDeleteSessionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRDeleteSessionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -467,6 +511,10 @@ RTRDeleteSessionTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type RTRDeleteSessionTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -526,6 +574,13 @@ func (o *RTRDeleteSessionTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 }
 
 func (o *RTRDeleteSessionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

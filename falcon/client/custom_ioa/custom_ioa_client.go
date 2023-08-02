@@ -256,8 +256,9 @@ func (a *Client) GetPatterns(params *GetPatternsParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetPatternsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-patterns: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -293,8 +294,9 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetPlatformsMixin0Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-platformsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -368,12 +370,13 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetRuleTypesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-rule-types: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetRulesGet gets rules by ID and optionally version in the following format ID version
+GetRulesGet gets rules by ID and optionally with cid and or version in the following format cid ID version
 */
 func (a *Client) GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*GetRulesGetOK, error) {
 	// TODO: Validate the params before sending
@@ -411,7 +414,7 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*
 }
 
 /*
-GetRulesMixin0 gets rules by ID and optionally version in the following format ID version the max number of i ds is constrained by URL size
+GetRulesMixin0 gets rules by ID and optionally with cid and or version in the following format cid ID version the max number of i ds is constrained by URL size
 */
 func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, opts ...ClientOption) (*GetRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -481,8 +484,9 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryPatternsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-patterns: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -518,8 +522,9 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryPlatformsMixin0Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-platformsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -631,8 +636,9 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryRuleTypesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for query-rule-types: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
