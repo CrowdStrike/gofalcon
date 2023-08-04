@@ -119,7 +119,7 @@ func (c *CloudType) Autodiscover(ctx context.Context, clientId, clientSecret str
 
 	revocation, err := cli.Oauth2.Oauth2RevokeToken(&oauth2.Oauth2RevokeTokenParams{
 		Context: ctx,
-		Token:   *token.Payload.AccessToken,
+		Token:   token.Payload.AccessToken,
 	},
 		oauth2.AuthenticateRevocation(clientId, clientSecret),
 	)
