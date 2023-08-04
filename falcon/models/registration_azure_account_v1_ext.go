@@ -94,6 +94,9 @@ type RegistrationAzureAccountV1Ext struct {
 	// Azure Subscription ID.
 	SubscriptionID string `json:"subscription_id,omitempty"`
 
+	// Azure Subscription Name.
+	SubscriptionName string `json:"subscription_name,omitempty"`
+
 	// Azure Tenant ID to use.
 	TenantID string `json:"tenant_id,omitempty"`
 

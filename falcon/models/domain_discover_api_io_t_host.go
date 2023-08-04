@@ -96,6 +96,9 @@ type DomainDiscoverAPIIoTHost struct {
 	// The number of sources that discovered the asset.
 	DiscovererCount int32 `json:"discoverer_count,omitempty"`
 
+	// A list of agent IDs of the Falcon sensors installed on the source hosts that discovered the asset via ICS Asset discovery mechanism
+	DiscovererIcsCollectorIds []string `json:"discoverer_ics_collector_ids"`
+
 	// The product type descriptions of the sources that discovered the asset.
 	DiscovererProductTypeDescs []string `json:"discoverer_product_type_descs"`
 

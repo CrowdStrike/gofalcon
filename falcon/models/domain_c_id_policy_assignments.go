@@ -32,6 +32,9 @@ type DomainCIDPolicyAssignments struct {
 	// cis benchmark
 	CisBenchmark []*DomainBenchmark `json:"cis_benchmark"`
 
+	// cisa benchmark
+	CisaBenchmark []*DomainBenchmark `json:"cisa_benchmark"`
+
 	// cloud asset type
 	CloudAssetType string `json:"cloud_asset_type,omitempty"`
 
@@ -63,6 +66,9 @@ type DomainCIDPolicyAssignments struct {
 	// is remediable
 	// Required: true
 	IsRemediable *bool `json:"is_remediable"`
+
+	// iso benchmark
+	IsoBenchmark []*DomainBenchmark `json:"iso_benchmark"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -105,11 +111,19 @@ func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCisaBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateIsRemediable(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsoBenchmark(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -169,6 +183,32 @@ func (m *DomainCIDPolicyAssignments) validateCisBenchmark(formats strfmt.Registr
 	return nil
 }
 
+func (m *DomainCIDPolicyAssignments) validateCisaBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.CisaBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CisaBenchmark); i++ {
+		if swag.IsZero(m.CisaBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.CisaBenchmark[i] != nil {
+			if err := m.CisaBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainCIDPolicyAssignments) validateCreatedAt(formats strfmt.Registry) error {
 	if swag.IsZero(m.CreatedAt) { // not required
 		return nil
@@ -185,6 +225,32 @@ func (m *DomainCIDPolicyAssignments) validateIsRemediable(formats strfmt.Registr
 
 	if err := validate.Required("is_remediable", "body", m.IsRemediable); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validateIsoBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.IsoBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.IsoBenchmark); i++ {
+		if swag.IsZero(m.IsoBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.IsoBenchmark[i] != nil {
+			if err := m.IsoBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("iso_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("iso_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -326,6 +392,14 @@ func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCisaBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsoBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateNistBenchmark(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -363,6 +437,56 @@ func (m *DomainCIDPolicyAssignments) contextValidateCisBenchmark(ctx context.Con
 					return ve.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("cis_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateCisaBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CisaBenchmark); i++ {
+
+		if m.CisaBenchmark[i] != nil {
+
+			if swag.IsZero(m.CisaBenchmark[i]) { // not required
+				return nil
+			}
+
+			if err := m.CisaBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateIsoBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IsoBenchmark); i++ {
+
+		if m.IsoBenchmark[i] != nil {
+
+			if swag.IsZero(m.IsoBenchmark[i]) { // not required
+				return nil
+			}
+
+			if err := m.IsoBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("iso_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("iso_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

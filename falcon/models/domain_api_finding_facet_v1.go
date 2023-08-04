@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -42,6 +43,9 @@ type DomainAPIFindingFacetV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// logic
+	Logic []*DomainAPIEvaluationLogicItemV1 `json:"logic"`
+
 	// updated timestamp
 	// Required: true
 	UpdatedTimestamp *string `json:"updated_timestamp"`
@@ -72,6 +76,10 @@ func (m *DomainAPIFindingFacetV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLogic(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,6 +168,32 @@ func (m *DomainAPIFindingFacetV1) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainAPIFindingFacetV1) validateLogic(formats strfmt.Registry) error {
+	if swag.IsZero(m.Logic) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Logic); i++ {
+		if swag.IsZero(m.Logic[i]) { // not required
+			continue
+		}
+
+		if m.Logic[i] != nil {
+			if err := m.Logic[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("logic" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("logic" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAPIFindingFacetV1) validateUpdatedTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_timestamp", "body", m.UpdatedTimestamp); err != nil {
@@ -178,6 +212,10 @@ func (m *DomainAPIFindingFacetV1) ContextValidate(ctx context.Context, formats s
 	}
 
 	if err := m.contextValidateHost(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogic(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -220,6 +258,31 @@ func (m *DomainAPIFindingFacetV1) contextValidateHost(ctx context.Context, forma
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainAPIFindingFacetV1) contextValidateLogic(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Logic); i++ {
+
+		if m.Logic[i] != nil {
+
+			if swag.IsZero(m.Logic[i]) { // not required
+				return nil
+			}
+
+			if err := m.Logic[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("logic" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("logic" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -42,6 +42,8 @@ type ClientService interface {
 
 	DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts ...ClientOption) (*DeleteCIDGroupMembersOK, *DeleteCIDGroupMembersMultiStatus, error)
 
+	DeleteCIDGroupMembersV2(params *DeleteCIDGroupMembersV2Params, opts ...ClientOption) (*DeleteCIDGroupMembersV2OK, *DeleteCIDGroupMembersV2MultiStatus, error)
+
 	DeleteCIDGroups(params *DeleteCIDGroupsParams, opts ...ClientOption) (*DeleteCIDGroupsOK, *DeleteCIDGroupsMultiStatus, error)
 
 	DeleteUserGroupMembers(params *DeleteUserGroupMembersParams, opts ...ClientOption) (*DeleteUserGroupMembersOK, *DeleteUserGroupMembersMultiStatus, error)
@@ -287,7 +289,7 @@ func (a *Client) CreateUserGroups(params *CreateUserGroupsParams, opts ...Client
 }
 
 /*
-DeleteCIDGroupMembers deletes c ID group members
+DeleteCIDGroupMembers deprecateds please use d e l e t e entities cid group members v2 delete c ID group members
 */
 func (a *Client) DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts ...ClientOption) (*DeleteCIDGroupMembersOK, *DeleteCIDGroupMembersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -318,6 +320,45 @@ func (a *Client) DeleteCIDGroupMembers(params *DeleteCIDGroupMembersParams, opts
 	case *DeleteCIDGroupMembersOK:
 		return value, nil, nil
 	case *DeleteCIDGroupMembersMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for mssp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteCIDGroupMembersV2 deletes c ID group members prevents removal of a cid group a cid group if it is only part of one cid group
+*/
+func (a *Client) DeleteCIDGroupMembersV2(params *DeleteCIDGroupMembersV2Params, opts ...ClientOption) (*DeleteCIDGroupMembersV2OK, *DeleteCIDGroupMembersV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteCIDGroupMembersV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteCIDGroupMembersV2",
+		Method:             "DELETE",
+		PathPattern:        "/mssp/entities/cid-group-members/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteCIDGroupMembersV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteCIDGroupMembersV2OK:
+		return value, nil, nil
+	case *DeleteCIDGroupMembersV2MultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue

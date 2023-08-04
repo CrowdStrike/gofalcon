@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -18,6 +19,9 @@ import (
 //
 // swagger:model domain.CloudScope
 type DomainCloudScope struct {
+
+	// accounts
+	Accounts []*DomainCloudAccounts `json:"accounts"`
 
 	// business impact
 	BusinessImpact string `json:"business_impact,omitempty"`
@@ -36,7 +40,7 @@ type DomainCloudScope struct {
 	Description string `json:"description,omitempty"`
 
 	// id
-	ID string `json:"id,omitempty"`
+	ID int32 `json:"id,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -52,6 +56,10 @@ type DomainCloudScope struct {
 func (m *DomainCloudScope) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAccounts(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedAt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,6 +67,32 @@ func (m *DomainCloudScope) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainCloudScope) validateAccounts(formats strfmt.Registry) error {
+	if swag.IsZero(m.Accounts) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Accounts); i++ {
+		if swag.IsZero(m.Accounts[i]) { // not required
+			continue
+		}
+
+		if m.Accounts[i] != nil {
+			if err := m.Accounts[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("accounts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("accounts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -74,8 +108,42 @@ func (m *DomainCloudScope) validateCreatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain cloud scope based on context it is used
+// ContextValidate validate this domain cloud scope based on the context it is used
 func (m *DomainCloudScope) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAccounts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainCloudScope) contextValidateAccounts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Accounts); i++ {
+
+		if m.Accounts[i] != nil {
+
+			if swag.IsZero(m.Accounts[i]) { // not required
+				return nil
+			}
+
+			if err := m.Accounts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("accounts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("accounts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

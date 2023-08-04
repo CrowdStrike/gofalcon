@@ -119,11 +119,11 @@ type DomainActorDocument struct {
 	// Required: true
 	TargetCountries []*DomainEntity `json:"target_countries"`
 
-	// target economical industries of actor's activity and attacks, some examples: Government,Financial Services,Technology,Telecommunications,Healthcare,Energy,Academic,Aerospace,Media,NGO,Hospitality,Retail
+	// Target economical industries of actor's activity and attacks. List of available values: Government, Financial Services, Technology, Telecommunications, Healthcare, Energy, Academic, Media, Aerospace, NGO, Manufacturing, Industrials and Engineering, Retail, Hospitality, Consulting and Professional Services, Opportunistic, Aviation, Defense, Transportation, Oil and Gas, Legal, Pharmaceutical, Logistics, Military, Automotive, Food and Beverage, Consumer Goods, Real Estate, Insurance, Agriculture, Chemicals, Utilities, Maritime, Extractive, Travel, Dissident, Cryptocurrency, Entertainment, National Government, Law Enforcement, Think Tanks, Local Government, Sports Organizations, Computer Gaming, Biomedical, Nonprofit, Financial Management & Hedge Funds, Political Parties, Architectural and Engineering, Emergency Services, Social Media, International Government, Nuclear, Research Entities, Vocational and Higher-Level Education, eCommerce
 	// Required: true
 	TargetIndustries []*DomainEntity `json:"target_industries"`
 
-	// target geographic regions of actor's activity and attacks, some examples: North America,Western Europe,Southeast Asia,Middle East,Eastern Europe,Oceania,Southern Europe
+	// Target geographic regions of actor's activity and attacks. List of available values: North America, Western Europe, Southeast Asia, Middle East, Eastern Europe, South Asia, South America, Oceania, East Asia, Central Africa, Northern Europe, Southern Europe, North Africa, Southern Africa, Central America, Central Asia, East Africa, West Africa, Caribbean
 	// Required: true
 	TargetRegions []*DomainEntity `json:"target_regions"`
 

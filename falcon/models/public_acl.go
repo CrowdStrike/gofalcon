@@ -20,7 +20,7 @@ import (
 type PublicACL struct {
 
 	// acl permission change
-	ACLPermissionChange []*PublicBasic `json:"acl_permission_change"`
+	ACLPermissionChange []*PublicACLChange `json:"acl_permission_change"`
 
 	// entity
 	Entity string `json:"entity,omitempty"`

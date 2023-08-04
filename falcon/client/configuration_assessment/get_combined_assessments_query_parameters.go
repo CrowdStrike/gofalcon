@@ -72,7 +72,7 @@ type GetCombinedAssessmentsQueryParams struct {
 
 	     Select various details blocks to be returned for each assessment entity. Supported values:
 
-	<ul><li>host</li><li>finding.rule</li></ul>
+	<ul><li>host</li><li>finding.rule</li><li>finding.evaluation_logic</li></ul>
 	*/
 	Facet []string
 

@@ -63,6 +63,9 @@ type DomainPolicyInfo struct {
 	// cis benchmark ids
 	CisBenchmarkIds []int64 `json:"cis_benchmark_ids"`
 
+	// cisa benchmark ids
+	CisaBenchmarkIds []int64 `json:"cisa_benchmark_ids"`
+
 	// cli command
 	CliCommand string `json:"cli_command,omitempty"`
 
@@ -115,6 +118,9 @@ type DomainPolicyInfo struct {
 	// is remediable
 	// Required: true
 	IsRemediable *bool `json:"is_remediable"`
+
+	// iso benchmark ids
+	IsoBenchmarkIds []int64 `json:"iso_benchmark_ids"`
 
 	// mitre attack cloud matrix
 	MitreAttackCloudMatrix string `json:"mitre_attack_cloud_matrix,omitempty"`

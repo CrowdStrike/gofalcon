@@ -94,9 +94,15 @@ type GetConfigurationDetectionIDsV2Params struct {
 	*/
 	Limit *int64
 
+	/* NextToken.
+
+	   String to get next page of results. Cannot be combined with any filter except limit.
+	*/
+	NextToken *string
+
 	/* Offset.
 
-	   Offset returned detections
+	   Offset returned detections. Cannot be combined with next_token filter
 	*/
 	Offset *int64
 
@@ -212,6 +218,17 @@ func (o *GetConfigurationDetectionIDsV2Params) SetLimit(limit *int64) {
 	o.Limit = limit
 }
 
+// WithNextToken adds the nextToken to the get configuration detection i ds v2 params
+func (o *GetConfigurationDetectionIDsV2Params) WithNextToken(nextToken *string) *GetConfigurationDetectionIDsV2Params {
+	o.SetNextToken(nextToken)
+	return o
+}
+
+// SetNextToken adds the nextToken to the get configuration detection i ds v2 params
+func (o *GetConfigurationDetectionIDsV2Params) SetNextToken(nextToken *string) {
+	o.NextToken = nextToken
+}
+
 // WithOffset adds the offset to the get configuration detection i ds v2 params
 func (o *GetConfigurationDetectionIDsV2Params) WithOffset(offset *int64) *GetConfigurationDetectionIDsV2Params {
 	o.SetOffset(offset)
@@ -271,6 +288,23 @@ func (o *GetConfigurationDetectionIDsV2Params) WriteToRequest(r runtime.ClientRe
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.NextToken != nil {
+
+		// query param next_token
+		var qrNextToken string
+
+		if o.NextToken != nil {
+			qrNextToken = *o.NextToken
+		}
+		qNextToken := qrNextToken
+		if qNextToken != "" {
+
+			if err := r.SetQueryParam("next_token", qNextToken); err != nil {
 				return err
 			}
 		}

@@ -93,13 +93,13 @@ type RegistrationIOAEvent struct {
 	RequestID string `json:"request_id,omitempty"`
 
 	// request parameters
-	RequestParameters string `json:"request_parameters,omitempty"`
+	RequestParameters interface{} `json:"request_parameters,omitempty"`
 
 	// resources
-	Resources string `json:"resources,omitempty"`
+	Resources []interface{} `json:"resources"`
 
 	// response elements
-	ResponseElements string `json:"response_elements,omitempty"`
+	ResponseElements interface{} `json:"response_elements,omitempty"`
 
 	// service
 	// Required: true
@@ -129,7 +129,7 @@ type RegistrationIOAEvent struct {
 	UserID string `json:"user_id,omitempty"`
 
 	// user identity
-	UserIdentity string `json:"user_identity,omitempty"`
+	UserIdentity interface{} `json:"user_identity,omitempty"`
 
 	// vertex id
 	// Required: true

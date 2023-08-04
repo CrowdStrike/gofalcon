@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -46,9 +45,6 @@ type DetectsAlert struct {
 
 	// crawl edge ids
 	CrawlEdgeIds map[string][]string `json:"crawl_edge_ids,omitempty"`
-
-	// crawl traversal
-	CrawlTraversal []*ThreatgraphCrawlEdgesRequest `json:"crawl_traversal"`
 
 	// crawl vertex ids
 	CrawlVertexIds map[string][]string `json:"crawl_vertex_ids,omitempty"`
@@ -136,10 +132,6 @@ type DetectsAlert struct {
 func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCrawlTraversal(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCrawledTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -167,32 +159,6 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DetectsAlert) validateCrawlTraversal(formats strfmt.Registry) error {
-	if swag.IsZero(m.CrawlTraversal) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.CrawlTraversal); i++ {
-		if swag.IsZero(m.CrawlTraversal[i]) { // not required
-			continue
-		}
-
-		if m.CrawlTraversal[i] != nil {
-			if err := m.CrawlTraversal[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("crawl_traversal" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("crawl_traversal" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -262,42 +228,8 @@ func (m *DetectsAlert) validateUpdatedTimestamp(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this detects alert based on the context it is used
+// ContextValidate validates this detects alert based on context it is used
 func (m *DetectsAlert) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateCrawlTraversal(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DetectsAlert) contextValidateCrawlTraversal(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.CrawlTraversal); i++ {
-
-		if m.CrawlTraversal[i] != nil {
-
-			if swag.IsZero(m.CrawlTraversal[i]) { // not required
-				return nil
-			}
-
-			if err := m.CrawlTraversal[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("crawl_traversal" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("crawl_traversal" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

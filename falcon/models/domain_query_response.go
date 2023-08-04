@@ -21,12 +21,11 @@ import (
 type DomainQueryResponse struct {
 
 	// errors
-	// Required: true
-	Errors []*DomainReconAPIError `json:"errors"`
+	Errors []*MsaAPIError `json:"errors"`
 
 	// meta
 	// Required: true
-	Meta *MsaMetaInfo `json:"meta"`
+	Meta *DomainMsaMetaInfo `json:"meta"`
 
 	// resources
 	// Required: true
@@ -56,9 +55,8 @@ func (m *DomainQueryResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainQueryResponse) validateErrors(formats strfmt.Registry) error {
-
-	if err := validate.Required("errors", "body", m.Errors); err != nil {
-		return err
+	if swag.IsZero(m.Errors) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Errors); i++ {

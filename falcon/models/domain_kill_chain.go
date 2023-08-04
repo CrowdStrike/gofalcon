@@ -17,52 +17,52 @@ import (
 // swagger:model domain.KillChain
 type DomainKillChain struct {
 
-	// actions and objectives
+	// Free form text describing actions and objectives of the actor
 	ActionsAndObjectives string `json:"actions_and_objectives,omitempty"`
 
-	// command and control
+	// Free form text describing methods and tools used to communicate with and control an infected machine or network
 	CommandAndControl string `json:"command_and_control,omitempty"`
 
-	// delivery
+	// Free form text describing malware delivery by actor
 	Delivery string `json:"delivery,omitempty"`
 
-	// comma separated values of vulnerabilities by CVE codes that are exploited by actor
+	// Comma separated values of vulnerabilities by CVE codes that are exploited by actor
 	Exploitation string `json:"exploitation,omitempty"`
 
-	// installation
+	// Free form text describing actor's malware installation on the asset
 	Installation string `json:"installation,omitempty"`
 
-	// objectives
+	// Legacy field, not used and empty
 	Objectives string `json:"objectives,omitempty"`
 
-	// reconnaissance
+	// Free form text describing how targets are researched, identified and selected
 	Reconnaissance string `json:"reconnaissance,omitempty"`
 
-	// rich text actions and objectives
+	// Rich free form text describing actions and objectives of the actor
 	RichTextActionsAndObjectives string `json:"rich_text_actions_and_objectives,omitempty"`
 
-	// rich text command and control
+	// Rich free form text describing methods and tools used to communicate with and control an infected machine or network
 	RichTextCommandAndControl string `json:"rich_text_command_and_control,omitempty"`
 
-	// rich text delivery
+	// Rich free form text describing malware delivery by actor
 	RichTextDelivery string `json:"rich_text_delivery,omitempty"`
 
-	// rich text exploitation
+	// Rich text comma separated values of vulnerabilities by CVE codes that are exploited by actor
 	RichTextExploitation string `json:"rich_text_exploitation,omitempty"`
 
-	// rich text installation
+	// Rich free form text describing actor's malware installation on the asset
 	RichTextInstallation string `json:"rich_text_installation,omitempty"`
 
-	// rich text objectives
+	// Legacy field, not used and empty
 	RichTextObjectives string `json:"rich_text_objectives,omitempty"`
 
-	// rich text reconnaissance
+	// Rich free form text describing how targets are researched, identified and selected
 	RichTextReconnaissance string `json:"rich_text_reconnaissance,omitempty"`
 
-	// rich text weaponization
+	// Rich free form text describing weaponization of the threat/malware (couples exploit with backdoor into deliverable payload)
 	RichTextWeaponization string `json:"rich_text_weaponization,omitempty"`
 
-	// weaponization
+	// Free form text describing weaponization of the threat/malware (couples exploit with backdoor into deliverable payload)
 	Weaponization string `json:"weaponization,omitempty"`
 }
 

@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -37,9 +38,15 @@ type RegistrationIOMEventV2 struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cloud labels
+	CloudLabels []*ClassificationLabel `json:"cloud_labels"`
+
 	// cloud provider
 	// Required: true
 	CloudProvider *string `json:"cloud_provider"`
+
+	// cloud scopes
+	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
 	// custom policy id
 	CustomPolicyID int32 `json:"custom_policy_id,omitempty"`
@@ -143,7 +150,15 @@ func (m *RegistrationIOMEventV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCloudLabels(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCloudProvider(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudScopes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -244,10 +259,62 @@ func (m *RegistrationIOMEventV2) validateCid(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *RegistrationIOMEventV2) validateCloudLabels(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudLabels) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudLabels); i++ {
+		if swag.IsZero(m.CloudLabels[i]) { // not required
+			continue
+		}
+
+		if m.CloudLabels[i] != nil {
+			if err := m.CloudLabels[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_labels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_labels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *RegistrationIOMEventV2) validateCloudProvider(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloud_provider", "body", m.CloudProvider); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOMEventV2) validateCloudScopes(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudScopes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+		if swag.IsZero(m.CloudScopes[i]) { // not required
+			continue
+		}
+
+		if m.CloudScopes[i] != nil {
+			if err := m.CloudScopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -409,8 +476,71 @@ func (m *RegistrationIOMEventV2) validateTags(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this registration i o m event v2 based on context it is used
+// ContextValidate validate this registration i o m event v2 based on the context it is used
 func (m *RegistrationIOMEventV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCloudLabels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCloudScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RegistrationIOMEventV2) contextValidateCloudLabels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudLabels); i++ {
+
+		if m.CloudLabels[i] != nil {
+
+			if swag.IsZero(m.CloudLabels[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudLabels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_labels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_labels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOMEventV2) contextValidateCloudScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+
+		if m.CloudScopes[i] != nil {
+
+			if swag.IsZero(m.CloudScopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudScopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

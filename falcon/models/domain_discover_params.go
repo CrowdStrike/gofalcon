@@ -19,9 +19,17 @@ import (
 // swagger:model domain.DiscoverParams
 type DomainDiscoverParams struct {
 
+	// application filters
+	// Required: true
+	ApplicationFilters *string `json:"application_filters"`
+
 	// application group id
 	// Required: true
 	ApplicationGroupID *string `json:"application_group_id"`
+
+	// application vendors
+	// Required: true
+	ApplicationVendors *string `json:"application_vendors"`
 
 	// requirement criteria
 	// Required: true
@@ -32,7 +40,15 @@ type DomainDiscoverParams struct {
 func (m *DomainDiscoverParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateApplicationFilters(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateApplicationGroupID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateApplicationVendors(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,9 +62,27 @@ func (m *DomainDiscoverParams) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainDiscoverParams) validateApplicationFilters(formats strfmt.Registry) error {
+
+	if err := validate.Required("application_filters", "body", m.ApplicationFilters); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainDiscoverParams) validateApplicationGroupID(formats strfmt.Registry) error {
 
 	if err := validate.Required("application_group_id", "body", m.ApplicationGroupID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverParams) validateApplicationVendors(formats strfmt.Registry) error {
+
+	if err := validate.Required("application_vendors", "body", m.ApplicationVendors); err != nil {
 		return err
 	}
 

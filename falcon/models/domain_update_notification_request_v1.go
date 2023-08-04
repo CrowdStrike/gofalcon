@@ -27,6 +27,14 @@ type DomainUpdateNotificationRequestV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// idp send status
+	// Required: true
+	IdpSendStatus *string `json:"idp_send_status"`
+
+	// message
+	// Required: true
+	Message *string `json:"message"`
+
 	// The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
 	// Required: true
 	Status *string `json:"status"`
@@ -41,6 +49,14 @@ func (m *DomainUpdateNotificationRequestV1) Validate(formats strfmt.Registry) er
 	}
 
 	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIdpSendStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMessage(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -66,6 +82,24 @@ func (m *DomainUpdateNotificationRequestV1) validateAssignedToUUID(formats strfm
 func (m *DomainUpdateNotificationRequestV1) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUpdateNotificationRequestV1) validateIdpSendStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("idp_send_status", "body", m.IdpSendStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainUpdateNotificationRequestV1) validateMessage(formats strfmt.Registry) error {
+
+	if err := validate.Required("message", "body", m.Message); err != nil {
 		return err
 	}
 

@@ -18,6 +18,9 @@ import (
 // swagger:model domain.APIFindingWithRuleV1
 type DomainAPIFindingWithRuleV1 struct {
 
+	// Example values: NOT_AVAILABLE, AVAILABLE, DISABLE_RULE, UNSUPPORTED_RULE, OVERRIDE_STATUS
+	EvaluationLogicType string `json:"evaluation_logic_type,omitempty"`
+
 	// evaluation reason
 	EvaluationReason string `json:"evaluation_reason,omitempty"`
 

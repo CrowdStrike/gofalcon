@@ -42,6 +42,9 @@ type DomainAWSAccountV2 struct {
 	// 12 digit AWS provided unique identifier for the account.
 	AccountID string `json:"account_id,omitempty"`
 
+	// AWS account name
+	AccountName string `json:"account_name,omitempty"`
+
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 

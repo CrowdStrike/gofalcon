@@ -73,8 +73,8 @@ type DomainNotificationV1 struct {
 	// Required: true
 	ItemType *string `json:"item_type"`
 
-	// notes
-	Notes []*SadomainNotificationNote `json:"notes"`
+	// logs
+	Logs []*SadomainNotificationLog `json:"logs"`
 
 	// ID of the raw intel item that matched the rule
 	// Required: true
@@ -144,7 +144,7 @@ func (m *DomainNotificationV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateNotes(formats); err != nil {
+	if err := m.validateLogs(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -267,22 +267,22 @@ func (m *DomainNotificationV1) validateItemType(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainNotificationV1) validateNotes(formats strfmt.Registry) error {
-	if swag.IsZero(m.Notes) { // not required
+func (m *DomainNotificationV1) validateLogs(formats strfmt.Registry) error {
+	if swag.IsZero(m.Logs) { // not required
 		return nil
 	}
 
-	for i := 0; i < len(m.Notes); i++ {
-		if swag.IsZero(m.Notes[i]) { // not required
+	for i := 0; i < len(m.Logs); i++ {
+		if swag.IsZero(m.Logs[i]) { // not required
 			continue
 		}
 
-		if m.Notes[i] != nil {
-			if err := m.Notes[i].Validate(formats); err != nil {
+		if m.Logs[i] != nil {
+			if err := m.Logs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("notes" + "." + strconv.Itoa(i))
+					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("notes" + "." + strconv.Itoa(i))
+					return ce.ValidateName("logs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -387,7 +387,7 @@ func (m *DomainNotificationV1) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateNotes(ctx, formats); err != nil {
+	if err := m.contextValidateLogs(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -422,21 +422,21 @@ func (m *DomainNotificationV1) contextValidateBreachSummary(ctx context.Context,
 	return nil
 }
 
-func (m *DomainNotificationV1) contextValidateNotes(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainNotificationV1) contextValidateLogs(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.Notes); i++ {
+	for i := 0; i < len(m.Logs); i++ {
 
-		if m.Notes[i] != nil {
+		if m.Logs[i] != nil {
 
-			if swag.IsZero(m.Notes[i]) { // not required
+			if swag.IsZero(m.Logs[i]) { // not required
 				return nil
 			}
 
-			if err := m.Notes[i].ContextValidate(ctx, formats); err != nil {
+			if err := m.Logs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("notes" + "." + strconv.Itoa(i))
+					return ve.ValidateName("logs" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("notes" + "." + strconv.Itoa(i))
+					return ce.ValidateName("logs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -35,7 +35,7 @@ type DomainDiscoverAPIHost struct {
 	// The agent ID of the Falcon sensor installed on the asset.
 	Aid string `json:"aid,omitempty"`
 
-	// The list of roles that this asset has, computed or user provided. See override_asset_roles.
+	// The asset role or roles currently assigned to the asset either automatically or by a user (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
 	AssetRoles []string `json:"asset_roles"`
 
 	// The first and last name of the person who is assigned to this asset.
@@ -96,10 +96,10 @@ type DomainDiscoverAPIHost struct {
 	// The cloud provider assigned identifier of the instance.
 	CloudResourceID string `json:"cloud_resource_id,omitempty"`
 
-	// The list of roles automatically computed by Discover for this asset.
+	// The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
 	ComputedAssetRoles []string `json:"computed_asset_roles"`
 
-	// The internet exposure automatically computed by Discover for this asset
+	// Whether the asset is exposed to the internet as determined automatically (Yes, No, or Unknown).
 	ComputedInternetExposure string `json:"computed_internet_exposure,omitempty"`
 
 	// The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
@@ -123,7 +123,7 @@ type DomainDiscoverAPIHost struct {
 	// The description the user entered when manually assigning a criticality level
 	CriticalityDescription string `json:"criticality_description,omitempty"`
 
-	// The ID of the criticality rule that has most recently matched on this host.
+	// The ID of the criticality rule that has most recently applied to the asset.
 	CriticalityRuleID string `json:"criticality_rule_id,omitempty"`
 
 	// The date and time the criticality level was manually assigned
@@ -152,6 +152,9 @@ type DomainDiscoverAPIHost struct {
 
 	// The number of sources that discovered the asset.
 	DiscovererCount int32 `json:"discoverer_count,omitempty"`
+
+	// The hostnames of the sources that discovered the asset.
+	DiscovererHostnames []string `json:"discoverer_hostnames"`
 
 	// The platform names of the sources that discovered the asset.
 	DiscovererPlatformNames []string `json:"discoverer_platform_names"`
@@ -214,11 +217,23 @@ type DomainDiscoverAPIHost struct {
 	// Whether the asset is exposed to the internet (Yes or Unknown).
 	InternetExposure string `json:"internet_exposure,omitempty"`
 
+	// The description the user entered when manually assigning a internet exposure level
+	InternetExposureDescription string `json:"internet_exposure_description,omitempty"`
+
+	// The date and time the internet exposure level was manually assigned
+	InternetExposureTimestamp string `json:"internet_exposure_timestamp,omitempty"`
+
+	// The username of the account that manually assigned the internet exposure level
+	InternetExposureUsername string `json:"internet_exposure_username,omitempty"`
+
 	// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
 	KernelVersion string `json:"kernel_version,omitempty"`
 
 	// The agent ID of the Falcon sensor installed on the source that most recently discovered the asset.
 	LastDiscovererAid string `json:"last_discoverer_aid,omitempty"`
+
+	// The hostname of the last source that discovered the asset.
+	LastDiscovererHostname string `json:"last_discoverer_hostname,omitempty"`
 
 	// The most recent time the asset was seen in your environment.
 	LastSeenTimestamp string `json:"last_seen_timestamp,omitempty"`
@@ -283,13 +298,13 @@ type DomainDiscoverAPIHost struct {
 	// The organizational unit of the asset.
 	Ou string `json:"ou,omitempty"`
 
-	// True if computed asset roles were overridden on this asset.
+	// Whether a user overrode automatically assigned asset roles to manually assign a role to the asset (true or false).
 	OverrideAssetRoles bool `json:"override_asset_roles,omitempty"`
 
-	// True if manual criticality assignment was performed on this asset.
+	// Whether a user overrode a criticality rule to manually assign a criticality level on the asset (true or false).
 	OverrideCriticalityRules bool `json:"override_criticality_rules,omitempty"`
 
-	// True if computed internet exposure was overridden on this asset.
+	// Whether a user overrode the automatically assigned internet exposure (True or False).
 	OverrideInternetExposure bool `json:"override_internet_exposure,omitempty"`
 
 	// The first and last name of the person who owns this asset.
