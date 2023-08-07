@@ -26,7 +26,7 @@ type K8sregAWSAccountResp struct {
 
 	// aws permissions status
 	// Required: true
-	AwsPermissionsStatus []*K8sregAWSAccountPermissionsStatus `json:"aws_permissions_status"`
+	AwsPermissionsStatus []*K8sregAccountPermissionsStatus `json:"aws_permissions_status"`
 
 	// cid
 	// Required: true
@@ -240,6 +240,11 @@ func (m *K8sregAWSAccountResp) contextValidateAwsPermissionsStatus(ctx context.C
 	for i := 0; i < len(m.AwsPermissionsStatus); i++ {
 
 		if m.AwsPermissionsStatus[i] != nil {
+
+			if swag.IsZero(m.AwsPermissionsStatus[i]) { // not required
+				return nil
+			}
+
 			if err := m.AwsPermissionsStatus[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))

@@ -44,14 +44,7 @@ func (o *QueryAllowListFilterReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewQueryAllowListFilterDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /falcon-complete-dashboards/queries/allowlist/v1] QueryAllowListFilter", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryAllowListFilterOK describes a response with status code 200, with default h
 OK
 */
 type QueryAllowListFilterOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryAllowListFilterOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryAllowListFilterOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryAllowListFilterForbidden describes a response with status code 403, with de
 Forbidden
 */
 type QueryAllowListFilterForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryAllowListFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryAllowListFilterForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryAllowListFilterTooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type QueryAllowListFilterTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryAllowListFilterTooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *QueryAllowListFilterTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryAllowListFilterTooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryAllowListFilterDefault creates a QueryAllowListFilterDefault with default headers values
-func NewQueryAllowListFilterDefault(code int) *QueryAllowListFilterDefault {
-	return &QueryAllowListFilterDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryAllowListFilterDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryAllowListFilterDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query allow list filter default response has a 2xx status code
-func (o *QueryAllowListFilterDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query allow list filter default response has a 3xx status code
-func (o *QueryAllowListFilterDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query allow list filter default response has a 4xx status code
-func (o *QueryAllowListFilterDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query allow list filter default response has a 5xx status code
-func (o *QueryAllowListFilterDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query allow list filter default response a status code equal to that given
-func (o *QueryAllowListFilterDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query allow list filter default response
-func (o *QueryAllowListFilterDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryAllowListFilterDefault) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/allowlist/v1][%d] QueryAllowListFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAllowListFilterDefault) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/allowlist/v1][%d] QueryAllowListFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAllowListFilterDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryAllowListFilterDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

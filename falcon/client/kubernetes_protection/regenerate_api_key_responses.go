@@ -62,14 +62,7 @@ func (o *RegenerateAPIKeyReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewRegenerateAPIKeyDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /kubernetes-protection/entities/integration/api-key/v1] RegenerateAPIKey", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *RegenerateAPIKeyInternalServerError) readResponse(response runtime.Clie
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.K8sregRegenAPIKeyResp)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRegenerateAPIKeyDefault creates a RegenerateAPIKeyDefault with default headers values
-func NewRegenerateAPIKeyDefault(code int) *RegenerateAPIKeyDefault {
-	return &RegenerateAPIKeyDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RegenerateAPIKeyDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RegenerateAPIKeyDefault struct {
-	_statusCode int
-
-	Payload *models.K8sregRegenAPIKeyResp
-}
-
-// IsSuccess returns true when this regenerate API key default response has a 2xx status code
-func (o *RegenerateAPIKeyDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this regenerate API key default response has a 3xx status code
-func (o *RegenerateAPIKeyDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this regenerate API key default response has a 4xx status code
-func (o *RegenerateAPIKeyDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this regenerate API key default response has a 5xx status code
-func (o *RegenerateAPIKeyDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this regenerate API key default response a status code equal to that given
-func (o *RegenerateAPIKeyDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the regenerate API key default response
-func (o *RegenerateAPIKeyDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RegenerateAPIKeyDefault) Error() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] RegenerateAPIKey default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RegenerateAPIKeyDefault) String() string {
-	return fmt.Sprintf("[POST /kubernetes-protection/entities/integration/api-key/v1][%d] RegenerateAPIKey default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RegenerateAPIKeyDefault) GetPayload() *models.K8sregRegenAPIKeyResp {
-	return o.Payload
-}
-
-func (o *RegenerateAPIKeyDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.K8sregRegenAPIKeyResp)
 

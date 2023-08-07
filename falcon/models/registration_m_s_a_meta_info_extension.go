@@ -105,6 +105,7 @@ func (m *RegistrationMSAMetaInfoExtension) ContextValidate(ctx context.Context, 
 func (m *RegistrationMSAMetaInfoExtension) contextValidateMetaInfo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MetaInfo != nil {
+
 		if err := m.MetaInfo.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("MetaInfo")
@@ -121,6 +122,11 @@ func (m *RegistrationMSAMetaInfoExtension) contextValidateMetaInfo(ctx context.C
 func (m *RegistrationMSAMetaInfoExtension) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")

@@ -119,6 +119,11 @@ func (m *DeviceapiNetworkAddressHistoryV1) contextValidateHistory(ctx context.Co
 	for i := 0; i < len(m.History); i++ {
 
 		if m.History[i] != nil {
+
+			if swag.IsZero(m.History[i]) { // not required
+				return nil
+			}
+
 			if err := m.History[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("history" + "." + strconv.Itoa(i))

@@ -62,14 +62,7 @@ func (o *QueryCombinedFirewallPolicyMembersReader) ReadResponse(response runtime
 		}
 		return nil, result
 	default:
-		result := NewQueryCombinedFirewallPolicyMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/combined/firewall-members/v1] queryCombinedFirewallPolicyMembers", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type QueryCombinedFirewallPolicyMembersOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type QueryCombinedFirewallPolicyMembersOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPolicyMembersRespV1
+	Payload *models.BasePolicyMembersRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policy members o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *QueryCombinedFirewallPolicyMembersOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPolicyMembersOK) GetPayload() *models.ResponsesPolicyMembersRespV1 {
+func (o *QueryCombinedFirewallPolicyMembersOK) GetPayload() *models.BasePolicyMembersRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPolicyMembersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *QueryCombinedFirewallPolicyMembersOK) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPolicyMembersRespV1)
+	o.Payload = new(models.BasePolicyMembersRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Bad Request
 */
 type QueryCombinedFirewallPolicyMembersBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type QueryCombinedFirewallPolicyMembersBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPolicyMembersRespV1
+	Payload *models.BasePolicyMembersRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policy members bad request response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *QueryCombinedFirewallPolicyMembersBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPolicyMembersBadRequest) GetPayload() *models.ResponsesPolicyMembersRespV1 {
+func (o *QueryCombinedFirewallPolicyMembersBadRequest) GetPayload() *models.BasePolicyMembersRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPolicyMembersBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *QueryCombinedFirewallPolicyMembersBadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPolicyMembersRespV1)
+	o.Payload = new(models.BasePolicyMembersRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -282,6 +297,10 @@ QueryCombinedFirewallPolicyMembersForbidden describes a response with status cod
 Forbidden
 */
 type QueryCombinedFirewallPolicyMembersForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *QueryCombinedFirewallPolicyMembersForbidden) GetPayload() *models.MsaEr
 
 func (o *QueryCombinedFirewallPolicyMembersForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -382,6 +408,10 @@ Not Found
 */
 type QueryCombinedFirewallPolicyMembersNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -390,7 +420,7 @@ type QueryCombinedFirewallPolicyMembersNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPolicyMembersRespV1
+	Payload *models.BasePolicyMembersRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policy members not found response has a 2xx status code
@@ -431,11 +461,18 @@ func (o *QueryCombinedFirewallPolicyMembersNotFound) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersNotFound  %+v", 404, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPolicyMembersNotFound) GetPayload() *models.ResponsesPolicyMembersRespV1 {
+func (o *QueryCombinedFirewallPolicyMembersNotFound) GetPayload() *models.BasePolicyMembersRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPolicyMembersNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -459,7 +496,7 @@ func (o *QueryCombinedFirewallPolicyMembersNotFound) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPolicyMembersRespV1)
+	o.Payload = new(models.BasePolicyMembersRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -480,6 +517,10 @@ QueryCombinedFirewallPolicyMembersTooManyRequests describes a response with stat
 Too Many Requests
 */
 type QueryCombinedFirewallPolicyMembersTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) GetPayload() *models
 
 func (o *QueryCombinedFirewallPolicyMembersTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type QueryCombinedFirewallPolicyMembersInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type QueryCombinedFirewallPolicyMembersInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPolicyMembersRespV1
+	Payload *models.BasePolicyMembersRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policy members internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *QueryCombinedFirewallPolicyMembersInternalServerError) String() string 
 	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembersInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPolicyMembersInternalServerError) GetPayload() *models.ResponsesPolicyMembersRespV1 {
+func (o *QueryCombinedFirewallPolicyMembersInternalServerError) GetPayload() *models.BasePolicyMembersRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPolicyMembersInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *QueryCombinedFirewallPolicyMembersInternalServerError) readResponse(res
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPolicyMembersRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCombinedFirewallPolicyMembersDefault creates a QueryCombinedFirewallPolicyMembersDefault with default headers values
-func NewQueryCombinedFirewallPolicyMembersDefault(code int) *QueryCombinedFirewallPolicyMembersDefault {
-	return &QueryCombinedFirewallPolicyMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCombinedFirewallPolicyMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCombinedFirewallPolicyMembersDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesPolicyMembersRespV1
-}
-
-// IsSuccess returns true when this query combined firewall policy members default response has a 2xx status code
-func (o *QueryCombinedFirewallPolicyMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query combined firewall policy members default response has a 3xx status code
-func (o *QueryCombinedFirewallPolicyMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query combined firewall policy members default response has a 4xx status code
-func (o *QueryCombinedFirewallPolicyMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query combined firewall policy members default response has a 5xx status code
-func (o *QueryCombinedFirewallPolicyMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query combined firewall policy members default response a status code equal to that given
-func (o *QueryCombinedFirewallPolicyMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query combined firewall policy members default response
-func (o *QueryCombinedFirewallPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCombinedFirewallPolicyMembersDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedFirewallPolicyMembersDefault) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall-members/v1][%d] queryCombinedFirewallPolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedFirewallPolicyMembersDefault) GetPayload() *models.ResponsesPolicyMembersRespV1 {
-	return o.Payload
-}
-
-func (o *QueryCombinedFirewallPolicyMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesPolicyMembersRespV1)
+	o.Payload = new(models.BasePolicyMembersRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

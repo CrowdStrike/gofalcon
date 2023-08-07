@@ -19,6 +19,9 @@ import (
 // swagger:model falconx.Process
 type FalconxProcess struct {
 
+	// amsi calls
+	AmsiCalls []*FalconxAMSICall `json:"amsi_calls"`
+
 	// command line
 	CommandLine string `json:"command_line,omitempty"`
 
@@ -30,6 +33,9 @@ type FalconxProcess struct {
 
 	// icon artifact id
 	IconArtifactID string `json:"icon_artifact_id,omitempty"`
+
+	// modules
+	Modules []*FalconxModule `json:"modules"`
 
 	// mutants
 	Mutants []string `json:"mutants"`
@@ -69,11 +75,19 @@ type FalconxProcess struct {
 func (m *FalconxProcess) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAmsiCalls(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFileAccesses(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateHandles(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModules(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -96,6 +110,32 @@ func (m *FalconxProcess) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *FalconxProcess) validateAmsiCalls(formats strfmt.Registry) error {
+	if swag.IsZero(m.AmsiCalls) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.AmsiCalls); i++ {
+		if swag.IsZero(m.AmsiCalls[i]) { // not required
+			continue
+		}
+
+		if m.AmsiCalls[i] != nil {
+			if err := m.AmsiCalls[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("amsi_calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("amsi_calls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 
@@ -141,6 +181,32 @@ func (m *FalconxProcess) validateHandles(formats strfmt.Registry) error {
 					return ve.ValidateName("handles" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("handles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *FalconxProcess) validateModules(formats strfmt.Registry) error {
+	if swag.IsZero(m.Modules) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Modules); i++ {
+		if swag.IsZero(m.Modules[i]) { // not required
+			continue
+		}
+
+		if m.Modules[i] != nil {
+			if err := m.Modules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("modules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -259,11 +325,19 @@ func (m *FalconxProcess) validateStreams(formats strfmt.Registry) error {
 func (m *FalconxProcess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAmsiCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFileAccesses(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateHandles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModules(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -289,11 +363,41 @@ func (m *FalconxProcess) ContextValidate(ctx context.Context, formats strfmt.Reg
 	return nil
 }
 
+func (m *FalconxProcess) contextValidateAmsiCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AmsiCalls); i++ {
+
+		if m.AmsiCalls[i] != nil {
+
+			if swag.IsZero(m.AmsiCalls[i]) { // not required
+				return nil
+			}
+
+			if err := m.AmsiCalls[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("amsi_calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("amsi_calls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *FalconxProcess) contextValidateFileAccesses(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.FileAccesses); i++ {
 
 		if m.FileAccesses[i] != nil {
+
+			if swag.IsZero(m.FileAccesses[i]) { // not required
+				return nil
+			}
+
 			if err := m.FileAccesses[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("file_accesses" + "." + strconv.Itoa(i))
@@ -314,6 +418,11 @@ func (m *FalconxProcess) contextValidateHandles(ctx context.Context, formats str
 	for i := 0; i < len(m.Handles); i++ {
 
 		if m.Handles[i] != nil {
+
+			if swag.IsZero(m.Handles[i]) { // not required
+				return nil
+			}
+
 			if err := m.Handles[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("handles" + "." + strconv.Itoa(i))
@@ -329,11 +438,41 @@ func (m *FalconxProcess) contextValidateHandles(ctx context.Context, formats str
 	return nil
 }
 
+func (m *FalconxProcess) contextValidateModules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Modules); i++ {
+
+		if m.Modules[i] != nil {
+
+			if swag.IsZero(m.Modules[i]) { // not required
+				return nil
+			}
+
+			if err := m.Modules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("modules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *FalconxProcess) contextValidateProcessFlags(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.ProcessFlags); i++ {
 
 		if m.ProcessFlags[i] != nil {
+
+			if swag.IsZero(m.ProcessFlags[i]) { // not required
+				return nil
+			}
+
 			if err := m.ProcessFlags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("process_flags" + "." + strconv.Itoa(i))
@@ -354,6 +493,11 @@ func (m *FalconxProcess) contextValidateRegistry(ctx context.Context, formats st
 	for i := 0; i < len(m.Registry); i++ {
 
 		if m.Registry[i] != nil {
+
+			if swag.IsZero(m.Registry[i]) { // not required
+				return nil
+			}
+
 			if err := m.Registry[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("registry" + "." + strconv.Itoa(i))
@@ -374,6 +518,11 @@ func (m *FalconxProcess) contextValidateScriptCalls(ctx context.Context, formats
 	for i := 0; i < len(m.ScriptCalls); i++ {
 
 		if m.ScriptCalls[i] != nil {
+
+			if swag.IsZero(m.ScriptCalls[i]) { // not required
+				return nil
+			}
+
 			if err := m.ScriptCalls[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("script_calls" + "." + strconv.Itoa(i))
@@ -394,6 +543,11 @@ func (m *FalconxProcess) contextValidateStreams(ctx context.Context, formats str
 	for i := 0; i < len(m.Streams); i++ {
 
 		if m.Streams[i] != nil {
+
+			if swag.IsZero(m.Streams[i]) { // not required
+				return nil
+			}
+
 			if err := m.Streams[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("streams" + "." + strconv.Itoa(i))

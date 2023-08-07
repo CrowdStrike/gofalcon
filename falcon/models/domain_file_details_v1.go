@@ -20,8 +20,7 @@ import (
 type DomainFileDetailsV1 struct {
 
 	// (Boolean) If it's a complete dataset or not.
-	// Required: true
-	CompleteDataSet *bool `json:"complete_data_set"`
+	CompleteDataSet bool `json:"complete_data_set,omitempty"`
 
 	// A list of download urls for this file.
 	// Required: true
@@ -33,16 +32,12 @@ type DomainFileDetailsV1 struct {
 
 	// The size of the file.
 	// Required: true
-	Size *int32 `json:"size"`
+	Size *int64 `json:"size"`
 }
 
 // Validate validates this domain file details v1
 func (m *DomainFileDetailsV1) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateCompleteDataSet(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateDownloadUrls(formats); err != nil {
 		res = append(res, err)
@@ -59,15 +54,6 @@ func (m *DomainFileDetailsV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainFileDetailsV1) validateCompleteDataSet(formats strfmt.Registry) error {
-
-	if err := validate.Required("complete_data_set", "body", m.CompleteDataSet); err != nil {
-		return err
-	}
-
 	return nil
 }
 

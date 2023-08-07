@@ -62,14 +62,7 @@ func (o *GetSensorInstallersEntitiesReader) ReadResponse(response runtime.Client
 		}
 		return nil, result
 	default:
-		result := NewGetSensorInstallersEntitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /sensors/entities/installers/v1] GetSensorInstallersEntities", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ GetSensorInstallersEntitiesOK describes a response with status code 200, with de
 OK
 */
 type GetSensorInstallersEntitiesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *GetSensorInstallersEntitiesOK) GetPayload() *models.DomainSensorInstall
 
 func (o *GetSensorInstallersEntitiesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ GetSensorInstallersEntitiesMultiStatus describes a response with status code 207
 Multi-Status
 */
 type GetSensorInstallersEntitiesMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *GetSensorInstallersEntitiesMultiStatus) GetPayload() *models.DomainSens
 
 func (o *GetSensorInstallersEntitiesMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -283,6 +298,10 @@ Bad Request
 */
 type GetSensorInstallersEntitiesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -291,7 +310,7 @@ type GetSensorInstallersEntitiesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this get sensor installers entities bad request response has a 2xx status code
@@ -332,11 +351,18 @@ func (o *GetSensorInstallersEntitiesBadRequest) String() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetSensorInstallersEntitiesBadRequest) GetPayload() *models.MsaQueryResponse {
+func (o *GetSensorInstallersEntitiesBadRequest) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *GetSensorInstallersEntitiesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -360,7 +386,7 @@ func (o *GetSensorInstallersEntitiesBadRequest) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -381,6 +407,10 @@ GetSensorInstallersEntitiesForbidden describes a response with status code 403, 
 Forbidden
 */
 type GetSensorInstallersEntitiesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *GetSensorInstallersEntitiesForbidden) GetPayload() *models.MsaReplyMeta
 
 func (o *GetSensorInstallersEntitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -481,6 +518,10 @@ Not Found
 */
 type GetSensorInstallersEntitiesNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -489,7 +530,7 @@ type GetSensorInstallersEntitiesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this get sensor installers entities not found response has a 2xx status code
@@ -530,11 +571,18 @@ func (o *GetSensorInstallersEntitiesNotFound) String() string {
 	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] getSensorInstallersEntitiesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetSensorInstallersEntitiesNotFound) GetPayload() *models.MsaQueryResponse {
+func (o *GetSensorInstallersEntitiesNotFound) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *GetSensorInstallersEntitiesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -558,7 +606,7 @@ func (o *GetSensorInstallersEntitiesNotFound) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -579,6 +627,10 @@ GetSensorInstallersEntitiesTooManyRequests describes a response with status code
 Too Many Requests
 */
 type GetSensorInstallersEntitiesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -639,6 +691,13 @@ func (o *GetSensorInstallersEntitiesTooManyRequests) GetPayload() *models.MsaRep
 
 func (o *GetSensorInstallersEntitiesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -673,78 +732,6 @@ func (o *GetSensorInstallersEntitiesTooManyRequests) readResponse(response runti
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetSensorInstallersEntitiesDefault creates a GetSensorInstallersEntitiesDefault with default headers values
-func NewGetSensorInstallersEntitiesDefault(code int) *GetSensorInstallersEntitiesDefault {
-	return &GetSensorInstallersEntitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetSensorInstallersEntitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetSensorInstallersEntitiesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainSensorInstallersV1
-}
-
-// IsSuccess returns true when this get sensor installers entities default response has a 2xx status code
-func (o *GetSensorInstallersEntitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get sensor installers entities default response has a 3xx status code
-func (o *GetSensorInstallersEntitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get sensor installers entities default response has a 4xx status code
-func (o *GetSensorInstallersEntitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get sensor installers entities default response has a 5xx status code
-func (o *GetSensorInstallersEntitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get sensor installers entities default response a status code equal to that given
-func (o *GetSensorInstallersEntitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get sensor installers entities default response
-func (o *GetSensorInstallersEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetSensorInstallersEntitiesDefault) Error() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] GetSensorInstallersEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorInstallersEntitiesDefault) String() string {
-	return fmt.Sprintf("[GET /sensors/entities/installers/v1][%d] GetSensorInstallersEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSensorInstallersEntitiesDefault) GetPayload() *models.DomainSensorInstallersV1 {
-	return o.Payload
-}
-
-func (o *GetSensorInstallersEntitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainSensorInstallersV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

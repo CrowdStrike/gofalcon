@@ -56,14 +56,7 @@ func (o *DeleteCIDGroupMembersReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewDeleteCIDGroupMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /mssp/entities/cid-group-members/v1] deleteCIDGroupMembers", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ DeleteCIDGroupMembersOK describes a response with status code 200, with default 
 OK
 */
 type DeleteCIDGroupMembersOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *DeleteCIDGroupMembersOK) GetPayload() *models.DomainCIDGroupMembersResp
 
 func (o *DeleteCIDGroupMembersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ DeleteCIDGroupMembersMultiStatus describes a response with status code 207, with
 Multi-Status
 */
 type DeleteCIDGroupMembersMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *DeleteCIDGroupMembersMultiStatus) GetPayload() *models.DomainCIDGroupMe
 
 func (o *DeleteCIDGroupMembersMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ DeleteCIDGroupMembersBadRequest describes a response with status code 400, with 
 Bad Request
 */
 type DeleteCIDGroupMembersBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *DeleteCIDGroupMembersBadRequest) GetPayload() *models.MsaErrorsOnly {
 
 func (o *DeleteCIDGroupMembersBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ DeleteCIDGroupMembersForbidden describes a response with status code 403, with d
 Forbidden
 */
 type DeleteCIDGroupMembersForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *DeleteCIDGroupMembersForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *DeleteCIDGroupMembersForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ DeleteCIDGroupMembersTooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type DeleteCIDGroupMembersTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *DeleteCIDGroupMembersTooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *DeleteCIDGroupMembersTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *DeleteCIDGroupMembersTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteCIDGroupMembersDefault creates a DeleteCIDGroupMembersDefault with default headers values
-func NewDeleteCIDGroupMembersDefault(code int) *DeleteCIDGroupMembersDefault {
-	return &DeleteCIDGroupMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteCIDGroupMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteCIDGroupMembersDefault struct {
-	_statusCode int
-
-	Payload *models.DomainCIDGroupMembersResponseV1
-}
-
-// IsSuccess returns true when this delete c ID group members default response has a 2xx status code
-func (o *DeleteCIDGroupMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete c ID group members default response has a 3xx status code
-func (o *DeleteCIDGroupMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete c ID group members default response has a 4xx status code
-func (o *DeleteCIDGroupMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete c ID group members default response has a 5xx status code
-func (o *DeleteCIDGroupMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete c ID group members default response a status code equal to that given
-func (o *DeleteCIDGroupMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete c ID group members default response
-func (o *DeleteCIDGroupMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteCIDGroupMembersDefault) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCIDGroupMembersDefault) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-group-members/v1][%d] deleteCIDGroupMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCIDGroupMembersDefault) GetPayload() *models.DomainCIDGroupMembersResponseV1 {
-	return o.Payload
-}
-
-func (o *DeleteCIDGroupMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainCIDGroupMembersResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

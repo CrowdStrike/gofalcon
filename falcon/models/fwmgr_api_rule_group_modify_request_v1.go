@@ -170,6 +170,11 @@ func (m *FwmgrAPIRuleGroupModifyRequestV1) contextValidateDiffOperations(ctx con
 	for i := 0; i < len(m.DiffOperations); i++ {
 
 		if m.DiffOperations[i] != nil {
+
+			if swag.IsZero(m.DiffOperations[i]) { // not required
+				return nil
+			}
+
 			if err := m.DiffOperations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("diff_operations" + "." + strconv.Itoa(i))

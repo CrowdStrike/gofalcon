@@ -102,6 +102,11 @@ func (m *DomainAPIEvaluationLogicComparisonsV1) contextValidateStateComparisons(
 	for i := 0; i < len(m.StateComparisons); i++ {
 
 		if m.StateComparisons[i] != nil {
+
+			if swag.IsZero(m.StateComparisons[i]) { // not required
+				return nil
+			}
+
 			if err := m.StateComparisons[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("state_comparisons" + "." + strconv.Itoa(i))

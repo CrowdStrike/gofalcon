@@ -166,6 +166,11 @@ func (m *K8sregListClusterCloudItemResp) ContextValidate(ctx context.Context, fo
 func (m *K8sregListClusterCloudItemResp) contextValidateAwsMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AwsMeta != nil {
+
+		if swag.IsZero(m.AwsMeta) { // not required
+			return nil
+		}
+
 		if err := m.AwsMeta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("aws_meta")
@@ -182,6 +187,11 @@ func (m *K8sregListClusterCloudItemResp) contextValidateAwsMeta(ctx context.Cont
 func (m *K8sregListClusterCloudItemResp) contextValidateAzureMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AzureMeta != nil {
+
+		if swag.IsZero(m.AzureMeta) { // not required
+			return nil
+		}
+
 		if err := m.AzureMeta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("azure_meta")

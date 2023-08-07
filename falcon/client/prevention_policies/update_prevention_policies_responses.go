@@ -62,14 +62,7 @@ func (o *UpdatePreventionPoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		result := NewUpdatePreventionPoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /policy/entities/prevention/v1] updatePreventionPolicies", response, response.Code())
 	}
 }
 
@@ -97,7 +90,7 @@ type UpdatePreventionPoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this update prevention policies o k response has a 2xx status code
@@ -138,7 +131,7 @@ func (o *UpdatePreventionPoliciesOK) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdatePreventionPoliciesOK) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *UpdatePreventionPoliciesOK) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -173,7 +166,7 @@ func (o *UpdatePreventionPoliciesOK) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -207,7 +200,7 @@ type UpdatePreventionPoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this update prevention policies bad request response has a 2xx status code
@@ -248,7 +241,7 @@ func (o *UpdatePreventionPoliciesBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdatePreventionPoliciesBadRequest) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *UpdatePreventionPoliciesBadRequest) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -283,7 +276,7 @@ func (o *UpdatePreventionPoliciesBadRequest) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -427,7 +420,7 @@ type UpdatePreventionPoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this update prevention policies not found response has a 2xx status code
@@ -468,7 +461,7 @@ func (o *UpdatePreventionPoliciesNotFound) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *UpdatePreventionPoliciesNotFound) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *UpdatePreventionPoliciesNotFound) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -503,7 +496,7 @@ func (o *UpdatePreventionPoliciesNotFound) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -662,7 +655,7 @@ type UpdatePreventionPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesPreventionPoliciesV1
+	Payload *models.PreventionRespV1
 }
 
 // IsSuccess returns true when this update prevention policies internal server error response has a 2xx status code
@@ -703,7 +696,7 @@ func (o *UpdatePreventionPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdatePreventionPoliciesInternalServerError) GetPayload() *models.ResponsesPreventionPoliciesV1 {
+func (o *UpdatePreventionPoliciesInternalServerError) GetPayload() *models.PreventionRespV1 {
 	return o.Payload
 }
 
@@ -738,79 +731,7 @@ func (o *UpdatePreventionPoliciesInternalServerError) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdatePreventionPoliciesDefault creates a UpdatePreventionPoliciesDefault with default headers values
-func NewUpdatePreventionPoliciesDefault(code int) *UpdatePreventionPoliciesDefault {
-	return &UpdatePreventionPoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdatePreventionPoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdatePreventionPoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesPreventionPoliciesV1
-}
-
-// IsSuccess returns true when this update prevention policies default response has a 2xx status code
-func (o *UpdatePreventionPoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update prevention policies default response has a 3xx status code
-func (o *UpdatePreventionPoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update prevention policies default response has a 4xx status code
-func (o *UpdatePreventionPoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update prevention policies default response has a 5xx status code
-func (o *UpdatePreventionPoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update prevention policies default response a status code equal to that given
-func (o *UpdatePreventionPoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update prevention policies default response
-func (o *UpdatePreventionPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdatePreventionPoliciesDefault) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdatePreventionPoliciesDefault) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/prevention/v1][%d] updatePreventionPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdatePreventionPoliciesDefault) GetPayload() *models.ResponsesPreventionPoliciesV1 {
-	return o.Payload
-}
-
-func (o *UpdatePreventionPoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesPreventionPoliciesV1)
+	o.Payload = new(models.PreventionRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

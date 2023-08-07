@@ -56,7 +56,7 @@ func (o *CreateUserV1Reader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /user-management/entities/users/v1] createUserV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type CreateUserV1Created struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaEntitiesUsersResponse
+	Payload *models.FlightcontrolapiUserResponse
 }
 
 // IsSuccess returns true when this create user v1 created response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CreateUserV1Created) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Created  %+v", 201, o.Payload)
 }
 
-func (o *CreateUserV1Created) GetPayload() *models.DomainMsaEntitiesUsersResponse {
+func (o *CreateUserV1Created) GetPayload() *models.FlightcontrolapiUserResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CreateUserV1Created) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaEntitiesUsersResponse)
+	o.Payload = new(models.FlightcontrolapiUserResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type CreateUserV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaEntitiesUsersResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create user v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CreateUserV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateUserV1BadRequest) GetPayload() *models.DomainMsaEntitiesUsersResponse {
+func (o *CreateUserV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CreateUserV1BadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaEntitiesUsersResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CreateUserV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaEntitiesUsersResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create user v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CreateUserV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CreateUserV1Forbidden) GetPayload() *models.DomainMsaEntitiesUsersResponse {
+func (o *CreateUserV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CreateUserV1Forbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaEntitiesUsersResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CreateUserV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DomainMsaEntitiesUsersResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create user v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CreateUserV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/users/v1][%d] createUserV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateUserV1InternalServerError) GetPayload() *models.DomainMsaEntitiesUsersResponse {
+func (o *CreateUserV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CreateUserV1InternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DomainMsaEntitiesUsersResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

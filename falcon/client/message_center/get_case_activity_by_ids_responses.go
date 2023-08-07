@@ -56,14 +56,7 @@ func (o *GetCaseActivityByIdsReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewGetCaseActivityByIdsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /message-center/entities/case-activities/GET/v1] GetCaseActivityByIds", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *GetCaseActivityByIdsInternalServerError) readResponse(response runtime.
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCaseActivityByIdsDefault creates a GetCaseActivityByIdsDefault with default headers values
-func NewGetCaseActivityByIdsDefault(code int) *GetCaseActivityByIdsDefault {
-	return &GetCaseActivityByIdsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCaseActivityByIdsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCaseActivityByIdsDefault struct {
-	_statusCode int
-
-	Payload *models.APIMessageCenterActivityResponse
-}
-
-// IsSuccess returns true when this get case activity by ids default response has a 2xx status code
-func (o *GetCaseActivityByIdsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get case activity by ids default response has a 3xx status code
-func (o *GetCaseActivityByIdsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get case activity by ids default response has a 4xx status code
-func (o *GetCaseActivityByIdsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get case activity by ids default response has a 5xx status code
-func (o *GetCaseActivityByIdsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get case activity by ids default response a status code equal to that given
-func (o *GetCaseActivityByIdsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get case activity by ids default response
-func (o *GetCaseActivityByIdsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCaseActivityByIdsDefault) Error() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] GetCaseActivityByIds default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCaseActivityByIdsDefault) String() string {
-	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] GetCaseActivityByIds default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCaseActivityByIdsDefault) GetPayload() *models.APIMessageCenterActivityResponse {
-	return o.Payload
-}
-
-func (o *GetCaseActivityByIdsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMessageCenterActivityResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

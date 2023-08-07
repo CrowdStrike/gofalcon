@@ -56,7 +56,7 @@ func (o *GetSensorVisibilityExclusionsV1Reader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/sv-exclusions/v1] getSensorVisibilityExclusionsV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetSensorVisibilityExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this get sensor visibility exclusions v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetSensorVisibilityExclusionsV1OK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *GetSensorVisibilityExclusionsV1OK) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *GetSensorVisibilityExclusionsV1OK) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetSensorVisibilityExclusionsV1OK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type GetSensorVisibilityExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this get sensor visibility exclusions v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetSensorVisibilityExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *GetSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetSensorVisibilityExclusionsV1BadRequest) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetSensorVisibilityExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this get sensor visibility exclusions v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetSensorVisibilityExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/sv-exclusions/v1][%d] getSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *GetSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetSensorVisibilityExclusionsV1InternalServerError) readResponse(respon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

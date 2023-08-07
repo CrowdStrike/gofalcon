@@ -66,6 +66,9 @@ type DomainDiscoverAPIAccount struct {
 	// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
 	LastSuccessfulLoginType string `json:"last_successful_login_type,omitempty"`
 
+	// Whether the account has local administrator privileges (Yes, No).
+	LocalAdminPrivileges string `json:"local_admin_privileges,omitempty"`
+
 	// The domain of the asset the account successfully logged in to.
 	LoginDomain string `json:"login_domain,omitempty"`
 

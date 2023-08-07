@@ -62,14 +62,7 @@ func (o *CaseDownloadAttachmentReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewCaseDownloadAttachmentDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /message-center/entities/case-attachment/v1] CaseDownloadAttachment", response, response.Code())
 	}
 }
 
@@ -740,76 +733,6 @@ func (o *CaseDownloadAttachmentInternalServerError) readResponse(response runtim
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewCaseDownloadAttachmentDefault creates a CaseDownloadAttachmentDefault with default headers values
-func NewCaseDownloadAttachmentDefault(code int) *CaseDownloadAttachmentDefault {
-	return &CaseDownloadAttachmentDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-CaseDownloadAttachmentDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type CaseDownloadAttachmentDefault struct {
-	_statusCode int
-
-	Payload string
-}
-
-// IsSuccess returns true when this case download attachment default response has a 2xx status code
-func (o *CaseDownloadAttachmentDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this case download attachment default response has a 3xx status code
-func (o *CaseDownloadAttachmentDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this case download attachment default response has a 4xx status code
-func (o *CaseDownloadAttachmentDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this case download attachment default response has a 5xx status code
-func (o *CaseDownloadAttachmentDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this case download attachment default response a status code equal to that given
-func (o *CaseDownloadAttachmentDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the case download attachment default response
-func (o *CaseDownloadAttachmentDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *CaseDownloadAttachmentDefault) Error() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] CaseDownloadAttachment default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CaseDownloadAttachmentDefault) String() string {
-	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] CaseDownloadAttachment default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *CaseDownloadAttachmentDefault) GetPayload() string {
-	return o.Payload
-}
-
-func (o *CaseDownloadAttachmentDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

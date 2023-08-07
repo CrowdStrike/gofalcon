@@ -56,14 +56,7 @@ func (o *VerifyAWSAccountAccessReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewVerifyAWSAccountAccessDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /cloud-connect-aws/entities/verify-account-access/v1] VerifyAWSAccountAccess", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ VerifyAWSAccountAccessOK describes a response with status code 200, with default
 OK
 */
 type VerifyAWSAccountAccessOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *VerifyAWSAccountAccessOK) GetPayload() *models.ModelsVerifyAccessRespon
 
 func (o *VerifyAWSAccountAccessOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ VerifyAWSAccountAccessBadRequest describes a response with status code 400, with
 Bad Request
 */
 type VerifyAWSAccountAccessBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *VerifyAWSAccountAccessBadRequest) GetPayload() *models.ModelsVerifyAcce
 
 func (o *VerifyAWSAccountAccessBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ VerifyAWSAccountAccessForbidden describes a response with status code 403, with 
 Forbidden
 */
 type VerifyAWSAccountAccessForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *VerifyAWSAccountAccessForbidden) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *VerifyAWSAccountAccessForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ VerifyAWSAccountAccessTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type VerifyAWSAccountAccessTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *VerifyAWSAccountAccessTooManyRequests) GetPayload() *models.MsaReplyMet
 
 func (o *VerifyAWSAccountAccessTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ VerifyAWSAccountAccessInternalServerError describes a response with status code 
 Internal Server Error
 */
 type VerifyAWSAccountAccessInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *VerifyAWSAccountAccessInternalServerError) GetPayload() *models.ModelsV
 
 func (o *VerifyAWSAccountAccessInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *VerifyAWSAccountAccessInternalServerError) readResponse(response runtim
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.ModelsVerifyAccessResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewVerifyAWSAccountAccessDefault creates a VerifyAWSAccountAccessDefault with default headers values
-func NewVerifyAWSAccountAccessDefault(code int) *VerifyAWSAccountAccessDefault {
-	return &VerifyAWSAccountAccessDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-VerifyAWSAccountAccessDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type VerifyAWSAccountAccessDefault struct {
-	_statusCode int
-
-	Payload *models.ModelsVerifyAccessResponseV1
-}
-
-// IsSuccess returns true when this verify a w s account access default response has a 2xx status code
-func (o *VerifyAWSAccountAccessDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this verify a w s account access default response has a 3xx status code
-func (o *VerifyAWSAccountAccessDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this verify a w s account access default response has a 4xx status code
-func (o *VerifyAWSAccountAccessDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this verify a w s account access default response has a 5xx status code
-func (o *VerifyAWSAccountAccessDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this verify a w s account access default response a status code equal to that given
-func (o *VerifyAWSAccountAccessDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the verify a w s account access default response
-func (o *VerifyAWSAccountAccessDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *VerifyAWSAccountAccessDefault) Error() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] VerifyAWSAccountAccess default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *VerifyAWSAccountAccessDefault) String() string {
-	return fmt.Sprintf("[POST /cloud-connect-aws/entities/verify-account-access/v1][%d] VerifyAWSAccountAccess default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *VerifyAWSAccountAccessDefault) GetPayload() *models.ModelsVerifyAccessResponseV1 {
-	return o.Payload
-}
-
-func (o *VerifyAWSAccountAccessDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ModelsVerifyAccessResponseV1)
 

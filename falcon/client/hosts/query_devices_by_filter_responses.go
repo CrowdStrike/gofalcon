@@ -44,14 +44,7 @@ func (o *QueryDevicesByFilterReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewQueryDevicesByFilterDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /devices/queries/devices/v1] QueryDevicesByFilter", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryDevicesByFilterOK describes a response with status code 200, with default h
 OK
 */
 type QueryDevicesByFilterOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryDevicesByFilterOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryDevicesByFilterOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryDevicesByFilterForbidden describes a response with status code 403, with de
 Forbidden
 */
 type QueryDevicesByFilterForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryDevicesByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryDevicesByFilterForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryDevicesByFilterTooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type QueryDevicesByFilterTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryDevicesByFilterTooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *QueryDevicesByFilterTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryDevicesByFilterTooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryDevicesByFilterDefault creates a QueryDevicesByFilterDefault with default headers values
-func NewQueryDevicesByFilterDefault(code int) *QueryDevicesByFilterDefault {
-	return &QueryDevicesByFilterDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryDevicesByFilterDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryDevicesByFilterDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query devices by filter default response has a 2xx status code
-func (o *QueryDevicesByFilterDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query devices by filter default response has a 3xx status code
-func (o *QueryDevicesByFilterDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query devices by filter default response has a 4xx status code
-func (o *QueryDevicesByFilterDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query devices by filter default response has a 5xx status code
-func (o *QueryDevicesByFilterDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query devices by filter default response a status code equal to that given
-func (o *QueryDevicesByFilterDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query devices by filter default response
-func (o *QueryDevicesByFilterDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryDevicesByFilterDefault) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] QueryDevicesByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryDevicesByFilterDefault) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices/v1][%d] QueryDevicesByFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryDevicesByFilterDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryDevicesByFilterDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

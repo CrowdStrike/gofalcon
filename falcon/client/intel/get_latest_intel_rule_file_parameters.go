@@ -73,6 +73,12 @@ type GetLatestIntelRuleFileParams struct {
 	*/
 	IfModifiedSince *string
 
+	/* IfNoneMatch.
+
+	   Download the latest rule set only if it doesn't have an ETag matching the given ones.
+	*/
+	IfNoneMatch *string
+
 	/* Format.
 
 	   Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
@@ -176,6 +182,17 @@ func (o *GetLatestIntelRuleFileParams) SetIfModifiedSince(ifModifiedSince *strin
 	o.IfModifiedSince = ifModifiedSince
 }
 
+// WithIfNoneMatch adds the ifNoneMatch to the get latest intel rule file params
+func (o *GetLatestIntelRuleFileParams) WithIfNoneMatch(ifNoneMatch *string) *GetLatestIntelRuleFileParams {
+	o.SetIfNoneMatch(ifNoneMatch)
+	return o
+}
+
+// SetIfNoneMatch adds the ifNoneMatch to the get latest intel rule file params
+func (o *GetLatestIntelRuleFileParams) SetIfNoneMatch(ifNoneMatch *string) {
+	o.IfNoneMatch = ifNoneMatch
+}
+
 // WithFormat adds the format to the get latest intel rule file params
 func (o *GetLatestIntelRuleFileParams) WithFormat(format *string) *GetLatestIntelRuleFileParams {
 	o.SetFormat(format)
@@ -218,6 +235,14 @@ func (o *GetLatestIntelRuleFileParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// header param If-Modified-Since
 		if err := r.SetHeaderParam("If-Modified-Since", *o.IfModifiedSince); err != nil {
+			return err
+		}
+	}
+
+	if o.IfNoneMatch != nil {
+
+		// header param If-None-Match
+		if err := r.SetHeaderParam("If-None-Match", *o.IfNoneMatch); err != nil {
 			return err
 		}
 	}

@@ -19,6 +19,9 @@ import (
 // swagger:model api.IndicatorsReportRequest
 type APIIndicatorsReportRequest struct {
 
+	// from parent
+	FromParent bool `json:"from_parent,omitempty"`
+
 	// report format
 	// Required: true
 	ReportFormat *string `json:"report_format"`
@@ -92,6 +95,7 @@ func (m *APIIndicatorsReportRequest) ContextValidate(ctx context.Context, format
 func (m *APIIndicatorsReportRequest) contextValidateSearch(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Search != nil {
+
 		if err := m.Search.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("search")

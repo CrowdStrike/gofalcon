@@ -64,7 +64,7 @@ SetSensorUpdatePoliciesPrecedenceParams contains all the parameters to send to t
 type SetSensorUpdatePoliciesPrecedenceParams struct {
 
 	// Body.
-	Body *models.RequestsSetPolicyPrecedenceReqV1
+	Body *models.BaseSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *SetSensorUpdatePoliciesPrecedenceParams) SetHTTPClient(client *http.Cli
 }
 
 // WithBody adds the body to the set sensor update policies precedence params
-func (o *SetSensorUpdatePoliciesPrecedenceParams) WithBody(body *models.RequestsSetPolicyPrecedenceReqV1) *SetSensorUpdatePoliciesPrecedenceParams {
+func (o *SetSensorUpdatePoliciesPrecedenceParams) WithBody(body *models.BaseSetPolicyPrecedenceReqV1) *SetSensorUpdatePoliciesPrecedenceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the set sensor update policies precedence params
-func (o *SetSensorUpdatePoliciesPrecedenceParams) SetBody(body *models.RequestsSetPolicyPrecedenceReqV1) {
+func (o *SetSensorUpdatePoliciesPrecedenceParams) SetBody(body *models.BaseSetPolicyPrecedenceReqV1) {
 	o.Body = body
 }
 

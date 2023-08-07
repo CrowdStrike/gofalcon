@@ -65,7 +65,7 @@ type GetDetectSummariesParams struct {
 
 	/* Body.
 
-	   View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/support/documentation/2/query-api-reference#patterndispositionvalue), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the `/detects/queries/detects/v1` endpoint, the Falcon console, or the Streaming API.
+	   View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/documentation/86/detections-monitoring-apis#pattern-disposition-value-descriptions), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the `/detects/queries/detects/v1` endpoint, the Falcon console, or the Streaming API.
 	*/
 	Body *models.MsaIdsRequest
 

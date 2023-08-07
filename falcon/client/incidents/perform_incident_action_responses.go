@@ -62,14 +62,7 @@ func (o *PerformIncidentActionReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewPerformIncidentActionDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /incidents/entities/incident-actions/v1] PerformIncidentAction", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type PerformIncidentActionOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type PerformIncidentActionOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.DomainMsaIncidentPerformActionResponse
 }
 
 // IsSuccess returns true when this perform incident action o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *PerformIncidentActionOK) String() string {
 	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] performIncidentActionOK  %+v", 200, o.Payload)
 }
 
-func (o *PerformIncidentActionOK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PerformIncidentActionOK) GetPayload() *models.DomainMsaIncidentPerformActionResponse {
 	return o.Payload
 }
 
 func (o *PerformIncidentActionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *PerformIncidentActionOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.DomainMsaIncidentPerformActionResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -183,6 +187,10 @@ PerformIncidentActionBadRequest describes a response with status code 400, with 
 Bad Request
 */
 type PerformIncidentActionBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *PerformIncidentActionBadRequest) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *PerformIncidentActionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ PerformIncidentActionForbidden describes a response with status code 403, with d
 Forbidden
 */
 type PerformIncidentActionForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PerformIncidentActionForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *PerformIncidentActionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ PerformIncidentActionConflict describes a response with status code 409, with de
 Conflict
 */
 type PerformIncidentActionConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *PerformIncidentActionConflict) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *PerformIncidentActionConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ PerformIncidentActionTooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type PerformIncidentActionTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PerformIncidentActionTooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *PerformIncidentActionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ PerformIncidentActionInternalServerError describes a response with status code 5
 Internal Server Error
 */
 type PerformIncidentActionInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *PerformIncidentActionInternalServerError) GetPayload() *models.MsaReply
 
 func (o *PerformIncidentActionInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *PerformIncidentActionInternalServerError) readResponse(response runtime
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPerformIncidentActionDefault creates a PerformIncidentActionDefault with default headers values
-func NewPerformIncidentActionDefault(code int) *PerformIncidentActionDefault {
-	return &PerformIncidentActionDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-PerformIncidentActionDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type PerformIncidentActionDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this perform incident action default response has a 2xx status code
-func (o *PerformIncidentActionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this perform incident action default response has a 3xx status code
-func (o *PerformIncidentActionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this perform incident action default response has a 4xx status code
-func (o *PerformIncidentActionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this perform incident action default response has a 5xx status code
-func (o *PerformIncidentActionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this perform incident action default response a status code equal to that given
-func (o *PerformIncidentActionDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the perform incident action default response
-func (o *PerformIncidentActionDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *PerformIncidentActionDefault) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] PerformIncidentAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformIncidentActionDefault) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/incident-actions/v1][%d] PerformIncidentAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformIncidentActionDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *PerformIncidentActionDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

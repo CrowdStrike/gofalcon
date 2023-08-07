@@ -70,7 +70,7 @@ type QueryCombinedSensorUpdateKernelsParams struct {
 
 	/* Limit.
 
-	   The maximum records to return. [1-5000]
+	   The maximum records to return. [1-500]
 	*/
 	Limit *int64
 

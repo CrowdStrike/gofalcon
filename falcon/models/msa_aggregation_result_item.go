@@ -124,6 +124,11 @@ func (m *MsaAggregationResultItem) contextValidateSubAggregates(ctx context.Cont
 	for i := 0; i < len(m.SubAggregates); i++ {
 
 		if m.SubAggregates[i] != nil {
+
+			if swag.IsZero(m.SubAggregates[i]) { // not required
+				return nil
+			}
+
 			if err := m.SubAggregates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))

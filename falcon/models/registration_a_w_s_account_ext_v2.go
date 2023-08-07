@@ -23,13 +23,32 @@ type RegistrationAWSAccountExtV2 struct {
 	// Required: true
 	AccountID *string `json:"account_id"`
 
+	// account type
+	AccountType string `json:"account_type,omitempty"`
+
+	// behavior assessment enabled
+	BehaviorAssessmentEnabled bool `json:"behavior_assessment_enabled,omitempty"`
+
 	// cloudtrail region
 	// Required: true
 	CloudtrailRegion *string `json:"cloudtrail_region"`
 
+	// iam role arn
+	// Required: true
+	IamRoleArn *string `json:"iam_role_arn"`
+
+	// is master
+	IsMaster bool `json:"is_master,omitempty"`
+
 	// organization id
 	// Required: true
 	OrganizationID *string `json:"organization_id"`
+
+	// sensor management enabled
+	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
+
+	// use existing cloudtrail
+	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
 }
 
 // Validate validates this registration a w s account ext v2
@@ -41,6 +60,10 @@ func (m *RegistrationAWSAccountExtV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCloudtrailRegion(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIamRoleArn(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -66,6 +89,15 @@ func (m *RegistrationAWSAccountExtV2) validateAccountID(formats strfmt.Registry)
 func (m *RegistrationAWSAccountExtV2) validateCloudtrailRegion(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloudtrail_region", "body", m.CloudtrailRegion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountExtV2) validateIamRoleArn(formats strfmt.Registry) error {
+
+	if err := validate.Required("iam_role_arn", "body", m.IamRoleArn); err != nil {
 		return err
 	}
 

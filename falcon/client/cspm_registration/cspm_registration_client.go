@@ -52,17 +52,19 @@ type ClientService interface {
 
 	GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error)
 
+	GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error)
+
 	GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error)
 
 	GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts ...ClientOption) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error)
 
 	GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error)
 
+	GetConfigurationDetectionEntities(params *GetConfigurationDetectionEntitiesParams, opts ...ClientOption) (*GetConfigurationDetectionEntitiesOK, error)
+
+	GetConfigurationDetectionIDsV2(params *GetConfigurationDetectionIDsV2Params, opts ...ClientOption) (*GetConfigurationDetectionIDsV2OK, error)
+
 	GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error)
-
-	GetIOAEvents(params *GetIOAEventsParams, opts ...ClientOption) (*GetIOAEventsOK, error)
-
-	GetIOAUsers(params *GetIOAUsersParams, opts ...ClientOption) (*GetIOAUsersOK, error)
 
 	PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error)
 
@@ -89,7 +91,7 @@ func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams
 		ID:                 "AzureDownloadCertificate",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-cspm-azure/entities/download-certificate/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -110,8 +112,9 @@ func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*AzureDownloadCertificateDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for AzureDownloadCertificate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -265,9 +268,9 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, op
 	case *DeleteCSPMAzureAccountMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*DeleteCSPMAzureAccountDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -303,8 +306,9 @@ func (a *Client) GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetBehaviorDetectionsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBehaviorDetections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -379,8 +383,9 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMAwsAccountScriptsAttachmentDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMAwsAccountScriptsAttachment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -417,9 +422,9 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 	case *GetCSPMAwsConsoleSetupURLsMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMAwsConsoleSetupURLsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -456,9 +461,9 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...
 	case *GetCSPMAzureAccountMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMAzureAccountDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -494,8 +499,48 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMAzureUserScriptsAttachmentDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMAzureUserScriptsAttachment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCSPMPoliciesDetails givens an array of policy i ds returns detailed policies information
+*/
+func (a *Client) GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCSPMPoliciesDetailsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCSPMPoliciesDetails",
+		Method:             "GET",
+		PathPattern:        "/settings/entities/policy-details/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCSPMPoliciesDetailsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetCSPMPoliciesDetailsOK:
+		return value, nil, nil
+	case *GetCSPMPoliciesDetailsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -532,9 +577,9 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption
 	case *GetCSPMPolicyMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMPolicyDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -571,9 +616,9 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts
 	case *GetCSPMPolicySettingsMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMPolicySettingsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -609,8 +654,85 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMScanScheduleDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMScanSchedule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetConfigurationDetectionEntities gets misconfigurations based on the ID including custom policy detections in addition to default policy detections
+*/
+func (a *Client) GetConfigurationDetectionEntities(params *GetConfigurationDetectionEntitiesParams, opts ...ClientOption) (*GetConfigurationDetectionEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetConfigurationDetectionEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetConfigurationDetectionEntities",
+		Method:             "GET",
+		PathPattern:        "/detects/entities/iom/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConfigurationDetectionEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetConfigurationDetectionEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetConfigurationDetectionEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetConfigurationDetectionIDsV2 gets list of active misconfiguration ids including custom policy detections in addition to default policy detections
+*/
+func (a *Client) GetConfigurationDetectionIDsV2(params *GetConfigurationDetectionIDsV2Params, opts ...ClientOption) (*GetConfigurationDetectionIDsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetConfigurationDetectionIDsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetConfigurationDetectionIDsV2",
+		Method:             "GET",
+		PathPattern:        "/detects/queries/iom/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConfigurationDetectionIDsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetConfigurationDetectionIDsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetConfigurationDetectionIDsV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -646,82 +768,9 @@ func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsPa
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetConfigurationDetectionsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetIOAEvents fors c s p m i o a events gets list of i o a events
-*/
-func (a *Client) GetIOAEvents(params *GetIOAEventsParams, opts ...ClientOption) (*GetIOAEventsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetIOAEventsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetIOAEvents",
-		Method:             "GET",
-		PathPattern:        "/ioa/entities/events/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetIOAEventsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetIOAEventsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetIOAEventsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetIOAUsers fors c s p m i o a users gets list of i o a users
-*/
-func (a *Client) GetIOAUsers(params *GetIOAUsersParams, opts ...ClientOption) (*GetIOAUsersOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetIOAUsersParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetIOAUsers",
-		Method:             "GET",
-		PathPattern:        "/ioa/entities/users/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetIOAUsersReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetIOAUsersOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetIOAUsersDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetConfigurationDetections: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -873,9 +922,9 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 	case *UpdateCSPMPolicySettingsMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*UpdateCSPMPolicySettingsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -911,8 +960,9 @@ func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, op
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateCSPMScanScheduleDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateCSPMScanSchedule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

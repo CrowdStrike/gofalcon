@@ -62,14 +62,7 @@ func (o *DeleteSampleV2Reader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewDeleteSampleV2Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /samples/entities/samples/v2] DeleteSampleV2", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *DeleteSampleV2InternalServerError) readResponse(response runtime.Client
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteSampleV2Default creates a DeleteSampleV2Default with default headers values
-func NewDeleteSampleV2Default(code int) *DeleteSampleV2Default {
-	return &DeleteSampleV2Default{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteSampleV2Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteSampleV2Default struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this delete sample v2 default response has a 2xx status code
-func (o *DeleteSampleV2Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete sample v2 default response has a 3xx status code
-func (o *DeleteSampleV2Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete sample v2 default response has a 4xx status code
-func (o *DeleteSampleV2Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete sample v2 default response has a 5xx status code
-func (o *DeleteSampleV2Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete sample v2 default response a status code equal to that given
-func (o *DeleteSampleV2Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete sample v2 default response
-func (o *DeleteSampleV2Default) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteSampleV2Default) Error() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v2][%d] DeleteSampleV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteSampleV2Default) String() string {
-	return fmt.Sprintf("[DELETE /samples/entities/samples/v2][%d] DeleteSampleV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteSampleV2Default) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *DeleteSampleV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

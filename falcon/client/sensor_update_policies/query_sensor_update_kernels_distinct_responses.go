@@ -56,14 +56,7 @@ func (o *QuerySensorUpdateKernelsDistinctReader) ReadResponse(response runtime.C
 		}
 		return nil, result
 	default:
-		result := NewQuerySensorUpdateKernelsDistinctDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1] querySensorUpdateKernelsDistinct", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *QuerySensorUpdateKernelsDistinctInternalServerError) readResponse(respo
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQuerySensorUpdateKernelsDistinctDefault creates a QuerySensorUpdateKernelsDistinctDefault with default headers values
-func NewQuerySensorUpdateKernelsDistinctDefault(code int) *QuerySensorUpdateKernelsDistinctDefault {
-	return &QuerySensorUpdateKernelsDistinctDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QuerySensorUpdateKernelsDistinctDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QuerySensorUpdateKernelsDistinctDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query sensor update kernels distinct default response has a 2xx status code
-func (o *QuerySensorUpdateKernelsDistinctDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query sensor update kernels distinct default response has a 3xx status code
-func (o *QuerySensorUpdateKernelsDistinctDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query sensor update kernels distinct default response has a 4xx status code
-func (o *QuerySensorUpdateKernelsDistinctDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query sensor update kernels distinct default response has a 5xx status code
-func (o *QuerySensorUpdateKernelsDistinctDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query sensor update kernels distinct default response a status code equal to that given
-func (o *QuerySensorUpdateKernelsDistinctDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query sensor update kernels distinct default response
-func (o *QuerySensorUpdateKernelsDistinctDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QuerySensorUpdateKernelsDistinctDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinct default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QuerySensorUpdateKernelsDistinctDefault) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-kernels/{distinct_field}/v1][%d] querySensorUpdateKernelsDistinct default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QuerySensorUpdateKernelsDistinctDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QuerySensorUpdateKernelsDistinctDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

@@ -29,6 +29,9 @@ type RegistrationAzureKeyV1 struct {
 	// public certificate
 	PublicCertificate string `json:"public_certificate,omitempty"`
 
+	// public certificate raw
+	PublicCertificateRaw string `json:"public_certificate_raw,omitempty"`
+
 	// tenant id
 	// Required: true
 	TenantID *string `json:"tenant_id"`

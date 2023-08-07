@@ -64,7 +64,7 @@ PostEntitiesAlertsV1Params contains all the parameters to send to the API endpoi
 type PostEntitiesAlertsV1Params struct {
 
 	// Body.
-	Body *models.DetectsapiPostEntitiesInvestigatablesV1Request
+	Body *models.DetectsapiPostEntitiesAlertsV1Request
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *PostEntitiesAlertsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the post entities alerts v1 params
-func (o *PostEntitiesAlertsV1Params) WithBody(body *models.DetectsapiPostEntitiesInvestigatablesV1Request) *PostEntitiesAlertsV1Params {
+func (o *PostEntitiesAlertsV1Params) WithBody(body *models.DetectsapiPostEntitiesAlertsV1Request) *PostEntitiesAlertsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post entities alerts v1 params
-func (o *PostEntitiesAlertsV1Params) SetBody(body *models.DetectsapiPostEntitiesInvestigatablesV1Request) {
+func (o *PostEntitiesAlertsV1Params) SetBody(body *models.DetectsapiPostEntitiesAlertsV1Request) {
 	o.Body = body
 }
 

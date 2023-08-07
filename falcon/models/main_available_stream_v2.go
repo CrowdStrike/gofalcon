@@ -126,6 +126,7 @@ func (m *MainAvailableStreamV2) ContextValidate(ctx context.Context, formats str
 func (m *MainAvailableStreamV2) contextValidateSessionToken(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SessionToken != nil {
+
 		if err := m.SessionToken.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sessionToken")

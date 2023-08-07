@@ -30,6 +30,10 @@ type RegistrationAWSAccountD4CExtV2 struct {
 	// Required: true
 	CloudtrailRegion *string `json:"cloudtrail_region"`
 
+	// iam role arn
+	// Required: true
+	IamRoleArn *string `json:"iam_role_arn"`
+
 	// is master
 	IsMaster bool `json:"is_master,omitempty"`
 
@@ -47,6 +51,10 @@ func (m *RegistrationAWSAccountD4CExtV2) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validateCloudtrailRegion(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIamRoleArn(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,6 +80,15 @@ func (m *RegistrationAWSAccountD4CExtV2) validateAccountID(formats strfmt.Regist
 func (m *RegistrationAWSAccountD4CExtV2) validateCloudtrailRegion(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloudtrail_region", "body", m.CloudtrailRegion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RegistrationAWSAccountD4CExtV2) validateIamRoleArn(formats strfmt.Registry) error {
+
+	if err := validate.Required("iam_role_arn", "body", m.IamRoleArn); err != nil {
 		return err
 	}
 

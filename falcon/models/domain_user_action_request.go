@@ -92,6 +92,7 @@ func (m *DomainUserActionRequest) ContextValidate(ctx context.Context, formats s
 func (m *DomainUserActionRequest) contextValidateAction(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Action != nil {
+
 		if err := m.Action.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")

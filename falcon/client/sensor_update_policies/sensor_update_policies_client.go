@@ -292,8 +292,9 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PerformSensorUpdatePoliciesActionDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for performSensorUpdatePoliciesAction: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -366,8 +367,9 @@ func (a *Client) QueryCombinedSensorUpdateKernels(params *QueryCombinedSensorUpd
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedSensorUpdateKernelsDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedSensorUpdateKernels: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -403,8 +405,9 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedSensorUpdatePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedSensorUpdatePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -440,8 +443,9 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedSensorUpdatePoliciesV2Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedSensorUpdatePoliciesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -477,8 +481,9 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryCombinedSensorUpdatePolicyMembersDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryCombinedSensorUpdatePolicyMembers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -514,8 +519,9 @@ func (a *Client) QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKerne
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QuerySensorUpdateKernelsDistinctDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for querySensorUpdateKernelsDistinct: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -551,8 +557,9 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QuerySensorUpdatePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for querySensorUpdatePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -588,8 +595,9 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QuerySensorUpdatePolicyMembersDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for querySensorUpdatePolicyMembers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -625,8 +633,9 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*RevealUninstallTokenDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for revealUninstallToken: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -662,8 +671,9 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*SetSensorUpdatePoliciesPrecedenceDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for setSensorUpdatePoliciesPrecedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -699,8 +709,9 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateSensorUpdatePoliciesDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateSensorUpdatePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -736,8 +747,9 @@ func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePolicies
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateSensorUpdatePoliciesV2Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateSensorUpdatePoliciesV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

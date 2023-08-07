@@ -38,14 +38,39 @@ type DomainPolicyInfo struct {
 	// Format: date-time
 	UpdatedAt *strfmt.DateTime `json:"UpdatedAt"`
 
+	// account scope
+	// Required: true
+	AccountScope *string `json:"account_scope"`
+
 	// alert logic
 	AlertLogic string `json:"alert_logic,omitempty"`
 
 	// api command
 	APICommand string `json:"api_command,omitempty"`
 
+	// asset type id
+	AssetTypeID int32 `json:"asset_type_id,omitempty"`
+
+	// attack tool
+	AttackTool string `json:"attack_tool,omitempty"`
+
+	// attack tool command
+	AttackToolCommand string `json:"attack_tool_command,omitempty"`
+
+	// attack types
+	AttackTypes []string `json:"attack_types"`
+
+	// cis benchmark ids
+	CisBenchmarkIds []int64 `json:"cis_benchmark_ids"`
+
+	// cisa benchmark ids
+	CisaBenchmarkIds []int64 `json:"cisa_benchmark_ids"`
+
 	// cli command
 	CliCommand string `json:"cli_command,omitempty"`
+
+	// cloud asset type
+	CloudAssetType string `json:"cloud_asset_type,omitempty"`
 
 	// cloud document
 	CloudDocument string `json:"cloud_document,omitempty"`
@@ -68,6 +93,9 @@ type DomainPolicyInfo struct {
 	// cloud service type
 	CloudServiceType string `json:"cloud_service_type,omitempty"`
 
+	// confidence
+	Confidence string `json:"confidence,omitempty"`
+
 	// default severity
 	DefaultSeverity string `json:"default_severity,omitempty"`
 
@@ -77,11 +105,37 @@ type DomainPolicyInfo struct {
 	// event type
 	EventType string `json:"event_type,omitempty"`
 
+	// fql policy
+	FqlPolicy string `json:"fql_policy,omitempty"`
+
+	// internal only
+	InternalOnly bool `json:"internal_only,omitempty"`
+
+	// is enabled
+	// Required: true
+	IsEnabled *bool `json:"is_enabled"`
+
+	// is remediable
+	// Required: true
+	IsRemediable *bool `json:"is_remediable"`
+
+	// iso benchmark ids
+	IsoBenchmarkIds []int64 `json:"iso_benchmark_ids"`
+
 	// mitre attack cloud matrix
 	MitreAttackCloudMatrix string `json:"mitre_attack_cloud_matrix,omitempty"`
 
 	// mitre attack cloud subtype
 	MitreAttackCloudSubtype string `json:"mitre_attack_cloud_subtype,omitempty"`
+
+	// nist benchmark ids
+	NistBenchmarkIds []int64 `json:"nist_benchmark_ids"`
+
+	// pci benchmark ids
+	PciBenchmarkIds []int64 `json:"pci_benchmark_ids"`
+
+	// policy confidence score
+	PolicyConfidenceScore int32 `json:"policy_confidence_score,omitempty"`
 
 	// policy fail query
 	PolicyFailQuery string `json:"policy_fail_query,omitempty"`
@@ -95,8 +149,38 @@ type DomainPolicyInfo struct {
 	// policy severity
 	PolicySeverity int32 `json:"policy_severity,omitempty"`
 
+	// policy severity score
+	PolicySeverityScore int32 `json:"policy_severity_score,omitempty"`
+
 	// policy statement
 	PolicyStatement string `json:"policy_statement,omitempty"`
+
+	// policy type
+	PolicyType string `json:"policy_type,omitempty"`
+
+	// remediation summary
+	RemediationSummary string `json:"remediation_summary,omitempty"`
+
+	// soc2 benchmark ids
+	Soc2BenchmarkIds []int64 `json:"soc2_benchmark_ids"`
+
+	// tactic
+	Tactic string `json:"tactic,omitempty"`
+
+	// tactic id
+	TacticID string `json:"tactic_id,omitempty"`
+
+	// tactic url
+	TacticURL string `json:"tactic_url,omitempty"`
+
+	// technique
+	Technique string `json:"technique,omitempty"`
+
+	// technique id
+	TechniqueID string `json:"technique_id,omitempty"`
+
+	// technique url
+	TechniqueURL string `json:"technique_url,omitempty"`
 }
 
 // Validate validates this domain policy info
@@ -116,6 +200,18 @@ func (m *DomainPolicyInfo) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAccountScope(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsRemediable(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -167,6 +263,33 @@ func (m *DomainPolicyInfo) validateUpdatedAt(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("UpdatedAt", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainPolicyInfo) validateAccountScope(formats strfmt.Registry) error {
+
+	if err := validate.Required("account_scope", "body", m.AccountScope); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainPolicyInfo) validateIsEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_enabled", "body", m.IsEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainPolicyInfo) validateIsRemediable(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_remediable", "body", m.IsRemediable); err != nil {
 		return err
 	}
 

@@ -56,14 +56,7 @@ func (o *GetEventsBodyReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		result := NewGetEventsBodyDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /ti/events/entities/events-full-body/v2] GetEventsBody", response, response.Code())
 	}
 }
 
@@ -604,76 +597,6 @@ func (o *GetEventsBodyInternalServerError) readResponse(response runtime.ClientR
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetEventsBodyDefault creates a GetEventsBodyDefault with default headers values
-func NewGetEventsBodyDefault(code int) *GetEventsBodyDefault {
-	return &GetEventsBodyDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetEventsBodyDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetEventsBodyDefault struct {
-	_statusCode int
-
-	Payload []int64
-}
-
-// IsSuccess returns true when this get events body default response has a 2xx status code
-func (o *GetEventsBodyDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get events body default response has a 3xx status code
-func (o *GetEventsBodyDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get events body default response has a 4xx status code
-func (o *GetEventsBodyDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get events body default response has a 5xx status code
-func (o *GetEventsBodyDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get events body default response a status code equal to that given
-func (o *GetEventsBodyDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get events body default response
-func (o *GetEventsBodyDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetEventsBodyDefault) Error() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] GetEventsBody default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetEventsBodyDefault) String() string {
-	return fmt.Sprintf("[GET /ti/events/entities/events-full-body/v2][%d] GetEventsBody default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetEventsBodyDefault) GetPayload() []int64 {
-	return o.Payload
-}
-
-func (o *GetEventsBodyDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {

@@ -63,7 +63,10 @@ AddCIDGroupMembersParams contains all the parameters to send to the API endpoint
 */
 type AddCIDGroupMembersParams struct {
 
-	// Body.
+	/* Body.
+
+	   Both 'cid_group_id' and 'cids' fields are required.
+	*/
 	Body *models.DomainCIDGroupMembersRequestV1
 
 	timeout    time.Duration

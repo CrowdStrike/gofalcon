@@ -50,14 +50,7 @@ func (o *GetRuleTypesReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewGetRuleTypesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /ioarules/entities/rule-types/v1] get-rule-types", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ GetRuleTypesOK describes a response with status code 200, with default header va
 OK
 */
 type GetRuleTypesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -128,6 +125,13 @@ func (o *GetRuleTypesOK) GetPayload() *models.APIRuleTypesResponse {
 
 func (o *GetRuleTypesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -171,6 +175,10 @@ GetRuleTypesForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type GetRuleTypesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -227,6 +235,13 @@ func (o *GetRuleTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetRuleTypesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -270,6 +285,10 @@ GetRuleTypesNotFound describes a response with status code 404, with default hea
 Not Found
 */
 type GetRuleTypesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -326,6 +345,13 @@ func (o *GetRuleTypesNotFound) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetRuleTypesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -369,6 +395,10 @@ GetRuleTypesTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type GetRuleTypesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -429,6 +459,13 @@ func (o *GetRuleTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetRuleTypesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -463,78 +500,6 @@ func (o *GetRuleTypesTooManyRequests) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetRuleTypesDefault creates a GetRuleTypesDefault with default headers values
-func NewGetRuleTypesDefault(code int) *GetRuleTypesDefault {
-	return &GetRuleTypesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetRuleTypesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetRuleTypesDefault struct {
-	_statusCode int
-
-	Payload *models.APIRuleTypesResponse
-}
-
-// IsSuccess returns true when this get rule types default response has a 2xx status code
-func (o *GetRuleTypesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get rule types default response has a 3xx status code
-func (o *GetRuleTypesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get rule types default response has a 4xx status code
-func (o *GetRuleTypesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get rule types default response has a 5xx status code
-func (o *GetRuleTypesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get rule types default response a status code equal to that given
-func (o *GetRuleTypesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get rule types default response
-func (o *GetRuleTypesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetRuleTypesDefault) Error() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] get-rule-types default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRuleTypesDefault) String() string {
-	return fmt.Sprintf("[GET /ioarules/entities/rule-types/v1][%d] get-rule-types default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetRuleTypesDefault) GetPayload() *models.APIRuleTypesResponse {
-	return o.Payload
-}
-
-func (o *GetRuleTypesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIRuleTypesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

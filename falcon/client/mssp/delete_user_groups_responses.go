@@ -56,14 +56,7 @@ func (o *DeleteUserGroupsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewDeleteUserGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /mssp/entities/user-groups/v1] deleteUserGroups", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *DeleteUserGroupsTooManyRequests) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteUserGroupsDefault creates a DeleteUserGroupsDefault with default headers values
-func NewDeleteUserGroupsDefault(code int) *DeleteUserGroupsDefault {
-	return &DeleteUserGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteUserGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteUserGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaEntitiesResponse
-}
-
-// IsSuccess returns true when this delete user groups default response has a 2xx status code
-func (o *DeleteUserGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete user groups default response has a 3xx status code
-func (o *DeleteUserGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete user groups default response has a 4xx status code
-func (o *DeleteUserGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete user groups default response has a 5xx status code
-func (o *DeleteUserGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete user groups default response a status code equal to that given
-func (o *DeleteUserGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete user groups default response
-func (o *DeleteUserGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteUserGroupsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteUserGroupsDefault) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/user-groups/v1][%d] deleteUserGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteUserGroupsDefault) GetPayload() *models.MsaEntitiesResponse {
-	return o.Payload
-}
-
-func (o *DeleteUserGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -140,6 +140,11 @@ func (m *MsaMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *MsaMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -156,6 +161,11 @@ func (m *MsaMetaInfo) contextValidatePagination(ctx context.Context, formats str
 func (m *MsaMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Writes != nil {
+
+		if swag.IsZero(m.Writes) { // not required
+			return nil
+		}
+
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")

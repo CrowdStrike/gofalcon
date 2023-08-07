@@ -56,7 +56,7 @@ func (o *GetDeviceControlPoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/device-control/v1] getDeviceControlPolicies", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetDeviceControlPoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this get device control policies o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetDeviceControlPoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/device-control/v1][%d] getDeviceControlPoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetDeviceControlPoliciesOK) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *GetDeviceControlPoliciesOK) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetDeviceControlPoliciesOK) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetDeviceControlPoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this get device control policies not found response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetDeviceControlPoliciesNotFound) String() string {
 	return fmt.Sprintf("[GET /policy/entities/device-control/v1][%d] getDeviceControlPoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetDeviceControlPoliciesNotFound) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *GetDeviceControlPoliciesNotFound) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetDeviceControlPoliciesNotFound) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetDeviceControlPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this get device control policies internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetDeviceControlPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/device-control/v1][%d] getDeviceControlPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetDeviceControlPoliciesInternalServerError) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *GetDeviceControlPoliciesInternalServerError) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetDeviceControlPoliciesInternalServerError) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

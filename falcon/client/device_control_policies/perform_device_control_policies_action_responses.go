@@ -62,14 +62,7 @@ func (o *PerformDeviceControlPoliciesActionReader) ReadResponse(response runtime
 		}
 		return nil, result
 	default:
-		result := NewPerformDeviceControlPoliciesActionDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/device-control-actions/v1] performDeviceControlPoliciesAction", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type PerformDeviceControlPoliciesActionOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type PerformDeviceControlPoliciesActionOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this perform device control policies action o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *PerformDeviceControlPoliciesActionOK) String() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionOK  %+v", 200, o.Payload)
 }
 
-func (o *PerformDeviceControlPoliciesActionOK) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *PerformDeviceControlPoliciesActionOK) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
 func (o *PerformDeviceControlPoliciesActionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *PerformDeviceControlPoliciesActionOK) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Bad Request
 */
 type PerformDeviceControlPoliciesActionBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type PerformDeviceControlPoliciesActionBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this perform device control policies action bad request response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *PerformDeviceControlPoliciesActionBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PerformDeviceControlPoliciesActionBadRequest) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *PerformDeviceControlPoliciesActionBadRequest) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
 func (o *PerformDeviceControlPoliciesActionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *PerformDeviceControlPoliciesActionBadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -282,6 +297,10 @@ PerformDeviceControlPoliciesActionForbidden describes a response with status cod
 Forbidden
 */
 type PerformDeviceControlPoliciesActionForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PerformDeviceControlPoliciesActionForbidden) GetPayload() *models.MsaEr
 
 func (o *PerformDeviceControlPoliciesActionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -382,6 +408,10 @@ Not Found
 */
 type PerformDeviceControlPoliciesActionNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -390,7 +420,7 @@ type PerformDeviceControlPoliciesActionNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this perform device control policies action not found response has a 2xx status code
@@ -431,11 +461,18 @@ func (o *PerformDeviceControlPoliciesActionNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionNotFound  %+v", 404, o.Payload)
 }
 
-func (o *PerformDeviceControlPoliciesActionNotFound) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *PerformDeviceControlPoliciesActionNotFound) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
 func (o *PerformDeviceControlPoliciesActionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -459,7 +496,7 @@ func (o *PerformDeviceControlPoliciesActionNotFound) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -480,6 +517,10 @@ PerformDeviceControlPoliciesActionTooManyRequests describes a response with stat
 Too Many Requests
 */
 type PerformDeviceControlPoliciesActionTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PerformDeviceControlPoliciesActionTooManyRequests) GetPayload() *models
 
 func (o *PerformDeviceControlPoliciesActionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type PerformDeviceControlPoliciesActionInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type PerformDeviceControlPoliciesActionInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesDeviceControlPoliciesV1
+	Payload *models.DeviceControlRespV1
 }
 
 // IsSuccess returns true when this perform device control policies action internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *PerformDeviceControlPoliciesActionInternalServerError) String() string 
 	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PerformDeviceControlPoliciesActionInternalServerError) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
+func (o *PerformDeviceControlPoliciesActionInternalServerError) GetPayload() *models.DeviceControlRespV1 {
 	return o.Payload
 }
 
 func (o *PerformDeviceControlPoliciesActionInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *PerformDeviceControlPoliciesActionInternalServerError) readResponse(res
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPerformDeviceControlPoliciesActionDefault creates a PerformDeviceControlPoliciesActionDefault with default headers values
-func NewPerformDeviceControlPoliciesActionDefault(code int) *PerformDeviceControlPoliciesActionDefault {
-	return &PerformDeviceControlPoliciesActionDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-PerformDeviceControlPoliciesActionDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type PerformDeviceControlPoliciesActionDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesDeviceControlPoliciesV1
-}
-
-// IsSuccess returns true when this perform device control policies action default response has a 2xx status code
-func (o *PerformDeviceControlPoliciesActionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this perform device control policies action default response has a 3xx status code
-func (o *PerformDeviceControlPoliciesActionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this perform device control policies action default response has a 4xx status code
-func (o *PerformDeviceControlPoliciesActionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this perform device control policies action default response has a 5xx status code
-func (o *PerformDeviceControlPoliciesActionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this perform device control policies action default response a status code equal to that given
-func (o *PerformDeviceControlPoliciesActionDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the perform device control policies action default response
-func (o *PerformDeviceControlPoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *PerformDeviceControlPoliciesActionDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformDeviceControlPoliciesActionDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/device-control-actions/v1][%d] performDeviceControlPoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformDeviceControlPoliciesActionDefault) GetPayload() *models.ResponsesDeviceControlPoliciesV1 {
-	return o.Payload
-}
-
-func (o *PerformDeviceControlPoliciesActionDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesDeviceControlPoliciesV1)
+	o.Payload = new(models.DeviceControlRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

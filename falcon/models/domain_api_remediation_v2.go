@@ -19,27 +19,27 @@ import (
 // swagger:model domain.APIRemediationV2
 type DomainAPIRemediationV2 struct {
 
-	// action
+	// Expanded description of the remediation
 	// Required: true
 	Action *string `json:"action"`
 
-	// id
+	// Refers to an unique identifier for a given remediation
 	// Required: true
 	ID *string `json:"id"`
 
-	// link
+	// Link to the remediation page for the vendor
 	// Required: true
 	Link *string `json:"link"`
 
-	// reference
+	// Relevant reference for the remediation that can be used to get additional details for the remediation. For example, a KB number that needs to be installed for a KB_SECURITY_UPDATE
 	// Required: true
 	Reference *string `json:"reference"`
 
-	// title
+	// Short description of the remediation
 	// Required: true
 	Title *string `json:"title"`
 
-	// vendor url
+	// Link to the vendor advisory - Note: This field is populated if there are extra steps that are required to complete the remediation
 	// Required: true
 	VendorURL *string `json:"vendor_url"`
 }

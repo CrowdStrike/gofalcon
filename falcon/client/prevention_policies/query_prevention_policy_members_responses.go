@@ -62,14 +62,7 @@ func (o *QueryPreventionPolicyMembersReader) ReadResponse(response runtime.Clien
 		}
 		return nil, result
 	default:
-		result := NewQueryPreventionPolicyMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/queries/prevention-members/v1] queryPreventionPolicyMembers", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *QueryPreventionPolicyMembersInternalServerError) readResponse(response 
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryPreventionPolicyMembersDefault creates a QueryPreventionPolicyMembersDefault with default headers values
-func NewQueryPreventionPolicyMembersDefault(code int) *QueryPreventionPolicyMembersDefault {
-	return &QueryPreventionPolicyMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryPreventionPolicyMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryPreventionPolicyMembersDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query prevention policy members default response has a 2xx status code
-func (o *QueryPreventionPolicyMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query prevention policy members default response has a 3xx status code
-func (o *QueryPreventionPolicyMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query prevention policy members default response has a 4xx status code
-func (o *QueryPreventionPolicyMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query prevention policy members default response has a 5xx status code
-func (o *QueryPreventionPolicyMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query prevention policy members default response a status code equal to that given
-func (o *QueryPreventionPolicyMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query prevention policy members default response
-func (o *QueryPreventionPolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryPreventionPolicyMembersDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/prevention-members/v1][%d] queryPreventionPolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryPreventionPolicyMembersDefault) String() string {
-	return fmt.Sprintf("[GET /policy/queries/prevention-members/v1][%d] queryPreventionPolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryPreventionPolicyMembersDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryPreventionPolicyMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

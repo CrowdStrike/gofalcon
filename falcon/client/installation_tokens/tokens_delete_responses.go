@@ -62,14 +62,7 @@ func (o *TokensDeleteReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewTokensDeleteDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /installation-tokens/entities/tokens/v1] tokens-delete", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ TokensDeleteOK describes a response with status code 200, with default header va
 OK
 */
 type TokensDeleteOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *TokensDeleteOK) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *TokensDeleteOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ TokensDeleteBadRequest describes a response with status code 400, with default h
 Bad Request
 */
 type TokensDeleteBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *TokensDeleteBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *TokensDeleteBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ TokensDeleteForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type TokensDeleteForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *TokensDeleteForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *TokensDeleteForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ TokensDeleteNotFound describes a response with status code 404, with default hea
 Not Found
 */
 type TokensDeleteNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *TokensDeleteNotFound) GetPayload() *models.MsaQueryResponse {
 
 func (o *TokensDeleteNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ TokensDeleteTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type TokensDeleteTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *TokensDeleteTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *TokensDeleteTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ TokensDeleteInternalServerError describes a response with status code 500, with 
 Internal Server Error
 */
 type TokensDeleteInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *TokensDeleteInternalServerError) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *TokensDeleteInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *TokensDeleteInternalServerError) readResponse(response runtime.ClientRe
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewTokensDeleteDefault creates a TokensDeleteDefault with default headers values
-func NewTokensDeleteDefault(code int) *TokensDeleteDefault {
-	return &TokensDeleteDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-TokensDeleteDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type TokensDeleteDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this tokens delete default response has a 2xx status code
-func (o *TokensDeleteDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this tokens delete default response has a 3xx status code
-func (o *TokensDeleteDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this tokens delete default response has a 4xx status code
-func (o *TokensDeleteDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this tokens delete default response has a 5xx status code
-func (o *TokensDeleteDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this tokens delete default response a status code equal to that given
-func (o *TokensDeleteDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the tokens delete default response
-func (o *TokensDeleteDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *TokensDeleteDefault) Error() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokens-delete default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *TokensDeleteDefault) String() string {
-	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokens-delete default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *TokensDeleteDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *TokensDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

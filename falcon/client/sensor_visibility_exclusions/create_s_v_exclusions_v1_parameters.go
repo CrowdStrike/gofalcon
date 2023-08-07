@@ -64,7 +64,7 @@ CreateSVExclusionsV1Params contains all the parameters to send to the API endpoi
 type CreateSVExclusionsV1Params struct {
 
 	// Body.
-	Body *models.RequestsSvExclusionCreateReqV1
+	Body *models.SvExclusionsCreateReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CreateSVExclusionsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create s v exclusions v1 params
-func (o *CreateSVExclusionsV1Params) WithBody(body *models.RequestsSvExclusionCreateReqV1) *CreateSVExclusionsV1Params {
+func (o *CreateSVExclusionsV1Params) WithBody(body *models.SvExclusionsCreateReqV1) *CreateSVExclusionsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create s v exclusions v1 params
-func (o *CreateSVExclusionsV1Params) SetBody(body *models.RequestsSvExclusionCreateReqV1) {
+func (o *CreateSVExclusionsV1Params) SetBody(body *models.SvExclusionsCreateReqV1) {
 	o.Body = body
 }
 

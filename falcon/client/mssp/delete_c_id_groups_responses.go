@@ -56,14 +56,7 @@ func (o *DeleteCIDGroupsReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		result := NewDeleteCIDGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[DELETE /mssp/entities/cid-groups/v1] deleteCIDGroups", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *DeleteCIDGroupsTooManyRequests) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewDeleteCIDGroupsDefault creates a DeleteCIDGroupsDefault with default headers values
-func NewDeleteCIDGroupsDefault(code int) *DeleteCIDGroupsDefault {
-	return &DeleteCIDGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-DeleteCIDGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type DeleteCIDGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaEntitiesResponse
-}
-
-// IsSuccess returns true when this delete c ID groups default response has a 2xx status code
-func (o *DeleteCIDGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete c ID groups default response has a 3xx status code
-func (o *DeleteCIDGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete c ID groups default response has a 4xx status code
-func (o *DeleteCIDGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete c ID groups default response has a 5xx status code
-func (o *DeleteCIDGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete c ID groups default response a status code equal to that given
-func (o *DeleteCIDGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the delete c ID groups default response
-func (o *DeleteCIDGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *DeleteCIDGroupsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-groups/v1][%d] deleteCIDGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCIDGroupsDefault) String() string {
-	return fmt.Sprintf("[DELETE /mssp/entities/cid-groups/v1][%d] deleteCIDGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *DeleteCIDGroupsDefault) GetPayload() *models.MsaEntitiesResponse {
-	return o.Payload
-}
-
-func (o *DeleteCIDGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaEntitiesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

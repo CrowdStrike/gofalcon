@@ -43,6 +43,9 @@ type FalconxSandboxSummaryReportV1 struct {
 	// incidents
 	Incidents []*FalconxIncident `json:"incidents"`
 
+	// network settings
+	NetworkSettings string `json:"network_settings,omitempty"`
+
 	// sample flags
 	SampleFlags []string `json:"sample_flags"`
 
@@ -124,6 +127,11 @@ func (m *FalconxSandboxSummaryReportV1) contextValidateIncidents(ctx context.Con
 	for i := 0; i < len(m.Incidents); i++ {
 
 		if m.Incidents[i] != nil {
+
+			if swag.IsZero(m.Incidents[i]) { // not required
+				return nil
+			}
+
 			if err := m.Incidents[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("incidents" + "." + strconv.Itoa(i))

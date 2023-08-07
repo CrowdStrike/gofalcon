@@ -62,7 +62,7 @@ func (o *CreateRTResponsePoliciesReader) ReadResponse(response runtime.ClientRes
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /policy/entities/response/v1] createRTResponsePolicies", response, response.Code())
 	}
 }
 
@@ -90,7 +90,7 @@ type CreateRTResponsePoliciesCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this create r t response policies created response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CreateRTResponsePoliciesCreated) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateRTResponsePoliciesCreated) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *CreateRTResponsePoliciesCreated) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CreateRTResponsePoliciesCreated) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type CreateRTResponsePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this create r t response policies bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *CreateRTResponsePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateRTResponsePoliciesBadRequest) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *CreateRTResponsePoliciesBadRequest) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *CreateRTResponsePoliciesBadRequest) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type CreateRTResponsePoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this create r t response policies not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *CreateRTResponsePoliciesNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CreateRTResponsePoliciesNotFound) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *CreateRTResponsePoliciesNotFound) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *CreateRTResponsePoliciesNotFound) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type CreateRTResponsePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this create r t response policies internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *CreateRTResponsePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response/v1][%d] createRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateRTResponsePoliciesInternalServerError) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *CreateRTResponsePoliciesInternalServerError) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *CreateRTResponsePoliciesInternalServerError) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

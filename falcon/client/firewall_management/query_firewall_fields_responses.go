@@ -44,14 +44,7 @@ func (o *QueryFirewallFieldsReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewQueryFirewallFieldsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /fwmgr/queries/firewall-fields/v1] query-firewall-fields", response, response.Code())
 	}
 }
 
@@ -67,6 +60,10 @@ OK
 */
 type QueryFirewallFieldsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -75,7 +72,7 @@ type QueryFirewallFieldsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaQueryResponse
+	Payload *models.FwmgrMsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query firewall fields o k response has a 2xx status code
@@ -116,11 +113,18 @@ func (o *QueryFirewallFieldsOK) String() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] queryFirewallFieldsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryFirewallFieldsOK) GetPayload() *models.FwmgrMsaQueryResponse {
+func (o *QueryFirewallFieldsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryFirewallFieldsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -144,7 +148,7 @@ func (o *QueryFirewallFieldsOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaQueryResponse)
+	o.Payload = new(models.FwmgrMsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -165,6 +169,10 @@ QueryFirewallFieldsForbidden describes a response with status code 403, with def
 Forbidden
 */
 type QueryFirewallFieldsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryFirewallFieldsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryFirewallFieldsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryFirewallFieldsTooManyRequests describes a response with status code 429, wi
 Too Many Requests
 */
 type QueryFirewallFieldsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryFirewallFieldsTooManyRequests) GetPayload() *models.MsaReplyMetaOn
 
 func (o *QueryFirewallFieldsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryFirewallFieldsTooManyRequests) readResponse(response runtime.Clien
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryFirewallFieldsDefault creates a QueryFirewallFieldsDefault with default headers values
-func NewQueryFirewallFieldsDefault(code int) *QueryFirewallFieldsDefault {
-	return &QueryFirewallFieldsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryFirewallFieldsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryFirewallFieldsDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrMsaQueryResponse
-}
-
-// IsSuccess returns true when this query firewall fields default response has a 2xx status code
-func (o *QueryFirewallFieldsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query firewall fields default response has a 3xx status code
-func (o *QueryFirewallFieldsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query firewall fields default response has a 4xx status code
-func (o *QueryFirewallFieldsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query firewall fields default response has a 5xx status code
-func (o *QueryFirewallFieldsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query firewall fields default response a status code equal to that given
-func (o *QueryFirewallFieldsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query firewall fields default response
-func (o *QueryFirewallFieldsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryFirewallFieldsDefault) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] query-firewall-fields default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryFirewallFieldsDefault) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/firewall-fields/v1][%d] query-firewall-fields default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryFirewallFieldsDefault) GetPayload() *models.FwmgrMsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryFirewallFieldsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrMsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

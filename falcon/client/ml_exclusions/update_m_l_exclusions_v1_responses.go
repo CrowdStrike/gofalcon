@@ -56,14 +56,7 @@ func (o *UpdateMLExclusionsV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewUpdateMLExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /policy/entities/ml-exclusions/v1] updateMLExclusionsV1", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type UpdateMLExclusionsV1OK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type UpdateMLExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this update m l exclusions v1 o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *UpdateMLExclusionsV1OK) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateMLExclusionsV1OK) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *UpdateMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateMLExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *UpdateMLExclusionsV1OK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +182,10 @@ Bad Request
 */
 type UpdateMLExclusionsV1BadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -186,7 +194,7 @@ type UpdateMLExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this update m l exclusions v1 bad request response has a 2xx status code
@@ -227,11 +235,18 @@ func (o *UpdateMLExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateMLExclusionsV1BadRequest) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *UpdateMLExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateMLExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -255,7 +270,7 @@ func (o *UpdateMLExclusionsV1BadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -276,6 +291,10 @@ UpdateMLExclusionsV1Forbidden describes a response with status code 403, with de
 Forbidden
 */
 type UpdateMLExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *UpdateMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *UpdateMLExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ UpdateMLExclusionsV1TooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type UpdateMLExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *UpdateMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *UpdateMLExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -490,6 +527,10 @@ Internal Server Error
 */
 type UpdateMLExclusionsV1InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -498,7 +539,7 @@ type UpdateMLExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this update m l exclusions v1 internal server error response has a 2xx status code
@@ -539,11 +580,18 @@ func (o *UpdateMLExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateMLExclusionsV1InternalServerError) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *UpdateMLExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateMLExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,79 +615,7 @@ func (o *UpdateMLExclusionsV1InternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateMLExclusionsV1Default creates a UpdateMLExclusionsV1Default with default headers values
-func NewUpdateMLExclusionsV1Default(code int) *UpdateMLExclusionsV1Default {
-	return &UpdateMLExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateMLExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateMLExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesMlExclusionRespV1
-}
-
-// IsSuccess returns true when this update m l exclusions v1 default response has a 2xx status code
-func (o *UpdateMLExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update m l exclusions v1 default response has a 3xx status code
-func (o *UpdateMLExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update m l exclusions v1 default response has a 4xx status code
-func (o *UpdateMLExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update m l exclusions v1 default response has a 5xx status code
-func (o *UpdateMLExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update m l exclusions v1 default response a status code equal to that given
-func (o *UpdateMLExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update m l exclusions v1 default response
-func (o *UpdateMLExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateMLExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateMLExclusionsV1Default) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/ml-exclusions/v1][%d] updateMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateMLExclusionsV1Default) GetPayload() *models.ResponsesMlExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *UpdateMLExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

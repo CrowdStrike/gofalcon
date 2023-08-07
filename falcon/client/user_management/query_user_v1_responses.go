@@ -56,7 +56,7 @@ func (o *QueryUserV1Reader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /user-management/queries/users/v1] queryUserV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type QueryUserV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query user v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueryUserV1OK) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1OK  %+v", 200, o.Payload)
 }
 
-func (o *QueryUserV1OK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryUserV1OK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueryUserV1OK) readResponse(response runtime.ClientResponse, consumer r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type QueryUserV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query user v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *QueryUserV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryUserV1BadRequest) GetPayload() *models.MsaQueryResponse {
+func (o *QueryUserV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *QueryUserV1BadRequest) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type QueryUserV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query user v1 forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *QueryUserV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *QueryUserV1Forbidden) GetPayload() *models.MsaQueryResponse {
+func (o *QueryUserV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *QueryUserV1Forbidden) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type QueryUserV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query user v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *QueryUserV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /user-management/queries/users/v1][%d] queryUserV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryUserV1InternalServerError) GetPayload() *models.MsaQueryResponse {
+func (o *QueryUserV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *QueryUserV1InternalServerError) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

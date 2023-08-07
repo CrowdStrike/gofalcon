@@ -50,14 +50,7 @@ func (o *UpdateRuleGroupValidationReader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		result := NewUpdateRuleGroupValidationDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /fwmgr/entities/rule-groups/validation/v1] update-rule-group-validation", response, response.Code())
 	}
 }
 
@@ -85,7 +78,7 @@ type UpdateRuleGroupValidationOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaQueryResponse
+	Payload *models.FwmgrMsaspecQueryResponse
 }
 
 // IsSuccess returns true when this update rule group validation o k response has a 2xx status code
@@ -126,7 +119,7 @@ func (o *UpdateRuleGroupValidationOK) String() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateRuleGroupValidationOK) GetPayload() *models.FwmgrMsaQueryResponse {
+func (o *UpdateRuleGroupValidationOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -161,7 +154,7 @@ func (o *UpdateRuleGroupValidationOK) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaQueryResponse)
+	o.Payload = new(models.FwmgrMsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -195,7 +188,7 @@ type UpdateRuleGroupValidationBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this update rule group validation bad request response has a 2xx status code
@@ -236,7 +229,7 @@ func (o *UpdateRuleGroupValidationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] updateRuleGroupValidationBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateRuleGroupValidationBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *UpdateRuleGroupValidationBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -271,7 +264,7 @@ func (o *UpdateRuleGroupValidationBadRequest) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -507,78 +500,6 @@ func (o *UpdateRuleGroupValidationTooManyRequests) readResponse(response runtime
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateRuleGroupValidationDefault creates a UpdateRuleGroupValidationDefault with default headers values
-func NewUpdateRuleGroupValidationDefault(code int) *UpdateRuleGroupValidationDefault {
-	return &UpdateRuleGroupValidationDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateRuleGroupValidationDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateRuleGroupValidationDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrMsaQueryResponse
-}
-
-// IsSuccess returns true when this update rule group validation default response has a 2xx status code
-func (o *UpdateRuleGroupValidationDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update rule group validation default response has a 3xx status code
-func (o *UpdateRuleGroupValidationDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update rule group validation default response has a 4xx status code
-func (o *UpdateRuleGroupValidationDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update rule group validation default response has a 5xx status code
-func (o *UpdateRuleGroupValidationDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update rule group validation default response a status code equal to that given
-func (o *UpdateRuleGroupValidationDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update rule group validation default response
-func (o *UpdateRuleGroupValidationDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateRuleGroupValidationDefault) Error() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] update-rule-group-validation default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRuleGroupValidationDefault) String() string {
-	return fmt.Sprintf("[PATCH /fwmgr/entities/rule-groups/validation/v1][%d] update-rule-group-validation default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateRuleGroupValidationDefault) GetPayload() *models.FwmgrMsaQueryResponse {
-	return o.Payload
-}
-
-func (o *UpdateRuleGroupValidationDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrMsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

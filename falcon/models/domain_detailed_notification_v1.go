@@ -152,6 +152,11 @@ func (m *DomainDetailedNotificationV1) ContextValidate(ctx context.Context, form
 func (m *DomainDetailedNotificationV1) contextValidateBreachDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BreachDetails != nil {
+
+		if swag.IsZero(m.BreachDetails) { // not required
+			return nil
+		}
+
 		if err := m.BreachDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("breach_details")
@@ -168,6 +173,11 @@ func (m *DomainDetailedNotificationV1) contextValidateBreachDetails(ctx context.
 func (m *DomainDetailedNotificationV1) contextValidateDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Details != nil {
+
+		if swag.IsZero(m.Details) { // not required
+			return nil
+		}
+
 		if err := m.Details.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("details")
@@ -184,6 +194,7 @@ func (m *DomainDetailedNotificationV1) contextValidateDetails(ctx context.Contex
 func (m *DomainDetailedNotificationV1) contextValidateNotification(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Notification != nil {
+
 		if err := m.Notification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("notification")

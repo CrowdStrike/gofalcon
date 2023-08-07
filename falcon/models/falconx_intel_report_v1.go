@@ -122,6 +122,11 @@ func (m *FalconxIntelReportV1) contextValidateActors(ctx context.Context, format
 	for i := 0; i < len(m.Actors); i++ {
 
 		if m.Actors[i] != nil {
+
+			if swag.IsZero(m.Actors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Actors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actors" + "." + strconv.Itoa(i))
@@ -142,6 +147,11 @@ func (m *FalconxIntelReportV1) contextValidateRelatedIndicators(ctx context.Cont
 	for i := 0; i < len(m.RelatedIndicators); i++ {
 
 		if m.RelatedIndicators[i] != nil {
+
+			if swag.IsZero(m.RelatedIndicators[i]) { // not required
+				return nil
+			}
+
 			if err := m.RelatedIndicators[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("related_indicators" + "." + strconv.Itoa(i))

@@ -56,14 +56,7 @@ func (o *QueryIntelIndicatorEntitiesReader) ReadResponse(response runtime.Client
 		}
 		return nil, result
 	default:
-		result := NewQueryIntelIndicatorEntitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /intel/combined/indicators/v1] QueryIntelIndicatorEntities", response, response.Code())
 	}
 }
 
@@ -634,89 +627,6 @@ func (o *QueryIntelIndicatorEntitiesInternalServerError) readResponse(response r
 	}
 
 	o.Payload = new(models.MsaErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryIntelIndicatorEntitiesDefault creates a QueryIntelIndicatorEntitiesDefault with default headers values
-func NewQueryIntelIndicatorEntitiesDefault(code int) *QueryIntelIndicatorEntitiesDefault {
-	return &QueryIntelIndicatorEntitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryIntelIndicatorEntitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryIntelIndicatorEntitiesDefault struct {
-	_statusCode int
-
-	/* Provides next page pagination URL. Available only if sorting was done using using _marker field, which is the default one.
-	 */
-	NextPage string
-
-	Payload *models.DomainPublicIndicatorsV3Response
-}
-
-// IsSuccess returns true when this query intel indicator entities default response has a 2xx status code
-func (o *QueryIntelIndicatorEntitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query intel indicator entities default response has a 3xx status code
-func (o *QueryIntelIndicatorEntitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query intel indicator entities default response has a 4xx status code
-func (o *QueryIntelIndicatorEntitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query intel indicator entities default response has a 5xx status code
-func (o *QueryIntelIndicatorEntitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query intel indicator entities default response a status code equal to that given
-func (o *QueryIntelIndicatorEntitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query intel indicator entities default response
-func (o *QueryIntelIndicatorEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryIntelIndicatorEntitiesDefault) Error() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] QueryIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryIntelIndicatorEntitiesDefault) String() string {
-	return fmt.Sprintf("[GET /intel/combined/indicators/v1][%d] QueryIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryIntelIndicatorEntitiesDefault) GetPayload() *models.DomainPublicIndicatorsV3Response {
-	return o.Payload
-}
-
-func (o *QueryIntelIndicatorEntitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header Next-Page
-	hdrNextPage := response.GetHeader("Next-Page")
-
-	if hdrNextPage != "" {
-		o.NextPage = hdrNextPage
-	}
-
-	o.Payload = new(models.DomainPublicIndicatorsV3Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

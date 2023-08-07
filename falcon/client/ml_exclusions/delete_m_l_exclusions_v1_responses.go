@@ -56,7 +56,7 @@ func (o *DeleteMLExclusionsV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /policy/entities/ml-exclusions/v1] deleteMLExclusionsV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type DeleteMLExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *DeleteMLExclusionsV1OK) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1OK) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *DeleteMLExclusionsV1OK) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *DeleteMLExclusionsV1OK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type DeleteMLExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *DeleteMLExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *DeleteMLExclusionsV1BadRequest) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *DeleteMLExclusionsV1BadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type DeleteMLExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesMlExclusionRespV1
+	Payload *models.ExclusionsRespV1
 }
 
 // IsSuccess returns true when this delete m l exclusions v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *DeleteMLExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /policy/entities/ml-exclusions/v1][%d] deleteMLExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.ResponsesMlExclusionRespV1 {
+func (o *DeleteMLExclusionsV1InternalServerError) GetPayload() *models.ExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *DeleteMLExclusionsV1InternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesMlExclusionRespV1)
+	o.Payload = new(models.ExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

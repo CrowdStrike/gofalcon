@@ -22,6 +22,9 @@ type RegistrationGCPAccountExtV1 struct {
 	// parent id
 	// Required: true
 	ParentID *string `json:"parent_id"`
+
+	// parent type
+	ParentType string `json:"parent_type,omitempty"`
 }
 
 // Validate validates this registration g c p account ext v1

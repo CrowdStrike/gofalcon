@@ -181,9 +181,9 @@ func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, 
 	case *DeleteAWSAccountsMixin0MultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*DeleteAWSAccountsMixin0Default)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -259,9 +259,9 @@ func (a *Client) GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts .
 	case *GetAWSAccountsMixin0MultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetAWSAccountsMixin0Default)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -415,9 +415,9 @@ func (a *Client) GetClusters(params *GetClustersParams, opts ...ClientOption) (*
 	case *GetClustersMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetClustersDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -492,8 +492,9 @@ func (a *Client) GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetHelmValuesYamlDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetHelmValuesYaml: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -530,9 +531,9 @@ func (a *Client) GetLocations(params *GetLocationsParams, opts ...ClientOption) 
 	case *GetLocationsMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetLocationsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -686,9 +687,9 @@ func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...Client
 	case *RegenerateAPIKeyMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*RegenerateAPIKeyDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -764,9 +765,9 @@ func (a *Client) UpdateAWSAccount(params *UpdateAWSAccountParams, opts ...Client
 	case *UpdateAWSAccountMultiStatus:
 		return nil, value, nil
 	}
-	// unexpected success response
-	unexpectedSuccess := result.(*UpdateAWSAccountDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for kubernetes_protection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

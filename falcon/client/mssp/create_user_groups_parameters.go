@@ -63,7 +63,10 @@ CreateUserGroupsParams contains all the parameters to send to the API endpoint
 */
 type CreateUserGroupsParams struct {
 
-	// Body.
+	/* Body.
+
+	   Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
+	*/
 	Body *models.DomainUserGroupsRequestV1
 
 	timeout    time.Duration

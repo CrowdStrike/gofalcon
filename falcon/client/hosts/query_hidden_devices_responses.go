@@ -44,14 +44,7 @@ func (o *QueryHiddenDevicesReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		result := NewQueryHiddenDevicesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /devices/queries/devices-hidden/v1] QueryHiddenDevices", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryHiddenDevicesOK describes a response with status code 200, with default hea
 OK
 */
 type QueryHiddenDevicesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryHiddenDevicesOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryHiddenDevicesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryHiddenDevicesForbidden describes a response with status code 403, with defa
 Forbidden
 */
 type QueryHiddenDevicesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryHiddenDevicesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryHiddenDevicesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryHiddenDevicesTooManyRequests describes a response with status code 429, wit
 Too Many Requests
 */
 type QueryHiddenDevicesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryHiddenDevicesTooManyRequests) GetPayload() *models.MsaReplyMetaOnl
 
 func (o *QueryHiddenDevicesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryHiddenDevicesTooManyRequests) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryHiddenDevicesDefault creates a QueryHiddenDevicesDefault with default headers values
-func NewQueryHiddenDevicesDefault(code int) *QueryHiddenDevicesDefault {
-	return &QueryHiddenDevicesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryHiddenDevicesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryHiddenDevicesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query hidden devices default response has a 2xx status code
-func (o *QueryHiddenDevicesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query hidden devices default response has a 3xx status code
-func (o *QueryHiddenDevicesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query hidden devices default response has a 4xx status code
-func (o *QueryHiddenDevicesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query hidden devices default response has a 5xx status code
-func (o *QueryHiddenDevicesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query hidden devices default response a status code equal to that given
-func (o *QueryHiddenDevicesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query hidden devices default response
-func (o *QueryHiddenDevicesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryHiddenDevicesDefault) Error() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] QueryHiddenDevices default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryHiddenDevicesDefault) String() string {
-	return fmt.Sprintf("[GET /devices/queries/devices-hidden/v1][%d] QueryHiddenDevices default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryHiddenDevicesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryHiddenDevicesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

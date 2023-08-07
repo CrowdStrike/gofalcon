@@ -130,6 +130,11 @@ func (m *MalqueryExternalResource) contextValidateSamples(ctx context.Context, f
 	for i := 0; i < len(m.Samples); i++ {
 
 		if m.Samples[i] != nil {
+
+			if swag.IsZero(m.Samples[i]) { // not required
+				return nil
+			}
+
 			if err := m.Samples[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("samples" + "." + strconv.Itoa(i))

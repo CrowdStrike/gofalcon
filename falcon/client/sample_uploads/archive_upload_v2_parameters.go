@@ -70,7 +70,7 @@ type ArchiveUploadV2Params struct {
 
 	/* File.
 
-	   Content of the uploaded archive. For example, use `--form file=@$FILE_PATH` when using cURL.
+	   Content of the uploaded archive. For example, use `--form file=@$FILE_PATH;type=` when using cURL. Supported file types are `application/zip` and `application/x-7z-compressed`.
 	*/
 	File runtime.NamedReadCloser
 

@@ -97,6 +97,11 @@ func (m *FalconxScriptCall) contextValidateParameters(ctx context.Context, forma
 	for i := 0; i < len(m.Parameters); i++ {
 
 		if m.Parameters[i] != nil {
+
+			if swag.IsZero(m.Parameters[i]) { // not required
+				return nil
+			}
+
 			if err := m.Parameters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("parameters" + "." + strconv.Itoa(i))

@@ -44,14 +44,7 @@ func (o *QueryQuarantineFilesReader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewQueryQuarantineFilesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /quarantine/queries/quarantined-files/v1] QueryQuarantineFiles", response, response.Code())
 	}
 }
 
@@ -391,78 +384,6 @@ func (o *QueryQuarantineFilesTooManyRequests) readResponse(response runtime.Clie
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryQuarantineFilesDefault creates a QueryQuarantineFilesDefault with default headers values
-func NewQueryQuarantineFilesDefault(code int) *QueryQuarantineFilesDefault {
-	return &QueryQuarantineFilesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryQuarantineFilesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryQuarantineFilesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query quarantine files default response has a 2xx status code
-func (o *QueryQuarantineFilesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query quarantine files default response has a 3xx status code
-func (o *QueryQuarantineFilesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query quarantine files default response has a 4xx status code
-func (o *QueryQuarantineFilesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query quarantine files default response has a 5xx status code
-func (o *QueryQuarantineFilesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query quarantine files default response a status code equal to that given
-func (o *QueryQuarantineFilesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query quarantine files default response
-func (o *QueryQuarantineFilesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryQuarantineFilesDefault) Error() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] QueryQuarantineFiles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryQuarantineFilesDefault) String() string {
-	return fmt.Sprintf("[GET /quarantine/queries/quarantined-files/v1][%d] QueryQuarantineFiles default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryQuarantineFilesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryQuarantineFilesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

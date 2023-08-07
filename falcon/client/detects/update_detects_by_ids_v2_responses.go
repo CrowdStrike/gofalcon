@@ -56,14 +56,7 @@ func (o *UpdateDetectsByIdsV2Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewUpdateDetectsByIdsV2Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /detects/entities/detects/v2] UpdateDetectsByIdsV2", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ UpdateDetectsByIdsV2OK describes a response with status code 200, with default h
 OK
 */
 type UpdateDetectsByIdsV2OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *UpdateDetectsByIdsV2OK) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateDetectsByIdsV2OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ UpdateDetectsByIdsV2BadRequest describes a response with status code 400, with d
 Bad Request
 */
 type UpdateDetectsByIdsV2BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *UpdateDetectsByIdsV2BadRequest) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateDetectsByIdsV2BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ UpdateDetectsByIdsV2Forbidden describes a response with status code 403, with de
 Forbidden
 */
 type UpdateDetectsByIdsV2Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *UpdateDetectsByIdsV2Forbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *UpdateDetectsByIdsV2Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ UpdateDetectsByIdsV2TooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type UpdateDetectsByIdsV2TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *UpdateDetectsByIdsV2TooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *UpdateDetectsByIdsV2TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ UpdateDetectsByIdsV2InternalServerError describes a response with status code 50
 Internal Server Error
 */
 type UpdateDetectsByIdsV2InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *UpdateDetectsByIdsV2InternalServerError) GetPayload() *models.MsaReplyM
 
 func (o *UpdateDetectsByIdsV2InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *UpdateDetectsByIdsV2InternalServerError) readResponse(response runtime.
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateDetectsByIdsV2Default creates a UpdateDetectsByIdsV2Default with default headers values
-func NewUpdateDetectsByIdsV2Default(code int) *UpdateDetectsByIdsV2Default {
-	return &UpdateDetectsByIdsV2Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateDetectsByIdsV2Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateDetectsByIdsV2Default struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update detects by ids v2 default response has a 2xx status code
-func (o *UpdateDetectsByIdsV2Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update detects by ids v2 default response has a 3xx status code
-func (o *UpdateDetectsByIdsV2Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update detects by ids v2 default response has a 4xx status code
-func (o *UpdateDetectsByIdsV2Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update detects by ids v2 default response has a 5xx status code
-func (o *UpdateDetectsByIdsV2Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update detects by ids v2 default response a status code equal to that given
-func (o *UpdateDetectsByIdsV2Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update detects by ids v2 default response
-func (o *UpdateDetectsByIdsV2Default) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateDetectsByIdsV2Default) Error() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] UpdateDetectsByIdsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateDetectsByIdsV2Default) String() string {
-	return fmt.Sprintf("[PATCH /detects/entities/detects/v2][%d] UpdateDetectsByIdsV2 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateDetectsByIdsV2Default) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdateDetectsByIdsV2Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

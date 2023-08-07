@@ -56,7 +56,7 @@ func (o *RTRDeleteFileV2Reader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /real-time-response/entities/file/v2] RTR-DeleteFileV2", response, response.Code())
 	}
 }
 

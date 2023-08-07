@@ -50,14 +50,7 @@ func (o *ScheduledReportsQueryReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewScheduledReportsQueryDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /reports/queries/scheduled-reports/v1] scheduled-reports.query", response, response.Code())
 	}
 }
 
@@ -507,78 +500,6 @@ func (o *ScheduledReportsQueryTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewScheduledReportsQueryDefault creates a ScheduledReportsQueryDefault with default headers values
-func NewScheduledReportsQueryDefault(code int) *ScheduledReportsQueryDefault {
-	return &ScheduledReportsQueryDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ScheduledReportsQueryDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ScheduledReportsQueryDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this scheduled reports query default response has a 2xx status code
-func (o *ScheduledReportsQueryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this scheduled reports query default response has a 3xx status code
-func (o *ScheduledReportsQueryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this scheduled reports query default response has a 4xx status code
-func (o *ScheduledReportsQueryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this scheduled reports query default response has a 5xx status code
-func (o *ScheduledReportsQueryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this scheduled reports query default response a status code equal to that given
-func (o *ScheduledReportsQueryDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the scheduled reports query default response
-func (o *ScheduledReportsQueryDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ScheduledReportsQueryDefault) Error() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduled-reports.query default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ScheduledReportsQueryDefault) String() string {
-	return fmt.Sprintf("[GET /reports/queries/scheduled-reports/v1][%d] scheduled-reports.query default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ScheduledReportsQueryDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *ScheduledReportsQueryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

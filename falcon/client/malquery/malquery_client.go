@@ -6,6 +6,8 @@ package malquery
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -82,8 +84,9 @@ func (a *Client) GetMalQueryDownloadV1(params *GetMalQueryDownloadV1Params, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMalQueryDownloadV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalQueryDownloadV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -119,8 +122,9 @@ func (a *Client) GetMalQueryEntitiesSamplesFetchV1(params *GetMalQueryEntitiesSa
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMalQueryEntitiesSamplesFetchV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalQueryEntitiesSamplesFetchV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -156,8 +160,9 @@ func (a *Client) GetMalQueryMetadataV1(params *GetMalQueryMetadataV1Params, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMalQueryMetadataV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalQueryMetadataV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -193,8 +198,9 @@ func (a *Client) GetMalQueryQuotasV1(params *GetMalQueryQuotasV1Params, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMalQueryQuotasV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalQueryQuotasV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -230,8 +236,9 @@ func (a *Client) GetMalQueryRequestV1(params *GetMalQueryRequestV1Params, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetMalQueryRequestV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalQueryRequestV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -267,8 +274,9 @@ func (a *Client) PostMalQueryEntitiesSamplesMultidownloadV1(params *PostMalQuery
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PostMalQueryEntitiesSamplesMultidownloadV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostMalQueryEntitiesSamplesMultidownloadV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -304,8 +312,9 @@ func (a *Client) PostMalQueryExactSearchV1(params *PostMalQueryExactSearchV1Para
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PostMalQueryExactSearchV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostMalQueryExactSearchV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -341,8 +350,9 @@ func (a *Client) PostMalQueryFuzzySearchV1(params *PostMalQueryFuzzySearchV1Para
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PostMalQueryFuzzySearchV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostMalQueryFuzzySearchV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -378,8 +388,9 @@ func (a *Client) PostMalQueryHuntV1(params *PostMalQueryHuntV1Params, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*PostMalQueryHuntV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostMalQueryHuntV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

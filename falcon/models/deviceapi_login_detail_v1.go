@@ -20,6 +20,10 @@ import (
 // swagger:model deviceapi.LoginDetailV1
 type DeviceapiLoginDetailV1 struct {
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// device id
 	// Required: true
 	DeviceID *string `json:"device_id"`
@@ -33,6 +37,10 @@ type DeviceapiLoginDetailV1 struct {
 func (m *DeviceapiLoginDetailV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDeviceID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -44,6 +52,15 @@ func (m *DeviceapiLoginDetailV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DeviceapiLoginDetailV1) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -102,6 +119,11 @@ func (m *DeviceapiLoginDetailV1) contextValidateRecentLogins(ctx context.Context
 	for i := 0; i < len(m.RecentLogins); i++ {
 
 		if m.RecentLogins[i] != nil {
+
+			if swag.IsZero(m.RecentLogins[i]) { // not required
+				return nil
+			}
+
 			if err := m.RecentLogins[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("recent_logins" + "." + strconv.Itoa(i))

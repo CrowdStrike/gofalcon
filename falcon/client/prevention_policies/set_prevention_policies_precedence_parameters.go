@@ -64,7 +64,7 @@ SetPreventionPoliciesPrecedenceParams contains all the parameters to send to the
 type SetPreventionPoliciesPrecedenceParams struct {
 
 	// Body.
-	Body *models.RequestsSetPolicyPrecedenceReqV1
+	Body *models.BaseSetPolicyPrecedenceReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *SetPreventionPoliciesPrecedenceParams) SetHTTPClient(client *http.Clien
 }
 
 // WithBody adds the body to the set prevention policies precedence params
-func (o *SetPreventionPoliciesPrecedenceParams) WithBody(body *models.RequestsSetPolicyPrecedenceReqV1) *SetPreventionPoliciesPrecedenceParams {
+func (o *SetPreventionPoliciesPrecedenceParams) WithBody(body *models.BaseSetPolicyPrecedenceReqV1) *SetPreventionPoliciesPrecedenceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the set prevention policies precedence params
-func (o *SetPreventionPoliciesPrecedenceParams) SetBody(body *models.RequestsSetPolicyPrecedenceReqV1) {
+func (o *SetPreventionPoliciesPrecedenceParams) SetBody(body *models.BaseSetPolicyPrecedenceReqV1) {
 	o.Body = body
 }
 

@@ -62,16 +62,23 @@ DiscoverCloudAzureDownloadCertificateParams contains all the parameters to send 
 */
 type DiscoverCloudAzureDownloadCertificateParams struct {
 
-	// Refresh.
-	//
-	// Default: "false"
-	Refresh *string
+	/* Refresh.
+
+	   Setting to true will invalidate the current certificate and generate a new certificate
+	*/
+	Refresh *bool
 
 	/* TenantID.
 
 	   Azure Tenant ID
 	*/
 	TenantID []string
+
+	/* YearsValid.
+
+	   Years the certificate should be valid (only used when refresh=true)
+	*/
+	YearsValid *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -91,7 +98,7 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) WithDefaults() *DiscoverCl
 // All values with no default are reset to their zero value.
 func (o *DiscoverCloudAzureDownloadCertificateParams) SetDefaults() {
 	var (
-		refreshDefault = string("false")
+		refreshDefault = bool(false)
 	)
 
 	val := DiscoverCloudAzureDownloadCertificateParams{
@@ -138,13 +145,13 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) SetHTTPClient(client *http
 }
 
 // WithRefresh adds the refresh to the discover cloud azure download certificate params
-func (o *DiscoverCloudAzureDownloadCertificateParams) WithRefresh(refresh *string) *DiscoverCloudAzureDownloadCertificateParams {
+func (o *DiscoverCloudAzureDownloadCertificateParams) WithRefresh(refresh *bool) *DiscoverCloudAzureDownloadCertificateParams {
 	o.SetRefresh(refresh)
 	return o
 }
 
 // SetRefresh adds the refresh to the discover cloud azure download certificate params
-func (o *DiscoverCloudAzureDownloadCertificateParams) SetRefresh(refresh *string) {
+func (o *DiscoverCloudAzureDownloadCertificateParams) SetRefresh(refresh *bool) {
 	o.Refresh = refresh
 }
 
@@ -159,6 +166,17 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) SetTenantID(tenantID []str
 	o.TenantID = tenantID
 }
 
+// WithYearsValid adds the yearsValid to the discover cloud azure download certificate params
+func (o *DiscoverCloudAzureDownloadCertificateParams) WithYearsValid(yearsValid *string) *DiscoverCloudAzureDownloadCertificateParams {
+	o.SetYearsValid(yearsValid)
+	return o
+}
+
+// SetYearsValid adds the yearsValid to the discover cloud azure download certificate params
+func (o *DiscoverCloudAzureDownloadCertificateParams) SetYearsValid(yearsValid *string) {
+	o.YearsValid = yearsValid
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *DiscoverCloudAzureDownloadCertificateParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -170,12 +188,12 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) WriteToRequest(r runtime.C
 	if o.Refresh != nil {
 
 		// query param refresh
-		var qrRefresh string
+		var qrRefresh bool
 
 		if o.Refresh != nil {
 			qrRefresh = *o.Refresh
 		}
-		qRefresh := qrRefresh
+		qRefresh := swag.FormatBool(qrRefresh)
 		if qRefresh != "" {
 
 			if err := r.SetQueryParam("refresh", qRefresh); err != nil {
@@ -192,6 +210,23 @@ func (o *DiscoverCloudAzureDownloadCertificateParams) WriteToRequest(r runtime.C
 		// query array param tenant_id
 		if err := r.SetQueryParam("tenant_id", joinedTenantID...); err != nil {
 			return err
+		}
+	}
+
+	if o.YearsValid != nil {
+
+		// query param years_valid
+		var qrYearsValid string
+
+		if o.YearsValid != nil {
+			qrYearsValid = *o.YearsValid
+		}
+		qYearsValid := qrYearsValid
+		if qYearsValid != "" {
+
+			if err := r.SetQueryParam("years_valid", qYearsValid); err != nil {
+				return err
+			}
 		}
 	}
 

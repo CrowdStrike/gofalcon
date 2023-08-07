@@ -44,14 +44,7 @@ func (o *QueryRuleTypesReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueryRuleTypesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /ioarules/queries/rule-types/v1] query-rule-types", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryRuleTypesOK describes a response with status code 200, with default header 
 OK
 */
 type QueryRuleTypesOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryRuleTypesOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryRuleTypesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryRuleTypesForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type QueryRuleTypesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryRuleTypesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryRuleTypesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryRuleTypesTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type QueryRuleTypesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryRuleTypesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryRuleTypesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryRuleTypesTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRuleTypesDefault creates a QueryRuleTypesDefault with default headers values
-func NewQueryRuleTypesDefault(code int) *QueryRuleTypesDefault {
-	return &QueryRuleTypesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryRuleTypesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryRuleTypesDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query rule types default response has a 2xx status code
-func (o *QueryRuleTypesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query rule types default response has a 3xx status code
-func (o *QueryRuleTypesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query rule types default response has a 4xx status code
-func (o *QueryRuleTypesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query rule types default response has a 5xx status code
-func (o *QueryRuleTypesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query rule types default response a status code equal to that given
-func (o *QueryRuleTypesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query rule types default response
-func (o *QueryRuleTypesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryRuleTypesDefault) Error() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] query-rule-types default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleTypesDefault) String() string {
-	return fmt.Sprintf("[GET /ioarules/queries/rule-types/v1][%d] query-rule-types default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRuleTypesDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryRuleTypesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

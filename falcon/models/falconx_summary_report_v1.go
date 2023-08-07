@@ -170,6 +170,11 @@ func (m *FalconxSummaryReportV1) contextValidateIntel(ctx context.Context, forma
 	for i := 0; i < len(m.Intel); i++ {
 
 		if m.Intel[i] != nil {
+
+			if swag.IsZero(m.Intel[i]) { // not required
+				return nil
+			}
+
 			if err := m.Intel[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intel" + "." + strconv.Itoa(i))
@@ -190,6 +195,11 @@ func (m *FalconxSummaryReportV1) contextValidateSandbox(ctx context.Context, for
 	for i := 0; i < len(m.Sandbox); i++ {
 
 		if m.Sandbox[i] != nil {
+
+			if swag.IsZero(m.Sandbox[i]) { // not required
+				return nil
+			}
+
 			if err := m.Sandbox[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sandbox" + "." + strconv.Itoa(i))

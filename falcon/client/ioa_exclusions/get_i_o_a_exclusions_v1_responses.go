@@ -56,7 +56,7 @@ func (o *GetIOAExclusionsV1Reader) ReadResponse(response runtime.ClientResponse,
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/ioa-exclusions/v1] getIOAExclusionsV1", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetIOAExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this get i o a exclusions v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetIOAExclusionsV1OK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/ioa-exclusions/v1][%d] getIOAExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *GetIOAExclusionsV1OK) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *GetIOAExclusionsV1OK) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetIOAExclusionsV1OK) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type GetIOAExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this get i o a exclusions v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetIOAExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/entities/ioa-exclusions/v1][%d] getIOAExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetIOAExclusionsV1BadRequest) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *GetIOAExclusionsV1BadRequest) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetIOAExclusionsV1BadRequest) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetIOAExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesIoaExclusionRespV1
+	Payload *models.IoaExclusionsIoaExclusionsRespV1
 }
 
 // IsSuccess returns true when this get i o a exclusions v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetIOAExclusionsV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/ioa-exclusions/v1][%d] getIOAExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetIOAExclusionsV1InternalServerError) GetPayload() *models.ResponsesIoaExclusionRespV1 {
+func (o *GetIOAExclusionsV1InternalServerError) GetPayload() *models.IoaExclusionsIoaExclusionsRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetIOAExclusionsV1InternalServerError) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesIoaExclusionRespV1)
+	o.Payload = new(models.IoaExclusionsIoaExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

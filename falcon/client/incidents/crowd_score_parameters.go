@@ -78,7 +78,7 @@ type CrowdScoreParams struct {
 
 	   Starting index of overall result set from which to return ids.
 	*/
-	Offset *string
+	Offset *int64
 
 	/* Sort.
 
@@ -162,13 +162,13 @@ func (o *CrowdScoreParams) SetLimit(limit *int64) {
 }
 
 // WithOffset adds the offset to the crowd score params
-func (o *CrowdScoreParams) WithOffset(offset *string) *CrowdScoreParams {
+func (o *CrowdScoreParams) WithOffset(offset *int64) *CrowdScoreParams {
 	o.SetOffset(offset)
 	return o
 }
 
 // SetOffset adds the offset to the crowd score params
-func (o *CrowdScoreParams) SetOffset(offset *string) {
+func (o *CrowdScoreParams) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
@@ -228,12 +228,12 @@ func (o *CrowdScoreParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 	if o.Offset != nil {
 
 		// query param offset
-		var qrOffset string
+		var qrOffset int64
 
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
-		qOffset := qrOffset
+		qOffset := swag.FormatInt64(qrOffset)
 		if qOffset != "" {
 
 			if err := r.SetQueryParam("offset", qOffset); err != nil {

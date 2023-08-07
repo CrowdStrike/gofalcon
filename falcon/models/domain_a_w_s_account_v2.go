@@ -42,6 +42,9 @@ type DomainAWSAccountV2 struct {
 	// 12 digit AWS provided unique identifier for the account.
 	AccountID string `json:"account_id,omitempty"`
 
+	// AWS account name
+	AccountName string `json:"account_name,omitempty"`
+
 	// account type
 	AccountType string `json:"account_type,omitempty"`
 
@@ -67,6 +70,9 @@ type DomainAWSAccountV2 struct {
 	// cid
 	Cid string `json:"cid,omitempty"`
 
+	// cloud scopes
+	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
+
 	// cloudformation url
 	CloudformationURL string `json:"cloudformation_url,omitempty"`
 
@@ -81,6 +87,9 @@ type DomainAWSAccountV2 struct {
 
 	// d4c migrated
 	D4cMigrated bool `json:"d4c_migrated,omitempty"`
+
+	// environment
+	Environment string `json:"environment,omitempty"`
 
 	// eventbus name
 	EventbusName string `json:"eventbus_name,omitempty"`
@@ -161,6 +170,10 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAwsPermissionsStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudScopes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -265,6 +278,32 @@ func (m *DomainAWSAccountV2) validateAwsPermissionsStatus(formats strfmt.Registr
 	return nil
 }
 
+func (m *DomainAWSAccountV2) validateCloudScopes(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudScopes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+		if swag.IsZero(m.CloudScopes[i]) { // not required
+			continue
+		}
+
+		if m.CloudScopes[i] != nil {
+			if err := m.CloudScopes[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAWSAccountV2) validateConditions(formats strfmt.Registry) error {
 	if swag.IsZero(m.Conditions) { // not required
 		return nil
@@ -348,6 +387,10 @@ func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCloudScopes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateConditions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -367,6 +410,11 @@ func (m *DomainAWSAccountV2) contextValidateAwsPermissionsStatus(ctx context.Con
 	for i := 0; i < len(m.AwsPermissionsStatus); i++ {
 
 		if m.AwsPermissionsStatus[i] != nil {
+
+			if swag.IsZero(m.AwsPermissionsStatus[i]) { // not required
+				return nil
+			}
+
 			if err := m.AwsPermissionsStatus[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("aws_permissions_status" + "." + strconv.Itoa(i))
@@ -382,11 +430,41 @@ func (m *DomainAWSAccountV2) contextValidateAwsPermissionsStatus(ctx context.Con
 	return nil
 }
 
+func (m *DomainAWSAccountV2) contextValidateCloudScopes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CloudScopes); i++ {
+
+		if m.CloudScopes[i] != nil {
+
+			if swag.IsZero(m.CloudScopes[i]) { // not required
+				return nil
+			}
+
+			if err := m.CloudScopes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cloud_scopes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAWSAccountV2) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Conditions); i++ {
 
 		if m.Conditions[i] != nil {
+
+			if swag.IsZero(m.Conditions[i]) { // not required
+				return nil
+			}
+
 			if err := m.Conditions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
@@ -405,6 +483,11 @@ func (m *DomainAWSAccountV2) contextValidateConditions(ctx context.Context, form
 func (m *DomainAWSAccountV2) contextValidateD4c(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.D4c != nil {
+
+		if swag.IsZero(m.D4c) { // not required
+			return nil
+		}
+
 		if err := m.D4c.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("d4c")

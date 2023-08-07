@@ -56,14 +56,7 @@ func (o *QueryReportsReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewQueryReportsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /falconx/queries/reports/v1] QueryReports", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type QueryReportsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type QueryReportsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query reports o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *QueryReportsOK) String() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryReportsOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryReportsOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryReportsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *QueryReportsOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +182,10 @@ Bad Request
 */
 type QueryReportsBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -186,7 +194,7 @@ type QueryReportsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query reports bad request response has a 2xx status code
@@ -227,11 +235,18 @@ func (o *QueryReportsBadRequest) String() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryReportsBadRequest) GetPayload() *models.MsaQueryResponse {
+func (o *QueryReportsBadRequest) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryReportsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -255,7 +270,7 @@ func (o *QueryReportsBadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -276,6 +291,10 @@ QueryReportsForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type QueryReportsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryReportsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryReportsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryReportsTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type QueryReportsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryReportsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryReportsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -490,6 +527,10 @@ Internal Server Error
 */
 type QueryReportsInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -498,7 +539,7 @@ type QueryReportsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query reports internal server error response has a 2xx status code
@@ -539,11 +580,18 @@ func (o *QueryReportsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] queryReportsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryReportsInternalServerError) GetPayload() *models.MsaQueryResponse {
+func (o *QueryReportsInternalServerError) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryReportsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,79 +615,7 @@ func (o *QueryReportsInternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryReportsDefault creates a QueryReportsDefault with default headers values
-func NewQueryReportsDefault(code int) *QueryReportsDefault {
-	return &QueryReportsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryReportsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryReportsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query reports default response has a 2xx status code
-func (o *QueryReportsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query reports default response has a 3xx status code
-func (o *QueryReportsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query reports default response has a 4xx status code
-func (o *QueryReportsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query reports default response has a 5xx status code
-func (o *QueryReportsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query reports default response a status code equal to that given
-func (o *QueryReportsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query reports default response
-func (o *QueryReportsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryReportsDefault) Error() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] QueryReports default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryReportsDefault) String() string {
-	return fmt.Sprintf("[GET /falconx/queries/reports/v1][%d] QueryReports default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryReportsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryReportsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

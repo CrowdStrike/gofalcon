@@ -123,6 +123,11 @@ func (m *MsaFacet) contextValidateBy(ctx context.Context, formats strfmt.Registr
 	for i := 0; i < len(m.By); i++ {
 
 		if m.By[i] != nil {
+
+			if swag.IsZero(m.By[i]) { // not required
+				return nil
+			}
+
 			if err := m.By[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("by" + "." + strconv.Itoa(i))

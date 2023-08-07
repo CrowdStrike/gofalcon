@@ -64,7 +64,7 @@ type QueryScheduledScansParams struct {
 
 	/* Filter.
 
-	   A FQL compatible query string. Terms: [id cid description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
+	   A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
 	*/
 	Filter string
 
@@ -86,7 +86,7 @@ type QueryScheduledScansParams struct {
 
 	   The property to sort on, followed by a |, followed by the sort direction, either "asc" or "desc"
 
-	   Default: "created_on|desc"
+	   Default: "schedule.start_timestamp|desc"
 	*/
 	Sort string
 
@@ -112,7 +112,7 @@ func (o *QueryScheduledScansParams) SetDefaults() {
 
 		offsetDefault = int64(0)
 
-		sortDefault = string("created_on|desc")
+		sortDefault = string("schedule.start_timestamp|desc")
 	)
 
 	val := QueryScheduledScansParams{

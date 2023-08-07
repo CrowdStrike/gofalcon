@@ -167,9 +167,9 @@ builds:
       - amd64
       - arm
       - arm64
-  - id: falcon_spotlight_vulnerabilities
-    binary: falcon_spotlight_vulnerabilities
-    main: ./examples/falcon_spotlight_vulnerabilities
+  - id: falcon_vulnerabilities
+    binary: falcon_vulnerabilities
+    main: ./examples/falcon_vulnerabilities
     env:
       - CGO_ENABLED=0
     goos:
@@ -297,8 +297,8 @@ nfpms:
         dst: /usr/share/doc/gofalcon/falcon_host_details
       - src: examples/falcon_registry_token
         dst: /usr/share/doc/gofalcon/falcon_registry_token
-      - src: examples/falcon_spotlight_vulnerabilities
-        dst: /usr/share/doc/gofalcon/falcon_spotlight_vulnerabilities
+      - src: examples/falcon_vulnerabilities
+        dst: /usr/share/doc/gofalcon/falcon_vulnerabilities
       - src: examples/falcon_supported_kernels
         dst: /usr/share/doc/gofalcon/falcon_supported_kernels
       - src: examples/falcon_zta
@@ -310,3 +310,6 @@ nfpms:
     license: MIT
     description: Golang-based SDK to CrowdStrike's APIs
     release: 1
+
+release:
+  prerelease: auto

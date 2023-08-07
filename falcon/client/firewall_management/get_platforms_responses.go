@@ -44,14 +44,7 @@ func (o *GetPlatformsReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewGetPlatformsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /fwmgr/entities/platforms/v1] get-platforms", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ GetPlatformsOK describes a response with status code 200, with default header va
 OK
 */
 type GetPlatformsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *GetPlatformsOK) GetPayload() *models.FwmgrAPIPlatformsResponse {
 
 func (o *GetPlatformsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ GetPlatformsForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type GetPlatformsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *GetPlatformsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetPlatformsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ GetPlatformsTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type GetPlatformsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *GetPlatformsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetPlatformsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *GetPlatformsTooManyRequests) readResponse(response runtime.ClientRespon
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetPlatformsDefault creates a GetPlatformsDefault with default headers values
-func NewGetPlatformsDefault(code int) *GetPlatformsDefault {
-	return &GetPlatformsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetPlatformsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetPlatformsDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrAPIPlatformsResponse
-}
-
-// IsSuccess returns true when this get platforms default response has a 2xx status code
-func (o *GetPlatformsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get platforms default response has a 3xx status code
-func (o *GetPlatformsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get platforms default response has a 4xx status code
-func (o *GetPlatformsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get platforms default response has a 5xx status code
-func (o *GetPlatformsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get platforms default response a status code equal to that given
-func (o *GetPlatformsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get platforms default response
-func (o *GetPlatformsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetPlatformsDefault) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] get-platforms default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetPlatformsDefault) String() string {
-	return fmt.Sprintf("[GET /fwmgr/entities/platforms/v1][%d] get-platforms default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetPlatformsDefault) GetPayload() *models.FwmgrAPIPlatformsResponse {
-	return o.Payload
-}
-
-func (o *GetPlatformsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrAPIPlatformsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

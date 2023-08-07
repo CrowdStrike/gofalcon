@@ -64,9 +64,11 @@ type QueryAccountsParams struct {
 
 	/* Filter.
 
-	     Filter accounts using an FQL query. Common filter options include:
-
-	<ul><li>account_type:'Local'</li><li>admin_privileges:'Yes'</li><li>first_seen_timestamp:<'now-7d'</li><li>last_successful_login_type:'Terminal server'</li></ul>
+	     Filter accounts using an FQL query. Common filter options include:<ul><li>account_type:'Local'</li><li>admin_privileges:'Yes'</li><li>first_seen_timestamp:<'now-7d'</li><li>last_successful_login_type:'Terminal server'</li></ul>
+				Available filter fields that support exact match: id, cid, user_sid, account_name, username, account_type, admin_privileges, first_seen_timestamp, last_successful_login_type, last_successful_login_timestamp, last_successful_login_hostname, last_successful_login_remote_ip, last_successful_login_host_country, last_successful_login_host_city, login_domain, last_failed_login_type, last_failed_login_timestamp, last_failed_login_hostname, password_last_set_timestamp, local_admin_privileges
+				Available filter fields that supports wildcard (*): id, cid, user_sid, account_name, username, account_type, admin_privileges, last_successful_login_type, last_successful_login_hostname, last_successful_login_remote_ip, last_successful_login_host_country, last_successful_login_host_city, login_domain, last_failed_login_type, last_failed_login_hostname, local_admin_privileges
+				Available filter fields that supports range comparisons (>, <, >=, <=): first_seen_timestamp, last_successful_login_timestamp,last_failed_login_timestamp, password_last_set_timestamp
+				All filter fields and operations supports negation (!).
 	*/
 	Filter *string
 
@@ -78,7 +80,7 @@ type QueryAccountsParams struct {
 
 	/* Offset.
 
-	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, provide the `offset` from the previous response to continue from that place in the results.
+	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
 	*/
 	Offset *int64
 

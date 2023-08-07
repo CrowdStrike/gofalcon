@@ -56,14 +56,7 @@ func (o *QueryMLExclusionsV1Reader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewQueryMLExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/queries/ml-exclusions/v1] queryMLExclusionsV1", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ QueryMLExclusionsV1OK describes a response with status code 200, with default he
 OK
 */
 type QueryMLExclusionsV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *QueryMLExclusionsV1OK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryMLExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ QueryMLExclusionsV1BadRequest describes a response with status code 400, with de
 Bad Request
 */
 type QueryMLExclusionsV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *QueryMLExclusionsV1BadRequest) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryMLExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ QueryMLExclusionsV1Forbidden describes a response with status code 403, with def
 Forbidden
 */
 type QueryMLExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryMLExclusionsV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *QueryMLExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryMLExclusionsV1TooManyRequests describes a response with status code 429, wi
 Too Many Requests
 */
 type QueryMLExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryMLExclusionsV1TooManyRequests) GetPayload() *models.MsaReplyMetaOn
 
 func (o *QueryMLExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ QueryMLExclusionsV1InternalServerError describes a response with status code 500
 Internal Server Error
 */
 type QueryMLExclusionsV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *QueryMLExclusionsV1InternalServerError) GetPayload() *models.MsaQueryRe
 
 func (o *QueryMLExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *QueryMLExclusionsV1InternalServerError) readResponse(response runtime.C
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryMLExclusionsV1Default creates a QueryMLExclusionsV1Default with default headers values
-func NewQueryMLExclusionsV1Default(code int) *QueryMLExclusionsV1Default {
-	return &QueryMLExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryMLExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryMLExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query m l exclusions v1 default response has a 2xx status code
-func (o *QueryMLExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query m l exclusions v1 default response has a 3xx status code
-func (o *QueryMLExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query m l exclusions v1 default response has a 4xx status code
-func (o *QueryMLExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query m l exclusions v1 default response has a 5xx status code
-func (o *QueryMLExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query m l exclusions v1 default response a status code equal to that given
-func (o *QueryMLExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query m l exclusions v1 default response
-func (o *QueryMLExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryMLExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryMLExclusionsV1Default) String() string {
-	return fmt.Sprintf("[GET /policy/queries/ml-exclusions/v1][%d] queryMLExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryMLExclusionsV1Default) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryMLExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

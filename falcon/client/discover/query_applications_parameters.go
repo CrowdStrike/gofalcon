@@ -64,7 +64,11 @@ type QueryApplicationsParams struct {
 
 	/* Filter.
 
-	   Search for applications in your environment by providing an FQL filter.
+	     Search for applications in your environment by providing an FQL filter.
+					Available filter fields that support exact match: name, version, vendor, name_vendor, name_vendor_version, first_seen_timestamp, installation_timestamp, architectures, installation_paths, versioning_scheme, groups, is_normalized, last_used_user_sid, last_used_user_name, last_used_file_name, last_used_file_hash, last_used_timestamp, last_updated_timestamp, is_suspicious, host.id, host.platform_name, host.hostname, cid, host.os_version, host.machine_domain, host.ou, host.site_name, host.country, host.current_mac_address, host.current_network_prefix, host.tags, host.groups, host.product_type_desc, host.kernel_version, host.system_manufacturer, host.internet_exposure, host.agent_version, host.external_ip, host.aid
+					Available filter fields that supports wildcard (*): name, version, vendor, name_vendor, name_vendor_version, architectures, installation_paths, groups, last_used_user_sid, last_used_user_name, last_used_file_name, last_used_file_hash, host.platform_name, host.hostname, cid, host.os_version, host.machine_domain, host.ou, host.site_name, host.country, host.current_mac_address, host.current_network_prefix, host.tags, host.groups, host.product_type_desc, host.kernel_version, host.system_manufacturer, host.internet_exposure, host.agent_version, host.external_ip, host.aid
+					Available filter fields that supports range comparisons (>, <, >=, <=): first_seen_timestamp, installation_timestamp, last_used_timestamp, last_updated_timestamp
+					All filter fields and operations supports negation (!).
 	*/
 	Filter *string
 
@@ -76,7 +80,7 @@ type QueryApplicationsParams struct {
 
 	/* Offset.
 
-	   The index of the starting resource.
+	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
 	*/
 	Offset *int64
 

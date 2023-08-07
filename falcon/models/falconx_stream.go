@@ -97,6 +97,11 @@ func (m *FalconxStream) contextValidateMatchedSignatures(ctx context.Context, fo
 	for i := 0; i < len(m.MatchedSignatures); i++ {
 
 		if m.MatchedSignatures[i] != nil {
+
+			if swag.IsZero(m.MatchedSignatures[i]) { // not required
+				return nil
+			}
+
 			if err := m.MatchedSignatures[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matched_signatures" + "." + strconv.Itoa(i))

@@ -19,52 +19,52 @@ import (
 // swagger:model domain.Rule
 type DomainRule struct {
 
-	// The categories associated with the rule
+	// created date
 	// Required: true
-	Categories []string `json:"categories"`
+	CreatedDate *int64 `json:"created_date"`
 
-	// UTC timestamp when rule was created
+	// description
 	// Required: true
-	CreatedDate *string `json:"created_date"`
+	Description *string `json:"description"`
 
-	// The ID of the customer
+	// id
 	// Required: true
-	CustomerID *string `json:"customer_id"`
+	ID *int32 `json:"id"`
 
-	// The ID of the rule
+	// last modified date
 	// Required: true
-	ID *string `json:"id"`
+	LastModifiedDate *int64 `json:"last_modified_date"`
 
-	// The name of the rule
+	// name
 	// Required: true
 	Name *string `json:"name"`
 
-	// The type of the rule
+	// rich text description
 	// Required: true
-	RuleType *string `json:"rule_type"`
+	RichTextDescription *string `json:"rich_text_description"`
 
-	// UTC timestamp when rule was last updated
+	// short description
 	// Required: true
-	UpdatedDate *string `json:"updated_date"`
+	ShortDescription *string `json:"short_description"`
 
-	// The value of the rule
+	// tags
 	// Required: true
-	Value *string `json:"value"`
+	Tags []string `json:"tags"`
+
+	// type
+	// Required: true
+	Type *string `json:"type"`
 }
 
 // Validate validates this domain rule
 func (m *DomainRule) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCategories(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCreatedDate(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCustomerID(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -72,34 +72,33 @@ func (m *DomainRule) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLastModifiedDate(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuleType(formats); err != nil {
+	if err := m.validateRichTextDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateUpdatedDate(formats); err != nil {
+	if err := m.validateShortDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateValue(formats); err != nil {
+	if err := m.validateTags(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainRule) validateCategories(formats strfmt.Registry) error {
-
-	if err := validate.Required("categories", "body", m.Categories); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -112,9 +111,9 @@ func (m *DomainRule) validateCreatedDate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainRule) validateCustomerID(formats strfmt.Registry) error {
+func (m *DomainRule) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
@@ -130,6 +129,15 @@ func (m *DomainRule) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainRule) validateLastModifiedDate(formats strfmt.Registry) error {
+
+	if err := validate.Required("last_modified_date", "body", m.LastModifiedDate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainRule) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
@@ -139,27 +147,36 @@ func (m *DomainRule) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainRule) validateRuleType(formats strfmt.Registry) error {
+func (m *DomainRule) validateRichTextDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("rule_type", "body", m.RuleType); err != nil {
+	if err := validate.Required("rich_text_description", "body", m.RichTextDescription); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainRule) validateUpdatedDate(formats strfmt.Registry) error {
+func (m *DomainRule) validateShortDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("updated_date", "body", m.UpdatedDate); err != nil {
+	if err := validate.Required("short_description", "body", m.ShortDescription); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainRule) validateValue(formats strfmt.Registry) error {
+func (m *DomainRule) validateTags(formats strfmt.Registry) error {
 
-	if err := validate.Required("value", "body", m.Value); err != nil {
+	if err := validate.Required("tags", "body", m.Tags); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainRule) validateType(formats strfmt.Registry) error {
+
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 

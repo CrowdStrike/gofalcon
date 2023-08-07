@@ -56,14 +56,7 @@ func (o *RequestDeviceEnrollmentV3Reader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		result := NewRequestDeviceEnrollmentV3Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /enrollments/entities/details/v3] RequestDeviceEnrollmentV3", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *RequestDeviceEnrollmentV3InternalServerError) readResponse(response run
 	}
 
 	o.Payload = new(models.MsaspecResponseFields)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRequestDeviceEnrollmentV3Default creates a RequestDeviceEnrollmentV3Default with default headers values
-func NewRequestDeviceEnrollmentV3Default(code int) *RequestDeviceEnrollmentV3Default {
-	return &RequestDeviceEnrollmentV3Default{
-		_statusCode: code,
-	}
-}
-
-/*
-RequestDeviceEnrollmentV3Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type RequestDeviceEnrollmentV3Default struct {
-	_statusCode int
-
-	Payload *models.APIPostEnrollmentDetailsResponse
-}
-
-// IsSuccess returns true when this request device enrollment v3 default response has a 2xx status code
-func (o *RequestDeviceEnrollmentV3Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this request device enrollment v3 default response has a 3xx status code
-func (o *RequestDeviceEnrollmentV3Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this request device enrollment v3 default response has a 4xx status code
-func (o *RequestDeviceEnrollmentV3Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this request device enrollment v3 default response has a 5xx status code
-func (o *RequestDeviceEnrollmentV3Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this request device enrollment v3 default response a status code equal to that given
-func (o *RequestDeviceEnrollmentV3Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the request device enrollment v3 default response
-func (o *RequestDeviceEnrollmentV3Default) Code() int {
-	return o._statusCode
-}
-
-func (o *RequestDeviceEnrollmentV3Default) Error() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] RequestDeviceEnrollmentV3 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RequestDeviceEnrollmentV3Default) String() string {
-	return fmt.Sprintf("[POST /enrollments/entities/details/v3][%d] RequestDeviceEnrollmentV3 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RequestDeviceEnrollmentV3Default) GetPayload() *models.APIPostEnrollmentDetailsResponse {
-	return o.Payload
-}
-
-func (o *RequestDeviceEnrollmentV3Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIPostEnrollmentDetailsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

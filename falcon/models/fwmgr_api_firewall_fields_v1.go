@@ -149,6 +149,7 @@ func (m *FwmgrAPIFirewallFieldsV1) ContextValidate(ctx context.Context, formats 
 func (m *FwmgrAPIFirewallFieldsV1) contextValidateDefaultMonitor(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DefaultMonitor != nil {
+
 		if err := m.DefaultMonitor.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("default_monitor")
@@ -167,6 +168,11 @@ func (m *FwmgrAPIFirewallFieldsV1) contextValidatePlatformFields(ctx context.Con
 	for i := 0; i < len(m.PlatformFields); i++ {
 
 		if m.PlatformFields[i] != nil {
+
+			if swag.IsZero(m.PlatformFields[i]) { // not required
+				return nil
+			}
+
 			if err := m.PlatformFields[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("platform_fields" + "." + strconv.Itoa(i))

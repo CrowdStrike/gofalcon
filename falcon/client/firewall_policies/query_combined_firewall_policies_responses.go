@@ -56,14 +56,7 @@ func (o *QueryCombinedFirewallPoliciesReader) ReadResponse(response runtime.Clie
 		}
 		return nil, result
 	default:
-		result := NewQueryCombinedFirewallPoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/combined/firewall/v1] queryCombinedFirewallPolicies", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type QueryCombinedFirewallPoliciesOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type QueryCombinedFirewallPoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policies o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *QueryCombinedFirewallPoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPoliciesOK) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *QueryCombinedFirewallPoliciesOK) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPoliciesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *QueryCombinedFirewallPoliciesOK) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +182,10 @@ Bad Request
 */
 type QueryCombinedFirewallPoliciesBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -186,7 +194,7 @@ type QueryCombinedFirewallPoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policies bad request response has a 2xx status code
@@ -227,11 +235,18 @@ func (o *QueryCombinedFirewallPoliciesBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPoliciesBadRequest) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *QueryCombinedFirewallPoliciesBadRequest) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPoliciesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -255,7 +270,7 @@ func (o *QueryCombinedFirewallPoliciesBadRequest) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -276,6 +291,10 @@ QueryCombinedFirewallPoliciesForbidden describes a response with status code 403
 Forbidden
 */
 type QueryCombinedFirewallPoliciesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *QueryCombinedFirewallPoliciesForbidden) GetPayload() *models.MsaErrorsO
 
 func (o *QueryCombinedFirewallPoliciesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ QueryCombinedFirewallPoliciesTooManyRequests describes a response with status co
 Too Many Requests
 */
 type QueryCombinedFirewallPoliciesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *QueryCombinedFirewallPoliciesTooManyRequests) GetPayload() *models.MsaR
 
 func (o *QueryCombinedFirewallPoliciesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -490,6 +527,10 @@ Internal Server Error
 */
 type QueryCombinedFirewallPoliciesInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -498,7 +539,7 @@ type QueryCombinedFirewallPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this query combined firewall policies internal server error response has a 2xx status code
@@ -539,11 +580,18 @@ func (o *QueryCombinedFirewallPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedFirewallPoliciesInternalServerError) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *QueryCombinedFirewallPoliciesInternalServerError) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
 func (o *QueryCombinedFirewallPoliciesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,79 +615,7 @@ func (o *QueryCombinedFirewallPoliciesInternalServerError) readResponse(response
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCombinedFirewallPoliciesDefault creates a QueryCombinedFirewallPoliciesDefault with default headers values
-func NewQueryCombinedFirewallPoliciesDefault(code int) *QueryCombinedFirewallPoliciesDefault {
-	return &QueryCombinedFirewallPoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCombinedFirewallPoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCombinedFirewallPoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesFirewallPoliciesV1
-}
-
-// IsSuccess returns true when this query combined firewall policies default response has a 2xx status code
-func (o *QueryCombinedFirewallPoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query combined firewall policies default response has a 3xx status code
-func (o *QueryCombinedFirewallPoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query combined firewall policies default response has a 4xx status code
-func (o *QueryCombinedFirewallPoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query combined firewall policies default response has a 5xx status code
-func (o *QueryCombinedFirewallPoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query combined firewall policies default response a status code equal to that given
-func (o *QueryCombinedFirewallPoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query combined firewall policies default response
-func (o *QueryCombinedFirewallPoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCombinedFirewallPoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedFirewallPoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/combined/firewall/v1][%d] queryCombinedFirewallPolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedFirewallPoliciesDefault) GetPayload() *models.ResponsesFirewallPoliciesV1 {
-	return o.Payload
-}
-
-func (o *QueryCombinedFirewallPoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

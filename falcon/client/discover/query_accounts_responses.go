@@ -56,14 +56,7 @@ func (o *QueryAccountsReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		result := NewQueryAccountsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /discover/queries/accounts/v1] query-accounts", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *QueryAccountsInternalServerError) readResponse(response runtime.ClientR
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryAccountsDefault creates a QueryAccountsDefault with default headers values
-func NewQueryAccountsDefault(code int) *QueryAccountsDefault {
-	return &QueryAccountsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryAccountsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryAccountsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query accounts default response has a 2xx status code
-func (o *QueryAccountsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query accounts default response has a 3xx status code
-func (o *QueryAccountsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query accounts default response has a 4xx status code
-func (o *QueryAccountsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query accounts default response has a 5xx status code
-func (o *QueryAccountsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query accounts default response a status code equal to that given
-func (o *QueryAccountsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query accounts default response
-func (o *QueryAccountsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryAccountsDefault) Error() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] query-accounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAccountsDefault) String() string {
-	return fmt.Sprintf("[GET /discover/queries/accounts/v1][%d] query-accounts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryAccountsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryAccountsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

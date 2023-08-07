@@ -50,14 +50,7 @@ func (o *GetIntelIndicatorEntitiesReader) ReadResponse(response runtime.ClientRe
 		}
 		return nil, result
 	default:
-		result := NewGetIntelIndicatorEntitiesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /intel/entities/indicators/GET/v1] GetIntelIndicatorEntities", response, response.Code())
 	}
 }
 
@@ -507,78 +500,6 @@ func (o *GetIntelIndicatorEntitiesInternalServerError) readResponse(response run
 	}
 
 	o.Payload = new(models.MsaErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetIntelIndicatorEntitiesDefault creates a GetIntelIndicatorEntitiesDefault with default headers values
-func NewGetIntelIndicatorEntitiesDefault(code int) *GetIntelIndicatorEntitiesDefault {
-	return &GetIntelIndicatorEntitiesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetIntelIndicatorEntitiesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetIntelIndicatorEntitiesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainPublicIndicatorsV3Response
-}
-
-// IsSuccess returns true when this get intel indicator entities default response has a 2xx status code
-func (o *GetIntelIndicatorEntitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get intel indicator entities default response has a 3xx status code
-func (o *GetIntelIndicatorEntitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get intel indicator entities default response has a 4xx status code
-func (o *GetIntelIndicatorEntitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get intel indicator entities default response has a 5xx status code
-func (o *GetIntelIndicatorEntitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get intel indicator entities default response a status code equal to that given
-func (o *GetIntelIndicatorEntitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get intel indicator entities default response
-func (o *GetIntelIndicatorEntitiesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetIntelIndicatorEntitiesDefault) Error() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] GetIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIntelIndicatorEntitiesDefault) String() string {
-	return fmt.Sprintf("[POST /intel/entities/indicators/GET/v1][%d] GetIntelIndicatorEntities default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetIntelIndicatorEntitiesDefault) GetPayload() *models.DomainPublicIndicatorsV3Response {
-	return o.Payload
-}
-
-func (o *GetIntelIndicatorEntitiesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainPublicIndicatorsV3Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -253,6 +253,11 @@ func (m *DomainScanProfile) contextValidateMetadata(ctx context.Context, formats
 	for i := 0; i < len(m.Metadata); i++ {
 
 		if m.Metadata[i] != nil {
+
+			if swag.IsZero(m.Metadata[i]) { // not required
+				return nil
+			}
+
 			if err := m.Metadata[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("metadata" + "." + strconv.Itoa(i))
@@ -271,6 +276,11 @@ func (m *DomainScanProfile) contextValidateMetadata(ctx context.Context, formats
 func (m *DomainScanProfile) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Schedule != nil {
+
+		if swag.IsZero(m.Schedule) { // not required
+			return nil
+		}
+
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")

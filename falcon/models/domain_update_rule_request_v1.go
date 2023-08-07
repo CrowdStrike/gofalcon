@@ -35,11 +35,11 @@ type DomainUpdateRuleRequestV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// The permissions for a given rule which specifies the rule's access by other users. Possible values: `public`, `private`
+	// The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public`, `private`]
 	// Required: true
 	Permissions *string `json:"permissions"`
 
-	// The priority for a given rule. Possible values: `low`, `medium`, `high`
+	// The priority for a given rule. Possible values: [`low`, `medium`, `high`]
 	// Required: true
 	Priority *string `json:"priority"`
 

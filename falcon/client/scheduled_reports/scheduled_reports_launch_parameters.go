@@ -64,7 +64,7 @@ ScheduledReportsLaunchParams contains all the parameters to send to the API endp
 type ScheduledReportsLaunchParams struct {
 
 	// Body.
-	Body []*models.APIReportExecutionLaunchRequestV1
+	Body []*models.DomainReportExecutionLaunchRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *ScheduledReportsLaunchParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the scheduled reports launch params
-func (o *ScheduledReportsLaunchParams) WithBody(body []*models.APIReportExecutionLaunchRequestV1) *ScheduledReportsLaunchParams {
+func (o *ScheduledReportsLaunchParams) WithBody(body []*models.DomainReportExecutionLaunchRequestV1) *ScheduledReportsLaunchParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the scheduled reports launch params
-func (o *ScheduledReportsLaunchParams) SetBody(body []*models.APIReportExecutionLaunchRequestV1) {
+func (o *ScheduledReportsLaunchParams) SetBody(body []*models.DomainReportExecutionLaunchRequestV1) {
 	o.Body = body
 }
 

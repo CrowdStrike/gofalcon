@@ -64,7 +64,28 @@ type QueryCasesIdsByFilterParams struct {
 
 	/* Filter.
 
-	   Optional filter and sort criteria in the form of an FQL query.
+	     Optional filter and sort criteria in the form of an FQL query. Allowed filters are:
+
+	_all
+	activity.body
+	case.aids
+	case.assigner.display_name
+	case.assigner.first_name
+	case.assigner.last_name
+	case.assigner.uid
+	case.assigner.uuid
+	case.body
+	case.created_time
+	case.detections.id
+	case.hosts
+	case.id
+	case.incidents.id
+	case.ip_addresses
+	case.key
+	case.last_modified_time
+	case.status
+	case.title
+	case.type
 	*/
 	Filter *string
 

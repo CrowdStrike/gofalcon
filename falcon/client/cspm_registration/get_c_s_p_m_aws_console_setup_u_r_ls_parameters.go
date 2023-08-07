@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetCSPMAwsConsoleSetupURLsParams creates a new GetCSPMAwsConsoleSetupURLsParams object,
@@ -60,6 +61,22 @@ GetCSPMAwsConsoleSetupURLsParams contains all the parameters to send to the API 
 	Typically these are written to a http.Request.
 */
 type GetCSPMAwsConsoleSetupURLsParams struct {
+
+	/* Ids.
+
+	   AWS account IDs
+	*/
+	Ids []string
+
+	/* Region.
+
+	   Region
+	*/
+	Region *string
+
+	// UseExistingCloudtrail.
+	UseExistingCloudtrail *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -113,6 +130,39 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithIds adds the ids to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithIds(ids []string) *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetIds(ids []string) {
+	o.Ids = ids
+}
+
+// WithRegion adds the region to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithRegion(region *string) *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetRegion(region)
+	return o
+}
+
+// SetRegion adds the region to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetRegion(region *string) {
+	o.Region = region
+}
+
+// WithUseExistingCloudtrail adds the useExistingCloudtrail to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) WithUseExistingCloudtrail(useExistingCloudtrail *string) *GetCSPMAwsConsoleSetupURLsParams {
+	o.SetUseExistingCloudtrail(useExistingCloudtrail)
+	return o
+}
+
+// SetUseExistingCloudtrail adds the useExistingCloudtrail to the get c s p m aws console setup u r ls params
+func (o *GetCSPMAwsConsoleSetupURLsParams) SetUseExistingCloudtrail(useExistingCloudtrail *string) {
+	o.UseExistingCloudtrail = useExistingCloudtrail
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetCSPMAwsConsoleSetupURLsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -121,8 +171,70 @@ func (o *GetCSPMAwsConsoleSetupURLsParams) WriteToRequest(r runtime.ClientReques
 	}
 	var res []error
 
+	if o.Ids != nil {
+
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
+	}
+
+	if o.Region != nil {
+
+		// query param region
+		var qrRegion string
+
+		if o.Region != nil {
+			qrRegion = *o.Region
+		}
+		qRegion := qrRegion
+		if qRegion != "" {
+
+			if err := r.SetQueryParam("region", qRegion); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.UseExistingCloudtrail != nil {
+
+		// query param use_existing_cloudtrail
+		var qrUseExistingCloudtrail string
+
+		if o.UseExistingCloudtrail != nil {
+			qrUseExistingCloudtrail = *o.UseExistingCloudtrail
+		}
+		qUseExistingCloudtrail := qrUseExistingCloudtrail
+		if qUseExistingCloudtrail != "" {
+
+			if err := r.SetQueryParam("use_existing_cloudtrail", qUseExistingCloudtrail); err != nil {
+				return err
+			}
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCSPMAwsConsoleSetupURLs binds the parameter ids
+func (o *GetCSPMAwsConsoleSetupURLsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

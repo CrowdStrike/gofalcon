@@ -64,9 +64,11 @@ type QueryLoginsParams struct {
 
 	/* Filter.
 
-	     Filter logins using an FQL query. Common filter options include:
-
-	<ul><li>account_type:'Local'</li><li>login_type:'Interactive'</li><li>first_seen_timestamp:<'now-7d'</li><li>admin_privileges:'No'</li></ul>
+	     Filter logins using an FQL query. Common filter options include:<ul><li>account_type:'Local'</li><li>login_type:'Interactive'</li><li>first_seen_timestamp:<'now-7d'</li><li>admin_privileges:'No'</li></ul>
+				Available filter fields that support exact match: id, cid, login_status, account_id, host_id, user_sid, aid, account_name, username, hostname, account_type, login_type, login_timestamp, login_domain, admin_privileges, local_admin_privileges, local_ip, remote_ip, host_country, host_city, is_suspicious, failure_description, login_event_count, aggregation_time_interval
+				Available filter fields that supports wildcard (*): id, cid, login_status, account_id, host_id, user_sid, aid, account_name, username, hostname, account_type, login_type, login_domain, admin_privileges, local_admin_privileges, local_ip, remote_ip, host_country, host_city, failure_description, aggregation_time_interval
+				Available filter fields that supports range comparisons (>, <, >=, <=): login_timestamp, login_event_count
+				All filter fields and operations supports negation (!).
 	*/
 	Filter *string
 
@@ -78,7 +80,7 @@ type QueryLoginsParams struct {
 
 	/* Offset.
 
-	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, provide the `offset` from the previous response to continue from that place in the results.
+	   An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
 	*/
 	Offset *int64
 

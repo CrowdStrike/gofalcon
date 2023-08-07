@@ -56,14 +56,7 @@ func (o *GetSubmissionsReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewGetSubmissionsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /falconx/entities/submissions/v1] GetSubmissions", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ GetSubmissionsOK describes a response with status code 200, with default header 
 OK
 */
 type GetSubmissionsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *GetSubmissionsOK) GetPayload() *models.FalconxSubmissionV1Response {
 
 func (o *GetSubmissionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ GetSubmissionsBadRequest describes a response with status code 400, with default
 Bad Request
 */
 type GetSubmissionsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *GetSubmissionsBadRequest) GetPayload() *models.FalconxSubmissionV1Respo
 
 func (o *GetSubmissionsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ GetSubmissionsForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type GetSubmissionsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *GetSubmissionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetSubmissionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ GetSubmissionsTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type GetSubmissionsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *GetSubmissionsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetSubmissionsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ GetSubmissionsInternalServerError describes a response with status code 500, wit
 Internal Server Error
 */
 type GetSubmissionsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *GetSubmissionsInternalServerError) GetPayload() *models.FalconxSubmissi
 
 func (o *GetSubmissionsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *GetSubmissionsInternalServerError) readResponse(response runtime.Client
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.FalconxSubmissionV1Response)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetSubmissionsDefault creates a GetSubmissionsDefault with default headers values
-func NewGetSubmissionsDefault(code int) *GetSubmissionsDefault {
-	return &GetSubmissionsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetSubmissionsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetSubmissionsDefault struct {
-	_statusCode int
-
-	Payload *models.FalconxSubmissionV1Response
-}
-
-// IsSuccess returns true when this get submissions default response has a 2xx status code
-func (o *GetSubmissionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get submissions default response has a 3xx status code
-func (o *GetSubmissionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get submissions default response has a 4xx status code
-func (o *GetSubmissionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get submissions default response has a 5xx status code
-func (o *GetSubmissionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get submissions default response a status code equal to that given
-func (o *GetSubmissionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get submissions default response
-func (o *GetSubmissionsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetSubmissionsDefault) Error() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] GetSubmissions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSubmissionsDefault) String() string {
-	return fmt.Sprintf("[GET /falconx/entities/submissions/v1][%d] GetSubmissions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetSubmissionsDefault) GetPayload() *models.FalconxSubmissionV1Response {
-	return o.Payload
-}
-
-func (o *GetSubmissionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.FalconxSubmissionV1Response)
 

@@ -50,14 +50,7 @@ func (o *GetCombinedSensorInstallersByQueryReader) ReadResponse(response runtime
 		}
 		return nil, result
 	default:
-		result := NewGetCombinedSensorInstallersByQueryDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /sensors/combined/installers/v1] GetCombinedSensorInstallersByQuery", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ GetCombinedSensorInstallersByQueryOK describes a response with status code 200, 
 OK
 */
 type GetCombinedSensorInstallersByQueryOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -128,6 +125,13 @@ func (o *GetCombinedSensorInstallersByQueryOK) GetPayload() *models.DomainSensor
 
 func (o *GetCombinedSensorInstallersByQueryOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -172,6 +176,10 @@ Bad Request
 */
 type GetCombinedSensorInstallersByQueryBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -180,7 +188,7 @@ type GetCombinedSensorInstallersByQueryBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this get combined sensor installers by query bad request response has a 2xx status code
@@ -221,11 +229,18 @@ func (o *GetCombinedSensorInstallersByQueryBadRequest) String() string {
 	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] getCombinedSensorInstallersByQueryBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetCombinedSensorInstallersByQueryBadRequest) GetPayload() *models.MsaQueryResponse {
+func (o *GetCombinedSensorInstallersByQueryBadRequest) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *GetCombinedSensorInstallersByQueryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -249,7 +264,7 @@ func (o *GetCombinedSensorInstallersByQueryBadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -270,6 +285,10 @@ GetCombinedSensorInstallersByQueryForbidden describes a response with status cod
 Forbidden
 */
 type GetCombinedSensorInstallersByQueryForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -326,6 +345,13 @@ func (o *GetCombinedSensorInstallersByQueryForbidden) GetPayload() *models.MsaRe
 
 func (o *GetCombinedSensorInstallersByQueryForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -369,6 +395,10 @@ GetCombinedSensorInstallersByQueryTooManyRequests describes a response with stat
 Too Many Requests
 */
 type GetCombinedSensorInstallersByQueryTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -429,6 +459,13 @@ func (o *GetCombinedSensorInstallersByQueryTooManyRequests) GetPayload() *models
 
 func (o *GetCombinedSensorInstallersByQueryTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -463,78 +500,6 @@ func (o *GetCombinedSensorInstallersByQueryTooManyRequests) readResponse(respons
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCombinedSensorInstallersByQueryDefault creates a GetCombinedSensorInstallersByQueryDefault with default headers values
-func NewGetCombinedSensorInstallersByQueryDefault(code int) *GetCombinedSensorInstallersByQueryDefault {
-	return &GetCombinedSensorInstallersByQueryDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCombinedSensorInstallersByQueryDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCombinedSensorInstallersByQueryDefault struct {
-	_statusCode int
-
-	Payload *models.DomainSensorInstallersV1
-}
-
-// IsSuccess returns true when this get combined sensor installers by query default response has a 2xx status code
-func (o *GetCombinedSensorInstallersByQueryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get combined sensor installers by query default response has a 3xx status code
-func (o *GetCombinedSensorInstallersByQueryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get combined sensor installers by query default response has a 4xx status code
-func (o *GetCombinedSensorInstallersByQueryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get combined sensor installers by query default response has a 5xx status code
-func (o *GetCombinedSensorInstallersByQueryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get combined sensor installers by query default response a status code equal to that given
-func (o *GetCombinedSensorInstallersByQueryDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get combined sensor installers by query default response
-func (o *GetCombinedSensorInstallersByQueryDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCombinedSensorInstallersByQueryDefault) Error() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] GetCombinedSensorInstallersByQuery default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCombinedSensorInstallersByQueryDefault) String() string {
-	return fmt.Sprintf("[GET /sensors/combined/installers/v1][%d] GetCombinedSensorInstallersByQuery default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCombinedSensorInstallersByQueryDefault) GetPayload() *models.DomainSensorInstallersV1 {
-	return o.Payload
-}
-
-func (o *GetCombinedSensorInstallersByQueryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainSensorInstallersV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

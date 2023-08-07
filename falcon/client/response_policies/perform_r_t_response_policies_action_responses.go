@@ -62,14 +62,7 @@ func (o *PerformRTResponsePoliciesActionReader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewPerformRTResponsePoliciesActionDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/response-actions/v1] performRTResponsePoliciesAction", response, response.Code())
 	}
 }
 
@@ -97,7 +90,7 @@ type PerformRTResponsePoliciesActionOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this perform r t response policies action o k response has a 2xx status code
@@ -138,7 +131,7 @@ func (o *PerformRTResponsePoliciesActionOK) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionOK  %+v", 200, o.Payload)
 }
 
-func (o *PerformRTResponsePoliciesActionOK) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *PerformRTResponsePoliciesActionOK) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -173,7 +166,7 @@ func (o *PerformRTResponsePoliciesActionOK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -207,7 +200,7 @@ type PerformRTResponsePoliciesActionBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this perform r t response policies action bad request response has a 2xx status code
@@ -248,7 +241,7 @@ func (o *PerformRTResponsePoliciesActionBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PerformRTResponsePoliciesActionBadRequest) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *PerformRTResponsePoliciesActionBadRequest) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -283,7 +276,7 @@ func (o *PerformRTResponsePoliciesActionBadRequest) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -427,7 +420,7 @@ type PerformRTResponsePoliciesActionNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this perform r t response policies action not found response has a 2xx status code
@@ -468,7 +461,7 @@ func (o *PerformRTResponsePoliciesActionNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionNotFound  %+v", 404, o.Payload)
 }
 
-func (o *PerformRTResponsePoliciesActionNotFound) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *PerformRTResponsePoliciesActionNotFound) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -503,7 +496,7 @@ func (o *PerformRTResponsePoliciesActionNotFound) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -662,7 +655,7 @@ type PerformRTResponsePoliciesActionInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this perform r t response policies action internal server error response has a 2xx status code
@@ -703,7 +696,7 @@ func (o *PerformRTResponsePoliciesActionInternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PerformRTResponsePoliciesActionInternalServerError) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *PerformRTResponsePoliciesActionInternalServerError) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -738,79 +731,7 @@ func (o *PerformRTResponsePoliciesActionInternalServerError) readResponse(respon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPerformRTResponsePoliciesActionDefault creates a PerformRTResponsePoliciesActionDefault with default headers values
-func NewPerformRTResponsePoliciesActionDefault(code int) *PerformRTResponsePoliciesActionDefault {
-	return &PerformRTResponsePoliciesActionDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-PerformRTResponsePoliciesActionDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type PerformRTResponsePoliciesActionDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesRTResponsePoliciesV1
-}
-
-// IsSuccess returns true when this perform r t response policies action default response has a 2xx status code
-func (o *PerformRTResponsePoliciesActionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this perform r t response policies action default response has a 3xx status code
-func (o *PerformRTResponsePoliciesActionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this perform r t response policies action default response has a 4xx status code
-func (o *PerformRTResponsePoliciesActionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this perform r t response policies action default response has a 5xx status code
-func (o *PerformRTResponsePoliciesActionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this perform r t response policies action default response a status code equal to that given
-func (o *PerformRTResponsePoliciesActionDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the perform r t response policies action default response
-func (o *PerformRTResponsePoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *PerformRTResponsePoliciesActionDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformRTResponsePoliciesActionDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-actions/v1][%d] performRTResponsePoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformRTResponsePoliciesActionDefault) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
-	return o.Payload
-}
-
-func (o *PerformRTResponsePoliciesActionDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

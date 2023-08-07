@@ -62,7 +62,7 @@ func (o *GetHostGroupsReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /devices/entities/host-groups/v1] getHostGroups", response, response.Code())
 	}
 }
 
@@ -90,7 +90,7 @@ type GetHostGroupsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this get host groups o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *GetHostGroupsOK) String() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetHostGroupsOK) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *GetHostGroupsOK) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *GetHostGroupsOK) readResponse(response runtime.ClientResponse, consumer
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type GetHostGroupsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this get host groups bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *GetHostGroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *GetHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *GetHostGroupsBadRequest) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type GetHostGroupsNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this get host groups not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *GetHostGroupsNotFound) String() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetHostGroupsNotFound) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *GetHostGroupsNotFound) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *GetHostGroupsNotFound) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type GetHostGroupsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this get host groups internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *GetHostGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /devices/entities/host-groups/v1][%d] getHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *GetHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *GetHostGroupsInternalServerError) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

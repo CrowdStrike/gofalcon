@@ -62,6 +62,12 @@ QueryChildrenParams contains all the parameters to send to the API endpoint
 */
 type QueryChildrenParams struct {
 
+	/* Filter.
+
+	   Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+	*/
+	Filter *string
+
 	/* Limit.
 
 	   Number of ids to return
@@ -154,6 +160,17 @@ func (o *QueryChildrenParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the query children params
+func (o *QueryChildrenParams) WithFilter(filter *string) *QueryChildrenParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the query children params
+func (o *QueryChildrenParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithLimit adds the limit to the query children params
 func (o *QueryChildrenParams) WithLimit(limit *int64) *QueryChildrenParams {
 	o.SetLimit(limit)
@@ -194,6 +211,23 @@ func (o *QueryChildrenParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Limit != nil {
 

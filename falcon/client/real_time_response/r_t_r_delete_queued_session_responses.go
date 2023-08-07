@@ -56,7 +56,7 @@ func (o *RTRDeleteQueuedSessionReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[DELETE /real-time-response/entities/queued-sessions/command/v1] RTR-DeleteQueuedSession", response, response.Code())
 	}
 }
 
@@ -71,6 +71,10 @@ RTRDeleteQueuedSessionNoContent describes a response with status code 204, with 
 No Content
 */
 type RTRDeleteQueuedSessionNoContent struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -127,6 +131,13 @@ func (o *RTRDeleteQueuedSessionNoContent) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *RTRDeleteQueuedSessionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -170,6 +181,10 @@ RTRDeleteQueuedSessionBadRequest describes a response with status code 400, with
 Bad Request
 */
 type RTRDeleteQueuedSessionBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -226,6 +241,13 @@ func (o *RTRDeleteQueuedSessionBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRDeleteQueuedSessionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -269,6 +291,10 @@ RTRDeleteQueuedSessionUnauthorized describes a response with status code 401, wi
 Unauthorized
 */
 type RTRDeleteQueuedSessionUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -325,6 +351,13 @@ func (o *RTRDeleteQueuedSessionUnauthorized) GetPayload() *models.DomainAPIError
 
 func (o *RTRDeleteQueuedSessionUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -368,6 +401,10 @@ RTRDeleteQueuedSessionForbidden describes a response with status code 403, with 
 Forbidden
 */
 type RTRDeleteQueuedSessionForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -424,6 +461,13 @@ func (o *RTRDeleteQueuedSessionForbidden) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *RTRDeleteQueuedSessionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -467,6 +511,10 @@ RTRDeleteQueuedSessionTooManyRequests describes a response with status code 429,
 Too Many Requests
 */
 type RTRDeleteQueuedSessionTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -526,6 +574,13 @@ func (o *RTRDeleteQueuedSessionTooManyRequests) GetPayload() *models.MsaReplyMet
 }
 
 func (o *RTRDeleteQueuedSessionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")

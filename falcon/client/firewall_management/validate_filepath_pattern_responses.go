@@ -50,14 +50,7 @@ func (o *ValidateFilepathPatternReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		result := NewValidateFilepathPatternDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /fwmgr/entities/rules/validate-filepath/v1] validate-filepath-pattern", response, response.Code())
 	}
 }
 
@@ -195,7 +188,7 @@ type ValidateFilepathPatternBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this validate filepath pattern bad request response has a 2xx status code
@@ -236,7 +229,7 @@ func (o *ValidateFilepathPatternBadRequest) String() string {
 	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validateFilepathPatternBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *ValidateFilepathPatternBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *ValidateFilepathPatternBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -271,7 +264,7 @@ func (o *ValidateFilepathPatternBadRequest) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -507,78 +500,6 @@ func (o *ValidateFilepathPatternTooManyRequests) readResponse(response runtime.C
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewValidateFilepathPatternDefault creates a ValidateFilepathPatternDefault with default headers values
-func NewValidateFilepathPatternDefault(code int) *ValidateFilepathPatternDefault {
-	return &ValidateFilepathPatternDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ValidateFilepathPatternDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ValidateFilepathPatternDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrAPIValidateFilepathResponse
-}
-
-// IsSuccess returns true when this validate filepath pattern default response has a 2xx status code
-func (o *ValidateFilepathPatternDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this validate filepath pattern default response has a 3xx status code
-func (o *ValidateFilepathPatternDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this validate filepath pattern default response has a 4xx status code
-func (o *ValidateFilepathPatternDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this validate filepath pattern default response has a 5xx status code
-func (o *ValidateFilepathPatternDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this validate filepath pattern default response a status code equal to that given
-func (o *ValidateFilepathPatternDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the validate filepath pattern default response
-func (o *ValidateFilepathPatternDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ValidateFilepathPatternDefault) Error() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validate-filepath-pattern default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ValidateFilepathPatternDefault) String() string {
-	return fmt.Sprintf("[POST /fwmgr/entities/rules/validate-filepath/v1][%d] validate-filepath-pattern default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ValidateFilepathPatternDefault) GetPayload() *models.FwmgrAPIValidateFilepathResponse {
-	return o.Payload
-}
-
-func (o *ValidateFilepathPatternDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrAPIValidateFilepathResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

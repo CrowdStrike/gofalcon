@@ -50,7 +50,7 @@ func (o *GetRulesMixin0Reader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /ioarules/entities/rules/v1] get-rulesMixin0", response, response.Code())
 	}
 }
 

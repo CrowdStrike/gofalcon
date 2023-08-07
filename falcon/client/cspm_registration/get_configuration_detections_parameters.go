@@ -112,7 +112,7 @@ type GetConfigurationDetectionsParams struct {
 
 	/* Severity.
 
-	   Severity (e.g.: High | Medium | Informational)
+	   Policy Severity
 	*/
 	Severity *string
 

@@ -56,14 +56,7 @@ func (o *GetBehaviorsReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewGetBehaviorsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /incidents/entities/behaviors/GET/v1] GetBehaviors", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type GetBehaviorsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type GetBehaviorsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIMsaExternalBehaviorResponse
+	Payload *models.DomainMsaExternalBehaviorResponse
 }
 
 // IsSuccess returns true when this get behaviors o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *GetBehaviorsOK) String() string {
 	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] getBehaviorsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetBehaviorsOK) GetPayload() *models.APIMsaExternalBehaviorResponse {
+func (o *GetBehaviorsOK) GetPayload() *models.DomainMsaExternalBehaviorResponse {
 	return o.Payload
 }
 
 func (o *GetBehaviorsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *GetBehaviorsOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIMsaExternalBehaviorResponse)
+	o.Payload = new(models.DomainMsaExternalBehaviorResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -177,6 +181,10 @@ GetBehaviorsBadRequest describes a response with status code 400, with default h
 Bad Request
 */
 type GetBehaviorsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *GetBehaviorsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetBehaviorsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ GetBehaviorsForbidden describes a response with status code 403, with default he
 Forbidden
 */
 type GetBehaviorsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *GetBehaviorsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetBehaviorsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ GetBehaviorsTooManyRequests describes a response with status code 429, with defa
 Too Many Requests
 */
 type GetBehaviorsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *GetBehaviorsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetBehaviorsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ GetBehaviorsInternalServerError describes a response with status code 500, with 
 Internal Server Error
 */
 type GetBehaviorsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *GetBehaviorsInternalServerError) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *GetBehaviorsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *GetBehaviorsInternalServerError) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetBehaviorsDefault creates a GetBehaviorsDefault with default headers values
-func NewGetBehaviorsDefault(code int) *GetBehaviorsDefault {
-	return &GetBehaviorsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetBehaviorsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetBehaviorsDefault struct {
-	_statusCode int
-
-	Payload *models.APIMsaExternalBehaviorResponse
-}
-
-// IsSuccess returns true when this get behaviors default response has a 2xx status code
-func (o *GetBehaviorsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get behaviors default response has a 3xx status code
-func (o *GetBehaviorsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get behaviors default response has a 4xx status code
-func (o *GetBehaviorsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get behaviors default response has a 5xx status code
-func (o *GetBehaviorsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get behaviors default response a status code equal to that given
-func (o *GetBehaviorsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get behaviors default response
-func (o *GetBehaviorsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetBehaviorsDefault) Error() string {
-	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] GetBehaviors default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetBehaviorsDefault) String() string {
-	return fmt.Sprintf("[POST /incidents/entities/behaviors/GET/v1][%d] GetBehaviors default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetBehaviorsDefault) GetPayload() *models.APIMsaExternalBehaviorResponse {
-	return o.Payload
-}
-
-func (o *GetBehaviorsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIMsaExternalBehaviorResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

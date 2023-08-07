@@ -50,7 +50,7 @@ func (o *QueryRuleGroupsFullReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /ioarules/queries/rule-groups-full/v1] query-rule-groups-full", response, response.Code())
 	}
 }
 

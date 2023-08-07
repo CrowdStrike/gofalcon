@@ -123,6 +123,11 @@ func (m *ModelsAWSAccountV1) ContextValidate(ctx context.Context, formats strfmt
 func (m *ModelsAWSAccountV1) contextValidateAccessHealth(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.AccessHealth != nil {
+
+		if swag.IsZero(m.AccessHealth) { // not required
+			return nil
+		}
+
 		if err := m.AccessHealth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("access_health")

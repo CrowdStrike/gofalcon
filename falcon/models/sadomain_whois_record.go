@@ -186,6 +186,11 @@ func (m *SadomainWhoisRecord) ContextValidate(ctx context.Context, formats strfm
 func (m *SadomainWhoisRecord) contextValidateRegistrant(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Registrant != nil {
+
+		if swag.IsZero(m.Registrant) { // not required
+			return nil
+		}
+
 		if err := m.Registrant.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("registrant")
@@ -202,6 +207,11 @@ func (m *SadomainWhoisRecord) contextValidateRegistrant(ctx context.Context, for
 func (m *SadomainWhoisRecord) contextValidateRegistrar(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Registrar != nil {
+
+		if swag.IsZero(m.Registrar) { // not required
+			return nil
+		}
+
 		if err := m.Registrar.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("registrar")

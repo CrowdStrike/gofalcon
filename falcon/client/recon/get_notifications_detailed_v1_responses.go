@@ -62,14 +62,7 @@ func (o *GetNotificationsDetailedV1Reader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		result := NewGetNotificationsDetailedV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /recon/entities/notifications-detailed/v1] GetNotificationsDetailedV1", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *GetNotificationsDetailedV1InternalServerError) readResponse(response ru
 	}
 
 	o.Payload = new(models.DomainErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetNotificationsDetailedV1Default creates a GetNotificationsDetailedV1Default with default headers values
-func NewGetNotificationsDetailedV1Default(code int) *GetNotificationsDetailedV1Default {
-	return &GetNotificationsDetailedV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetNotificationsDetailedV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetNotificationsDetailedV1Default struct {
-	_statusCode int
-
-	Payload *models.DomainNotificationDetailsResponseV1
-}
-
-// IsSuccess returns true when this get notifications detailed v1 default response has a 2xx status code
-func (o *GetNotificationsDetailedV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get notifications detailed v1 default response has a 3xx status code
-func (o *GetNotificationsDetailedV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get notifications detailed v1 default response has a 4xx status code
-func (o *GetNotificationsDetailedV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get notifications detailed v1 default response has a 5xx status code
-func (o *GetNotificationsDetailedV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get notifications detailed v1 default response a status code equal to that given
-func (o *GetNotificationsDetailedV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get notifications detailed v1 default response
-func (o *GetNotificationsDetailedV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetNotificationsDetailedV1Default) Error() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed/v1][%d] GetNotificationsDetailedV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetNotificationsDetailedV1Default) String() string {
-	return fmt.Sprintf("[GET /recon/entities/notifications-detailed/v1][%d] GetNotificationsDetailedV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetNotificationsDetailedV1Default) GetPayload() *models.DomainNotificationDetailsResponseV1 {
-	return o.Payload
-}
-
-func (o *GetNotificationsDetailedV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainNotificationDetailsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

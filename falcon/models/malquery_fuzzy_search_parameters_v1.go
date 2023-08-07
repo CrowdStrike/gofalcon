@@ -113,6 +113,11 @@ func (m *MalqueryFuzzySearchParametersV1) ContextValidate(ctx context.Context, f
 func (m *MalqueryFuzzySearchParametersV1) contextValidateOptions(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Options != nil {
+
+		if swag.IsZero(m.Options) { // not required
+			return nil
+		}
+
 		if err := m.Options.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("options")
@@ -131,6 +136,11 @@ func (m *MalqueryFuzzySearchParametersV1) contextValidatePatterns(ctx context.Co
 	for i := 0; i < len(m.Patterns); i++ {
 
 		if m.Patterns[i] != nil {
+
+			if swag.IsZero(m.Patterns[i]) { // not required
+				return nil
+			}
+
 			if err := m.Patterns[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("patterns" + "." + strconv.Itoa(i))

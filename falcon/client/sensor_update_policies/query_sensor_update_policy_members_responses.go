@@ -62,14 +62,7 @@ func (o *QuerySensorUpdatePolicyMembersReader) ReadResponse(response runtime.Cli
 		}
 		return nil, result
 	default:
-		result := NewQuerySensorUpdatePolicyMembersDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/queries/sensor-update-members/v1] querySensorUpdatePolicyMembers", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ QuerySensorUpdatePolicyMembersOK describes a response with status code 200, with
 OK
 */
 type QuerySensorUpdatePolicyMembersOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *QuerySensorUpdatePolicyMembersOK) GetPayload() *models.MsaQueryResponse
 
 func (o *QuerySensorUpdatePolicyMembersOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ QuerySensorUpdatePolicyMembersBadRequest describes a response with status code 4
 Bad Request
 */
 type QuerySensorUpdatePolicyMembersBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *QuerySensorUpdatePolicyMembersBadRequest) GetPayload() *models.MsaQuery
 
 func (o *QuerySensorUpdatePolicyMembersBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ QuerySensorUpdatePolicyMembersForbidden describes a response with status code 40
 Forbidden
 */
 type QuerySensorUpdatePolicyMembersForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *QuerySensorUpdatePolicyMembersForbidden) GetPayload() *models.MsaErrors
 
 func (o *QuerySensorUpdatePolicyMembersForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ QuerySensorUpdatePolicyMembersNotFound describes a response with status code 404
 Not Found
 */
 type QuerySensorUpdatePolicyMembersNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *QuerySensorUpdatePolicyMembersNotFound) GetPayload() *models.MsaQueryRe
 
 func (o *QuerySensorUpdatePolicyMembersNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ QuerySensorUpdatePolicyMembersTooManyRequests describes a response with status c
 Too Many Requests
 */
 type QuerySensorUpdatePolicyMembersTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *QuerySensorUpdatePolicyMembersTooManyRequests) GetPayload() *models.Msa
 
 func (o *QuerySensorUpdatePolicyMembersTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ QuerySensorUpdatePolicyMembersInternalServerError describes a response with stat
 Internal Server Error
 */
 type QuerySensorUpdatePolicyMembersInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *QuerySensorUpdatePolicyMembersInternalServerError) GetPayload() *models
 
 func (o *QuerySensorUpdatePolicyMembersInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *QuerySensorUpdatePolicyMembersInternalServerError) readResponse(respons
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQuerySensorUpdatePolicyMembersDefault creates a QuerySensorUpdatePolicyMembersDefault with default headers values
-func NewQuerySensorUpdatePolicyMembersDefault(code int) *QuerySensorUpdatePolicyMembersDefault {
-	return &QuerySensorUpdatePolicyMembersDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QuerySensorUpdatePolicyMembersDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QuerySensorUpdatePolicyMembersDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query sensor update policy members default response has a 2xx status code
-func (o *QuerySensorUpdatePolicyMembersDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query sensor update policy members default response has a 3xx status code
-func (o *QuerySensorUpdatePolicyMembersDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query sensor update policy members default response has a 4xx status code
-func (o *QuerySensorUpdatePolicyMembersDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query sensor update policy members default response has a 5xx status code
-func (o *QuerySensorUpdatePolicyMembersDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query sensor update policy members default response a status code equal to that given
-func (o *QuerySensorUpdatePolicyMembersDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query sensor update policy members default response
-func (o *QuerySensorUpdatePolicyMembersDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QuerySensorUpdatePolicyMembersDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-members/v1][%d] querySensorUpdatePolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QuerySensorUpdatePolicyMembersDefault) String() string {
-	return fmt.Sprintf("[GET /policy/queries/sensor-update-members/v1][%d] querySensorUpdatePolicyMembers default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QuerySensorUpdatePolicyMembersDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QuerySensorUpdatePolicyMembersDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

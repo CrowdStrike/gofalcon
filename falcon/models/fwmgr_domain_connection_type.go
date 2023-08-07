@@ -92,6 +92,7 @@ func (m *FwmgrDomainConnectionType) ContextValidate(ctx context.Context, formats
 func (m *FwmgrDomainConnectionType) contextValidateWireless(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Wireless != nil {
+
 		if err := m.Wireless.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wireless")

@@ -56,14 +56,7 @@ func (o *QueryCombinedRTResponsePoliciesReader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewQueryCombinedRTResponsePoliciesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/combined/response/v1] queryCombinedRTResponsePolicies", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type QueryCombinedRTResponsePoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this query combined r t response policies o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *QueryCombinedRTResponsePoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/response/v1][%d] queryCombinedRTResponsePoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedRTResponsePoliciesOK) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *QueryCombinedRTResponsePoliciesOK) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *QueryCombinedRTResponsePoliciesOK) readResponse(response runtime.Client
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type QueryCombinedRTResponsePoliciesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this query combined r t response policies bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *QueryCombinedRTResponsePoliciesBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/response/v1][%d] queryCombinedRTResponsePoliciesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedRTResponsePoliciesBadRequest) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *QueryCombinedRTResponsePoliciesBadRequest) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *QueryCombinedRTResponsePoliciesBadRequest) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type QueryCombinedRTResponsePoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesRTResponsePoliciesV1
+	Payload *models.RemoteResponseRespV1
 }
 
 // IsSuccess returns true when this query combined r t response policies internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *QueryCombinedRTResponsePoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/combined/response/v1][%d] queryCombinedRTResponsePoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedRTResponsePoliciesInternalServerError) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
+func (o *QueryCombinedRTResponsePoliciesInternalServerError) GetPayload() *models.RemoteResponseRespV1 {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *QueryCombinedRTResponsePoliciesInternalServerError) readResponse(respon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCombinedRTResponsePoliciesDefault creates a QueryCombinedRTResponsePoliciesDefault with default headers values
-func NewQueryCombinedRTResponsePoliciesDefault(code int) *QueryCombinedRTResponsePoliciesDefault {
-	return &QueryCombinedRTResponsePoliciesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCombinedRTResponsePoliciesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCombinedRTResponsePoliciesDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesRTResponsePoliciesV1
-}
-
-// IsSuccess returns true when this query combined r t response policies default response has a 2xx status code
-func (o *QueryCombinedRTResponsePoliciesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query combined r t response policies default response has a 3xx status code
-func (o *QueryCombinedRTResponsePoliciesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query combined r t response policies default response has a 4xx status code
-func (o *QueryCombinedRTResponsePoliciesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query combined r t response policies default response has a 5xx status code
-func (o *QueryCombinedRTResponsePoliciesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query combined r t response policies default response a status code equal to that given
-func (o *QueryCombinedRTResponsePoliciesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query combined r t response policies default response
-func (o *QueryCombinedRTResponsePoliciesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCombinedRTResponsePoliciesDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/response/v1][%d] queryCombinedRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedRTResponsePoliciesDefault) String() string {
-	return fmt.Sprintf("[GET /policy/combined/response/v1][%d] queryCombinedRTResponsePolicies default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedRTResponsePoliciesDefault) GetPayload() *models.ResponsesRTResponsePoliciesV1 {
-	return o.Payload
-}
-
-func (o *QueryCombinedRTResponsePoliciesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesRTResponsePoliciesV1)
+	o.Payload = new(models.RemoteResponseRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

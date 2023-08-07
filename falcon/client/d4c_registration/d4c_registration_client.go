@@ -30,21 +30,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error)
-
 	CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...ClientOption) (*CreateD4CAwsAccountCreated, *CreateD4CAwsAccountMultiStatus, error)
+
+	CreateD4CGcpAccount(params *CreateD4CGcpAccountParams, opts ...ClientOption) (*CreateD4CGcpAccountCreated, *CreateD4CGcpAccountMultiStatus, error)
+
+	CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzureAccountParams, opts ...ClientOption) (*CreateDiscoverCloudAzureAccountCreated, *CreateDiscoverCloudAzureAccountMultiStatus, error)
 
 	DeleteD4CAwsAccount(params *DeleteD4CAwsAccountParams, opts ...ClientOption) (*DeleteD4CAwsAccountOK, *DeleteD4CAwsAccountMultiStatus, error)
 
 	DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error)
-
-	GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error)
-
-	GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error)
-
-	GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error)
-
-	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error)
 
 	GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScriptsAttachmentParams, opts ...ClientOption) (*GetD4CAWSAccountScriptsAttachmentOK, error)
 
@@ -52,48 +46,23 @@ type ClientService interface {
 
 	GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetD4CAwsConsoleSetupURLsOK, *GetD4CAwsConsoleSetupURLsMultiStatus, error)
 
+	GetD4CGcpAccount(params *GetD4CGcpAccountParams, opts ...ClientOption) (*GetD4CGcpAccountOK, *GetD4CGcpAccountMultiStatus, error)
+
+	GetD4CGcpUserScripts(params *GetD4CGcpUserScriptsParams, opts ...ClientOption) (*GetD4CGcpUserScriptsOK, *GetD4CGcpUserScriptsMultiStatus, error)
+
+	GetDiscoverCloudAzureAccount(params *GetDiscoverCloudAzureAccountParams, opts ...ClientOption) (*GetDiscoverCloudAzureAccountOK, *GetDiscoverCloudAzureAccountMultiStatus, error)
+
+	GetDiscoverCloudAzureTenantIDs(params *GetDiscoverCloudAzureTenantIDsParams, opts ...ClientOption) (*GetDiscoverCloudAzureTenantIDsOK, error)
+
+	GetDiscoverCloudAzureUserScripts(params *GetDiscoverCloudAzureUserScriptsParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsOK, *GetDiscoverCloudAzureUserScriptsMultiStatus, error)
+
+	GetDiscoverCloudAzureUserScriptsAttachment(params *GetDiscoverCloudAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsAttachmentOK, error)
+
 	GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts ...ClientOption) (*GetHorizonD4CScriptsOK, error)
 
+	UpdateDiscoverCloudAzureAccountClientID(params *UpdateDiscoverCloudAzureAccountClientIDParams, opts ...ClientOption) (*UpdateDiscoverCloudAzureAccountClientIDCreated, error)
+
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-CreateCSPMGCPAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
-*/
-func (a *Client) CreateCSPMGCPAccount(params *CreateCSPMGCPAccountParams, opts ...ClientOption) (*CreateCSPMGCPAccountCreated, *CreateCSPMGCPAccountMultiStatus, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateCSPMGCPAccountParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateCSPMGCPAccount",
-		Method:             "POST",
-		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateCSPMGCPAccountReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *CreateCSPMGCPAccountCreated:
-		return value, nil, nil
-	case *CreateCSPMGCPAccountMultiStatus:
-		return nil, value, nil
-	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*
@@ -128,6 +97,84 @@ func (a *Client) CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...
 	case *CreateD4CAwsAccountCreated:
 		return value, nil, nil
 	case *CreateD4CAwsAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateD4CGcpAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
+*/
+func (a *Client) CreateD4CGcpAccount(params *CreateD4CGcpAccountParams, opts ...ClientOption) (*CreateD4CGcpAccountCreated, *CreateD4CGcpAccountMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateD4CGcpAccountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateD4CGcpAccount",
+		Method:             "POST",
+		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateD4CGcpAccountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateD4CGcpAccountCreated:
+		return value, nil, nil
+	case *CreateD4CGcpAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateDiscoverCloudAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
+*/
+func (a *Client) CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzureAccountParams, opts ...ClientOption) (*CreateDiscoverCloudAzureAccountCreated, *CreateDiscoverCloudAzureAccountMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateDiscoverCloudAzureAccountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateDiscoverCloudAzureAccount",
+		Method:             "POST",
+		PathPattern:        "/cloud-connect-azure/entities/account/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateDiscoverCloudAzureAccountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateDiscoverCloudAzureAccountCreated:
+		return value, nil, nil
+	case *CreateDiscoverCloudAzureAccountMultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
@@ -186,7 +233,7 @@ func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzur
 		ID:                 "DiscoverCloudAzureDownloadCertificate",
 		Method:             "GET",
 		PathPattern:        "/cloud-connect-azure/entities/download-certificate/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -207,162 +254,9 @@ func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzur
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*DiscoverCloudAzureDownloadCertificateDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetCSPMAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
-*/
-func (a *Client) GetCSPMAzureUserScripts(params *GetCSPMAzureUserScriptsParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsOK, *GetCSPMAzureUserScriptsMultiStatus, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMAzureUserScriptsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMAzureUserScripts",
-		Method:             "GET",
-		PathPattern:        "/cloud-connect-azure/entities/user-scripts/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMAzureUserScriptsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *GetCSPMAzureUserScriptsOK:
-		return value, nil, nil
-	case *GetCSPMAzureUserScriptsMultiStatus:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMAzureUserScriptsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetCSPMCGPAccount returns information about the current status of an g c p account
-*/
-func (a *Client) GetCSPMCGPAccount(params *GetCSPMCGPAccountParams, opts ...ClientOption) (*GetCSPMCGPAccountOK, *GetCSPMCGPAccountMultiStatus, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMCGPAccountParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMCGPAccount",
-		Method:             "GET",
-		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMCGPAccountReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *GetCSPMCGPAccountOK:
-		return value, nil, nil
-	case *GetCSPMCGPAccountMultiStatus:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMCGPAccountDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetCSPMGCPUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
-*/
-func (a *Client) GetCSPMGCPUserScripts(params *GetCSPMGCPUserScriptsParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsOK, *GetCSPMGCPUserScriptsMultiStatus, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMGCPUserScriptsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMGCPUserScripts",
-		Method:             "GET",
-		PathPattern:        "/cloud-connect-gcp/entities/user-scripts/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMGCPUserScriptsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *GetCSPMGCPUserScriptsOK:
-		return value, nil, nil
-	case *GetCSPMGCPUserScriptsMultiStatus:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMGCPUserScriptsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-GetCSPMGCPUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their g c p environment as a downloadable attachment
-*/
-func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCSPMGCPUserScriptsAttachmentParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCSPMGCPUserScriptsAttachment",
-		Method:             "GET",
-		PathPattern:        "/cloud-connect-gcp/entities/user-scripts-download/v1",
-		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCSPMGCPUserScriptsAttachmentReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetCSPMGCPUserScriptsAttachmentOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*GetCSPMGCPUserScriptsAttachmentDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DiscoverCloudAzureDownloadCertificate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -482,6 +376,238 @@ func (a *Client) GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsPara
 }
 
 /*
+GetD4CGcpAccount returns information about the current status of an g c p account
+*/
+func (a *Client) GetD4CGcpAccount(params *GetD4CGcpAccountParams, opts ...ClientOption) (*GetD4CGcpAccountOK, *GetD4CGcpAccountMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetD4CGcpAccountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetD4CGcpAccount",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-gcp/entities/account/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetD4CGcpAccountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetD4CGcpAccountOK:
+		return value, nil, nil
+	case *GetD4CGcpAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetD4CGcpUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
+*/
+func (a *Client) GetD4CGcpUserScripts(params *GetD4CGcpUserScriptsParams, opts ...ClientOption) (*GetD4CGcpUserScriptsOK, *GetD4CGcpUserScriptsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetD4CGcpUserScriptsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetD4CGcpUserScripts",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-gcp/entities/user-scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetD4CGcpUserScriptsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetD4CGcpUserScriptsOK:
+		return value, nil, nil
+	case *GetD4CGcpUserScriptsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoverCloudAzureAccount returns information about azure account registration
+*/
+func (a *Client) GetDiscoverCloudAzureAccount(params *GetDiscoverCloudAzureAccountParams, opts ...ClientOption) (*GetDiscoverCloudAzureAccountOK, *GetDiscoverCloudAzureAccountMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoverCloudAzureAccountParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoverCloudAzureAccount",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-azure/entities/account/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDiscoverCloudAzureAccountReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetDiscoverCloudAzureAccountOK:
+		return value, nil, nil
+	case *GetDiscoverCloudAzureAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoverCloudAzureTenantIDs returns available tenant ids for discover for cloud
+*/
+func (a *Client) GetDiscoverCloudAzureTenantIDs(params *GetDiscoverCloudAzureTenantIDsParams, opts ...ClientOption) (*GetDiscoverCloudAzureTenantIDsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoverCloudAzureTenantIDsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoverCloudAzureTenantIDs",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-azure/entities/tenant-id/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDiscoverCloudAzureTenantIDsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoverCloudAzureTenantIDsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoverCloudAzureTenantIDs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoverCloudAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
+*/
+func (a *Client) GetDiscoverCloudAzureUserScripts(params *GetDiscoverCloudAzureUserScriptsParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsOK, *GetDiscoverCloudAzureUserScriptsMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoverCloudAzureUserScriptsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoverCloudAzureUserScripts",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-azure/entities/user-scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDiscoverCloudAzureUserScriptsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetDiscoverCloudAzureUserScriptsOK:
+		return value, nil, nil
+	case *GetDiscoverCloudAzureUserScriptsMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for d4c_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetDiscoverCloudAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
+*/
+func (a *Client) GetDiscoverCloudAzureUserScriptsAttachment(params *GetDiscoverCloudAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsAttachmentOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDiscoverCloudAzureUserScriptsAttachmentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetDiscoverCloudAzureUserScriptsAttachment",
+		Method:             "GET",
+		PathPattern:        "/cloud-connect-azure/entities/user-scripts-download/v1",
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetDiscoverCloudAzureUserScriptsAttachmentReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDiscoverCloudAzureUserScriptsAttachmentOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetDiscoverCloudAzureUserScriptsAttachment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetHorizonD4CScripts returns static install scripts for horizon
 */
 func (a *Client) GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts ...ClientOption) (*GetHorizonD4CScriptsOK, error) {
@@ -516,6 +642,44 @@ func (a *Client) GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetHorizonD4CScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateDiscoverCloudAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
+*/
+func (a *Client) UpdateDiscoverCloudAzureAccountClientID(params *UpdateDiscoverCloudAzureAccountClientIDParams, opts ...ClientOption) (*UpdateDiscoverCloudAzureAccountClientIDCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateDiscoverCloudAzureAccountClientIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateDiscoverCloudAzureAccountClientID",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-connect-azure/entities/client-id/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateDiscoverCloudAzureAccountClientIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateDiscoverCloudAzureAccountClientIDCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateDiscoverCloudAzureAccountClientID: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

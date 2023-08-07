@@ -56,7 +56,7 @@ func (o *CreateHostGroupsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /devices/entities/host-groups/v1] createHostGroups", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type CreateHostGroupsCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this create host groups created response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CreateHostGroupsCreated) String() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsCreated  %+v", 201, o.Payload)
 }
 
-func (o *CreateHostGroupsCreated) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *CreateHostGroupsCreated) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CreateHostGroupsCreated) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type CreateHostGroupsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this create host groups bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CreateHostGroupsBadRequest) String() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *CreateHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CreateHostGroupsBadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CreateHostGroupsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this create host groups internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CreateHostGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /devices/entities/host-groups/v1][%d] createHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *CreateHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CreateHostGroupsInternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

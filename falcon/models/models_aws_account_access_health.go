@@ -72,6 +72,11 @@ func (m *ModelsAwsAccountAccessHealth) ContextValidate(ctx context.Context, form
 func (m *ModelsAwsAccountAccessHealth) contextValidateAPI(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.API != nil {
+
+		if swag.IsZero(m.API) { // not required
+			return nil
+		}
+
 		if err := m.API.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("api")

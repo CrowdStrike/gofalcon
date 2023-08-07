@@ -64,7 +64,7 @@ CreateDeviceControlPoliciesParams contains all the parameters to send to the API
 type CreateDeviceControlPoliciesParams struct {
 
 	// Body.
-	Body *models.RequestsCreateDeviceControlPoliciesV1
+	Body *models.DeviceControlCreatePoliciesV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CreateDeviceControlPoliciesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create device control policies params
-func (o *CreateDeviceControlPoliciesParams) WithBody(body *models.RequestsCreateDeviceControlPoliciesV1) *CreateDeviceControlPoliciesParams {
+func (o *CreateDeviceControlPoliciesParams) WithBody(body *models.DeviceControlCreatePoliciesV1) *CreateDeviceControlPoliciesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create device control policies params
-func (o *CreateDeviceControlPoliciesParams) SetBody(body *models.RequestsCreateDeviceControlPoliciesV1) {
+func (o *CreateDeviceControlPoliciesParams) SetBody(body *models.DeviceControlCreatePoliciesV1) {
 	o.Body = body
 }
 

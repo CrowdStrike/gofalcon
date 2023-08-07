@@ -85,6 +85,11 @@ func (m *FwmgrDomainDNSResolutionTargets) contextValidateTargets(ctx context.Con
 	for i := 0; i < len(m.Targets); i++ {
 
 		if m.Targets[i] != nil {
+
+			if swag.IsZero(m.Targets[i]) { // not required
+				return nil
+			}
+
 			if err := m.Targets[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("targets" + "." + strconv.Itoa(i))

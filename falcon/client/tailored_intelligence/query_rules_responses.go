@@ -56,14 +56,7 @@ func (o *QueryRulesReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return nil, result
 	default:
-		result := NewQueryRulesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /ti/rules/queries/rules/v2] QueryRules", response, response.Code())
 	}
 }
 
@@ -608,78 +601,6 @@ func (o *QueryRulesInternalServerError) readResponse(response runtime.ClientResp
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.DomainQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRulesDefault creates a QueryRulesDefault with default headers values
-func NewQueryRulesDefault(code int) *QueryRulesDefault {
-	return &QueryRulesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryRulesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryRulesDefault struct {
-	_statusCode int
-
-	Payload *models.DomainQueryResponse
-}
-
-// IsSuccess returns true when this query rules default response has a 2xx status code
-func (o *QueryRulesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query rules default response has a 3xx status code
-func (o *QueryRulesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query rules default response has a 4xx status code
-func (o *QueryRulesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query rules default response has a 5xx status code
-func (o *QueryRulesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query rules default response a status code equal to that given
-func (o *QueryRulesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query rules default response
-func (o *QueryRulesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryRulesDefault) Error() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] QueryRules default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRulesDefault) String() string {
-	return fmt.Sprintf("[GET /ti/rules/queries/rules/v2][%d] QueryRules default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRulesDefault) GetPayload() *models.DomainQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryRulesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DomainQueryResponse)
 

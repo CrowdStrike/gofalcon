@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewQueryMitreAttacksParams creates a new QueryMitreAttacksParams object,
@@ -63,9 +64,15 @@ type QueryMitreAttacksParams struct {
 
 	/* ID.
 
-	   The actor ID(derived from the actor's name) for which to retrieve a list of attacks.
+	   The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed
 	*/
-	ID string
+	ID *string
+
+	/* Ids.
+
+	   The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Multiple values are allowed
+	*/
+	Ids []string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -121,14 +128,25 @@ func (o *QueryMitreAttacksParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithID adds the id to the query mitre attacks params
-func (o *QueryMitreAttacksParams) WithID(id string) *QueryMitreAttacksParams {
+func (o *QueryMitreAttacksParams) WithID(id *string) *QueryMitreAttacksParams {
 	o.SetID(id)
 	return o
 }
 
 // SetID adds the id to the query mitre attacks params
-func (o *QueryMitreAttacksParams) SetID(id string) {
+func (o *QueryMitreAttacksParams) SetID(id *string) {
 	o.ID = id
+}
+
+// WithIds adds the ids to the query mitre attacks params
+func (o *QueryMitreAttacksParams) WithIds(ids []string) *QueryMitreAttacksParams {
+	o.SetIds(ids)
+	return o
+}
+
+// SetIds adds the ids to the query mitre attacks params
+func (o *QueryMitreAttacksParams) SetIds(ids []string) {
+	o.Ids = ids
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -139,12 +157,30 @@ func (o *QueryMitreAttacksParams) WriteToRequest(r runtime.ClientRequest, reg st
 	}
 	var res []error
 
-	// query param id
-	qrID := o.ID
-	qID := qrID
-	if qID != "" {
+	if o.ID != nil {
 
-		if err := r.SetQueryParam("id", qID); err != nil {
+		// query param id
+		var qrID string
+
+		if o.ID != nil {
+			qrID = *o.ID
+		}
+		qID := qrID
+		if qID != "" {
+
+			if err := r.SetQueryParam("id", qID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Ids != nil {
+
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 			return err
 		}
 	}
@@ -153,4 +189,21 @@ func (o *QueryMitreAttacksParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamQueryMitreAttacks binds the parameter ids
+func (o *QueryMitreAttacksParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

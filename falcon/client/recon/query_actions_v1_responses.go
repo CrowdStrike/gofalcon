@@ -62,14 +62,7 @@ func (o *QueryActionsV1Reader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueryActionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /recon/queries/actions/v1] QueryActionsV1", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *QueryActionsV1InternalServerError) readResponse(response runtime.Client
 	}
 
 	o.Payload = new(models.DomainErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryActionsV1Default creates a QueryActionsV1Default with default headers values
-func NewQueryActionsV1Default(code int) *QueryActionsV1Default {
-	return &QueryActionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryActionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryActionsV1Default struct {
-	_statusCode int
-
-	Payload *models.DomainQueryResponse
-}
-
-// IsSuccess returns true when this query actions v1 default response has a 2xx status code
-func (o *QueryActionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query actions v1 default response has a 3xx status code
-func (o *QueryActionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query actions v1 default response has a 4xx status code
-func (o *QueryActionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query actions v1 default response has a 5xx status code
-func (o *QueryActionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query actions v1 default response a status code equal to that given
-func (o *QueryActionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query actions v1 default response
-func (o *QueryActionsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryActionsV1Default) Error() string {
-	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] QueryActionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryActionsV1Default) String() string {
-	return fmt.Sprintf("[GET /recon/queries/actions/v1][%d] QueryActionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryActionsV1Default) GetPayload() *models.DomainQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryActionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

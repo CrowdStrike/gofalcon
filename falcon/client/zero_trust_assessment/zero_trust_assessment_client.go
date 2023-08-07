@@ -6,6 +6,8 @@ package zero_trust_assessment
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 )
@@ -30,7 +32,9 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOption) (*GetAssessmentV1OK, error)
 
-	GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOption) (*GetComplianceV1OK, error)
+	GetAssessmentsByScoreV1(params *GetAssessmentsByScoreV1Params, opts ...ClientOption) (*GetAssessmentsByScoreV1OK, error)
+
+	GetAuditV1(params *GetAuditV1Params, opts ...ClientOption) (*GetAuditV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -68,27 +72,28 @@ func (a *Client) GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetAssessmentV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getAssessmentV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
-GetComplianceV1 gets the zero trust assessment compliance report for one customer ID c ID
+GetAssessmentsByScoreV1 gets zero trust assessment data for one or more hosts by providing a customer ID c ID and a range of scores
 */
-func (a *Client) GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOption) (*GetComplianceV1OK, error) {
+func (a *Client) GetAssessmentsByScoreV1(params *GetAssessmentsByScoreV1Params, opts ...ClientOption) (*GetAssessmentsByScoreV1OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetComplianceV1Params()
+		params = NewGetAssessmentsByScoreV1Params()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getComplianceV1",
+		ID:                 "getAssessmentsByScoreV1",
 		Method:             "GET",
-		PathPattern:        "/zero-trust-assessment/entities/audit/v1",
+		PathPattern:        "/zero-trust-assessment/queries/assessments/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetComplianceV1Reader{formats: a.formats},
+		Reader:             &GetAssessmentsByScoreV1Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -100,13 +105,52 @@ func (a *Client) GetComplianceV1(params *GetComplianceV1Params, opts ...ClientOp
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetComplianceV1OK)
+	success, ok := result.(*GetAssessmentsByScoreV1OK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*GetComplianceV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getAssessmentsByScoreV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAuditV1 gets the zero trust assessment audit report for one customer ID c ID
+*/
+func (a *Client) GetAuditV1(params *GetAuditV1Params, opts ...ClientOption) (*GetAuditV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAuditV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getAuditV1",
+		Method:             "GET",
+		PathPattern:        "/zero-trust-assessment/entities/audit/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAuditV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetAuditV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getAuditV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

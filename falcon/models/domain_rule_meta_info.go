@@ -170,6 +170,11 @@ func (m *DomainRuleMetaInfo) ContextValidate(ctx context.Context, formats strfmt
 func (m *DomainRuleMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -186,6 +191,11 @@ func (m *DomainRuleMetaInfo) contextValidatePagination(ctx context.Context, form
 func (m *DomainRuleMetaInfo) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Quota != nil {
+
+		if swag.IsZero(m.Quota) { // not required
+			return nil
+		}
+
 		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")
@@ -202,6 +212,11 @@ func (m *DomainRuleMetaInfo) contextValidateQuota(ctx context.Context, formats s
 func (m *DomainRuleMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Writes != nil {
+
+		if swag.IsZero(m.Writes) { // not required
+			return nil
+		}
+
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")

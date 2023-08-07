@@ -50,14 +50,7 @@ func (o *RTRUpdateScriptsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewRTRUpdateScriptsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /real-time-response/entities/scripts/v1] RTR-UpdateScripts", response, response.Code())
 	}
 }
 
@@ -72,6 +65,10 @@ RTRUpdateScriptsOK describes a response with status code 200, with default heade
 OK
 */
 type RTRUpdateScriptsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -128,6 +125,13 @@ func (o *RTRUpdateScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRUpdateScriptsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -171,6 +175,10 @@ RTRUpdateScriptsBadRequest describes a response with status code 400, with defau
 Bad Request
 */
 type RTRUpdateScriptsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -227,6 +235,13 @@ func (o *RTRUpdateScriptsBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRUpdateScriptsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -270,6 +285,10 @@ RTRUpdateScriptsForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type RTRUpdateScriptsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -326,6 +345,13 @@ func (o *RTRUpdateScriptsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRUpdateScriptsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -369,6 +395,10 @@ RTRUpdateScriptsTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type RTRUpdateScriptsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -429,6 +459,13 @@ func (o *RTRUpdateScriptsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *RTRUpdateScriptsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -461,78 +498,6 @@ func (o *RTRUpdateScriptsTooManyRequests) readResponse(response runtime.ClientRe
 		}
 		o.XRateLimitRetryAfter = valxRateLimitRetryAfter
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRUpdateScriptsDefault creates a RTRUpdateScriptsDefault with default headers values
-func NewRTRUpdateScriptsDefault(code int) *RTRUpdateScriptsDefault {
-	return &RTRUpdateScriptsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRUpdateScriptsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RTRUpdateScriptsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this r t r update scripts default response has a 2xx status code
-func (o *RTRUpdateScriptsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r update scripts default response has a 3xx status code
-func (o *RTRUpdateScriptsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r update scripts default response has a 4xx status code
-func (o *RTRUpdateScriptsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r update scripts default response has a 5xx status code
-func (o *RTRUpdateScriptsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r update scripts default response a status code equal to that given
-func (o *RTRUpdateScriptsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r update scripts default response
-func (o *RTRUpdateScriptsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRUpdateScriptsDefault) Error() string {
-	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] RTR-UpdateScripts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRUpdateScriptsDefault) String() string {
-	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] RTR-UpdateScripts default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRUpdateScriptsDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *RTRUpdateScriptsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

@@ -62,14 +62,7 @@ func (o *GetScansReader) ReadResponse(response runtime.ClientResponse, consumer 
 		}
 		return nil, result
 	default:
-		result := NewGetScansDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /scanner/entities/scans/v1] GetScans", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type GetScansOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type GetScansOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MlscannerScanV1Response
+	Payload *models.MlscannerapiScanV1Response
 }
 
 // IsSuccess returns true when this get scans o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *GetScansOK) String() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansOK  %+v", 200, o.Payload)
 }
 
-func (o *GetScansOK) GetPayload() *models.MlscannerScanV1Response {
+func (o *GetScansOK) GetPayload() *models.MlscannerapiScanV1Response {
 	return o.Payload
 }
 
 func (o *GetScansOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *GetScansOK) readResponse(response runtime.ClientResponse, consumer runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MlscannerScanV1Response)
+	o.Payload = new(models.MlscannerapiScanV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Bad Request
 */
 type GetScansBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type GetScansBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MlscannerScanV1Response
+	Payload *models.MlscannerapiScanV1Response
 }
 
 // IsSuccess returns true when this get scans bad request response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *GetScansBadRequest) String() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetScansBadRequest) GetPayload() *models.MlscannerScanV1Response {
+func (o *GetScansBadRequest) GetPayload() *models.MlscannerapiScanV1Response {
 	return o.Payload
 }
 
 func (o *GetScansBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *GetScansBadRequest) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MlscannerScanV1Response)
+	o.Payload = new(models.MlscannerapiScanV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -282,6 +297,10 @@ GetScansForbidden describes a response with status code 403, with default header
 Forbidden
 */
 type GetScansForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *GetScansForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetScansForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -382,6 +408,10 @@ Not Found
 */
 type GetScansNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -390,7 +420,7 @@ type GetScansNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MlscannerScanV1Response
+	Payload *models.MlscannerapiScanV1Response
 }
 
 // IsSuccess returns true when this get scans not found response has a 2xx status code
@@ -431,11 +461,18 @@ func (o *GetScansNotFound) String() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetScansNotFound) GetPayload() *models.MlscannerScanV1Response {
+func (o *GetScansNotFound) GetPayload() *models.MlscannerapiScanV1Response {
 	return o.Payload
 }
 
 func (o *GetScansNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -459,7 +496,7 @@ func (o *GetScansNotFound) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MlscannerScanV1Response)
+	o.Payload = new(models.MlscannerapiScanV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -480,6 +517,10 @@ GetScansTooManyRequests describes a response with status code 429, with default 
 Too Many Requests
 */
 type GetScansTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *GetScansTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetScansTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type GetScansInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type GetScansInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MlscannerScanV1Response
+	Payload *models.MlscannerapiScanV1Response
 }
 
 // IsSuccess returns true when this get scans internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *GetScansInternalServerError) String() string {
 	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] getScansInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetScansInternalServerError) GetPayload() *models.MlscannerScanV1Response {
+func (o *GetScansInternalServerError) GetPayload() *models.MlscannerapiScanV1Response {
 	return o.Payload
 }
 
 func (o *GetScansInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *GetScansInternalServerError) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MlscannerScanV1Response)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetScansDefault creates a GetScansDefault with default headers values
-func NewGetScansDefault(code int) *GetScansDefault {
-	return &GetScansDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetScansDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetScansDefault struct {
-	_statusCode int
-
-	Payload *models.MlscannerScanV1Response
-}
-
-// IsSuccess returns true when this get scans default response has a 2xx status code
-func (o *GetScansDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get scans default response has a 3xx status code
-func (o *GetScansDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get scans default response has a 4xx status code
-func (o *GetScansDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get scans default response has a 5xx status code
-func (o *GetScansDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get scans default response a status code equal to that given
-func (o *GetScansDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get scans default response
-func (o *GetScansDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetScansDefault) Error() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] GetScans default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetScansDefault) String() string {
-	return fmt.Sprintf("[GET /scanner/entities/scans/v1][%d] GetScans default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetScansDefault) GetPayload() *models.MlscannerScanV1Response {
-	return o.Payload
-}
-
-func (o *GetScansDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MlscannerScanV1Response)
+	o.Payload = new(models.MlscannerapiScanV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

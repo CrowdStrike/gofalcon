@@ -20,29 +20,42 @@ import (
 // swagger:model domain.APIEvaluationLogicV1
 type DomainAPIEvaluationLogicV1 struct {
 
-	// aid
+	// Refers to an asset identifier
 	Aid string `json:"aid,omitempty"`
 
-	// cid
+	// Refers to a customer identifier
 	Cid string `json:"cid,omitempty"`
 
-	// created timestamp
+	// Refers to a point in time when evaluation logic data was created in the system
 	CreatedTimestamp string `json:"created_timestamp,omitempty"`
 
-	// id
+	// Refers to a label given to the entity that provided this data
+	DataProvider string `json:"data_provider,omitempty"`
+
+	// Refers back to the asset for which vulnerability was detected - contains only relevant information for working with evaluation logic data
+	HostInfo *DomainAPIEvaluationLogicHostInfoV1 `json:"host_info,omitempty"`
+
+	// Contains a unique identifier for the evaluation logic
 	// Required: true
 	ID *string `json:"id"`
 
-	// logic
+	// Refers to the actual evaluation logic data
 	Logic []*DomainAPIEvaluationLogicItemV1 `json:"logic"`
 
-	// updated timestamp
+	// Refers to the identifier of the scanner that generated the evaluation logic
+	ScannerID string `json:"scanner_id,omitempty"`
+
+	// Refers to a point in time when evaluation logic data was updated in the system
 	UpdatedTimestamp string `json:"updated_timestamp,omitempty"`
 }
 
 // Validate validates this domain API evaluation logic v1
 func (m *DomainAPIEvaluationLogicV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateHostInfo(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
@@ -55,6 +68,25 @@ func (m *DomainAPIEvaluationLogicV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainAPIEvaluationLogicV1) validateHostInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.HostInfo) { // not required
+		return nil
+	}
+
+	if m.HostInfo != nil {
+		if err := m.HostInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_info")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -97,6 +129,10 @@ func (m *DomainAPIEvaluationLogicV1) validateLogic(formats strfmt.Registry) erro
 func (m *DomainAPIEvaluationLogicV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateHostInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLogic(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -107,11 +143,37 @@ func (m *DomainAPIEvaluationLogicV1) ContextValidate(ctx context.Context, format
 	return nil
 }
 
+func (m *DomainAPIEvaluationLogicV1) contextValidateHostInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HostInfo != nil {
+
+		if swag.IsZero(m.HostInfo) { // not required
+			return nil
+		}
+
+		if err := m.HostInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DomainAPIEvaluationLogicV1) contextValidateLogic(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Logic); i++ {
 
 		if m.Logic[i] != nil {
+
+			if swag.IsZero(m.Logic[i]) { // not required
+				return nil
+			}
+
 			if err := m.Logic[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("logic" + "." + strconv.Itoa(i))

@@ -187,6 +187,11 @@ func (m *APIIndicatorV1) ContextValidate(ctx context.Context, formats strfmt.Reg
 func (m *APIIndicatorV1) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metadata != nil {
+
+		if swag.IsZero(m.Metadata) { // not required
+			return nil
+		}
+
 		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")

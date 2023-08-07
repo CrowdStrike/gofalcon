@@ -413,6 +413,11 @@ func (m *DomainPublicIndicatorV3) contextValidateLabels(ctx context.Context, for
 	for i := 0; i < len(m.Labels); i++ {
 
 		if m.Labels[i] != nil {
+
+			if swag.IsZero(m.Labels[i]) { // not required
+				return nil
+			}
+
 			if err := m.Labels[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("labels" + "." + strconv.Itoa(i))
@@ -433,6 +438,11 @@ func (m *DomainPublicIndicatorV3) contextValidateRelations(ctx context.Context, 
 	for i := 0; i < len(m.Relations); i++ {
 
 		if m.Relations[i] != nil {
+
+			if swag.IsZero(m.Relations[i]) { // not required
+				return nil
+			}
+
 			if err := m.Relations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("relations" + "." + strconv.Itoa(i))

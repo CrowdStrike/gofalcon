@@ -151,7 +151,7 @@ func (r *RTR) DeleteScript(ctx context.Context, id string, opts ...real_time_res
 	return nil
 }
 
-func (r *RTR) GetScripts(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.DomainRemoteCommandPutFileV2, error) {
+func (r *RTR) GetScripts(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.EmpowerapiRemoteCommandPutFileV2, error) {
 	response, err := r.adminClient.RTRGetScriptsV2(&real_time_response_admin.RTRGetScriptsV2Params{
 		Ids:     ids,
 		Context: ctx,
@@ -165,7 +165,7 @@ func (r *RTR) GetScripts(ctx context.Context, ids []string, opts ...real_time_re
 	return response.Payload.Resources, nil
 }
 
-func (r *RTR) ListScripts(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservclientMsaPutFileResponse, error) {
+func (r *RTR) ListScripts(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservapiMsaPutFileResponse, error) {
 	response, err := r.adminClient.RTRListScripts(&real_time_response_admin.RTRListScriptsParams{
 		Filter:  filter,
 		Limit:   limit,
@@ -221,7 +221,7 @@ func (r *RTR) DeletePutFile(ctx context.Context, id string, opts ...real_time_re
 	return nil
 }
 
-func (r *RTR) GetPutFiles(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.DomainRemoteCommandPutFileV2, error) {
+func (r *RTR) GetPutFiles(ctx context.Context, ids []string, opts ...real_time_response_admin.ClientOption) ([]*models.EmpowerapiRemoteCommandPutFileV2, error) {
 	response, err := r.adminClient.RTRGetPutFilesV2(&real_time_response_admin.RTRGetPutFilesV2Params{
 		Ids:     ids,
 		Context: ctx,
@@ -235,7 +235,7 @@ func (r *RTR) GetPutFiles(ctx context.Context, ids []string, opts ...real_time_r
 	return response.Payload.Resources, nil
 }
 
-func (r *RTR) ListPutFiles(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservclientMsaPutFileResponse, error) {
+func (r *RTR) ListPutFiles(ctx context.Context, filter *string, limit *int64, offset, sort *string, opts ...real_time_response_admin.ClientOption) (*models.BinservapiMsaPutFileResponse, error) {
 	response, err := r.adminClient.RTRListPutFiles(&real_time_response_admin.RTRListPutFilesParams{
 		Filter:  filter,
 		Limit:   limit,

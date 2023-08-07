@@ -56,14 +56,7 @@ func (o *UserActionV1Reader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return nil, result
 	default:
-		result := NewUserActionV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /user-management/entities/user-actions/v1] userActionV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type UserActionV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this user action v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *UserActionV1OK) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1OK  %+v", 200, o.Payload)
 }
 
-func (o *UserActionV1OK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UserActionV1OK) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *UserActionV1OK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type UserActionV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this user action v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *UserActionV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UserActionV1BadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UserActionV1BadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *UserActionV1BadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -311,7 +304,7 @@ type UserActionV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this user action v1 forbidden response has a 2xx status code
@@ -352,7 +345,7 @@ func (o *UserActionV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *UserActionV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UserActionV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -387,7 +380,7 @@ func (o *UserActionV1Forbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type UserActionV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this user action v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *UserActionV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UserActionV1InternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *UserActionV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *UserActionV1InternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUserActionV1Default creates a UserActionV1Default with default headers values
-func NewUserActionV1Default(code int) *UserActionV1Default {
-	return &UserActionV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UserActionV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UserActionV1Default struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this user action v1 default response has a 2xx status code
-func (o *UserActionV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this user action v1 default response has a 3xx status code
-func (o *UserActionV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this user action v1 default response has a 4xx status code
-func (o *UserActionV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this user action v1 default response has a 5xx status code
-func (o *UserActionV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this user action v1 default response a status code equal to that given
-func (o *UserActionV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the user action v1 default response
-func (o *UserActionV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *UserActionV1Default) Error() string {
-	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UserActionV1Default) String() string {
-	return fmt.Sprintf("[POST /user-management/entities/user-actions/v1][%d] userActionV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UserActionV1Default) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UserActionV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -240,6 +240,11 @@ func (m *DeviceControlSettingsRespV1) contextValidateClasses(ctx context.Context
 	for i := 0; i < len(m.Classes); i++ {
 
 		if m.Classes[i] != nil {
+
+			if swag.IsZero(m.Classes[i]) { // not required
+				return nil
+			}
+
 			if err := m.Classes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("classes" + "." + strconv.Itoa(i))
@@ -258,6 +263,11 @@ func (m *DeviceControlSettingsRespV1) contextValidateClasses(ctx context.Context
 func (m *DeviceControlSettingsRespV1) contextValidateCustomNotifications(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CustomNotifications != nil {
+
+		if swag.IsZero(m.CustomNotifications) { // not required
+			return nil
+		}
+
 		if err := m.CustomNotifications.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("custom_notifications")

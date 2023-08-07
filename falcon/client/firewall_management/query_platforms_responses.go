@@ -44,14 +44,7 @@ func (o *QueryPlatformsReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueryPlatformsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /fwmgr/queries/platforms/v1] query-platforms", response, response.Code())
 	}
 }
 
@@ -67,6 +60,10 @@ OK
 */
 type QueryPlatformsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -75,7 +72,7 @@ type QueryPlatformsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaQueryResponse
+	Payload *models.FwmgrMsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query platforms o k response has a 2xx status code
@@ -116,11 +113,18 @@ func (o *QueryPlatformsOK) String() string {
 	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] queryPlatformsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryPlatformsOK) GetPayload() *models.FwmgrMsaQueryResponse {
+func (o *QueryPlatformsOK) GetPayload() *models.FwmgrMsaspecQueryResponse {
 	return o.Payload
 }
 
 func (o *QueryPlatformsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -144,7 +148,7 @@ func (o *QueryPlatformsOK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaQueryResponse)
+	o.Payload = new(models.FwmgrMsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -165,6 +169,10 @@ QueryPlatformsForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type QueryPlatformsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryPlatformsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryPlatformsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryPlatformsTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type QueryPlatformsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryPlatformsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryPlatformsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryPlatformsTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryPlatformsDefault creates a QueryPlatformsDefault with default headers values
-func NewQueryPlatformsDefault(code int) *QueryPlatformsDefault {
-	return &QueryPlatformsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryPlatformsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryPlatformsDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrMsaQueryResponse
-}
-
-// IsSuccess returns true when this query platforms default response has a 2xx status code
-func (o *QueryPlatformsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query platforms default response has a 3xx status code
-func (o *QueryPlatformsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query platforms default response has a 4xx status code
-func (o *QueryPlatformsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query platforms default response has a 5xx status code
-func (o *QueryPlatformsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query platforms default response a status code equal to that given
-func (o *QueryPlatformsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query platforms default response
-func (o *QueryPlatformsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryPlatformsDefault) Error() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] query-platforms default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryPlatformsDefault) String() string {
-	return fmt.Sprintf("[GET /fwmgr/queries/platforms/v1][%d] query-platforms default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryPlatformsDefault) GetPayload() *models.FwmgrMsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryPlatformsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrMsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

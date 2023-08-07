@@ -62,14 +62,7 @@ func (o *RTRListQueuedSessionsReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewRTRListQueuedSessionsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /real-time-response/entities/queued-sessions/GET/v1] RTR-ListQueuedSessions", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ RTRListQueuedSessionsOK describes a response with status code 200, with default 
 success
 */
 type RTRListQueuedSessionsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *RTRListQueuedSessionsOK) GetPayload() *models.DomainQueuedSessionRespon
 
 func (o *RTRListQueuedSessionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ RTRListQueuedSessionsBadRequest describes a response with status code 400, with 
 Bad Request
 */
 type RTRListQueuedSessionsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *RTRListQueuedSessionsBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRListQueuedSessionsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ RTRListQueuedSessionsUnauthorized describes a response with status code 401, wit
 Unauthorized
 */
 type RTRListQueuedSessionsUnauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *RTRListQueuedSessionsUnauthorized) GetPayload() *models.DomainAPIError 
 
 func (o *RTRListQueuedSessionsUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ RTRListQueuedSessionsForbidden describes a response with status code 403, with d
 Forbidden
 */
 type RTRListQueuedSessionsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *RTRListQueuedSessionsForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRListQueuedSessionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ RTRListQueuedSessionsNotFound describes a response with status code 404, with de
 Not Found
 */
 type RTRListQueuedSessionsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -536,6 +577,13 @@ func (o *RTRListQueuedSessionsNotFound) GetPayload() *models.DomainAPIError {
 
 func (o *RTRListQueuedSessionsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -579,6 +627,10 @@ RTRListQueuedSessionsTooManyRequests describes a response with status code 429, 
 Too Many Requests
 */
 type RTRListQueuedSessionsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -639,6 +691,13 @@ func (o *RTRListQueuedSessionsTooManyRequests) GetPayload() *models.MsaReplyMeta
 
 func (o *RTRListQueuedSessionsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -673,78 +732,6 @@ func (o *RTRListQueuedSessionsTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRListQueuedSessionsDefault creates a RTRListQueuedSessionsDefault with default headers values
-func NewRTRListQueuedSessionsDefault(code int) *RTRListQueuedSessionsDefault {
-	return &RTRListQueuedSessionsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRListQueuedSessionsDefault describes a response with status code -1, with default header values.
-
-success
-*/
-type RTRListQueuedSessionsDefault struct {
-	_statusCode int
-
-	Payload *models.DomainQueuedSessionResponseWrapper
-}
-
-// IsSuccess returns true when this r t r list queued sessions default response has a 2xx status code
-func (o *RTRListQueuedSessionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r list queued sessions default response has a 3xx status code
-func (o *RTRListQueuedSessionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r list queued sessions default response has a 4xx status code
-func (o *RTRListQueuedSessionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r list queued sessions default response has a 5xx status code
-func (o *RTRListQueuedSessionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r list queued sessions default response a status code equal to that given
-func (o *RTRListQueuedSessionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r list queued sessions default response
-func (o *RTRListQueuedSessionsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRListQueuedSessionsDefault) Error() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] RTR-ListQueuedSessions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRListQueuedSessionsDefault) String() string {
-	return fmt.Sprintf("[POST /real-time-response/entities/queued-sessions/GET/v1][%d] RTR-ListQueuedSessions default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRListQueuedSessionsDefault) GetPayload() *models.DomainQueuedSessionResponseWrapper {
-	return o.Payload
-}
-
-func (o *RTRListQueuedSessionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainQueuedSessionResponseWrapper)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

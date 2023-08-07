@@ -56,14 +56,7 @@ func (o *QueryCombinedSensorUpdateKernelsReader) ReadResponse(response runtime.C
 		}
 		return nil, result
 	default:
-		result := NewQueryCombinedSensorUpdateKernelsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /policy/combined/sensor-update-kernels/v1] queryCombinedSensorUpdateKernels", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type QueryCombinedSensorUpdateKernelsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateKernelsV1
+	Payload *models.SensorUpdateKernelsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update kernels o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *QueryCombinedSensorUpdateKernelsOK) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateKernelsOK) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
+func (o *QueryCombinedSensorUpdateKernelsOK) GetPayload() *models.SensorUpdateKernelsRespV1 {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *QueryCombinedSensorUpdateKernelsOK) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateKernelsV1)
+	o.Payload = new(models.SensorUpdateKernelsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type QueryCombinedSensorUpdateKernelsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateKernelsV1
+	Payload *models.SensorUpdateKernelsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update kernels bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *QueryCombinedSensorUpdateKernelsBadRequest) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateKernelsBadRequest) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
+func (o *QueryCombinedSensorUpdateKernelsBadRequest) GetPayload() *models.SensorUpdateKernelsRespV1 {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *QueryCombinedSensorUpdateKernelsBadRequest) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateKernelsV1)
+	o.Payload = new(models.SensorUpdateKernelsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type QueryCombinedSensorUpdateKernelsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdateKernelsV1
+	Payload *models.SensorUpdateKernelsRespV1
 }
 
 // IsSuccess returns true when this query combined sensor update kernels internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *QueryCombinedSensorUpdateKernelsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernelsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCombinedSensorUpdateKernelsInternalServerError) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
+func (o *QueryCombinedSensorUpdateKernelsInternalServerError) GetPayload() *models.SensorUpdateKernelsRespV1 {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *QueryCombinedSensorUpdateKernelsInternalServerError) readResponse(respo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdateKernelsV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCombinedSensorUpdateKernelsDefault creates a QueryCombinedSensorUpdateKernelsDefault with default headers values
-func NewQueryCombinedSensorUpdateKernelsDefault(code int) *QueryCombinedSensorUpdateKernelsDefault {
-	return &QueryCombinedSensorUpdateKernelsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCombinedSensorUpdateKernelsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCombinedSensorUpdateKernelsDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesSensorUpdateKernelsV1
-}
-
-// IsSuccess returns true when this query combined sensor update kernels default response has a 2xx status code
-func (o *QueryCombinedSensorUpdateKernelsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query combined sensor update kernels default response has a 3xx status code
-func (o *QueryCombinedSensorUpdateKernelsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query combined sensor update kernels default response has a 4xx status code
-func (o *QueryCombinedSensorUpdateKernelsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query combined sensor update kernels default response has a 5xx status code
-func (o *QueryCombinedSensorUpdateKernelsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query combined sensor update kernels default response a status code equal to that given
-func (o *QueryCombinedSensorUpdateKernelsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query combined sensor update kernels default response
-func (o *QueryCombinedSensorUpdateKernelsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCombinedSensorUpdateKernelsDefault) Error() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernels default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedSensorUpdateKernelsDefault) String() string {
-	return fmt.Sprintf("[GET /policy/combined/sensor-update-kernels/v1][%d] queryCombinedSensorUpdateKernels default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCombinedSensorUpdateKernelsDefault) GetPayload() *models.ResponsesSensorUpdateKernelsV1 {
-	return o.Payload
-}
-
-func (o *QueryCombinedSensorUpdateKernelsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesSensorUpdateKernelsV1)
+	o.Payload = new(models.SensorUpdateKernelsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

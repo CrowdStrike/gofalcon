@@ -56,14 +56,7 @@ func (o *SetFirewallPoliciesPrecedenceReader) ReadResponse(response runtime.Clie
 		}
 		return nil, result
 	default:
-		result := NewSetFirewallPoliciesPrecedenceDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/firewall-precedence/v1] setFirewallPoliciesPrecedence", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ SetFirewallPoliciesPrecedenceOK describes a response with status code 200, with 
 OK
 */
 type SetFirewallPoliciesPrecedenceOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *SetFirewallPoliciesPrecedenceOK) GetPayload() *models.MsaQueryResponse 
 
 func (o *SetFirewallPoliciesPrecedenceOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ SetFirewallPoliciesPrecedenceBadRequest describes a response with status code 40
 Bad Request
 */
 type SetFirewallPoliciesPrecedenceBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *SetFirewallPoliciesPrecedenceBadRequest) GetPayload() *models.MsaQueryR
 
 func (o *SetFirewallPoliciesPrecedenceBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ SetFirewallPoliciesPrecedenceForbidden describes a response with status code 403
 Forbidden
 */
 type SetFirewallPoliciesPrecedenceForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *SetFirewallPoliciesPrecedenceForbidden) GetPayload() *models.MsaErrorsO
 
 func (o *SetFirewallPoliciesPrecedenceForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ SetFirewallPoliciesPrecedenceTooManyRequests describes a response with status co
 Too Many Requests
 */
 type SetFirewallPoliciesPrecedenceTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *SetFirewallPoliciesPrecedenceTooManyRequests) GetPayload() *models.MsaR
 
 func (o *SetFirewallPoliciesPrecedenceTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ SetFirewallPoliciesPrecedenceInternalServerError describes a response with statu
 Internal Server Error
 */
 type SetFirewallPoliciesPrecedenceInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *SetFirewallPoliciesPrecedenceInternalServerError) GetPayload() *models.
 
 func (o *SetFirewallPoliciesPrecedenceInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *SetFirewallPoliciesPrecedenceInternalServerError) readResponse(response
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewSetFirewallPoliciesPrecedenceDefault creates a SetFirewallPoliciesPrecedenceDefault with default headers values
-func NewSetFirewallPoliciesPrecedenceDefault(code int) *SetFirewallPoliciesPrecedenceDefault {
-	return &SetFirewallPoliciesPrecedenceDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-SetFirewallPoliciesPrecedenceDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type SetFirewallPoliciesPrecedenceDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this set firewall policies precedence default response has a 2xx status code
-func (o *SetFirewallPoliciesPrecedenceDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this set firewall policies precedence default response has a 3xx status code
-func (o *SetFirewallPoliciesPrecedenceDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this set firewall policies precedence default response has a 4xx status code
-func (o *SetFirewallPoliciesPrecedenceDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this set firewall policies precedence default response has a 5xx status code
-func (o *SetFirewallPoliciesPrecedenceDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this set firewall policies precedence default response a status code equal to that given
-func (o *SetFirewallPoliciesPrecedenceDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the set firewall policies precedence default response
-func (o *SetFirewallPoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *SetFirewallPoliciesPrecedenceDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetFirewallPoliciesPrecedenceDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/firewall-precedence/v1][%d] setFirewallPoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetFirewallPoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *SetFirewallPoliciesPrecedenceDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

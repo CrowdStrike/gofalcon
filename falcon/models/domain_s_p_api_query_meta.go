@@ -140,6 +140,11 @@ func (m *DomainSPAPIQueryMeta) ContextValidate(ctx context.Context, formats strf
 func (m *DomainSPAPIQueryMeta) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -156,6 +161,11 @@ func (m *DomainSPAPIQueryMeta) contextValidatePagination(ctx context.Context, fo
 func (m *DomainSPAPIQueryMeta) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Quota != nil {
+
+		if swag.IsZero(m.Quota) { // not required
+			return nil
+		}
+
 		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quota")

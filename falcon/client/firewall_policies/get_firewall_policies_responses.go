@@ -56,7 +56,7 @@ func (o *GetFirewallPoliciesReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /policy/entities/firewall/v1] getFirewallPolicies", response, response.Code())
 	}
 }
 
@@ -84,7 +84,7 @@ type GetFirewallPoliciesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this get firewall policies o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetFirewallPoliciesOK) String() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetFirewallPoliciesOK) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *GetFirewallPoliciesOK) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetFirewallPoliciesOK) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetFirewallPoliciesNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this get firewall policies not found response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetFirewallPoliciesNotFound) String() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetFirewallPoliciesNotFound) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *GetFirewallPoliciesNotFound) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetFirewallPoliciesNotFound) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetFirewallPoliciesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesFirewallPoliciesV1
+	Payload *models.FirewallRespV1
 }
 
 // IsSuccess returns true when this get firewall policies internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetFirewallPoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /policy/entities/firewall/v1][%d] getFirewallPoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetFirewallPoliciesInternalServerError) GetPayload() *models.ResponsesFirewallPoliciesV1 {
+func (o *GetFirewallPoliciesInternalServerError) GetPayload() *models.FirewallRespV1 {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetFirewallPoliciesInternalServerError) readResponse(response runtime.C
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesFirewallPoliciesV1)
+	o.Payload = new(models.FirewallRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

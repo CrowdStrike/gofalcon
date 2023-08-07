@@ -62,14 +62,7 @@ func (o *UpdateHostGroupsReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewUpdateHostGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /devices/entities/host-groups/v1] updateHostGroups", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type UpdateHostGroupsOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type UpdateHostGroupsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this update host groups o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *UpdateHostGroupsOK) String() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateHostGroupsOK) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *UpdateHostGroupsOK) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateHostGroupsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *UpdateHostGroupsOK) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Bad Request
 */
 type UpdateHostGroupsBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type UpdateHostGroupsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this update host groups bad request response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *UpdateHostGroupsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateHostGroupsBadRequest) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *UpdateHostGroupsBadRequest) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateHostGroupsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *UpdateHostGroupsBadRequest) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -282,6 +297,10 @@ UpdateHostGroupsForbidden describes a response with status code 403, with defaul
 Forbidden
 */
 type UpdateHostGroupsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *UpdateHostGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *UpdateHostGroupsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -382,6 +408,10 @@ Not Found
 */
 type UpdateHostGroupsNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -390,7 +420,7 @@ type UpdateHostGroupsNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this update host groups not found response has a 2xx status code
@@ -431,11 +461,18 @@ func (o *UpdateHostGroupsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsNotFound  %+v", 404, o.Payload)
 }
 
-func (o *UpdateHostGroupsNotFound) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *UpdateHostGroupsNotFound) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateHostGroupsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -459,7 +496,7 @@ func (o *UpdateHostGroupsNotFound) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -480,6 +517,10 @@ UpdateHostGroupsTooManyRequests describes a response with status code 429, with 
 Too Many Requests
 */
 type UpdateHostGroupsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *UpdateHostGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly 
 
 func (o *UpdateHostGroupsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type UpdateHostGroupsInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type UpdateHostGroupsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesHostGroupsV1
+	Payload *models.HostGroupsRespV1
 }
 
 // IsSuccess returns true when this update host groups internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *UpdateHostGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateHostGroupsInternalServerError) GetPayload() *models.ResponsesHostGroupsV1 {
+func (o *UpdateHostGroupsInternalServerError) GetPayload() *models.HostGroupsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateHostGroupsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *UpdateHostGroupsInternalServerError) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesHostGroupsV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateHostGroupsDefault creates a UpdateHostGroupsDefault with default headers values
-func NewUpdateHostGroupsDefault(code int) *UpdateHostGroupsDefault {
-	return &UpdateHostGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateHostGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateHostGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesHostGroupsV1
-}
-
-// IsSuccess returns true when this update host groups default response has a 2xx status code
-func (o *UpdateHostGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update host groups default response has a 3xx status code
-func (o *UpdateHostGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update host groups default response has a 4xx status code
-func (o *UpdateHostGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update host groups default response has a 5xx status code
-func (o *UpdateHostGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update host groups default response a status code equal to that given
-func (o *UpdateHostGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update host groups default response
-func (o *UpdateHostGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateHostGroupsDefault) Error() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateHostGroupsDefault) String() string {
-	return fmt.Sprintf("[PATCH /devices/entities/host-groups/v1][%d] updateHostGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateHostGroupsDefault) GetPayload() *models.ResponsesHostGroupsV1 {
-	return o.Payload
-}
-
-func (o *UpdateHostGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesHostGroupsV1)
+	o.Payload = new(models.HostGroupsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

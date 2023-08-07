@@ -56,14 +56,7 @@ func (o *RTRGetPutFilesReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewRTRGetPutFilesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /real-time-response/entities/put-files/v1] RTR-GetPut-Files", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type RTRGetPutFilesOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type RTRGetPutFilesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.BinservclientMsaPFResponse
+	Payload *models.EmpowerapiMsaPFResponseV1
 }
 
 // IsSuccess returns true when this r t r get put files o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *RTRGetPutFilesOK) String() string {
 	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] rTRGetPutFilesOK  %+v", 200, o.Payload)
 }
 
-func (o *RTRGetPutFilesOK) GetPayload() *models.BinservclientMsaPFResponse {
+func (o *RTRGetPutFilesOK) GetPayload() *models.EmpowerapiMsaPFResponseV1 {
 	return o.Payload
 }
 
 func (o *RTRGetPutFilesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *RTRGetPutFilesOK) readResponse(response runtime.ClientResponse, consume
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.BinservclientMsaPFResponse)
+	o.Payload = new(models.EmpowerapiMsaPFResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -177,6 +181,10 @@ RTRGetPutFilesBadRequest describes a response with status code 400, with default
 Bad Request
 */
 type RTRGetPutFilesBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *RTRGetPutFilesBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *RTRGetPutFilesBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ RTRGetPutFilesForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type RTRGetPutFilesForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *RTRGetPutFilesForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRGetPutFilesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ RTRGetPutFilesNotFound describes a response with status code 404, with default h
 Not Found
 */
 type RTRGetPutFilesNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -431,6 +461,13 @@ func (o *RTRGetPutFilesNotFound) GetPayload() *models.DomainAPIError {
 
 func (o *RTRGetPutFilesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -474,6 +511,10 @@ RTRGetPutFilesTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type RTRGetPutFilesTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -534,6 +575,13 @@ func (o *RTRGetPutFilesTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *RTRGetPutFilesTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -568,78 +616,6 @@ func (o *RTRGetPutFilesTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRTRGetPutFilesDefault creates a RTRGetPutFilesDefault with default headers values
-func NewRTRGetPutFilesDefault(code int) *RTRGetPutFilesDefault {
-	return &RTRGetPutFilesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RTRGetPutFilesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RTRGetPutFilesDefault struct {
-	_statusCode int
-
-	Payload *models.BinservclientMsaPFResponse
-}
-
-// IsSuccess returns true when this r t r get put files default response has a 2xx status code
-func (o *RTRGetPutFilesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this r t r get put files default response has a 3xx status code
-func (o *RTRGetPutFilesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this r t r get put files default response has a 4xx status code
-func (o *RTRGetPutFilesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this r t r get put files default response has a 5xx status code
-func (o *RTRGetPutFilesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this r t r get put files default response a status code equal to that given
-func (o *RTRGetPutFilesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the r t r get put files default response
-func (o *RTRGetPutFilesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RTRGetPutFilesDefault) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] RTR-GetPut-Files default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRGetPutFilesDefault) String() string {
-	return fmt.Sprintf("[GET /real-time-response/entities/put-files/v1][%d] RTR-GetPut-Files default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RTRGetPutFilesDefault) GetPayload() *models.BinservclientMsaPFResponse {
-	return o.Payload
-}
-
-func (o *RTRGetPutFilesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.BinservclientMsaPFResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -50,7 +50,7 @@ func (o *GetNetworkLocationsDetailsReader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /fwmgr/entities/network-locations-details/v1] get-network-locations-details", response, response.Code())
 	}
 }
 

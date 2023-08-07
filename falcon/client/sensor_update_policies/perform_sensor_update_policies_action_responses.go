@@ -62,14 +62,7 @@ func (o *PerformSensorUpdatePoliciesActionReader) ReadResponse(response runtime.
 		}
 		return nil, result
 	default:
-		result := NewPerformSensorUpdatePoliciesActionDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/sensor-update-actions/v1] performSensorUpdatePoliciesAction", response, response.Code())
 	}
 }
 
@@ -85,6 +78,10 @@ OK
 */
 type PerformSensorUpdatePoliciesActionOK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -93,7 +90,7 @@ type PerformSensorUpdatePoliciesActionOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this perform sensor update policies action o k response has a 2xx status code
@@ -134,11 +131,18 @@ func (o *PerformSensorUpdatePoliciesActionOK) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionOK  %+v", 200, o.Payload)
 }
 
-func (o *PerformSensorUpdatePoliciesActionOK) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *PerformSensorUpdatePoliciesActionOK) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *PerformSensorUpdatePoliciesActionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -162,7 +166,7 @@ func (o *PerformSensorUpdatePoliciesActionOK) readResponse(response runtime.Clie
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -184,6 +188,10 @@ Bad Request
 */
 type PerformSensorUpdatePoliciesActionBadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -192,7 +200,7 @@ type PerformSensorUpdatePoliciesActionBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this perform sensor update policies action bad request response has a 2xx status code
@@ -233,11 +241,18 @@ func (o *PerformSensorUpdatePoliciesActionBadRequest) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PerformSensorUpdatePoliciesActionBadRequest) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *PerformSensorUpdatePoliciesActionBadRequest) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *PerformSensorUpdatePoliciesActionBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -261,7 +276,7 @@ func (o *PerformSensorUpdatePoliciesActionBadRequest) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -282,6 +297,10 @@ PerformSensorUpdatePoliciesActionForbidden describes a response with status code
 Forbidden
 */
 type PerformSensorUpdatePoliciesActionForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *PerformSensorUpdatePoliciesActionForbidden) GetPayload() *models.MsaErr
 
 func (o *PerformSensorUpdatePoliciesActionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -382,6 +408,10 @@ Not Found
 */
 type PerformSensorUpdatePoliciesActionNotFound struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -390,7 +420,7 @@ type PerformSensorUpdatePoliciesActionNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this perform sensor update policies action not found response has a 2xx status code
@@ -431,11 +461,18 @@ func (o *PerformSensorUpdatePoliciesActionNotFound) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionNotFound  %+v", 404, o.Payload)
 }
 
-func (o *PerformSensorUpdatePoliciesActionNotFound) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *PerformSensorUpdatePoliciesActionNotFound) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *PerformSensorUpdatePoliciesActionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -459,7 +496,7 @@ func (o *PerformSensorUpdatePoliciesActionNotFound) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -480,6 +517,10 @@ PerformSensorUpdatePoliciesActionTooManyRequests describes a response with statu
 Too Many Requests
 */
 type PerformSensorUpdatePoliciesActionTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *PerformSensorUpdatePoliciesActionTooManyRequests) GetPayload() *models.
 
 func (o *PerformSensorUpdatePoliciesActionTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -595,6 +643,10 @@ Internal Server Error
 */
 type PerformSensorUpdatePoliciesActionInternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -603,7 +655,7 @@ type PerformSensorUpdatePoliciesActionInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSensorUpdatePoliciesV1
+	Payload *models.SensorUpdateRespV1
 }
 
 // IsSuccess returns true when this perform sensor update policies action internal server error response has a 2xx status code
@@ -644,11 +696,18 @@ func (o *PerformSensorUpdatePoliciesActionInternalServerError) String() string {
 	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesActionInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PerformSensorUpdatePoliciesActionInternalServerError) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
+func (o *PerformSensorUpdatePoliciesActionInternalServerError) GetPayload() *models.SensorUpdateRespV1 {
 	return o.Payload
 }
 
 func (o *PerformSensorUpdatePoliciesActionInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -672,79 +731,7 @@ func (o *PerformSensorUpdatePoliciesActionInternalServerError) readResponse(resp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPerformSensorUpdatePoliciesActionDefault creates a PerformSensorUpdatePoliciesActionDefault with default headers values
-func NewPerformSensorUpdatePoliciesActionDefault(code int) *PerformSensorUpdatePoliciesActionDefault {
-	return &PerformSensorUpdatePoliciesActionDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-PerformSensorUpdatePoliciesActionDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type PerformSensorUpdatePoliciesActionDefault struct {
-	_statusCode int
-
-	Payload *models.ResponsesSensorUpdatePoliciesV1
-}
-
-// IsSuccess returns true when this perform sensor update policies action default response has a 2xx status code
-func (o *PerformSensorUpdatePoliciesActionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this perform sensor update policies action default response has a 3xx status code
-func (o *PerformSensorUpdatePoliciesActionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this perform sensor update policies action default response has a 4xx status code
-func (o *PerformSensorUpdatePoliciesActionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this perform sensor update policies action default response has a 5xx status code
-func (o *PerformSensorUpdatePoliciesActionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this perform sensor update policies action default response a status code equal to that given
-func (o *PerformSensorUpdatePoliciesActionDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the perform sensor update policies action default response
-func (o *PerformSensorUpdatePoliciesActionDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *PerformSensorUpdatePoliciesActionDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformSensorUpdatePoliciesActionDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/sensor-update-actions/v1][%d] performSensorUpdatePoliciesAction default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PerformSensorUpdatePoliciesActionDefault) GetPayload() *models.ResponsesSensorUpdatePoliciesV1 {
-	return o.Payload
-}
-
-func (o *PerformSensorUpdatePoliciesActionDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesSensorUpdatePoliciesV1)
+	o.Payload = new(models.SensorUpdateRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

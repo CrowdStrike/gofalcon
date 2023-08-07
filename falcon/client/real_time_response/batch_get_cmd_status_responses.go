@@ -62,14 +62,7 @@ func (o *BatchGetCmdStatusReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewBatchGetCmdStatusDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /real-time-response/combined/batch-get-command/v1] BatchGetCmdStatus", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ BatchGetCmdStatusOK describes a response with status code 200, with default head
 OK
 */
 type BatchGetCmdStatusOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *BatchGetCmdStatusOK) GetPayload() *models.DomainBatchGetCmdStatusRespon
 
 func (o *BatchGetCmdStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ BatchGetCmdStatusBadRequest describes a response with status code 400, with defa
 Bad Request
 */
 type BatchGetCmdStatusBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *BatchGetCmdStatusBadRequest) GetPayload() *models.DomainAPIError {
 
 func (o *BatchGetCmdStatusBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ BatchGetCmdStatusForbidden describes a response with status code 403, with defau
 Forbidden
 */
 type BatchGetCmdStatusForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *BatchGetCmdStatusForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *BatchGetCmdStatusForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ BatchGetCmdStatusNotFound describes a response with status code 404, with defaul
 Not Found
 */
 type BatchGetCmdStatusNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *BatchGetCmdStatusNotFound) GetPayload() *models.DomainAPIError {
 
 func (o *BatchGetCmdStatusNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ BatchGetCmdStatusTooManyRequests describes a response with status code 429, with
 Too Many Requests
 */
 type BatchGetCmdStatusTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *BatchGetCmdStatusTooManyRequests) GetPayload() *models.MsaReplyMetaOnly
 
 func (o *BatchGetCmdStatusTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ BatchGetCmdStatusInternalServerError describes a response with status code 500, 
 Internal Server Error
 */
 type BatchGetCmdStatusInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *BatchGetCmdStatusInternalServerError) GetPayload() *models.DomainAPIErr
 
 func (o *BatchGetCmdStatusInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -673,78 +732,6 @@ func (o *BatchGetCmdStatusInternalServerError) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.DomainAPIError)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewBatchGetCmdStatusDefault creates a BatchGetCmdStatusDefault with default headers values
-func NewBatchGetCmdStatusDefault(code int) *BatchGetCmdStatusDefault {
-	return &BatchGetCmdStatusDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-BatchGetCmdStatusDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type BatchGetCmdStatusDefault struct {
-	_statusCode int
-
-	Payload *models.DomainBatchGetCmdStatusResponse
-}
-
-// IsSuccess returns true when this batch get cmd status default response has a 2xx status code
-func (o *BatchGetCmdStatusDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this batch get cmd status default response has a 3xx status code
-func (o *BatchGetCmdStatusDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this batch get cmd status default response has a 4xx status code
-func (o *BatchGetCmdStatusDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this batch get cmd status default response has a 5xx status code
-func (o *BatchGetCmdStatusDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this batch get cmd status default response a status code equal to that given
-func (o *BatchGetCmdStatusDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the batch get cmd status default response
-func (o *BatchGetCmdStatusDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *BatchGetCmdStatusDefault) Error() string {
-	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] BatchGetCmdStatus default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *BatchGetCmdStatusDefault) String() string {
-	return fmt.Sprintf("[GET /real-time-response/combined/batch-get-command/v1][%d] BatchGetCmdStatus default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *BatchGetCmdStatusDefault) GetPayload() *models.DomainBatchGetCmdStatusResponse {
-	return o.Payload
-}
-
-func (o *BatchGetCmdStatusDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainBatchGetCmdStatusResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

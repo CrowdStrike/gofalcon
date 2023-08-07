@@ -56,7 +56,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentReader) ReadResponse(response runtime.
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /cloud-connect-aws/entities/user-scripts-download/v1] GetD4CAWSAccountScriptsAttachment", response, response.Code())
 	}
 }
 

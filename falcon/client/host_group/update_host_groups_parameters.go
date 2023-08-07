@@ -64,7 +64,7 @@ UpdateHostGroupsParams contains all the parameters to send to the API endpoint
 type UpdateHostGroupsParams struct {
 
 	// Body.
-	Body *models.RequestsUpdateGroupsV1
+	Body *models.HostGroupsUpdateGroupsReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateHostGroupsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update host groups params
-func (o *UpdateHostGroupsParams) WithBody(body *models.RequestsUpdateGroupsV1) *UpdateHostGroupsParams {
+func (o *UpdateHostGroupsParams) WithBody(body *models.HostGroupsUpdateGroupsReqV1) *UpdateHostGroupsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update host groups params
-func (o *UpdateHostGroupsParams) SetBody(body *models.RequestsUpdateGroupsV1) {
+func (o *UpdateHostGroupsParams) SetBody(body *models.HostGroupsUpdateGroupsReqV1) {
 	o.Body = body
 }
 

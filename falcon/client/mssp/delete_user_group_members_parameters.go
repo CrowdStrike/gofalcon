@@ -63,7 +63,10 @@ DeleteUserGroupMembersParams contains all the parameters to send to the API endp
 */
 type DeleteUserGroupMembersParams struct {
 
-	// Body.
+	/* Body.
+
+	   Both 'user_group_id' and 'user_uuids' fields are required.
+	*/
 	Body *models.DomainUserGroupMembersRequestV1
 
 	timeout    time.Duration

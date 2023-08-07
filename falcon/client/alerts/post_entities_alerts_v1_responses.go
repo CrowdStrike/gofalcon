@@ -56,14 +56,7 @@ func (o *PostEntitiesAlertsV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewPostEntitiesAlertsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /alerts/entities/alerts/v1] PostEntitiesAlertsV1", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type PostEntitiesAlertsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DetectsapiPostEntitiesInvestigatablesV1Response
+	Payload *models.DetectsapiPostEntitiesAlertsV1Response
 }
 
 // IsSuccess returns true when this post entities alerts v1 o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *PostEntitiesAlertsV1OK) String() string {
 	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *PostEntitiesAlertsV1OK) GetPayload() *models.DetectsapiPostEntitiesInvestigatablesV1Response {
+func (o *PostEntitiesAlertsV1OK) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *PostEntitiesAlertsV1OK) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DetectsapiPostEntitiesInvestigatablesV1Response)
+	o.Payload = new(models.DetectsapiPostEntitiesAlertsV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type PostEntitiesAlertsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DetectsapiPostEntitiesInvestigatablesV1Response
+	Payload *models.DetectsapiPostEntitiesAlertsV1Response
 }
 
 // IsSuccess returns true when this post entities alerts v1 bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *PostEntitiesAlertsV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PostEntitiesAlertsV1BadRequest) GetPayload() *models.DetectsapiPostEntitiesInvestigatablesV1Response {
+func (o *PostEntitiesAlertsV1BadRequest) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *PostEntitiesAlertsV1BadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DetectsapiPostEntitiesInvestigatablesV1Response)
+	o.Payload = new(models.DetectsapiPostEntitiesAlertsV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type PostEntitiesAlertsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.DetectsapiPostEntitiesInvestigatablesV1Response
+	Payload *models.DetectsapiPostEntitiesAlertsV1Response
 }
 
 // IsSuccess returns true when this post entities alerts v1 internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *PostEntitiesAlertsV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] postEntitiesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PostEntitiesAlertsV1InternalServerError) GetPayload() *models.DetectsapiPostEntitiesInvestigatablesV1Response {
+func (o *PostEntitiesAlertsV1InternalServerError) GetPayload() *models.DetectsapiPostEntitiesAlertsV1Response {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *PostEntitiesAlertsV1InternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.DetectsapiPostEntitiesInvestigatablesV1Response)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPostEntitiesAlertsV1Default creates a PostEntitiesAlertsV1Default with default headers values
-func NewPostEntitiesAlertsV1Default(code int) *PostEntitiesAlertsV1Default {
-	return &PostEntitiesAlertsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-PostEntitiesAlertsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type PostEntitiesAlertsV1Default struct {
-	_statusCode int
-
-	Payload *models.DetectsapiPostEntitiesInvestigatablesV1Response
-}
-
-// IsSuccess returns true when this post entities alerts v1 default response has a 2xx status code
-func (o *PostEntitiesAlertsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this post entities alerts v1 default response has a 3xx status code
-func (o *PostEntitiesAlertsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this post entities alerts v1 default response has a 4xx status code
-func (o *PostEntitiesAlertsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this post entities alerts v1 default response has a 5xx status code
-func (o *PostEntitiesAlertsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this post entities alerts v1 default response a status code equal to that given
-func (o *PostEntitiesAlertsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the post entities alerts v1 default response
-func (o *PostEntitiesAlertsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *PostEntitiesAlertsV1Default) Error() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] PostEntitiesAlertsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostEntitiesAlertsV1Default) String() string {
-	return fmt.Sprintf("[POST /alerts/entities/alerts/v1][%d] PostEntitiesAlertsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *PostEntitiesAlertsV1Default) GetPayload() *models.DetectsapiPostEntitiesInvestigatablesV1Response {
-	return o.Payload
-}
-
-func (o *PostEntitiesAlertsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DetectsapiPostEntitiesInvestigatablesV1Response)
+	o.Payload = new(models.DetectsapiPostEntitiesAlertsV1Response)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

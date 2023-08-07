@@ -189,6 +189,11 @@ func (m *FalconxActor) contextValidateOrigins(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Origins); i++ {
 
 		if m.Origins[i] != nil {
+
+			if swag.IsZero(m.Origins[i]) { // not required
+				return nil
+			}
+
 			if err := m.Origins[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("origins" + "." + strconv.Itoa(i))
@@ -209,6 +214,11 @@ func (m *FalconxActor) contextValidateTargetCountries(ctx context.Context, forma
 	for i := 0; i < len(m.TargetCountries); i++ {
 
 		if m.TargetCountries[i] != nil {
+
+			if swag.IsZero(m.TargetCountries[i]) { // not required
+				return nil
+			}
+
 			if err := m.TargetCountries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_countries" + "." + strconv.Itoa(i))
@@ -229,6 +239,11 @@ func (m *FalconxActor) contextValidateTargetIndustries(ctx context.Context, form
 	for i := 0; i < len(m.TargetIndustries); i++ {
 
 		if m.TargetIndustries[i] != nil {
+
+			if swag.IsZero(m.TargetIndustries[i]) { // not required
+				return nil
+			}
+
 			if err := m.TargetIndustries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("target_industries" + "." + strconv.Itoa(i))

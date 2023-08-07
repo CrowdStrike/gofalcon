@@ -56,14 +56,7 @@ func (o *UpdateSensorVisibilityExclusionsV1Reader) ReadResponse(response runtime
 		}
 		return nil, result
 	default:
-		result := NewUpdateSensorVisibilityExclusionsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /policy/entities/sv-exclusions/v1] updateSensorVisibilityExclusionsV1", response, response.Code())
 	}
 }
 
@@ -79,6 +72,10 @@ OK
 */
 type UpdateSensorVisibilityExclusionsV1OK struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -87,7 +84,7 @@ type UpdateSensorVisibilityExclusionsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this update sensor visibility exclusions v1 o k response has a 2xx status code
@@ -128,11 +125,18 @@ func (o *UpdateSensorVisibilityExclusionsV1OK) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *UpdateSensorVisibilityExclusionsV1OK) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *UpdateSensorVisibilityExclusionsV1OK) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -156,7 +160,7 @@ func (o *UpdateSensorVisibilityExclusionsV1OK) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,6 +182,10 @@ Bad Request
 */
 type UpdateSensorVisibilityExclusionsV1BadRequest struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -186,7 +194,7 @@ type UpdateSensorVisibilityExclusionsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this update sensor visibility exclusions v1 bad request response has a 2xx status code
@@ -227,11 +235,18 @@ func (o *UpdateSensorVisibilityExclusionsV1BadRequest) String() string {
 	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdateSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *UpdateSensorVisibilityExclusionsV1BadRequest) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -255,7 +270,7 @@ func (o *UpdateSensorVisibilityExclusionsV1BadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -276,6 +291,10 @@ UpdateSensorVisibilityExclusionsV1Forbidden describes a response with status cod
 Forbidden
 */
 type UpdateSensorVisibilityExclusionsV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *UpdateSensorVisibilityExclusionsV1Forbidden) GetPayload() *models.MsaEr
 
 func (o *UpdateSensorVisibilityExclusionsV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ UpdateSensorVisibilityExclusionsV1TooManyRequests describes a response with stat
 Too Many Requests
 */
 type UpdateSensorVisibilityExclusionsV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) GetPayload() *models
 
 func (o *UpdateSensorVisibilityExclusionsV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -490,6 +527,10 @@ Internal Server Error
 */
 type UpdateSensorVisibilityExclusionsV1InternalServerError struct {
 
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
 	/* Request limit per minute.
 	 */
 	XRateLimitLimit int64
@@ -498,7 +539,7 @@ type UpdateSensorVisibilityExclusionsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ResponsesSvExclusionRespV1
+	Payload *models.SvExclusionsRespV1
 }
 
 // IsSuccess returns true when this update sensor visibility exclusions v1 internal server error response has a 2xx status code
@@ -539,11 +580,18 @@ func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) String() string 
 	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.ResponsesSvExclusionRespV1 {
+func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) GetPayload() *models.SvExclusionsRespV1 {
 	return o.Payload
 }
 
 func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
 
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
@@ -567,79 +615,7 @@ func (o *UpdateSensorVisibilityExclusionsV1InternalServerError) readResponse(res
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateSensorVisibilityExclusionsV1Default creates a UpdateSensorVisibilityExclusionsV1Default with default headers values
-func NewUpdateSensorVisibilityExclusionsV1Default(code int) *UpdateSensorVisibilityExclusionsV1Default {
-	return &UpdateSensorVisibilityExclusionsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateSensorVisibilityExclusionsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateSensorVisibilityExclusionsV1Default struct {
-	_statusCode int
-
-	Payload *models.ResponsesSvExclusionRespV1
-}
-
-// IsSuccess returns true when this update sensor visibility exclusions v1 default response has a 2xx status code
-func (o *UpdateSensorVisibilityExclusionsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update sensor visibility exclusions v1 default response has a 3xx status code
-func (o *UpdateSensorVisibilityExclusionsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update sensor visibility exclusions v1 default response has a 4xx status code
-func (o *UpdateSensorVisibilityExclusionsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update sensor visibility exclusions v1 default response has a 5xx status code
-func (o *UpdateSensorVisibilityExclusionsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update sensor visibility exclusions v1 default response a status code equal to that given
-func (o *UpdateSensorVisibilityExclusionsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update sensor visibility exclusions v1 default response
-func (o *UpdateSensorVisibilityExclusionsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateSensorVisibilityExclusionsV1Default) Error() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateSensorVisibilityExclusionsV1Default) String() string {
-	return fmt.Sprintf("[PATCH /policy/entities/sv-exclusions/v1][%d] updateSensorVisibilityExclusionsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateSensorVisibilityExclusionsV1Default) GetPayload() *models.ResponsesSvExclusionRespV1 {
-	return o.Payload
-}
-
-func (o *UpdateSensorVisibilityExclusionsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ResponsesSvExclusionRespV1)
+	o.Payload = new(models.SvExclusionsRespV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

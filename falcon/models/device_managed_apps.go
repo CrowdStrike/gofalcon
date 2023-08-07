@@ -24,6 +24,9 @@ type DeviceManagedApps struct {
 	// automox
 	Automox *DeviceManagedApp `json:"automox,omitempty"`
 
+	// aws verified access
+	AwsVerifiedAccess *DeviceManagedApp `json:"aws-verified-access,omitempty"`
+
 	// identity protection
 	IdentityProtection *DeviceManagedApp `json:"identity-protection,omitempty"`
 
@@ -43,6 +46,10 @@ func (m *DeviceManagedApps) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAutomox(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAwsVerifiedAccess(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,6 +101,25 @@ func (m *DeviceManagedApps) validateAutomox(formats strfmt.Registry) error {
 				return ve.ValidateName("automox")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("automox")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceManagedApps) validateAwsVerifiedAccess(formats strfmt.Registry) error {
+	if swag.IsZero(m.AwsVerifiedAccess) { // not required
+		return nil
+	}
+
+	if m.AwsVerifiedAccess != nil {
+		if err := m.AwsVerifiedAccess.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aws-verified-access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aws-verified-access")
 			}
 			return err
 		}
@@ -171,6 +197,10 @@ func (m *DeviceManagedApps) ContextValidate(ctx context.Context, formats strfmt.
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateAwsVerifiedAccess(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -192,6 +222,11 @@ func (m *DeviceManagedApps) ContextValidate(ctx context.Context, formats strfmt.
 func (m *DeviceManagedApps) contextValidateAirlock(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Airlock != nil {
+
+		if swag.IsZero(m.Airlock) { // not required
+			return nil
+		}
+
 		if err := m.Airlock.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("airlock")
@@ -208,6 +243,11 @@ func (m *DeviceManagedApps) contextValidateAirlock(ctx context.Context, formats 
 func (m *DeviceManagedApps) contextValidateAutomox(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Automox != nil {
+
+		if swag.IsZero(m.Automox) { // not required
+			return nil
+		}
+
 		if err := m.Automox.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automox")
@@ -221,9 +261,35 @@ func (m *DeviceManagedApps) contextValidateAutomox(ctx context.Context, formats 
 	return nil
 }
 
+func (m *DeviceManagedApps) contextValidateAwsVerifiedAccess(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AwsVerifiedAccess != nil {
+
+		if swag.IsZero(m.AwsVerifiedAccess) { // not required
+			return nil
+		}
+
+		if err := m.AwsVerifiedAccess.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("aws-verified-access")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("aws-verified-access")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceManagedApps) contextValidateIdentityProtection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.IdentityProtection != nil {
+
+		if swag.IsZero(m.IdentityProtection) { // not required
+			return nil
+		}
+
 		if err := m.IdentityProtection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identity-protection")
@@ -240,6 +306,11 @@ func (m *DeviceManagedApps) contextValidateIdentityProtection(ctx context.Contex
 func (m *DeviceManagedApps) contextValidateJumpcloud(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Jumpcloud != nil {
+
+		if swag.IsZero(m.Jumpcloud) { // not required
+			return nil
+		}
+
 		if err := m.Jumpcloud.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jumpcloud")
@@ -256,6 +327,11 @@ func (m *DeviceManagedApps) contextValidateJumpcloud(ctx context.Context, format
 func (m *DeviceManagedApps) contextValidateNetskope(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Netskope != nil {
+
+		if swag.IsZero(m.Netskope) { // not required
+			return nil
+		}
+
 		if err := m.Netskope.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("netskope")

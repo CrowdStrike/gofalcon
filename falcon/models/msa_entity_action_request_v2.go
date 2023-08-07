@@ -21,7 +21,7 @@ import (
 type MsaEntityActionRequestV2 struct {
 
 	// action parameters
-	ActionParameters []*MsaActionParameter `json:"action_parameters"`
+	ActionParameters []*MsaspecActionParameter `json:"action_parameters"`
 
 	// ids
 	// Required: true
@@ -100,6 +100,11 @@ func (m *MsaEntityActionRequestV2) contextValidateActionParameters(ctx context.C
 	for i := 0; i < len(m.ActionParameters); i++ {
 
 		if m.ActionParameters[i] != nil {
+
+			if swag.IsZero(m.ActionParameters[i]) { // not required
+				return nil
+			}
+
 			if err := m.ActionParameters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("action_parameters" + "." + strconv.Itoa(i))

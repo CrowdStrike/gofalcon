@@ -56,14 +56,7 @@ func (o *GetChangesReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return nil, result
 	default:
-		result := NewGetChangesDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /filevantage/entities/changes/v2] getChanges", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type GetChangesOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.ExternalGetChangesResponse
+	Payload *models.PublicGetChangesResponse
 }
 
 // IsSuccess returns true when this get changes o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *GetChangesOK) String() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetChangesOK) GetPayload() *models.ExternalGetChangesResponse {
+func (o *GetChangesOK) GetPayload() *models.PublicGetChangesResponse {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *GetChangesOK) readResponse(response runtime.ClientResponse, consumer ru
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.ExternalGetChangesResponse)
+	o.Payload = new(models.PublicGetChangesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type GetChangesBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get changes bad request response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *GetChangesBadRequest) String() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetChangesBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetChangesBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *GetChangesBadRequest) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -546,7 +539,7 @@ type GetChangesInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get changes internal server error response has a 2xx status code
@@ -587,7 +580,7 @@ func (o *GetChangesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChangesInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetChangesInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetChangesInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -622,79 +615,7 @@ func (o *GetChangesInternalServerError) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetChangesDefault creates a GetChangesDefault with default headers values
-func NewGetChangesDefault(code int) *GetChangesDefault {
-	return &GetChangesDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetChangesDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetChangesDefault struct {
-	_statusCode int
-
-	Payload *models.ExternalGetChangesResponse
-}
-
-// IsSuccess returns true when this get changes default response has a 2xx status code
-func (o *GetChangesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get changes default response has a 3xx status code
-func (o *GetChangesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get changes default response has a 4xx status code
-func (o *GetChangesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get changes default response has a 5xx status code
-func (o *GetChangesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get changes default response a status code equal to that given
-func (o *GetChangesDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get changes default response
-func (o *GetChangesDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetChangesDefault) Error() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChanges default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetChangesDefault) String() string {
-	return fmt.Sprintf("[GET /filevantage/entities/changes/v2][%d] getChanges default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetChangesDefault) GetPayload() *models.ExternalGetChangesResponse {
-	return o.Payload
-}
-
-func (o *GetChangesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.ExternalGetChangesResponse)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

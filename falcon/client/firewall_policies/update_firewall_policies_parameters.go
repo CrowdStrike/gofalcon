@@ -64,7 +64,7 @@ UpdateFirewallPoliciesParams contains all the parameters to send to the API endp
 type UpdateFirewallPoliciesParams struct {
 
 	// Body.
-	Body *models.RequestsUpdateFirewallPoliciesV1
+	Body *models.FirewallUpdateFirewallPoliciesReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateFirewallPoliciesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update firewall policies params
-func (o *UpdateFirewallPoliciesParams) WithBody(body *models.RequestsUpdateFirewallPoliciesV1) *UpdateFirewallPoliciesParams {
+func (o *UpdateFirewallPoliciesParams) WithBody(body *models.FirewallUpdateFirewallPoliciesReqV1) *UpdateFirewallPoliciesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update firewall policies params
-func (o *UpdateFirewallPoliciesParams) SetBody(body *models.RequestsUpdateFirewallPoliciesV1) {
+func (o *UpdateFirewallPoliciesParams) SetBody(body *models.FirewallUpdateFirewallPoliciesReqV1) {
 	o.Body = body
 }
 

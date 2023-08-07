@@ -50,7 +50,7 @@ func (a *Client) Oauth2AccessToken(params *Oauth2AccessTokenParams, opts ...Clie
 		Method:             "POST",
 		PathPattern:        "/oauth2/token",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded", "text/html"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &Oauth2AccessTokenReader{formats: a.formats},
@@ -108,8 +108,9 @@ func (a *Client) Oauth2RevokeToken(params *Oauth2RevokeTokenParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*Oauth2RevokeTokenDefault)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for oauth2RevokeToken: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

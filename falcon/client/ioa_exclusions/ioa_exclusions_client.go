@@ -76,8 +76,9 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*CreateIOAExclusionsV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createIOAExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -189,8 +190,9 @@ func (a *Client) QueryIOAExclusionsV1(params *QueryIOAExclusionsV1Params, opts .
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*QueryIOAExclusionsV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryIOAExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -226,8 +228,9 @@ func (a *Client) UpdateIOAExclusionsV1(params *UpdateIOAExclusionsV1Params, opts
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*UpdateIOAExclusionsV1Default)
-	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateIOAExclusionsV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 // SetTransport changes the transport on the client

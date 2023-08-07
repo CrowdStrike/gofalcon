@@ -62,14 +62,7 @@ func (o *UpdateAWSAccountReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return nil, result
 	default:
-		result := NewUpdateAWSAccountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PATCH /kubernetes-protection/entities/accounts/aws/v1] UpdateAWSAccount", response, response.Code())
 	}
 }
 
@@ -737,78 +730,6 @@ func (o *UpdateAWSAccountInternalServerError) readResponse(response runtime.Clie
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaBaseEntitiesResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdateAWSAccountDefault creates a UpdateAWSAccountDefault with default headers values
-func NewUpdateAWSAccountDefault(code int) *UpdateAWSAccountDefault {
-	return &UpdateAWSAccountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdateAWSAccountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdateAWSAccountDefault struct {
-	_statusCode int
-
-	Payload *models.MsaBaseEntitiesResponse
-}
-
-// IsSuccess returns true when this update a w s account default response has a 2xx status code
-func (o *UpdateAWSAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update a w s account default response has a 3xx status code
-func (o *UpdateAWSAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update a w s account default response has a 4xx status code
-func (o *UpdateAWSAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update a w s account default response has a 5xx status code
-func (o *UpdateAWSAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update a w s account default response a status code equal to that given
-func (o *UpdateAWSAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update a w s account default response
-func (o *UpdateAWSAccountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdateAWSAccountDefault) Error() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] UpdateAWSAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateAWSAccountDefault) String() string {
-	return fmt.Sprintf("[PATCH /kubernetes-protection/entities/accounts/aws/v1][%d] UpdateAWSAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdateAWSAccountDefault) GetPayload() *models.MsaBaseEntitiesResponse {
-	return o.Payload
-}
-
-func (o *UpdateAWSAccountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaBaseEntitiesResponse)
 

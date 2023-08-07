@@ -44,14 +44,7 @@ func (o *QueryRemediationsFilterReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		result := NewQueryRemediationsFilterDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /falcon-complete-dashboards/queries/remediations/v1] QueryRemediationsFilter", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryRemediationsFilterOK describes a response with status code 200, with defaul
 OK
 */
 type QueryRemediationsFilterOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryRemediationsFilterOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryRemediationsFilterOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryRemediationsFilterForbidden describes a response with status code 403, with
 Forbidden
 */
 type QueryRemediationsFilterForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryRemediationsFilterForbidden) GetPayload() *models.MsaReplyMetaOnly
 
 func (o *QueryRemediationsFilterForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryRemediationsFilterTooManyRequests describes a response with status code 429
 Too Many Requests
 */
 type QueryRemediationsFilterTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryRemediationsFilterTooManyRequests) GetPayload() *models.MsaReplyMe
 
 func (o *QueryRemediationsFilterTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryRemediationsFilterTooManyRequests) readResponse(response runtime.C
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryRemediationsFilterDefault creates a QueryRemediationsFilterDefault with default headers values
-func NewQueryRemediationsFilterDefault(code int) *QueryRemediationsFilterDefault {
-	return &QueryRemediationsFilterDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryRemediationsFilterDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryRemediationsFilterDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query remediations filter default response has a 2xx status code
-func (o *QueryRemediationsFilterDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query remediations filter default response has a 3xx status code
-func (o *QueryRemediationsFilterDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query remediations filter default response has a 4xx status code
-func (o *QueryRemediationsFilterDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query remediations filter default response has a 5xx status code
-func (o *QueryRemediationsFilterDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query remediations filter default response a status code equal to that given
-func (o *QueryRemediationsFilterDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query remediations filter default response
-func (o *QueryRemediationsFilterDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryRemediationsFilterDefault) Error() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] QueryRemediationsFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRemediationsFilterDefault) String() string {
-	return fmt.Sprintf("[GET /falcon-complete-dashboards/queries/remediations/v1][%d] QueryRemediationsFilter default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryRemediationsFilterDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryRemediationsFilterDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

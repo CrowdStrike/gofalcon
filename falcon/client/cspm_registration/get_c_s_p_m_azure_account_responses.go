@@ -62,14 +62,7 @@ func (o *GetCSPMAzureAccountReader) ReadResponse(response runtime.ClientResponse
 		}
 		return nil, result
 	default:
-		result := NewGetCSPMAzureAccountDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /cloud-connect-cspm-azure/entities/account/v1] GetCSPMAzureAccount", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ GetCSPMAzureAccountOK describes a response with status code 200, with default he
 OK
 */
 type GetCSPMAzureAccountOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *GetCSPMAzureAccountOK) GetPayload() *models.RegistrationAzureAccountRes
 
 func (o *GetCSPMAzureAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ GetCSPMAzureAccountMultiStatus describes a response with status code 207, with d
 Multi-Status
 */
 type GetCSPMAzureAccountMultiStatus struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *GetCSPMAzureAccountMultiStatus) GetPayload() *models.RegistrationAzureA
 
 func (o *GetCSPMAzureAccountMultiStatus) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ GetCSPMAzureAccountBadRequest describes a response with status code 400, with de
 Bad Request
 */
 type GetCSPMAzureAccountBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *GetCSPMAzureAccountBadRequest) GetPayload() *models.RegistrationAzureAc
 
 func (o *GetCSPMAzureAccountBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ GetCSPMAzureAccountForbidden describes a response with status code 403, with def
 Forbidden
 */
 type GetCSPMAzureAccountForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *GetCSPMAzureAccountForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *GetCSPMAzureAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ GetCSPMAzureAccountTooManyRequests describes a response with status code 429, wi
 Too Many Requests
 */
 type GetCSPMAzureAccountTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *GetCSPMAzureAccountTooManyRequests) GetPayload() *models.MsaReplyMetaOn
 
 func (o *GetCSPMAzureAccountTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ GetCSPMAzureAccountInternalServerError describes a response with status code 500
 Internal Server Error
 */
 type GetCSPMAzureAccountInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *GetCSPMAzureAccountInternalServerError) GetPayload() *models.Registrati
 
 func (o *GetCSPMAzureAccountInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *GetCSPMAzureAccountInternalServerError) readResponse(response runtime.C
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.RegistrationAzureAccountResponseV1)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetCSPMAzureAccountDefault creates a GetCSPMAzureAccountDefault with default headers values
-func NewGetCSPMAzureAccountDefault(code int) *GetCSPMAzureAccountDefault {
-	return &GetCSPMAzureAccountDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetCSPMAzureAccountDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetCSPMAzureAccountDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationAzureAccountResponseV1
-}
-
-// IsSuccess returns true when this get c s p m azure account default response has a 2xx status code
-func (o *GetCSPMAzureAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get c s p m azure account default response has a 3xx status code
-func (o *GetCSPMAzureAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get c s p m azure account default response has a 4xx status code
-func (o *GetCSPMAzureAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get c s p m azure account default response has a 5xx status code
-func (o *GetCSPMAzureAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get c s p m azure account default response a status code equal to that given
-func (o *GetCSPMAzureAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get c s p m azure account default response
-func (o *GetCSPMAzureAccountDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetCSPMAzureAccountDefault) Error() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/account/v1][%d] GetCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMAzureAccountDefault) String() string {
-	return fmt.Sprintf("[GET /cloud-connect-cspm-azure/entities/account/v1][%d] GetCSPMAzureAccount default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetCSPMAzureAccountDefault) GetPayload() *models.RegistrationAzureAccountResponseV1 {
-	return o.Payload
-}
-
-func (o *GetCSPMAzureAccountDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RegistrationAzureAccountResponseV1)
 

@@ -62,14 +62,7 @@ func (o *QueryNotificationsExposedDataRecordsV1Reader) ReadResponse(response run
 		}
 		return nil, result
 	default:
-		result := NewQueryNotificationsExposedDataRecordsV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /recon/queries/notifications-exposed-data-records/v1] QueryNotificationsExposedDataRecordsV1", response, response.Code())
 	}
 }
 
@@ -739,78 +732,6 @@ func (o *QueryNotificationsExposedDataRecordsV1InternalServerError) readResponse
 	}
 
 	o.Payload = new(models.DomainErrorsOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryNotificationsExposedDataRecordsV1Default creates a QueryNotificationsExposedDataRecordsV1Default with default headers values
-func NewQueryNotificationsExposedDataRecordsV1Default(code int) *QueryNotificationsExposedDataRecordsV1Default {
-	return &QueryNotificationsExposedDataRecordsV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryNotificationsExposedDataRecordsV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryNotificationsExposedDataRecordsV1Default struct {
-	_statusCode int
-
-	Payload *models.DomainQueryResponse
-}
-
-// IsSuccess returns true when this query notifications exposed data records v1 default response has a 2xx status code
-func (o *QueryNotificationsExposedDataRecordsV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query notifications exposed data records v1 default response has a 3xx status code
-func (o *QueryNotificationsExposedDataRecordsV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query notifications exposed data records v1 default response has a 4xx status code
-func (o *QueryNotificationsExposedDataRecordsV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query notifications exposed data records v1 default response has a 5xx status code
-func (o *QueryNotificationsExposedDataRecordsV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query notifications exposed data records v1 default response a status code equal to that given
-func (o *QueryNotificationsExposedDataRecordsV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query notifications exposed data records v1 default response
-func (o *QueryNotificationsExposedDataRecordsV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryNotificationsExposedDataRecordsV1Default) Error() string {
-	return fmt.Sprintf("[GET /recon/queries/notifications-exposed-data-records/v1][%d] QueryNotificationsExposedDataRecordsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryNotificationsExposedDataRecordsV1Default) String() string {
-	return fmt.Sprintf("[GET /recon/queries/notifications-exposed-data-records/v1][%d] QueryNotificationsExposedDataRecordsV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryNotificationsExposedDataRecordsV1Default) GetPayload() *models.DomainQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryNotificationsExposedDataRecordsV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.DomainQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -62,14 +62,7 @@ func (o *GetMalQueryRequestV1Reader) ReadResponse(response runtime.ClientRespons
 		}
 		return nil, result
 	default:
-		result := NewGetMalQueryRequestV1Default(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /malquery/entities/requests/v1] GetMalQueryRequestV1", response, response.Code())
 	}
 }
 
@@ -84,6 +77,10 @@ GetMalQueryRequestV1OK describes a response with status code 200, with default h
 OK
 */
 type GetMalQueryRequestV1OK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -140,6 +137,13 @@ func (o *GetMalQueryRequestV1OK) GetPayload() *models.MalqueryRequestResponse {
 
 func (o *GetMalQueryRequestV1OK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -183,6 +187,10 @@ GetMalQueryRequestV1BadRequest describes a response with status code 400, with d
 Bad Request
 */
 type GetMalQueryRequestV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -239,6 +247,13 @@ func (o *GetMalQueryRequestV1BadRequest) GetPayload() *models.MalqueryRequestRes
 
 func (o *GetMalQueryRequestV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -282,6 +297,10 @@ GetMalQueryRequestV1Unauthorized describes a response with status code 401, with
 Unauthorized
 */
 type GetMalQueryRequestV1Unauthorized struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -338,6 +357,13 @@ func (o *GetMalQueryRequestV1Unauthorized) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryRequestV1Unauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -381,6 +407,10 @@ GetMalQueryRequestV1Forbidden describes a response with status code 403, with de
 Forbidden
 */
 type GetMalQueryRequestV1Forbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -437,6 +467,13 @@ func (o *GetMalQueryRequestV1Forbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *GetMalQueryRequestV1Forbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -480,6 +517,10 @@ GetMalQueryRequestV1TooManyRequests describes a response with status code 429, w
 Too Many Requests
 */
 type GetMalQueryRequestV1TooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -540,6 +581,13 @@ func (o *GetMalQueryRequestV1TooManyRequests) GetPayload() *models.MsaReplyMetaO
 
 func (o *GetMalQueryRequestV1TooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -594,6 +642,10 @@ GetMalQueryRequestV1InternalServerError describes a response with status code 50
 Internal Server Error
 */
 type GetMalQueryRequestV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -650,6 +702,13 @@ func (o *GetMalQueryRequestV1InternalServerError) GetPayload() *models.MalqueryR
 
 func (o *GetMalQueryRequestV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -671,78 +730,6 @@ func (o *GetMalQueryRequestV1InternalServerError) readResponse(response runtime.
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MalqueryRequestResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetMalQueryRequestV1Default creates a GetMalQueryRequestV1Default with default headers values
-func NewGetMalQueryRequestV1Default(code int) *GetMalQueryRequestV1Default {
-	return &GetMalQueryRequestV1Default{
-		_statusCode: code,
-	}
-}
-
-/*
-GetMalQueryRequestV1Default describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetMalQueryRequestV1Default struct {
-	_statusCode int
-
-	Payload *models.MalqueryRequestResponse
-}
-
-// IsSuccess returns true when this get mal query request v1 default response has a 2xx status code
-func (o *GetMalQueryRequestV1Default) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get mal query request v1 default response has a 3xx status code
-func (o *GetMalQueryRequestV1Default) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get mal query request v1 default response has a 4xx status code
-func (o *GetMalQueryRequestV1Default) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get mal query request v1 default response has a 5xx status code
-func (o *GetMalQueryRequestV1Default) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get mal query request v1 default response a status code equal to that given
-func (o *GetMalQueryRequestV1Default) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get mal query request v1 default response
-func (o *GetMalQueryRequestV1Default) Code() int {
-	return o._statusCode
-}
-
-func (o *GetMalQueryRequestV1Default) Error() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] GetMalQueryRequestV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetMalQueryRequestV1Default) String() string {
-	return fmt.Sprintf("[GET /malquery/entities/requests/v1][%d] GetMalQueryRequestV1 default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetMalQueryRequestV1Default) GetPayload() *models.MalqueryRequestResponse {
-	return o.Payload
-}
-
-func (o *GetMalQueryRequestV1Default) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MalqueryRequestResponse)
 

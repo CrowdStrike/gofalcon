@@ -56,14 +56,7 @@ func (o *GetConfigurationDetectionsReader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		result := NewGetConfigurationDetectionsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /detects/entities/iom/v1] GetConfigurationDetections", response, response.Code())
 	}
 }
 
@@ -623,78 +616,6 @@ func (o *GetConfigurationDetectionsInternalServerError) readResponse(response ru
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetConfigurationDetectionsDefault creates a GetConfigurationDetectionsDefault with default headers values
-func NewGetConfigurationDetectionsDefault(code int) *GetConfigurationDetectionsDefault {
-	return &GetConfigurationDetectionsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-GetConfigurationDetectionsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type GetConfigurationDetectionsDefault struct {
-	_statusCode int
-
-	Payload *models.RegistrationExternalIOMEventResponse
-}
-
-// IsSuccess returns true when this get configuration detections default response has a 2xx status code
-func (o *GetConfigurationDetectionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get configuration detections default response has a 3xx status code
-func (o *GetConfigurationDetectionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get configuration detections default response has a 4xx status code
-func (o *GetConfigurationDetectionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get configuration detections default response has a 5xx status code
-func (o *GetConfigurationDetectionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get configuration detections default response a status code equal to that given
-func (o *GetConfigurationDetectionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the get configuration detections default response
-func (o *GetConfigurationDetectionsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *GetConfigurationDetectionsDefault) Error() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] GetConfigurationDetections default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetConfigurationDetectionsDefault) String() string {
-	return fmt.Sprintf("[GET /detects/entities/iom/v1][%d] GetConfigurationDetections default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *GetConfigurationDetectionsDefault) GetPayload() *models.RegistrationExternalIOMEventResponse {
-	return o.Payload
-}
-
-func (o *GetConfigurationDetectionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.RegistrationExternalIOMEventResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

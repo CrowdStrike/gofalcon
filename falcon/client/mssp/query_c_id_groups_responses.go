@@ -44,14 +44,7 @@ func (o *QueryCIDGroupsReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return nil, result
 	default:
-		result := NewQueryCIDGroupsDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /mssp/queries/cid-groups/v1] queryCIDGroups", response, response.Code())
 	}
 }
 
@@ -66,6 +59,10 @@ QueryCIDGroupsOK describes a response with status code 200, with default header 
 OK
 */
 type QueryCIDGroupsOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -122,6 +119,13 @@ func (o *QueryCIDGroupsOK) GetPayload() *models.MsaQueryResponse {
 
 func (o *QueryCIDGroupsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -165,6 +169,10 @@ QueryCIDGroupsForbidden describes a response with status code 403, with default 
 Forbidden
 */
 type QueryCIDGroupsForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -221,6 +229,13 @@ func (o *QueryCIDGroupsForbidden) GetPayload() *models.MsaErrorsOnly {
 
 func (o *QueryCIDGroupsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -264,6 +279,10 @@ QueryCIDGroupsTooManyRequests describes a response with status code 429, with de
 Too Many Requests
 */
 type QueryCIDGroupsTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -324,6 +343,13 @@ func (o *QueryCIDGroupsTooManyRequests) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *QueryCIDGroupsTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -358,78 +384,6 @@ func (o *QueryCIDGroupsTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewQueryCIDGroupsDefault creates a QueryCIDGroupsDefault with default headers values
-func NewQueryCIDGroupsDefault(code int) *QueryCIDGroupsDefault {
-	return &QueryCIDGroupsDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-QueryCIDGroupsDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type QueryCIDGroupsDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this query c ID groups default response has a 2xx status code
-func (o *QueryCIDGroupsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this query c ID groups default response has a 3xx status code
-func (o *QueryCIDGroupsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this query c ID groups default response has a 4xx status code
-func (o *QueryCIDGroupsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this query c ID groups default response has a 5xx status code
-func (o *QueryCIDGroupsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this query c ID groups default response a status code equal to that given
-func (o *QueryCIDGroupsDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the query c ID groups default response
-func (o *QueryCIDGroupsDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *QueryCIDGroupsDefault) Error() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIDGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCIDGroupsDefault) String() string {
-	return fmt.Sprintf("[GET /mssp/queries/cid-groups/v1][%d] queryCIDGroups default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *QueryCIDGroupsDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *QueryCIDGroupsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

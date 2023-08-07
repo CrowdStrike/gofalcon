@@ -50,14 +50,7 @@ func (o *ScheduledReportsLaunchReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewScheduledReportsLaunchDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /reports/entities/scheduled-reports/execution/v1] scheduled-reports.launch", response, response.Code())
 	}
 }
 
@@ -85,7 +78,7 @@ type ScheduledReportsLaunchOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIReportExecutionsResponseV1
+	Payload *models.DomainReportExecutionsResponseV1
 }
 
 // IsSuccess returns true when this scheduled reports launch o k response has a 2xx status code
@@ -126,7 +119,7 @@ func (o *ScheduledReportsLaunchOK) String() string {
 	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduledReportsLaunchOK  %+v", 200, o.Payload)
 }
 
-func (o *ScheduledReportsLaunchOK) GetPayload() *models.APIReportExecutionsResponseV1 {
+func (o *ScheduledReportsLaunchOK) GetPayload() *models.DomainReportExecutionsResponseV1 {
 	return o.Payload
 }
 
@@ -161,7 +154,7 @@ func (o *ScheduledReportsLaunchOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIReportExecutionsResponseV1)
+	o.Payload = new(models.DomainReportExecutionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -507,78 +500,6 @@ func (o *ScheduledReportsLaunchTooManyRequests) readResponse(response runtime.Cl
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewScheduledReportsLaunchDefault creates a ScheduledReportsLaunchDefault with default headers values
-func NewScheduledReportsLaunchDefault(code int) *ScheduledReportsLaunchDefault {
-	return &ScheduledReportsLaunchDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-ScheduledReportsLaunchDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type ScheduledReportsLaunchDefault struct {
-	_statusCode int
-
-	Payload *models.APIReportExecutionsResponseV1
-}
-
-// IsSuccess returns true when this scheduled reports launch default response has a 2xx status code
-func (o *ScheduledReportsLaunchDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this scheduled reports launch default response has a 3xx status code
-func (o *ScheduledReportsLaunchDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this scheduled reports launch default response has a 4xx status code
-func (o *ScheduledReportsLaunchDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this scheduled reports launch default response has a 5xx status code
-func (o *ScheduledReportsLaunchDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this scheduled reports launch default response a status code equal to that given
-func (o *ScheduledReportsLaunchDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the scheduled reports launch default response
-func (o *ScheduledReportsLaunchDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *ScheduledReportsLaunchDefault) Error() string {
-	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduled-reports.launch default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ScheduledReportsLaunchDefault) String() string {
-	return fmt.Sprintf("[POST /reports/entities/scheduled-reports/execution/v1][%d] scheduled-reports.launch default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *ScheduledReportsLaunchDefault) GetPayload() *models.APIReportExecutionsResponseV1 {
-	return o.Payload
-}
-
-func (o *ScheduledReportsLaunchDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.APIReportExecutionsResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

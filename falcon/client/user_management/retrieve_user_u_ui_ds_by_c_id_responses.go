@@ -50,14 +50,7 @@ func (o *RetrieveUserUUIDsByCIDReader) ReadResponse(response runtime.ClientRespo
 		}
 		return nil, result
 	default:
-		result := NewRetrieveUserUUIDsByCIDDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[GET /users/queries/user-uuids-by-cid/v1] RetrieveUserUUIDsByCID", response, response.Code())
 	}
 }
 
@@ -507,78 +500,6 @@ func (o *RetrieveUserUUIDsByCIDTooManyRequests) readResponse(response runtime.Cl
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewRetrieveUserUUIDsByCIDDefault creates a RetrieveUserUUIDsByCIDDefault with default headers values
-func NewRetrieveUserUUIDsByCIDDefault(code int) *RetrieveUserUUIDsByCIDDefault {
-	return &RetrieveUserUUIDsByCIDDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-RetrieveUserUUIDsByCIDDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type RetrieveUserUUIDsByCIDDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this retrieve user u UI ds by c ID default response has a 2xx status code
-func (o *RetrieveUserUUIDsByCIDDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this retrieve user u UI ds by c ID default response has a 3xx status code
-func (o *RetrieveUserUUIDsByCIDDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this retrieve user u UI ds by c ID default response has a 4xx status code
-func (o *RetrieveUserUUIDsByCIDDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this retrieve user u UI ds by c ID default response has a 5xx status code
-func (o *RetrieveUserUUIDsByCIDDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this retrieve user u UI ds by c ID default response a status code equal to that given
-func (o *RetrieveUserUUIDsByCIDDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the retrieve user u UI ds by c ID default response
-func (o *RetrieveUserUUIDsByCIDDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *RetrieveUserUUIDsByCIDDefault) Error() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] RetrieveUserUUIDsByCID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveUserUUIDsByCIDDefault) String() string {
-	return fmt.Sprintf("[GET /users/queries/user-uuids-by-cid/v1][%d] RetrieveUserUUIDsByCID default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *RetrieveUserUUIDsByCIDDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *RetrieveUserUUIDsByCIDDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.MsaQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

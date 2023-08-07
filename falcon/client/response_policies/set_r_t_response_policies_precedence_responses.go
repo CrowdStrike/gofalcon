@@ -56,14 +56,7 @@ func (o *SetRTResponsePoliciesPrecedenceReader) ReadResponse(response runtime.Cl
 		}
 		return nil, result
 	default:
-		result := NewSetRTResponsePoliciesPrecedenceDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /policy/entities/response-precedence/v1] setRTResponsePoliciesPrecedence", response, response.Code())
 	}
 }
 
@@ -621,78 +614,6 @@ func (o *SetRTResponsePoliciesPrecedenceInternalServerError) readResponse(respon
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaQueryResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewSetRTResponsePoliciesPrecedenceDefault creates a SetRTResponsePoliciesPrecedenceDefault with default headers values
-func NewSetRTResponsePoliciesPrecedenceDefault(code int) *SetRTResponsePoliciesPrecedenceDefault {
-	return &SetRTResponsePoliciesPrecedenceDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-SetRTResponsePoliciesPrecedenceDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type SetRTResponsePoliciesPrecedenceDefault struct {
-	_statusCode int
-
-	Payload *models.MsaQueryResponse
-}
-
-// IsSuccess returns true when this set r t response policies precedence default response has a 2xx status code
-func (o *SetRTResponsePoliciesPrecedenceDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this set r t response policies precedence default response has a 3xx status code
-func (o *SetRTResponsePoliciesPrecedenceDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this set r t response policies precedence default response has a 4xx status code
-func (o *SetRTResponsePoliciesPrecedenceDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this set r t response policies precedence default response has a 5xx status code
-func (o *SetRTResponsePoliciesPrecedenceDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this set r t response policies precedence default response a status code equal to that given
-func (o *SetRTResponsePoliciesPrecedenceDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the set r t response policies precedence default response
-func (o *SetRTResponsePoliciesPrecedenceDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *SetRTResponsePoliciesPrecedenceDefault) Error() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetRTResponsePoliciesPrecedenceDefault) String() string {
-	return fmt.Sprintf("[POST /policy/entities/response-precedence/v1][%d] setRTResponsePoliciesPrecedence default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *SetRTResponsePoliciesPrecedenceDefault) GetPayload() *models.MsaQueryResponse {
-	return o.Payload
-}
-
-func (o *SetRTResponsePoliciesPrecedenceDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaQueryResponse)
 

@@ -56,7 +56,7 @@ func (o *BatchAdminCmdReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /real-time-response/combined/batch-admin-command/v1] BatchAdminCmd", response, response.Code())
 	}
 }
 

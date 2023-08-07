@@ -56,14 +56,7 @@ func (o *UpdatePolicyContainerReader) ReadResponse(response runtime.ClientRespon
 		}
 		return nil, result
 	default:
-		result := NewUpdatePolicyContainerDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[PUT /fwmgr/entities/policies/v2] update-policy-container", response, response.Code())
 	}
 }
 
@@ -91,7 +84,7 @@ type UpdatePolicyContainerOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this update policy container o k response has a 2xx status code
@@ -132,7 +125,7 @@ func (o *UpdatePolicyContainerOK) String() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerOK  %+v", 200, o.Payload)
 }
 
-func (o *UpdatePolicyContainerOK) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *UpdatePolicyContainerOK) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -167,7 +160,7 @@ func (o *UpdatePolicyContainerOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -201,7 +194,7 @@ type UpdatePolicyContainerCreated struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this update policy container created response has a 2xx status code
@@ -242,7 +235,7 @@ func (o *UpdatePolicyContainerCreated) String() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerCreated  %+v", 201, o.Payload)
 }
 
-func (o *UpdatePolicyContainerCreated) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *UpdatePolicyContainerCreated) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -277,7 +270,7 @@ func (o *UpdatePolicyContainerCreated) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -311,7 +304,7 @@ type UpdatePolicyContainerBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.FwmgrMsaReplyMetaOnly
+	Payload *models.FwmgrMsaspecResponseFields
 }
 
 // IsSuccess returns true when this update policy container bad request response has a 2xx status code
@@ -352,7 +345,7 @@ func (o *UpdatePolicyContainerBadRequest) String() string {
 	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] updatePolicyContainerBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *UpdatePolicyContainerBadRequest) GetPayload() *models.FwmgrMsaReplyMetaOnly {
+func (o *UpdatePolicyContainerBadRequest) GetPayload() *models.FwmgrMsaspecResponseFields {
 	return o.Payload
 }
 
@@ -387,7 +380,7 @@ func (o *UpdatePolicyContainerBadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
+	o.Payload = new(models.FwmgrMsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -623,78 +616,6 @@ func (o *UpdatePolicyContainerTooManyRequests) readResponse(response runtime.Cli
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewUpdatePolicyContainerDefault creates a UpdatePolicyContainerDefault with default headers values
-func NewUpdatePolicyContainerDefault(code int) *UpdatePolicyContainerDefault {
-	return &UpdatePolicyContainerDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-UpdatePolicyContainerDefault describes a response with status code -1, with default header values.
-
-OK
-*/
-type UpdatePolicyContainerDefault struct {
-	_statusCode int
-
-	Payload *models.FwmgrMsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this update policy container default response has a 2xx status code
-func (o *UpdatePolicyContainerDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update policy container default response has a 3xx status code
-func (o *UpdatePolicyContainerDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update policy container default response has a 4xx status code
-func (o *UpdatePolicyContainerDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update policy container default response has a 5xx status code
-func (o *UpdatePolicyContainerDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update policy container default response a status code equal to that given
-func (o *UpdatePolicyContainerDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the update policy container default response
-func (o *UpdatePolicyContainerDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *UpdatePolicyContainerDefault) Error() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdatePolicyContainerDefault) String() string {
-	return fmt.Sprintf("[PUT /fwmgr/entities/policies/v2][%d] update-policy-container default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *UpdatePolicyContainerDefault) GetPayload() *models.FwmgrMsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *UpdatePolicyContainerDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	o.Payload = new(models.FwmgrMsaReplyMetaOnly)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

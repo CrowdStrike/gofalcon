@@ -19,11 +19,11 @@ import (
 // swagger:model domain.LaunchExportJobRequestV1
 type DomainLaunchExportJobRequestV1 struct {
 
-	// The entity type. This can be one of: [notification-exposed-data-record]
+	// The entity type. This can be one of: [`notification-exposed-data-record`]
 	// Required: true
 	Entity *string `json:"entity"`
 
-	// The file type of the export. This can be one of: [json csv]
+	// The file type of the export. This can be one of: [`json`, `csv`]
 	// Required: true
 	ExportType *string `json:"export_type"`
 

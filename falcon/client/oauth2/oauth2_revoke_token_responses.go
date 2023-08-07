@@ -56,14 +56,7 @@ func (o *Oauth2RevokeTokenReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return nil, result
 	default:
-		result := NewOauth2RevokeTokenDefault(response.Code())
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		if response.Code()/100 == 2 {
-			return result, nil
-		}
-		return nil, result
+		return nil, runtime.NewAPIError("[POST /oauth2/revoke] oauth2RevokeToken", response, response.Code())
 	}
 }
 
@@ -78,6 +71,10 @@ Oauth2RevokeTokenOK describes a response with status code 200, with default head
 Successfully revoked token
 */
 type Oauth2RevokeTokenOK struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -134,6 +131,13 @@ func (o *Oauth2RevokeTokenOK) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *Oauth2RevokeTokenOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -177,6 +181,10 @@ Oauth2RevokeTokenBadRequest describes a response with status code 400, with defa
 Bad Request
 */
 type Oauth2RevokeTokenBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -233,6 +241,13 @@ func (o *Oauth2RevokeTokenBadRequest) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *Oauth2RevokeTokenBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -276,6 +291,10 @@ Oauth2RevokeTokenForbidden describes a response with status code 403, with defau
 Forbidden
 */
 type Oauth2RevokeTokenForbidden struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -332,6 +351,13 @@ func (o *Oauth2RevokeTokenForbidden) GetPayload() *models.MsaReplyMetaOnly {
 
 func (o *Oauth2RevokeTokenForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -375,6 +401,10 @@ Oauth2RevokeTokenTooManyRequests describes a response with status code 429, with
 Too Many Requests
 */
 type Oauth2RevokeTokenTooManyRequests struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -435,6 +465,13 @@ func (o *Oauth2RevokeTokenTooManyRequests) GetPayload() *models.MsaReplyMetaOnly
 
 func (o *Oauth2RevokeTokenTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -489,6 +526,10 @@ Oauth2RevokeTokenInternalServerError describes a response with status code 500, 
 Failed to revoke token
 */
 type Oauth2RevokeTokenInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
 
 	/* Request limit per minute.
 	 */
@@ -545,6 +586,13 @@ func (o *Oauth2RevokeTokenInternalServerError) GetPayload() *models.MsaReplyMeta
 
 func (o *Oauth2RevokeTokenInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
 	// hydrates response header X-RateLimit-Limit
 	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
 
@@ -566,78 +614,6 @@ func (o *Oauth2RevokeTokenInternalServerError) readResponse(response runtime.Cli
 		}
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
-
-	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewOauth2RevokeTokenDefault creates a Oauth2RevokeTokenDefault with default headers values
-func NewOauth2RevokeTokenDefault(code int) *Oauth2RevokeTokenDefault {
-	return &Oauth2RevokeTokenDefault{
-		_statusCode: code,
-	}
-}
-
-/*
-Oauth2RevokeTokenDefault describes a response with status code -1, with default header values.
-
-Successfully revoked token
-*/
-type Oauth2RevokeTokenDefault struct {
-	_statusCode int
-
-	Payload *models.MsaReplyMetaOnly
-}
-
-// IsSuccess returns true when this oauth2 revoke token default response has a 2xx status code
-func (o *Oauth2RevokeTokenDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this oauth2 revoke token default response has a 3xx status code
-func (o *Oauth2RevokeTokenDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this oauth2 revoke token default response has a 4xx status code
-func (o *Oauth2RevokeTokenDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this oauth2 revoke token default response has a 5xx status code
-func (o *Oauth2RevokeTokenDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this oauth2 revoke token default response a status code equal to that given
-func (o *Oauth2RevokeTokenDefault) IsCode(code int) bool {
-	return o._statusCode == code
-}
-
-// Code gets the status code for the oauth2 revoke token default response
-func (o *Oauth2RevokeTokenDefault) Code() int {
-	return o._statusCode
-}
-
-func (o *Oauth2RevokeTokenDefault) Error() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeToken default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *Oauth2RevokeTokenDefault) String() string {
-	return fmt.Sprintf("[POST /oauth2/revoke][%d] oauth2RevokeToken default  %+v", o._statusCode, o.Payload)
-}
-
-func (o *Oauth2RevokeTokenDefault) GetPayload() *models.MsaReplyMetaOnly {
-	return o.Payload
-}
-
-func (o *Oauth2RevokeTokenDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MsaReplyMetaOnly)
 

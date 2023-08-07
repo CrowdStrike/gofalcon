@@ -140,6 +140,11 @@ func (m *FwmgrAPIMetaInfo) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *FwmgrAPIMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pagination != nil {
+
+		if swag.IsZero(m.Pagination) { // not required
+			return nil
+		}
+
 		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pagination")
@@ -156,6 +161,11 @@ func (m *FwmgrAPIMetaInfo) contextValidatePagination(ctx context.Context, format
 func (m *FwmgrAPIMetaInfo) contextValidateWrites(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Writes != nil {
+
+		if swag.IsZero(m.Writes) { // not required
+			return nil
+		}
+
 		if err := m.Writes.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("writes")

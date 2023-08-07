@@ -23,7 +23,7 @@ type RegistrationIOAEvent struct {
 	AdditionalEventData string `json:"additional_event_data,omitempty"`
 
 	// aggregate
-	Aggregate *DomainIOAEventAggregate `json:"aggregate,omitempty"`
+	Aggregate *IoaEventAggregate `json:"aggregate,omitempty"`
 
 	// api version
 	APIVersion string `json:"api_version,omitempty"`
@@ -33,7 +33,7 @@ type RegistrationIOAEvent struct {
 	Cid *string `json:"cid"`
 
 	// cloud account id
-	CloudAccountID *DomainCloudAccountID `json:"cloud_account_id,omitempty"`
+	CloudAccountID *IoaCloudAccountID `json:"cloud_account_id,omitempty"`
 
 	// cloud provider
 	// Required: true
@@ -43,7 +43,7 @@ type RegistrationIOAEvent struct {
 	CloudRegion string `json:"cloud_region,omitempty"`
 
 	// enrichments
-	Enrichments *DomainIOAEnrichments `json:"enrichments,omitempty"`
+	Enrichments *IoaEnrichments `json:"enrichments,omitempty"`
 
 	// error code
 	ErrorCode string `json:"error_code,omitempty"`
@@ -93,13 +93,13 @@ type RegistrationIOAEvent struct {
 	RequestID string `json:"request_id,omitempty"`
 
 	// request parameters
-	RequestParameters string `json:"request_parameters,omitempty"`
+	RequestParameters interface{} `json:"request_parameters,omitempty"`
 
 	// resources
-	Resources string `json:"resources,omitempty"`
+	Resources []interface{} `json:"resources"`
 
 	// response elements
-	ResponseElements string `json:"response_elements,omitempty"`
+	ResponseElements interface{} `json:"response_elements,omitempty"`
 
 	// service
 	// Required: true
@@ -129,7 +129,7 @@ type RegistrationIOAEvent struct {
 	UserID string `json:"user_id,omitempty"`
 
 	// user identity
-	UserIdentity string `json:"user_identity,omitempty"`
+	UserIdentity interface{} `json:"user_identity,omitempty"`
 
 	// vertex id
 	// Required: true
@@ -364,6 +364,11 @@ func (m *RegistrationIOAEvent) ContextValidate(ctx context.Context, formats strf
 func (m *RegistrationIOAEvent) contextValidateAggregate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Aggregate != nil {
+
+		if swag.IsZero(m.Aggregate) { // not required
+			return nil
+		}
+
 		if err := m.Aggregate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("aggregate")
@@ -380,6 +385,11 @@ func (m *RegistrationIOAEvent) contextValidateAggregate(ctx context.Context, for
 func (m *RegistrationIOAEvent) contextValidateCloudAccountID(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CloudAccountID != nil {
+
+		if swag.IsZero(m.CloudAccountID) { // not required
+			return nil
+		}
+
 		if err := m.CloudAccountID.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cloud_account_id")
@@ -396,6 +406,11 @@ func (m *RegistrationIOAEvent) contextValidateCloudAccountID(ctx context.Context
 func (m *RegistrationIOAEvent) contextValidateEnrichments(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Enrichments != nil {
+
+		if swag.IsZero(m.Enrichments) { // not required
+			return nil
+		}
+
 		if err := m.Enrichments.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enrichments")

@@ -20,11 +20,11 @@ import (
 // swagger:model domain.ActorsResponse
 type DomainActorsResponse struct {
 
-	// errors
+	// Array of API Errors
 	// Required: true
 	Errors []*MsaAPIError `json:"errors"`
 
-	// meta
+	// Meta information of a request, including traceID of the request and pagination information
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
@@ -156,6 +156,11 @@ func (m *DomainActorsResponse) contextValidateErrors(ctx context.Context, format
 	for i := 0; i < len(m.Errors); i++ {
 
 		if m.Errors[i] != nil {
+
+			if swag.IsZero(m.Errors[i]) { // not required
+				return nil
+			}
+
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
@@ -174,6 +179,7 @@ func (m *DomainActorsResponse) contextValidateErrors(ctx context.Context, format
 func (m *DomainActorsResponse) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
@@ -192,6 +198,11 @@ func (m *DomainActorsResponse) contextValidateResources(ctx context.Context, for
 	for i := 0; i < len(m.Resources); i++ {
 
 		if m.Resources[i] != nil {
+
+			if swag.IsZero(m.Resources[i]) { // not required
+				return nil
+			}
+
 			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))

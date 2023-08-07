@@ -64,7 +64,7 @@ CreateHostGroupsParams contains all the parameters to send to the API endpoint
 type CreateHostGroupsParams struct {
 
 	// Body.
-	Body *models.RequestsCreateGroupsV1
+	Body *models.HostGroupsCreateGroupsReqV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *CreateHostGroupsParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the create host groups params
-func (o *CreateHostGroupsParams) WithBody(body *models.RequestsCreateGroupsV1) *CreateHostGroupsParams {
+func (o *CreateHostGroupsParams) WithBody(body *models.HostGroupsCreateGroupsReqV1) *CreateHostGroupsParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the create host groups params
-func (o *CreateHostGroupsParams) SetBody(body *models.RequestsCreateGroupsV1) {
+func (o *CreateHostGroupsParams) SetBody(body *models.HostGroupsCreateGroupsReqV1) {
 	o.Body = body
 }
 

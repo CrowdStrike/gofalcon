@@ -24,6 +24,10 @@ type MsaAggregateQueryRequest struct {
 	// Required: true
 	DateRanges []*MsaDateRangeSpec `json:"date_ranges"`
 
+	// exclude
+	// Required: true
+	Exclude *string `json:"exclude"`
+
 	// field
 	// Required: true
 	Field *string `json:"field"`
@@ -44,9 +48,11 @@ type MsaAggregateQueryRequest struct {
 	// Required: true
 	Interval *string `json:"interval"`
 
+	// max doc count
+	MaxDocCount int64 `json:"max_doc_count,omitempty"`
+
 	// min doc count
-	// Required: true
-	MinDocCount *int64 `json:"min_doc_count"`
+	MinDocCount int64 `json:"min_doc_count,omitempty"`
 
 	// missing
 	// Required: true
@@ -93,6 +99,10 @@ func (m *MsaAggregateQueryRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateExclude(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateField(formats); err != nil {
 		res = append(res, err)
 	}
@@ -110,10 +120,6 @@ func (m *MsaAggregateQueryRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateInterval(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMinDocCount(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -186,6 +192,15 @@ func (m *MsaAggregateQueryRequest) validateDateRanges(formats strfmt.Registry) e
 	return nil
 }
 
+func (m *MsaAggregateQueryRequest) validateExclude(formats strfmt.Registry) error {
+
+	if err := validate.Required("exclude", "body", m.Exclude); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *MsaAggregateQueryRequest) validateField(formats strfmt.Registry) error {
 
 	if err := validate.Required("field", "body", m.Field); err != nil {
@@ -225,15 +240,6 @@ func (m *MsaAggregateQueryRequest) validateInclude(formats strfmt.Registry) erro
 func (m *MsaAggregateQueryRequest) validateInterval(formats strfmt.Registry) error {
 
 	if err := validate.Required("interval", "body", m.Interval); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *MsaAggregateQueryRequest) validateMinDocCount(formats strfmt.Registry) error {
-
-	if err := validate.Required("min_doc_count", "body", m.MinDocCount); err != nil {
 		return err
 	}
 
@@ -384,6 +390,11 @@ func (m *MsaAggregateQueryRequest) contextValidateDateRanges(ctx context.Context
 	for i := 0; i < len(m.DateRanges); i++ {
 
 		if m.DateRanges[i] != nil {
+
+			if swag.IsZero(m.DateRanges[i]) { // not required
+				return nil
+			}
+
 			if err := m.DateRanges[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("date_ranges" + "." + strconv.Itoa(i))
@@ -404,6 +415,11 @@ func (m *MsaAggregateQueryRequest) contextValidateRanges(ctx context.Context, fo
 	for i := 0; i < len(m.Ranges); i++ {
 
 		if m.Ranges[i] != nil {
+
+			if swag.IsZero(m.Ranges[i]) { // not required
+				return nil
+			}
+
 			if err := m.Ranges[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ranges" + "." + strconv.Itoa(i))
@@ -424,6 +440,11 @@ func (m *MsaAggregateQueryRequest) contextValidateSubAggregates(ctx context.Cont
 	for i := 0; i < len(m.SubAggregates); i++ {
 
 		if m.SubAggregates[i] != nil {
+
+			if swag.IsZero(m.SubAggregates[i]) { // not required
+				return nil
+			}
+
 			if err := m.SubAggregates[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sub_aggregates" + "." + strconv.Itoa(i))
