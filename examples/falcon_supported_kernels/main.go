@@ -103,7 +103,7 @@ func getValidDistroNames(client *client.CrowdStrikeAPISpecification) []string {
 	return list
 }
 
-func query(client *client.CrowdStrikeAPISpecification, filter string) []*models.ResponsesSensorUpdateKernelV1 {
+func query(client *client.CrowdStrikeAPISpecification, filter string) []*models.SensorUpdateKernelRespV1 {
 	limit := int64(100)
 	response, err := client.SensorUpdatePolicies.QueryCombinedSensorUpdateKernels(&sensor_update_policies.QueryCombinedSensorUpdateKernelsParams{
 		Filter:  &filter,

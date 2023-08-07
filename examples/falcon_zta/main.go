@@ -53,7 +53,7 @@ Falcon Client Secret`)
 		panic(err)
 	}
 	if *statistics {
-		response, err := client.ZeroTrustAssessment.GetComplianceV1(&zero_trust_assessment.GetComplianceV1Params{
+		response, err := client.ZeroTrustAssessment.GetAssessmentV1(&zero_trust_assessment.GetAssessmentV1Params{
 			Context: ctx,
 		})
 		if err != nil {

@@ -48,17 +48,9 @@ Falcon Client Secret`)
 		fmt.Fprintf(os.Stderr, "WARNING: %v (trace_id=%s)", err, traceId)
 	}
 	resources := payload.Resources
-	resourcesList := resources.([]interface{})
-	if len(resourcesList) != 1 {
-		fmt.Fprintf(os.Stderr, "Expected to receive exactly one token, but got %d\n", len(resourcesList))
+	if len(resources) != 1 {
+		fmt.Fprintf(os.Stderr, "Expected to receive exactly one token, but got %d\n", len(resources))
 		panic("Unexpected response")
 	}
-	resourceMap := resourcesList[0].(map[string]interface{})
-	value, ok := resourceMap["token"]
-	if !ok {
-		fmt.Fprintf(os.Stderr, "Expected to receive map containing 'token' key, but got %s\n", resourceMap)
-		panic("Unexpected response")
-	}
-	valueString := value.(string)
-	fmt.Printf("%s", valueString)
+	fmt.Printf("%s\n", *resources[0].Token)
 }
