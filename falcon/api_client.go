@@ -25,13 +25,16 @@ func NewClient(ac *ApiConfig) (*client.CrowdStrikeAPISpecification, error) {
 		return nil, errors.New("Invalid Context for falcon.ApiConfig.Context. Make that ApiConfig.Context is set.")
 	}
 
-	if ac.AccessToken == "" {
-		if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
-			return nil, err
+	// If HostOverride is provided we do not need to discover the cloud
+	if ac.HostOverride == "" {
+		if ac.AccessToken == "" {
+			if err := ac.Cloud.Autodiscover(ac.Context, ac.ClientId, ac.ClientSecret); err != nil {
+				return nil, err
+			}
+		} else if ac.Cloud == CloudAutoDiscover {
+			// There is nothing in the access token (JWT) which identifies the cloud.
+			return nil, errors.New("Cannot autodiscover cloud when using an access token. Please specify the cloud explicitly.")
 		}
-	} else if ac.Cloud == CloudAutoDiscover {
-		// There is nothing in the access token (JWT) which identifies the cloud.
-		return nil, errors.New("Cannot autodiscover cloud when using an access token. Please specify the cloud explicitly.")
 	}
 
 	var authenticatedClient *http.Client
