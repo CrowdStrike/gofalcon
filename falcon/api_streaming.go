@@ -17,27 +17,31 @@ import (
 
 // StreamingHandle is higher order type that allows for easy use of CrowdStrike Falcon Streaming API
 type StreamingHandle struct {
-	ctx        context.Context
-	client     *client.CrowdStrikeAPISpecification
-	appId      string
-	offset     uint64
-	stream     *models.MainAvailableStreamV2
-	Events     chan *streaming_models.EventItem
-	Errors     chan StreamingError
-	HTTPClient *http.Client
+	ctx           context.Context
+	ctxCancelFunc context.CancelFunc
+	client        *client.CrowdStrikeAPISpecification
+	appId         string
+	offset        uint64
+	stream        *models.MainAvailableStreamV2
+	Events        chan *streaming_models.EventItem
+	Errors        chan StreamingError
+	HTTPClient    *http.Client
 }
 
 // newStream initializes new StreamingHandle and connects to the Streaming API using the provided http.Client.
 func newStream(ctx context.Context, client *client.CrowdStrikeAPISpecification, appId string, stream *models.MainAvailableStreamV2, offset uint64, httpClient *http.Client) (*StreamingHandle, error) {
+	ctx, cancel := context.WithCancel(ctx)
+
 	sh := &StreamingHandle{
-		ctx:        ctx,
-		client:     client,
-		appId:      appId,
-		stream:     stream,
-		offset:     offset,
-		Events:     make(chan *streaming_models.EventItem),
-		Errors:     make(chan StreamingError),
-		HTTPClient: httpClient,
+		ctx:           ctx,
+		ctxCancelFunc: cancel,
+		client:        client,
+		appId:         appId,
+		stream:        stream,
+		offset:        offset,
+		Events:        make(chan *streaming_models.EventItem),
+		Errors:        make(chan StreamingError),
+		HTTPClient:    httpClient,
 	}
 	sh.maintainSession()
 	err := sh.open()
@@ -109,24 +113,37 @@ func (sh *StreamingHandle) open() error {
 
 	sh.Events = make(chan *streaming_models.EventItem)
 	go func() {
-		dec := json.NewDecoder(resp.Body)
-		for dec.More() {
-			var detection streaming_models.EventItem
-			//dec.DisallowUnknownFields()
-			err := dec.Decode(&detection)
+		defer func() {
+			err := resp.Body.Close()
+
 			if err != nil {
-				sh.Errors <- StreamingError{Fatal: false, Err: err}
+				fmt.Fprintf(os.Stderr, "Error while closing the streaming connection: %v", err)
 			}
-			sh.Events <- &detection
-		}
-		sh.Errors <- StreamingError{
-			Fatal: true,
-			Err:   errors.New("streaming connection closed"),
-		}
-		close(sh.Events)
-		err = resp.Body.Close()
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error while closing the streaming connection: %v", err)
+
+			sh.Errors <- StreamingError{
+				Fatal: true,
+				Err:   errors.New("streaming connection closed"),
+			}
+			close(sh.Errors)
+			close(sh.Events)
+		}()
+
+		dec := json.NewDecoder(resp.Body)
+		for {
+			select {
+			case <-sh.ctx.Done():
+				return
+			default:
+				if dec.More() {
+					var detection streaming_models.EventItem
+					err := dec.Decode(&detection)
+					if err != nil {
+						sh.Errors <- StreamingError{Fatal: false, Err: err}
+					}
+					sh.Events <- &detection
+				}
+			}
+
 		}
 	}()
 
@@ -135,9 +152,10 @@ func (sh *StreamingHandle) open() error {
 
 // Close the StreamingHandle after use
 func (sh *StreamingHandle) Close() {
-	close(sh.Errors)
-	sh.Errors = nil
-	sh.HTTPClient.CloseIdleConnections()
+	sh.ctxCancelFunc()
+	if sh.HTTPClient != nil {
+		sh.HTTPClient.CloseIdleConnections()
+	}
 }
 
 func (sh *StreamingHandle) url() string {
