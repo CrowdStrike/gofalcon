@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/crowdstrike/gofalcon/falcon/client"
@@ -117,13 +116,17 @@ func (sh *StreamingHandle) open() error {
 			err := resp.Body.Close()
 
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error while closing the streaming connection: %v", err)
+				sh.Errors <- StreamingError{
+					Fatal: false,
+					Err:   err,
+				}
 			}
 
 			sh.Errors <- StreamingError{
 				Fatal: true,
 				Err:   errors.New("streaming connection closed"),
 			}
+
 			close(sh.Errors)
 			close(sh.Events)
 		}()
@@ -143,7 +146,6 @@ func (sh *StreamingHandle) open() error {
 					sh.Events <- &detection
 				}
 			}
-
 		}
 	}()
 
