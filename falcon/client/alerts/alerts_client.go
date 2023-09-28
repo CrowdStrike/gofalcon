@@ -118,7 +118,7 @@ func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts
 }
 
 /*
-PostAggregatesAlertsV1 retrieves aggregates for alerts across all c i ds
+PostAggregatesAlertsV1 retrieves aggregate values for alerts across all c i ds
 */
 func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error) {
 	// TODO: Validate the params before sending

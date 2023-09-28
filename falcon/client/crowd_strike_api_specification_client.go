@@ -16,6 +16,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
+	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
 	"github.com/crowdstrike/gofalcon/falcon/client/d4c_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/detects"
 	"github.com/crowdstrike/gofalcon/falcon/client/device_control_policies"
@@ -59,7 +60,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
+	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_audit"
 	"github.com/crowdstrike/gofalcon/falcon/client/recon"
+	"github.com/crowdstrike/gofalcon/falcon/client/registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
@@ -71,6 +74,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities_evaluation_logic"
+	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
 	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
 )
 
@@ -122,6 +126,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.CspmRegistration = cspm_registration.New(transport, formats)
 	cli.CustomIoa = custom_ioa.New(transport, formats)
+	cli.CustomStorage = custom_storage.New(transport, formats)
 	cli.D4cRegistration = d4c_registration.New(transport, formats)
 	cli.Detects = detects.New(transport, formats)
 	cli.DeviceControlPolicies = device_control_policies.New(transport, formats)
@@ -165,7 +170,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
+	cli.RealTimeResponseAudit = real_time_response_audit.New(transport, formats)
 	cli.Recon = recon.New(transport, formats)
+	cli.Registration = registration.New(transport, formats)
 	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
@@ -177,6 +184,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Vulnerabilities = vulnerabilities.New(transport, formats)
 	cli.VulnerabilitiesEvaluationLogic = vulnerabilities_evaluation_logic.New(transport, formats)
+	cli.Workflows = workflows.New(transport, formats)
 	cli.ZeroTrustAssessment = zero_trust_assessment.New(transport, formats)
 	return cli
 }
@@ -233,6 +241,8 @@ type CrowdStrikeAPISpecification struct {
 	CspmRegistration cspm_registration.ClientService
 
 	CustomIoa custom_ioa.ClientService
+
+	CustomStorage custom_storage.ClientService
 
 	D4cRegistration d4c_registration.ClientService
 
@@ -320,7 +330,11 @@ type CrowdStrikeAPISpecification struct {
 
 	RealTimeResponseAdmin real_time_response_admin.ClientService
 
+	RealTimeResponseAudit real_time_response_audit.ClientService
+
 	Recon recon.ClientService
+
+	Registration registration.ClientService
 
 	ReportExecutions report_executions.ClientService
 
@@ -344,6 +358,8 @@ type CrowdStrikeAPISpecification struct {
 
 	VulnerabilitiesEvaluationLogic vulnerabilities_evaluation_logic.ClientService
 
+	Workflows workflows.ClientService
+
 	ZeroTrustAssessment zero_trust_assessment.ClientService
 
 	Transport runtime.ClientTransport
@@ -358,6 +374,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.CspmRegistration.SetTransport(transport)
 	c.CustomIoa.SetTransport(transport)
+	c.CustomStorage.SetTransport(transport)
 	c.D4cRegistration.SetTransport(transport)
 	c.Detects.SetTransport(transport)
 	c.DeviceControlPolicies.SetTransport(transport)
@@ -401,7 +418,9 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)
 	c.RealTimeResponseAdmin.SetTransport(transport)
+	c.RealTimeResponseAudit.SetTransport(transport)
 	c.Recon.SetTransport(transport)
+	c.Registration.SetTransport(transport)
 	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
@@ -413,5 +432,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.UserManagement.SetTransport(transport)
 	c.Vulnerabilities.SetTransport(transport)
 	c.VulnerabilitiesEvaluationLogic.SetTransport(transport)
+	c.Workflows.SetTransport(transport)
 	c.ZeroTrustAssessment.SetTransport(transport)
 }

@@ -48,6 +48,8 @@ type ClientService interface {
 
 	GetScansByScanIds(params *GetScansByScanIdsParams, opts ...ClientOption) (*GetScansByScanIdsOK, error)
 
+	GetScansByScanIdsV2(params *GetScansByScanIdsV2Params, opts ...ClientOption) (*GetScansByScanIdsV2OK, error)
+
 	GetScheduledScansByScanIds(params *GetScheduledScansByScanIdsParams, opts ...ClientOption) (*GetScheduledScansByScanIdsOK, error)
 
 	QueryMaliciousFiles(params *QueryMaliciousFilesParams, opts ...ClientOption) (*QueryMaliciousFilesOK, error)
@@ -402,6 +404,44 @@ func (a *Client) GetScansByScanIds(params *GetScansByScanIdsParams, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for get-scans-by-scan-ids: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetScansByScanIdsV2 gets scans by i ds
+*/
+func (a *Client) GetScansByScanIdsV2(params *GetScansByScanIdsV2Params, opts ...ClientOption) (*GetScansByScanIdsV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetScansByScanIdsV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "get-scans-by-scan-ids-v2",
+		Method:             "GET",
+		PathPattern:        "/ods/entities/scans/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetScansByScanIdsV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetScansByScanIdsV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for get-scans-by-scan-ids-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

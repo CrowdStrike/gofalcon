@@ -19,23 +19,34 @@ import (
 // swagger:model domain.MetaInfo
 type DomainMetaInfo struct {
 
-	// msa meta info
-	// Required: true
-	MsaMetaInfo *MsaMetaInfo `json:"MsaMetaInfo"`
+	// pagination
+	Pagination *DomainAssessmentPaging `json:"pagination,omitempty"`
 
-	// quota
-	Quota *DomainQuota `json:"quota,omitempty"`
+	// powered by
+	PoweredBy string `json:"powered_by,omitempty"`
+
+	// query time
+	// Required: true
+	QueryTime *float64 `json:"query_time"`
+
+	// trace id
+	// Required: true
+	TraceID *string `json:"trace_id"`
 }
 
 // Validate validates this domain meta info
 func (m *DomainMetaInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateMsaMetaInfo(formats); err != nil {
+	if err := m.validatePagination(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateQuota(formats); err != nil {
+	if err := m.validateQueryTime(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTraceID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -45,18 +56,17 @@ func (m *DomainMetaInfo) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainMetaInfo) validateMsaMetaInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("MsaMetaInfo", "body", m.MsaMetaInfo); err != nil {
-		return err
+func (m *DomainMetaInfo) validatePagination(formats strfmt.Registry) error {
+	if swag.IsZero(m.Pagination) { // not required
+		return nil
 	}
 
-	if m.MsaMetaInfo != nil {
-		if err := m.MsaMetaInfo.Validate(formats); err != nil {
+	if m.Pagination != nil {
+		if err := m.Pagination.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
+				return ve.ValidateName("pagination")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}
@@ -65,20 +75,19 @@ func (m *DomainMetaInfo) validateMsaMetaInfo(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainMetaInfo) validateQuota(formats strfmt.Registry) error {
-	if swag.IsZero(m.Quota) { // not required
-		return nil
+func (m *DomainMetaInfo) validateQueryTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("query_time", "body", m.QueryTime); err != nil {
+		return err
 	}
 
-	if m.Quota != nil {
-		if err := m.Quota.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("quota")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("quota")
-			}
-			return err
-		}
+	return nil
+}
+
+func (m *DomainMetaInfo) validateTraceID(formats strfmt.Registry) error {
+
+	if err := validate.Required("trace_id", "body", m.TraceID); err != nil {
+		return err
 	}
 
 	return nil
@@ -88,11 +97,7 @@ func (m *DomainMetaInfo) validateQuota(formats strfmt.Registry) error {
 func (m *DomainMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateMsaMetaInfo(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateQuota(ctx, formats); err != nil {
+	if err := m.contextValidatePagination(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,36 +107,19 @@ func (m *DomainMetaInfo) ContextValidate(ctx context.Context, formats strfmt.Reg
 	return nil
 }
 
-func (m *DomainMetaInfo) contextValidateMsaMetaInfo(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainMetaInfo) contextValidatePagination(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.MsaMetaInfo != nil {
+	if m.Pagination != nil {
 
-		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainMetaInfo) contextValidateQuota(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Quota != nil {
-
-		if swag.IsZero(m.Quota) { // not required
+		if swag.IsZero(m.Pagination) { // not required
 			return nil
 		}
 
-		if err := m.Quota.ContextValidate(ctx, formats); err != nil {
+		if err := m.Pagination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("quota")
+				return ve.ValidateName("pagination")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("quota")
+				return ce.ValidateName("pagination")
 			}
 			return err
 		}

@@ -29,8 +29,7 @@ type DomainSession struct {
 	CloudRequestIds []string `json:"cloud_request_ids"`
 
 	// commands
-	// Required: true
-	Commands map[string]DomainSessionCommands `json:"commands"`
+	Commands map[string]DomainSessionCommands `json:"commands,omitempty"`
 
 	// commands queued
 	// Required: true
@@ -47,8 +46,7 @@ type DomainSession struct {
 	DeletedAt *strfmt.DateTime `json:"deleted_at"`
 
 	// device details
-	// Required: true
-	DeviceDetails *DomainDevice `json:"device_details"`
+	DeviceDetails *DomainDevice `json:"device_details,omitempty"`
 
 	// device id
 	// Required: true
@@ -79,16 +77,13 @@ type DomainSession struct {
 	Origin *string `json:"origin"`
 
 	// platform id
-	// Required: true
-	PlatformID *int32 `json:"platform_id"`
+	PlatformID int32 `json:"platform_id,omitempty"`
 
 	// platform name
-	// Required: true
-	PlatformName *string `json:"platform_name"`
+	PlatformName string `json:"platform_name,omitempty"`
 
 	// pwd
-	// Required: true
-	Pwd *string `json:"pwd"`
+	Pwd string `json:"pwd,omitempty"`
 
 	// updated at
 	// Required: true
@@ -113,10 +108,6 @@ func (m *DomainSession) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCloudRequestIds(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCommands(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -164,18 +155,6 @@ func (m *DomainSession) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validatePlatformID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePlatformName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePwd(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateUpdatedAt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -207,23 +186,6 @@ func (m *DomainSession) validateCloudRequestIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("cloud_request_ids", "body", m.CloudRequestIds); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSession) validateCommands(formats strfmt.Registry) error {
-
-	if err := validate.Required("commands", "body", m.Commands); err != nil {
-		return err
-	}
-
-	for k := range m.Commands {
-
-		if err := validate.Required("commands"+"."+k, "body", m.Commands[k]); err != nil {
-			return err
-		}
-
 	}
 
 	return nil
@@ -265,9 +227,8 @@ func (m *DomainSession) validateDeletedAt(formats strfmt.Registry) error {
 }
 
 func (m *DomainSession) validateDeviceDetails(formats strfmt.Registry) error {
-
-	if err := validate.Required("device_details", "body", m.DeviceDetails); err != nil {
-		return err
+	if swag.IsZero(m.DeviceDetails) { // not required
+		return nil
 	}
 
 	if m.DeviceDetails != nil {
@@ -365,33 +326,6 @@ func (m *DomainSession) validateOrigin(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainSession) validatePlatformID(formats strfmt.Registry) error {
-
-	if err := validate.Required("platform_id", "body", m.PlatformID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSession) validatePlatformName(formats strfmt.Registry) error {
-
-	if err := validate.Required("platform_name", "body", m.PlatformName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainSession) validatePwd(formats strfmt.Registry) error {
-
-	if err := validate.Required("pwd", "body", m.Pwd); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *DomainSession) validateUpdatedAt(formats strfmt.Registry) error {
 
 	if err := validate.Required("updated_at", "body", m.UpdatedAt); err != nil {
@@ -444,6 +378,10 @@ func (m *DomainSession) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *DomainSession) contextValidateDeviceDetails(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DeviceDetails != nil {
+
+		if swag.IsZero(m.DeviceDetails) { // not required
+			return nil
+		}
 
 		if err := m.DeviceDetails.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {

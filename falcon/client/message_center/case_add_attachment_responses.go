@@ -194,7 +194,7 @@ type CaseAddAttachmentBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add attachment bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CaseAddAttachmentBadRequest) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CaseAddAttachmentBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CaseAddAttachmentBadRequest) readResponse(response runtime.ClientRespon
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CaseAddAttachmentForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add attachment forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CaseAddAttachmentForbidden) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CaseAddAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CaseAddAttachmentForbidden) readResponse(response runtime.ClientRespons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CaseAddAttachmentInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add attachment internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CaseAddAttachmentInternalServerError) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-attachment/v1][%d] caseAddAttachmentInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CaseAddAttachmentInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CaseAddAttachmentInternalServerError) readResponse(response runtime.Cli
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

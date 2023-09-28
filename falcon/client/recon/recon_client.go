@@ -86,7 +86,7 @@ type ClientService interface {
 }
 
 /*
-AggregateNotificationsExposedDataRecordsV1 gets notification exposed data record aggregates as specified via JSON in request body the valid aggregation fields are cid notification id created date rule id rule name rule topic source category site author file name
+AggregateNotificationsExposedDataRecordsV1 gets notification exposed data record aggregates as specified via JSON in request body the valid aggregation fields are cid notification id created date rule id rule name rule topic source category site author file name credential status bot operating system hardware id bot bot id
 */
 func (a *Client) AggregateNotificationsExposedDataRecordsV1(params *AggregateNotificationsExposedDataRecordsV1Params, opts ...ClientOption) (*AggregateNotificationsExposedDataRecordsV1OK, error) {
 	// TODO: Validate the params before sending

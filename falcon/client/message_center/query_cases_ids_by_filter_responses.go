@@ -84,7 +84,7 @@ type QueryCasesIdsByFilterOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query cases ids by filter o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueryCasesIdsByFilterOK) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryCasesIdsByFilterOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryCasesIdsByFilterOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueryCasesIdsByFilterOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type QueryCasesIdsByFilterBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query cases ids by filter bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *QueryCasesIdsByFilterBadRequest) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryCasesIdsByFilterBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryCasesIdsByFilterBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *QueryCasesIdsByFilterBadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type QueryCasesIdsByFilterForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query cases ids by filter forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *QueryCasesIdsByFilterForbidden) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterForbidden  %+v", 403, o.Payload)
 }
 
-func (o *QueryCasesIdsByFilterForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryCasesIdsByFilterForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *QueryCasesIdsByFilterForbidden) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type QueryCasesIdsByFilterInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query cases ids by filter internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *QueryCasesIdsByFilterInternalServerError) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/cases/v1][%d] queryCasesIdsByFilterInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryCasesIdsByFilterInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryCasesIdsByFilterInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *QueryCasesIdsByFilterInternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

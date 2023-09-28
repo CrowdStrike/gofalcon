@@ -84,7 +84,7 @@ type QueryActivityByCaseIDOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this query activity by case Id o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *QueryActivityByCaseIDOK) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdOK  %+v", 200, o.Payload)
 }
 
-func (o *QueryActivityByCaseIDOK) GetPayload() *models.MsaQueryResponse {
+func (o *QueryActivityByCaseIDOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *QueryActivityByCaseIDOK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type QueryActivityByCaseIDBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query activity by case Id bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *QueryActivityByCaseIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *QueryActivityByCaseIDBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryActivityByCaseIDBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *QueryActivityByCaseIDBadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type QueryActivityByCaseIDForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query activity by case Id forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *QueryActivityByCaseIDForbidden) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdForbidden  %+v", 403, o.Payload)
 }
 
-func (o *QueryActivityByCaseIDForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryActivityByCaseIDForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *QueryActivityByCaseIDForbidden) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type QueryActivityByCaseIDInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this query activity by case Id internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *QueryActivityByCaseIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /message-center/queries/case-activities/v1][%d] queryActivityByCaseIdInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *QueryActivityByCaseIDInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *QueryActivityByCaseIDInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *QueryActivityByCaseIDInternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

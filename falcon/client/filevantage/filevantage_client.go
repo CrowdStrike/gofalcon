@@ -30,11 +30,381 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreatePolicies(params *CreatePoliciesParams, opts ...ClientOption) (*CreatePoliciesOK, error)
+
+	CreateRuleGroups(params *CreateRuleGroupsParams, opts ...ClientOption) (*CreateRuleGroupsOK, error)
+
+	CreateRules(params *CreateRulesParams, opts ...ClientOption) (*CreateRulesOK, error)
+
+	CreateScheduledExclusions(params *CreateScheduledExclusionsParams, opts ...ClientOption) (*CreateScheduledExclusionsOK, error)
+
+	DeletePolicies(params *DeletePoliciesParams, opts ...ClientOption) (*DeletePoliciesOK, error)
+
+	DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error)
+
+	DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error)
+
+	DeleteScheduledExclusions(params *DeleteScheduledExclusionsParams, opts ...ClientOption) (*DeleteScheduledExclusionsOK, error)
+
 	GetChanges(params *GetChangesParams, opts ...ClientOption) (*GetChangesOK, error)
+
+	GetPolicies(params *GetPoliciesParams, opts ...ClientOption) (*GetPoliciesOK, error)
+
+	GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error)
+
+	GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error)
+
+	GetScheduledExclusions(params *GetScheduledExclusionsParams, opts ...ClientOption) (*GetScheduledExclusionsOK, error)
+
+	HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, opts ...ClientOption) (*HighVolumeQueryChangesOK, error)
 
 	QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error)
 
+	QueryPolicies(params *QueryPoliciesParams, opts ...ClientOption) (*QueryPoliciesOK, error)
+
+	QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error)
+
+	QueryScheduledExclusions(params *QueryScheduledExclusionsParams, opts ...ClientOption) (*QueryScheduledExclusionsOK, error)
+
+	UpdatePolicies(params *UpdatePoliciesParams, opts ...ClientOption) (*UpdatePoliciesOK, error)
+
+	UpdatePolicyHostGroups(params *UpdatePolicyHostGroupsParams, opts ...ClientOption) (*UpdatePolicyHostGroupsOK, error)
+
+	UpdatePolicyPrecedence(params *UpdatePolicyPrecedenceParams, opts ...ClientOption) (*UpdatePolicyPrecedenceOK, error)
+
+	UpdatePolicyRuleGroups(params *UpdatePolicyRuleGroupsParams, opts ...ClientOption) (*UpdatePolicyRuleGroupsOK, error)
+
+	UpdateRuleGroupPrecedence(params *UpdateRuleGroupPrecedenceParams, opts ...ClientOption) (*UpdateRuleGroupPrecedenceOK, error)
+
+	UpdateRuleGroups(params *UpdateRuleGroupsParams, opts ...ClientOption) (*UpdateRuleGroupsOK, error)
+
+	UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error)
+
+	UpdateScheduledExclusions(params *UpdateScheduledExclusionsParams, opts ...ClientOption) (*UpdateScheduledExclusionsOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreatePolicies creates a new policy of the specified type new policies are always added at the end of the precedence list for the provided policy type
+
+After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
+*/
+func (a *Client) CreatePolicies(params *CreatePoliciesParams, opts ...ClientOption) (*CreatePoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreatePoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createPolicies",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreatePoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreatePoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateRuleGroups creates a new rule group of the specified type
+
+Individual rules can be assigned to a rule group after it has been created.
+*/
+func (a *Client) CreateRuleGroups(params *CreateRuleGroupsParams, opts ...ClientOption) (*CreateRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createRuleGroups",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateRules creates a new rule configuration within the specified rule group
+
+Creates a new rule configuration within the specified rule group.
+*/
+func (a *Client) CreateRules(params *CreateRulesParams, opts ...ClientOption) (*CreateRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createRules",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/rule-groups-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateScheduledExclusions creates a new scheduled exclusion configuration for the provided policy id
+
+Creates a new scheduled exclusion configuration for the provided policy id.
+*/
+func (a *Client) CreateScheduledExclusions(params *CreateScheduledExclusionsParams, opts ...ClientOption) (*CreateScheduledExclusionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateScheduledExclusionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "createScheduledExclusions",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/policy-scheduled-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateScheduledExclusionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateScheduledExclusionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for createScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeletePolicies deletes 1 or more policies
+
+Only disabled policies are allowed to be deleted.
+*/
+func (a *Client) DeletePolicies(params *DeletePoliciesParams, opts ...ClientOption) (*DeletePoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeletePoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deletePolicies",
+		Method:             "DELETE",
+		PathPattern:        "/filevantage/entities/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeletePoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeletePoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deletePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+	DeleteRuleGroups deletes 1 or more rule groups
+
+	The rule groups represented by the provided ids and all rules that they contain will be deleted.
+
+Rule groups can only be deleted if they are not assigned to a policy.
+*/
+func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteRuleGroups",
+		Method:             "DELETE",
+		PathPattern:        "/filevantage/entities/rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteRules deletes 1 or more rules from the specified rule group
+
+Rules that match a provided id will be deleted from the provided rule group id.
+*/
+func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteRules",
+		Method:             "DELETE",
+		PathPattern:        "/filevantage/entities/rule-groups-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteScheduledExclusions deletes 1 or more scheduled exclusions from the provided policy id
+
+Scheduled exclusions that match a provided id will be deleted from the provided policy id.
+*/
+func (a *Client) DeleteScheduledExclusions(params *DeleteScheduledExclusionsParams, opts ...ClientOption) (*DeleteScheduledExclusionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteScheduledExclusionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "deleteScheduledExclusions",
+		Method:             "DELETE",
+		PathPattern:        "/filevantage/entities/policy-scheduled-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteScheduledExclusionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeleteScheduledExclusionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for deleteScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -78,9 +448,209 @@ func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*Ge
 }
 
 /*
-QueryChanges returns one or more change i ds
+GetPolicies retrieves the configuration for 1 or more policies
 
-Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
+The configuration of each policy that match the provided id will be returned.
+*/
+func (a *Client) GetPolicies(params *GetPoliciesParams, opts ...ClientOption) (*GetPoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getPolicies",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetPoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetRuleGroups retrieves the rule group details for 1 or more rule groups
+
+Full details of each rule group that matches a provided id will be returned in the response
+*/
+func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getRuleGroups",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetRules retrieves the configuration for 1 or more rules
+
+Rules within the provided rule group id that match a provided id will be returned within the response.
+*/
+func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getRules",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/rule-groups-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetScheduledExclusions retrieves the configuration of 1 or more scheduled exclusions from the provided policy id
+
+Full details of each each scheduled exclusion that match a provided id will be returned in the response.
+*/
+func (a *Client) GetScheduledExclusions(params *GetScheduledExclusionsParams, opts ...ClientOption) (*GetScheduledExclusionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetScheduledExclusionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getScheduledExclusions",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/policy-scheduled-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetScheduledExclusionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetScheduledExclusionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+HighVolumeQueryChanges returns 1 or more change ids
+
+Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+*/
+func (a *Client) HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, opts ...ClientOption) (*HighVolumeQueryChangesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewHighVolumeQueryChangesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "highVolumeQueryChanges",
+		Method:             "GET",
+		PathPattern:        "/filevantage/queries/changes/v3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &HighVolumeQueryChangesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*HighVolumeQueryChangesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for highVolumeQueryChanges: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryChanges returns 1 or more change ids
+
+Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
 */
 func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -114,6 +684,458 @@ func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queryChanges: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryPolicies retrieves the ids of all policies that are assigned the provided policy type
+
+Policy ids will be returned sorted by a `precedence` order of ascending when a `sort` parameter is not provided.
+*/
+func (a *Client) QueryPolicies(params *QueryPoliciesParams, opts ...ClientOption) (*QueryPoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryPoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryPolicies",
+		Method:             "GET",
+		PathPattern:        "/filevantage/queries/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryPoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryPoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryPolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryRuleGroups retrieves the ids of all rule groups that are of the provided rule group type
+
+Rule group ids will be returned sorted by `created_timestamp` order if a `sort` parameter is not provided
+*/
+func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryRuleGroups",
+		Method:             "GET",
+		PathPattern:        "/filevantage/queries/rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryScheduledExclusions retrieves the ids of all scheduled exclusions contained within the provided policy id
+
+Retrieve the ids of all scheduled exclusions contained within the provided policy id
+*/
+func (a *Client) QueryScheduledExclusions(params *QueryScheduledExclusionsParams, opts ...ClientOption) (*QueryScheduledExclusionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryScheduledExclusionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryScheduledExclusions",
+		Method:             "GET",
+		PathPattern:        "/filevantage/queries/policy-scheduled-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryScheduledExclusionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryScheduledExclusionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdatePolicies updates the general information of the provided policy
+
+Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
+*/
+func (a *Client) UpdatePolicies(params *UpdatePoliciesParams, opts ...ClientOption) (*UpdatePoliciesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePoliciesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updatePolicies",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/policies/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdatePoliciesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdatePoliciesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updatePolicies: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdatePolicyHostGroups manages host groups assigned to a policy
+
+Manage host groups assigned to a policy.
+*/
+func (a *Client) UpdatePolicyHostGroups(params *UpdatePolicyHostGroupsParams, opts ...ClientOption) (*UpdatePolicyHostGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePolicyHostGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updatePolicyHostGroups",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/policies-host-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdatePolicyHostGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdatePolicyHostGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updatePolicyHostGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdatePolicyPrecedence updates the policy precedence for all policies of a specific type
+
+Requests that do not represent all ids of the provided policy type will not be processed.
+*/
+func (a *Client) UpdatePolicyPrecedence(params *UpdatePolicyPrecedenceParams, opts ...ClientOption) (*UpdatePolicyPrecedenceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePolicyPrecedenceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updatePolicyPrecedence",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/policies-precedence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdatePolicyPrecedenceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdatePolicyPrecedenceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updatePolicyPrecedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+	UpdatePolicyRuleGroups manages the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy
+
+	Manage the rule groups assigned to the policy.
+
+Rule groups must be of the same type as the policy they are being added:
+
+  - `WindowsRegistry` and `WindowsFiles` groups can only be added to a `Windows` policy.
+
+  - `LinuxFiles` groups can only be added to a `Linux` policy.
+
+  - `MacFiles` groups can only be added to a `Mac` policy.
+
+When setting rule group precedence, the precedence for `all` rule group ids within the policy must be provided.
+*/
+func (a *Client) UpdatePolicyRuleGroups(params *UpdatePolicyRuleGroupsParams, opts ...ClientOption) (*UpdatePolicyRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdatePolicyRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updatePolicyRuleGroups",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/policies-rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdatePolicyRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdatePolicyRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updatePolicyRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+	UpdateRuleGroupPrecedence updates the rule precedence for all rules in the identified rule group
+
+	The ids for `all` rules contained within the rule group must be specified in the desired precedence order.
+
+Requests that do not represent all ids will not be processed.
+*/
+func (a *Client) UpdateRuleGroupPrecedence(params *UpdateRuleGroupPrecedenceParams, opts ...ClientOption) (*UpdateRuleGroupPrecedenceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateRuleGroupPrecedenceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateRuleGroupPrecedence",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/rule-groups-rule-precedence/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateRuleGroupPrecedenceReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateRuleGroupPrecedenceOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateRuleGroupPrecedence: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateRuleGroups updates the provided rule group
+
+Provides the ability to update the name and description of the rule group.
+*/
+func (a *Client) UpdateRuleGroups(params *UpdateRuleGroupsParams, opts ...ClientOption) (*UpdateRuleGroupsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateRuleGroupsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateRuleGroups",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/rule-groups/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateRuleGroupsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateRuleGroupsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateRuleGroups: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateRules updates the provided rule configuration within the specified rule group
+
+The rule must currently exist within the specified rule group.
+*/
+func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateRules",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/rule-groups-rules/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateRulesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateScheduledExclusions updates the provided scheduled exclusion configuration within the provided policy
+
+Updates the provided scheduled exclusion configuration within the provided policy.
+*/
+func (a *Client) UpdateScheduledExclusions(params *UpdateScheduledExclusionsParams, opts ...ClientOption) (*UpdateScheduledExclusionsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateScheduledExclusionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "updateScheduledExclusions",
+		Method:             "PATCH",
+		PathPattern:        "/filevantage/entities/policy-scheduled-exclusions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateScheduledExclusionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateScheduledExclusionsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for updateScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

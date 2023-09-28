@@ -39,6 +39,9 @@ type DomainDevice struct {
 	// Required: true
 	DeviceID *string `json:"device_id"`
 
+	// device policies
+	DevicePolicies *DomainMappedDevicePolicies `json:"device_policies,omitempty"`
+
 	// external ip
 	ExternalIP string `json:"external_ip,omitempty"`
 
@@ -136,6 +139,10 @@ func (m *DomainDevice) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDevicePolicies(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -160,8 +167,57 @@ func (m *DomainDevice) validateDeviceID(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this domain device based on context it is used
+func (m *DomainDevice) validateDevicePolicies(formats strfmt.Registry) error {
+	if swag.IsZero(m.DevicePolicies) { // not required
+		return nil
+	}
+
+	if m.DevicePolicies != nil {
+		if err := m.DevicePolicies.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device_policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_policies")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain device based on the context it is used
 func (m *DomainDevice) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDevicePolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainDevice) contextValidateDevicePolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DevicePolicies != nil {
+
+		if swag.IsZero(m.DevicePolicies) { // not required
+			return nil
+		}
+
+		if err := m.DevicePolicies.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device_policies")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device_policies")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -64,7 +64,7 @@ type GetChangesParams struct {
 
 	/* Ids.
 
-	   One or more change ids in the form of ids=ID1&ids=ID2
+	   One or more change ids in the form of `ids=ID1&ids=ID2`. The maximum number of ids that can be requested at once is `500`.
 	*/
 	Ids []string
 

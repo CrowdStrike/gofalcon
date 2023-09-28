@@ -19,8 +19,14 @@ import (
 // swagger:model domain.BreachedItemV1
 type DomainBreachedItemV1 struct {
 
+	// bot
+	Bot *DomainExposedDataRecordBotV1 `json:"bot,omitempty"`
+
 	// company
 	Company string `json:"company,omitempty"`
+
+	// The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+	CredentialStatus string `json:"credential_status,omitempty"`
 
 	// credentials domain
 	CredentialsDomain string `json:"credentials_domain,omitempty"`
@@ -59,6 +65,9 @@ type DomainBreachedItemV1 struct {
 	// Required: true
 	LoginID *string `json:"login_id"`
 
+	// malware family
+	MalwareFamily string `json:"malware_family,omitempty"`
+
 	// The name of the person associated with the breached account.
 	// Required: true
 	Name *string `json:"name"`
@@ -90,6 +99,10 @@ type DomainBreachedItemV1 struct {
 // Validate validates this domain breached item v1
 func (m *DomainBreachedItemV1) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBot(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateDomain(formats); err != nil {
 		res = append(res, err)
@@ -134,6 +147,25 @@ func (m *DomainBreachedItemV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainBreachedItemV1) validateBot(formats strfmt.Registry) error {
+	if swag.IsZero(m.Bot) { // not required
+		return nil
+	}
+
+	if m.Bot != nil {
+		if err := m.Bot.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -261,6 +293,10 @@ func (m *DomainBreachedItemV1) validateSocial(formats strfmt.Registry) error {
 func (m *DomainBreachedItemV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBot(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFinancial(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -276,6 +312,27 @@ func (m *DomainBreachedItemV1) ContextValidate(ctx context.Context, formats strf
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainBreachedItemV1) contextValidateBot(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Bot != nil {
+
+		if swag.IsZero(m.Bot) { // not required
+			return nil
+		}
+
+		if err := m.Bot.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

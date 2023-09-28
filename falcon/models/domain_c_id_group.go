@@ -19,12 +19,15 @@ import (
 // swagger:model domain.CIDGroup
 type DomainCIDGroup struct {
 
+	// cid
+	Cid string `json:"cid,omitempty"`
+
 	// cid group id
-	// Required: true
-	CidGroupID *string `json:"cid_group_id"`
+	CidGroupID string `json:"cid_group_id,omitempty"`
 
 	// description
-	Description string `json:"description,omitempty"`
+	// Required: true
+	Description *string `json:"description"`
 
 	// name
 	// Required: true
@@ -35,7 +38,7 @@ type DomainCIDGroup struct {
 func (m *DomainCIDGroup) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCidGroupID(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -49,9 +52,9 @@ func (m *DomainCIDGroup) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainCIDGroup) validateCidGroupID(formats strfmt.Registry) error {
+func (m *DomainCIDGroup) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("cid_group_id", "body", m.CidGroupID); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 

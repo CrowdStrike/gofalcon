@@ -20,6 +20,9 @@ import (
 // swagger:model domain.APIHostInfoFacetV1
 type DomainAPIHostInfoFacetV1 struct {
 
+	// asset criticality
+	AssetCriticality *DomainAssetCriticalityInfoV1 `json:"asset_criticality,omitempty"`
+
 	// build number
 	BuildNumber string `json:"build_number,omitempty"`
 
@@ -81,6 +84,10 @@ type DomainAPIHostInfoFacetV1 struct {
 func (m *DomainAPIHostInfoFacetV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAssetCriticality(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateGroups(formats); err != nil {
 		res = append(res, err)
 	}
@@ -92,6 +99,25 @@ func (m *DomainAPIHostInfoFacetV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainAPIHostInfoFacetV1) validateAssetCriticality(formats strfmt.Registry) error {
+	if swag.IsZero(m.AssetCriticality) { // not required
+		return nil
+	}
+
+	if m.AssetCriticality != nil {
+		if err := m.AssetCriticality.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("asset_criticality")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("asset_criticality")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -135,6 +161,10 @@ func (m *DomainAPIHostInfoFacetV1) validateName(formats strfmt.Registry) error {
 func (m *DomainAPIHostInfoFacetV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAssetCriticality(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGroups(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -142,6 +172,27 @@ func (m *DomainAPIHostInfoFacetV1) ContextValidate(ctx context.Context, formats 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainAPIHostInfoFacetV1) contextValidateAssetCriticality(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssetCriticality != nil {
+
+		if swag.IsZero(m.AssetCriticality) { // not required
+			return nil
+		}
+
+		if err := m.AssetCriticality.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("asset_criticality")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("asset_criticality")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

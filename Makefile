@@ -9,7 +9,7 @@ build:
 clean-generate: remove-generated generate
 
 generate: specs/swagger-stripped-oauth.json
-	$(GO) run github.com/go-swagger/go-swagger/cmd/swagger generate client --skip-validation -f $^ -t falcon
+	swagger generate client --skip-validation -f $^ -t falcon
 
 .PHONY: build generate remove-generated
 

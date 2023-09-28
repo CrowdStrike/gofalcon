@@ -84,7 +84,7 @@ type GetQueriesAlertsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecQueryResponse
+	Payload *models.DetectsapiAlertQueryResponse
 }
 
 // IsSuccess returns true when this get queries alerts v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *GetQueriesAlertsV1OK) String() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *GetQueriesAlertsV1OK) GetPayload() *models.MsaspecQueryResponse {
+func (o *GetQueriesAlertsV1OK) GetPayload() *models.DetectsapiAlertQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *GetQueriesAlertsV1OK) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecQueryResponse)
+	o.Payload = new(models.DetectsapiAlertQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type GetQueriesAlertsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecQueryResponse
+	Payload *models.DetectsapiAlertQueryResponse
 }
 
 // IsSuccess returns true when this get queries alerts v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetQueriesAlertsV1BadRequest) String() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetQueriesAlertsV1BadRequest) GetPayload() *models.MsaspecQueryResponse {
+func (o *GetQueriesAlertsV1BadRequest) GetPayload() *models.DetectsapiAlertQueryResponse {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetQueriesAlertsV1BadRequest) readResponse(response runtime.ClientRespo
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecQueryResponse)
+	o.Payload = new(models.DetectsapiAlertQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetQueriesAlertsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecQueryResponse
+	Payload *models.DetectsapiAlertQueryResponse
 }
 
 // IsSuccess returns true when this get queries alerts v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetQueriesAlertsV1InternalServerError) String() string {
 	return fmt.Sprintf("[GET /alerts/queries/alerts/v1][%d] getQueriesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetQueriesAlertsV1InternalServerError) GetPayload() *models.MsaspecQueryResponse {
+func (o *GetQueriesAlertsV1InternalServerError) GetPayload() *models.DetectsapiAlertQueryResponse {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetQueriesAlertsV1InternalServerError) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecQueryResponse)
+	o.Payload = new(models.DetectsapiAlertQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

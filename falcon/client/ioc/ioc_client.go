@@ -44,6 +44,10 @@ type ClientService interface {
 
 	IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...ClientOption) (*IndicatorDeleteV1OK, error)
 
+	IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Params, opts ...ClientOption) (*IndicatorGetDevicesRanOnV1OK, error)
+
+	IndicatorGetProcessesRanOnV1(params *IndicatorGetProcessesRanOnV1Params, opts ...ClientOption) (*IndicatorGetProcessesRanOnV1OK, error)
+
 	IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOption) (*IndicatorGetV1OK, error)
 
 	IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...ClientOption) (*IndicatorSearchV1OK, error)
@@ -322,6 +326,82 @@ func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for indicator.delete.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+IndicatorGetDevicesRanOnV1 gets the number of devices the indicator has run on
+*/
+func (a *Client) IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Params, opts ...ClientOption) (*IndicatorGetDevicesRanOnV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorGetDevicesRanOnV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.get.devices_ran_on.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/indicators/devices/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IndicatorGetDevicesRanOnV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorGetDevicesRanOnV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.get.devices_ran_on.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+IndicatorGetProcessesRanOnV1 gets the number of processes the indicator has run on
+*/
+func (a *Client) IndicatorGetProcessesRanOnV1(params *IndicatorGetProcessesRanOnV1Params, opts ...ClientOption) (*IndicatorGetProcessesRanOnV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorGetProcessesRanOnV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.get.processes_ran_on.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/queries/indicators/processes/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IndicatorGetProcessesRanOnV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorGetProcessesRanOnV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.get.processes_ran_on.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

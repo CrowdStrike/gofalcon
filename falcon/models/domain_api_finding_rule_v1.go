@@ -23,6 +23,9 @@ type DomainAPIFindingRuleV1 struct {
 	// authority
 	Authority string `json:"authority,omitempty"`
 
+	// benchmark type
+	BenchmarkType string `json:"benchmark_type,omitempty"`
+
 	// cce
 	Cce string `json:"cce,omitempty"`
 
@@ -48,6 +51,9 @@ type DomainAPIFindingRuleV1 struct {
 
 	// name
 	Name string `json:"name,omitempty"`
+
+	// platform name
+	PlatformName string `json:"platform_name,omitempty"`
 
 	// policy id
 	PolicyID string `json:"policy_id,omitempty"`

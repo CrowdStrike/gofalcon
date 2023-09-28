@@ -107,6 +107,9 @@ type DomainScanProfile struct {
 
 	// status
 	Status string `json:"status,omitempty"`
+
+	// targeted host count
+	TargetedHostCount int32 `json:"targeted_host_count,omitempty"`
 }
 
 // Validate validates this domain scan profile

@@ -68,7 +68,7 @@ type QueryChangesParams struct {
 
 	Common filter options include:
 
-	 - `host.host_name`
+	 - `host.name`
 	 - `action_timestamp`
 
 	 The full list of allowed filter parameters can be reviewed in our API documentation.
@@ -77,23 +77,25 @@ type QueryChangesParams struct {
 
 	/* Limit.
 
-	   The maximum number of changes to return in the response (default: 100; max: 500). Use with the `offset` parameter to manage pagination of results
+	   The maximum number of ids to return. Defaults to `100` if not specified. The maximum number of results that can be returned in a single call is `500`.
+
+	   Default: 100
 	*/
 	Limit *int64
 
 	/* Offset.
 
-	   The first change index to return in the response. If not provided it will default to '0'. Use with the `limit` parameter to manage pagination of results.
+	   The offset to start retrieving records from. Defaults to `0` if not specified.
 	*/
 	Offset *int64
 
 	/* Sort.
 
-	     Sort changes using options like:
+	     Sort results using options like:
 
 	- `action_timestamp` (timestamp of the change occurrence)
 
-	 Sort either `asc` (ascending) or `desc` (descending). For example: `action_timestamp|asc`.
+	Sort either `asc` (ascending) or `desc` (descending). For example: `action_timestamp|asc`.
 	The full list of allowed sorting options can be reviewed in our API documentation.
 	*/
 	Sort *string
@@ -115,7 +117,21 @@ func (o *QueryChangesParams) WithDefaults() *QueryChangesParams {
 //
 // All values with no default are reset to their zero value.
 func (o *QueryChangesParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		limitDefault = int64(100)
+
+		offsetDefault = int64(0)
+	)
+
+	val := QueryChangesParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query changes params

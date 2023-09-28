@@ -64,7 +64,7 @@ type GetCombinedImagesParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, registry, repository, tag, vulnerability_severity
+	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
 	*/
 	Filter *string
 

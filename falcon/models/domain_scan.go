@@ -32,6 +32,9 @@ type DomainScan struct {
 	// cloud ml level prevention
 	CloudMlLevelPrevention int32 `json:"cloud_ml_level_prevention,omitempty"`
 
+	// completed host count
+	CompletedHostCount int32 `json:"completed_host_count,omitempty"`
+
 	// cpu priority
 	CPUPriority int32 `json:"cpu_priority,omitempty"`
 
@@ -64,6 +67,9 @@ type DomainScan struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// incomplete host count
+	IncompleteHostCount int32 `json:"incomplete_host_count,omitempty"`
+
 	// initiated from
 	InitiatedFrom string `json:"initiated_from,omitempty"`
 
@@ -79,6 +85,12 @@ type DomainScan struct {
 
 	// metadata
 	Metadata []*DomainScanMetadata `json:"metadata"`
+
+	// missing host count
+	MissingHostCount int32 `json:"missing_host_count,omitempty"`
+
+	// not started host count
+	NotStartedHostCount int32 `json:"not_started_host_count,omitempty"`
 
 	// pause duration
 	PauseDuration int32 `json:"pause_duration,omitempty"`
@@ -105,6 +117,10 @@ type DomainScan struct {
 	// scan inclusions
 	ScanInclusions []string `json:"scan_inclusions"`
 
+	// scan scheduled on
+	// Format: date-time
+	ScanScheduledOn strfmt.DateTime `json:"scan_scheduled_on,omitempty"`
+
 	// scan started on
 	// Format: date-time
 	ScanStartedOn strfmt.DateTime `json:"scan_started_on,omitempty"`
@@ -118,8 +134,14 @@ type DomainScan struct {
 	// severity
 	Severity int64 `json:"severity,omitempty"`
 
+	// started host count
+	StartedHostCount int32 `json:"started_host_count,omitempty"`
+
 	// status
 	Status string `json:"status,omitempty"`
+
+	// targeted host count
+	TargetedHostCount int32 `json:"targeted_host_count,omitempty"`
 }
 
 // Validate validates this domain scan
@@ -147,6 +169,10 @@ func (m *DomainScan) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateScanCompletedOn(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScanScheduledOn(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -244,6 +270,18 @@ func (m *DomainScan) validateScanCompletedOn(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("scan_completed_on", "body", "date-time", m.ScanCompletedOn.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScan) validateScanScheduledOn(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScanScheduledOn) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("scan_scheduled_on", "body", "date-time", m.ScanScheduledOn.String(), formats); err != nil {
 		return err
 	}
 
