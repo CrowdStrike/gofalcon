@@ -194,7 +194,7 @@ type GetCaseActivityByIdsBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get case activity by ids bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetCaseActivityByIdsBadRequest) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetCaseActivityByIdsBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCaseActivityByIdsBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetCaseActivityByIdsBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetCaseActivityByIdsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get case activity by ids forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetCaseActivityByIdsForbidden) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetCaseActivityByIdsForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCaseActivityByIdsForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetCaseActivityByIdsForbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetCaseActivityByIdsInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get case activity by ids internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetCaseActivityByIdsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activities/GET/v1][%d] getCaseActivityByIdsInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetCaseActivityByIdsInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCaseActivityByIdsInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetCaseActivityByIdsInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

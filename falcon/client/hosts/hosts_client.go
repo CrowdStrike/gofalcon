@@ -437,7 +437,7 @@ func (a *Client) UpdateDeviceTags(params *UpdateDeviceTagsParams, opts ...Client
 }
 
 /*
-EntitiesPerformAction performs the specified action on the provided prevention policy i ds
+EntitiesPerformAction performs the specified action on the provided group i ds
 */
 func (a *Client) EntitiesPerformAction(params *EntitiesPerformActionParams, opts ...ClientOption) (*EntitiesPerformActionOK, error) {
 	// TODO: Validate the params before sending

@@ -48,6 +48,12 @@ type InternalSensorStatus struct {
 	// os version
 	OsVersion string `json:"os_version,omitempty"`
 
+	// status
+	Status string `json:"status,omitempty"`
+
+	// status causes
+	StatusCauses []string `json:"status_causes"`
+
 	// ti enabled
 	TiEnabled string `json:"ti_enabled,omitempty"`
 }

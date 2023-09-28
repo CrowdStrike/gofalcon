@@ -84,7 +84,7 @@ type PatchEntitiesAlertsV2OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecResponseFields
+	Payload *models.DetectsapiResponseFields
 }
 
 // IsSuccess returns true when this patch entities alerts v2 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *PatchEntitiesAlertsV2OK) String() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2OK  %+v", 200, o.Payload)
 }
 
-func (o *PatchEntitiesAlertsV2OK) GetPayload() *models.MsaspecResponseFields {
+func (o *PatchEntitiesAlertsV2OK) GetPayload() *models.DetectsapiResponseFields {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *PatchEntitiesAlertsV2OK) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecResponseFields)
+	o.Payload = new(models.DetectsapiResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type PatchEntitiesAlertsV2BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecResponseFields
+	Payload *models.DetectsapiResponseFields
 }
 
 // IsSuccess returns true when this patch entities alerts v2 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *PatchEntitiesAlertsV2BadRequest) String() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PatchEntitiesAlertsV2BadRequest) GetPayload() *models.MsaspecResponseFields {
+func (o *PatchEntitiesAlertsV2BadRequest) GetPayload() *models.DetectsapiResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *PatchEntitiesAlertsV2BadRequest) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecResponseFields)
+	o.Payload = new(models.DetectsapiResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type PatchEntitiesAlertsV2InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaspecResponseFields
+	Payload *models.DetectsapiResponseFields
 }
 
 // IsSuccess returns true when this patch entities alerts v2 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *PatchEntitiesAlertsV2InternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /alerts/entities/alerts/v2][%d] patchEntitiesAlertsV2InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PatchEntitiesAlertsV2InternalServerError) GetPayload() *models.MsaspecResponseFields {
+func (o *PatchEntitiesAlertsV2InternalServerError) GetPayload() *models.DetectsapiResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *PatchEntitiesAlertsV2InternalServerError) readResponse(response runtime
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaspecResponseFields)
+	o.Payload = new(models.DetectsapiResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

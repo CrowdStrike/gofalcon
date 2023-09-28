@@ -64,7 +64,14 @@ type GetQueriesAlertsV1Params struct {
 
 	/* Filter.
 
-	     Filter detections using a query in Falcon Query Language (FQL). An asterisk wildcard `*` includes all results.
+	     Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert
+	An asterisk wildcard `*` includes all results.
+	Empty value means to not filter on anything.
+	Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ...
+	Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ...
+	Most commonly filter fields that supports range comparisons (>, <, >=, <=): severity, created_timestamp, timestamp, updated_timestamp...
+	All filter fields and operations support negation (!).
+
 
 	The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
 	*/
@@ -90,7 +97,10 @@ type GetQueriesAlertsV1Params struct {
 
 	/* Sort.
 
-	   Sort detections in either `asc` (ascending) or `desc` (descending) order. For example: `status|asc` or `status|desc`.
+	     Sort parameter takes the form <field|direction>. Direction can be either `asc` (ascending) or `desc` (descending) order. For example: `status|asc` or `status|desc`.
+
+	The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags
+	If the fields are missing from the Alerts, the service will fallback to its default ordering
 	*/
 	Sort *string
 

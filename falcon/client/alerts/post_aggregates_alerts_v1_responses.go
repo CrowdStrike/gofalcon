@@ -84,7 +84,7 @@ type PostAggregatesAlertsV1OK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponse
+	Payload *models.DetectsapiAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *PostAggregatesAlertsV1OK) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1OK  %+v", 200, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1OK) GetPayload() *models.APIAggregatesResponse {
+func (o *PostAggregatesAlertsV1OK) GetPayload() *models.DetectsapiAggregatesResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *PostAggregatesAlertsV1OK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponse)
+	o.Payload = new(models.DetectsapiAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type PostAggregatesAlertsV1BadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponse
+	Payload *models.DetectsapiAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *PostAggregatesAlertsV1BadRequest) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1BadRequest  %+v", 400, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.APIAggregatesResponse {
+func (o *PostAggregatesAlertsV1BadRequest) GetPayload() *models.DetectsapiAggregatesResponse {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *PostAggregatesAlertsV1BadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponse)
+	o.Payload = new(models.DetectsapiAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type PostAggregatesAlertsV1InternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.APIAggregatesResponse
+	Payload *models.DetectsapiAggregatesResponse
 }
 
 // IsSuccess returns true when this post aggregates alerts v1 internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *PostAggregatesAlertsV1InternalServerError) String() string {
 	return fmt.Sprintf("[POST /alerts/aggregates/alerts/v1][%d] postAggregatesAlertsV1InternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.APIAggregatesResponse {
+func (o *PostAggregatesAlertsV1InternalServerError) GetPayload() *models.DetectsapiAggregatesResponse {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *PostAggregatesAlertsV1InternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.APIAggregatesResponse)
+	o.Payload = new(models.DetectsapiAggregatesResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

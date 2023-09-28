@@ -198,7 +198,7 @@ type CaseDownloadAttachmentBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case download attachment bad request response has a 2xx status code
@@ -239,7 +239,7 @@ func (o *CaseDownloadAttachmentBadRequest) String() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CaseDownloadAttachmentBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseDownloadAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -274,7 +274,7 @@ func (o *CaseDownloadAttachmentBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -308,7 +308,7 @@ type CaseDownloadAttachmentForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case download attachment forbidden response has a 2xx status code
@@ -349,7 +349,7 @@ func (o *CaseDownloadAttachmentForbidden) String() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CaseDownloadAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseDownloadAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -384,7 +384,7 @@ func (o *CaseDownloadAttachmentForbidden) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -418,7 +418,7 @@ type CaseDownloadAttachmentNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case download attachment not found response has a 2xx status code
@@ -459,7 +459,7 @@ func (o *CaseDownloadAttachmentNotFound) String() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CaseDownloadAttachmentNotFound) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseDownloadAttachmentNotFound) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -494,7 +494,7 @@ func (o *CaseDownloadAttachmentNotFound) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -653,7 +653,7 @@ type CaseDownloadAttachmentInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case download attachment internal server error response has a 2xx status code
@@ -694,7 +694,7 @@ func (o *CaseDownloadAttachmentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /message-center/entities/case-attachment/v1][%d] caseDownloadAttachmentInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CaseDownloadAttachmentInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseDownloadAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -729,7 +729,7 @@ func (o *CaseDownloadAttachmentInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

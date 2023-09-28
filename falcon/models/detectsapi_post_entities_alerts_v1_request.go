@@ -19,7 +19,7 @@ import (
 // swagger:model detectsapi.PostEntitiesAlertsV1Request
 type DetectsapiPostEntitiesAlertsV1Request struct {
 
-	// ids
+	// IDs represent the slice of Alert IDs that would be looked up
 	// Required: true
 	Ids []string `json:"ids"`
 }

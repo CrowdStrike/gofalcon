@@ -27,6 +27,9 @@ type DomainAPIFindingWithRuleV1 struct {
 	// host id
 	HostID string `json:"host_id,omitempty"`
 
+	// policy host groups
+	PolicyHostGroups []string `json:"policy_host_groups"`
+
 	// rule
 	Rule *DomainAPIFindingRuleV1 `json:"rule,omitempty"`
 

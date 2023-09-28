@@ -84,7 +84,7 @@ type CaseAddActivityOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add activity o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *CaseAddActivityOK) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityOK  %+v", 200, o.Payload)
 }
 
-func (o *CaseAddActivityOK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddActivityOK) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *CaseAddActivityOK) readResponse(response runtime.ClientResponse, consum
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type CaseAddActivityBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add activity bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CaseAddActivityBadRequest) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CaseAddActivityBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddActivityBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CaseAddActivityBadRequest) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CaseAddActivityForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add activity forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CaseAddActivityForbidden) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CaseAddActivityForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddActivityForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CaseAddActivityForbidden) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CaseAddActivityInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this case add activity internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CaseAddActivityInternalServerError) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case-activity/v1][%d] caseAddActivityInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CaseAddActivityInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CaseAddActivityInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CaseAddActivityInternalServerError) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

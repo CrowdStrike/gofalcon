@@ -182,7 +182,7 @@ type AggregateCasesForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this aggregate cases forbidden response has a 2xx status code
@@ -223,7 +223,7 @@ func (o *AggregateCasesForbidden) String() string {
 	return fmt.Sprintf("[POST /message-center/aggregates/cases/GET/v1][%d] aggregateCasesForbidden  %+v", 403, o.Payload)
 }
 
-func (o *AggregateCasesForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *AggregateCasesForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +258,7 @@ func (o *AggregateCasesForbidden) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

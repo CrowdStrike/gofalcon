@@ -44,6 +44,8 @@ type ClientService interface {
 
 	RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, opts ...ClientOption) (*RTRExecuteAdminCommandCreated, error)
 
+	RTRGetFalconScripts(params *RTRGetFalconScriptsParams, opts ...ClientOption) (*RTRGetFalconScriptsOK, error)
+
 	RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error)
 
 	RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...ClientOption) (*RTRGetPutFilesV2OK, error)
@@ -51,6 +53,8 @@ type ClientService interface {
 	RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error)
 
 	RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOption) (*RTRGetScriptsV2OK, error)
+
+	RTRListFalconScripts(params *RTRListFalconScriptsParams, opts ...ClientOption) (*RTRListFalconScriptsOK, error)
 
 	RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOption) (*RTRListPutFilesOK, error)
 
@@ -328,6 +332,44 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, op
 }
 
 /*
+RTRGetFalconScripts gets falcon scripts with metadata and content of script
+*/
+func (a *Client) RTRGetFalconScripts(params *RTRGetFalconScriptsParams, opts ...ClientOption) (*RTRGetFalconScriptsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRGetFalconScriptsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-GetFalconScripts",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/entities/falcon-scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRGetFalconScriptsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRGetFalconScriptsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-GetFalconScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 RTRGetPutFiles gets put files based on the ID s given these are used for the r t r put command
 */
 func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error) {
@@ -476,6 +518,44 @@ func (a *Client) RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for RTR-GetScriptsV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+RTRListFalconScripts gets a list of falcon script i ds available to the user to run
+*/
+func (a *Client) RTRListFalconScripts(params *RTRListFalconScriptsParams, opts ...ClientOption) (*RTRListFalconScriptsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRTRListFalconScriptsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RTR-ListFalconScripts",
+		Method:             "GET",
+		PathPattern:        "/real-time-response/queries/falcon-scripts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RTRListFalconScriptsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*RTRListFalconScriptsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for RTR-ListFalconScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -31,6 +31,9 @@ type FalconxSubmissionV1 struct {
 	// index timestamp
 	IndexTimestamp string `json:"index_timestamp,omitempty"`
 
+	// interactive phase
+	InteractivePhase string `json:"interactive_phase,omitempty"`
+
 	// origin
 	Origin string `json:"origin,omitempty"`
 

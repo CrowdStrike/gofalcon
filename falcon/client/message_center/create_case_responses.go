@@ -194,7 +194,7 @@ type CreateCaseBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create case bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CreateCaseBadRequest) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CreateCaseBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CreateCaseBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CreateCaseBadRequest) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CreateCaseForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create case forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CreateCaseForbidden) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CreateCaseForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CreateCaseForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CreateCaseForbidden) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CreateCaseInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create case internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CreateCaseInternalServerError) String() string {
 	return fmt.Sprintf("[POST /message-center/entities/case/v1][%d] createCaseInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CreateCaseInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CreateCaseInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CreateCaseInternalServerError) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -29,7 +29,7 @@ type PublicGetChangesResponse struct {
 
 	// resources
 	// Required: true
-	Resources []*PublicChange `json:"resources"`
+	Resources []*ChangesChange `json:"resources"`
 }
 
 // Validate validates this public get changes response

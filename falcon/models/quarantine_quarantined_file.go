@@ -22,6 +22,9 @@ type QuarantineQuarantinedFile struct {
 	// aid
 	Aid string `json:"aid,omitempty"`
 
+	// alert ids
+	AlertIds []string `json:"alert_ids"`
+
 	// cid
 	Cid string `json:"cid,omitempty"`
 

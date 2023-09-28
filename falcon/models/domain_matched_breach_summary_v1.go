@@ -26,6 +26,9 @@ type DomainMatchedBreachSummaryV1 struct {
 	// The level of confidence regarding data veridicality. Options for likely authentic, confirmed authentic (default: unverified).
 	ConfidenceLevel string `json:"confidence_level,omitempty"`
 
+	// A list of statuses for the exposed data records contained in the notification. Possible values: 'newly_detected', 'previously_reported' and/or 'other'
+	CredentialStatuses []string `json:"credential_statuses"`
+
 	// credentials domains
 	CredentialsDomains []string `json:"credentials_domains"`
 
@@ -60,6 +63,10 @@ type DomainMatchedBreachSummaryV1 struct {
 	// idp send status
 	IdpSendStatus string `json:"idp_send_status,omitempty"`
 
+	// (Boolean) If the notification was processed before the introduction of exposed data deduplication
+	// Required: true
+	IsRetroactivelyDeduped *bool `json:"is_retroactively_deduped"`
+
 	// The name of the breach
 	// Required: true
 	Name *string `json:"name"`
@@ -92,6 +99,10 @@ func (m *DomainMatchedBreachSummaryV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateIdpSendDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsRetroactivelyDeduped(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -167,6 +178,15 @@ func (m *DomainMatchedBreachSummaryV1) validateIdpSendDate(formats strfmt.Regist
 	}
 
 	if err := validate.FormatOf("idp_send_date", "body", "date-time", m.IdpSendDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainMatchedBreachSummaryV1) validateIsRetroactivelyDeduped(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_retroactively_deduped", "body", m.IsRetroactivelyDeduped); err != nil {
 		return err
 	}
 

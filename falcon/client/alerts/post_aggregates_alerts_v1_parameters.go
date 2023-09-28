@@ -65,9 +65,9 @@ type PostAggregatesAlertsV1Params struct {
 
 	/* Body.
 
-	   request body takes a list of aggregation query requests
+	   request body takes a list of aggregate-alert query requests
 	*/
-	Body []*models.MsaAggregateQueryRequest
+	Body []*models.DetectsapiAggregateAlertQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PostAggregatesAlertsV1Params) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the post aggregates alerts v1 params
-func (o *PostAggregatesAlertsV1Params) WithBody(body []*models.MsaAggregateQueryRequest) *PostAggregatesAlertsV1Params {
+func (o *PostAggregatesAlertsV1Params) WithBody(body []*models.DetectsapiAggregateAlertQueryRequest) *PostAggregatesAlertsV1Params {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post aggregates alerts v1 params
-func (o *PostAggregatesAlertsV1Params) SetBody(body []*models.MsaAggregateQueryRequest) {
+func (o *PostAggregatesAlertsV1Params) SetBody(body []*models.DetectsapiAggregateAlertQueryRequest) {
 	o.Body = body
 }
 

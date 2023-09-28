@@ -27,7 +27,7 @@ type DetectsapiPostEntitiesAlertsV1Response struct {
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
-	// resources
+	// Resources represent the slice of Alerts that were retrieved for the given Alert IDs
 	// Required: true
 	Resources []*DetectsAlert `json:"resources"`
 }

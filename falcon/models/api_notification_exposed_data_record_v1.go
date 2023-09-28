@@ -26,6 +26,9 @@ type APINotificationExposedDataRecordV1 struct {
 	// The ID of the author within Recon
 	AuthorID string `json:"author_id,omitempty"`
 
+	// Information about the bot stealer log data
+	Bot *APIExposedDataRecordBotV1 `json:"bot,omitempty"`
+
 	// The customer ID
 	// Required: true
 	Cid *string `json:"cid"`
@@ -37,6 +40,9 @@ type APINotificationExposedDataRecordV1 struct {
 	// Required: true
 	// Format: date-time
 	CreatedDate *strfmt.DateTime `json:"created_date"`
+
+	// The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+	CredentialStatus string `json:"credential_status,omitempty"`
 
 	// The domain where the credentials are valid
 	CredentialsDomain string `json:"credentials_domain,omitempty"`
@@ -89,6 +95,9 @@ type APINotificationExposedDataRecordV1 struct {
 
 	// login id
 	LoginID string `json:"login_id,omitempty"`
+
+	// Information of the bot malware family
+	MalwareFamily string `json:"malware_family,omitempty"`
 
 	// The ID of the parent notification associated with this entity
 	// Required: true
@@ -144,6 +153,10 @@ func (m *APINotificationExposedDataRecordV1) Validate(formats strfmt.Registry) e
 	var res []error
 
 	if err := m.validateAuthor(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBot(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -217,6 +230,25 @@ func (m *APINotificationExposedDataRecordV1) validateAuthor(formats strfmt.Regis
 
 	if err := validate.Required("author", "body", m.Author); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *APINotificationExposedDataRecordV1) validateBot(formats strfmt.Registry) error {
+	if swag.IsZero(m.Bot) { // not required
+		return nil
+	}
+
+	if m.Bot != nil {
+		if err := m.Bot.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -420,6 +452,10 @@ func (m *APINotificationExposedDataRecordV1) validateUserUUID(formats strfmt.Reg
 func (m *APINotificationExposedDataRecordV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBot(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateFile(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -443,6 +479,27 @@ func (m *APINotificationExposedDataRecordV1) ContextValidate(ctx context.Context
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APINotificationExposedDataRecordV1) contextValidateBot(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Bot != nil {
+
+		if swag.IsZero(m.Bot) { // not required
+			return nil
+		}
+
+		if err := m.Bot.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
