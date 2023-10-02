@@ -46,6 +46,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
+	"github.com/crowdstrike/gofalcon/falcon/client/logscale_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
 	"github.com/crowdstrike/gofalcon/falcon/client/message_center"
 	"github.com/crowdstrike/gofalcon/falcon/client/ml_exclusions"
@@ -66,6 +67,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
+	"github.com/crowdstrike/gofalcon/falcon/client/saved_searches"
 	"github.com/crowdstrike/gofalcon/falcon/client/scheduled_reports"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_download"
 	"github.com/crowdstrike/gofalcon/falcon/client/sensor_update_policies"
@@ -156,6 +158,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
+	cli.LogscaleManagement = logscale_management.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
 	cli.MessageCenter = message_center.New(transport, formats)
 	cli.MlExclusions = ml_exclusions.New(transport, formats)
@@ -176,6 +179,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
+	cli.SavedSearches = saved_searches.New(transport, formats)
 	cli.ScheduledReports = scheduled_reports.New(transport, formats)
 	cli.SensorDownload = sensor_download.New(transport, formats)
 	cli.SensorUpdatePolicies = sensor_update_policies.New(transport, formats)
@@ -302,6 +306,8 @@ type CrowdStrikeAPISpecification struct {
 
 	KubernetesProtection kubernetes_protection.ClientService
 
+	LogscaleManagement logscale_management.ClientService
+
 	Malquery malquery.ClientService
 
 	MessageCenter message_center.ClientService
@@ -341,6 +347,8 @@ type CrowdStrikeAPISpecification struct {
 	ResponsePolicies response_policies.ClientService
 
 	SampleUploads sample_uploads.ClientService
+
+	SavedSearches saved_searches.ClientService
 
 	ScheduledReports scheduled_reports.ClientService
 
@@ -404,6 +412,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
+	c.LogscaleManagement.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
 	c.MessageCenter.SetTransport(transport)
 	c.MlExclusions.SetTransport(transport)
@@ -424,6 +433,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)
+	c.SavedSearches.SetTransport(transport)
 	c.ScheduledReports.SetTransport(transport)
 	c.SensorDownload.SetTransport(transport)
 	c.SensorUpdatePolicies.SetTransport(transport)
