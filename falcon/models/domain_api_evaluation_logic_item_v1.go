@@ -26,6 +26,9 @@ type DomainAPIEvaluationLogicItemV1 struct {
 	// comparisons
 	Comparisons *DomainAPIEvaluationLogicComparisonsV1 `json:"comparisons,omitempty"`
 
+	// description
+	Description string `json:"description,omitempty"`
+
 	// determined by comparison
 	DeterminedByComparison bool `json:"determined_by_comparison,omitempty"`
 
@@ -41,10 +44,6 @@ type DomainAPIEvaluationLogicItemV1 struct {
 	// negate
 	Negate bool `json:"negate,omitempty"`
 
-	// status
-	// Required: true
-	Status *string `json:"status"`
-
 	// title
 	// Required: true
 	Title *string `json:"title"`
@@ -59,10 +58,6 @@ func (m *DomainAPIEvaluationLogicItemV1) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateComparisons(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,15 +89,6 @@ func (m *DomainAPIEvaluationLogicItemV1) validateComparisons(formats strfmt.Regi
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *DomainAPIEvaluationLogicItemV1) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
 	}
 
 	return nil

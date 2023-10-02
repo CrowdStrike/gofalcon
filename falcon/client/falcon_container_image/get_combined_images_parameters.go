@@ -64,7 +64,7 @@ type GetCombinedImagesParams struct {
 
 	/* Filter.
 
-	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
+	   Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_id, container_running_status, cve_id, detection_name, detection_severity, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
 	*/
 	Filter *string
 
@@ -82,7 +82,7 @@ type GetCombinedImagesParams struct {
 
 	/* Sort.
 
-	   The fields to sort the records on. Supported columns:  [first_seen registry repository tag vulnerability_severity]
+	   The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository tag]
 	*/
 	Sort *string
 
