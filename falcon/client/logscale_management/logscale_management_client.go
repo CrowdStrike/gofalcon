@@ -30,34 +30,34 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateViewV1(params *CreateViewV1Params, opts ...ClientOption) (*CreateViewV1OK, error)
+	CreateView(params *CreateViewParams, opts ...ClientOption) (*CreateViewOK, error)
 
-	InitializeV1(params *InitializeV1Params, opts ...ClientOption) (*InitializeV1OK, error)
+	Initialize(params *InitializeParams, opts ...ClientOption) (*InitializeOK, error)
 
-	ListReposV1(params *ListReposV1Params, opts ...ClientOption) (*ListReposV1OK, error)
+	ListRepos(params *ListReposParams, opts ...ClientOption) (*ListReposOK, error)
 
-	ListViewV1(params *ListViewV1Params, opts ...ClientOption) (*ListViewV1OK, error)
+	ListViews(params *ListViewsParams, opts ...ClientOption) (*ListViewsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CreateViewV1 creates a view
+CreateView creates a view
 */
-func (a *Client) CreateViewV1(params *CreateViewV1Params, opts ...ClientOption) (*CreateViewV1OK, error) {
+func (a *Client) CreateView(params *CreateViewParams, opts ...ClientOption) (*CreateViewOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateViewV1Params()
+		params = NewCreateViewParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CreateViewV1",
+		ID:                 "CreateView",
 		Method:             "POST",
 		PathPattern:        "/loggingapi/entities/views/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateViewV1Reader{formats: a.formats},
+		Reader:             &CreateViewReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -69,33 +69,33 @@ func (a *Client) CreateViewV1(params *CreateViewV1Params, opts ...ClientOption) 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateViewV1OK)
+	success, ok := result.(*CreateViewOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateViewV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateView: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-InitializeV1 initializes the required logscale artifacts
+Initialize initializes the required logscale artifacts
 */
-func (a *Client) InitializeV1(params *InitializeV1Params, opts ...ClientOption) (*InitializeV1OK, error) {
+func (a *Client) Initialize(params *InitializeParams, opts ...ClientOption) (*InitializeOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewInitializeV1Params()
+		params = NewInitializeParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "InitializeV1",
+		ID:                 "Initialize",
 		Method:             "POST",
 		PathPattern:        "/loggingapi/combined/initialize/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &InitializeV1Reader{formats: a.formats},
+		Reader:             &InitializeReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -107,33 +107,33 @@ func (a *Client) InitializeV1(params *InitializeV1Params, opts ...ClientOption) 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*InitializeV1OK)
+	success, ok := result.(*InitializeOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InitializeV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Initialize: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ListReposV1 lists available repositories and views
+ListRepos lists available repositories and views
 */
-func (a *Client) ListReposV1(params *ListReposV1Params, opts ...ClientOption) (*ListReposV1OK, error) {
+func (a *Client) ListRepos(params *ListReposParams, opts ...ClientOption) (*ListReposOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewListReposV1Params()
+		params = NewListReposParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ListReposV1",
+		ID:                 "ListRepos",
 		Method:             "GET",
 		PathPattern:        "/loggingapi/combined/repos/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ListReposV1Reader{formats: a.formats},
+		Reader:             &ListReposReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -145,33 +145,33 @@ func (a *Client) ListReposV1(params *ListReposV1Params, opts ...ClientOption) (*
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ListReposV1OK)
+	success, ok := result.(*ListReposOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ListReposV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for ListRepos: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ListViewV1 lists views
+ListViews lists views
 */
-func (a *Client) ListViewV1(params *ListViewV1Params, opts ...ClientOption) (*ListViewV1OK, error) {
+func (a *Client) ListViews(params *ListViewsParams, opts ...ClientOption) (*ListViewsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewListViewV1Params()
+		params = NewListViewsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ListViewV1",
+		ID:                 "ListViews",
 		Method:             "GET",
 		PathPattern:        "/loggingapi/entities/views/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ListViewV1Reader{formats: a.formats},
+		Reader:             &ListViewsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -183,13 +183,13 @@ func (a *Client) ListViewV1(params *ListViewV1Params, opts ...ClientOption) (*Li
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ListViewV1OK)
+	success, ok := result.(*ListViewsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ListViewV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for ListViews: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

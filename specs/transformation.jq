@@ -79,3 +79,39 @@
       .paths."/message-center/aggregates/cases/GET/v1".post.responses."403".schema = {"$ref": "#/definitions/msaspec.ResponseFields"} 
     else . end
   
+  # Better operationId for workflows collection
+  | .paths."/workflows/entities/execute/v1".post.operationId = "execute"
+  | .paths."/workflows/entities/execution-actions/v1".post.operationId = "executions.action"
+  | .paths."/workflows/entities/execution-results/v1".get.operationId = "executions.result"
+  | .paths."/workflows/system-definitions/deprovision/v1".post.operationId = "deprovision.system-definition"
+  | .paths."/workflows/system-definitions/promote/v1".post.operationId = "promote.system-definition"
+  | .paths."/workflows/system-definitions/provision/v1".post.operationId = "provision.system-definition"
+
+  # Better operationId for logscale-management collection
+  | .paths."/loggingapi/combined/initialize/v1".post.operationId = "Initialize"
+  | .paths."/loggingapi/combined/repos/v1".get.operationId = "ListRepos"
+  | .paths."/loggingapi/entities/views/v1".get.operationId = "ListViews"
+  | .paths."/loggingapi/entities/views/v1".post.operationId = "CreateView"
+ 
+  # Better operationId for scheduled-reports collection
+  | .paths."/reports/entities/scheduled-reports/execution/v1".post.operationId = "Execute"
+  | .paths."/reports/entities/scheduled-reports/v1".get.operationId = "QueryById"
+  | .paths."/reports/queries/scheduled-reports/v1".get.operationId = "Query"
+
+# Better operationId for saved-searches collection
+  | .paths."/loggingapi/combined/saved-searches/v1".get.operationId = "QueryCombined"
+  | .paths."/loggingapi/entities/saved-searches-deploy/v1".post.operationId = "Deploy"
+  | .paths."/loggingapi/entities/saved-searches-dynamic-execute/v1".post.operationId = "ExecuteDynamic"
+  | .paths."/loggingapi/entities/saved-searches-execute/v1".get.operationId = "Result"
+  | .paths."/loggingapi/entities/saved-searches-execute/v1".post.operationId = "Execute"
+  | .paths."/loggingapi/entities/saved-searches-ingest/v1".post.operationId = "Ingest"
+  | .paths."/loggingapi/entities/saved-searches-validate/v1".post.operationId = "Validate"
+  | .paths."/loggingapi/entities/saved-searches/v1".get.operationId = "QueryById"
+  | .paths."/loggingapi/entities/saved-searches/v1".post.operationId = "CreateSavedSearch"
+  | .paths."/loggingapi/entities/saved-searches/v1".delete.operationId = "DeleteSavedSearch"
+  | .paths."/loggingapi/entities/saved-searches/v1".patch.operationId = "UpdateSavedSearch"
+  | .paths."/loggingapi/queries/saved-searches/v1".get.operationId = "Query"
+
+
+
+ 

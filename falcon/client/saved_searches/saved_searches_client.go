@@ -30,240 +30,44 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CombinedSavedSearchesV1(params *CombinedSavedSearchesV1Params, opts ...ClientOption) (*CombinedSavedSearchesV1OK, error)
+	CreateSavedSearch(params *CreateSavedSearchParams, opts ...ClientOption) (*CreateSavedSearchOK, error)
 
-	CreateSavedSearchesDeployV1(params *CreateSavedSearchesDeployV1Params, opts ...ClientOption) (*CreateSavedSearchesDeployV1OK, error)
+	DeleteSavedSearch(params *DeleteSavedSearchParams, opts ...ClientOption) (*DeleteSavedSearchOK, error)
 
-	CreateSavedSearchesDynamicExecuteV1(params *CreateSavedSearchesDynamicExecuteV1Params, opts ...ClientOption) (*CreateSavedSearchesDynamicExecuteV1OK, error)
+	Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, error)
 
-	CreateSavedSearchesExecuteV1(params *CreateSavedSearchesExecuteV1Params, opts ...ClientOption) (*CreateSavedSearchesExecuteV1OK, error)
+	ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error)
 
-	CreateSavedSearchesIngestV1(params *CreateSavedSearchesIngestV1Params, opts ...ClientOption) (*CreateSavedSearchesIngestV1OK, error)
+	Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, error)
 
-	CreateSavedSearchesV1(params *CreateSavedSearchesV1Params, opts ...ClientOption) (*CreateSavedSearchesV1OK, error)
+	QueryCombined(params *QueryCombinedParams, opts ...ClientOption) (*QueryCombinedOK, error)
 
-	DeleteSavedSearchesV1(params *DeleteSavedSearchesV1Params, opts ...ClientOption) (*DeleteSavedSearchesV1OK, error)
+	Result(params *ResultParams, opts ...ClientOption) (*ResultOK, error)
 
-	GetSavedSearchesExecuteV1(params *GetSavedSearchesExecuteV1Params, opts ...ClientOption) (*GetSavedSearchesExecuteV1OK, error)
+	UpdateSavedSearch(params *UpdateSavedSearchParams, opts ...ClientOption) (*UpdateSavedSearchOK, error)
 
-	GetSavedSearchesV1(params *GetSavedSearchesV1Params, opts ...ClientOption) (*GetSavedSearchesV1OK, error)
-
-	QuerySavedSearchesV1(params *QuerySavedSearchesV1Params, opts ...ClientOption) (*QuerySavedSearchesV1OK, error)
-
-	SavedSearchesValidate(params *SavedSearchesValidateParams, opts ...ClientOption) (*SavedSearchesValidateOK, error)
-
-	UpdateSavedSearchesV1(params *UpdateSavedSearchesV1Params, opts ...ClientOption) (*UpdateSavedSearchesV1OK, error)
+	Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CombinedSavedSearchesV1 queries for saved searches resources and returns details
+CreateSavedSearch creates a saved searches resource
 */
-func (a *Client) CombinedSavedSearchesV1(params *CombinedSavedSearchesV1Params, opts ...ClientOption) (*CombinedSavedSearchesV1OK, error) {
+func (a *Client) CreateSavedSearch(params *CreateSavedSearchParams, opts ...ClientOption) (*CreateSavedSearchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCombinedSavedSearchesV1Params()
+		params = NewCreateSavedSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "CombinedSavedSearchesV1",
-		Method:             "GET",
-		PathPattern:        "/loggingapi/combined/saved-searches/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CombinedSavedSearchesV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CombinedSavedSearchesV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CombinedSavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateSavedSearchesDeployV1 deploys a saved search
-*/
-func (a *Client) CreateSavedSearchesDeployV1(params *CreateSavedSearchesDeployV1Params, opts ...ClientOption) (*CreateSavedSearchesDeployV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateSavedSearchesDeployV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateSavedSearchesDeployV1",
-		Method:             "POST",
-		PathPattern:        "/loggingapi/entities/saved-searches-deploy/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateSavedSearchesDeployV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateSavedSearchesDeployV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesDeployV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateSavedSearchesDynamicExecuteV1 executes a dynamic saved search
-*/
-func (a *Client) CreateSavedSearchesDynamicExecuteV1(params *CreateSavedSearchesDynamicExecuteV1Params, opts ...ClientOption) (*CreateSavedSearchesDynamicExecuteV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateSavedSearchesDynamicExecuteV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateSavedSearchesDynamicExecuteV1",
-		Method:             "POST",
-		PathPattern:        "/loggingapi/entities/saved-searches-dynamic-execute/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateSavedSearchesDynamicExecuteV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateSavedSearchesDynamicExecuteV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesDynamicExecuteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateSavedSearchesExecuteV1 executes a saved search
-*/
-func (a *Client) CreateSavedSearchesExecuteV1(params *CreateSavedSearchesExecuteV1Params, opts ...ClientOption) (*CreateSavedSearchesExecuteV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateSavedSearchesExecuteV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateSavedSearchesExecuteV1",
-		Method:             "POST",
-		PathPattern:        "/loggingapi/entities/saved-searches-execute/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateSavedSearchesExecuteV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateSavedSearchesExecuteV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesExecuteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateSavedSearchesIngestV1 populates a saved search
-*/
-func (a *Client) CreateSavedSearchesIngestV1(params *CreateSavedSearchesIngestV1Params, opts ...ClientOption) (*CreateSavedSearchesIngestV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateSavedSearchesIngestV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateSavedSearchesIngestV1",
-		Method:             "POST",
-		PathPattern:        "/loggingapi/entities/saved-searches-ingest/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"multipart/form-data"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateSavedSearchesIngestV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateSavedSearchesIngestV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesIngestV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateSavedSearchesV1 creates a saved searches resource
-*/
-func (a *Client) CreateSavedSearchesV1(params *CreateSavedSearchesV1Params, opts ...ClientOption) (*CreateSavedSearchesV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateSavedSearchesV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "CreateSavedSearchesV1",
+		ID:                 "CreateSavedSearch",
 		Method:             "POST",
 		PathPattern:        "/loggingapi/entities/saved-searches/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateSavedSearchesV1Reader{formats: a.formats},
+		Reader:             &CreateSavedSearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -275,33 +79,33 @@ func (a *Client) CreateSavedSearchesV1(params *CreateSavedSearchesV1Params, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateSavedSearchesV1OK)
+	success, ok := result.(*CreateSavedSearchOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateSavedSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-DeleteSavedSearchesV1 deletes a saved searches resource
+DeleteSavedSearch deletes a saved searches resource
 */
-func (a *Client) DeleteSavedSearchesV1(params *DeleteSavedSearchesV1Params, opts ...ClientOption) (*DeleteSavedSearchesV1OK, error) {
+func (a *Client) DeleteSavedSearch(params *DeleteSavedSearchParams, opts ...ClientOption) (*DeleteSavedSearchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteSavedSearchesV1Params()
+		params = NewDeleteSavedSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteSavedSearchesV1",
+		ID:                 "DeleteSavedSearch",
 		Method:             "DELETE",
 		PathPattern:        "/loggingapi/entities/saved-searches/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteSavedSearchesV1Reader{formats: a.formats},
+		Reader:             &DeleteSavedSearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -313,33 +117,185 @@ func (a *Client) DeleteSavedSearchesV1(params *DeleteSavedSearchesV1Params, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteSavedSearchesV1OK)
+	success, ok := result.(*DeleteSavedSearchOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteSavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteSavedSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetSavedSearchesExecuteV1 gets the results of a saved search
+Deploy deploys a saved search
 */
-func (a *Client) GetSavedSearchesExecuteV1(params *GetSavedSearchesExecuteV1Params, opts ...ClientOption) (*GetSavedSearchesExecuteV1OK, error) {
+func (a *Client) Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetSavedSearchesExecuteV1Params()
+		params = NewDeployParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetSavedSearchesExecuteV1",
+		ID:                 "Deploy",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-deploy/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeployReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DeployOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for Deploy: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ExecuteDynamic executes a dynamic saved search
+*/
+func (a *Client) ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteDynamicParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ExecuteDynamic",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-dynamic-execute/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteDynamicReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteDynamicOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ExecuteDynamic: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Ingest populates a saved search
+*/
+func (a *Client) Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIngestParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "Ingest",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-ingest/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IngestReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IngestOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for Ingest: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryCombined queries for saved searches resources and returns details
+*/
+func (a *Client) QueryCombined(params *QueryCombinedParams, opts ...ClientOption) (*QueryCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryCombined",
+		Method:             "GET",
+		PathPattern:        "/loggingapi/combined/saved-searches/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Result gets the results of a saved search
+*/
+func (a *Client) Result(params *ResultParams, opts ...ClientOption) (*ResultOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewResultParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "Result",
 		Method:             "GET",
 		PathPattern:        "/loggingapi/entities/saved-searches-execute/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetSavedSearchesExecuteV1Reader{formats: a.formats},
+		Reader:             &ResultReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -351,147 +307,33 @@ func (a *Client) GetSavedSearchesExecuteV1(params *GetSavedSearchesExecuteV1Para
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetSavedSearchesExecuteV1OK)
+	success, ok := result.(*ResultOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetSavedSearchesExecuteV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Result: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetSavedSearchesV1 retrieves saved searches resources by ids
+UpdateSavedSearch updates a saved searches resource
 */
-func (a *Client) GetSavedSearchesV1(params *GetSavedSearchesV1Params, opts ...ClientOption) (*GetSavedSearchesV1OK, error) {
+func (a *Client) UpdateSavedSearch(params *UpdateSavedSearchParams, opts ...ClientOption) (*UpdateSavedSearchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetSavedSearchesV1Params()
+		params = NewUpdateSavedSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetSavedSearchesV1",
-		Method:             "GET",
-		PathPattern:        "/loggingapi/entities/saved-searches/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetSavedSearchesV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetSavedSearchesV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetSavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-QuerySavedSearchesV1 queries for saved searches resources and returns ids
-*/
-func (a *Client) QuerySavedSearchesV1(params *QuerySavedSearchesV1Params, opts ...ClientOption) (*QuerySavedSearchesV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQuerySavedSearchesV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "QuerySavedSearchesV1",
-		Method:             "GET",
-		PathPattern:        "/loggingapi/queries/saved-searches/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QuerySavedSearchesV1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*QuerySavedSearchesV1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QuerySavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-SavedSearchesValidate validates a search
-*/
-func (a *Client) SavedSearchesValidate(params *SavedSearchesValidateParams, opts ...ClientOption) (*SavedSearchesValidateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewSavedSearchesValidateParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "SavedSearchesValidate",
-		Method:             "POST",
-		PathPattern:        "/loggingapi/entities/saved-searches-validate/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &SavedSearchesValidateReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*SavedSearchesValidateOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SavedSearchesValidate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-UpdateSavedSearchesV1 updates a saved searches resource
-*/
-func (a *Client) UpdateSavedSearchesV1(params *UpdateSavedSearchesV1Params, opts ...ClientOption) (*UpdateSavedSearchesV1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateSavedSearchesV1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "UpdateSavedSearchesV1",
+		ID:                 "UpdateSavedSearch",
 		Method:             "PATCH",
 		PathPattern:        "/loggingapi/entities/saved-searches/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UpdateSavedSearchesV1Reader{formats: a.formats},
+		Reader:             &UpdateSavedSearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -503,13 +345,51 @@ func (a *Client) UpdateSavedSearchesV1(params *UpdateSavedSearchesV1Params, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateSavedSearchesV1OK)
+	success, ok := result.(*UpdateSavedSearchOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpdateSavedSearchesV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for UpdateSavedSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Validate validates a search
+*/
+func (a *Client) Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewValidateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "Validate",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-validate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ValidateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ValidateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for Validate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
