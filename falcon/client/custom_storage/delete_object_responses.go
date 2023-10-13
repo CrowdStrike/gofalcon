@@ -72,7 +72,7 @@ type DeleteObjectOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType4078359637
+	Payload *models.CustomStorageResponsePayload
 }
 
 // IsSuccess returns true when this delete object o k response has a 2xx status code
@@ -113,7 +113,7 @@ func (o *DeleteObjectOK) String() string {
 	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] deleteObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteObjectOK) GetPayload() *models.CustomType4078359637 {
+func (o *DeleteObjectOK) GetPayload() *models.CustomStorageResponsePayload {
 	return o.Payload
 }
 
@@ -148,7 +148,7 @@ func (o *DeleteObjectOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType4078359637)
+	o.Payload = new(models.CustomStorageResponsePayload)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

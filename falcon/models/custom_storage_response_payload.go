@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CustomType4078359637 custom type 4078359637
+// CustomStorageResponsePayload custom type 4078359637
 //
-// swagger:model CustomType_4078359637
-type CustomType4078359637 struct {
+// swagger:model CustomStorageResponsePayload
+type CustomStorageResponsePayload struct {
 
 	// errors
 	// Required: true
@@ -34,7 +34,7 @@ type CustomType4078359637 struct {
 }
 
 // Validate validates this custom type 4078359637
-func (m *CustomType4078359637) Validate(formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateErrors(formats); err != nil {
@@ -55,7 +55,7 @@ func (m *CustomType4078359637) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CustomType4078359637) validateErrors(formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) validateErrors(formats strfmt.Registry) error {
 
 	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
@@ -82,7 +82,7 @@ func (m *CustomType4078359637) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CustomType4078359637) validateMeta(formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) validateMeta(formats strfmt.Registry) error {
 
 	if err := validate.Required("meta", "body", m.Meta); err != nil {
 		return err
@@ -102,7 +102,7 @@ func (m *CustomType4078359637) validateMeta(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *CustomType4078359637) validateResources(formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) validateResources(formats strfmt.Registry) error {
 
 	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
@@ -130,7 +130,7 @@ func (m *CustomType4078359637) validateResources(formats strfmt.Registry) error 
 }
 
 // ContextValidate validate this custom type 4078359637 based on the context it is used
-func (m *CustomType4078359637) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateErrors(ctx, formats); err != nil {
@@ -151,7 +151,7 @@ func (m *CustomType4078359637) ContextValidate(ctx context.Context, formats strf
 	return nil
 }
 
-func (m *CustomType4078359637) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Errors); i++ {
 
@@ -176,7 +176,7 @@ func (m *CustomType4078359637) contextValidateErrors(ctx context.Context, format
 	return nil
 }
 
-func (m *CustomType4078359637) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
 
@@ -193,7 +193,7 @@ func (m *CustomType4078359637) contextValidateMeta(ctx context.Context, formats 
 	return nil
 }
 
-func (m *CustomType4078359637) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+func (m *CustomStorageResponsePayload) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Resources); i++ {
 
@@ -219,7 +219,7 @@ func (m *CustomType4078359637) contextValidateResources(ctx context.Context, for
 }
 
 // MarshalBinary interface implementation
-func (m *CustomType4078359637) MarshalBinary() ([]byte, error) {
+func (m *CustomStorageResponsePayload) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -227,8 +227,8 @@ func (m *CustomType4078359637) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CustomType4078359637) UnmarshalBinary(b []byte) error {
-	var res CustomType4078359637
+func (m *CustomStorageResponsePayload) UnmarshalBinary(b []byte) error {
+	var res CustomStorageResponsePayload
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

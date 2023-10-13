@@ -72,7 +72,7 @@ type GetObjectMetadataOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType4078359637
+	Payload *models.CustomStorageResponsePayload
 }
 
 // IsSuccess returns true when this get object metadata o k response has a 2xx status code
@@ -113,7 +113,7 @@ func (o *GetObjectMetadataOK) String() string {
 	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK  %+v", 200, o.Payload)
 }
 
-func (o *GetObjectMetadataOK) GetPayload() *models.CustomType4078359637 {
+func (o *GetObjectMetadataOK) GetPayload() *models.CustomStorageResponsePayload {
 	return o.Payload
 }
 
@@ -148,7 +148,7 @@ func (o *GetObjectMetadataOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType4078359637)
+	o.Payload = new(models.CustomStorageResponsePayload)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
