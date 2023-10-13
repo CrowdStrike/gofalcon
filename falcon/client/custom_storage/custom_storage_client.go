@@ -7,6 +7,7 @@ package custom_storage
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -32,7 +33,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error)
 
-	GetObject(params *GetObjectParams, opts ...ClientOption) (*GetObjectOK, error)
+	GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error)
 
 	GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error)
 
@@ -86,7 +87,7 @@ func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) 
 /*
 GetObject gets the bytes for the specified object
 */
-func (a *Client) GetObject(params *GetObjectParams, opts ...ClientOption) (*GetObjectOK, error) {
+func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetObjectParams()
@@ -99,7 +100,7 @@ func (a *Client) GetObject(params *GetObjectParams, opts ...ClientOption) (*GetO
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetObjectReader{formats: a.formats},
+		Reader:             &GetObjectReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

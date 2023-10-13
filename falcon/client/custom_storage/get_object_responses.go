@@ -20,13 +20,14 @@ import (
 // GetObjectReader is a Reader for the GetObject structure.
 type GetObjectReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *GetObjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetObjectOK()
+		result := NewGetObjectOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -49,12 +50,15 @@ func (o *GetObjectReader) ReadResponse(response runtime.ClientResponse, consumer
 }
 
 // NewGetObjectOK creates a GetObjectOK with default headers values
-func NewGetObjectOK() *GetObjectOK {
-	return &GetObjectOK{}
+func NewGetObjectOK(writer io.Writer) *GetObjectOK {
+	return &GetObjectOK{
+
+		Payload: writer,
+	}
 }
 
 /*
-GetObjectOK describes a response with status code 200, with default header values.
+	GetObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -72,7 +76,7 @@ type GetObjectOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload []int64
+	Payload io.Writer
 }
 
 // IsSuccess returns true when this get object o k response has a 2xx status code
@@ -113,7 +117,7 @@ func (o *GetObjectOK) String() string {
 	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] getObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *GetObjectOK) GetPayload() []int64 {
+func (o *GetObjectOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
@@ -149,7 +153,7 @@ func (o *GetObjectOK) readResponse(response runtime.ClientResponse, consumer run
 	}
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
@@ -162,7 +166,7 @@ func NewGetObjectForbidden() *GetObjectForbidden {
 }
 
 /*
-GetObjectForbidden describes a response with status code 403, with default header values.
+	GetObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -272,7 +276,7 @@ func NewGetObjectTooManyRequests() *GetObjectTooManyRequests {
 }
 
 /*
-GetObjectTooManyRequests describes a response with status code 429, with default header values.
+	GetObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

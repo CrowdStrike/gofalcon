@@ -54,7 +54,7 @@ func NewDeleteObjectOK() *DeleteObjectOK {
 }
 
 /*
-DeleteObjectOK describes a response with status code 200, with default header values.
+	DeleteObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -72,7 +72,7 @@ type DeleteObjectOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType2096042126
+	Payload *models.CustomStorageResponsePayload
 }
 
 // IsSuccess returns true when this delete object o k response has a 2xx status code
@@ -113,7 +113,7 @@ func (o *DeleteObjectOK) String() string {
 	return fmt.Sprintf("[DELETE /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] deleteObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *DeleteObjectOK) GetPayload() *models.CustomType2096042126 {
+func (o *DeleteObjectOK) GetPayload() *models.CustomStorageResponsePayload {
 	return o.Payload
 }
 
@@ -148,7 +148,7 @@ func (o *DeleteObjectOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType2096042126)
+	o.Payload = new(models.CustomStorageResponsePayload)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -164,7 +164,7 @@ func NewDeleteObjectForbidden() *DeleteObjectForbidden {
 }
 
 /*
-DeleteObjectForbidden describes a response with status code 403, with default header values.
+	DeleteObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -274,7 +274,7 @@ func NewDeleteObjectTooManyRequests() *DeleteObjectTooManyRequests {
 }
 
 /*
-DeleteObjectTooManyRequests describes a response with status code 429, with default header values.
+	DeleteObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

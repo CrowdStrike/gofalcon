@@ -24,9 +24,8 @@ type APIObjectMetadata struct {
 	CollectionName *string `json:"collection_name"`
 
 	// last modified time
-	// Required: true
 	// Format: date-time
-	LastModifiedTime *strfmt.DateTime `json:"last_modified_time"`
+	LastModifiedTime strfmt.DateTime `json:"last_modified_time,omitempty"`
 
 	// namespace
 	// Required: true
@@ -81,9 +80,8 @@ func (m *APIObjectMetadata) validateCollectionName(formats strfmt.Registry) erro
 }
 
 func (m *APIObjectMetadata) validateLastModifiedTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("last_modified_time", "body", m.LastModifiedTime); err != nil {
-		return err
+	if swag.IsZero(m.LastModifiedTime) { // not required
+		return nil
 	}
 
 	if err := validate.FormatOf("last_modified_time", "body", "date-time", m.LastModifiedTime.String(), formats); err != nil {

@@ -7,6 +7,7 @@ package custom_storage
 
 import (
 	"context"
+	"io"
 	"net/http"
 	"time"
 
@@ -14,6 +15,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewPutObjectParams creates a new PutObjectParams object,
@@ -74,13 +76,21 @@ type PutObjectParams struct {
 	XCSAPPID *string
 
 	// Body.
-	Body []int64
+	//
+	// Format: binary
+	Body io.ReadCloser
 
 	/* CollectionName.
 
 	   The name of the collection
 	*/
 	CollectionName string
+
+	/* DryRun.
+
+	   If false, run the operation as normal.  If true, validate that the request *would* succeed, but don't execute it.
+	*/
+	DryRun bool
 
 	/* ObjectKey.
 
@@ -170,13 +180,13 @@ func (o *PutObjectParams) SetXCSAPPID(xCSAPPID *string) {
 }
 
 // WithBody adds the body to the put object params
-func (o *PutObjectParams) WithBody(body []int64) *PutObjectParams {
+func (o *PutObjectParams) WithBody(body io.ReadCloser) *PutObjectParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the put object params
-func (o *PutObjectParams) SetBody(body []int64) {
+func (o *PutObjectParams) SetBody(body io.ReadCloser) {
 	o.Body = body
 }
 
@@ -189,6 +199,17 @@ func (o *PutObjectParams) WithCollectionName(collectionName string) *PutObjectPa
 // SetCollectionName adds the collectionName to the put object params
 func (o *PutObjectParams) SetCollectionName(collectionName string) {
 	o.CollectionName = collectionName
+}
+
+// WithDryRun adds the dryRun to the put object params
+func (o *PutObjectParams) WithDryRun(dryRun bool) *PutObjectParams {
+	o.SetDryRun(dryRun)
+	return o
+}
+
+// SetDryRun adds the dryRun to the put object params
+func (o *PutObjectParams) SetDryRun(dryRun bool) {
+	o.DryRun = dryRun
 }
 
 // WithObjectKey adds the objectKey to the put object params
@@ -241,6 +262,14 @@ func (o *PutObjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 
 	// path param collection_name
 	if err := r.SetPathParam("collection_name", o.CollectionName); err != nil {
+		return err
+	}
+
+	// query param dry_run
+	qrDryRun := o.DryRun
+	qDryRun := swag.FormatBool(qrDryRun)
+
+	if err := r.SetQueryParam("dry_run", qDryRun); err != nil {
 		return err
 	}
 

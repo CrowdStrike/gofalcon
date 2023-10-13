@@ -54,7 +54,7 @@ func NewGetObjectMetadataOK() *GetObjectMetadataOK {
 }
 
 /*
-GetObjectMetadataOK describes a response with status code 200, with default header values.
+	GetObjectMetadataOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -72,7 +72,7 @@ type GetObjectMetadataOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType2096042126
+	Payload *models.CustomStorageResponsePayload
 }
 
 // IsSuccess returns true when this get object metadata o k response has a 2xx status code
@@ -113,7 +113,7 @@ func (o *GetObjectMetadataOK) String() string {
 	return fmt.Sprintf("[GET /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata][%d] getObjectMetadataOK  %+v", 200, o.Payload)
 }
 
-func (o *GetObjectMetadataOK) GetPayload() *models.CustomType2096042126 {
+func (o *GetObjectMetadataOK) GetPayload() *models.CustomStorageResponsePayload {
 	return o.Payload
 }
 
@@ -148,7 +148,7 @@ func (o *GetObjectMetadataOK) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType2096042126)
+	o.Payload = new(models.CustomStorageResponsePayload)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -164,7 +164,7 @@ func NewGetObjectMetadataForbidden() *GetObjectMetadataForbidden {
 }
 
 /*
-GetObjectMetadataForbidden describes a response with status code 403, with default header values.
+	GetObjectMetadataForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -274,7 +274,7 @@ func NewGetObjectMetadataTooManyRequests() *GetObjectMetadataTooManyRequests {
 }
 
 /*
-GetObjectMetadataTooManyRequests describes a response with status code 429, with default header values.
+	GetObjectMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewDeleteObjectParams creates a new DeleteObjectParams object,
@@ -78,6 +79,12 @@ type DeleteObjectParams struct {
 	   The name of the collection
 	*/
 	CollectionName string
+
+	/* DryRun.
+
+	   If false, run the operation as normal.  If true, validate that the request *would* succeed, but don't execute it.
+	*/
+	DryRun bool
 
 	/* ObjectKey.
 
@@ -171,6 +178,17 @@ func (o *DeleteObjectParams) SetCollectionName(collectionName string) {
 	o.CollectionName = collectionName
 }
 
+// WithDryRun adds the dryRun to the delete object params
+func (o *DeleteObjectParams) WithDryRun(dryRun bool) *DeleteObjectParams {
+	o.SetDryRun(dryRun)
+	return o
+}
+
+// SetDryRun adds the dryRun to the delete object params
+func (o *DeleteObjectParams) SetDryRun(dryRun bool) {
+	o.DryRun = dryRun
+}
+
 // WithObjectKey adds the objectKey to the delete object params
 func (o *DeleteObjectParams) WithObjectKey(objectKey string) *DeleteObjectParams {
 	o.SetObjectKey(objectKey)
@@ -205,6 +223,14 @@ func (o *DeleteObjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 
 	// path param collection_name
 	if err := r.SetPathParam("collection_name", o.CollectionName); err != nil {
+		return err
+	}
+
+	// query param dry_run
+	qrDryRun := o.DryRun
+	qDryRun := swag.FormatBool(qrDryRun)
+
+	if err := r.SetQueryParam("dry_run", qDryRun); err != nil {
 		return err
 	}
 

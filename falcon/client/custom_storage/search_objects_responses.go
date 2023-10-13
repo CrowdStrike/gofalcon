@@ -72,7 +72,7 @@ type SearchObjectsOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType4078359637
+	Payload *models.CustomStorageResponsePayload
 }
 
 // IsSuccess returns true when this search objects o k response has a 2xx status code
@@ -113,7 +113,7 @@ func (o *SearchObjectsOK) String() string {
 	return fmt.Sprintf("[POST /customobjects/v1/collections/{collection_name}/objects][%d] searchObjectsOK  %+v", 200, o.Payload)
 }
 
-func (o *SearchObjectsOK) GetPayload() *models.CustomType4078359637 {
+func (o *SearchObjectsOK) GetPayload() *models.CustomStorageResponsePayload {
 	return o.Payload
 }
 
@@ -148,7 +148,7 @@ func (o *SearchObjectsOK) readResponse(response runtime.ClientResponse, consumer
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType4078359637)
+	o.Payload = new(models.CustomStorageResponsePayload)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
