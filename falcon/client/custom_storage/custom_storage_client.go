@@ -7,6 +7,7 @@ package custom_storage
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -32,7 +33,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error)
 
-	GetObject(params *GetObjectParams, opts ...ClientOption) (*GetObjectOK, error)
+	GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error)
 
 	GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error)
 
@@ -46,7 +47,7 @@ type ClientService interface {
 }
 
 /*
-DeleteObject deletes the specified object
+  DeleteObject deletes the specified object
 */
 func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error) {
 	// TODO: Validate the params before sending
@@ -84,9 +85,9 @@ func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) 
 }
 
 /*
-GetObject gets the bytes for the specified object
+  GetObject gets the bytes for the specified object
 */
-func (a *Client) GetObject(params *GetObjectParams, opts ...ClientOption) (*GetObjectOK, error) {
+func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetObjectParams()
@@ -99,7 +100,7 @@ func (a *Client) GetObject(params *GetObjectParams, opts ...ClientOption) (*GetO
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetObjectReader{formats: a.formats},
+		Reader:             &GetObjectReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -122,7 +123,7 @@ func (a *Client) GetObject(params *GetObjectParams, opts ...ClientOption) (*GetO
 }
 
 /*
-GetObjectMetadata gets the metadata for the specified object
+  GetObjectMetadata gets the metadata for the specified object
 */
 func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +161,7 @@ func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...Clie
 }
 
 /*
-ListObjects lists the object keys in the specified collection in alphabetical order
+  ListObjects lists the object keys in the specified collection in alphabetical order
 */
 func (a *Client) ListObjects(params *ListObjectsParams, opts ...ClientOption) (*ListObjectsOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +199,7 @@ func (a *Client) ListObjects(params *ListObjectsParams, opts ...ClientOption) (*
 }
 
 /*
-PutObject puts the specified new object at the given key or overwrite an existing object at the given key
+  PutObject puts the specified new object at the given key or overwrite an existing object at the given key
 */
 func (a *Client) PutObject(params *PutObjectParams, opts ...ClientOption) (*PutObjectOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +237,7 @@ func (a *Client) PutObject(params *PutObjectParams, opts ...ClientOption) (*PutO
 }
 
 /*
-SearchObjects searches for objects that match the specified filter criteria returns metadata not actual objects
+  SearchObjects searches for objects that match the specified filter criteria returns metadata not actual objects
 */
 func (a *Client) SearchObjects(params *SearchObjectsParams, opts ...ClientOption) (*SearchObjectsOK, error) {
 	// TODO: Validate the params before sending
