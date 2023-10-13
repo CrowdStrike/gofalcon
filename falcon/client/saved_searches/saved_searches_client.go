@@ -36,9 +36,15 @@ type ClientService interface {
 
 	Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, error)
 
+	Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteOK, error)
+
 	ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error)
 
 	Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, error)
+
+	Query(params *QueryParams, opts ...ClientOption) (*QueryOK, error)
+
+	QueryByID(params *QueryByIDParams, opts ...ClientOption) (*QueryByIDOK, error)
 
 	QueryCombined(params *QueryCombinedParams, opts ...ClientOption) (*QueryCombinedOK, error)
 
@@ -166,6 +172,44 @@ func (a *Client) Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, 
 }
 
 /*
+Execute executes a saved search
+*/
+func (a *Client) Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "Execute",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-execute/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ExecuteOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for Execute: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 ExecuteDynamic executes a dynamic saved search
 */
 func (a *Client) ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error) {
@@ -238,6 +282,82 @@ func (a *Client) Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for Ingest: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Query queries for saved searches resources and returns ids
+*/
+func (a *Client) Query(params *QueryParams, opts ...ClientOption) (*QueryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "Query",
+		Method:             "GET",
+		PathPattern:        "/loggingapi/queries/saved-searches/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for Query: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryByID retrieves saved searches resources by ids
+*/
+func (a *Client) QueryByID(params *QueryByIDParams, opts ...ClientOption) (*QueryByIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryByIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryById",
+		Method:             "GET",
+		PathPattern:        "/loggingapi/entities/saved-searches/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryByIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryByIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
