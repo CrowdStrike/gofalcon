@@ -71,8 +71,7 @@ func NewPreviewRuleV1OK() *PreviewRuleV1OK {
 	return &PreviewRuleV1OK{}
 }
 
-/*
-PreviewRuleV1OK describes a response with status code 200, with default header values.
+/* PreviewRuleV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewPreviewRuleV1BadRequest() *PreviewRuleV1BadRequest {
 	return &PreviewRuleV1BadRequest{}
 }
 
-/*
-PreviewRuleV1BadRequest describes a response with status code 400, with default header values.
+/* PreviewRuleV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewPreviewRuleV1Unauthorized() *PreviewRuleV1Unauthorized {
 	return &PreviewRuleV1Unauthorized{}
 }
 
-/*
-PreviewRuleV1Unauthorized describes a response with status code 401, with default header values.
+/* PreviewRuleV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewPreviewRuleV1Forbidden() *PreviewRuleV1Forbidden {
 	return &PreviewRuleV1Forbidden{}
 }
 
-/*
-PreviewRuleV1Forbidden describes a response with status code 403, with default header values.
+/* PreviewRuleV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewPreviewRuleV1TooManyRequests() *PreviewRuleV1TooManyRequests {
 	return &PreviewRuleV1TooManyRequests{}
 }
 
-/*
-PreviewRuleV1TooManyRequests describes a response with status code 429, with default header values.
+/* PreviewRuleV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPreviewRuleV1InternalServerError() *PreviewRuleV1InternalServerError {
 	return &PreviewRuleV1InternalServerError{}
 }
 
-/*
-PreviewRuleV1InternalServerError describes a response with status code 500, with default header values.
+/* PreviewRuleV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

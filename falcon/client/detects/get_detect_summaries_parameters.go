@@ -54,12 +54,10 @@ func NewGetDetectSummariesParamsWithHTTPClient(client *http.Client) *GetDetectSu
 	}
 }
 
-/*
-GetDetectSummariesParams contains all the parameters to send to the API endpoint
+/* GetDetectSummariesParams contains all the parameters to send to the API endpoint
+   for the get detect summaries operation.
 
-	for the get detect summaries operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetDetectSummariesParams struct {
 

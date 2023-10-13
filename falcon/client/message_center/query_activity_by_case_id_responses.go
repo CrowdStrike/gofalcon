@@ -65,8 +65,7 @@ func NewQueryActivityByCaseIDOK() *QueryActivityByCaseIDOK {
 	return &QueryActivityByCaseIDOK{}
 }
 
-/*
-QueryActivityByCaseIDOK describes a response with status code 200, with default header values.
+/* QueryActivityByCaseIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryActivityByCaseIDBadRequest() *QueryActivityByCaseIDBadRequest {
 	return &QueryActivityByCaseIDBadRequest{}
 }
 
-/*
-QueryActivityByCaseIDBadRequest describes a response with status code 400, with default header values.
+/* QueryActivityByCaseIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryActivityByCaseIDForbidden() *QueryActivityByCaseIDForbidden {
 	return &QueryActivityByCaseIDForbidden{}
 }
 
-/*
-QueryActivityByCaseIDForbidden describes a response with status code 403, with default header values.
+/* QueryActivityByCaseIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryActivityByCaseIDTooManyRequests() *QueryActivityByCaseIDTooManyRequ
 	return &QueryActivityByCaseIDTooManyRequests{}
 }
 
-/*
-QueryActivityByCaseIDTooManyRequests describes a response with status code 429, with default header values.
+/* QueryActivityByCaseIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryActivityByCaseIDInternalServerError() *QueryActivityByCaseIDInterna
 	return &QueryActivityByCaseIDInternalServerError{}
 }
 
-/*
-QueryActivityByCaseIDInternalServerError describes a response with status code 500, with default header values.
+/* QueryActivityByCaseIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

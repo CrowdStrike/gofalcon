@@ -65,8 +65,7 @@ func NewGetEvaluationLogicMixin0OK() *GetEvaluationLogicMixin0OK {
 	return &GetEvaluationLogicMixin0OK{}
 }
 
-/*
-GetEvaluationLogicMixin0OK describes a response with status code 200, with default header values.
+/* GetEvaluationLogicMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetEvaluationLogicMixin0BadRequest() *GetEvaluationLogicMixin0BadRequest
 	return &GetEvaluationLogicMixin0BadRequest{}
 }
 
-/*
-GetEvaluationLogicMixin0BadRequest describes a response with status code 400, with default header values.
+/* GetEvaluationLogicMixin0BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -272,8 +270,7 @@ func NewGetEvaluationLogicMixin0Forbidden() *GetEvaluationLogicMixin0Forbidden {
 	return &GetEvaluationLogicMixin0Forbidden{}
 }
 
-/*
-GetEvaluationLogicMixin0Forbidden describes a response with status code 403, with default header values.
+/* GetEvaluationLogicMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -382,8 +379,7 @@ func NewGetEvaluationLogicMixin0TooManyRequests() *GetEvaluationLogicMixin0TooMa
 	return &GetEvaluationLogicMixin0TooManyRequests{}
 }
 
-/*
-GetEvaluationLogicMixin0TooManyRequests describes a response with status code 429, with default header values.
+/* GetEvaluationLogicMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -507,8 +503,7 @@ func NewGetEvaluationLogicMixin0InternalServerError() *GetEvaluationLogicMixin0I
 	return &GetEvaluationLogicMixin0InternalServerError{}
 }
 
-/*
-GetEvaluationLogicMixin0InternalServerError describes a response with status code 500, with default header values.
+/* GetEvaluationLogicMixin0InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

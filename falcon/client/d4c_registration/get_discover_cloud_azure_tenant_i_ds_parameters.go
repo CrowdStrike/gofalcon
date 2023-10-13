@@ -52,12 +52,10 @@ func NewGetDiscoverCloudAzureTenantIDsParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsParams contains all the parameters to send to the API endpoint
+/* GetDiscoverCloudAzureTenantIDsParams contains all the parameters to send to the API endpoint
+   for the get discover cloud azure tenant i ds operation.
 
-	for the get discover cloud azure tenant i ds operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetDiscoverCloudAzureTenantIDsParams struct {
 	timeout    time.Duration

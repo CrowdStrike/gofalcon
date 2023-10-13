@@ -53,8 +53,7 @@ func NewValidateOK() *ValidateOK {
 	return &ValidateOK{}
 }
 
-/*
-ValidateOK describes a response with status code 200, with default header values.
+/* ValidateOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewValidateForbidden() *ValidateForbidden {
 	return &ValidateForbidden{}
 }
 
-/*
-ValidateForbidden describes a response with status code 403, with default header values.
+/* ValidateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewValidateTooManyRequests() *ValidateTooManyRequests {
 	return &ValidateTooManyRequests{}
 }
 
-/*
-ValidateTooManyRequests describes a response with status code 429, with default header values.
+/* ValidateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -71,8 +71,7 @@ func NewUpdateRTResponsePoliciesOK() *UpdateRTResponsePoliciesOK {
 	return &UpdateRTResponsePoliciesOK{}
 }
 
-/*
-UpdateRTResponsePoliciesOK describes a response with status code 200, with default header values.
+/* UpdateRTResponsePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewUpdateRTResponsePoliciesBadRequest() *UpdateRTResponsePoliciesBadRequest
 	return &UpdateRTResponsePoliciesBadRequest{}
 }
 
-/*
-UpdateRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
+/* UpdateRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateRTResponsePoliciesForbidden() *UpdateRTResponsePoliciesForbidden {
 	return &UpdateRTResponsePoliciesForbidden{}
 }
 
-/*
-UpdateRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
+/* UpdateRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateRTResponsePoliciesNotFound() *UpdateRTResponsePoliciesNotFound {
 	return &UpdateRTResponsePoliciesNotFound{}
 }
 
-/*
-UpdateRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
+/* UpdateRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewUpdateRTResponsePoliciesTooManyRequests() *UpdateRTResponsePoliciesTooMa
 	return &UpdateRTResponsePoliciesTooManyRequests{}
 }
 
-/*
-UpdateRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateRTResponsePoliciesInternalServerError() *UpdateRTResponsePoliciesI
 	return &UpdateRTResponsePoliciesInternalServerError{}
 }
 
-/*
-UpdateRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* UpdateRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

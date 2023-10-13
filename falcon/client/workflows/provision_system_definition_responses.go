@@ -71,8 +71,7 @@ func NewProvisionSystemDefinitionOK() *ProvisionSystemDefinitionOK {
 	return &ProvisionSystemDefinitionOK{}
 }
 
-/*
-ProvisionSystemDefinitionOK describes a response with status code 200, with default header values.
+/* ProvisionSystemDefinitionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewProvisionSystemDefinitionBadRequest() *ProvisionSystemDefinitionBadReque
 	return &ProvisionSystemDefinitionBadRequest{}
 }
 
-/*
-ProvisionSystemDefinitionBadRequest describes a response with status code 400, with default header values.
+/* ProvisionSystemDefinitionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewProvisionSystemDefinitionForbidden() *ProvisionSystemDefinitionForbidden
 	return &ProvisionSystemDefinitionForbidden{}
 }
 
-/*
-ProvisionSystemDefinitionForbidden describes a response with status code 403, with default header values.
+/* ProvisionSystemDefinitionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewProvisionSystemDefinitionNotFound() *ProvisionSystemDefinitionNotFound {
 	return &ProvisionSystemDefinitionNotFound{}
 }
 
-/*
-ProvisionSystemDefinitionNotFound describes a response with status code 404, with default header values.
+/* ProvisionSystemDefinitionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewProvisionSystemDefinitionTooManyRequests() *ProvisionSystemDefinitionToo
 	return &ProvisionSystemDefinitionTooManyRequests{}
 }
 
-/*
-ProvisionSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
+/* ProvisionSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewProvisionSystemDefinitionInternalServerError() *ProvisionSystemDefinitio
 	return &ProvisionSystemDefinitionInternalServerError{}
 }
 
-/*
-ProvisionSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
+/* ProvisionSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

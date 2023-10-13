@@ -53,8 +53,7 @@ func NewAggregateCasesOK() *AggregateCasesOK {
 	return &AggregateCasesOK{}
 }
 
-/*
-AggregateCasesOK describes a response with status code 200, with default header values.
+/* AggregateCasesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregateCasesForbidden() *AggregateCasesForbidden {
 	return &AggregateCasesForbidden{}
 }
 
-/*
-AggregateCasesForbidden describes a response with status code 403, with default header values.
+/* AggregateCasesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregateCasesTooManyRequests() *AggregateCasesTooManyRequests {
 	return &AggregateCasesTooManyRequests{}
 }
 
-/*
-AggregateCasesTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateCasesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

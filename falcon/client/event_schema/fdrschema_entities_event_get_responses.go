@@ -53,8 +53,7 @@ func NewFdrschemaEntitiesEventGetOK() *FdrschemaEntitiesEventGetOK {
 	return &FdrschemaEntitiesEventGetOK{}
 }
 
-/*
-FdrschemaEntitiesEventGetOK describes a response with status code 200, with default header values.
+/* FdrschemaEntitiesEventGetOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewFdrschemaEntitiesEventGetForbidden() *FdrschemaEntitiesEventGetForbidden
 	return &FdrschemaEntitiesEventGetForbidden{}
 }
 
-/*
-FdrschemaEntitiesEventGetForbidden describes a response with status code 403, with default header values.
+/* FdrschemaEntitiesEventGetForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewFdrschemaEntitiesEventGetTooManyRequests() *FdrschemaEntitiesEventGetToo
 	return &FdrschemaEntitiesEventGetTooManyRequests{}
 }
 
-/*
-FdrschemaEntitiesEventGetTooManyRequests describes a response with status code 429, with default header values.
+/* FdrschemaEntitiesEventGetTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

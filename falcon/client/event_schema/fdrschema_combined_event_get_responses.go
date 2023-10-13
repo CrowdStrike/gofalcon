@@ -53,8 +53,7 @@ func NewFdrschemaCombinedEventGetOK() *FdrschemaCombinedEventGetOK {
 	return &FdrschemaCombinedEventGetOK{}
 }
 
-/*
-FdrschemaCombinedEventGetOK describes a response with status code 200, with default header values.
+/* FdrschemaCombinedEventGetOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewFdrschemaCombinedEventGetForbidden() *FdrschemaCombinedEventGetForbidden
 	return &FdrschemaCombinedEventGetForbidden{}
 }
 
-/*
-FdrschemaCombinedEventGetForbidden describes a response with status code 403, with default header values.
+/* FdrschemaCombinedEventGetForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewFdrschemaCombinedEventGetTooManyRequests() *FdrschemaCombinedEventGetToo
 	return &FdrschemaCombinedEventGetTooManyRequests{}
 }
 
-/*
-FdrschemaCombinedEventGetTooManyRequests describes a response with status code 429, with default header values.
+/* FdrschemaCombinedEventGetTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

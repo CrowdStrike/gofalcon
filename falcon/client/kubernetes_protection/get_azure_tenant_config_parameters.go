@@ -53,12 +53,10 @@ func NewGetAzureTenantConfigParamsWithHTTPClient(client *http.Client) *GetAzureT
 	}
 }
 
-/*
-GetAzureTenantConfigParams contains all the parameters to send to the API endpoint
+/* GetAzureTenantConfigParams contains all the parameters to send to the API endpoint
+   for the get azure tenant config operation.
 
-	for the get azure tenant config operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAzureTenantConfigParams struct {
 

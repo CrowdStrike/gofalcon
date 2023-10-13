@@ -53,8 +53,7 @@ func NewActionGetV1OK() *ActionGetV1OK {
 	return &ActionGetV1OK{}
 }
 
-/*
-ActionGetV1OK describes a response with status code 200, with default header values.
+/* ActionGetV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewActionGetV1Forbidden() *ActionGetV1Forbidden {
 	return &ActionGetV1Forbidden{}
 }
 
-/*
-ActionGetV1Forbidden describes a response with status code 403, with default header values.
+/* ActionGetV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewActionGetV1TooManyRequests() *ActionGetV1TooManyRequests {
 	return &ActionGetV1TooManyRequests{}
 }
 
-/*
-ActionGetV1TooManyRequests describes a response with status code 429, with default header values.
+/* ActionGetV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

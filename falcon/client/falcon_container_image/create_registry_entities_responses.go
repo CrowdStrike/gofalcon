@@ -71,8 +71,7 @@ func NewCreateRegistryEntitiesCreated() *CreateRegistryEntitiesCreated {
 	return &CreateRegistryEntitiesCreated{}
 }
 
-/*
-CreateRegistryEntitiesCreated describes a response with status code 201, with default header values.
+/* CreateRegistryEntitiesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreateRegistryEntitiesBadRequest() *CreateRegistryEntitiesBadRequest {
 	return &CreateRegistryEntitiesBadRequest{}
 }
 
-/*
-CreateRegistryEntitiesBadRequest describes a response with status code 400, with default header values.
+/* CreateRegistryEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateRegistryEntitiesForbidden() *CreateRegistryEntitiesForbidden {
 	return &CreateRegistryEntitiesForbidden{}
 }
 
-/*
-CreateRegistryEntitiesForbidden describes a response with status code 403, with default header values.
+/* CreateRegistryEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateRegistryEntitiesConflict() *CreateRegistryEntitiesConflict {
 	return &CreateRegistryEntitiesConflict{}
 }
 
-/*
-CreateRegistryEntitiesConflict describes a response with status code 409, with default header values.
+/* CreateRegistryEntitiesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewCreateRegistryEntitiesTooManyRequests() *CreateRegistryEntitiesTooManyRe
 	return &CreateRegistryEntitiesTooManyRequests{}
 }
 
-/*
-CreateRegistryEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRegistryEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateRegistryEntitiesInternalServerError() *CreateRegistryEntitiesInter
 	return &CreateRegistryEntitiesInternalServerError{}
 }
 
-/*
-CreateRegistryEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* CreateRegistryEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

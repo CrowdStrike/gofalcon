@@ -59,8 +59,7 @@ func NewQueryMaliciousFilesOK() *QueryMaliciousFilesOK {
 	return &QueryMaliciousFilesOK{}
 }
 
-/*
-QueryMaliciousFilesOK describes a response with status code 200, with default header values.
+/* QueryMaliciousFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryMaliciousFilesForbidden() *QueryMaliciousFilesForbidden {
 	return &QueryMaliciousFilesForbidden{}
 }
 
-/*
-QueryMaliciousFilesForbidden describes a response with status code 403, with default header values.
+/* QueryMaliciousFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewQueryMaliciousFilesNotFound() *QueryMaliciousFilesNotFound {
 	return &QueryMaliciousFilesNotFound{}
 }
 
-/*
-QueryMaliciousFilesNotFound describes a response with status code 404, with default header values.
+/* QueryMaliciousFilesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewQueryMaliciousFilesTooManyRequests() *QueryMaliciousFilesTooManyRequests
 	return &QueryMaliciousFilesTooManyRequests{}
 }
 
-/*
-QueryMaliciousFilesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryMaliciousFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

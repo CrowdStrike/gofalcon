@@ -52,12 +52,10 @@ func NewCustomerSettingsReadParamsWithHTTPClient(client *http.Client) *CustomerS
 	}
 }
 
-/*
-CustomerSettingsReadParams contains all the parameters to send to the API endpoint
+/* CustomerSettingsReadParams contains all the parameters to send to the API endpoint
+   for the customer settings read operation.
 
-	for the customer settings read operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CustomerSettingsReadParams struct {
 	timeout    time.Duration

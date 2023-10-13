@@ -11,6 +11,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // APIExposedDataRecordBotV1 api exposed data record bot v1
@@ -28,7 +29,8 @@ type APIExposedDataRecordBotV1 struct {
 	InfectionBuildID string `json:"infection_build_id,omitempty"`
 
 	// infection date
-	InfectionDate string `json:"infection_date,omitempty"`
+	// Format: date-time
+	InfectionDate strfmt.DateTime `json:"infection_date,omitempty"`
 
 	// infection path
 	InfectionPath string `json:"infection_path,omitempty"`
@@ -47,6 +49,10 @@ type APIExposedDataRecordBotV1 struct {
 func (m *APIExposedDataRecordBotV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateInfectionDate(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLocation(formats); err != nil {
 		res = append(res, err)
 	}
@@ -58,6 +64,18 @@ func (m *APIExposedDataRecordBotV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *APIExposedDataRecordBotV1) validateInfectionDate(formats strfmt.Registry) error {
+	if swag.IsZero(m.InfectionDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("infection_date", "body", "date-time", m.InfectionDate.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 

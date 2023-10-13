@@ -100,7 +100,7 @@ type ClientService interface {
 }
 
 /*
-AggregateEvents aggregates events for customer
+  AggregateEvents aggregates events for customer
 */
 func (a *Client) AggregateEvents(params *AggregateEventsParams, opts ...ClientOption) (*AggregateEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -138,7 +138,7 @@ func (a *Client) AggregateEvents(params *AggregateEventsParams, opts ...ClientOp
 }
 
 /*
-AggregatePolicyRules aggregates rules within a policy for customer
+  AggregatePolicyRules aggregates rules within a policy for customer
 */
 func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, opts ...ClientOption) (*AggregatePolicyRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -176,7 +176,7 @@ func (a *Client) AggregatePolicyRules(params *AggregatePolicyRulesParams, opts .
 }
 
 /*
-AggregateRuleGroups aggregates rule groups for customer
+  AggregateRuleGroups aggregates rule groups for customer
 */
 func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...ClientOption) (*AggregateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -214,7 +214,7 @@ func (a *Client) AggregateRuleGroups(params *AggregateRuleGroupsParams, opts ...
 }
 
 /*
-AggregateRules aggregates rules for customer
+  AggregateRules aggregates rules for customer
 */
 func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOption) (*AggregateRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -252,7 +252,7 @@ func (a *Client) AggregateRules(params *AggregateRulesParams, opts ...ClientOpti
 }
 
 /*
-CreateNetworkLocations creates new network locations provided and return the ID
+  CreateNetworkLocations creates new network locations provided and return the ID
 */
 func (a *Client) CreateNetworkLocations(params *CreateNetworkLocationsParams, opts ...ClientOption) (*CreateNetworkLocationsCreated, error) {
 	// TODO: Validate the params before sending
@@ -290,7 +290,7 @@ func (a *Client) CreateNetworkLocations(params *CreateNetworkLocationsParams, op
 }
 
 /*
-CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
+  CreateRuleGroup creates new rule group on a platform for a customer with a name and description and return the ID
 */
 func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOption) (*CreateRuleGroupCreated, error) {
 	// TODO: Validate the params before sending
@@ -328,7 +328,7 @@ func (a *Client) CreateRuleGroup(params *CreateRuleGroupParams, opts ...ClientOp
 }
 
 /*
-CreateRuleGroupValidation validates the request of creating a new rule group on a platform for a customer with a name and description
+  CreateRuleGroupValidation validates the request of creating a new rule group on a platform for a customer with a name and description
 */
 func (a *Client) CreateRuleGroupValidation(params *CreateRuleGroupValidationParams, opts ...ClientOption) (*CreateRuleGroupValidationCreated, error) {
 	// TODO: Validate the params before sending
@@ -366,7 +366,7 @@ func (a *Client) CreateRuleGroupValidation(params *CreateRuleGroupValidationPara
 }
 
 /*
-DeleteNetworkLocations deletes network location entities by ID
+  DeleteNetworkLocations deletes network location entities by ID
 */
 func (a *Client) DeleteNetworkLocations(params *DeleteNetworkLocationsParams, opts ...ClientOption) (*DeleteNetworkLocationsOK, error) {
 	// TODO: Validate the params before sending
@@ -404,7 +404,7 @@ func (a *Client) DeleteNetworkLocations(params *DeleteNetworkLocationsParams, op
 }
 
 /*
-DeleteRuleGroups deletes rule group entities by ID
+  DeleteRuleGroups deletes rule group entities by ID
 */
 func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -442,7 +442,7 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...Client
 }
 
 /*
-GetEvents gets events entities by ID and optionally version
+  GetEvents gets events entities by ID and optionally version
 */
 func (a *Client) GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -480,7 +480,7 @@ func (a *Client) GetEvents(params *GetEventsParams, opts ...ClientOption) (*GetE
 }
 
 /*
-GetFirewallFields gets the firewall field specifications by ID
+  GetFirewallFields gets the firewall field specifications by ID
 */
 func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...ClientOption) (*GetFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
@@ -518,9 +518,9 @@ func (a *Client) GetFirewallFields(params *GetFirewallFieldsParams, opts ...Clie
 }
 
 /*
-GetNetworkLocations gets a summary of network locations entities by ID
+  GetNetworkLocations gets a summary of network locations entities by ID
 
-This endpoint returns a summary of network locations that includes name, description, enabled/disabled status, a count of associated rules etc
+  This endpoint returns a summary of network locations that includes name, description, enabled/disabled status, a count of associated rules etc
 */
 func (a *Client) GetNetworkLocations(params *GetNetworkLocationsParams, opts ...ClientOption) (*GetNetworkLocationsOK, error) {
 	// TODO: Validate the params before sending
@@ -558,9 +558,9 @@ func (a *Client) GetNetworkLocations(params *GetNetworkLocationsParams, opts ...
 }
 
 /*
-GetNetworkLocationsDetails gets network locations entities by ID
+  GetNetworkLocationsDetails gets network locations entities by ID
 
-This endpoint returns the complete network locations objects that includes all the network location conditions.
+  This endpoint returns the complete network locations objects that includes all the network location conditions.
 */
 func (a *Client) GetNetworkLocationsDetails(params *GetNetworkLocationsDetailsParams, opts ...ClientOption) (*GetNetworkLocationsDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -598,7 +598,7 @@ func (a *Client) GetNetworkLocationsDetails(params *GetNetworkLocationsDetailsPa
 }
 
 /*
-GetPlatforms gets platforms by ID e g windows or mac or droid
+  GetPlatforms gets platforms by ID e g windows or mac or droid
 */
 func (a *Client) GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) (*GetPlatformsOK, error) {
 	// TODO: Validate the params before sending
@@ -636,7 +636,7 @@ func (a *Client) GetPlatforms(params *GetPlatformsParams, opts ...ClientOption) 
 }
 
 /*
-GetPolicyContainers gets policy container entities by policy ID
+  GetPolicyContainers gets policy container entities by policy ID
 */
 func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, opts ...ClientOption) (*GetPolicyContainersOK, error) {
 	// TODO: Validate the params before sending
@@ -674,7 +674,7 @@ func (a *Client) GetPolicyContainers(params *GetPolicyContainersParams, opts ...
 }
 
 /*
-GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
+  GetRuleGroups gets rule group entities by ID these groups do not contain their rule entites just the rule i ds in precedence order
 */
 func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -712,7 +712,7 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption
 }
 
 /*
-GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
+  GetRules gets rule entities by ID 64 bit unsigned int as decimal string or family ID 32 character hexadecimal string
 */
 func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -750,7 +750,7 @@ func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRul
 }
 
 /*
-QueryEvents finds all event i ds matching the query with filter
+  QueryEvents finds all event i ds matching the query with filter
 */
 func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*QueryEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -788,7 +788,7 @@ func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*
 }
 
 /*
-QueryFirewallFields gets the firewall field specification i ds for the provided platform
+  QueryFirewallFields gets the firewall field specification i ds for the provided platform
 */
 func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...ClientOption) (*QueryFirewallFieldsOK, error) {
 	// TODO: Validate the params before sending
@@ -826,9 +826,9 @@ func (a *Client) QueryFirewallFields(params *QueryFirewallFieldsParams, opts ...
 }
 
 /*
-QueryNetworkLocations gets a list of network location i ds
+  QueryNetworkLocations gets a list of network location i ds
 
-This endpoint returns a list of network location IDs based of query parameter.
+  This endpoint returns a list of network location IDs based of query parameter.
 */
 func (a *Client) QueryNetworkLocations(params *QueryNetworkLocationsParams, opts ...ClientOption) (*QueryNetworkLocationsOK, error) {
 	// TODO: Validate the params before sending
@@ -866,7 +866,7 @@ func (a *Client) QueryNetworkLocations(params *QueryNetworkLocationsParams, opts
 }
 
 /*
-QueryPlatforms gets the list of platform names
+  QueryPlatforms gets the list of platform names
 */
 func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOption) (*QueryPlatformsOK, error) {
 	// TODO: Validate the params before sending
@@ -904,7 +904,7 @@ func (a *Client) QueryPlatforms(params *QueryPlatformsParams, opts ...ClientOpti
 }
 
 /*
-QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
+  QueryPolicyRules finds all firewall rule i ds matching the query with filter and return them in precedence order
 */
 func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, opts ...ClientOption) (*QueryPolicyRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -942,7 +942,7 @@ func (a *Client) QueryPolicyRules(params *QueryPolicyRulesParams, opts ...Client
 }
 
 /*
-QueryRuleGroups finds all rule group i ds matching the query with filter
+  QueryRuleGroups finds all rule group i ds matching the query with filter
 */
 func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -980,7 +980,7 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOp
 }
 
 /*
-QueryRules finds all rule i ds matching the query with filter
+  QueryRules finds all rule i ds matching the query with filter
 */
 func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -1018,7 +1018,7 @@ func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*Qu
 }
 
 /*
-UpdateNetworkLocations updates the network locations provided and return the ID
+  UpdateNetworkLocations updates the network locations provided and return the ID
 */
 func (a *Client) UpdateNetworkLocations(params *UpdateNetworkLocationsParams, opts ...ClientOption) (*UpdateNetworkLocationsOK, error) {
 	// TODO: Validate the params before sending
@@ -1056,7 +1056,7 @@ func (a *Client) UpdateNetworkLocations(params *UpdateNetworkLocationsParams, op
 }
 
 /*
-UpdateNetworkLocationsMetadata updates the network locations metadata such as polling intervals for the cid
+  UpdateNetworkLocationsMetadata updates the network locations metadata such as polling intervals for the cid
 */
 func (a *Client) UpdateNetworkLocationsMetadata(params *UpdateNetworkLocationsMetadataParams, opts ...ClientOption) (*UpdateNetworkLocationsMetadataOK, error) {
 	// TODO: Validate the params before sending
@@ -1094,7 +1094,7 @@ func (a *Client) UpdateNetworkLocationsMetadata(params *UpdateNetworkLocationsMe
 }
 
 /*
-UpdateNetworkLocationsPrecedence updates the network locations precedence according to the list of ids provided
+  UpdateNetworkLocationsPrecedence updates the network locations precedence according to the list of ids provided
 */
 func (a *Client) UpdateNetworkLocationsPrecedence(params *UpdateNetworkLocationsPrecedenceParams, opts ...ClientOption) (*UpdateNetworkLocationsPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -1132,7 +1132,7 @@ func (a *Client) UpdateNetworkLocationsPrecedence(params *UpdateNetworkLocations
 }
 
 /*
-UpdatePolicyContainer updates an identified policy container including local logging functionality
+  UpdatePolicyContainer updates an identified policy container including local logging functionality
 */
 func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts ...ClientOption) (*UpdatePolicyContainerOK, *UpdatePolicyContainerCreated, error) {
 	// TODO: Validate the params before sending
@@ -1171,7 +1171,7 @@ func (a *Client) UpdatePolicyContainer(params *UpdatePolicyContainerParams, opts
 }
 
 /*
-UpdatePolicyContainerV1 updates an identified policy container w a r n i n g this endpoint is deprecated in favor of v2 using this endpoint could disable your local logging setting
+  UpdatePolicyContainerV1 updates an identified policy container w a r n i n g this endpoint is deprecated in favor of v2 using this endpoint could disable your local logging setting
 */
 func (a *Client) UpdatePolicyContainerV1(params *UpdatePolicyContainerV1Params, opts ...ClientOption) (*UpdatePolicyContainerV1OK, *UpdatePolicyContainerV1Created, error) {
 	// TODO: Validate the params before sending
@@ -1210,7 +1210,7 @@ func (a *Client) UpdatePolicyContainerV1(params *UpdatePolicyContainerV1Params, 
 }
 
 /*
-UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
+  UpdateRuleGroup updates name description or enabled status of a rule group or create edit delete or reorder rules
 */
 func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOption) (*UpdateRuleGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -1248,7 +1248,7 @@ func (a *Client) UpdateRuleGroup(params *UpdateRuleGroupParams, opts ...ClientOp
 }
 
 /*
-UpdateRuleGroupValidation validates the request of updating name description or enabled status of a rule group or create edit delete or reorder rules
+  UpdateRuleGroupValidation validates the request of updating name description or enabled status of a rule group or create edit delete or reorder rules
 */
 func (a *Client) UpdateRuleGroupValidation(params *UpdateRuleGroupValidationParams, opts ...ClientOption) (*UpdateRuleGroupValidationOK, error) {
 	// TODO: Validate the params before sending
@@ -1286,7 +1286,7 @@ func (a *Client) UpdateRuleGroupValidation(params *UpdateRuleGroupValidationPara
 }
 
 /*
-UpsertNetworkLocations updates the network locations provided and return the ID
+  UpsertNetworkLocations updates the network locations provided and return the ID
 */
 func (a *Client) UpsertNetworkLocations(params *UpsertNetworkLocationsParams, opts ...ClientOption) (*UpsertNetworkLocationsOK, error) {
 	// TODO: Validate the params before sending
@@ -1324,7 +1324,7 @@ func (a *Client) UpsertNetworkLocations(params *UpsertNetworkLocationsParams, op
 }
 
 /*
-ValidateFilepathPattern validates that the test pattern matches the executable filepath glob pattern
+  ValidateFilepathPattern validates that the test pattern matches the executable filepath glob pattern
 */
 func (a *Client) ValidateFilepathPattern(params *ValidateFilepathPatternParams, opts ...ClientOption) (*ValidateFilepathPatternOK, error) {
 	// TODO: Validate the params before sending

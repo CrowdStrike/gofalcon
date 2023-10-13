@@ -53,12 +53,10 @@ func NewQueryUserV1ParamsWithHTTPClient(client *http.Client) *QueryUserV1Params 
 	}
 }
 
-/*
-QueryUserV1Params contains all the parameters to send to the API endpoint
+/* QueryUserV1Params contains all the parameters to send to the API endpoint
+   for the query user v1 operation.
 
-	for the query user v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryUserV1Params struct {
 

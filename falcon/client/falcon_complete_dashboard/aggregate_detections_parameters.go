@@ -54,12 +54,10 @@ func NewAggregateDetectionsParamsWithHTTPClient(client *http.Client) *AggregateD
 	}
 }
 
-/*
-AggregateDetectionsParams contains all the parameters to send to the API endpoint
+/* AggregateDetectionsParams contains all the parameters to send to the API endpoint
+   for the aggregate detections operation.
 
-	for the aggregate detections operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateDetectionsParams struct {
 

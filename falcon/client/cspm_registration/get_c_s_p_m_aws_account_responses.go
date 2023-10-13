@@ -71,8 +71,7 @@ func NewGetCSPMAwsAccountOK() *GetCSPMAwsAccountOK {
 	return &GetCSPMAwsAccountOK{}
 }
 
-/*
-GetCSPMAwsAccountOK describes a response with status code 200, with default header values.
+/* GetCSPMAwsAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCSPMAwsAccountMultiStatus() *GetCSPMAwsAccountMultiStatus {
 	return &GetCSPMAwsAccountMultiStatus{}
 }
 
-/*
-GetCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
+/* GetCSPMAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetCSPMAwsAccountBadRequest() *GetCSPMAwsAccountBadRequest {
 	return &GetCSPMAwsAccountBadRequest{}
 }
 
-/*
-GetCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
+/* GetCSPMAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetCSPMAwsAccountForbidden() *GetCSPMAwsAccountForbidden {
 	return &GetCSPMAwsAccountForbidden{}
 }
 
-/*
-GetCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
+/* GetCSPMAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCSPMAwsAccountTooManyRequests() *GetCSPMAwsAccountTooManyRequests {
 	return &GetCSPMAwsAccountTooManyRequests{}
 }
 
-/*
-GetCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+/* GetCSPMAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCSPMAwsAccountInternalServerError() *GetCSPMAwsAccountInternalServerE
 	return &GetCSPMAwsAccountInternalServerError{}
 }
 
-/*
-GetCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
+/* GetCSPMAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

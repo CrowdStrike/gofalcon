@@ -59,8 +59,7 @@ func NewUpdateRuleGroupValidationOK() *UpdateRuleGroupValidationOK {
 	return &UpdateRuleGroupValidationOK{}
 }
 
-/*
-UpdateRuleGroupValidationOK describes a response with status code 200, with default header values.
+/* UpdateRuleGroupValidationOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewUpdateRuleGroupValidationBadRequest() *UpdateRuleGroupValidationBadReque
 	return &UpdateRuleGroupValidationBadRequest{}
 }
 
-/*
-UpdateRuleGroupValidationBadRequest describes a response with status code 400, with default header values.
+/* UpdateRuleGroupValidationBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewUpdateRuleGroupValidationForbidden() *UpdateRuleGroupValidationForbidden
 	return &UpdateRuleGroupValidationForbidden{}
 }
 
-/*
-UpdateRuleGroupValidationForbidden describes a response with status code 403, with default header values.
+/* UpdateRuleGroupValidationForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewUpdateRuleGroupValidationTooManyRequests() *UpdateRuleGroupValidationToo
 	return &UpdateRuleGroupValidationTooManyRequests{}
 }
 
-/*
-UpdateRuleGroupValidationTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRuleGroupValidationTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

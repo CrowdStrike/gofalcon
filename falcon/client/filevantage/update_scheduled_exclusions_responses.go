@@ -71,8 +71,7 @@ func NewUpdateScheduledExclusionsOK() *UpdateScheduledExclusionsOK {
 	return &UpdateScheduledExclusionsOK{}
 }
 
-/*
-UpdateScheduledExclusionsOK describes a response with status code 200, with default header values.
+/* UpdateScheduledExclusionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewUpdateScheduledExclusionsBadRequest() *UpdateScheduledExclusionsBadReque
 	return &UpdateScheduledExclusionsBadRequest{}
 }
 
-/*
-UpdateScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
+/* UpdateScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateScheduledExclusionsForbidden() *UpdateScheduledExclusionsForbidden
 	return &UpdateScheduledExclusionsForbidden{}
 }
 
-/*
-UpdateScheduledExclusionsForbidden describes a response with status code 403, with default header values.
+/* UpdateScheduledExclusionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateScheduledExclusionsNotFound() *UpdateScheduledExclusionsNotFound {
 	return &UpdateScheduledExclusionsNotFound{}
 }
 
-/*
-UpdateScheduledExclusionsNotFound describes a response with status code 404, with default header values.
+/* UpdateScheduledExclusionsNotFound describes a response with status code 404, with default header values.
 
 The provided scheduled exclusion does not exist.
 */
@@ -511,8 +507,7 @@ func NewUpdateScheduledExclusionsTooManyRequests() *UpdateScheduledExclusionsToo
 	return &UpdateScheduledExclusionsTooManyRequests{}
 }
 
-/*
-UpdateScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateScheduledExclusionsInternalServerError() *UpdateScheduledExclusion
 	return &UpdateScheduledExclusionsInternalServerError{}
 }
 
-/*
-UpdateScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
+/* UpdateScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

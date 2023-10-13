@@ -59,8 +59,7 @@ func NewCreateNetworkLocationsCreated() *CreateNetworkLocationsCreated {
 	return &CreateNetworkLocationsCreated{}
 }
 
-/*
-CreateNetworkLocationsCreated describes a response with status code 201, with default header values.
+/* CreateNetworkLocationsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -169,8 +168,7 @@ func NewCreateNetworkLocationsBadRequest() *CreateNetworkLocationsBadRequest {
 	return &CreateNetworkLocationsBadRequest{}
 }
 
-/*
-CreateNetworkLocationsBadRequest describes a response with status code 400, with default header values.
+/* CreateNetworkLocationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewCreateNetworkLocationsForbidden() *CreateNetworkLocationsForbidden {
 	return &CreateNetworkLocationsForbidden{}
 }
 
-/*
-CreateNetworkLocationsForbidden describes a response with status code 403, with default header values.
+/* CreateNetworkLocationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewCreateNetworkLocationsTooManyRequests() *CreateNetworkLocationsTooManyRe
 	return &CreateNetworkLocationsTooManyRequests{}
 }
 
-/*
-CreateNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
+/* CreateNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,12 +53,10 @@ func NewExtractionListV1ParamsWithHTTPClient(client *http.Client) *ExtractionLis
 	}
 }
 
-/*
-ExtractionListV1Params contains all the parameters to send to the API endpoint
+/* ExtractionListV1Params contains all the parameters to send to the API endpoint
+   for the extraction list v1 operation.
 
-	for the extraction list v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ExtractionListV1Params struct {
 

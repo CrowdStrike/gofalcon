@@ -53,12 +53,10 @@ func NewGetFirewallPoliciesParamsWithHTTPClient(client *http.Client) *GetFirewal
 	}
 }
 
-/*
-GetFirewallPoliciesParams contains all the parameters to send to the API endpoint
+/* GetFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the get firewall policies operation.
 
-	for the get firewall policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetFirewallPoliciesParams struct {
 

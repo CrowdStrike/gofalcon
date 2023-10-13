@@ -65,8 +65,7 @@ func NewQueryScheduledExclusionsOK() *QueryScheduledExclusionsOK {
 	return &QueryScheduledExclusionsOK{}
 }
 
-/*
-QueryScheduledExclusionsOK describes a response with status code 200, with default header values.
+/* QueryScheduledExclusionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryScheduledExclusionsBadRequest() *QueryScheduledExclusionsBadRequest
 	return &QueryScheduledExclusionsBadRequest{}
 }
 
-/*
-QueryScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
+/* QueryScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryScheduledExclusionsForbidden() *QueryScheduledExclusionsForbidden {
 	return &QueryScheduledExclusionsForbidden{}
 }
 
-/*
-QueryScheduledExclusionsForbidden describes a response with status code 403, with default header values.
+/* QueryScheduledExclusionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryScheduledExclusionsTooManyRequests() *QueryScheduledExclusionsTooMa
 	return &QueryScheduledExclusionsTooManyRequests{}
 }
 
-/*
-QueryScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryScheduledExclusionsInternalServerError() *QueryScheduledExclusionsI
 	return &QueryScheduledExclusionsInternalServerError{}
 }
 
-/*
-QueryScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
+/* QueryScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

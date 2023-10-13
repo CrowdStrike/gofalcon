@@ -53,12 +53,10 @@ func NewGetSampleV2ParamsWithHTTPClient(client *http.Client) *GetSampleV2Params 
 	}
 }
 
-/*
-GetSampleV2Params contains all the parameters to send to the API endpoint
+/* GetSampleV2Params contains all the parameters to send to the API endpoint
+   for the get sample v2 operation.
 
-	for the get sample v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSampleV2Params struct {
 

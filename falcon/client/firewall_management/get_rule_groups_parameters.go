@@ -53,12 +53,10 @@ func NewGetRuleGroupsParamsWithHTTPClient(client *http.Client) *GetRuleGroupsPar
 	}
 }
 
-/*
-GetRuleGroupsParams contains all the parameters to send to the API endpoint
+/* GetRuleGroupsParams contains all the parameters to send to the API endpoint
+   for the get rule groups operation.
 
-	for the get rule groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetRuleGroupsParams struct {
 

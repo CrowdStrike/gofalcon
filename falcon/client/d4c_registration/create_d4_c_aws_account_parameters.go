@@ -54,12 +54,10 @@ func NewCreateD4CAwsAccountParamsWithHTTPClient(client *http.Client) *CreateD4CA
 	}
 }
 
-/*
-CreateD4CAwsAccountParams contains all the parameters to send to the API endpoint
+/* CreateD4CAwsAccountParams contains all the parameters to send to the API endpoint
+   for the create d4 c aws account operation.
 
-	for the create d4 c aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateD4CAwsAccountParams struct {
 

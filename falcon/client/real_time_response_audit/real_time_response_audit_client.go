@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-RTRAuditSessions gets all the r t r sessions created for a customer in a specified duration
+  RTRAuditSessions gets all the r t r sessions created for a customer in a specified duration
 */
 func (a *Client) RTRAuditSessions(params *RTRAuditSessionsParams, opts ...ClientOption) (*RTRAuditSessionsOK, error) {
 	// TODO: Validate the params before sending

@@ -71,8 +71,7 @@ func NewArchiveDeleteV1Accepted() *ArchiveDeleteV1Accepted {
 	return &ArchiveDeleteV1Accepted{}
 }
 
-/*
-ArchiveDeleteV1Accepted describes a response with status code 202, with default header values.
+/* ArchiveDeleteV1Accepted describes a response with status code 202, with default header values.
 
 OK
 */
@@ -168,8 +167,7 @@ func NewArchiveDeleteV1BadRequest() *ArchiveDeleteV1BadRequest {
 	return &ArchiveDeleteV1BadRequest{}
 }
 
-/*
-ArchiveDeleteV1BadRequest describes a response with status code 400, with default header values.
+/* ArchiveDeleteV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -265,8 +263,7 @@ func NewArchiveDeleteV1Forbidden() *ArchiveDeleteV1Forbidden {
 	return &ArchiveDeleteV1Forbidden{}
 }
 
-/*
-ArchiveDeleteV1Forbidden describes a response with status code 403, with default header values.
+/* ArchiveDeleteV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -375,8 +372,7 @@ func NewArchiveDeleteV1NotFound() *ArchiveDeleteV1NotFound {
 	return &ArchiveDeleteV1NotFound{}
 }
 
-/*
-ArchiveDeleteV1NotFound describes a response with status code 404, with default header values.
+/* ArchiveDeleteV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -472,8 +468,7 @@ func NewArchiveDeleteV1TooManyRequests() *ArchiveDeleteV1TooManyRequests {
 	return &ArchiveDeleteV1TooManyRequests{}
 }
 
-/*
-ArchiveDeleteV1TooManyRequests describes a response with status code 429, with default header values.
+/* ArchiveDeleteV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -597,8 +592,7 @@ func NewArchiveDeleteV1InternalServerError() *ArchiveDeleteV1InternalServerError
 	return &ArchiveDeleteV1InternalServerError{}
 }
 
-/*
-ArchiveDeleteV1InternalServerError describes a response with status code 500, with default header values.
+/* ArchiveDeleteV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

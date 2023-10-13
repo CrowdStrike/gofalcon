@@ -65,8 +65,7 @@ func NewQuerySubmissionsMixin0OK() *QuerySubmissionsMixin0OK {
 	return &QuerySubmissionsMixin0OK{}
 }
 
-/*
-QuerySubmissionsMixin0OK describes a response with status code 200, with default header values.
+/* QuerySubmissionsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQuerySubmissionsMixin0BadRequest() *QuerySubmissionsMixin0BadRequest {
 	return &QuerySubmissionsMixin0BadRequest{}
 }
 
-/*
-QuerySubmissionsMixin0BadRequest describes a response with status code 400, with default header values.
+/* QuerySubmissionsMixin0BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQuerySubmissionsMixin0Forbidden() *QuerySubmissionsMixin0Forbidden {
 	return &QuerySubmissionsMixin0Forbidden{}
 }
 
-/*
-QuerySubmissionsMixin0Forbidden describes a response with status code 403, with default header values.
+/* QuerySubmissionsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQuerySubmissionsMixin0TooManyRequests() *QuerySubmissionsMixin0TooManyRe
 	return &QuerySubmissionsMixin0TooManyRequests{}
 }
 
-/*
-QuerySubmissionsMixin0TooManyRequests describes a response with status code 429, with default header values.
+/* QuerySubmissionsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQuerySubmissionsMixin0InternalServerError() *QuerySubmissionsMixin0Inter
 	return &QuerySubmissionsMixin0InternalServerError{}
 }
 
-/*
-QuerySubmissionsMixin0InternalServerError describes a response with status code 500, with default header values.
+/* QuerySubmissionsMixin0InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

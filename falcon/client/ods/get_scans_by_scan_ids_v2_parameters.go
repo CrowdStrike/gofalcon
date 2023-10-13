@@ -53,14 +53,18 @@ func NewGetScansByScanIdsV2ParamsWithHTTPClient(client *http.Client) *GetScansBy
 	}
 }
 
-/*
-GetScansByScanIdsV2Params contains all the parameters to send to the API endpoint
+/* GetScansByScanIdsV2Params contains all the parameters to send to the API endpoint
+   for the get scans by scan ids v2 operation.
 
-	for the get scans by scan ids v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetScansByScanIdsV2Params struct {
+
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
 
 	/* Ids.
 
@@ -121,6 +125,17 @@ func (o *GetScansByScanIdsV2Params) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the get scans by scan ids v2 params
+func (o *GetScansByScanIdsV2Params) WithXCSUSERUUID(xCSUSERUUID string) *GetScansByScanIdsV2Params {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get scans by scan ids v2 params
+func (o *GetScansByScanIdsV2Params) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithIds adds the ids to the get scans by scan ids v2 params
 func (o *GetScansByScanIdsV2Params) WithIds(ids []string) *GetScansByScanIdsV2Params {
 	o.SetIds(ids)
@@ -139,6 +154,11 @@ func (o *GetScansByScanIdsV2Params) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Ids != nil {
 

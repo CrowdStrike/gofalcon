@@ -53,12 +53,10 @@ func NewUpdatePolicyHostGroupsParamsWithHTTPClient(client *http.Client) *UpdateP
 	}
 }
 
-/*
-UpdatePolicyHostGroupsParams contains all the parameters to send to the API endpoint
+/* UpdatePolicyHostGroupsParams contains all the parameters to send to the API endpoint
+   for the update policy host groups operation.
 
-	for the update policy host groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdatePolicyHostGroupsParams struct {
 

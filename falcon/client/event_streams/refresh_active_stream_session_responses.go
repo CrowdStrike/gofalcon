@@ -65,8 +65,7 @@ func NewRefreshActiveStreamSessionOK() *RefreshActiveStreamSessionOK {
 	return &RefreshActiveStreamSessionOK{}
 }
 
-/*
-RefreshActiveStreamSessionOK describes a response with status code 200, with default header values.
+/* RefreshActiveStreamSessionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRefreshActiveStreamSessionBadRequest() *RefreshActiveStreamSessionBadReq
 	return &RefreshActiveStreamSessionBadRequest{}
 }
 
-/*
-RefreshActiveStreamSessionBadRequest describes a response with status code 400, with default header values.
+/* RefreshActiveStreamSessionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRefreshActiveStreamSessionForbidden() *RefreshActiveStreamSessionForbidd
 	return &RefreshActiveStreamSessionForbidden{}
 }
 
-/*
-RefreshActiveStreamSessionForbidden describes a response with status code 403, with default header values.
+/* RefreshActiveStreamSessionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRefreshActiveStreamSessionTooManyRequests() *RefreshActiveStreamSessionT
 	return &RefreshActiveStreamSessionTooManyRequests{}
 }
 
-/*
-RefreshActiveStreamSessionTooManyRequests describes a response with status code 429, with default header values.
+/* RefreshActiveStreamSessionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewRefreshActiveStreamSessionInternalServerError() *RefreshActiveStreamSess
 	return &RefreshActiveStreamSessionInternalServerError{}
 }
 
-/*
-RefreshActiveStreamSessionInternalServerError describes a response with status code 500, with default header values.
+/* RefreshActiveStreamSessionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,8 +53,7 @@ func NewQueryHiddenDevicesOK() *QueryHiddenDevicesOK {
 	return &QueryHiddenDevicesOK{}
 }
 
-/*
-QueryHiddenDevicesOK describes a response with status code 200, with default header values.
+/* QueryHiddenDevicesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryHiddenDevicesForbidden() *QueryHiddenDevicesForbidden {
 	return &QueryHiddenDevicesForbidden{}
 }
 
-/*
-QueryHiddenDevicesForbidden describes a response with status code 403, with default header values.
+/* QueryHiddenDevicesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryHiddenDevicesTooManyRequests() *QueryHiddenDevicesTooManyRequests {
 	return &QueryHiddenDevicesTooManyRequests{}
 }
 
-/*
-QueryHiddenDevicesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryHiddenDevicesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

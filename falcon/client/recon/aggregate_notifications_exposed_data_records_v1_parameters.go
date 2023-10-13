@@ -54,12 +54,10 @@ func NewAggregateNotificationsExposedDataRecordsV1ParamsWithHTTPClient(client *h
 	}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+/* AggregateNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+   for the aggregate notifications exposed data records v1 operation.
 
-	for the aggregate notifications exposed data records v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateNotificationsExposedDataRecordsV1Params struct {
 

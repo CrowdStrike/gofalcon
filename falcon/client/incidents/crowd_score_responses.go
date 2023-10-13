@@ -65,8 +65,7 @@ func NewCrowdScoreOK() *CrowdScoreOK {
 	return &CrowdScoreOK{}
 }
 
-/*
-CrowdScoreOK describes a response with status code 200, with default header values.
+/* CrowdScoreOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCrowdScoreBadRequest() *CrowdScoreBadRequest {
 	return &CrowdScoreBadRequest{}
 }
 
-/*
-CrowdScoreBadRequest describes a response with status code 400, with default header values.
+/* CrowdScoreBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCrowdScoreForbidden() *CrowdScoreForbidden {
 	return &CrowdScoreForbidden{}
 }
 
-/*
-CrowdScoreForbidden describes a response with status code 403, with default header values.
+/* CrowdScoreForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCrowdScoreTooManyRequests() *CrowdScoreTooManyRequests {
 	return &CrowdScoreTooManyRequests{}
 }
 
-/*
-CrowdScoreTooManyRequests describes a response with status code 429, with default header values.
+/* CrowdScoreTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCrowdScoreInternalServerError() *CrowdScoreInternalServerError {
 	return &CrowdScoreInternalServerError{}
 }
 
-/*
-CrowdScoreInternalServerError describes a response with status code 500, with default header values.
+/* CrowdScoreInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

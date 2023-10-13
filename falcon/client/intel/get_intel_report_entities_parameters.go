@@ -53,12 +53,10 @@ func NewGetIntelReportEntitiesParamsWithHTTPClient(client *http.Client) *GetInte
 	}
 }
 
-/*
-GetIntelReportEntitiesParams contains all the parameters to send to the API endpoint
+/* GetIntelReportEntitiesParams contains all the parameters to send to the API endpoint
+   for the get intel report entities operation.
 
-	for the get intel report entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIntelReportEntitiesParams struct {
 

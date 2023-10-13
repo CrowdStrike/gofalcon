@@ -71,8 +71,7 @@ func NewGetCredentialsMixin0OK() *GetCredentialsMixin0OK {
 	return &GetCredentialsMixin0OK{}
 }
 
-/*
-GetCredentialsMixin0OK describes a response with status code 200, with default header values.
+/* GetCredentialsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCredentialsMixin0BadRequest() *GetCredentialsMixin0BadRequest {
 	return &GetCredentialsMixin0BadRequest{}
 }
 
-/*
-GetCredentialsMixin0BadRequest describes a response with status code 400, with default header values.
+/* GetCredentialsMixin0BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetCredentialsMixin0Unauthorized() *GetCredentialsMixin0Unauthorized {
 	return &GetCredentialsMixin0Unauthorized{}
 }
 
-/*
-GetCredentialsMixin0Unauthorized describes a response with status code 401, with default header values.
+/* GetCredentialsMixin0Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewGetCredentialsMixin0Forbidden() *GetCredentialsMixin0Forbidden {
 	return &GetCredentialsMixin0Forbidden{}
 }
 
-/*
-GetCredentialsMixin0Forbidden describes a response with status code 403, with default header values.
+/* GetCredentialsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCredentialsMixin0TooManyRequests() *GetCredentialsMixin0TooManyReques
 	return &GetCredentialsMixin0TooManyRequests{}
 }
 
-/*
-GetCredentialsMixin0TooManyRequests describes a response with status code 429, with default header values.
+/* GetCredentialsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCredentialsMixin0InternalServerError() *GetCredentialsMixin0InternalS
 	return &GetCredentialsMixin0InternalServerError{}
 }
 
-/*
-GetCredentialsMixin0InternalServerError describes a response with status code 500, with default header values.
+/* GetCredentialsMixin0InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

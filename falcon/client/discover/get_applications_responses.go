@@ -65,8 +65,7 @@ func NewGetApplicationsOK() *GetApplicationsOK {
 	return &GetApplicationsOK{}
 }
 
-/*
-GetApplicationsOK describes a response with status code 200, with default header values.
+/* GetApplicationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetApplicationsBadRequest() *GetApplicationsBadRequest {
 	return &GetApplicationsBadRequest{}
 }
 
-/*
-GetApplicationsBadRequest describes a response with status code 400, with default header values.
+/* GetApplicationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetApplicationsForbidden() *GetApplicationsForbidden {
 	return &GetApplicationsForbidden{}
 }
 
-/*
-GetApplicationsForbidden describes a response with status code 403, with default header values.
+/* GetApplicationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetApplicationsTooManyRequests() *GetApplicationsTooManyRequests {
 	return &GetApplicationsTooManyRequests{}
 }
 
-/*
-GetApplicationsTooManyRequests describes a response with status code 429, with default header values.
+/* GetApplicationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetApplicationsInternalServerError() *GetApplicationsInternalServerError
 	return &GetApplicationsInternalServerError{}
 }
 
-/*
-GetApplicationsInternalServerError describes a response with status code 500, with default header values.
+/* GetApplicationsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

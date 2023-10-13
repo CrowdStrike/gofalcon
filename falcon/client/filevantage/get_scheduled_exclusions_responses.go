@@ -71,8 +71,7 @@ func NewGetScheduledExclusionsOK() *GetScheduledExclusionsOK {
 	return &GetScheduledExclusionsOK{}
 }
 
-/*
-GetScheduledExclusionsOK describes a response with status code 200, with default header values.
+/* GetScheduledExclusionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetScheduledExclusionsBadRequest() *GetScheduledExclusionsBadRequest {
 	return &GetScheduledExclusionsBadRequest{}
 }
 
-/*
-GetScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
+/* GetScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetScheduledExclusionsForbidden() *GetScheduledExclusionsForbidden {
 	return &GetScheduledExclusionsForbidden{}
 }
 
-/*
-GetScheduledExclusionsForbidden describes a response with status code 403, with default header values.
+/* GetScheduledExclusionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetScheduledExclusionsNotFound() *GetScheduledExclusionsNotFound {
 	return &GetScheduledExclusionsNotFound{}
 }
 
-/*
-GetScheduledExclusionsNotFound describes a response with status code 404, with default header values.
+/* GetScheduledExclusionsNotFound describes a response with status code 404, with default header values.
 
 The policy to retrieve the scheduled exclusions from does not exist.
 */
@@ -511,8 +507,7 @@ func NewGetScheduledExclusionsTooManyRequests() *GetScheduledExclusionsTooManyRe
 	return &GetScheduledExclusionsTooManyRequests{}
 }
 
-/*
-GetScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
+/* GetScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetScheduledExclusionsInternalServerError() *GetScheduledExclusionsInter
 	return &GetScheduledExclusionsInternalServerError{}
 }
 
-/*
-GetScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
+/* GetScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -54,12 +54,10 @@ func NewUpdateRuleGroupValidationParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateRuleGroupValidationParams contains all the parameters to send to the API endpoint
+/* UpdateRuleGroupValidationParams contains all the parameters to send to the API endpoint
+   for the update rule group validation operation.
 
-	for the update rule group validation operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRuleGroupValidationParams struct {
 

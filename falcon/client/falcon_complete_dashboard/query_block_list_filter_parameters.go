@@ -53,12 +53,10 @@ func NewQueryBlockListFilterParamsWithHTTPClient(client *http.Client) *QueryBloc
 	}
 }
 
-/*
-QueryBlockListFilterParams contains all the parameters to send to the API endpoint
+/* QueryBlockListFilterParams contains all the parameters to send to the API endpoint
+   for the query block list filter operation.
 
-	for the query block list filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryBlockListFilterParams struct {
 

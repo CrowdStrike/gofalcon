@@ -59,8 +59,7 @@ func NewDeleteNetworkLocationsOK() *DeleteNetworkLocationsOK {
 	return &DeleteNetworkLocationsOK{}
 }
 
-/*
-DeleteNetworkLocationsOK describes a response with status code 200, with default header values.
+/* DeleteNetworkLocationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewDeleteNetworkLocationsBadRequest() *DeleteNetworkLocationsBadRequest {
 	return &DeleteNetworkLocationsBadRequest{}
 }
 
-/*
-DeleteNetworkLocationsBadRequest describes a response with status code 400, with default header values.
+/* DeleteNetworkLocationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewDeleteNetworkLocationsForbidden() *DeleteNetworkLocationsForbidden {
 	return &DeleteNetworkLocationsForbidden{}
 }
 
-/*
-DeleteNetworkLocationsForbidden describes a response with status code 403, with default header values.
+/* DeleteNetworkLocationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewDeleteNetworkLocationsTooManyRequests() *DeleteNetworkLocationsTooManyRe
 	return &DeleteNetworkLocationsTooManyRequests{}
 }
 
-/*
-DeleteNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

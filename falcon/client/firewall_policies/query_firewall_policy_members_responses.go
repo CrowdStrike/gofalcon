@@ -71,8 +71,7 @@ func NewQueryFirewallPolicyMembersOK() *QueryFirewallPolicyMembersOK {
 	return &QueryFirewallPolicyMembersOK{}
 }
 
-/*
-QueryFirewallPolicyMembersOK describes a response with status code 200, with default header values.
+/* QueryFirewallPolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewQueryFirewallPolicyMembersBadRequest() *QueryFirewallPolicyMembersBadReq
 	return &QueryFirewallPolicyMembersBadRequest{}
 }
 
-/*
-QueryFirewallPolicyMembersBadRequest describes a response with status code 400, with default header values.
+/* QueryFirewallPolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewQueryFirewallPolicyMembersForbidden() *QueryFirewallPolicyMembersForbidd
 	return &QueryFirewallPolicyMembersForbidden{}
 }
 
-/*
-QueryFirewallPolicyMembersForbidden describes a response with status code 403, with default header values.
+/* QueryFirewallPolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewQueryFirewallPolicyMembersNotFound() *QueryFirewallPolicyMembersNotFound
 	return &QueryFirewallPolicyMembersNotFound{}
 }
 
-/*
-QueryFirewallPolicyMembersNotFound describes a response with status code 404, with default header values.
+/* QueryFirewallPolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewQueryFirewallPolicyMembersTooManyRequests() *QueryFirewallPolicyMembersT
 	return &QueryFirewallPolicyMembersTooManyRequests{}
 }
 
-/*
-QueryFirewallPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+/* QueryFirewallPolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewQueryFirewallPolicyMembersInternalServerError() *QueryFirewallPolicyMemb
 	return &QueryFirewallPolicyMembersInternalServerError{}
 }
 
-/*
-QueryFirewallPolicyMembersInternalServerError describes a response with status code 500, with default header values.
+/* QueryFirewallPolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

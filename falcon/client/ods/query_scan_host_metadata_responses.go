@@ -59,8 +59,7 @@ func NewQueryScanHostMetadataOK() *QueryScanHostMetadataOK {
 	return &QueryScanHostMetadataOK{}
 }
 
-/*
-QueryScanHostMetadataOK describes a response with status code 200, with default header values.
+/* QueryScanHostMetadataOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryScanHostMetadataForbidden() *QueryScanHostMetadataForbidden {
 	return &QueryScanHostMetadataForbidden{}
 }
 
-/*
-QueryScanHostMetadataForbidden describes a response with status code 403, with default header values.
+/* QueryScanHostMetadataForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewQueryScanHostMetadataNotFound() *QueryScanHostMetadataNotFound {
 	return &QueryScanHostMetadataNotFound{}
 }
 
-/*
-QueryScanHostMetadataNotFound describes a response with status code 404, with default header values.
+/* QueryScanHostMetadataNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewQueryScanHostMetadataTooManyRequests() *QueryScanHostMetadataTooManyRequ
 	return &QueryScanHostMetadataTooManyRequests{}
 }
 
-/*
-QueryScanHostMetadataTooManyRequests describes a response with status code 429, with default header values.
+/* QueryScanHostMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

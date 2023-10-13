@@ -65,8 +65,7 @@ func NewListAvailableStreamsOAuth2OK() *ListAvailableStreamsOAuth2OK {
 	return &ListAvailableStreamsOAuth2OK{}
 }
 
-/*
-ListAvailableStreamsOAuth2OK describes a response with status code 200, with default header values.
+/* ListAvailableStreamsOAuth2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewListAvailableStreamsOAuth2BadRequest() *ListAvailableStreamsOAuth2BadReq
 	return &ListAvailableStreamsOAuth2BadRequest{}
 }
 
-/*
-ListAvailableStreamsOAuth2BadRequest describes a response with status code 400, with default header values.
+/* ListAvailableStreamsOAuth2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewListAvailableStreamsOAuth2Forbidden() *ListAvailableStreamsOAuth2Forbidd
 	return &ListAvailableStreamsOAuth2Forbidden{}
 }
 
-/*
-ListAvailableStreamsOAuth2Forbidden describes a response with status code 403, with default header values.
+/* ListAvailableStreamsOAuth2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewListAvailableStreamsOAuth2TooManyRequests() *ListAvailableStreamsOAuth2T
 	return &ListAvailableStreamsOAuth2TooManyRequests{}
 }
 
-/*
-ListAvailableStreamsOAuth2TooManyRequests describes a response with status code 429, with default header values.
+/* ListAvailableStreamsOAuth2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewListAvailableStreamsOAuth2InternalServerError() *ListAvailableStreamsOAu
 	return &ListAvailableStreamsOAuth2InternalServerError{}
 }
 
-/*
-ListAvailableStreamsOAuth2InternalServerError describes a response with status code 500, with default header values.
+/* ListAvailableStreamsOAuth2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

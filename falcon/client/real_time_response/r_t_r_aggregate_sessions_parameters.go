@@ -54,12 +54,10 @@ func NewRTRAggregateSessionsParamsWithHTTPClient(client *http.Client) *RTRAggreg
 	}
 }
 
-/*
-RTRAggregateSessionsParams contains all the parameters to send to the API endpoint
+/* RTRAggregateSessionsParams contains all the parameters to send to the API endpoint
+   for the r t r aggregate sessions operation.
 
-	for the r t r aggregate sessions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRAggregateSessionsParams struct {
 

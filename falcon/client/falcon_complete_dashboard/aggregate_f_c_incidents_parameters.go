@@ -54,12 +54,10 @@ func NewAggregateFCIncidentsParamsWithHTTPClient(client *http.Client) *Aggregate
 	}
 }
 
-/*
-AggregateFCIncidentsParams contains all the parameters to send to the API endpoint
+/* AggregateFCIncidentsParams contains all the parameters to send to the API endpoint
+   for the aggregate f c incidents operation.
 
-	for the aggregate f c incidents operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateFCIncidentsParams struct {
 

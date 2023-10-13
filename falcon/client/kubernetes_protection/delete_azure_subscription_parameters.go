@@ -53,12 +53,10 @@ func NewDeleteAzureSubscriptionParamsWithHTTPClient(client *http.Client) *Delete
 	}
 }
 
-/*
-DeleteAzureSubscriptionParams contains all the parameters to send to the API endpoint
+/* DeleteAzureSubscriptionParams contains all the parameters to send to the API endpoint
+   for the delete azure subscription operation.
 
-	for the delete azure subscription operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteAzureSubscriptionParams struct {
 

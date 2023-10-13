@@ -53,12 +53,10 @@ func NewGetConfigurationDetectionsParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetConfigurationDetectionsParams contains all the parameters to send to the API endpoint
+/* GetConfigurationDetectionsParams contains all the parameters to send to the API endpoint
+   for the get configuration detections operation.
 
-	for the get configuration detections operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetConfigurationDetectionsParams struct {
 

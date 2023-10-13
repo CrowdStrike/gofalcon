@@ -54,12 +54,10 @@ func NewCreateCIDGroupsParamsWithHTTPClient(client *http.Client) *CreateCIDGroup
 	}
 }
 
-/*
-CreateCIDGroupsParams contains all the parameters to send to the API endpoint
+/* CreateCIDGroupsParams contains all the parameters to send to the API endpoint
+   for the create c ID groups operation.
 
-	for the create c ID groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateCIDGroupsParams struct {
 

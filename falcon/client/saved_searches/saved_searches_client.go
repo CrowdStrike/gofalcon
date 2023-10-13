@@ -52,7 +52,7 @@ type ClientService interface {
 }
 
 /*
-CreateSavedSearch creates a saved searches resource
+  CreateSavedSearch creates a saved searches resource
 */
 func (a *Client) CreateSavedSearch(params *CreateSavedSearchParams, opts ...ClientOption) (*CreateSavedSearchOK, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +90,7 @@ func (a *Client) CreateSavedSearch(params *CreateSavedSearchParams, opts ...Clie
 }
 
 /*
-DeleteSavedSearch deletes a saved searches resource
+  DeleteSavedSearch deletes a saved searches resource
 */
 func (a *Client) DeleteSavedSearch(params *DeleteSavedSearchParams, opts ...ClientOption) (*DeleteSavedSearchOK, error) {
 	// TODO: Validate the params before sending
@@ -128,7 +128,7 @@ func (a *Client) DeleteSavedSearch(params *DeleteSavedSearchParams, opts ...Clie
 }
 
 /*
-Deploy deploys a saved search
+  Deploy deploys a saved search
 */
 func (a *Client) Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) Deploy(params *DeployParams, opts ...ClientOption) (*DeployOK, 
 }
 
 /*
-ExecuteDynamic executes a dynamic saved search
+  ExecuteDynamic executes a dynamic saved search
 */
 func (a *Client) ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error) {
 	// TODO: Validate the params before sending
@@ -204,7 +204,7 @@ func (a *Client) ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOpti
 }
 
 /*
-Ingest populates a saved search
+  Ingest populates a saved search
 */
 func (a *Client) Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, error) {
 	// TODO: Validate the params before sending
@@ -242,7 +242,7 @@ func (a *Client) Ingest(params *IngestParams, opts ...ClientOption) (*IngestOK, 
 }
 
 /*
-QueryCombined queries for saved searches resources and returns details
+  QueryCombined queries for saved searches resources and returns details
 */
 func (a *Client) QueryCombined(params *QueryCombinedParams, opts ...ClientOption) (*QueryCombinedOK, error) {
 	// TODO: Validate the params before sending
@@ -280,7 +280,7 @@ func (a *Client) QueryCombined(params *QueryCombinedParams, opts ...ClientOption
 }
 
 /*
-Result gets the results of a saved search
+  Result gets the results of a saved search
 */
 func (a *Client) Result(params *ResultParams, opts ...ClientOption) (*ResultOK, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) Result(params *ResultParams, opts ...ClientOption) (*ResultOK, 
 }
 
 /*
-UpdateSavedSearch updates a saved searches resource
+  UpdateSavedSearch updates a saved searches resource
 */
 func (a *Client) UpdateSavedSearch(params *UpdateSavedSearchParams, opts ...ClientOption) (*UpdateSavedSearchOK, error) {
 	// TODO: Validate the params before sending
@@ -356,7 +356,7 @@ func (a *Client) UpdateSavedSearch(params *UpdateSavedSearchParams, opts ...Clie
 }
 
 /*
-Validate validates a search
+  Validate validates a search
 */
 func (a *Client) Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error) {
 	// TODO: Validate the params before sending

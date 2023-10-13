@@ -54,12 +54,10 @@ func NewGetAggregateFilesParamsWithHTTPClient(client *http.Client) *GetAggregate
 	}
 }
 
-/*
-GetAggregateFilesParams contains all the parameters to send to the API endpoint
+/* GetAggregateFilesParams contains all the parameters to send to the API endpoint
+   for the get aggregate files operation.
 
-	for the get aggregate files operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAggregateFilesParams struct {
 

@@ -65,8 +65,7 @@ func NewGetBehaviorDetectionsOK() *GetBehaviorDetectionsOK {
 	return &GetBehaviorDetectionsOK{}
 }
 
-/*
-GetBehaviorDetectionsOK describes a response with status code 200, with default header values.
+/* GetBehaviorDetectionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetBehaviorDetectionsBadRequest() *GetBehaviorDetectionsBadRequest {
 	return &GetBehaviorDetectionsBadRequest{}
 }
 
-/*
-GetBehaviorDetectionsBadRequest describes a response with status code 400, with default header values.
+/* GetBehaviorDetectionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetBehaviorDetectionsForbidden() *GetBehaviorDetectionsForbidden {
 	return &GetBehaviorDetectionsForbidden{}
 }
 
-/*
-GetBehaviorDetectionsForbidden describes a response with status code 403, with default header values.
+/* GetBehaviorDetectionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetBehaviorDetectionsTooManyRequests() *GetBehaviorDetectionsTooManyRequ
 	return &GetBehaviorDetectionsTooManyRequests{}
 }
 
-/*
-GetBehaviorDetectionsTooManyRequests describes a response with status code 429, with default header values.
+/* GetBehaviorDetectionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetBehaviorDetectionsInternalServerError() *GetBehaviorDetectionsInterna
 	return &GetBehaviorDetectionsInternalServerError{}
 }
 
-/*
-GetBehaviorDetectionsInternalServerError describes a response with status code 500, with default header values.
+/* GetBehaviorDetectionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

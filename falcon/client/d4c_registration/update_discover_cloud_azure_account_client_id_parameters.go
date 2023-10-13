@@ -52,12 +52,10 @@ func NewUpdateDiscoverCloudAzureAccountClientIDParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDParams contains all the parameters to send to the API endpoint
+/* UpdateDiscoverCloudAzureAccountClientIDParams contains all the parameters to send to the API endpoint
+   for the update discover cloud azure account client ID operation.
 
-	for the update discover cloud azure account client ID operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateDiscoverCloudAzureAccountClientIDParams struct {
 

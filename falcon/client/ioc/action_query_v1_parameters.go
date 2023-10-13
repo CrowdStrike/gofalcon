@@ -53,12 +53,10 @@ func NewActionQueryV1ParamsWithHTTPClient(client *http.Client) *ActionQueryV1Par
 	}
 }
 
-/*
-ActionQueryV1Params contains all the parameters to send to the API endpoint
+/* ActionQueryV1Params contains all the parameters to send to the API endpoint
+   for the action query v1 operation.
 
-	for the action query v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ActionQueryV1Params struct {
 

@@ -53,12 +53,10 @@ func NewGetNotificationsExposedDataRecordsV1ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+/* GetNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+   for the get notifications exposed data records v1 operation.
 
-	for the get notifications exposed data records v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetNotificationsExposedDataRecordsV1Params struct {
 

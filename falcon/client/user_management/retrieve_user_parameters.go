@@ -53,12 +53,10 @@ func NewRetrieveUserParamsWithHTTPClient(client *http.Client) *RetrieveUserParam
 	}
 }
 
-/*
-RetrieveUserParams contains all the parameters to send to the API endpoint
+/* RetrieveUserParams contains all the parameters to send to the API endpoint
+   for the retrieve user operation.
 
-	for the retrieve user operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RetrieveUserParams struct {
 

@@ -53,12 +53,10 @@ func NewQueryMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *QueryMLExc
 	}
 }
 
-/*
-QueryMLExclusionsV1Params contains all the parameters to send to the API endpoint
+/* QueryMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the query m l exclusions v1 operation.
 
-	for the query m l exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryMLExclusionsV1Params struct {
 

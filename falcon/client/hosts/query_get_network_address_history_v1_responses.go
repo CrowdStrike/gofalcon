@@ -53,8 +53,7 @@ func NewQueryGetNetworkAddressHistoryV1OK() *QueryGetNetworkAddressHistoryV1OK {
 	return &QueryGetNetworkAddressHistoryV1OK{}
 }
 
-/*
-QueryGetNetworkAddressHistoryV1OK describes a response with status code 200, with default header values.
+/* QueryGetNetworkAddressHistoryV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryGetNetworkAddressHistoryV1Forbidden() *QueryGetNetworkAddressHistor
 	return &QueryGetNetworkAddressHistoryV1Forbidden{}
 }
 
-/*
-QueryGetNetworkAddressHistoryV1Forbidden describes a response with status code 403, with default header values.
+/* QueryGetNetworkAddressHistoryV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryGetNetworkAddressHistoryV1TooManyRequests() *QueryGetNetworkAddress
 	return &QueryGetNetworkAddressHistoryV1TooManyRequests{}
 }
 
-/*
-QueryGetNetworkAddressHistoryV1TooManyRequests describes a response with status code 429, with default header values.
+/* QueryGetNetworkAddressHistoryV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

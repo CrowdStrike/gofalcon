@@ -53,8 +53,7 @@ func NewActionQueryV1OK() *ActionQueryV1OK {
 	return &ActionQueryV1OK{}
 }
 
-/*
-ActionQueryV1OK describes a response with status code 200, with default header values.
+/* ActionQueryV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewActionQueryV1Forbidden() *ActionQueryV1Forbidden {
 	return &ActionQueryV1Forbidden{}
 }
 
-/*
-ActionQueryV1Forbidden describes a response with status code 403, with default header values.
+/* ActionQueryV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewActionQueryV1TooManyRequests() *ActionQueryV1TooManyRequests {
 	return &ActionQueryV1TooManyRequests{}
 }
 
-/*
-ActionQueryV1TooManyRequests describes a response with status code 429, with default header values.
+/* ActionQueryV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

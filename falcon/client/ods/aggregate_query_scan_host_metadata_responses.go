@@ -59,8 +59,7 @@ func NewAggregateQueryScanHostMetadataOK() *AggregateQueryScanHostMetadataOK {
 	return &AggregateQueryScanHostMetadataOK{}
 }
 
-/*
-AggregateQueryScanHostMetadataOK describes a response with status code 200, with default header values.
+/* AggregateQueryScanHostMetadataOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewAggregateQueryScanHostMetadataForbidden() *AggregateQueryScanHostMetadat
 	return &AggregateQueryScanHostMetadataForbidden{}
 }
 
-/*
-AggregateQueryScanHostMetadataForbidden describes a response with status code 403, with default header values.
+/* AggregateQueryScanHostMetadataForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewAggregateQueryScanHostMetadataNotFound() *AggregateQueryScanHostMetadata
 	return &AggregateQueryScanHostMetadataNotFound{}
 }
 
-/*
-AggregateQueryScanHostMetadataNotFound describes a response with status code 404, with default header values.
+/* AggregateQueryScanHostMetadataNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewAggregateQueryScanHostMetadataTooManyRequests() *AggregateQueryScanHostM
 	return &AggregateQueryScanHostMetadataTooManyRequests{}
 }
 
-/*
-AggregateQueryScanHostMetadataTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateQueryScanHostMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

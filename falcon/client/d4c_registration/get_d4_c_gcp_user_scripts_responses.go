@@ -71,8 +71,7 @@ func NewGetD4CGcpUserScriptsOK() *GetD4CGcpUserScriptsOK {
 	return &GetD4CGcpUserScriptsOK{}
 }
 
-/*
-GetD4CGcpUserScriptsOK describes a response with status code 200, with default header values.
+/* GetD4CGcpUserScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetD4CGcpUserScriptsMultiStatus() *GetD4CGcpUserScriptsMultiStatus {
 	return &GetD4CGcpUserScriptsMultiStatus{}
 }
 
-/*
-GetD4CGcpUserScriptsMultiStatus describes a response with status code 207, with default header values.
+/* GetD4CGcpUserScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetD4CGcpUserScriptsBadRequest() *GetD4CGcpUserScriptsBadRequest {
 	return &GetD4CGcpUserScriptsBadRequest{}
 }
 
-/*
-GetD4CGcpUserScriptsBadRequest describes a response with status code 400, with default header values.
+/* GetD4CGcpUserScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetD4CGcpUserScriptsForbidden() *GetD4CGcpUserScriptsForbidden {
 	return &GetD4CGcpUserScriptsForbidden{}
 }
 
-/*
-GetD4CGcpUserScriptsForbidden describes a response with status code 403, with default header values.
+/* GetD4CGcpUserScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetD4CGcpUserScriptsTooManyRequests() *GetD4CGcpUserScriptsTooManyReques
 	return &GetD4CGcpUserScriptsTooManyRequests{}
 }
 
-/*
-GetD4CGcpUserScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* GetD4CGcpUserScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetD4CGcpUserScriptsInternalServerError() *GetD4CGcpUserScriptsInternalS
 	return &GetD4CGcpUserScriptsInternalServerError{}
 }
 
-/*
-GetD4CGcpUserScriptsInternalServerError describes a response with status code 500, with default header values.
+/* GetD4CGcpUserScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

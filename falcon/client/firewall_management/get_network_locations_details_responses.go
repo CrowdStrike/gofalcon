@@ -59,8 +59,7 @@ func NewGetNetworkLocationsDetailsOK() *GetNetworkLocationsDetailsOK {
 	return &GetNetworkLocationsDetailsOK{}
 }
 
-/*
-GetNetworkLocationsDetailsOK describes a response with status code 200, with default header values.
+/* GetNetworkLocationsDetailsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetNetworkLocationsDetailsBadRequest() *GetNetworkLocationsDetailsBadReq
 	return &GetNetworkLocationsDetailsBadRequest{}
 }
 
-/*
-GetNetworkLocationsDetailsBadRequest describes a response with status code 400, with default header values.
+/* GetNetworkLocationsDetailsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewGetNetworkLocationsDetailsForbidden() *GetNetworkLocationsDetailsForbidd
 	return &GetNetworkLocationsDetailsForbidden{}
 }
 
-/*
-GetNetworkLocationsDetailsForbidden describes a response with status code 403, with default header values.
+/* GetNetworkLocationsDetailsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewGetNetworkLocationsDetailsTooManyRequests() *GetNetworkLocationsDetailsT
 	return &GetNetworkLocationsDetailsTooManyRequests{}
 }
 
-/*
-GetNetworkLocationsDetailsTooManyRequests describes a response with status code 429, with default header values.
+/* GetNetworkLocationsDetailsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

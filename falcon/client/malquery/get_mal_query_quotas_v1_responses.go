@@ -77,8 +77,7 @@ func NewGetMalQueryQuotasV1OK() *GetMalQueryQuotasV1OK {
 	return &GetMalQueryQuotasV1OK{}
 }
 
-/*
-GetMalQueryQuotasV1OK describes a response with status code 200, with default header values.
+/* GetMalQueryQuotasV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -187,8 +186,7 @@ func NewGetMalQueryQuotasV1BadRequest() *GetMalQueryQuotasV1BadRequest {
 	return &GetMalQueryQuotasV1BadRequest{}
 }
 
-/*
-GetMalQueryQuotasV1BadRequest describes a response with status code 400, with default header values.
+/* GetMalQueryQuotasV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -297,8 +295,7 @@ func NewGetMalQueryQuotasV1Unauthorized() *GetMalQueryQuotasV1Unauthorized {
 	return &GetMalQueryQuotasV1Unauthorized{}
 }
 
-/*
-GetMalQueryQuotasV1Unauthorized describes a response with status code 401, with default header values.
+/* GetMalQueryQuotasV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -407,8 +404,7 @@ func NewGetMalQueryQuotasV1Forbidden() *GetMalQueryQuotasV1Forbidden {
 	return &GetMalQueryQuotasV1Forbidden{}
 }
 
-/*
-GetMalQueryQuotasV1Forbidden describes a response with status code 403, with default header values.
+/* GetMalQueryQuotasV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -517,8 +513,7 @@ func NewGetMalQueryQuotasV1NotFound() *GetMalQueryQuotasV1NotFound {
 	return &GetMalQueryQuotasV1NotFound{}
 }
 
-/*
-GetMalQueryQuotasV1NotFound describes a response with status code 404, with default header values.
+/* GetMalQueryQuotasV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -627,8 +622,7 @@ func NewGetMalQueryQuotasV1TooManyRequests() *GetMalQueryQuotasV1TooManyRequests
 	return &GetMalQueryQuotasV1TooManyRequests{}
 }
 
-/*
-GetMalQueryQuotasV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetMalQueryQuotasV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -752,8 +746,7 @@ func NewGetMalQueryQuotasV1InternalServerError() *GetMalQueryQuotasV1InternalSer
 	return &GetMalQueryQuotasV1InternalServerError{}
 }
 
-/*
-GetMalQueryQuotasV1InternalServerError describes a response with status code 500, with default header values.
+/* GetMalQueryQuotasV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

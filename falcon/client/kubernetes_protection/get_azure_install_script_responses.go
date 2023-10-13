@@ -71,8 +71,7 @@ func NewGetAzureInstallScriptOK() *GetAzureInstallScriptOK {
 	return &GetAzureInstallScriptOK{}
 }
 
-/*
-GetAzureInstallScriptOK describes a response with status code 200, with default header values.
+/* GetAzureInstallScriptOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetAzureInstallScriptMultiStatus() *GetAzureInstallScriptMultiStatus {
 	return &GetAzureInstallScriptMultiStatus{}
 }
 
-/*
-GetAzureInstallScriptMultiStatus describes a response with status code 207, with default header values.
+/* GetAzureInstallScriptMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetAzureInstallScriptBadRequest() *GetAzureInstallScriptBadRequest {
 	return &GetAzureInstallScriptBadRequest{}
 }
 
-/*
-GetAzureInstallScriptBadRequest describes a response with status code 400, with default header values.
+/* GetAzureInstallScriptBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetAzureInstallScriptForbidden() *GetAzureInstallScriptForbidden {
 	return &GetAzureInstallScriptForbidden{}
 }
 
-/*
-GetAzureInstallScriptForbidden describes a response with status code 403, with default header values.
+/* GetAzureInstallScriptForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetAzureInstallScriptTooManyRequests() *GetAzureInstallScriptTooManyRequ
 	return &GetAzureInstallScriptTooManyRequests{}
 }
 
-/*
-GetAzureInstallScriptTooManyRequests describes a response with status code 429, with default header values.
+/* GetAzureInstallScriptTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetAzureInstallScriptInternalServerError() *GetAzureInstallScriptInterna
 	return &GetAzureInstallScriptInternalServerError{}
 }
 
-/*
-GetAzureInstallScriptInternalServerError describes a response with status code 500, with default header values.
+/* GetAzureInstallScriptInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

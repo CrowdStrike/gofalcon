@@ -71,8 +71,7 @@ func NewArchiveUploadV2OK() *ArchiveUploadV2OK {
 	return &ArchiveUploadV2OK{}
 }
 
-/*
-ArchiveUploadV2OK describes a response with status code 200, with default header values.
+/* ArchiveUploadV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewArchiveUploadV2Accepted() *ArchiveUploadV2Accepted {
 	return &ArchiveUploadV2Accepted{}
 }
 
-/*
-ArchiveUploadV2Accepted describes a response with status code 202, with default header values.
+/* ArchiveUploadV2Accepted describes a response with status code 202, with default header values.
 
 OK
 */
@@ -291,8 +289,7 @@ func NewArchiveUploadV2BadRequest() *ArchiveUploadV2BadRequest {
 	return &ArchiveUploadV2BadRequest{}
 }
 
-/*
-ArchiveUploadV2BadRequest describes a response with status code 400, with default header values.
+/* ArchiveUploadV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewArchiveUploadV2Forbidden() *ArchiveUploadV2Forbidden {
 	return &ArchiveUploadV2Forbidden{}
 }
 
-/*
-ArchiveUploadV2Forbidden describes a response with status code 403, with default header values.
+/* ArchiveUploadV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewArchiveUploadV2TooManyRequests() *ArchiveUploadV2TooManyRequests {
 	return &ArchiveUploadV2TooManyRequests{}
 }
 
-/*
-ArchiveUploadV2TooManyRequests describes a response with status code 429, with default header values.
+/* ArchiveUploadV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewArchiveUploadV2InternalServerError() *ArchiveUploadV2InternalServerError
 	return &ArchiveUploadV2InternalServerError{}
 }
 
-/*
-ArchiveUploadV2InternalServerError describes a response with status code 500, with default header values.
+/* ArchiveUploadV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

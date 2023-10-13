@@ -65,8 +65,7 @@ func NewCreateUserV1Created() *CreateUserV1Created {
 	return &CreateUserV1Created{}
 }
 
-/*
-CreateUserV1Created describes a response with status code 201, with default header values.
+/* CreateUserV1Created describes a response with status code 201, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCreateUserV1BadRequest() *CreateUserV1BadRequest {
 	return &CreateUserV1BadRequest{}
 }
 
-/*
-CreateUserV1BadRequest describes a response with status code 400, with default header values.
+/* CreateUserV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCreateUserV1Forbidden() *CreateUserV1Forbidden {
 	return &CreateUserV1Forbidden{}
 }
 
-/*
-CreateUserV1Forbidden describes a response with status code 403, with default header values.
+/* CreateUserV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCreateUserV1TooManyRequests() *CreateUserV1TooManyRequests {
 	return &CreateUserV1TooManyRequests{}
 }
 
-/*
-CreateUserV1TooManyRequests describes a response with status code 429, with default header values.
+/* CreateUserV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCreateUserV1InternalServerError() *CreateUserV1InternalServerError {
 	return &CreateUserV1InternalServerError{}
 }
 
-/*
-CreateUserV1InternalServerError describes a response with status code 500, with default header values.
+/* CreateUserV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

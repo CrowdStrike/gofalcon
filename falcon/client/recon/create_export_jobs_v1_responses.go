@@ -77,8 +77,7 @@ func NewCreateExportJobsV1OK() *CreateExportJobsV1OK {
 	return &CreateExportJobsV1OK{}
 }
 
-/*
-CreateExportJobsV1OK describes a response with status code 200, with default header values.
+/* CreateExportJobsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -187,8 +186,7 @@ func NewCreateExportJobsV1BadRequest() *CreateExportJobsV1BadRequest {
 	return &CreateExportJobsV1BadRequest{}
 }
 
-/*
-CreateExportJobsV1BadRequest describes a response with status code 400, with default header values.
+/* CreateExportJobsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -297,8 +295,7 @@ func NewCreateExportJobsV1Unauthorized() *CreateExportJobsV1Unauthorized {
 	return &CreateExportJobsV1Unauthorized{}
 }
 
-/*
-CreateExportJobsV1Unauthorized describes a response with status code 401, with default header values.
+/* CreateExportJobsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -407,8 +404,7 @@ func NewCreateExportJobsV1Forbidden() *CreateExportJobsV1Forbidden {
 	return &CreateExportJobsV1Forbidden{}
 }
 
-/*
-CreateExportJobsV1Forbidden describes a response with status code 403, with default header values.
+/* CreateExportJobsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -517,8 +513,7 @@ func NewCreateExportJobsV1NotFound() *CreateExportJobsV1NotFound {
 	return &CreateExportJobsV1NotFound{}
 }
 
-/*
-CreateExportJobsV1NotFound describes a response with status code 404, with default header values.
+/* CreateExportJobsV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -627,8 +622,7 @@ func NewCreateExportJobsV1TooManyRequests() *CreateExportJobsV1TooManyRequests {
 	return &CreateExportJobsV1TooManyRequests{}
 }
 
-/*
-CreateExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
+/* CreateExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -752,8 +746,7 @@ func NewCreateExportJobsV1InternalServerError() *CreateExportJobsV1InternalServe
 	return &CreateExportJobsV1InternalServerError{}
 }
 
-/*
-CreateExportJobsV1InternalServerError describes a response with status code 500, with default header values.
+/* CreateExportJobsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

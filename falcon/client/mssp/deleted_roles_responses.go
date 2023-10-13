@@ -65,8 +65,7 @@ func NewDeletedRolesOK() *DeletedRolesOK {
 	return &DeletedRolesOK{}
 }
 
-/*
-DeletedRolesOK describes a response with status code 200, with default header values.
+/* DeletedRolesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewDeletedRolesMultiStatus() *DeletedRolesMultiStatus {
 	return &DeletedRolesMultiStatus{}
 }
 
-/*
-DeletedRolesMultiStatus describes a response with status code 207, with default header values.
+/* DeletedRolesMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewDeletedRolesBadRequest() *DeletedRolesBadRequest {
 	return &DeletedRolesBadRequest{}
 }
 
-/*
-DeletedRolesBadRequest describes a response with status code 400, with default header values.
+/* DeletedRolesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewDeletedRolesForbidden() *DeletedRolesForbidden {
 	return &DeletedRolesForbidden{}
 }
 
-/*
-DeletedRolesForbidden describes a response with status code 403, with default header values.
+/* DeletedRolesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewDeletedRolesTooManyRequests() *DeletedRolesTooManyRequests {
 	return &DeletedRolesTooManyRequests{}
 }
 
-/*
-DeletedRolesTooManyRequests describes a response with status code 429, with default header values.
+/* DeletedRolesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

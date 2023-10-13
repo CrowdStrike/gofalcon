@@ -71,8 +71,7 @@ func NewDeprovisionSystemDefinitionOK() *DeprovisionSystemDefinitionOK {
 	return &DeprovisionSystemDefinitionOK{}
 }
 
-/*
-DeprovisionSystemDefinitionOK describes a response with status code 200, with default header values.
+/* DeprovisionSystemDefinitionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeprovisionSystemDefinitionBadRequest() *DeprovisionSystemDefinitionBadR
 	return &DeprovisionSystemDefinitionBadRequest{}
 }
 
-/*
-DeprovisionSystemDefinitionBadRequest describes a response with status code 400, with default header values.
+/* DeprovisionSystemDefinitionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewDeprovisionSystemDefinitionForbidden() *DeprovisionSystemDefinitionForbi
 	return &DeprovisionSystemDefinitionForbidden{}
 }
 
-/*
-DeprovisionSystemDefinitionForbidden describes a response with status code 403, with default header values.
+/* DeprovisionSystemDefinitionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewDeprovisionSystemDefinitionNotFound() *DeprovisionSystemDefinitionNotFou
 	return &DeprovisionSystemDefinitionNotFound{}
 }
 
-/*
-DeprovisionSystemDefinitionNotFound describes a response with status code 404, with default header values.
+/* DeprovisionSystemDefinitionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewDeprovisionSystemDefinitionTooManyRequests() *DeprovisionSystemDefinitio
 	return &DeprovisionSystemDefinitionTooManyRequests{}
 }
 
-/*
-DeprovisionSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
+/* DeprovisionSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeprovisionSystemDefinitionInternalServerError() *DeprovisionSystemDefin
 	return &DeprovisionSystemDefinitionInternalServerError{}
 }
 
-/*
-DeprovisionSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
+/* DeprovisionSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

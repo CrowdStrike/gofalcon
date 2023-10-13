@@ -65,8 +65,7 @@ func NewGetDetectSummariesOK() *GetDetectSummariesOK {
 	return &GetDetectSummariesOK{}
 }
 
-/*
-GetDetectSummariesOK describes a response with status code 200, with default header values.
+/* GetDetectSummariesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetDetectSummariesBadRequest() *GetDetectSummariesBadRequest {
 	return &GetDetectSummariesBadRequest{}
 }
 
-/*
-GetDetectSummariesBadRequest describes a response with status code 400, with default header values.
+/* GetDetectSummariesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetDetectSummariesForbidden() *GetDetectSummariesForbidden {
 	return &GetDetectSummariesForbidden{}
 }
 
-/*
-GetDetectSummariesForbidden describes a response with status code 403, with default header values.
+/* GetDetectSummariesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetDetectSummariesTooManyRequests() *GetDetectSummariesTooManyRequests {
 	return &GetDetectSummariesTooManyRequests{}
 }
 
-/*
-GetDetectSummariesTooManyRequests describes a response with status code 429, with default header values.
+/* GetDetectSummariesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetDetectSummariesInternalServerError() *GetDetectSummariesInternalServe
 	return &GetDetectSummariesInternalServerError{}
 }
 
-/*
-GetDetectSummariesInternalServerError describes a response with status code 500, with default header values.
+/* GetDetectSummariesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

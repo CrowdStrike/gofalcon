@@ -53,12 +53,10 @@ func NewQueryIncidentsParamsWithHTTPClient(client *http.Client) *QueryIncidentsP
 	}
 }
 
-/*
-QueryIncidentsParams contains all the parameters to send to the API endpoint
+/* QueryIncidentsParams contains all the parameters to send to the API endpoint
+   for the query incidents operation.
 
-	for the query incidents operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIncidentsParams struct {
 

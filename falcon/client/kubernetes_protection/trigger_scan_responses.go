@@ -71,8 +71,7 @@ func NewTriggerScanCreated() *TriggerScanCreated {
 	return &TriggerScanCreated{}
 }
 
-/*
-TriggerScanCreated describes a response with status code 201, with default header values.
+/* TriggerScanCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewTriggerScanMultiStatus() *TriggerScanMultiStatus {
 	return &TriggerScanMultiStatus{}
 }
 
-/*
-TriggerScanMultiStatus describes a response with status code 207, with default header values.
+/* TriggerScanMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewTriggerScanBadRequest() *TriggerScanBadRequest {
 	return &TriggerScanBadRequest{}
 }
 
-/*
-TriggerScanBadRequest describes a response with status code 400, with default header values.
+/* TriggerScanBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewTriggerScanForbidden() *TriggerScanForbidden {
 	return &TriggerScanForbidden{}
 }
 
-/*
-TriggerScanForbidden describes a response with status code 403, with default header values.
+/* TriggerScanForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewTriggerScanTooManyRequests() *TriggerScanTooManyRequests {
 	return &TriggerScanTooManyRequests{}
 }
 
-/*
-TriggerScanTooManyRequests describes a response with status code 429, with default header values.
+/* TriggerScanTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewTriggerScanInternalServerError() *TriggerScanInternalServerError {
 	return &TriggerScanInternalServerError{}
 }
 
-/*
-TriggerScanInternalServerError describes a response with status code 500, with default header values.
+/* TriggerScanInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

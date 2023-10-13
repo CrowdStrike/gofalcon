@@ -52,12 +52,10 @@ func NewUpdateCSPMAzureAccountClientIDParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-UpdateCSPMAzureAccountClientIDParams contains all the parameters to send to the API endpoint
+/* UpdateCSPMAzureAccountClientIDParams contains all the parameters to send to the API endpoint
+   for the update c s p m azure account client ID operation.
 
-	for the update c s p m azure account client ID operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateCSPMAzureAccountClientIDParams struct {
 

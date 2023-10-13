@@ -53,12 +53,10 @@ func NewGetAzureTenantIDsParamsWithHTTPClient(client *http.Client) *GetAzureTena
 	}
 }
 
-/*
-GetAzureTenantIDsParams contains all the parameters to send to the API endpoint
+/* GetAzureTenantIDsParams contains all the parameters to send to the API endpoint
+   for the get azure tenant i ds operation.
 
-	for the get azure tenant i ds operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAzureTenantIDsParams struct {
 

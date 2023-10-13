@@ -54,14 +54,18 @@ func NewAggregateQueryScanHostMetadataParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AggregateQueryScanHostMetadataParams contains all the parameters to send to the API endpoint
+/* AggregateQueryScanHostMetadataParams contains all the parameters to send to the API endpoint
+   for the aggregate query scan host metadata operation.
 
-	for the aggregate query scan host metadata operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateQueryScanHostMetadataParams struct {
+
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
 
 	// Body.
 	Body []*models.MsaAggregateQueryRequest
@@ -119,6 +123,17 @@ func (o *AggregateQueryScanHostMetadataParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the aggregate query scan host metadata params
+func (o *AggregateQueryScanHostMetadataParams) WithXCSUSERUUID(xCSUSERUUID string) *AggregateQueryScanHostMetadataParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the aggregate query scan host metadata params
+func (o *AggregateQueryScanHostMetadataParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithBody adds the body to the aggregate query scan host metadata params
 func (o *AggregateQueryScanHostMetadataParams) WithBody(body []*models.MsaAggregateQueryRequest) *AggregateQueryScanHostMetadataParams {
 	o.SetBody(body)
@@ -137,6 +152,11 @@ func (o *AggregateQueryScanHostMetadataParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

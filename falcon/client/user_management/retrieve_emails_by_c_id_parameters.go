@@ -52,12 +52,10 @@ func NewRetrieveEmailsByCIDParamsWithHTTPClient(client *http.Client) *RetrieveEm
 	}
 }
 
-/*
-RetrieveEmailsByCIDParams contains all the parameters to send to the API endpoint
+/* RetrieveEmailsByCIDParams contains all the parameters to send to the API endpoint
+   for the retrieve emails by c ID operation.
 
-	for the retrieve emails by c ID operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RetrieveEmailsByCIDParams struct {
 	timeout    time.Duration

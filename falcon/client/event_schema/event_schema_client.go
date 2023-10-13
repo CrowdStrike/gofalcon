@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-FdrschemaCombinedEventGet fetches combined schema
+  FdrschemaCombinedEventGet fetches combined schema
 */
 func (a *Client) FdrschemaCombinedEventGet(params *FdrschemaCombinedEventGetParams, opts ...ClientOption) (*FdrschemaCombinedEventGetOK, error) {
 	// TODO: Validate the params before sending
@@ -78,7 +78,7 @@ func (a *Client) FdrschemaCombinedEventGet(params *FdrschemaCombinedEventGetPara
 }
 
 /*
-FdrschemaEntitiesEventGet fetches event schema by ID
+  FdrschemaEntitiesEventGet fetches event schema by ID
 */
 func (a *Client) FdrschemaEntitiesEventGet(params *FdrschemaEntitiesEventGetParams, opts ...ClientOption) (*FdrschemaEntitiesEventGetOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) FdrschemaEntitiesEventGet(params *FdrschemaEntitiesEventGetPara
 }
 
 /*
-FdrschemaQueriesEventGet gets list of event i ds given a particular query
+  FdrschemaQueriesEventGet gets list of event i ds given a particular query
 */
 func (a *Client) FdrschemaQueriesEventGet(params *FdrschemaQueriesEventGetParams, opts ...ClientOption) (*FdrschemaQueriesEventGetOK, error) {
 	// TODO: Validate the params before sending

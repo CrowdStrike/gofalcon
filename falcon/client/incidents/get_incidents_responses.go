@@ -65,8 +65,7 @@ func NewGetIncidentsOK() *GetIncidentsOK {
 	return &GetIncidentsOK{}
 }
 
-/*
-GetIncidentsOK describes a response with status code 200, with default header values.
+/* GetIncidentsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetIncidentsBadRequest() *GetIncidentsBadRequest {
 	return &GetIncidentsBadRequest{}
 }
 
-/*
-GetIncidentsBadRequest describes a response with status code 400, with default header values.
+/* GetIncidentsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetIncidentsForbidden() *GetIncidentsForbidden {
 	return &GetIncidentsForbidden{}
 }
 
-/*
-GetIncidentsForbidden describes a response with status code 403, with default header values.
+/* GetIncidentsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetIncidentsTooManyRequests() *GetIncidentsTooManyRequests {
 	return &GetIncidentsTooManyRequests{}
 }
 
-/*
-GetIncidentsTooManyRequests describes a response with status code 429, with default header values.
+/* GetIncidentsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetIncidentsInternalServerError() *GetIncidentsInternalServerError {
 	return &GetIncidentsInternalServerError{}
 }
 
-/*
-GetIncidentsInternalServerError describes a response with status code 500, with default header values.
+/* GetIncidentsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

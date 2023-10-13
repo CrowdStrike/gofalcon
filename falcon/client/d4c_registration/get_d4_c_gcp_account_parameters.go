@@ -53,12 +53,10 @@ func NewGetD4CGcpAccountParamsWithHTTPClient(client *http.Client) *GetD4CGcpAcco
 	}
 }
 
-/*
-GetD4CGcpAccountParams contains all the parameters to send to the API endpoint
+/* GetD4CGcpAccountParams contains all the parameters to send to the API endpoint
+   for the get d4 c gcp account operation.
 
-	for the get d4 c gcp account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetD4CGcpAccountParams struct {
 

@@ -65,8 +65,7 @@ func NewGetD4CAWSAccountScriptsAttachmentOK() *GetD4CAWSAccountScriptsAttachment
 	return &GetD4CAWSAccountScriptsAttachmentOK{}
 }
 
-/*
-GetD4CAWSAccountScriptsAttachmentOK describes a response with status code 200, with default header values.
+/* GetD4CAWSAccountScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetD4CAWSAccountScriptsAttachmentBadRequest() *GetD4CAWSAccountScriptsAt
 	return &GetD4CAWSAccountScriptsAttachmentBadRequest{}
 }
 
-/*
-GetD4CAWSAccountScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+/* GetD4CAWSAccountScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetD4CAWSAccountScriptsAttachmentForbidden() *GetD4CAWSAccountScriptsAtt
 	return &GetD4CAWSAccountScriptsAttachmentForbidden{}
 }
 
-/*
-GetD4CAWSAccountScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+/* GetD4CAWSAccountScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetD4CAWSAccountScriptsAttachmentTooManyRequests() *GetD4CAWSAccountScri
 	return &GetD4CAWSAccountScriptsAttachmentTooManyRequests{}
 }
 
-/*
-GetD4CAWSAccountScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/* GetD4CAWSAccountScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetD4CAWSAccountScriptsAttachmentInternalServerError() *GetD4CAWSAccount
 	return &GetD4CAWSAccountScriptsAttachmentInternalServerError{}
 }
 
-/*
-GetD4CAWSAccountScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+/* GetD4CAWSAccountScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

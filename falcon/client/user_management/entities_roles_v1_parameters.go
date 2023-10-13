@@ -53,12 +53,10 @@ func NewEntitiesRolesV1ParamsWithHTTPClient(client *http.Client) *EntitiesRolesV
 	}
 }
 
-/*
-EntitiesRolesV1Params contains all the parameters to send to the API endpoint
+/* EntitiesRolesV1Params contains all the parameters to send to the API endpoint
+   for the entities roles v1 operation.
 
-	for the entities roles v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type EntitiesRolesV1Params struct {
 

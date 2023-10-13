@@ -53,12 +53,10 @@ func NewReadRegistryEntitiesParamsWithHTTPClient(client *http.Client) *ReadRegis
 	}
 }
 
-/*
-ReadRegistryEntitiesParams contains all the parameters to send to the API endpoint
+/* ReadRegistryEntitiesParams contains all the parameters to send to the API endpoint
+   for the read registry entities operation.
 
-	for the read registry entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ReadRegistryEntitiesParams struct {
 

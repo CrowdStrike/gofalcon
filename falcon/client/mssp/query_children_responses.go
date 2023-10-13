@@ -59,8 +59,7 @@ func NewQueryChildrenOK() *QueryChildrenOK {
 	return &QueryChildrenOK{}
 }
 
-/*
-QueryChildrenOK describes a response with status code 200, with default header values.
+/* QueryChildrenOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryChildrenBadRequest() *QueryChildrenBadRequest {
 	return &QueryChildrenBadRequest{}
 }
 
-/*
-QueryChildrenBadRequest describes a response with status code 400, with default header values.
+/* QueryChildrenBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryChildrenForbidden() *QueryChildrenForbidden {
 	return &QueryChildrenForbidden{}
 }
 
-/*
-QueryChildrenForbidden describes a response with status code 403, with default header values.
+/* QueryChildrenForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryChildrenTooManyRequests() *QueryChildrenTooManyRequests {
 	return &QueryChildrenTooManyRequests{}
 }
 
-/*
-QueryChildrenTooManyRequests describes a response with status code 429, with default header values.
+/* QueryChildrenTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

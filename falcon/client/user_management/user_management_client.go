@@ -78,7 +78,7 @@ type ClientService interface {
 }
 
 /*
-CreateUser deprecateds please use p o s t user management entities users v1 create a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
+  CreateUser deprecateds please use p o s t user management entities users v1 create a new user after creating a user assign one or more roles with p o s t user roles entities user roles v1
 */
 func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserCreated, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*Cr
 }
 
 /*
-DeleteUser deprecateds please use d e l e t e user management entities users v1 delete a user permanently
+  DeleteUser deprecateds please use d e l e t e user management entities users v1 delete a user permanently
 */
 func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*DeleteUserOK, error) {
 	// TODO: Validate the params before sending
@@ -154,7 +154,7 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) (*De
 }
 
 /*
-GetAvailableRoleIds deprecateds please use g e t user management queries roles v1 show role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
+  GetAvailableRoleIds deprecateds please use g e t user management queries roles v1 show role i ds for all roles available in your customer account for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...ClientOption) (*GetAvailableRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ func (a *Client) GetAvailableRoleIds(params *GetAvailableRoleIdsParams, opts ...
 }
 
 /*
-GetRoles deprecateds please use g e t user management entities roles v1 get info about a role
+  GetRoles deprecateds please use g e t user management entities roles v1 get info about a role
 */
 func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
 	// TODO: Validate the params before sending
@@ -230,7 +230,7 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 }
 
 /*
-GetUserRoleIds deprecateds please use g e t user management combined user roles v1 show role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
+  GetUserRoleIds deprecateds please use g e t user management combined user roles v1 show role i ds of roles assigned to a user for more information on each role provide the role ID to customer entities roles v1
 */
 func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOption) (*GetUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -268,7 +268,7 @@ func (a *Client) GetUserRoleIds(params *GetUserRoleIdsParams, opts ...ClientOpti
 }
 
 /*
-GrantUserRoleIds deprecateds please use p o s t user management entities user role actions v1 assign one or more roles to a user
+  GrantUserRoleIds deprecateds please use p o s t user management entities user role actions v1 assign one or more roles to a user
 */
 func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...ClientOption) (*GrantUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -306,7 +306,7 @@ func (a *Client) GrantUserRoleIds(params *GrantUserRoleIdsParams, opts ...Client
 }
 
 /*
-RetrieveEmailsByCID deprecateds please use p o s t user management entities users g e t v1 list the usernames usually an email address for all users in your customer account
+  RetrieveEmailsByCID deprecateds please use p o s t user management entities users g e t v1 list the usernames usually an email address for all users in your customer account
 */
 func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...ClientOption) (*RetrieveEmailsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -344,7 +344,7 @@ func (a *Client) RetrieveEmailsByCID(params *RetrieveEmailsByCIDParams, opts ...
 }
 
 /*
-RetrieveUserUUID deprecateds please use g e t user management queries users v1 get a user s ID by providing a username usually an email address
+  RetrieveUserUUID deprecateds please use g e t user management queries users v1 get a user s ID by providing a username usually an email address
 */
 func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...ClientOption) (*RetrieveUserUUIDOK, error) {
 	// TODO: Validate the params before sending
@@ -382,7 +382,7 @@ func (a *Client) RetrieveUserUUID(params *RetrieveUserUUIDParams, opts ...Client
 }
 
 /*
-RetrieveUserUUIDsByCID deprecateds please use g e t user management queries users v1 list user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
+  RetrieveUserUUIDsByCID deprecateds please use g e t user management queries users v1 list user i ds for all users in your customer account for more information on each user provide the user ID to users entities user v1
 */
 func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, opts ...ClientOption) (*RetrieveUserUUIDsByCIDOK, error) {
 	// TODO: Validate the params before sending
@@ -420,7 +420,7 @@ func (a *Client) RetrieveUserUUIDsByCID(params *RetrieveUserUUIDsByCIDParams, op
 }
 
 /*
-RevokeUserRoleIds deprecateds please use p o s t user management entities user role actions v1 revoke one or more roles from a user
+  RevokeUserRoleIds deprecateds please use p o s t user management entities user role actions v1 revoke one or more roles from a user
 */
 func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...ClientOption) (*RevokeUserRoleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -458,7 +458,7 @@ func (a *Client) RevokeUserRoleIds(params *RevokeUserRoleIdsParams, opts ...Clie
 }
 
 /*
-UpdateUser deprecateds please use p a t c h user management entities users v1 modify an existing user s first or last name
+  UpdateUser deprecateds please use p a t c h user management entities users v1 modify an existing user s first or last name
 */
 func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*UpdateUserOK, error) {
 	// TODO: Validate the params before sending
@@ -496,7 +496,7 @@ func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) (*Up
 }
 
 /*
-CombinedUserRolesV1 gets user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
+  CombinedUserRolesV1 gets user grant s this endpoint lists both direct as well as flight control grants between a user and a customer
 */
 func (a *Client) CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...ClientOption) (*CombinedUserRolesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -534,7 +534,7 @@ func (a *Client) CombinedUserRolesV1(params *CombinedUserRolesV1Params, opts ...
 }
 
 /*
-CreateUserV1 creates a new user after creating a user assign one or more roles with p o s t user management entities user role actions v1
+  CreateUserV1 creates a new user after creating a user assign one or more roles with p o s t user management entities user role actions v1
 */
 func (a *Client) CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) (*CreateUserV1Created, error) {
 	// TODO: Validate the params before sending
@@ -572,7 +572,7 @@ func (a *Client) CreateUserV1(params *CreateUserV1Params, opts ...ClientOption) 
 }
 
 /*
-DeleteUserV1 deletes a user permanently
+  DeleteUserV1 deletes a user permanently
 */
 func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) (*DeleteUserV1OK, error) {
 	// TODO: Validate the params before sending
@@ -610,7 +610,7 @@ func (a *Client) DeleteUserV1(params *DeleteUserV1Params, opts ...ClientOption) 
 }
 
 /*
-EntitiesRolesV1 gets info about a role
+  EntitiesRolesV1 gets info about a role
 */
 func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOption) (*EntitiesRolesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -648,7 +648,7 @@ func (a *Client) EntitiesRolesV1(params *EntitiesRolesV1Params, opts ...ClientOp
 }
 
 /*
-QueriesRolesV1 shows role i ds for all roles available in your customer account for more information on each role provide the role ID to user management entities roles v1
+  QueriesRolesV1 shows role i ds for all roles available in your customer account for more information on each role provide the role ID to user management entities roles v1
 */
 func (a *Client) QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOption) (*QueriesRolesV1OK, error) {
 	// TODO: Validate the params before sending
@@ -686,7 +686,7 @@ func (a *Client) QueriesRolesV1(params *QueriesRolesV1Params, opts ...ClientOpti
 }
 
 /*
-QueryUserV1 lists user i ds for all users in your customer account for more information on each user provide the user ID to user management entities users g e t v1
+  QueryUserV1 lists user i ds for all users in your customer account for more information on each user provide the user ID to user management entities users g e t v1
 */
 func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*QueryUserV1OK, error) {
 	// TODO: Validate the params before sending
@@ -724,7 +724,7 @@ func (a *Client) QueryUserV1(params *QueryUserV1Params, opts ...ClientOption) (*
 }
 
 /*
-RetrieveUser deprecateds please use p o s t user management entities users g e t v1 get info about a user
+  RetrieveUser deprecateds please use p o s t user management entities users g e t v1 get info about a user
 */
 func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) (*RetrieveUserOK, error) {
 	// TODO: Validate the params before sending
@@ -762,7 +762,7 @@ func (a *Client) RetrieveUser(params *RetrieveUserParams, opts ...ClientOption) 
 }
 
 /*
-RetrieveUsersGETV1 gets info about users including their name UID and c ID by providing user u UI ds
+  RetrieveUsersGETV1 gets info about users including their name UID and c ID by providing user u UI ds
 */
 func (a *Client) RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...ClientOption) (*RetrieveUsersGETV1OK, error) {
 	// TODO: Validate the params before sending
@@ -800,7 +800,7 @@ func (a *Client) RetrieveUsersGETV1(params *RetrieveUsersGETV1Params, opts ...Cl
 }
 
 /*
-UpdateUserV1 modifies an existing user s first or last name
+  UpdateUserV1 modifies an existing user s first or last name
 */
 func (a *Client) UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) (*UpdateUserV1OK, error) {
 	// TODO: Validate the params before sending
@@ -838,7 +838,7 @@ func (a *Client) UpdateUserV1(params *UpdateUserV1Params, opts ...ClientOption) 
 }
 
 /*
-UserActionV1 applies actions to one or more user available action names reset 2fa reset password user u UI ds can be provided in ids param as part of request payload
+  UserActionV1 applies actions to one or more user available action names reset 2fa reset password user u UI ds can be provided in ids param as part of request payload
 */
 func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) (*UserActionV1OK, error) {
 	// TODO: Validate the params before sending
@@ -876,7 +876,7 @@ func (a *Client) UserActionV1(params *UserActionV1Params, opts ...ClientOption) 
 }
 
 /*
-UserRolesActionV1 grants or revoke one or more role s to a user against a c ID user UUID c ID and role ID s can be provided in request payload available action s grant revoke
+  UserRolesActionV1 grants or revoke one or more role s to a user against a c ID user UUID c ID and role ID s can be provided in request payload available action s grant revoke
 */
 func (a *Client) UserRolesActionV1(params *UserRolesActionV1Params, opts ...ClientOption) (*UserRolesActionV1OK, error) {
 	// TODO: Validate the params before sending

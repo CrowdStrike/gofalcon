@@ -65,8 +65,7 @@ func NewCreateHostGroupsCreated() *CreateHostGroupsCreated {
 	return &CreateHostGroupsCreated{}
 }
 
-/*
-CreateHostGroupsCreated describes a response with status code 201, with default header values.
+/* CreateHostGroupsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewCreateHostGroupsBadRequest() *CreateHostGroupsBadRequest {
 	return &CreateHostGroupsBadRequest{}
 }
 
-/*
-CreateHostGroupsBadRequest describes a response with status code 400, with default header values.
+/* CreateHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCreateHostGroupsForbidden() *CreateHostGroupsForbidden {
 	return &CreateHostGroupsForbidden{}
 }
 
-/*
-CreateHostGroupsForbidden describes a response with status code 403, with default header values.
+/* CreateHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCreateHostGroupsTooManyRequests() *CreateHostGroupsTooManyRequests {
 	return &CreateHostGroupsTooManyRequests{}
 }
 
-/*
-CreateHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* CreateHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCreateHostGroupsInternalServerError() *CreateHostGroupsInternalServerErr
 	return &CreateHostGroupsInternalServerError{}
 }
 
-/*
-CreateHostGroupsInternalServerError describes a response with status code 500, with default header values.
+/* CreateHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

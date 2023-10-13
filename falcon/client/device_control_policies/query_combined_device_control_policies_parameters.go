@@ -53,12 +53,10 @@ func NewQueryCombinedDeviceControlPoliciesParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-QueryCombinedDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+/* QueryCombinedDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the query combined device control policies operation.
 
-	for the query combined device control policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedDeviceControlPoliciesParams struct {
 

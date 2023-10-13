@@ -53,12 +53,10 @@ func NewArchiveListV1ParamsWithHTTPClient(client *http.Client) *ArchiveListV1Par
 	}
 }
 
-/*
-ArchiveListV1Params contains all the parameters to send to the API endpoint
+/* ArchiveListV1Params contains all the parameters to send to the API endpoint
+   for the archive list v1 operation.
 
-	for the archive list v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ArchiveListV1Params struct {
 

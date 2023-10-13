@@ -71,8 +71,7 @@ func NewGetDiscoverCloudAzureAccountOK() *GetDiscoverCloudAzureAccountOK {
 	return &GetDiscoverCloudAzureAccountOK{}
 }
 
-/*
-GetDiscoverCloudAzureAccountOK describes a response with status code 200, with default header values.
+/* GetDiscoverCloudAzureAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetDiscoverCloudAzureAccountMultiStatus() *GetDiscoverCloudAzureAccountM
 	return &GetDiscoverCloudAzureAccountMultiStatus{}
 }
 
-/*
-GetDiscoverCloudAzureAccountMultiStatus describes a response with status code 207, with default header values.
+/* GetDiscoverCloudAzureAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetDiscoverCloudAzureAccountBadRequest() *GetDiscoverCloudAzureAccountBa
 	return &GetDiscoverCloudAzureAccountBadRequest{}
 }
 
-/*
-GetDiscoverCloudAzureAccountBadRequest describes a response with status code 400, with default header values.
+/* GetDiscoverCloudAzureAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetDiscoverCloudAzureAccountForbidden() *GetDiscoverCloudAzureAccountFor
 	return &GetDiscoverCloudAzureAccountForbidden{}
 }
 
-/*
-GetDiscoverCloudAzureAccountForbidden describes a response with status code 403, with default header values.
+/* GetDiscoverCloudAzureAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetDiscoverCloudAzureAccountTooManyRequests() *GetDiscoverCloudAzureAcco
 	return &GetDiscoverCloudAzureAccountTooManyRequests{}
 }
 
-/*
-GetDiscoverCloudAzureAccountTooManyRequests describes a response with status code 429, with default header values.
+/* GetDiscoverCloudAzureAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetDiscoverCloudAzureAccountInternalServerError() *GetDiscoverCloudAzure
 	return &GetDiscoverCloudAzureAccountInternalServerError{}
 }
 
-/*
-GetDiscoverCloudAzureAccountInternalServerError describes a response with status code 500, with default header values.
+/* GetDiscoverCloudAzureAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

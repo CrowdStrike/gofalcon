@@ -53,12 +53,10 @@ func NewRefreshActiveStreamSessionParamsWithHTTPClient(client *http.Client) *Ref
 	}
 }
 
-/*
-RefreshActiveStreamSessionParams contains all the parameters to send to the API endpoint
+/* RefreshActiveStreamSessionParams contains all the parameters to send to the API endpoint
+   for the refresh active stream session operation.
 
-	for the refresh active stream session operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RefreshActiveStreamSessionParams struct {
 

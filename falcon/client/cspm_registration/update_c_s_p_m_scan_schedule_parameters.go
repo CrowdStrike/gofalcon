@@ -54,12 +54,10 @@ func NewUpdateCSPMScanScheduleParamsWithHTTPClient(client *http.Client) *UpdateC
 	}
 }
 
-/*
-UpdateCSPMScanScheduleParams contains all the parameters to send to the API endpoint
+/* UpdateCSPMScanScheduleParams contains all the parameters to send to the API endpoint
+   for the update c s p m scan schedule operation.
 
-	for the update c s p m scan schedule operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateCSPMScanScheduleParams struct {
 

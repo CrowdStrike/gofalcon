@@ -54,12 +54,10 @@ func NewUpdateDetectsByIdsV2ParamsWithHTTPClient(client *http.Client) *UpdateDet
 	}
 }
 
-/*
-UpdateDetectsByIdsV2Params contains all the parameters to send to the API endpoint
+/* UpdateDetectsByIdsV2Params contains all the parameters to send to the API endpoint
+   for the update detects by ids v2 operation.
 
-	for the update detects by ids v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateDetectsByIdsV2Params struct {
 

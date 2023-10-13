@@ -53,12 +53,10 @@ func NewGetIntelRuleFileParamsWithHTTPClient(client *http.Client) *GetIntelRuleF
 	}
 }
 
-/*
-GetIntelRuleFileParams contains all the parameters to send to the API endpoint
+/* GetIntelRuleFileParams contains all the parameters to send to the API endpoint
+   for the get intel rule file operation.
 
-	for the get intel rule file operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIntelRuleFileParams struct {
 

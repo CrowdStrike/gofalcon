@@ -71,8 +71,7 @@ func NewQueryNotificationsExposedDataRecordsV1OK() *QueryNotificationsExposedDat
 	return &QueryNotificationsExposedDataRecordsV1OK{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
+/* QueryNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewQueryNotificationsExposedDataRecordsV1BadRequest() *QueryNotificationsEx
 	return &QueryNotificationsExposedDataRecordsV1BadRequest{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
+/* QueryNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewQueryNotificationsExposedDataRecordsV1Unauthorized() *QueryNotifications
 	return &QueryNotificationsExposedDataRecordsV1Unauthorized{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
+/* QueryNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewQueryNotificationsExposedDataRecordsV1Forbidden() *QueryNotificationsExp
 	return &QueryNotificationsExposedDataRecordsV1Forbidden{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
+/* QueryNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewQueryNotificationsExposedDataRecordsV1TooManyRequests() *QueryNotificati
 	return &QueryNotificationsExposedDataRecordsV1TooManyRequests{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
+/* QueryNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewQueryNotificationsExposedDataRecordsV1InternalServerError() *QueryNotifi
 	return &QueryNotificationsExposedDataRecordsV1InternalServerError{}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
+/* QueryNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

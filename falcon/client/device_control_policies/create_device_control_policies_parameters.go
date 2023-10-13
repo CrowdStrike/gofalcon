@@ -54,12 +54,10 @@ func NewCreateDeviceControlPoliciesParamsWithHTTPClient(client *http.Client) *Cr
 	}
 }
 
-/*
-CreateDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+/* CreateDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the create device control policies operation.
 
-	for the create device control policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateDeviceControlPoliciesParams struct {
 

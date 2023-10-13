@@ -53,12 +53,10 @@ func NewGetEvaluationLogicParamsWithHTTPClient(client *http.Client) *GetEvaluati
 	}
 }
 
-/*
-GetEvaluationLogicParams contains all the parameters to send to the API endpoint
+/* GetEvaluationLogicParams contains all the parameters to send to the API endpoint
+   for the get evaluation logic operation.
 
-	for the get evaluation logic operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetEvaluationLogicParams struct {
 

@@ -53,8 +53,7 @@ func NewQuerySensorsByFilterOK() *QuerySensorsByFilterOK {
 	return &QuerySensorsByFilterOK{}
 }
 
-/*
-QuerySensorsByFilterOK describes a response with status code 200, with default header values.
+/* QuerySensorsByFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQuerySensorsByFilterForbidden() *QuerySensorsByFilterForbidden {
 	return &QuerySensorsByFilterForbidden{}
 }
 
-/*
-QuerySensorsByFilterForbidden describes a response with status code 403, with default header values.
+/* QuerySensorsByFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQuerySensorsByFilterTooManyRequests() *QuerySensorsByFilterTooManyReques
 	return &QuerySensorsByFilterTooManyRequests{}
 }
 
-/*
-QuerySensorsByFilterTooManyRequests describes a response with status code 429, with default header values.
+/* QuerySensorsByFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

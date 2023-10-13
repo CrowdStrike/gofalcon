@@ -65,8 +65,7 @@ func NewGetAggregateDetectsOK() *GetAggregateDetectsOK {
 	return &GetAggregateDetectsOK{}
 }
 
-/*
-GetAggregateDetectsOK describes a response with status code 200, with default header values.
+/* GetAggregateDetectsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetAggregateDetectsBadRequest() *GetAggregateDetectsBadRequest {
 	return &GetAggregateDetectsBadRequest{}
 }
 
-/*
-GetAggregateDetectsBadRequest describes a response with status code 400, with default header values.
+/* GetAggregateDetectsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetAggregateDetectsForbidden() *GetAggregateDetectsForbidden {
 	return &GetAggregateDetectsForbidden{}
 }
 
-/*
-GetAggregateDetectsForbidden describes a response with status code 403, with default header values.
+/* GetAggregateDetectsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetAggregateDetectsTooManyRequests() *GetAggregateDetectsTooManyRequests
 	return &GetAggregateDetectsTooManyRequests{}
 }
 
-/*
-GetAggregateDetectsTooManyRequests describes a response with status code 429, with default header values.
+/* GetAggregateDetectsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetAggregateDetectsInternalServerError() *GetAggregateDetectsInternalSer
 	return &GetAggregateDetectsInternalServerError{}
 }
 
-/*
-GetAggregateDetectsInternalServerError describes a response with status code 500, with default header values.
+/* GetAggregateDetectsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

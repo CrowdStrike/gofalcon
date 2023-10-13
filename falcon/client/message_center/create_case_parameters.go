@@ -54,12 +54,10 @@ func NewCreateCaseParamsWithHTTPClient(client *http.Client) *CreateCaseParams {
 	}
 }
 
-/*
-CreateCaseParams contains all the parameters to send to the API endpoint
+/* CreateCaseParams contains all the parameters to send to the API endpoint
+   for the create case operation.
 
-	for the create case operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateCaseParams struct {
 

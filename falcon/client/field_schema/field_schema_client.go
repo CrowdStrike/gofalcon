@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-FdrschemaEntitiesFieldGet fetches field schema by ID
+  FdrschemaEntitiesFieldGet fetches field schema by ID
 */
 func (a *Client) FdrschemaEntitiesFieldGet(params *FdrschemaEntitiesFieldGetParams, opts ...ClientOption) (*FdrschemaEntitiesFieldGetOK, error) {
 	// TODO: Validate the params before sending
@@ -76,7 +76,7 @@ func (a *Client) FdrschemaEntitiesFieldGet(params *FdrschemaEntitiesFieldGetPara
 }
 
 /*
-FdrschemaQueriesFieldGet gets list of field i ds given a particular query
+  FdrschemaQueriesFieldGet gets list of field i ds given a particular query
 */
 func (a *Client) FdrschemaQueriesFieldGet(params *FdrschemaQueriesFieldGetParams, opts ...ClientOption) (*FdrschemaQueriesFieldGetOK, error) {
 	// TODO: Validate the params before sending

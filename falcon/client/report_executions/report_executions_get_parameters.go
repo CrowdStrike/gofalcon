@@ -53,12 +53,10 @@ func NewReportExecutionsGetParamsWithHTTPClient(client *http.Client) *ReportExec
 	}
 }
 
-/*
-ReportExecutionsGetParams contains all the parameters to send to the API endpoint
+/* ReportExecutionsGetParams contains all the parameters to send to the API endpoint
+   for the report executions get operation.
 
-	for the report executions get operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ReportExecutionsGetParams struct {
 

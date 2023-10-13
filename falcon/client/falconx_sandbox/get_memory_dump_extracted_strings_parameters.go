@@ -52,12 +52,10 @@ func NewGetMemoryDumpExtractedStringsParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-GetMemoryDumpExtractedStringsParams contains all the parameters to send to the API endpoint
+/* GetMemoryDumpExtractedStringsParams contains all the parameters to send to the API endpoint
+   for the get memory dump extracted strings operation.
 
-	for the get memory dump extracted strings operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetMemoryDumpExtractedStringsParams struct {
 

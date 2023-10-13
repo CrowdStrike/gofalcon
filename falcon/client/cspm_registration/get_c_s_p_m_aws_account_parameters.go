@@ -53,12 +53,10 @@ func NewGetCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *GetCSPMAwsAc
 	}
 }
 
-/*
-GetCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+/* GetCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the get c s p m aws account operation.
 
-	for the get c s p m aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMAwsAccountParams struct {
 

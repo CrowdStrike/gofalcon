@@ -71,8 +71,7 @@ func NewUpdateRuleGroupsOK() *UpdateRuleGroupsOK {
 	return &UpdateRuleGroupsOK{}
 }
 
-/*
-UpdateRuleGroupsOK describes a response with status code 200, with default header values.
+/* UpdateRuleGroupsOK describes a response with status code 200, with default header values.
 
 Rule group has been updated
 */
@@ -181,8 +180,7 @@ func NewUpdateRuleGroupsBadRequest() *UpdateRuleGroupsBadRequest {
 	return &UpdateRuleGroupsBadRequest{}
 }
 
-/*
-UpdateRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* UpdateRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateRuleGroupsForbidden() *UpdateRuleGroupsForbidden {
 	return &UpdateRuleGroupsForbidden{}
 }
 
-/*
-UpdateRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* UpdateRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateRuleGroupsNotFound() *UpdateRuleGroupsNotFound {
 	return &UpdateRuleGroupsNotFound{}
 }
 
-/*
-UpdateRuleGroupsNotFound describes a response with status code 404, with default header values.
+/* UpdateRuleGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewUpdateRuleGroupsTooManyRequests() *UpdateRuleGroupsTooManyRequests {
 	return &UpdateRuleGroupsTooManyRequests{}
 }
 
-/*
-UpdateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateRuleGroupsInternalServerError() *UpdateRuleGroupsInternalServerErr
 	return &UpdateRuleGroupsInternalServerError{}
 }
 
-/*
-UpdateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* UpdateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

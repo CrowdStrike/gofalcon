@@ -53,12 +53,10 @@ func NewDeleteRuleGroupsMixin0ParamsWithHTTPClient(client *http.Client) *DeleteR
 	}
 }
 
-/*
-DeleteRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
+/* DeleteRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
+   for the delete rule groups mixin0 operation.
 
-	for the delete rule groups mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteRuleGroupsMixin0Params struct {
 

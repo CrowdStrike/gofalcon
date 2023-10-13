@@ -54,12 +54,10 @@ func NewUserActionV1ParamsWithHTTPClient(client *http.Client) *UserActionV1Param
 	}
 }
 
-/*
-UserActionV1Params contains all the parameters to send to the API endpoint
+/* UserActionV1Params contains all the parameters to send to the API endpoint
+   for the user action v1 operation.
 
-	for the user action v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UserActionV1Params struct {
 

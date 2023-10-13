@@ -65,8 +65,7 @@ func NewGetDiscoverCloudAzureUserScriptsAttachmentOK() *GetDiscoverCloudAzureUse
 	return &GetDiscoverCloudAzureUserScriptsAttachmentOK{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
+/* GetDiscoverCloudAzureUserScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetDiscoverCloudAzureUserScriptsAttachmentBadRequest() *GetDiscoverCloud
 	return &GetDiscoverCloudAzureUserScriptsAttachmentBadRequest{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+/* GetDiscoverCloudAzureUserScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetDiscoverCloudAzureUserScriptsAttachmentForbidden() *GetDiscoverCloudA
 	return &GetDiscoverCloudAzureUserScriptsAttachmentForbidden{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+/* GetDiscoverCloudAzureUserScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests() *GetDiscover
 	return &GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/* GetDiscoverCloudAzureUserScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetDiscoverCloudAzureUserScriptsAttachmentInternalServerError() *GetDisc
 	return &GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+/* GetDiscoverCloudAzureUserScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

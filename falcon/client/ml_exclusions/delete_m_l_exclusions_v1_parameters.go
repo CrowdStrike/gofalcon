@@ -53,12 +53,10 @@ func NewDeleteMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *DeleteMLE
 	}
 }
 
-/*
-DeleteMLExclusionsV1Params contains all the parameters to send to the API endpoint
+/* DeleteMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the delete m l exclusions v1 operation.
 
-	for the delete m l exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteMLExclusionsV1Params struct {
 

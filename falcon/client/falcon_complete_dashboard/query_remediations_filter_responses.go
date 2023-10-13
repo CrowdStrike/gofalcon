@@ -53,8 +53,7 @@ func NewQueryRemediationsFilterOK() *QueryRemediationsFilterOK {
 	return &QueryRemediationsFilterOK{}
 }
 
-/*
-QueryRemediationsFilterOK describes a response with status code 200, with default header values.
+/* QueryRemediationsFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryRemediationsFilterForbidden() *QueryRemediationsFilterForbidden {
 	return &QueryRemediationsFilterForbidden{}
 }
 
-/*
-QueryRemediationsFilterForbidden describes a response with status code 403, with default header values.
+/* QueryRemediationsFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryRemediationsFilterTooManyRequests() *QueryRemediationsFilterTooMany
 	return &QueryRemediationsFilterTooManyRequests{}
 }
 
-/*
-QueryRemediationsFilterTooManyRequests describes a response with status code 429, with default header values.
+/* QueryRemediationsFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

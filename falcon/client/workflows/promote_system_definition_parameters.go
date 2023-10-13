@@ -54,12 +54,10 @@ func NewPromoteSystemDefinitionParamsWithHTTPClient(client *http.Client) *Promot
 	}
 }
 
-/*
-PromoteSystemDefinitionParams contains all the parameters to send to the API endpoint
+/* PromoteSystemDefinitionParams contains all the parameters to send to the API endpoint
+   for the promote system definition operation.
 
-	for the promote system definition operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PromoteSystemDefinitionParams struct {
 

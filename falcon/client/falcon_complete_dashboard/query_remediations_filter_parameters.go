@@ -53,12 +53,10 @@ func NewQueryRemediationsFilterParamsWithHTTPClient(client *http.Client) *QueryR
 	}
 }
 
-/*
-QueryRemediationsFilterParams contains all the parameters to send to the API endpoint
+/* QueryRemediationsFilterParams contains all the parameters to send to the API endpoint
+   for the query remediations filter operation.
 
-	for the query remediations filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryRemediationsFilterParams struct {
 

@@ -54,12 +54,10 @@ func NewPerformSensorUpdatePoliciesActionParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-PerformSensorUpdatePoliciesActionParams contains all the parameters to send to the API endpoint
+/* PerformSensorUpdatePoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform sensor update policies action operation.
 
-	for the perform sensor update policies action operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PerformSensorUpdatePoliciesActionParams struct {
 

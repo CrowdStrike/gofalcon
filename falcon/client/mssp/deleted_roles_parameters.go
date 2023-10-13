@@ -54,12 +54,10 @@ func NewDeletedRolesParamsWithHTTPClient(client *http.Client) *DeletedRolesParam
 	}
 }
 
-/*
-DeletedRolesParams contains all the parameters to send to the API endpoint
+/* DeletedRolesParams contains all the parameters to send to the API endpoint
+   for the deleted roles operation.
 
-	for the deleted roles operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeletedRolesParams struct {
 

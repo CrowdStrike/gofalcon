@@ -59,8 +59,7 @@ func NewDeleteScheduledScansOK() *DeleteScheduledScansOK {
 	return &DeleteScheduledScansOK{}
 }
 
-/*
-DeleteScheduledScansOK describes a response with status code 200, with default header values.
+/* DeleteScheduledScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewDeleteScheduledScansForbidden() *DeleteScheduledScansForbidden {
 	return &DeleteScheduledScansForbidden{}
 }
 
-/*
-DeleteScheduledScansForbidden describes a response with status code 403, with default header values.
+/* DeleteScheduledScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewDeleteScheduledScansNotFound() *DeleteScheduledScansNotFound {
 	return &DeleteScheduledScansNotFound{}
 }
 
-/*
-DeleteScheduledScansNotFound describes a response with status code 404, with default header values.
+/* DeleteScheduledScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewDeleteScheduledScansTooManyRequests() *DeleteScheduledScansTooManyReques
 	return &DeleteScheduledScansTooManyRequests{}
 }
 
-/*
-DeleteScheduledScansTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteScheduledScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,8 +53,7 @@ func NewUpdateQfByQueryOK() *UpdateQfByQueryOK {
 	return &UpdateQfByQueryOK{}
 }
 
-/*
-UpdateQfByQueryOK describes a response with status code 200, with default header values.
+/* UpdateQfByQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewUpdateQfByQueryForbidden() *UpdateQfByQueryForbidden {
 	return &UpdateQfByQueryForbidden{}
 }
 
-/*
-UpdateQfByQueryForbidden describes a response with status code 403, with default header values.
+/* UpdateQfByQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewUpdateQfByQueryTooManyRequests() *UpdateQfByQueryTooManyRequests {
 	return &UpdateQfByQueryTooManyRequests{}
 }
 
-/*
-UpdateQfByQueryTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateQfByQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

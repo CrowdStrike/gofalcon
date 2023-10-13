@@ -59,8 +59,7 @@ func NewQueryNetworkLocationsOK() *QueryNetworkLocationsOK {
 	return &QueryNetworkLocationsOK{}
 }
 
-/*
-QueryNetworkLocationsOK describes a response with status code 200, with default header values.
+/* QueryNetworkLocationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryNetworkLocationsBadRequest() *QueryNetworkLocationsBadRequest {
 	return &QueryNetworkLocationsBadRequest{}
 }
 
-/*
-QueryNetworkLocationsBadRequest describes a response with status code 400, with default header values.
+/* QueryNetworkLocationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryNetworkLocationsForbidden() *QueryNetworkLocationsForbidden {
 	return &QueryNetworkLocationsForbidden{}
 }
 
-/*
-QueryNetworkLocationsForbidden describes a response with status code 403, with default header values.
+/* QueryNetworkLocationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryNetworkLocationsTooManyRequests() *QueryNetworkLocationsTooManyRequ
 	return &QueryNetworkLocationsTooManyRequests{}
 }
 
-/*
-QueryNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,12 +53,10 @@ func NewGetNetworkLocationsDetailsParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetNetworkLocationsDetailsParams contains all the parameters to send to the API endpoint
+/* GetNetworkLocationsDetailsParams contains all the parameters to send to the API endpoint
+   for the get network locations details operation.
 
-	for the get network locations details operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetNetworkLocationsDetailsParams struct {
 

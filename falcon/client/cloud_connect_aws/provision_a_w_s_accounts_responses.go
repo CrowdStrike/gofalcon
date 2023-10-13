@@ -65,8 +65,7 @@ func NewProvisionAWSAccountsCreated() *ProvisionAWSAccountsCreated {
 	return &ProvisionAWSAccountsCreated{}
 }
 
-/*
-ProvisionAWSAccountsCreated describes a response with status code 201, with default header values.
+/* ProvisionAWSAccountsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewProvisionAWSAccountsBadRequest() *ProvisionAWSAccountsBadRequest {
 	return &ProvisionAWSAccountsBadRequest{}
 }
 
-/*
-ProvisionAWSAccountsBadRequest describes a response with status code 400, with default header values.
+/* ProvisionAWSAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewProvisionAWSAccountsForbidden() *ProvisionAWSAccountsForbidden {
 	return &ProvisionAWSAccountsForbidden{}
 }
 
-/*
-ProvisionAWSAccountsForbidden describes a response with status code 403, with default header values.
+/* ProvisionAWSAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewProvisionAWSAccountsTooManyRequests() *ProvisionAWSAccountsTooManyReques
 	return &ProvisionAWSAccountsTooManyRequests{}
 }
 
-/*
-ProvisionAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
+/* ProvisionAWSAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewProvisionAWSAccountsInternalServerError() *ProvisionAWSAccountsInternalS
 	return &ProvisionAWSAccountsInternalServerError{}
 }
 
-/*
-ProvisionAWSAccountsInternalServerError describes a response with status code 500, with default header values.
+/* ProvisionAWSAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

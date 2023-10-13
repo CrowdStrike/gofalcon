@@ -53,12 +53,10 @@ func NewGetSensorInstallersEntitiesParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetSensorInstallersEntitiesParams contains all the parameters to send to the API endpoint
+/* GetSensorInstallersEntitiesParams contains all the parameters to send to the API endpoint
+   for the get sensor installers entities operation.
 
-	for the get sensor installers entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSensorInstallersEntitiesParams struct {
 

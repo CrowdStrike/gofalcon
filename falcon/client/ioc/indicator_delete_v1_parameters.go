@@ -53,12 +53,10 @@ func NewIndicatorDeleteV1ParamsWithHTTPClient(client *http.Client) *IndicatorDel
 	}
 }
 
-/*
-IndicatorDeleteV1Params contains all the parameters to send to the API endpoint
+/* IndicatorDeleteV1Params contains all the parameters to send to the API endpoint
+   for the indicator delete v1 operation.
 
-	for the indicator delete v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorDeleteV1Params struct {
 

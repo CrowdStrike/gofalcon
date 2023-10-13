@@ -54,12 +54,10 @@ func NewUpdateSensorUpdatePoliciesV2ParamsWithHTTPClient(client *http.Client) *U
 	}
 }
 
-/*
-UpdateSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
+/* UpdateSensorUpdatePoliciesV2Params contains all the parameters to send to the API endpoint
+   for the update sensor update policies v2 operation.
 
-	for the update sensor update policies v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateSensorUpdatePoliciesV2Params struct {
 

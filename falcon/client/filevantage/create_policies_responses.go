@@ -71,8 +71,7 @@ func NewCreatePoliciesOK() *CreatePoliciesOK {
 	return &CreatePoliciesOK{}
 }
 
-/*
-CreatePoliciesOK describes a response with status code 200, with default header values.
+/* CreatePoliciesOK describes a response with status code 200, with default header values.
 
 Provided policy has been created.
 */
@@ -181,8 +180,7 @@ func NewCreatePoliciesBadRequest() *CreatePoliciesBadRequest {
 	return &CreatePoliciesBadRequest{}
 }
 
-/*
-CreatePoliciesBadRequest describes a response with status code 400, with default header values.
+/* CreatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreatePoliciesForbidden() *CreatePoliciesForbidden {
 	return &CreatePoliciesForbidden{}
 }
 
-/*
-CreatePoliciesForbidden describes a response with status code 403, with default header values.
+/* CreatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreatePoliciesConflict() *CreatePoliciesConflict {
 	return &CreatePoliciesConflict{}
 }
 
-/*
-CreatePoliciesConflict describes a response with status code 409, with default header values.
+/* CreatePoliciesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewCreatePoliciesTooManyRequests() *CreatePoliciesTooManyRequests {
 	return &CreatePoliciesTooManyRequests{}
 }
 
-/*
-CreatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* CreatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreatePoliciesInternalServerError() *CreatePoliciesInternalServerError {
 	return &CreatePoliciesInternalServerError{}
 }
 
-/*
-CreatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* CreatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewTokensReadParamsWithHTTPClient(client *http.Client) *TokensReadParams {
 	}
 }
 
-/*
-TokensReadParams contains all the parameters to send to the API endpoint
+/* TokensReadParams contains all the parameters to send to the API endpoint
+   for the tokens read operation.
 
-	for the tokens read operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type TokensReadParams struct {
 

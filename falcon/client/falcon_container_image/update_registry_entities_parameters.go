@@ -54,12 +54,10 @@ func NewUpdateRegistryEntitiesParamsWithHTTPClient(client *http.Client) *UpdateR
 	}
 }
 
-/*
-UpdateRegistryEntitiesParams contains all the parameters to send to the API endpoint
+/* UpdateRegistryEntitiesParams contains all the parameters to send to the API endpoint
+   for the update registry entities operation.
 
-	for the update registry entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRegistryEntitiesParams struct {
 

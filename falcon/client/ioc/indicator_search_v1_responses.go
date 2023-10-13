@@ -53,8 +53,7 @@ func NewIndicatorSearchV1OK() *IndicatorSearchV1OK {
 	return &IndicatorSearchV1OK{}
 }
 
-/*
-IndicatorSearchV1OK describes a response with status code 200, with default header values.
+/* IndicatorSearchV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIndicatorSearchV1Forbidden() *IndicatorSearchV1Forbidden {
 	return &IndicatorSearchV1Forbidden{}
 }
 
-/*
-IndicatorSearchV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorSearchV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIndicatorSearchV1TooManyRequests() *IndicatorSearchV1TooManyRequests {
 	return &IndicatorSearchV1TooManyRequests{}
 }
 
-/*
-IndicatorSearchV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorSearchV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

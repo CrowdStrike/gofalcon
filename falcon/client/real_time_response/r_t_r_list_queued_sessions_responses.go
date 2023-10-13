@@ -71,8 +71,7 @@ func NewRTRListQueuedSessionsOK() *RTRListQueuedSessionsOK {
 	return &RTRListQueuedSessionsOK{}
 }
 
-/*
-RTRListQueuedSessionsOK describes a response with status code 200, with default header values.
+/* RTRListQueuedSessionsOK describes a response with status code 200, with default header values.
 
 success
 */
@@ -181,8 +180,7 @@ func NewRTRListQueuedSessionsBadRequest() *RTRListQueuedSessionsBadRequest {
 	return &RTRListQueuedSessionsBadRequest{}
 }
 
-/*
-RTRListQueuedSessionsBadRequest describes a response with status code 400, with default header values.
+/* RTRListQueuedSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewRTRListQueuedSessionsUnauthorized() *RTRListQueuedSessionsUnauthorized {
 	return &RTRListQueuedSessionsUnauthorized{}
 }
 
-/*
-RTRListQueuedSessionsUnauthorized describes a response with status code 401, with default header values.
+/* RTRListQueuedSessionsUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewRTRListQueuedSessionsForbidden() *RTRListQueuedSessionsForbidden {
 	return &RTRListQueuedSessionsForbidden{}
 }
 
-/*
-RTRListQueuedSessionsForbidden describes a response with status code 403, with default header values.
+/* RTRListQueuedSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewRTRListQueuedSessionsNotFound() *RTRListQueuedSessionsNotFound {
 	return &RTRListQueuedSessionsNotFound{}
 }
 
-/*
-RTRListQueuedSessionsNotFound describes a response with status code 404, with default header values.
+/* RTRListQueuedSessionsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -621,8 +616,7 @@ func NewRTRListQueuedSessionsTooManyRequests() *RTRListQueuedSessionsTooManyRequ
 	return &RTRListQueuedSessionsTooManyRequests{}
 }
 
-/*
-RTRListQueuedSessionsTooManyRequests describes a response with status code 429, with default header values.
+/* RTRListQueuedSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

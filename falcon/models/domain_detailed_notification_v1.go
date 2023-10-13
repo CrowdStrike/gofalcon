@@ -23,7 +23,7 @@ type DomainDetailedNotificationV1 struct {
 	BreachDetails *DomainBreachDetailsV1 `json:"breach_details,omitempty"`
 
 	// details
-	Details *DomainNotificationDetailsV1 `json:"details,omitempty"`
+	Details *DomainItemDetailsV1 `json:"details,omitempty"`
 
 	// id
 	// Required: true

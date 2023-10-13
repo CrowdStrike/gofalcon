@@ -53,12 +53,10 @@ func NewQueryDevicesByFilterScrollParamsWithHTTPClient(client *http.Client) *Que
 	}
 }
 
-/*
-QueryDevicesByFilterScrollParams contains all the parameters to send to the API endpoint
+/* QueryDevicesByFilterScrollParams contains all the parameters to send to the API endpoint
+   for the query devices by filter scroll operation.
 
-	for the query devices by filter scroll operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryDevicesByFilterScrollParams struct {
 

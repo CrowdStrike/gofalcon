@@ -53,8 +53,7 @@ func NewIndicatorGetDevicesRanOnV1OK() *IndicatorGetDevicesRanOnV1OK {
 	return &IndicatorGetDevicesRanOnV1OK{}
 }
 
-/*
-IndicatorGetDevicesRanOnV1OK describes a response with status code 200, with default header values.
+/* IndicatorGetDevicesRanOnV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIndicatorGetDevicesRanOnV1Forbidden() *IndicatorGetDevicesRanOnV1Forbidd
 	return &IndicatorGetDevicesRanOnV1Forbidden{}
 }
 
-/*
-IndicatorGetDevicesRanOnV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorGetDevicesRanOnV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIndicatorGetDevicesRanOnV1TooManyRequests() *IndicatorGetDevicesRanOnV1T
 	return &IndicatorGetDevicesRanOnV1TooManyRequests{}
 }
 
-/*
-IndicatorGetDevicesRanOnV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorGetDevicesRanOnV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,12 +53,10 @@ func NewDeleteHostGroupsParamsWithHTTPClient(client *http.Client) *DeleteHostGro
 	}
 }
 
-/*
-DeleteHostGroupsParams contains all the parameters to send to the API endpoint
+/* DeleteHostGroupsParams contains all the parameters to send to the API endpoint
+   for the delete host groups operation.
 
-	for the delete host groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteHostGroupsParams struct {
 

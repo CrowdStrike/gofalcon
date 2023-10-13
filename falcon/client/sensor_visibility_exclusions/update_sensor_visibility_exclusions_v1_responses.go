@@ -65,8 +65,7 @@ func NewUpdateSensorVisibilityExclusionsV1OK() *UpdateSensorVisibilityExclusions
 	return &UpdateSensorVisibilityExclusionsV1OK{}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
+/* UpdateSensorVisibilityExclusionsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdateSensorVisibilityExclusionsV1BadRequest() *UpdateSensorVisibilityEx
 	return &UpdateSensorVisibilityExclusionsV1BadRequest{}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
+/* UpdateSensorVisibilityExclusionsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUpdateSensorVisibilityExclusionsV1Forbidden() *UpdateSensorVisibilityExc
 	return &UpdateSensorVisibilityExclusionsV1Forbidden{}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
+/* UpdateSensorVisibilityExclusionsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUpdateSensorVisibilityExclusionsV1TooManyRequests() *UpdateSensorVisibil
 	return &UpdateSensorVisibilityExclusionsV1TooManyRequests{}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
+/* UpdateSensorVisibilityExclusionsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdateSensorVisibilityExclusionsV1InternalServerError() *UpdateSensorVis
 	return &UpdateSensorVisibilityExclusionsV1InternalServerError{}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
+/* UpdateSensorVisibilityExclusionsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

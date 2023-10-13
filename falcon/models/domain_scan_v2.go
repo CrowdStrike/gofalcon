@@ -20,7 +20,8 @@ import (
 type DomainScanV2 struct {
 
 	// affected hosts count
-	AffectedHostsCount int32 `json:"affected_hosts_count,omitempty"`
+	// Required: true
+	AffectedHostsCount *int32 `json:"affected_hosts_count"`
 
 	// cid
 	Cid string `json:"cid,omitempty"`
@@ -32,7 +33,8 @@ type DomainScanV2 struct {
 	CloudMlLevelPrevention int32 `json:"cloud_ml_level_prevention,omitempty"`
 
 	// completed host count
-	CompletedHostCount int32 `json:"completed_host_count,omitempty"`
+	// Required: true
+	CompletedHostCount *int32 `json:"completed_host_count"`
 
 	// cpu priority
 	CPUPriority int32 `json:"cpu_priority,omitempty"`
@@ -54,7 +56,7 @@ type DomainScanV2 struct {
 	FilePaths []string `json:"file_paths"`
 
 	// filecount
-	Filecount *DomainFileCount `json:"filecount,omitempty"`
+	Filecount *DomainFileCountV2 `json:"filecount,omitempty"`
 
 	// host groups
 	HostGroups []string `json:"host_groups"`
@@ -67,7 +69,8 @@ type DomainScanV2 struct {
 	ID *string `json:"id"`
 
 	// incomplete host count
-	IncompleteHostCount int32 `json:"incomplete_host_count,omitempty"`
+	// Required: true
+	IncompleteHostCount *int32 `json:"incomplete_host_count"`
 
 	// initiated from
 	InitiatedFrom string `json:"initiated_from,omitempty"`
@@ -86,10 +89,12 @@ type DomainScanV2 struct {
 	Metadata []string `json:"metadata"`
 
 	// missing host count
-	MissingHostCount int32 `json:"missing_host_count,omitempty"`
+	// Required: true
+	MissingHostCount *int32 `json:"missing_host_count"`
 
 	// not started host count
-	NotStartedHostCount int32 `json:"not_started_host_count,omitempty"`
+	// Required: true
+	NotStartedHostCount *int32 `json:"not_started_host_count"`
 
 	// pause duration
 	PauseDuration int32 `json:"pause_duration,omitempty"`
@@ -130,18 +135,28 @@ type DomainScanV2 struct {
 	Severity int64 `json:"severity,omitempty"`
 
 	// started host count
-	StartedHostCount int32 `json:"started_host_count,omitempty"`
+	// Required: true
+	StartedHostCount *int32 `json:"started_host_count"`
 
 	// status
 	Status string `json:"status,omitempty"`
 
 	// targeted host count
-	TargetedHostCount int32 `json:"targeted_host_count,omitempty"`
+	// Required: true
+	TargetedHostCount *int32 `json:"targeted_host_count"`
 }
 
 // Validate validates this domain scan v2
 func (m *DomainScanV2) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAffectedHostsCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCompletedHostCount(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCreatedOn(formats); err != nil {
 		res = append(res, err)
@@ -155,7 +170,19 @@ func (m *DomainScanV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIncompleteHostCount(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastUpdated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMissingHostCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNotStartedHostCount(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -167,9 +194,35 @@ func (m *DomainScanV2) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateStartedHostCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTargetedHostCount(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainScanV2) validateAffectedHostsCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("affected_hosts_count", "body", m.AffectedHostsCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanV2) validateCompletedHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("completed_host_count", "body", m.CompletedHostCount); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -213,12 +266,39 @@ func (m *DomainScanV2) validateID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainScanV2) validateIncompleteHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("incomplete_host_count", "body", m.IncompleteHostCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DomainScanV2) validateLastUpdated(formats strfmt.Registry) error {
 	if swag.IsZero(m.LastUpdated) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("last_updated", "body", "date-time", m.LastUpdated.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanV2) validateMissingHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("missing_host_count", "body", m.MissingHostCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanV2) validateNotStartedHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("not_started_host_count", "body", m.NotStartedHostCount); err != nil {
 		return err
 	}
 
@@ -243,6 +323,24 @@ func (m *DomainScanV2) validateScanStartedOn(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("scan_started_on", "body", "date-time", m.ScanStartedOn.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanV2) validateStartedHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("started_host_count", "body", m.StartedHostCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainScanV2) validateTargetedHostCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("targeted_host_count", "body", m.TargetedHostCount); err != nil {
 		return err
 	}
 

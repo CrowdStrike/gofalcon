@@ -65,8 +65,7 @@ func NewDeleteCIDGroupMembersOK() *DeleteCIDGroupMembersOK {
 	return &DeleteCIDGroupMembersOK{}
 }
 
-/*
-DeleteCIDGroupMembersOK describes a response with status code 200, with default header values.
+/* DeleteCIDGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewDeleteCIDGroupMembersMultiStatus() *DeleteCIDGroupMembersMultiStatus {
 	return &DeleteCIDGroupMembersMultiStatus{}
 }
 
-/*
-DeleteCIDGroupMembersMultiStatus describes a response with status code 207, with default header values.
+/* DeleteCIDGroupMembersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewDeleteCIDGroupMembersBadRequest() *DeleteCIDGroupMembersBadRequest {
 	return &DeleteCIDGroupMembersBadRequest{}
 }
 
-/*
-DeleteCIDGroupMembersBadRequest describes a response with status code 400, with default header values.
+/* DeleteCIDGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewDeleteCIDGroupMembersForbidden() *DeleteCIDGroupMembersForbidden {
 	return &DeleteCIDGroupMembersForbidden{}
 }
 
-/*
-DeleteCIDGroupMembersForbidden describes a response with status code 403, with default header values.
+/* DeleteCIDGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewDeleteCIDGroupMembersTooManyRequests() *DeleteCIDGroupMembersTooManyRequ
 	return &DeleteCIDGroupMembersTooManyRequests{}
 }
 
-/*
-DeleteCIDGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteCIDGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

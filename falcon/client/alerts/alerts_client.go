@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-GetQueriesAlertsV1 retrieves all alerts ids that match a given query
+  GetQueriesAlertsV1 retrieves all alerts ids that match a given query
 */
 func (a *Client) GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...ClientOption) (*GetQueriesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -80,7 +80,7 @@ func (a *Client) GetQueriesAlertsV1(params *GetQueriesAlertsV1Params, opts ...Cl
 }
 
 /*
-PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
+  PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
 */
 func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts
 }
 
 /*
-PostAggregatesAlertsV1 retrieves aggregate values for alerts across all c i ds
+  PostAggregatesAlertsV1 retrieves aggregate values for alerts across all c i ds
 */
 func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, opts ...ClientOption) (*PostAggregatesAlertsV1OK, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ func (a *Client) PostAggregatesAlertsV1(params *PostAggregatesAlertsV1Params, op
 }
 
 /*
-PostEntitiesAlertsV1 retrieves all alerts given their ids
+  PostEntitiesAlertsV1 retrieves all alerts given their ids
 */
 func (a *Client) PostEntitiesAlertsV1(params *PostEntitiesAlertsV1Params, opts ...ClientOption) (*PostEntitiesAlertsV1OK, error) {
 	// TODO: Validate the params before sending

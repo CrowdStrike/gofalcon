@@ -55,12 +55,10 @@ func NewRTRInitSessionParamsWithHTTPClient(client *http.Client) *RTRInitSessionP
 	}
 }
 
-/*
-RTRInitSessionParams contains all the parameters to send to the API endpoint
+/* RTRInitSessionParams contains all the parameters to send to the API endpoint
+   for the r t r init session operation.
 
-	for the r t r init session operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRInitSessionParams struct {
 

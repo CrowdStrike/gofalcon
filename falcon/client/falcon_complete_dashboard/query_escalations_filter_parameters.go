@@ -53,12 +53,10 @@ func NewQueryEscalationsFilterParamsWithHTTPClient(client *http.Client) *QueryEs
 	}
 }
 
-/*
-QueryEscalationsFilterParams contains all the parameters to send to the API endpoint
+/* QueryEscalationsFilterParams contains all the parameters to send to the API endpoint
+   for the query escalations filter operation.
 
-	for the query escalations filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryEscalationsFilterParams struct {
 

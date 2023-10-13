@@ -59,8 +59,7 @@ func NewGetSensorInstallersByQueryOK() *GetSensorInstallersByQueryOK {
 	return &GetSensorInstallersByQueryOK{}
 }
 
-/*
-GetSensorInstallersByQueryOK describes a response with status code 200, with default header values.
+/* GetSensorInstallersByQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetSensorInstallersByQueryBadRequest() *GetSensorInstallersByQueryBadReq
 	return &GetSensorInstallersByQueryBadRequest{}
 }
 
-/*
-GetSensorInstallersByQueryBadRequest describes a response with status code 400, with default header values.
+/* GetSensorInstallersByQueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewGetSensorInstallersByQueryForbidden() *GetSensorInstallersByQueryForbidd
 	return &GetSensorInstallersByQueryForbidden{}
 }
 
-/*
-GetSensorInstallersByQueryForbidden describes a response with status code 403, with default header values.
+/* GetSensorInstallersByQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewGetSensorInstallersByQueryTooManyRequests() *GetSensorInstallersByQueryT
 	return &GetSensorInstallersByQueryTooManyRequests{}
 }
 
-/*
-GetSensorInstallersByQueryTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorInstallersByQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

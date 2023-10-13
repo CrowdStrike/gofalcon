@@ -53,12 +53,10 @@ func NewAuditEventsReadParamsWithHTTPClient(client *http.Client) *AuditEventsRea
 	}
 }
 
-/*
-AuditEventsReadParams contains all the parameters to send to the API endpoint
+/* AuditEventsReadParams contains all the parameters to send to the API endpoint
+   for the audit events read operation.
 
-	for the audit events read operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AuditEventsReadParams struct {
 

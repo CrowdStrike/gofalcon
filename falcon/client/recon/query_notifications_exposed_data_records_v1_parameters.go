@@ -53,12 +53,10 @@ func NewQueryNotificationsExposedDataRecordsV1ParamsWithHTTPClient(client *http.
 	}
 }
 
-/*
-QueryNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+/* QueryNotificationsExposedDataRecordsV1Params contains all the parameters to send to the API endpoint
+   for the query notifications exposed data records v1 operation.
 
-	for the query notifications exposed data records v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryNotificationsExposedDataRecordsV1Params struct {
 

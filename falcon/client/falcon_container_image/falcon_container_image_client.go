@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-CreateRegistryEntities creates a registry entity using the provided details
+  CreateRegistryEntities creates a registry entity using the provided details
 */
 func (a *Client) CreateRegistryEntities(params *CreateRegistryEntitiesParams, opts ...ClientOption) (*CreateRegistryEntitiesCreated, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) CreateRegistryEntities(params *CreateRegistryEntitiesParams, op
 }
 
 /*
-DeleteRegistryEntities deletes the registry entity identified by the entity UUID
+  DeleteRegistryEntities deletes the registry entity identified by the entity UUID
 */
 func (a *Client) DeleteRegistryEntities(params *DeleteRegistryEntitiesParams, opts ...ClientOption) (*DeleteRegistryEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) DeleteRegistryEntities(params *DeleteRegistryEntitiesParams, op
 }
 
 /*
-GetCombinedImages gets image assessment results by providing an f q l filter and paging details
+  GetCombinedImages gets image assessment results by providing an f q l filter and paging details
 */
 func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +160,7 @@ func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...Clie
 }
 
 /*
-ReadRegistryEntities retrieves registry entities identified by the customer id
+  ReadRegistryEntities retrieves registry entities identified by the customer id
 */
 func (a *Client) ReadRegistryEntities(params *ReadRegistryEntitiesParams, opts ...ClientOption) (*ReadRegistryEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) ReadRegistryEntities(params *ReadRegistryEntitiesParams, opts .
 }
 
 /*
-ReadRegistryEntitiesByUUID retrieves the registry entity identified by the entity UUID
+  ReadRegistryEntitiesByUUID retrieves the registry entity identified by the entity UUID
 */
 func (a *Client) ReadRegistryEntitiesByUUID(params *ReadRegistryEntitiesByUUIDParams, opts ...ClientOption) (*ReadRegistryEntitiesByUUIDOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) ReadRegistryEntitiesByUUID(params *ReadRegistryEntitiesByUUIDPa
 }
 
 /*
-UpdateRegistryEntities updates the registry entity as identified by the entity UUID using the provided details
+  UpdateRegistryEntities updates the registry entity as identified by the entity UUID using the provided details
 */
 func (a *Client) UpdateRegistryEntities(params *UpdateRegistryEntitiesParams, opts ...ClientOption) (*UpdateRegistryEntitiesOK, error) {
 	// TODO: Validate the params before sending

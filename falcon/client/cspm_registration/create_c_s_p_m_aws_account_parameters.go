@@ -54,12 +54,10 @@ func NewCreateCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *CreateCSP
 	}
 }
 
-/*
-CreateCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+/* CreateCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the create c s p m aws account operation.
 
-	for the create c s p m aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateCSPMAwsAccountParams struct {
 

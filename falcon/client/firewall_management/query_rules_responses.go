@@ -59,8 +59,7 @@ func NewQueryRulesOK() *QueryRulesOK {
 	return &QueryRulesOK{}
 }
 
-/*
-QueryRulesOK describes a response with status code 200, with default header values.
+/* QueryRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryRulesBadRequest() *QueryRulesBadRequest {
 	return &QueryRulesBadRequest{}
 }
 
-/*
-QueryRulesBadRequest describes a response with status code 400, with default header values.
+/* QueryRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryRulesForbidden() *QueryRulesForbidden {
 	return &QueryRulesForbidden{}
 }
 
-/*
-QueryRulesForbidden describes a response with status code 403, with default header values.
+/* QueryRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryRulesTooManyRequests() *QueryRulesTooManyRequests {
 	return &QueryRulesTooManyRequests{}
 }
 
-/*
-QueryRulesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

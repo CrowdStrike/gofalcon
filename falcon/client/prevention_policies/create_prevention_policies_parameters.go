@@ -54,12 +54,10 @@ func NewCreatePreventionPoliciesParamsWithHTTPClient(client *http.Client) *Creat
 	}
 }
 
-/*
-CreatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+/* CreatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the create prevention policies operation.
 
-	for the create prevention policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreatePreventionPoliciesParams struct {
 

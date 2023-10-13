@@ -65,8 +65,7 @@ func NewRTRPulseSessionCreated() *RTRPulseSessionCreated {
 	return &RTRPulseSessionCreated{}
 }
 
-/*
-RTRPulseSessionCreated describes a response with status code 201, with default header values.
+/* RTRPulseSessionCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewRTRPulseSessionBadRequest() *RTRPulseSessionBadRequest {
 	return &RTRPulseSessionBadRequest{}
 }
 
-/*
-RTRPulseSessionBadRequest describes a response with status code 400, with default header values.
+/* RTRPulseSessionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRTRPulseSessionForbidden() *RTRPulseSessionForbidden {
 	return &RTRPulseSessionForbidden{}
 }
 
-/*
-RTRPulseSessionForbidden describes a response with status code 403, with default header values.
+/* RTRPulseSessionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRTRPulseSessionTooManyRequests() *RTRPulseSessionTooManyRequests {
 	return &RTRPulseSessionTooManyRequests{}
 }
 
-/*
-RTRPulseSessionTooManyRequests describes a response with status code 429, with default header values.
+/* RTRPulseSessionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewRTRPulseSessionInternalServerError() *RTRPulseSessionInternalServerError
 	return &RTRPulseSessionInternalServerError{}
 }
 
-/*
-RTRPulseSessionInternalServerError describes a response with status code 500, with default header values.
+/* RTRPulseSessionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewUserActionV1OK() *UserActionV1OK {
 	return &UserActionV1OK{}
 }
 
-/*
-UserActionV1OK describes a response with status code 200, with default header values.
+/* UserActionV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUserActionV1BadRequest() *UserActionV1BadRequest {
 	return &UserActionV1BadRequest{}
 }
 
-/*
-UserActionV1BadRequest describes a response with status code 400, with default header values.
+/* UserActionV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUserActionV1Forbidden() *UserActionV1Forbidden {
 	return &UserActionV1Forbidden{}
 }
 
-/*
-UserActionV1Forbidden describes a response with status code 403, with default header values.
+/* UserActionV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUserActionV1TooManyRequests() *UserActionV1TooManyRequests {
 	return &UserActionV1TooManyRequests{}
 }
 
-/*
-UserActionV1TooManyRequests describes a response with status code 429, with default header values.
+/* UserActionV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUserActionV1InternalServerError() *UserActionV1InternalServerError {
 	return &UserActionV1InternalServerError{}
 }
 
-/*
-UserActionV1InternalServerError describes a response with status code 500, with default header values.
+/* UserActionV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

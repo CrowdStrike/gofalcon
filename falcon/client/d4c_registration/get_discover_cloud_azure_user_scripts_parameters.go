@@ -52,12 +52,10 @@ func NewGetDiscoverCloudAzureUserScriptsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsParams contains all the parameters to send to the API endpoint
+/* GetDiscoverCloudAzureUserScriptsParams contains all the parameters to send to the API endpoint
+   for the get discover cloud azure user scripts operation.
 
-	for the get discover cloud azure user scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetDiscoverCloudAzureUserScriptsParams struct {
 	timeout    time.Duration

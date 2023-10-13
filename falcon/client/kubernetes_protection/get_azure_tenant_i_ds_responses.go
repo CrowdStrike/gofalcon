@@ -71,8 +71,7 @@ func NewGetAzureTenantIDsOK() *GetAzureTenantIDsOK {
 	return &GetAzureTenantIDsOK{}
 }
 
-/*
-GetAzureTenantIDsOK describes a response with status code 200, with default header values.
+/* GetAzureTenantIDsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetAzureTenantIDsMultiStatus() *GetAzureTenantIDsMultiStatus {
 	return &GetAzureTenantIDsMultiStatus{}
 }
 
-/*
-GetAzureTenantIDsMultiStatus describes a response with status code 207, with default header values.
+/* GetAzureTenantIDsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetAzureTenantIDsBadRequest() *GetAzureTenantIDsBadRequest {
 	return &GetAzureTenantIDsBadRequest{}
 }
 
-/*
-GetAzureTenantIDsBadRequest describes a response with status code 400, with default header values.
+/* GetAzureTenantIDsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetAzureTenantIDsForbidden() *GetAzureTenantIDsForbidden {
 	return &GetAzureTenantIDsForbidden{}
 }
 
-/*
-GetAzureTenantIDsForbidden describes a response with status code 403, with default header values.
+/* GetAzureTenantIDsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetAzureTenantIDsTooManyRequests() *GetAzureTenantIDsTooManyRequests {
 	return &GetAzureTenantIDsTooManyRequests{}
 }
 
-/*
-GetAzureTenantIDsTooManyRequests describes a response with status code 429, with default header values.
+/* GetAzureTenantIDsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetAzureTenantIDsInternalServerError() *GetAzureTenantIDsInternalServerE
 	return &GetAzureTenantIDsInternalServerError{}
 }
 
-/*
-GetAzureTenantIDsInternalServerError describes a response with status code 500, with default header values.
+/* GetAzureTenantIDsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

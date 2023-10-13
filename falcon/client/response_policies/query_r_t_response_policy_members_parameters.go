@@ -53,12 +53,10 @@ func NewQueryRTResponsePolicyMembersParamsWithHTTPClient(client *http.Client) *Q
 	}
 }
 
-/*
-QueryRTResponsePolicyMembersParams contains all the parameters to send to the API endpoint
+/* QueryRTResponsePolicyMembersParams contains all the parameters to send to the API endpoint
+   for the query r t response policy members operation.
 
-	for the query r t response policy members operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryRTResponsePolicyMembersParams struct {
 

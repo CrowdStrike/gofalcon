@@ -53,12 +53,10 @@ func NewRTRCreateScriptsParamsWithHTTPClient(client *http.Client) *RTRCreateScri
 	}
 }
 
-/*
-RTRCreateScriptsParams contains all the parameters to send to the API endpoint
+/* RTRCreateScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r create scripts operation.
 
-	for the r t r create scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRCreateScriptsParams struct {
 

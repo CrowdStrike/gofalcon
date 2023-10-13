@@ -53,12 +53,10 @@ func NewGetCSPMAwsConsoleSetupURLsParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetCSPMAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
+/* GetCSPMAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
+   for the get c s p m aws console setup u r ls operation.
 
-	for the get c s p m aws console setup u r ls operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMAwsConsoleSetupURLsParams struct {
 

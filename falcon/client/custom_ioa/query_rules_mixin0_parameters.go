@@ -53,12 +53,10 @@ func NewQueryRulesMixin0ParamsWithHTTPClient(client *http.Client) *QueryRulesMix
 	}
 }
 
-/*
-QueryRulesMixin0Params contains all the parameters to send to the API endpoint
+/* QueryRulesMixin0Params contains all the parameters to send to the API endpoint
+   for the query rules mixin0 operation.
 
-	for the query rules mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryRulesMixin0Params struct {
 
@@ -88,7 +86,7 @@ type QueryRulesMixin0Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.name, rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_by, rules.current_version.modified_on, rules.ruletype_name, rules.enabled, rules.current_version.pattern_severity}
+	   Possible order by fields: {rules.ruletype_name, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled, rules.created_by, rules.created_on, rules.current_version.name, rules.current_version.modified_by}
 	*/
 	Sort *string
 

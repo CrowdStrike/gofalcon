@@ -53,12 +53,10 @@ func NewGetSampleV3ParamsWithHTTPClient(client *http.Client) *GetSampleV3Params 
 	}
 }
 
-/*
-GetSampleV3Params contains all the parameters to send to the API endpoint
+/* GetSampleV3Params contains all the parameters to send to the API endpoint
+   for the get sample v3 operation.
 
-	for the get sample v3 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSampleV3Params struct {
 

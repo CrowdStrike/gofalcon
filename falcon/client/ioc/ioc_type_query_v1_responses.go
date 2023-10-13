@@ -53,8 +53,7 @@ func NewIocTypeQueryV1OK() *IocTypeQueryV1OK {
 	return &IocTypeQueryV1OK{}
 }
 
-/*
-IocTypeQueryV1OK describes a response with status code 200, with default header values.
+/* IocTypeQueryV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIocTypeQueryV1Forbidden() *IocTypeQueryV1Forbidden {
 	return &IocTypeQueryV1Forbidden{}
 }
 
-/*
-IocTypeQueryV1Forbidden describes a response with status code 403, with default header values.
+/* IocTypeQueryV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIocTypeQueryV1TooManyRequests() *IocTypeQueryV1TooManyRequests {
 	return &IocTypeQueryV1TooManyRequests{}
 }
 
-/*
-IocTypeQueryV1TooManyRequests describes a response with status code 429, with default header values.
+/* IocTypeQueryV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

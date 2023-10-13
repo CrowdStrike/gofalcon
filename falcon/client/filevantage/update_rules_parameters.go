@@ -54,12 +54,10 @@ func NewUpdateRulesParamsWithHTTPClient(client *http.Client) *UpdateRulesParams 
 	}
 }
 
-/*
-UpdateRulesParams contains all the parameters to send to the API endpoint
+/* UpdateRulesParams contains all the parameters to send to the API endpoint
+   for the update rules operation.
 
-	for the update rules operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRulesParams struct {
 
@@ -98,6 +96,10 @@ type UpdateRulesParams struct {
 	 * `include_processes` represents the changes performed by specific processes that will be monitored.
 
 	 * `exclude_processes` represents the changes performed by specific processes that will be `NOT` monitored.
+
+	 *  `content_files` represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern
+
+	 * `enable_content_capture`
 
 	File system directory monitoring:
 

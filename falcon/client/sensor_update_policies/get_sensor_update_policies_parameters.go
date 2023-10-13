@@ -53,12 +53,10 @@ func NewGetSensorUpdatePoliciesParamsWithHTTPClient(client *http.Client) *GetSen
 	}
 }
 
-/*
-GetSensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+/* GetSensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+   for the get sensor update policies operation.
 
-	for the get sensor update policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSensorUpdatePoliciesParams struct {
 

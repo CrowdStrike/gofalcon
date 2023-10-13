@@ -55,12 +55,10 @@ func NewBatchActiveResponderCmdParamsWithHTTPClient(client *http.Client) *BatchA
 	}
 }
 
-/*
-BatchActiveResponderCmdParams contains all the parameters to send to the API endpoint
+/* BatchActiveResponderCmdParams contains all the parameters to send to the API endpoint
+   for the batch active responder cmd operation.
 
-	for the batch active responder cmd operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type BatchActiveResponderCmdParams struct {
 

@@ -52,12 +52,10 @@ func NewGetObjectParamsWithHTTPClient(client *http.Client) *GetObjectParams {
 	}
 }
 
-/*
-GetObjectParams contains all the parameters to send to the API endpoint
+/* GetObjectParams contains all the parameters to send to the API endpoint
+   for the get object operation.
 
-	for the get object operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetObjectParams struct {
 

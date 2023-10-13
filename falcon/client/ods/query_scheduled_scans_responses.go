@@ -59,8 +59,7 @@ func NewQueryScheduledScansOK() *QueryScheduledScansOK {
 	return &QueryScheduledScansOK{}
 }
 
-/*
-QueryScheduledScansOK describes a response with status code 200, with default header values.
+/* QueryScheduledScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryScheduledScansForbidden() *QueryScheduledScansForbidden {
 	return &QueryScheduledScansForbidden{}
 }
 
-/*
-QueryScheduledScansForbidden describes a response with status code 403, with default header values.
+/* QueryScheduledScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewQueryScheduledScansNotFound() *QueryScheduledScansNotFound {
 	return &QueryScheduledScansNotFound{}
 }
 
-/*
-QueryScheduledScansNotFound describes a response with status code 404, with default header values.
+/* QueryScheduledScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewQueryScheduledScansTooManyRequests() *QueryScheduledScansTooManyRequests
 	return &QueryScheduledScansTooManyRequests{}
 }
 
-/*
-QueryScheduledScansTooManyRequests describes a response with status code 429, with default header values.
+/* QueryScheduledScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

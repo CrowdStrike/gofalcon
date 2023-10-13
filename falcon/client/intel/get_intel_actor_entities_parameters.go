@@ -53,12 +53,10 @@ func NewGetIntelActorEntitiesParamsWithHTTPClient(client *http.Client) *GetIntel
 	}
 }
 
-/*
-GetIntelActorEntitiesParams contains all the parameters to send to the API endpoint
+/* GetIntelActorEntitiesParams contains all the parameters to send to the API endpoint
+   for the get intel actor entities operation.
 
-	for the get intel actor entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIntelActorEntitiesParams struct {
 

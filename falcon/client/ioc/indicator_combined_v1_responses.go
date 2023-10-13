@@ -53,8 +53,7 @@ func NewIndicatorCombinedV1OK() *IndicatorCombinedV1OK {
 	return &IndicatorCombinedV1OK{}
 }
 
-/*
-IndicatorCombinedV1OK describes a response with status code 200, with default header values.
+/* IndicatorCombinedV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIndicatorCombinedV1Forbidden() *IndicatorCombinedV1Forbidden {
 	return &IndicatorCombinedV1Forbidden{}
 }
 
-/*
-IndicatorCombinedV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorCombinedV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIndicatorCombinedV1TooManyRequests() *IndicatorCombinedV1TooManyRequests
 	return &IndicatorCombinedV1TooManyRequests{}
 }
 
-/*
-IndicatorCombinedV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorCombinedV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

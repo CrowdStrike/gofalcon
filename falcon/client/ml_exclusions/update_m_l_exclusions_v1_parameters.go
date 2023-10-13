@@ -54,12 +54,10 @@ func NewUpdateMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *UpdateMLE
 	}
 }
 
-/*
-UpdateMLExclusionsV1Params contains all the parameters to send to the API endpoint
+/* UpdateMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the update m l exclusions v1 operation.
 
-	for the update m l exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateMLExclusionsV1Params struct {
 

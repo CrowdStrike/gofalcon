@@ -65,8 +65,7 @@ func NewGetChildrenV2OK() *GetChildrenV2OK {
 	return &GetChildrenV2OK{}
 }
 
-/*
-GetChildrenV2OK describes a response with status code 200, with default header values.
+/* GetChildrenV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetChildrenV2MultiStatus() *GetChildrenV2MultiStatus {
 	return &GetChildrenV2MultiStatus{}
 }
 
-/*
-GetChildrenV2MultiStatus describes a response with status code 207, with default header values.
+/* GetChildrenV2MultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewGetChildrenV2BadRequest() *GetChildrenV2BadRequest {
 	return &GetChildrenV2BadRequest{}
 }
 
-/*
-GetChildrenV2BadRequest describes a response with status code 400, with default header values.
+/* GetChildrenV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewGetChildrenV2Forbidden() *GetChildrenV2Forbidden {
 	return &GetChildrenV2Forbidden{}
 }
 
-/*
-GetChildrenV2Forbidden describes a response with status code 403, with default header values.
+/* GetChildrenV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewGetChildrenV2TooManyRequests() *GetChildrenV2TooManyRequests {
 	return &GetChildrenV2TooManyRequests{}
 }
 
-/*
-GetChildrenV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetChildrenV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

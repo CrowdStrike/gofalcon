@@ -53,12 +53,10 @@ func NewGetMalQueryRequestV1ParamsWithHTTPClient(client *http.Client) *GetMalQue
 	}
 }
 
-/*
-GetMalQueryRequestV1Params contains all the parameters to send to the API endpoint
+/* GetMalQueryRequestV1Params contains all the parameters to send to the API endpoint
+   for the get mal query request v1 operation.
 
-	for the get mal query request v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetMalQueryRequestV1Params struct {
 

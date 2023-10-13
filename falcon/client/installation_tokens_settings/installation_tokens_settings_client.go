@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-CustomerSettingsUpdate updates installation token settings
+  CustomerSettingsUpdate updates installation token settings
 */
 func (a *Client) CustomerSettingsUpdate(params *CustomerSettingsUpdateParams, opts ...ClientOption) (*CustomerSettingsUpdateOK, error) {
 	// TODO: Validate the params before sending

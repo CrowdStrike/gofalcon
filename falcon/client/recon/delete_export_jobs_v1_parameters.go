@@ -53,12 +53,10 @@ func NewDeleteExportJobsV1ParamsWithHTTPClient(client *http.Client) *DeleteExpor
 	}
 }
 
-/*
-DeleteExportJobsV1Params contains all the parameters to send to the API endpoint
+/* DeleteExportJobsV1Params contains all the parameters to send to the API endpoint
+   for the delete export jobs v1 operation.
 
-	for the delete export jobs v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteExportJobsV1Params struct {
 

@@ -53,12 +53,10 @@ func NewIndicatorSearchV1ParamsWithHTTPClient(client *http.Client) *IndicatorSea
 	}
 }
 
-/*
-IndicatorSearchV1Params contains all the parameters to send to the API endpoint
+/* IndicatorSearchV1Params contains all the parameters to send to the API endpoint
+   for the indicator search v1 operation.
 
-	for the indicator search v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorSearchV1Params struct {
 

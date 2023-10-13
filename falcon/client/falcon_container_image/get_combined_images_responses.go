@@ -65,8 +65,7 @@ func NewGetCombinedImagesOK() *GetCombinedImagesOK {
 	return &GetCombinedImagesOK{}
 }
 
-/*
-GetCombinedImagesOK describes a response with status code 200, with default header values.
+/* GetCombinedImagesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetCombinedImagesForbidden() *GetCombinedImagesForbidden {
 	return &GetCombinedImagesForbidden{}
 }
 
-/*
-GetCombinedImagesForbidden describes a response with status code 403, with default header values.
+/* GetCombinedImagesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetCombinedImagesNotFound() *GetCombinedImagesNotFound {
 	return &GetCombinedImagesNotFound{}
 }
 
-/*
-GetCombinedImagesNotFound describes a response with status code 404, with default header values.
+/* GetCombinedImagesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetCombinedImagesTooManyRequests() *GetCombinedImagesTooManyRequests {
 	return &GetCombinedImagesTooManyRequests{}
 }
 
-/*
-GetCombinedImagesTooManyRequests describes a response with status code 429, with default header values.
+/* GetCombinedImagesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetCombinedImagesInternalServerError() *GetCombinedImagesInternalServerE
 	return &GetCombinedImagesInternalServerError{}
 }
 
-/*
-GetCombinedImagesInternalServerError describes a response with status code 500, with default header values.
+/* GetCombinedImagesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

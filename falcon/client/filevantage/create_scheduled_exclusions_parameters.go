@@ -54,12 +54,10 @@ func NewCreateScheduledExclusionsParamsWithHTTPClient(client *http.Client) *Crea
 	}
 }
 
-/*
-CreateScheduledExclusionsParams contains all the parameters to send to the API endpoint
+/* CreateScheduledExclusionsParams contains all the parameters to send to the API endpoint
+   for the create scheduled exclusions operation.
 
-	for the create scheduled exclusions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateScheduledExclusionsParams struct {
 
@@ -86,6 +84,28 @@ type CreateScheduledExclusionsParams struct {
 	* `schedule_start` must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.
 
 	* `schedule_end` optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.
+
+	* `timezone`  must be provided to indicate the TimeZone Name set for the provided `scheduled_start` and `scheduled_end` values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
+
+	* `repeated` optionally provided to indicate that the exclusion is applied repeatedly within the `scheduled_start` and `scheduled_end` time.
+
+	   * `start_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`
+
+	   * `end_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`
+
+	   * `all_day` must be `true` or `false` to indicate the exclusion is applied all day.
+
+	   * `frequency` must be one of `daily`, `weekly` or `monthly`.
+
+	   * `occurrence` must be one of the following when `frequency` is set to `monthly`:
+
+	     * `1st`, `2nd`, `3rd`, `4th` or `Last` represents the week.
+
+	     * `Days` represents specific calendar days.
+
+	   * `weekly_days` must be one or more of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` or `Sunday` when `frequency` is set to `weekly` or `frequency` is set to `monthly` and `occurrence` is NOT set to `Days`.
+
+	   * `monthly_days` must be set to one or more calendar days, between 1 and 31  when `frequency` is set to `monthly` and `occurrence` is set to `Days`.
 	*/
 	Body *models.ScheduledexclusionsCreateRequest
 

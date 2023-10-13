@@ -71,8 +71,7 @@ func NewUpdateRulesV1OK() *UpdateRulesV1OK {
 	return &UpdateRulesV1OK{}
 }
 
-/*
-UpdateRulesV1OK describes a response with status code 200, with default header values.
+/* UpdateRulesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewUpdateRulesV1BadRequest() *UpdateRulesV1BadRequest {
 	return &UpdateRulesV1BadRequest{}
 }
 
-/*
-UpdateRulesV1BadRequest describes a response with status code 400, with default header values.
+/* UpdateRulesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateRulesV1Unauthorized() *UpdateRulesV1Unauthorized {
 	return &UpdateRulesV1Unauthorized{}
 }
 
-/*
-UpdateRulesV1Unauthorized describes a response with status code 401, with default header values.
+/* UpdateRulesV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewUpdateRulesV1Forbidden() *UpdateRulesV1Forbidden {
 	return &UpdateRulesV1Forbidden{}
 }
 
-/*
-UpdateRulesV1Forbidden describes a response with status code 403, with default header values.
+/* UpdateRulesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewUpdateRulesV1TooManyRequests() *UpdateRulesV1TooManyRequests {
 	return &UpdateRulesV1TooManyRequests{}
 }
 
-/*
-UpdateRulesV1TooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRulesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateRulesV1InternalServerError() *UpdateRulesV1InternalServerError {
 	return &UpdateRulesV1InternalServerError{}
 }
 
-/*
-UpdateRulesV1InternalServerError describes a response with status code 500, with default header values.
+/* UpdateRulesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

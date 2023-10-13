@@ -53,12 +53,10 @@ func NewGetConfigurationDetectionIDsV2ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-GetConfigurationDetectionIDsV2Params contains all the parameters to send to the API endpoint
+/* GetConfigurationDetectionIDsV2Params contains all the parameters to send to the API endpoint
+   for the get configuration detection i ds v2 operation.
 
-	for the get configuration detection i ds v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetConfigurationDetectionIDsV2Params struct {
 

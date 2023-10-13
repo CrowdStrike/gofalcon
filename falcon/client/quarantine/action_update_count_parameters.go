@@ -52,12 +52,10 @@ func NewActionUpdateCountParamsWithHTTPClient(client *http.Client) *ActionUpdate
 	}
 }
 
-/*
-ActionUpdateCountParams contains all the parameters to send to the API endpoint
+/* ActionUpdateCountParams contains all the parameters to send to the API endpoint
+   for the action update count operation.
 
-	for the action update count operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ActionUpdateCountParams struct {
 

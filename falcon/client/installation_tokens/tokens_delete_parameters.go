@@ -53,12 +53,10 @@ func NewTokensDeleteParamsWithHTTPClient(client *http.Client) *TokensDeleteParam
 	}
 }
 
-/*
-TokensDeleteParams contains all the parameters to send to the API endpoint
+/* TokensDeleteParams contains all the parameters to send to the API endpoint
+   for the tokens delete operation.
 
-	for the tokens delete operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type TokensDeleteParams struct {
 

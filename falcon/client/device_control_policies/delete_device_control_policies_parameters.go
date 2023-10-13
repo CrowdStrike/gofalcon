@@ -53,12 +53,10 @@ func NewDeleteDeviceControlPoliciesParamsWithHTTPClient(client *http.Client) *De
 	}
 }
 
-/*
-DeleteDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+/* DeleteDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the delete device control policies operation.
 
-	for the delete device control policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteDeviceControlPoliciesParams struct {
 

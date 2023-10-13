@@ -71,8 +71,7 @@ func NewGetArtifactsOK() *GetArtifactsOK {
 	return &GetArtifactsOK{}
 }
 
-/*
-GetArtifactsOK describes a response with status code 200, with default header values.
+/* GetArtifactsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetArtifactsBadRequest() *GetArtifactsBadRequest {
 	return &GetArtifactsBadRequest{}
 }
 
-/*
-GetArtifactsBadRequest describes a response with status code 400, with default header values.
+/* GetArtifactsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetArtifactsForbidden() *GetArtifactsForbidden {
 	return &GetArtifactsForbidden{}
 }
 
-/*
-GetArtifactsForbidden describes a response with status code 403, with default header values.
+/* GetArtifactsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetArtifactsNotFound() *GetArtifactsNotFound {
 	return &GetArtifactsNotFound{}
 }
 
-/*
-GetArtifactsNotFound describes a response with status code 404, with default header values.
+/* GetArtifactsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewGetArtifactsTooManyRequests() *GetArtifactsTooManyRequests {
 	return &GetArtifactsTooManyRequests{}
 }
 
-/*
-GetArtifactsTooManyRequests describes a response with status code 429, with default header values.
+/* GetArtifactsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetArtifactsInternalServerError() *GetArtifactsInternalServerError {
 	return &GetArtifactsInternalServerError{}
 }
 
-/*
-GetArtifactsInternalServerError describes a response with status code 500, with default header values.
+/* GetArtifactsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

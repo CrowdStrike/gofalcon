@@ -71,8 +71,7 @@ func NewCreateRuleGroupsOK() *CreateRuleGroupsOK {
 	return &CreateRuleGroupsOK{}
 }
 
-/*
-CreateRuleGroupsOK describes a response with status code 200, with default header values.
+/* CreateRuleGroupsOK describes a response with status code 200, with default header values.
 
 The rule group has been created.
 */
@@ -181,8 +180,7 @@ func NewCreateRuleGroupsBadRequest() *CreateRuleGroupsBadRequest {
 	return &CreateRuleGroupsBadRequest{}
 }
 
-/*
-CreateRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* CreateRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateRuleGroupsForbidden() *CreateRuleGroupsForbidden {
 	return &CreateRuleGroupsForbidden{}
 }
 
-/*
-CreateRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* CreateRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateRuleGroupsConflict() *CreateRuleGroupsConflict {
 	return &CreateRuleGroupsConflict{}
 }
 
-/*
-CreateRuleGroupsConflict describes a response with status code 409, with default header values.
+/* CreateRuleGroupsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewCreateRuleGroupsTooManyRequests() *CreateRuleGroupsTooManyRequests {
 	return &CreateRuleGroupsTooManyRequests{}
 }
 
-/*
-CreateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateRuleGroupsInternalServerError() *CreateRuleGroupsInternalServerErr
 	return &CreateRuleGroupsInternalServerError{}
 }
 
-/*
-CreateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* CreateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

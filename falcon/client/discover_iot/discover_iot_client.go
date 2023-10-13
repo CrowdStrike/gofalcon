@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-GetIotHosts gets details on io t assets by providing one or more i ds
+  GetIotHosts gets details on io t assets by providing one or more i ds
 */
 func (a *Client) GetIotHosts(params *GetIotHostsParams, opts ...ClientOption) (*GetIotHostsOK, error) {
 	// TODO: Validate the params before sending
@@ -76,7 +76,7 @@ func (a *Client) GetIotHosts(params *GetIotHostsParams, opts ...ClientOption) (*
 }
 
 /*
-QueryIotHosts searches for io t assets in your environment by providing an f q l falcon query language filter and paging details returns a set of asset i ds which match the filter criteria
+  QueryIotHosts searches for io t assets in your environment by providing an f q l falcon query language filter and paging details returns a set of asset i ds which match the filter criteria
 */
 func (a *Client) QueryIotHosts(params *QueryIotHostsParams, opts ...ClientOption) (*QueryIotHostsOK, error) {
 	// TODO: Validate the params before sending

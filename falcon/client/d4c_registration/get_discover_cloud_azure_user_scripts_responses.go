@@ -71,8 +71,7 @@ func NewGetDiscoverCloudAzureUserScriptsOK() *GetDiscoverCloudAzureUserScriptsOK
 	return &GetDiscoverCloudAzureUserScriptsOK{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsOK describes a response with status code 200, with default header values.
+/* GetDiscoverCloudAzureUserScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetDiscoverCloudAzureUserScriptsMultiStatus() *GetDiscoverCloudAzureUser
 	return &GetDiscoverCloudAzureUserScriptsMultiStatus{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsMultiStatus describes a response with status code 207, with default header values.
+/* GetDiscoverCloudAzureUserScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetDiscoverCloudAzureUserScriptsBadRequest() *GetDiscoverCloudAzureUserS
 	return &GetDiscoverCloudAzureUserScriptsBadRequest{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsBadRequest describes a response with status code 400, with default header values.
+/* GetDiscoverCloudAzureUserScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetDiscoverCloudAzureUserScriptsForbidden() *GetDiscoverCloudAzureUserSc
 	return &GetDiscoverCloudAzureUserScriptsForbidden{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsForbidden describes a response with status code 403, with default header values.
+/* GetDiscoverCloudAzureUserScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetDiscoverCloudAzureUserScriptsTooManyRequests() *GetDiscoverCloudAzure
 	return &GetDiscoverCloudAzureUserScriptsTooManyRequests{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* GetDiscoverCloudAzureUserScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetDiscoverCloudAzureUserScriptsInternalServerError() *GetDiscoverCloudA
 	return &GetDiscoverCloudAzureUserScriptsInternalServerError{}
 }
 
-/*
-GetDiscoverCloudAzureUserScriptsInternalServerError describes a response with status code 500, with default header values.
+/* GetDiscoverCloudAzureUserScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

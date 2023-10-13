@@ -53,12 +53,10 @@ func NewGetSensorInstallersByQueryParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetSensorInstallersByQueryParams contains all the parameters to send to the API endpoint
+/* GetSensorInstallersByQueryParams contains all the parameters to send to the API endpoint
+   for the get sensor installers by query operation.
 
-	for the get sensor installers by query operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSensorInstallersByQueryParams struct {
 

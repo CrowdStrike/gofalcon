@@ -55,12 +55,10 @@ func NewIndicatorCreateV1ParamsWithHTTPClient(client *http.Client) *IndicatorCre
 	}
 }
 
-/*
-IndicatorCreateV1Params contains all the parameters to send to the API endpoint
+/* IndicatorCreateV1Params contains all the parameters to send to the API endpoint
+   for the indicator create v1 operation.
 
-	for the indicator create v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorCreateV1Params struct {
 

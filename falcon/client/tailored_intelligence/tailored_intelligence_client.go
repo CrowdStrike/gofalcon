@@ -44,7 +44,7 @@ type ClientService interface {
 }
 
 /*
-GetEventsBody gets event body for the provided event ID
+  GetEventsBody gets event body for the provided event ID
 */
 func (a *Client) GetEventsBody(params *GetEventsBodyParams, opts ...ClientOption) (*GetEventsBodyOK, error) {
 	// TODO: Validate the params before sending
@@ -82,7 +82,7 @@ func (a *Client) GetEventsBody(params *GetEventsBodyParams, opts ...ClientOption
 }
 
 /*
-GetEventsEntities gets events entities for specified ids
+  GetEventsEntities gets events entities for specified ids
 */
 func (a *Client) GetEventsEntities(params *GetEventsEntitiesParams, opts ...ClientOption) (*GetEventsEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -120,7 +120,7 @@ func (a *Client) GetEventsEntities(params *GetEventsEntitiesParams, opts ...Clie
 }
 
 /*
-GetRulesEntities gets rules entities for specified ids
+  GetRulesEntities gets rules entities for specified ids
 */
 func (a *Client) GetRulesEntities(params *GetRulesEntitiesParams, opts ...ClientOption) (*GetRulesEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -158,7 +158,7 @@ func (a *Client) GetRulesEntities(params *GetRulesEntitiesParams, opts ...Client
 }
 
 /*
-QueryEvents gets events ids that match the provided filter criteria
+  QueryEvents gets events ids that match the provided filter criteria
 */
 func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*QueryEventsOK, error) {
 	// TODO: Validate the params before sending
@@ -196,7 +196,7 @@ func (a *Client) QueryEvents(params *QueryEventsParams, opts ...ClientOption) (*
 }
 
 /*
-QueryRules gets rules ids that match the provided filter criteria
+  QueryRules gets rules ids that match the provided filter criteria
 */
 func (a *Client) QueryRules(params *QueryRulesParams, opts ...ClientOption) (*QueryRulesOK, error) {
 	// TODO: Validate the params before sending

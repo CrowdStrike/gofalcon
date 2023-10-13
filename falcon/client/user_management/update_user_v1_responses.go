@@ -65,8 +65,7 @@ func NewUpdateUserV1OK() *UpdateUserV1OK {
 	return &UpdateUserV1OK{}
 }
 
-/*
-UpdateUserV1OK describes a response with status code 200, with default header values.
+/* UpdateUserV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdateUserV1BadRequest() *UpdateUserV1BadRequest {
 	return &UpdateUserV1BadRequest{}
 }
 
-/*
-UpdateUserV1BadRequest describes a response with status code 400, with default header values.
+/* UpdateUserV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUpdateUserV1Forbidden() *UpdateUserV1Forbidden {
 	return &UpdateUserV1Forbidden{}
 }
 
-/*
-UpdateUserV1Forbidden describes a response with status code 403, with default header values.
+/* UpdateUserV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUpdateUserV1TooManyRequests() *UpdateUserV1TooManyRequests {
 	return &UpdateUserV1TooManyRequests{}
 }
 
-/*
-UpdateUserV1TooManyRequests describes a response with status code 429, with default header values.
+/* UpdateUserV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdateUserV1InternalServerError() *UpdateUserV1InternalServerError {
 	return &UpdateUserV1InternalServerError{}
 }
 
-/*
-UpdateUserV1InternalServerError describes a response with status code 500, with default header values.
+/* UpdateUserV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

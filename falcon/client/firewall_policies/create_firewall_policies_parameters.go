@@ -54,12 +54,10 @@ func NewCreateFirewallPoliciesParamsWithHTTPClient(client *http.Client) *CreateF
 	}
 }
 
-/*
-CreateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+/* CreateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the create firewall policies operation.
 
-	for the create firewall policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateFirewallPoliciesParams struct {
 

@@ -53,12 +53,10 @@ func NewGetLocationsParamsWithHTTPClient(client *http.Client) *GetLocationsParam
 	}
 }
 
-/*
-GetLocationsParams contains all the parameters to send to the API endpoint
+/* GetLocationsParams contains all the parameters to send to the API endpoint
+   for the get locations operation.
 
-	for the get locations operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetLocationsParams struct {
 

@@ -52,12 +52,10 @@ func NewReadRegistryEntitiesByUUIDParamsWithHTTPClient(client *http.Client) *Rea
 	}
 }
 
-/*
-ReadRegistryEntitiesByUUIDParams contains all the parameters to send to the API endpoint
+/* ReadRegistryEntitiesByUUIDParams contains all the parameters to send to the API endpoint
+   for the read registry entities by UUID operation.
 
-	for the read registry entities by UUID operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ReadRegistryEntitiesByUUIDParams struct {
 

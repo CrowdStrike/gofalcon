@@ -65,8 +65,7 @@ func NewGetChangesOK() *GetChangesOK {
 	return &GetChangesOK{}
 }
 
-/*
-GetChangesOK describes a response with status code 200, with default header values.
+/* GetChangesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetChangesBadRequest() *GetChangesBadRequest {
 	return &GetChangesBadRequest{}
 }
 
-/*
-GetChangesBadRequest describes a response with status code 400, with default header values.
+/* GetChangesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetChangesForbidden() *GetChangesForbidden {
 	return &GetChangesForbidden{}
 }
 
-/*
-GetChangesForbidden describes a response with status code 403, with default header values.
+/* GetChangesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetChangesTooManyRequests() *GetChangesTooManyRequests {
 	return &GetChangesTooManyRequests{}
 }
 
-/*
-GetChangesTooManyRequests describes a response with status code 429, with default header values.
+/* GetChangesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetChangesInternalServerError() *GetChangesInternalServerError {
 	return &GetChangesInternalServerError{}
 }
 
-/*
-GetChangesInternalServerError describes a response with status code 500, with default header values.
+/* GetChangesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

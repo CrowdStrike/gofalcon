@@ -66,7 +66,7 @@ type ClientService interface {
 }
 
 /*
-AggregateQueryScanHostMetadata gets aggregates on o d s scan hosts data
+  AggregateQueryScanHostMetadata gets aggregates on o d s scan hosts data
 */
 func (a *Client) AggregateQueryScanHostMetadata(params *AggregateQueryScanHostMetadataParams, opts ...ClientOption) (*AggregateQueryScanHostMetadataOK, error) {
 	// TODO: Validate the params before sending
@@ -104,7 +104,7 @@ func (a *Client) AggregateQueryScanHostMetadata(params *AggregateQueryScanHostMe
 }
 
 /*
-AggregateScans gets aggregates on o d s scan data
+  AggregateScans gets aggregates on o d s scan data
 */
 func (a *Client) AggregateScans(params *AggregateScansParams, opts ...ClientOption) (*AggregateScansOK, error) {
 	// TODO: Validate the params before sending
@@ -142,7 +142,7 @@ func (a *Client) AggregateScans(params *AggregateScansParams, opts ...ClientOpti
 }
 
 /*
-AggregateScheduledScans gets aggregates on o d s scheduled scan data
+  AggregateScheduledScans gets aggregates on o d s scheduled scan data
 */
 func (a *Client) AggregateScheduledScans(params *AggregateScheduledScansParams, opts ...ClientOption) (*AggregateScheduledScansOK, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) AggregateScheduledScans(params *AggregateScheduledScansParams, 
 }
 
 /*
-CancelScans cancels o d s scans for the given scan ids
+  CancelScans cancels o d s scans for the given scan ids
 */
 func (a *Client) CancelScans(params *CancelScansParams, opts ...ClientOption) (*CancelScansOK, error) {
 	// TODO: Validate the params before sending
@@ -218,7 +218,7 @@ func (a *Client) CancelScans(params *CancelScansParams, opts ...ClientOption) (*
 }
 
 /*
-CreateScan creates o d s scan and start or schedule scan for the given scan request
+  CreateScan creates o d s scan and start or schedule scan for the given scan request
 */
 func (a *Client) CreateScan(params *CreateScanParams, opts ...ClientOption) (*CreateScanCreated, error) {
 	// TODO: Validate the params before sending
@@ -256,7 +256,7 @@ func (a *Client) CreateScan(params *CreateScanParams, opts ...ClientOption) (*Cr
 }
 
 /*
-DeleteScheduledScans deletes o d s scheduled scans for the given scheduled scan ids
+  DeleteScheduledScans deletes o d s scheduled scans for the given scheduled scan ids
 */
 func (a *Client) DeleteScheduledScans(params *DeleteScheduledScansParams, opts ...ClientOption) (*DeleteScheduledScansOK, error) {
 	// TODO: Validate the params before sending
@@ -294,7 +294,7 @@ func (a *Client) DeleteScheduledScans(params *DeleteScheduledScansParams, opts .
 }
 
 /*
-GetMaliciousFilesByIds gets malicious files by ids
+  GetMaliciousFilesByIds gets malicious files by ids
 */
 func (a *Client) GetMaliciousFilesByIds(params *GetMaliciousFilesByIdsParams, opts ...ClientOption) (*GetMaliciousFilesByIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -332,7 +332,7 @@ func (a *Client) GetMaliciousFilesByIds(params *GetMaliciousFilesByIdsParams, op
 }
 
 /*
-GetScanHostMetadataByIds gets scan hosts by ids
+  GetScanHostMetadataByIds gets scan hosts by ids
 */
 func (a *Client) GetScanHostMetadataByIds(params *GetScanHostMetadataByIdsParams, opts ...ClientOption) (*GetScanHostMetadataByIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -370,7 +370,7 @@ func (a *Client) GetScanHostMetadataByIds(params *GetScanHostMetadataByIdsParams
 }
 
 /*
-GetScansByScanIds gets scans by i ds
+  GetScansByScanIds gets scans by i ds
 */
 func (a *Client) GetScansByScanIds(params *GetScansByScanIdsParams, opts ...ClientOption) (*GetScansByScanIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -408,7 +408,7 @@ func (a *Client) GetScansByScanIds(params *GetScansByScanIdsParams, opts ...Clie
 }
 
 /*
-GetScansByScanIdsV2 gets scans by i ds
+  GetScansByScanIdsV2 gets scans by i ds
 */
 func (a *Client) GetScansByScanIdsV2(params *GetScansByScanIdsV2Params, opts ...ClientOption) (*GetScansByScanIdsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -446,7 +446,7 @@ func (a *Client) GetScansByScanIdsV2(params *GetScansByScanIdsV2Params, opts ...
 }
 
 /*
-GetScheduledScansByScanIds gets scheduled scans by i ds
+  GetScheduledScansByScanIds gets scheduled scans by i ds
 */
 func (a *Client) GetScheduledScansByScanIds(params *GetScheduledScansByScanIdsParams, opts ...ClientOption) (*GetScheduledScansByScanIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -484,7 +484,7 @@ func (a *Client) GetScheduledScansByScanIds(params *GetScheduledScansByScanIdsPa
 }
 
 /*
-QueryMaliciousFiles queries malicious files
+  QueryMaliciousFiles queries malicious files
 */
 func (a *Client) QueryMaliciousFiles(params *QueryMaliciousFilesParams, opts ...ClientOption) (*QueryMaliciousFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -522,7 +522,7 @@ func (a *Client) QueryMaliciousFiles(params *QueryMaliciousFilesParams, opts ...
 }
 
 /*
-QueryScanHostMetadata queries scan hosts
+  QueryScanHostMetadata queries scan hosts
 */
 func (a *Client) QueryScanHostMetadata(params *QueryScanHostMetadataParams, opts ...ClientOption) (*QueryScanHostMetadataOK, error) {
 	// TODO: Validate the params before sending
@@ -560,7 +560,7 @@ func (a *Client) QueryScanHostMetadata(params *QueryScanHostMetadataParams, opts
 }
 
 /*
-QueryScans queries scans
+  QueryScans queries scans
 */
 func (a *Client) QueryScans(params *QueryScansParams, opts ...ClientOption) (*QueryScansOK, error) {
 	// TODO: Validate the params before sending
@@ -598,7 +598,7 @@ func (a *Client) QueryScans(params *QueryScansParams, opts ...ClientOption) (*Qu
 }
 
 /*
-QueryScheduledScans queries scheduled scans
+  QueryScheduledScans queries scheduled scans
 */
 func (a *Client) QueryScheduledScans(params *QueryScheduledScansParams, opts ...ClientOption) (*QueryScheduledScansOK, error) {
 	// TODO: Validate the params before sending
@@ -636,7 +636,7 @@ func (a *Client) QueryScheduledScans(params *QueryScheduledScansParams, opts ...
 }
 
 /*
-ScheduleScan creates o d s scan and start or schedule scan for the given scan request
+  ScheduleScan creates o d s scan and start or schedule scan for the given scan request
 */
 func (a *Client) ScheduleScan(params *ScheduleScanParams, opts ...ClientOption) (*ScheduleScanCreated, error) {
 	// TODO: Validate the params before sending

@@ -54,12 +54,10 @@ func NewUpdateRuleGroupMixin0ParamsWithHTTPClient(client *http.Client) *UpdateRu
 	}
 }
 
-/*
-UpdateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
+/* UpdateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
+   for the update rule group mixin0 operation.
 
-	for the update rule group mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRuleGroupMixin0Params struct {
 

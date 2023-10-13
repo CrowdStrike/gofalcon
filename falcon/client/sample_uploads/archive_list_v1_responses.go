@@ -65,8 +65,7 @@ func NewArchiveListV1OK() *ArchiveListV1OK {
 	return &ArchiveListV1OK{}
 }
 
-/*
-ArchiveListV1OK describes a response with status code 200, with default header values.
+/* ArchiveListV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewArchiveListV1BadRequest() *ArchiveListV1BadRequest {
 	return &ArchiveListV1BadRequest{}
 }
 
-/*
-ArchiveListV1BadRequest describes a response with status code 400, with default header values.
+/* ArchiveListV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewArchiveListV1Forbidden() *ArchiveListV1Forbidden {
 	return &ArchiveListV1Forbidden{}
 }
 
-/*
-ArchiveListV1Forbidden describes a response with status code 403, with default header values.
+/* ArchiveListV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewArchiveListV1TooManyRequests() *ArchiveListV1TooManyRequests {
 	return &ArchiveListV1TooManyRequests{}
 }
 
-/*
-ArchiveListV1TooManyRequests describes a response with status code 429, with default header values.
+/* ArchiveListV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewArchiveListV1InternalServerError() *ArchiveListV1InternalServerError {
 	return &ArchiveListV1InternalServerError{}
 }
 
-/*
-ArchiveListV1InternalServerError describes a response with status code 500, with default header values.
+/* ArchiveListV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

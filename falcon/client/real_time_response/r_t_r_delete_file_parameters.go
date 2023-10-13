@@ -52,12 +52,10 @@ func NewRTRDeleteFileParamsWithHTTPClient(client *http.Client) *RTRDeleteFilePar
 	}
 }
 
-/*
-RTRDeleteFileParams contains all the parameters to send to the API endpoint
+/* RTRDeleteFileParams contains all the parameters to send to the API endpoint
+   for the r t r delete file operation.
 
-	for the r t r delete file operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRDeleteFileParams struct {
 

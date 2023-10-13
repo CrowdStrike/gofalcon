@@ -53,8 +53,7 @@ func NewSearchObjectsOK() *SearchObjectsOK {
 	return &SearchObjectsOK{}
 }
 
-/*
-SearchObjectsOK describes a response with status code 200, with default header values.
+/* SearchObjectsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewSearchObjectsForbidden() *SearchObjectsForbidden {
 	return &SearchObjectsForbidden{}
 }
 
-/*
-SearchObjectsForbidden describes a response with status code 403, with default header values.
+/* SearchObjectsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewSearchObjectsTooManyRequests() *SearchObjectsTooManyRequests {
 	return &SearchObjectsTooManyRequests{}
 }
 
-/*
-SearchObjectsTooManyRequests describes a response with status code 429, with default header values.
+/* SearchObjectsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

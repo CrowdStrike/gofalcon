@@ -53,12 +53,10 @@ func NewQueryMitreAttacksParamsWithHTTPClient(client *http.Client) *QueryMitreAt
 	}
 }
 
-/*
-QueryMitreAttacksParams contains all the parameters to send to the API endpoint
+/* QueryMitreAttacksParams contains all the parameters to send to the API endpoint
+   for the query mitre attacks operation.
 
-	for the query mitre attacks operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryMitreAttacksParams struct {
 

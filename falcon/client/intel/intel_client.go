@@ -73,7 +73,7 @@ type ClientService interface {
 }
 
 /*
-GetIntelActorEntities retrieves specific actors using their actor i ds
+  GetIntelActorEntities retrieves specific actors using their actor i ds
 */
 func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, opts ...ClientOption) (*GetIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -111,7 +111,7 @@ func (a *Client) GetIntelActorEntities(params *GetIntelActorEntitiesParams, opts
 }
 
 /*
-GetIntelIndicatorEntities retrieves specific indicators using their indicator i ds
+  GetIntelIndicatorEntities retrieves specific indicators using their indicator i ds
 */
 func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesParams, opts ...ClientOption) (*GetIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -149,7 +149,7 @@ func (a *Client) GetIntelIndicatorEntities(params *GetIntelIndicatorEntitiesPara
 }
 
 /*
-GetIntelReportEntities retrieves specific reports using their report i ds
+  GetIntelReportEntities retrieves specific reports using their report i ds
 */
 func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, opts ...ClientOption) (*GetIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -187,7 +187,7 @@ func (a *Client) GetIntelReportEntities(params *GetIntelReportEntitiesParams, op
 }
 
 /*
-GetIntelReportPDF returns a report p d f attachment
+  GetIntelReportPDF returns a report p d f attachment
 */
 func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, writer io.Writer, opts ...ClientOption) (*GetIntelReportPDFOK, error) {
 	// TODO: Validate the params before sending
@@ -225,7 +225,7 @@ func (a *Client) GetIntelReportPDF(params *GetIntelReportPDFParams, writer io.Wr
 }
 
 /*
-GetIntelRuleEntities retrieves details for rule sets for the specified ids
+  GetIntelRuleEntities retrieves details for rule sets for the specified ids
 */
 func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts ...ClientOption) (*GetIntelRuleEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -263,7 +263,7 @@ func (a *Client) GetIntelRuleEntities(params *GetIntelRuleEntitiesParams, opts .
 }
 
 /*
-GetIntelRuleFile downloads earlier rule sets
+  GetIntelRuleFile downloads earlier rule sets
 */
 func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
@@ -301,7 +301,7 @@ func (a *Client) GetIntelRuleFile(params *GetIntelRuleFileParams, writer io.Writ
 }
 
 /*
-GetLatestIntelRuleFile downloads the latest rule set
+  GetLatestIntelRuleFile downloads the latest rule set
 */
 func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error) {
 	// TODO: Validate the params before sending
@@ -339,7 +339,7 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, wr
 }
 
 /*
-GetMitreReport exports mitre a t t and c k information for a given actor
+  GetMitreReport exports mitre a t t and c k information for a given actor
 */
 func (a *Client) GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error) {
 	// TODO: Validate the params before sending
@@ -377,7 +377,7 @@ func (a *Client) GetMitreReport(params *GetMitreReportParams, opts ...ClientOpti
 }
 
 /*
-GetVulnerabilities gets vulnerabilities
+  GetVulnerabilities gets vulnerabilities
 */
 func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -415,7 +415,7 @@ func (a *Client) GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...Cl
 }
 
 /*
-PostMitreAttacks retrieves report and observable i ds associated with the given actor and attacks
+  PostMitreAttacks retrieves report and observable i ds associated with the given actor and attacks
 */
 func (a *Client) PostMitreAttacks(params *PostMitreAttacksParams, opts ...ClientOption) (*PostMitreAttacksOK, error) {
 	// TODO: Validate the params before sending
@@ -453,7 +453,7 @@ func (a *Client) PostMitreAttacks(params *PostMitreAttacksParams, opts ...Client
 }
 
 /*
-QueryIntelActorEntities gets info about actors that match provided f q l filters
+  QueryIntelActorEntities gets info about actors that match provided f q l filters
 */
 func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, opts ...ClientOption) (*QueryIntelActorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -491,7 +491,7 @@ func (a *Client) QueryIntelActorEntities(params *QueryIntelActorEntitiesParams, 
 }
 
 /*
-QueryIntelActorIds gets actor i ds that match provided f q l filters
+  QueryIntelActorIds gets actor i ds that match provided f q l filters
 */
 func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, opts ...ClientOption) (*QueryIntelActorIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -529,7 +529,7 @@ func (a *Client) QueryIntelActorIds(params *QueryIntelActorIdsParams, opts ...Cl
 }
 
 /*
-QueryIntelIndicatorEntities gets info about indicators that match provided f q l filters
+  QueryIntelIndicatorEntities gets info about indicators that match provided f q l filters
 */
 func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntitiesParams, opts ...ClientOption) (*QueryIntelIndicatorEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -567,7 +567,7 @@ func (a *Client) QueryIntelIndicatorEntities(params *QueryIntelIndicatorEntities
 }
 
 /*
-QueryIntelIndicatorIds gets indicators i ds that match provided f q l filters
+  QueryIntelIndicatorIds gets indicators i ds that match provided f q l filters
 */
 func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, opts ...ClientOption) (*QueryIntelIndicatorIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -605,7 +605,7 @@ func (a *Client) QueryIntelIndicatorIds(params *QueryIntelIndicatorIdsParams, op
 }
 
 /*
-QueryIntelReportEntities gets info about reports that match provided f q l filters
+  QueryIntelReportEntities gets info about reports that match provided f q l filters
 */
 func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams, opts ...ClientOption) (*QueryIntelReportEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -643,7 +643,7 @@ func (a *Client) QueryIntelReportEntities(params *QueryIntelReportEntitiesParams
 }
 
 /*
-QueryIntelReportIds gets report i ds that match provided f q l filters
+  QueryIntelReportIds gets report i ds that match provided f q l filters
 */
 func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...ClientOption) (*QueryIntelReportIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -681,7 +681,7 @@ func (a *Client) QueryIntelReportIds(params *QueryIntelReportIdsParams, opts ...
 }
 
 /*
-QueryIntelRuleIds searches for rule i ds that match provided filter criteria
+  QueryIntelRuleIds searches for rule i ds that match provided filter criteria
 */
 func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -719,7 +719,7 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...Clie
 }
 
 /*
-QueryMitreAttacks gets m i t r e tactics and techniques for the given actor returning concatenation of id and tactic and technique ids example fancy bear t a0011 t1071
+  QueryMitreAttacks gets m i t r e tactics and techniques for the given actor returning concatenation of id and tactic and technique ids example fancy bear t a0011 t1071
 */
 func (a *Client) QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...ClientOption) (*QueryMitreAttacksOK, error) {
 	// TODO: Validate the params before sending
@@ -757,7 +757,7 @@ func (a *Client) QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...Clie
 }
 
 /*
-QueryVulnerabilities gets vulnerabilities i ds
+  QueryVulnerabilities gets vulnerabilities i ds
 */
 func (a *Client) QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending

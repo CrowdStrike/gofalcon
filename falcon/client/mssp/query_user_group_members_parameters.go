@@ -53,12 +53,10 @@ func NewQueryUserGroupMembersParamsWithHTTPClient(client *http.Client) *QueryUse
 	}
 }
 
-/*
-QueryUserGroupMembersParams contains all the parameters to send to the API endpoint
+/* QueryUserGroupMembersParams contains all the parameters to send to the API endpoint
+   for the query user group members operation.
 
-	for the query user group members operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryUserGroupMembersParams struct {
 

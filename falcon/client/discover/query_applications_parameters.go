@@ -53,12 +53,10 @@ func NewQueryApplicationsParamsWithHTTPClient(client *http.Client) *QueryApplica
 	}
 }
 
-/*
-QueryApplicationsParams contains all the parameters to send to the API endpoint
+/* QueryApplicationsParams contains all the parameters to send to the API endpoint
+   for the query applications operation.
 
-	for the query applications operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryApplicationsParams struct {
 

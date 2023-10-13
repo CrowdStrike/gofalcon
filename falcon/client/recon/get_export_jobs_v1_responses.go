@@ -71,8 +71,7 @@ func NewGetExportJobsV1OK() *GetExportJobsV1OK {
 	return &GetExportJobsV1OK{}
 }
 
-/*
-GetExportJobsV1OK describes a response with status code 200, with default header values.
+/* GetExportJobsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetExportJobsV1BadRequest() *GetExportJobsV1BadRequest {
 	return &GetExportJobsV1BadRequest{}
 }
 
-/*
-GetExportJobsV1BadRequest describes a response with status code 400, with default header values.
+/* GetExportJobsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetExportJobsV1Unauthorized() *GetExportJobsV1Unauthorized {
 	return &GetExportJobsV1Unauthorized{}
 }
 
-/*
-GetExportJobsV1Unauthorized describes a response with status code 401, with default header values.
+/* GetExportJobsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewGetExportJobsV1Forbidden() *GetExportJobsV1Forbidden {
 	return &GetExportJobsV1Forbidden{}
 }
 
-/*
-GetExportJobsV1Forbidden describes a response with status code 403, with default header values.
+/* GetExportJobsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetExportJobsV1TooManyRequests() *GetExportJobsV1TooManyRequests {
 	return &GetExportJobsV1TooManyRequests{}
 }
 
-/*
-GetExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetExportJobsV1InternalServerError() *GetExportJobsV1InternalServerError
 	return &GetExportJobsV1InternalServerError{}
 }
 
-/*
-GetExportJobsV1InternalServerError describes a response with status code 500, with default header values.
+/* GetExportJobsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewGetEventsEntitiesOK() *GetEventsEntitiesOK {
 	return &GetEventsEntitiesOK{}
 }
 
-/*
-GetEventsEntitiesOK describes a response with status code 200, with default header values.
+/* GetEventsEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetEventsEntitiesBadRequest() *GetEventsEntitiesBadRequest {
 	return &GetEventsEntitiesBadRequest{}
 }
 
-/*
-GetEventsEntitiesBadRequest describes a response with status code 400, with default header values.
+/* GetEventsEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetEventsEntitiesForbidden() *GetEventsEntitiesForbidden {
 	return &GetEventsEntitiesForbidden{}
 }
 
-/*
-GetEventsEntitiesForbidden describes a response with status code 403, with default header values.
+/* GetEventsEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -382,8 +379,7 @@ func NewGetEventsEntitiesTooManyRequests() *GetEventsEntitiesTooManyRequests {
 	return &GetEventsEntitiesTooManyRequests{}
 }
 
-/*
-GetEventsEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetEventsEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -507,8 +503,7 @@ func NewGetEventsEntitiesInternalServerError() *GetEventsEntitiesInternalServerE
 	return &GetEventsEntitiesInternalServerError{}
 }
 
-/*
-GetEventsEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* GetEventsEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

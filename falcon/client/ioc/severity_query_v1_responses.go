@@ -53,8 +53,7 @@ func NewSeverityQueryV1OK() *SeverityQueryV1OK {
 	return &SeverityQueryV1OK{}
 }
 
-/*
-SeverityQueryV1OK describes a response with status code 200, with default header values.
+/* SeverityQueryV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewSeverityQueryV1Forbidden() *SeverityQueryV1Forbidden {
 	return &SeverityQueryV1Forbidden{}
 }
 
-/*
-SeverityQueryV1Forbidden describes a response with status code 403, with default header values.
+/* SeverityQueryV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewSeverityQueryV1TooManyRequests() *SeverityQueryV1TooManyRequests {
 	return &SeverityQueryV1TooManyRequests{}
 }
 
-/*
-SeverityQueryV1TooManyRequests describes a response with status code 429, with default header values.
+/* SeverityQueryV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

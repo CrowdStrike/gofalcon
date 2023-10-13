@@ -52,12 +52,10 @@ func NewGetCredentialsParamsWithHTTPClient(client *http.Client) *GetCredentialsP
 	}
 }
 
-/*
-GetCredentialsParams contains all the parameters to send to the API endpoint
+/* GetCredentialsParams contains all the parameters to send to the API endpoint
+   for the get credentials operation.
 
-	for the get credentials operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCredentialsParams struct {
 	timeout    time.Duration

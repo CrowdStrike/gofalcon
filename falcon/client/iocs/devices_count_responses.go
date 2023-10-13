@@ -53,8 +53,7 @@ func NewDevicesCountOK() *DevicesCountOK {
 	return &DevicesCountOK{}
 }
 
-/*
-DevicesCountOK describes a response with status code 200, with default header values.
+/* DevicesCountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewDevicesCountForbidden() *DevicesCountForbidden {
 	return &DevicesCountForbidden{}
 }
 
-/*
-DevicesCountForbidden describes a response with status code 403, with default header values.
+/* DevicesCountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewDevicesCountTooManyRequests() *DevicesCountTooManyRequests {
 	return &DevicesCountTooManyRequests{}
 }
 
-/*
-DevicesCountTooManyRequests describes a response with status code 429, with default header values.
+/* DevicesCountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

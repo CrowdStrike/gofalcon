@@ -53,8 +53,7 @@ func NewIndicatorGetV1OK() *IndicatorGetV1OK {
 	return &IndicatorGetV1OK{}
 }
 
-/*
-IndicatorGetV1OK describes a response with status code 200, with default header values.
+/* IndicatorGetV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIndicatorGetV1Forbidden() *IndicatorGetV1Forbidden {
 	return &IndicatorGetV1Forbidden{}
 }
 
-/*
-IndicatorGetV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorGetV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIndicatorGetV1TooManyRequests() *IndicatorGetV1TooManyRequests {
 	return &IndicatorGetV1TooManyRequests{}
 }
 
-/*
-IndicatorGetV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorGetV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -86,9 +86,9 @@ type ClientService interface {
 }
 
 /*
-CreatePolicies creates a new policy of the specified type new policies are always added at the end of the precedence list for the provided policy type
+  CreatePolicies creates a new policy of the specified type new policies are always added at the end of the precedence list for the provided policy type
 
-After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
+  After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
 */
 func (a *Client) CreatePolicies(params *CreatePoliciesParams, opts ...ClientOption) (*CreatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -126,9 +126,9 @@ func (a *Client) CreatePolicies(params *CreatePoliciesParams, opts ...ClientOpti
 }
 
 /*
-CreateRuleGroups creates a new rule group of the specified type
+  CreateRuleGroups creates a new rule group of the specified type
 
-Individual rules can be assigned to a rule group after it has been created.
+  Individual rules can be assigned to a rule group after it has been created.
 */
 func (a *Client) CreateRuleGroups(params *CreateRuleGroupsParams, opts ...ClientOption) (*CreateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -166,9 +166,9 @@ func (a *Client) CreateRuleGroups(params *CreateRuleGroupsParams, opts ...Client
 }
 
 /*
-CreateRules creates a new rule configuration within the specified rule group
+  CreateRules creates a new rule configuration within the specified rule group
 
-Creates a new rule configuration within the specified rule group.
+  Creates a new rule configuration within the specified rule group.
 */
 func (a *Client) CreateRules(params *CreateRulesParams, opts ...ClientOption) (*CreateRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -206,9 +206,9 @@ func (a *Client) CreateRules(params *CreateRulesParams, opts ...ClientOption) (*
 }
 
 /*
-CreateScheduledExclusions creates a new scheduled exclusion configuration for the provided policy id
+  CreateScheduledExclusions creates a new scheduled exclusion configuration for the provided policy id
 
-Creates a new scheduled exclusion configuration for the provided policy id.
+  Creates a new scheduled exclusion configuration for the provided policy id.
 */
 func (a *Client) CreateScheduledExclusions(params *CreateScheduledExclusionsParams, opts ...ClientOption) (*CreateScheduledExclusionsOK, error) {
 	// TODO: Validate the params before sending
@@ -246,9 +246,9 @@ func (a *Client) CreateScheduledExclusions(params *CreateScheduledExclusionsPara
 }
 
 /*
-DeletePolicies deletes 1 or more policies
+  DeletePolicies deletes 1 or more policies
 
-Only disabled policies are allowed to be deleted.
+  Only disabled policies are allowed to be deleted.
 */
 func (a *Client) DeletePolicies(params *DeletePoliciesParams, opts ...ClientOption) (*DeletePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -286,11 +286,11 @@ func (a *Client) DeletePolicies(params *DeletePoliciesParams, opts ...ClientOpti
 }
 
 /*
-	DeleteRuleGroups deletes 1 or more rule groups
+  DeleteRuleGroups deletes 1 or more rule groups
 
-	The rule groups represented by the provided ids and all rules that they contain will be deleted.
+  The rule groups represented by the provided ids and all rules that they contain will be deleted.
 
-Rule groups can only be deleted if they are not assigned to a policy.
+ Rule groups can only be deleted if they are not assigned to a policy.
 */
 func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...ClientOption) (*DeleteRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -328,9 +328,9 @@ func (a *Client) DeleteRuleGroups(params *DeleteRuleGroupsParams, opts ...Client
 }
 
 /*
-DeleteRules deletes 1 or more rules from the specified rule group
+  DeleteRules deletes 1 or more rules from the specified rule group
 
-Rules that match a provided id will be deleted from the provided rule group id.
+  Rules that match a provided id will be deleted from the provided rule group id.
 */
 func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -368,9 +368,9 @@ func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*
 }
 
 /*
-DeleteScheduledExclusions deletes 1 or more scheduled exclusions from the provided policy id
+  DeleteScheduledExclusions deletes 1 or more scheduled exclusions from the provided policy id
 
-Scheduled exclusions that match a provided id will be deleted from the provided policy id.
+  Scheduled exclusions that match a provided id will be deleted from the provided policy id.
 */
 func (a *Client) DeleteScheduledExclusions(params *DeleteScheduledExclusionsParams, opts ...ClientOption) (*DeleteScheduledExclusionsOK, error) {
 	// TODO: Validate the params before sending
@@ -408,9 +408,9 @@ func (a *Client) DeleteScheduledExclusions(params *DeleteScheduledExclusionsPara
 }
 
 /*
-GetChanges retrieves information on changes
+  GetChanges retrieves information on changes
 
-Retrieve key attributes of Falcon FileVantage changes for the specified ids.
+  Retrieve key attributes of Falcon FileVantage changes for the specified ids.
 */
 func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*GetChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -448,9 +448,9 @@ func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*Ge
 }
 
 /*
-GetPolicies retrieves the configuration for 1 or more policies
+  GetPolicies retrieves the configuration for 1 or more policies
 
-The configuration of each policy that match the provided id will be returned.
+  The configuration of each policy that match the provided id will be returned.
 */
 func (a *Client) GetPolicies(params *GetPoliciesParams, opts ...ClientOption) (*GetPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -488,9 +488,9 @@ func (a *Client) GetPolicies(params *GetPoliciesParams, opts ...ClientOption) (*
 }
 
 /*
-GetRuleGroups retrieves the rule group details for 1 or more rule groups
+  GetRuleGroups retrieves the rule group details for 1 or more rule groups
 
-Full details of each rule group that matches a provided id will be returned in the response
+  Full details of each rule group that matches a provided id will be returned in the response
 */
 func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption) (*GetRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -528,9 +528,9 @@ func (a *Client) GetRuleGroups(params *GetRuleGroupsParams, opts ...ClientOption
 }
 
 /*
-GetRules retrieves the configuration for 1 or more rules
+  GetRules retrieves the configuration for 1 or more rules
 
-Rules within the provided rule group id that match a provided id will be returned within the response.
+  Rules within the provided rule group id that match a provided id will be returned within the response.
 */
 func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -568,9 +568,9 @@ func (a *Client) GetRules(params *GetRulesParams, opts ...ClientOption) (*GetRul
 }
 
 /*
-GetScheduledExclusions retrieves the configuration of 1 or more scheduled exclusions from the provided policy id
+  GetScheduledExclusions retrieves the configuration of 1 or more scheduled exclusions from the provided policy id
 
-Full details of each each scheduled exclusion that match a provided id will be returned in the response.
+  Full details of each each scheduled exclusion that match a provided id will be returned in the response.
 */
 func (a *Client) GetScheduledExclusions(params *GetScheduledExclusionsParams, opts ...ClientOption) (*GetScheduledExclusionsOK, error) {
 	// TODO: Validate the params before sending
@@ -608,9 +608,9 @@ func (a *Client) GetScheduledExclusions(params *GetScheduledExclusionsParams, op
 }
 
 /*
-HighVolumeQueryChanges returns 1 or more change ids
+  HighVolumeQueryChanges returns 1 or more change ids
 
-Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+  Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
 */
 func (a *Client) HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, opts ...ClientOption) (*HighVolumeQueryChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -648,9 +648,9 @@ func (a *Client) HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, op
 }
 
 /*
-QueryChanges returns 1 or more change ids
+  QueryChanges returns 1 or more change ids
 
-Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
+  Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
 */
 func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -688,9 +688,9 @@ func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) 
 }
 
 /*
-QueryPolicies retrieves the ids of all policies that are assigned the provided policy type
+  QueryPolicies retrieves the ids of all policies that are assigned the provided policy type
 
-Policy ids will be returned sorted by a `precedence` order of ascending when a `sort` parameter is not provided.
+  Policy ids will be returned sorted by a `precedence` order of ascending when a `sort` parameter is not provided.
 */
 func (a *Client) QueryPolicies(params *QueryPoliciesParams, opts ...ClientOption) (*QueryPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -728,9 +728,9 @@ func (a *Client) QueryPolicies(params *QueryPoliciesParams, opts ...ClientOption
 }
 
 /*
-QueryRuleGroups retrieves the ids of all rule groups that are of the provided rule group type
+  QueryRuleGroups retrieves the ids of all rule groups that are of the provided rule group type
 
-Rule group ids will be returned sorted by `created_timestamp` order if a `sort` parameter is not provided
+  Rule group ids will be returned sorted by `created_timestamp` order if a `sort` parameter is not provided
 */
 func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -768,9 +768,9 @@ func (a *Client) QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOp
 }
 
 /*
-QueryScheduledExclusions retrieves the ids of all scheduled exclusions contained within the provided policy id
+  QueryScheduledExclusions retrieves the ids of all scheduled exclusions contained within the provided policy id
 
-Retrieve the ids of all scheduled exclusions contained within the provided policy id
+  Retrieve the ids of all scheduled exclusions contained within the provided policy id
 */
 func (a *Client) QueryScheduledExclusions(params *QueryScheduledExclusionsParams, opts ...ClientOption) (*QueryScheduledExclusionsOK, error) {
 	// TODO: Validate the params before sending
@@ -808,9 +808,9 @@ func (a *Client) QueryScheduledExclusions(params *QueryScheduledExclusionsParams
 }
 
 /*
-UpdatePolicies updates the general information of the provided policy
+  UpdatePolicies updates the general information of the provided policy
 
-Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
+  Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
 */
 func (a *Client) UpdatePolicies(params *UpdatePoliciesParams, opts ...ClientOption) (*UpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -848,9 +848,9 @@ func (a *Client) UpdatePolicies(params *UpdatePoliciesParams, opts ...ClientOpti
 }
 
 /*
-UpdatePolicyHostGroups manages host groups assigned to a policy
+  UpdatePolicyHostGroups manages host groups assigned to a policy
 
-Manage host groups assigned to a policy.
+  Manage host groups assigned to a policy.
 */
 func (a *Client) UpdatePolicyHostGroups(params *UpdatePolicyHostGroupsParams, opts ...ClientOption) (*UpdatePolicyHostGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -888,9 +888,9 @@ func (a *Client) UpdatePolicyHostGroups(params *UpdatePolicyHostGroupsParams, op
 }
 
 /*
-UpdatePolicyPrecedence updates the policy precedence for all policies of a specific type
+  UpdatePolicyPrecedence updates the policy precedence for all policies of a specific type
 
-Requests that do not represent all ids of the provided policy type will not be processed.
+  Requests that do not represent all ids of the provided policy type will not be processed.
 */
 func (a *Client) UpdatePolicyPrecedence(params *UpdatePolicyPrecedenceParams, opts ...ClientOption) (*UpdatePolicyPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -928,17 +928,17 @@ func (a *Client) UpdatePolicyPrecedence(params *UpdatePolicyPrecedenceParams, op
 }
 
 /*
-	UpdatePolicyRuleGroups manages the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy
+  UpdatePolicyRuleGroups manages the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy
 
-	Manage the rule groups assigned to the policy.
+  Manage the rule groups assigned to the policy.
 
 Rule groups must be of the same type as the policy they are being added:
 
-  - `WindowsRegistry` and `WindowsFiles` groups can only be added to a `Windows` policy.
+ * `WindowsRegistry` and `WindowsFiles` groups can only be added to a `Windows` policy.
 
-  - `LinuxFiles` groups can only be added to a `Linux` policy.
+ * `LinuxFiles` groups can only be added to a `Linux` policy.
 
-  - `MacFiles` groups can only be added to a `Mac` policy.
+ * `MacFiles` groups can only be added to a `Mac` policy.
 
 When setting rule group precedence, the precedence for `all` rule group ids within the policy must be provided.
 */
@@ -978,10 +978,9 @@ func (a *Client) UpdatePolicyRuleGroups(params *UpdatePolicyRuleGroupsParams, op
 }
 
 /*
-	UpdateRuleGroupPrecedence updates the rule precedence for all rules in the identified rule group
+  UpdateRuleGroupPrecedence updates the rule precedence for all rules in the identified rule group
 
-	The ids for `all` rules contained within the rule group must be specified in the desired precedence order.
-
+  The ids for `all` rules contained within the rule group must be specified in the desired precedence order.
 Requests that do not represent all ids will not be processed.
 */
 func (a *Client) UpdateRuleGroupPrecedence(params *UpdateRuleGroupPrecedenceParams, opts ...ClientOption) (*UpdateRuleGroupPrecedenceOK, error) {
@@ -1020,9 +1019,9 @@ func (a *Client) UpdateRuleGroupPrecedence(params *UpdateRuleGroupPrecedencePara
 }
 
 /*
-UpdateRuleGroups updates the provided rule group
+  UpdateRuleGroups updates the provided rule group
 
-Provides the ability to update the name and description of the rule group.
+  Provides the ability to update the name and description of the rule group.
 */
 func (a *Client) UpdateRuleGroups(params *UpdateRuleGroupsParams, opts ...ClientOption) (*UpdateRuleGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -1060,9 +1059,9 @@ func (a *Client) UpdateRuleGroups(params *UpdateRuleGroupsParams, opts ...Client
 }
 
 /*
-UpdateRules updates the provided rule configuration within the specified rule group
+  UpdateRules updates the provided rule configuration within the specified rule group
 
-The rule must currently exist within the specified rule group.
+  The rule must currently exist within the specified rule group.
 */
 func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -1100,9 +1099,9 @@ func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*
 }
 
 /*
-UpdateScheduledExclusions updates the provided scheduled exclusion configuration within the provided policy
+  UpdateScheduledExclusions updates the provided scheduled exclusion configuration within the provided policy
 
-Updates the provided scheduled exclusion configuration within the provided policy.
+  Updates the provided scheduled exclusion configuration within the provided policy.
 */
 func (a *Client) UpdateScheduledExclusions(params *UpdateScheduledExclusionsParams, opts ...ClientOption) (*UpdateScheduledExclusionsOK, error) {
 	// TODO: Validate the params before sending

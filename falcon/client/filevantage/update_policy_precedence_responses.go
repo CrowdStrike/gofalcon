@@ -71,8 +71,7 @@ func NewUpdatePolicyPrecedenceOK() *UpdatePolicyPrecedenceOK {
 	return &UpdatePolicyPrecedenceOK{}
 }
 
-/*
-UpdatePolicyPrecedenceOK describes a response with status code 200, with default header values.
+/* UpdatePolicyPrecedenceOK describes a response with status code 200, with default header values.
 
 Policy Precedence Updated.
 */
@@ -181,8 +180,7 @@ func NewUpdatePolicyPrecedenceBadRequest() *UpdatePolicyPrecedenceBadRequest {
 	return &UpdatePolicyPrecedenceBadRequest{}
 }
 
-/*
-UpdatePolicyPrecedenceBadRequest describes a response with status code 400, with default header values.
+/* UpdatePolicyPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdatePolicyPrecedenceForbidden() *UpdatePolicyPrecedenceForbidden {
 	return &UpdatePolicyPrecedenceForbidden{}
 }
 
-/*
-UpdatePolicyPrecedenceForbidden describes a response with status code 403, with default header values.
+/* UpdatePolicyPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdatePolicyPrecedenceConflict() *UpdatePolicyPrecedenceConflict {
 	return &UpdatePolicyPrecedenceConflict{}
 }
 
-/*
-UpdatePolicyPrecedenceConflict describes a response with status code 409, with default header values.
+/* UpdatePolicyPrecedenceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewUpdatePolicyPrecedenceTooManyRequests() *UpdatePolicyPrecedenceTooManyRe
 	return &UpdatePolicyPrecedenceTooManyRequests{}
 }
 
-/*
-UpdatePolicyPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/* UpdatePolicyPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdatePolicyPrecedenceInternalServerError() *UpdatePolicyPrecedenceInter
 	return &UpdatePolicyPrecedenceInternalServerError{}
 }
 
-/*
-UpdatePolicyPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/* UpdatePolicyPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

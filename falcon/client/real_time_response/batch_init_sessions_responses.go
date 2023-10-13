@@ -65,8 +65,7 @@ func NewBatchInitSessionsCreated() *BatchInitSessionsCreated {
 	return &BatchInitSessionsCreated{}
 }
 
-/*
-BatchInitSessionsCreated describes a response with status code 201, with default header values.
+/* BatchInitSessionsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewBatchInitSessionsBadRequest() *BatchInitSessionsBadRequest {
 	return &BatchInitSessionsBadRequest{}
 }
 
-/*
-BatchInitSessionsBadRequest describes a response with status code 400, with default header values.
+/* BatchInitSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewBatchInitSessionsForbidden() *BatchInitSessionsForbidden {
 	return &BatchInitSessionsForbidden{}
 }
 
-/*
-BatchInitSessionsForbidden describes a response with status code 403, with default header values.
+/* BatchInitSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewBatchInitSessionsTooManyRequests() *BatchInitSessionsTooManyRequests {
 	return &BatchInitSessionsTooManyRequests{}
 }
 
-/*
-BatchInitSessionsTooManyRequests describes a response with status code 429, with default header values.
+/* BatchInitSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewBatchInitSessionsInternalServerError() *BatchInitSessionsInternalServerE
 	return &BatchInitSessionsInternalServerError{}
 }
 
-/*
-BatchInitSessionsInternalServerError describes a response with status code 500, with default header values.
+/* BatchInitSessionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

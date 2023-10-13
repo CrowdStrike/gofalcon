@@ -54,12 +54,10 @@ func NewCreateIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *CreateIO
 	}
 }
 
-/*
-CreateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+/* CreateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the create i o a exclusions v1 operation.
 
-	for the create i o a exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateIOAExclusionsV1Params struct {
 

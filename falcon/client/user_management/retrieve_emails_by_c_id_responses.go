@@ -59,8 +59,7 @@ func NewRetrieveEmailsByCIDOK() *RetrieveEmailsByCIDOK {
 	return &RetrieveEmailsByCIDOK{}
 }
 
-/*
-RetrieveEmailsByCIDOK describes a response with status code 200, with default header values.
+/* RetrieveEmailsByCIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewRetrieveEmailsByCIDBadRequest() *RetrieveEmailsByCIDBadRequest {
 	return &RetrieveEmailsByCIDBadRequest{}
 }
 
-/*
-RetrieveEmailsByCIDBadRequest describes a response with status code 400, with default header values.
+/* RetrieveEmailsByCIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewRetrieveEmailsByCIDForbidden() *RetrieveEmailsByCIDForbidden {
 	return &RetrieveEmailsByCIDForbidden{}
 }
 
-/*
-RetrieveEmailsByCIDForbidden describes a response with status code 403, with default header values.
+/* RetrieveEmailsByCIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewRetrieveEmailsByCIDTooManyRequests() *RetrieveEmailsByCIDTooManyRequests
 	return &RetrieveEmailsByCIDTooManyRequests{}
 }
 
-/*
-RetrieveEmailsByCIDTooManyRequests describes a response with status code 429, with default header values.
+/* RetrieveEmailsByCIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

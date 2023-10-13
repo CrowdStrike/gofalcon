@@ -71,8 +71,7 @@ func NewCreatePreventionPoliciesCreated() *CreatePreventionPoliciesCreated {
 	return &CreatePreventionPoliciesCreated{}
 }
 
-/*
-CreatePreventionPoliciesCreated describes a response with status code 201, with default header values.
+/* CreatePreventionPoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreatePreventionPoliciesBadRequest() *CreatePreventionPoliciesBadRequest
 	return &CreatePreventionPoliciesBadRequest{}
 }
 
-/*
-CreatePreventionPoliciesBadRequest describes a response with status code 400, with default header values.
+/* CreatePreventionPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreatePreventionPoliciesForbidden() *CreatePreventionPoliciesForbidden {
 	return &CreatePreventionPoliciesForbidden{}
 }
 
-/*
-CreatePreventionPoliciesForbidden describes a response with status code 403, with default header values.
+/* CreatePreventionPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreatePreventionPoliciesNotFound() *CreatePreventionPoliciesNotFound {
 	return &CreatePreventionPoliciesNotFound{}
 }
 
-/*
-CreatePreventionPoliciesNotFound describes a response with status code 404, with default header values.
+/* CreatePreventionPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewCreatePreventionPoliciesTooManyRequests() *CreatePreventionPoliciesTooMa
 	return &CreatePreventionPoliciesTooManyRequests{}
 }
 
-/*
-CreatePreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* CreatePreventionPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreatePreventionPoliciesInternalServerError() *CreatePreventionPoliciesI
 	return &CreatePreventionPoliciesInternalServerError{}
 }
 
-/*
-CreatePreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
+/* CreatePreventionPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

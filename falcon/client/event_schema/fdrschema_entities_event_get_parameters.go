@@ -53,12 +53,10 @@ func NewFdrschemaEntitiesEventGetParamsWithHTTPClient(client *http.Client) *Fdrs
 	}
 }
 
-/*
-FdrschemaEntitiesEventGetParams contains all the parameters to send to the API endpoint
+/* FdrschemaEntitiesEventGetParams contains all the parameters to send to the API endpoint
+   for the fdrschema entities event get operation.
 
-	for the fdrschema entities event get operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type FdrschemaEntitiesEventGetParams struct {
 

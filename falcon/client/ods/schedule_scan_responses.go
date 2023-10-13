@@ -53,8 +53,7 @@ func NewScheduleScanCreated() *ScheduleScanCreated {
 	return &ScheduleScanCreated{}
 }
 
-/*
-ScheduleScanCreated describes a response with status code 201, with default header values.
+/* ScheduleScanCreated describes a response with status code 201, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewScheduleScanForbidden() *ScheduleScanForbidden {
 	return &ScheduleScanForbidden{}
 }
 
-/*
-ScheduleScanForbidden describes a response with status code 403, with default header values.
+/* ScheduleScanForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewScheduleScanTooManyRequests() *ScheduleScanTooManyRequests {
 	return &ScheduleScanTooManyRequests{}
 }
 
-/*
-ScheduleScanTooManyRequests describes a response with status code 429, with default header values.
+/* ScheduleScanTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -17,13 +17,13 @@ import (
 // swagger:model api.ExposedDataRecordFinancialV1
 type APIExposedDataRecordFinancialV1 struct {
 
-	// bank account
+	// Bank Account information
 	BankAccount string `json:"bank_account,omitempty"`
 
-	// credit card
+	// Credit Card information
 	CreditCard string `json:"credit_card,omitempty"`
 
-	// crypto currency addresses
+	// A list of Crypto Currency addresses
 	CryptoCurrencyAddresses []string `json:"crypto_currency_addresses"`
 }
 

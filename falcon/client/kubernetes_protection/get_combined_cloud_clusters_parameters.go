@@ -53,12 +53,10 @@ func NewGetCombinedCloudClustersParamsWithHTTPClient(client *http.Client) *GetCo
 	}
 }
 
-/*
-GetCombinedCloudClustersParams contains all the parameters to send to the API endpoint
+/* GetCombinedCloudClustersParams contains all the parameters to send to the API endpoint
+   for the get combined cloud clusters operation.
 
-	for the get combined cloud clusters operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCombinedCloudClustersParams struct {
 

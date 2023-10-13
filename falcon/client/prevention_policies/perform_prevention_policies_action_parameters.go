@@ -54,12 +54,10 @@ func NewPerformPreventionPoliciesActionParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PerformPreventionPoliciesActionParams contains all the parameters to send to the API endpoint
+/* PerformPreventionPoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform prevention policies action operation.
 
-	for the perform prevention policies action operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PerformPreventionPoliciesActionParams struct {
 

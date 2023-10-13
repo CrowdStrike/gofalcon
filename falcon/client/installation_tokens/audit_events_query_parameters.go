@@ -53,12 +53,10 @@ func NewAuditEventsQueryParamsWithHTTPClient(client *http.Client) *AuditEventsQu
 	}
 }
 
-/*
-AuditEventsQueryParams contains all the parameters to send to the API endpoint
+/* AuditEventsQueryParams contains all the parameters to send to the API endpoint
+   for the audit events query operation.
 
-	for the audit events query operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AuditEventsQueryParams struct {
 

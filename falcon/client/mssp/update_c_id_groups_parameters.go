@@ -54,12 +54,10 @@ func NewUpdateCIDGroupsParamsWithHTTPClient(client *http.Client) *UpdateCIDGroup
 	}
 }
 
-/*
-UpdateCIDGroupsParams contains all the parameters to send to the API endpoint
+/* UpdateCIDGroupsParams contains all the parameters to send to the API endpoint
+   for the update c ID groups operation.
 
-	for the update c ID groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateCIDGroupsParams struct {
 

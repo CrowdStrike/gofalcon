@@ -53,12 +53,10 @@ func NewGetAzureInstallScriptParamsWithHTTPClient(client *http.Client) *GetAzure
 	}
 }
 
-/*
-GetAzureInstallScriptParams contains all the parameters to send to the API endpoint
+/* GetAzureInstallScriptParams contains all the parameters to send to the API endpoint
+   for the get azure install script operation.
 
-	for the get azure install script operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAzureInstallScriptParams struct {
 

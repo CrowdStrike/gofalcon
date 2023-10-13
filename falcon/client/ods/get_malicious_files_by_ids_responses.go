@@ -59,8 +59,7 @@ func NewGetMaliciousFilesByIdsOK() *GetMaliciousFilesByIdsOK {
 	return &GetMaliciousFilesByIdsOK{}
 }
 
-/*
-GetMaliciousFilesByIdsOK describes a response with status code 200, with default header values.
+/* GetMaliciousFilesByIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetMaliciousFilesByIdsForbidden() *GetMaliciousFilesByIdsForbidden {
 	return &GetMaliciousFilesByIdsForbidden{}
 }
 
-/*
-GetMaliciousFilesByIdsForbidden describes a response with status code 403, with default header values.
+/* GetMaliciousFilesByIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewGetMaliciousFilesByIdsNotFound() *GetMaliciousFilesByIdsNotFound {
 	return &GetMaliciousFilesByIdsNotFound{}
 }
 
-/*
-GetMaliciousFilesByIdsNotFound describes a response with status code 404, with default header values.
+/* GetMaliciousFilesByIdsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewGetMaliciousFilesByIdsTooManyRequests() *GetMaliciousFilesByIdsTooManyRe
 	return &GetMaliciousFilesByIdsTooManyRequests{}
 }
 
-/*
-GetMaliciousFilesByIdsTooManyRequests describes a response with status code 429, with default header values.
+/* GetMaliciousFilesByIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -55,12 +55,10 @@ func NewExecuteParamsWithHTTPClient(client *http.Client) *ExecuteParams {
 	}
 }
 
-/*
-ExecuteParams contains all the parameters to send to the API endpoint
+/* ExecuteParams contains all the parameters to send to the API endpoint
+   for the execute operation.
 
-	for the execute operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ExecuteParams struct {
 

@@ -53,8 +53,7 @@ func NewGetIndicatorsReportOK() *GetIndicatorsReportOK {
 	return &GetIndicatorsReportOK{}
 }
 
-/*
-GetIndicatorsReportOK describes a response with status code 200, with default header values.
+/* GetIndicatorsReportOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetIndicatorsReportForbidden() *GetIndicatorsReportForbidden {
 	return &GetIndicatorsReportForbidden{}
 }
 
-/*
-GetIndicatorsReportForbidden describes a response with status code 403, with default header values.
+/* GetIndicatorsReportForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetIndicatorsReportTooManyRequests() *GetIndicatorsReportTooManyRequests
 	return &GetIndicatorsReportTooManyRequests{}
 }
 
-/*
-GetIndicatorsReportTooManyRequests describes a response with status code 429, with default header values.
+/* GetIndicatorsReportTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

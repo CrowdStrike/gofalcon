@@ -71,8 +71,7 @@ func NewGetCSPMPolicyOK() *GetCSPMPolicyOK {
 	return &GetCSPMPolicyOK{}
 }
 
-/*
-GetCSPMPolicyOK describes a response with status code 200, with default header values.
+/* GetCSPMPolicyOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCSPMPolicyMultiStatus() *GetCSPMPolicyMultiStatus {
 	return &GetCSPMPolicyMultiStatus{}
 }
 
-/*
-GetCSPMPolicyMultiStatus describes a response with status code 207, with default header values.
+/* GetCSPMPolicyMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetCSPMPolicyBadRequest() *GetCSPMPolicyBadRequest {
 	return &GetCSPMPolicyBadRequest{}
 }
 
-/*
-GetCSPMPolicyBadRequest describes a response with status code 400, with default header values.
+/* GetCSPMPolicyBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetCSPMPolicyForbidden() *GetCSPMPolicyForbidden {
 	return &GetCSPMPolicyForbidden{}
 }
 
-/*
-GetCSPMPolicyForbidden describes a response with status code 403, with default header values.
+/* GetCSPMPolicyForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCSPMPolicyTooManyRequests() *GetCSPMPolicyTooManyRequests {
 	return &GetCSPMPolicyTooManyRequests{}
 }
 
-/*
-GetCSPMPolicyTooManyRequests describes a response with status code 429, with default header values.
+/* GetCSPMPolicyTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCSPMPolicyInternalServerError() *GetCSPMPolicyInternalServerError {
 	return &GetCSPMPolicyInternalServerError{}
 }
 
-/*
-GetCSPMPolicyInternalServerError describes a response with status code 500, with default header values.
+/* GetCSPMPolicyInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

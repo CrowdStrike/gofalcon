@@ -53,12 +53,10 @@ func NewQuerySensorUpdateKernelsDistinctParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-QuerySensorUpdateKernelsDistinctParams contains all the parameters to send to the API endpoint
+/* QuerySensorUpdateKernelsDistinctParams contains all the parameters to send to the API endpoint
+   for the query sensor update kernels distinct operation.
 
-	for the query sensor update kernels distinct operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QuerySensorUpdateKernelsDistinctParams struct {
 

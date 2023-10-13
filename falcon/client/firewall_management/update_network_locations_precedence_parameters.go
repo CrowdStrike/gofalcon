@@ -54,12 +54,10 @@ func NewUpdateNetworkLocationsPrecedenceParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-UpdateNetworkLocationsPrecedenceParams contains all the parameters to send to the API endpoint
+/* UpdateNetworkLocationsPrecedenceParams contains all the parameters to send to the API endpoint
+   for the update network locations precedence operation.
 
-	for the update network locations precedence operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateNetworkLocationsPrecedenceParams struct {
 

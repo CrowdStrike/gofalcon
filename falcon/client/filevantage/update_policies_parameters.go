@@ -54,12 +54,10 @@ func NewUpdatePoliciesParamsWithHTTPClient(client *http.Client) *UpdatePoliciesP
 	}
 }
 
-/*
-UpdatePoliciesParams contains all the parameters to send to the API endpoint
+/* UpdatePoliciesParams contains all the parameters to send to the API endpoint
+   for the update policies operation.
 
-	for the update policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdatePoliciesParams struct {
 

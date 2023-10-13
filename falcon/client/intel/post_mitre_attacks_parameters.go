@@ -54,12 +54,10 @@ func NewPostMitreAttacksParamsWithHTTPClient(client *http.Client) *PostMitreAtta
 	}
 }
 
-/*
-PostMitreAttacksParams contains all the parameters to send to the API endpoint
+/* PostMitreAttacksParams contains all the parameters to send to the API endpoint
+   for the post mitre attacks operation.
 
-	for the post mitre attacks operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PostMitreAttacksParams struct {
 

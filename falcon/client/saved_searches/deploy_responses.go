@@ -53,8 +53,7 @@ func NewDeployOK() *DeployOK {
 	return &DeployOK{}
 }
 
-/*
-DeployOK describes a response with status code 200, with default header values.
+/* DeployOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewDeployForbidden() *DeployForbidden {
 	return &DeployForbidden{}
 }
 
-/*
-DeployForbidden describes a response with status code 403, with default header values.
+/* DeployForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewDeployTooManyRequests() *DeployTooManyRequests {
 	return &DeployTooManyRequests{}
 }
 
-/*
-DeployTooManyRequests describes a response with status code 429, with default header values.
+/* DeployTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

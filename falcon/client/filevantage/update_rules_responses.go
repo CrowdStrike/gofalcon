@@ -71,8 +71,7 @@ func NewUpdateRulesOK() *UpdateRulesOK {
 	return &UpdateRulesOK{}
 }
 
-/*
-UpdateRulesOK describes a response with status code 200, with default header values.
+/* UpdateRulesOK describes a response with status code 200, with default header values.
 
 Bad Request
 */
@@ -181,8 +180,7 @@ func NewUpdateRulesBadRequest() *UpdateRulesBadRequest {
 	return &UpdateRulesBadRequest{}
 }
 
-/*
-UpdateRulesBadRequest describes a response with status code 400, with default header values.
+/* UpdateRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateRulesForbidden() *UpdateRulesForbidden {
 	return &UpdateRulesForbidden{}
 }
 
-/*
-UpdateRulesForbidden describes a response with status code 403, with default header values.
+/* UpdateRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateRulesNotFound() *UpdateRulesNotFound {
 	return &UpdateRulesNotFound{}
 }
 
-/*
-UpdateRulesNotFound describes a response with status code 404, with default header values.
+/* UpdateRulesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewUpdateRulesTooManyRequests() *UpdateRulesTooManyRequests {
 	return &UpdateRulesTooManyRequests{}
 }
 
-/*
-UpdateRulesTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateRulesInternalServerError() *UpdateRulesInternalServerError {
 	return &UpdateRulesInternalServerError{}
 }
 
-/*
-UpdateRulesInternalServerError describes a response with status code 500, with default header values.
+/* UpdateRulesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

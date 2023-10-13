@@ -65,8 +65,7 @@ func NewPostEntitiesAlertsV1OK() *PostEntitiesAlertsV1OK {
 	return &PostEntitiesAlertsV1OK{}
 }
 
-/*
-PostEntitiesAlertsV1OK describes a response with status code 200, with default header values.
+/* PostEntitiesAlertsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewPostEntitiesAlertsV1BadRequest() *PostEntitiesAlertsV1BadRequest {
 	return &PostEntitiesAlertsV1BadRequest{}
 }
 
-/*
-PostEntitiesAlertsV1BadRequest describes a response with status code 400, with default header values.
+/* PostEntitiesAlertsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewPostEntitiesAlertsV1Forbidden() *PostEntitiesAlertsV1Forbidden {
 	return &PostEntitiesAlertsV1Forbidden{}
 }
 
-/*
-PostEntitiesAlertsV1Forbidden describes a response with status code 403, with default header values.
+/* PostEntitiesAlertsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewPostEntitiesAlertsV1TooManyRequests() *PostEntitiesAlertsV1TooManyReques
 	return &PostEntitiesAlertsV1TooManyRequests{}
 }
 
-/*
-PostEntitiesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
+/* PostEntitiesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewPostEntitiesAlertsV1InternalServerError() *PostEntitiesAlertsV1InternalS
 	return &PostEntitiesAlertsV1InternalServerError{}
 }
 
-/*
-PostEntitiesAlertsV1InternalServerError describes a response with status code 500, with default header values.
+/* PostEntitiesAlertsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewDeleteRulesV1ParamsWithHTTPClient(client *http.Client) *DeleteRulesV1Par
 	}
 }
 
-/*
-DeleteRulesV1Params contains all the parameters to send to the API endpoint
+/* DeleteRulesV1Params contains all the parameters to send to the API endpoint
+   for the delete rules v1 operation.
 
-	for the delete rules v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteRulesV1Params struct {
 

@@ -53,12 +53,10 @@ func NewGetIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *GetIOAExclu
 	}
 }
 
-/*
-GetIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+/* GetIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the get i o a exclusions v1 operation.
 
-	for the get i o a exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIOAExclusionsV1Params struct {
 

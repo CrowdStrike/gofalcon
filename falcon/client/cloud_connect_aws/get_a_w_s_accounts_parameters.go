@@ -53,12 +53,10 @@ func NewGetAWSAccountsParamsWithHTTPClient(client *http.Client) *GetAWSAccountsP
 	}
 }
 
-/*
-GetAWSAccountsParams contains all the parameters to send to the API endpoint
+/* GetAWSAccountsParams contains all the parameters to send to the API endpoint
+   for the get a w s accounts operation.
 
-	for the get a w s accounts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAWSAccountsParams struct {
 

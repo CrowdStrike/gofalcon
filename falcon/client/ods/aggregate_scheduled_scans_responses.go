@@ -59,8 +59,7 @@ func NewAggregateScheduledScansOK() *AggregateScheduledScansOK {
 	return &AggregateScheduledScansOK{}
 }
 
-/*
-AggregateScheduledScansOK describes a response with status code 200, with default header values.
+/* AggregateScheduledScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewAggregateScheduledScansForbidden() *AggregateScheduledScansForbidden {
 	return &AggregateScheduledScansForbidden{}
 }
 
-/*
-AggregateScheduledScansForbidden describes a response with status code 403, with default header values.
+/* AggregateScheduledScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewAggregateScheduledScansNotFound() *AggregateScheduledScansNotFound {
 	return &AggregateScheduledScansNotFound{}
 }
 
-/*
-AggregateScheduledScansNotFound describes a response with status code 404, with default header values.
+/* AggregateScheduledScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewAggregateScheduledScansTooManyRequests() *AggregateScheduledScansTooMany
 	return &AggregateScheduledScansTooManyRequests{}
 }
 
-/*
-AggregateScheduledScansTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateScheduledScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

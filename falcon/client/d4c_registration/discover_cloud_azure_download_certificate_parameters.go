@@ -53,12 +53,10 @@ func NewDiscoverCloudAzureDownloadCertificateParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-DiscoverCloudAzureDownloadCertificateParams contains all the parameters to send to the API endpoint
+/* DiscoverCloudAzureDownloadCertificateParams contains all the parameters to send to the API endpoint
+   for the discover cloud azure download certificate operation.
 
-	for the discover cloud azure download certificate operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DiscoverCloudAzureDownloadCertificateParams struct {
 

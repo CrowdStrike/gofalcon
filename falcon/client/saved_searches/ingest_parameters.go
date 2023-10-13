@@ -53,12 +53,10 @@ func NewIngestParamsWithHTTPClient(client *http.Client) *IngestParams {
 	}
 }
 
-/*
-IngestParams contains all the parameters to send to the API endpoint
+/* IngestParams contains all the parameters to send to the API endpoint
+   for the ingest operation.
 
-	for the ingest operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IngestParams struct {
 

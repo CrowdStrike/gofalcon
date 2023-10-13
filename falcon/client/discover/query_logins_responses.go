@@ -65,8 +65,7 @@ func NewQueryLoginsOK() *QueryLoginsOK {
 	return &QueryLoginsOK{}
 }
 
-/*
-QueryLoginsOK describes a response with status code 200, with default header values.
+/* QueryLoginsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryLoginsBadRequest() *QueryLoginsBadRequest {
 	return &QueryLoginsBadRequest{}
 }
 
-/*
-QueryLoginsBadRequest describes a response with status code 400, with default header values.
+/* QueryLoginsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryLoginsForbidden() *QueryLoginsForbidden {
 	return &QueryLoginsForbidden{}
 }
 
-/*
-QueryLoginsForbidden describes a response with status code 403, with default header values.
+/* QueryLoginsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryLoginsTooManyRequests() *QueryLoginsTooManyRequests {
 	return &QueryLoginsTooManyRequests{}
 }
 
-/*
-QueryLoginsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryLoginsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryLoginsInternalServerError() *QueryLoginsInternalServerError {
 	return &QueryLoginsInternalServerError{}
 }
 
-/*
-QueryLoginsInternalServerError describes a response with status code 500, with default header values.
+/* QueryLoginsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

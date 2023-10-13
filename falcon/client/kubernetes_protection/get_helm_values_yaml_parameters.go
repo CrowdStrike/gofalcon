@@ -53,12 +53,10 @@ func NewGetHelmValuesYamlParamsWithHTTPClient(client *http.Client) *GetHelmValue
 	}
 }
 
-/*
-GetHelmValuesYamlParams contains all the parameters to send to the API endpoint
+/* GetHelmValuesYamlParams contains all the parameters to send to the API endpoint
+   for the get helm values yaml operation.
 
-	for the get helm values yaml operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetHelmValuesYamlParams struct {
 

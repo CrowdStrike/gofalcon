@@ -65,8 +65,7 @@ func NewUpdateDeviceTagsOK() *UpdateDeviceTagsOK {
 	return &UpdateDeviceTagsOK{}
 }
 
-/*
-UpdateDeviceTagsOK describes a response with status code 200, with default header values.
+/* UpdateDeviceTagsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdateDeviceTagsAccepted() *UpdateDeviceTagsAccepted {
 	return &UpdateDeviceTagsAccepted{}
 }
 
-/*
-UpdateDeviceTagsAccepted describes a response with status code 202, with default header values.
+/* UpdateDeviceTagsAccepted describes a response with status code 202, with default header values.
 
 OK
 */
@@ -285,8 +283,7 @@ func NewUpdateDeviceTagsBadRequest() *UpdateDeviceTagsBadRequest {
 	return &UpdateDeviceTagsBadRequest{}
 }
 
-/*
-UpdateDeviceTagsBadRequest describes a response with status code 400, with default header values.
+/* UpdateDeviceTagsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewUpdateDeviceTagsForbidden() *UpdateDeviceTagsForbidden {
 	return &UpdateDeviceTagsForbidden{}
 }
 
-/*
-UpdateDeviceTagsForbidden describes a response with status code 403, with default header values.
+/* UpdateDeviceTagsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewUpdateDeviceTagsTooManyRequests() *UpdateDeviceTagsTooManyRequests {
 	return &UpdateDeviceTagsTooManyRequests{}
 }
 
-/*
-UpdateDeviceTagsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateDeviceTagsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

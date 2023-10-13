@@ -53,12 +53,10 @@ func NewQueryNetworkLocationsParamsWithHTTPClient(client *http.Client) *QueryNet
 	}
 }
 
-/*
-QueryNetworkLocationsParams contains all the parameters to send to the API endpoint
+/* QueryNetworkLocationsParams contains all the parameters to send to the API endpoint
+   for the query network locations operation.
 
-	for the query network locations operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryNetworkLocationsParams struct {
 

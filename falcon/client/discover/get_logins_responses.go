@@ -65,8 +65,7 @@ func NewGetLoginsOK() *GetLoginsOK {
 	return &GetLoginsOK{}
 }
 
-/*
-GetLoginsOK describes a response with status code 200, with default header values.
+/* GetLoginsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetLoginsBadRequest() *GetLoginsBadRequest {
 	return &GetLoginsBadRequest{}
 }
 
-/*
-GetLoginsBadRequest describes a response with status code 400, with default header values.
+/* GetLoginsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetLoginsForbidden() *GetLoginsForbidden {
 	return &GetLoginsForbidden{}
 }
 
-/*
-GetLoginsForbidden describes a response with status code 403, with default header values.
+/* GetLoginsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetLoginsTooManyRequests() *GetLoginsTooManyRequests {
 	return &GetLoginsTooManyRequests{}
 }
 
-/*
-GetLoginsTooManyRequests describes a response with status code 429, with default header values.
+/* GetLoginsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetLoginsInternalServerError() *GetLoginsInternalServerError {
 	return &GetLoginsInternalServerError{}
 }
 
-/*
-GetLoginsInternalServerError describes a response with status code 500, with default header values.
+/* GetLoginsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

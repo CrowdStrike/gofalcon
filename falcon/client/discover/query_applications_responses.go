@@ -65,8 +65,7 @@ func NewQueryApplicationsOK() *QueryApplicationsOK {
 	return &QueryApplicationsOK{}
 }
 
-/*
-QueryApplicationsOK describes a response with status code 200, with default header values.
+/* QueryApplicationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryApplicationsBadRequest() *QueryApplicationsBadRequest {
 	return &QueryApplicationsBadRequest{}
 }
 
-/*
-QueryApplicationsBadRequest describes a response with status code 400, with default header values.
+/* QueryApplicationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryApplicationsForbidden() *QueryApplicationsForbidden {
 	return &QueryApplicationsForbidden{}
 }
 
-/*
-QueryApplicationsForbidden describes a response with status code 403, with default header values.
+/* QueryApplicationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryApplicationsTooManyRequests() *QueryApplicationsTooManyRequests {
 	return &QueryApplicationsTooManyRequests{}
 }
 
-/*
-QueryApplicationsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryApplicationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryApplicationsInternalServerError() *QueryApplicationsInternalServerE
 	return &QueryApplicationsInternalServerError{}
 }
 
-/*
-QueryApplicationsInternalServerError describes a response with status code 500, with default header values.
+/* QueryApplicationsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

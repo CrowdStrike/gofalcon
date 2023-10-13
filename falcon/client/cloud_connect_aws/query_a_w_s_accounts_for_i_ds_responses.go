@@ -65,8 +65,7 @@ func NewQueryAWSAccountsForIDsOK() *QueryAWSAccountsForIDsOK {
 	return &QueryAWSAccountsForIDsOK{}
 }
 
-/*
-QueryAWSAccountsForIDsOK describes a response with status code 200, with default header values.
+/* QueryAWSAccountsForIDsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryAWSAccountsForIDsBadRequest() *QueryAWSAccountsForIDsBadRequest {
 	return &QueryAWSAccountsForIDsBadRequest{}
 }
 
-/*
-QueryAWSAccountsForIDsBadRequest describes a response with status code 400, with default header values.
+/* QueryAWSAccountsForIDsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryAWSAccountsForIDsForbidden() *QueryAWSAccountsForIDsForbidden {
 	return &QueryAWSAccountsForIDsForbidden{}
 }
 
-/*
-QueryAWSAccountsForIDsForbidden describes a response with status code 403, with default header values.
+/* QueryAWSAccountsForIDsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryAWSAccountsForIDsTooManyRequests() *QueryAWSAccountsForIDsTooManyRe
 	return &QueryAWSAccountsForIDsTooManyRequests{}
 }
 
-/*
-QueryAWSAccountsForIDsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryAWSAccountsForIDsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryAWSAccountsForIDsInternalServerError() *QueryAWSAccountsForIDsInter
 	return &QueryAWSAccountsForIDsInternalServerError{}
 }
 
-/*
-QueryAWSAccountsForIDsInternalServerError describes a response with status code 500, with default header values.
+/* QueryAWSAccountsForIDsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

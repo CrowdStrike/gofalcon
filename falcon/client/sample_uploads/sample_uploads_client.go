@@ -56,7 +56,7 @@ type ClientService interface {
 }
 
 /*
-ArchiveDeleteV1 deletes an archive that was uploaded previously
+  ArchiveDeleteV1 deletes an archive that was uploaded previously
 */
 func (a *Client) ArchiveDeleteV1(params *ArchiveDeleteV1Params, opts ...ClientOption) (*ArchiveDeleteV1Accepted, error) {
 	// TODO: Validate the params before sending
@@ -94,7 +94,7 @@ func (a *Client) ArchiveDeleteV1(params *ArchiveDeleteV1Params, opts ...ClientOp
 }
 
 /*
-ArchiveGetV1 retrieves the archives upload operation statuses status done means that archive was processed successfully status error means that archive was not processed successfully
+  ArchiveGetV1 retrieves the archives upload operation statuses status done means that archive was processed successfully status error means that archive was not processed successfully
 */
 func (a *Client) ArchiveGetV1(params *ArchiveGetV1Params, opts ...ClientOption) (*ArchiveGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -132,7 +132,7 @@ func (a *Client) ArchiveGetV1(params *ArchiveGetV1Params, opts ...ClientOption) 
 }
 
 /*
-ArchiveListV1 retrieves the archives files in chunks
+  ArchiveListV1 retrieves the archives files in chunks
 */
 func (a *Client) ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption) (*ArchiveListV1OK, error) {
 	// TODO: Validate the params before sending
@@ -170,7 +170,7 @@ func (a *Client) ArchiveListV1(params *ArchiveListV1Params, opts ...ClientOption
 }
 
 /*
-ArchiveUploadV1 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis this method is deprecated in favor of archives entities archives v2
+  ArchiveUploadV1 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis this method is deprecated in favor of archives entities archives v2
 */
 func (a *Client) ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOption) (*ArchiveUploadV1OK, *ArchiveUploadV1Accepted, error) {
 	// TODO: Validate the params before sending
@@ -209,7 +209,7 @@ func (a *Client) ArchiveUploadV1(params *ArchiveUploadV1Params, opts ...ClientOp
 }
 
 /*
-ArchiveUploadV2 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis
+  ArchiveUploadV2 uploads an archive and extracts files list from it operation is asynchronous use archives entities archives v1 to check the status after uploading use archives entities extractions v1 to copy the file to internal storage making it available for content analysis
 */
 func (a *Client) ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOption) (*ArchiveUploadV2OK, *ArchiveUploadV2Accepted, error) {
 	// TODO: Validate the params before sending
@@ -248,7 +248,7 @@ func (a *Client) ArchiveUploadV2(params *ArchiveUploadV2Params, opts ...ClientOp
 }
 
 /*
-DeleteSampleV3 removes a sample including file meta and submissions from the collection
+  DeleteSampleV3 removes a sample including file meta and submissions from the collection
 */
 func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOption) (*DeleteSampleV3OK, error) {
 	// TODO: Validate the params before sending
@@ -286,7 +286,7 @@ func (a *Client) DeleteSampleV3(params *DeleteSampleV3Params, opts ...ClientOpti
 }
 
 /*
-ExtractionCreateV1 extracts files from an uploaded archive and copies them to internal storage making it available for content analysis
+  ExtractionCreateV1 extracts files from an uploaded archive and copies them to internal storage making it available for content analysis
 */
 func (a *Client) ExtractionCreateV1(params *ExtractionCreateV1Params, opts ...ClientOption) (*ExtractionCreateV1OK, *ExtractionCreateV1Accepted, error) {
 	// TODO: Validate the params before sending
@@ -325,7 +325,7 @@ func (a *Client) ExtractionCreateV1(params *ExtractionCreateV1Params, opts ...Cl
 }
 
 /*
-ExtractionGetV1 retrieves the files extraction operation statuses status done means that all files were processed successfully status error means that at least one of the file could not be processed
+  ExtractionGetV1 retrieves the files extraction operation statuses status done means that all files were processed successfully status error means that at least one of the file could not be processed
 */
 func (a *Client) ExtractionGetV1(params *ExtractionGetV1Params, opts ...ClientOption) (*ExtractionGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -363,7 +363,7 @@ func (a *Client) ExtractionGetV1(params *ExtractionGetV1Params, opts ...ClientOp
 }
 
 /*
-ExtractionListV1 retrieves the files extractions in chunks status done means that all files were processed successfully status error means that at least one of the file could not be processed
+  ExtractionListV1 retrieves the files extractions in chunks status done means that all files were processed successfully status error means that at least one of the file could not be processed
 */
 func (a *Client) ExtractionListV1(params *ExtractionListV1Params, opts ...ClientOption) (*ExtractionListV1OK, error) {
 	// TODO: Validate the params before sending
@@ -401,7 +401,7 @@ func (a *Client) ExtractionListV1(params *ExtractionListV1Params, opts ...Client
 }
 
 /*
-GetSampleV3 retrieves the file associated with the given ID s h a256
+  GetSampleV3 retrieves the file associated with the given ID s h a256
 */
 func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*GetSampleV3OK, error) {
 	// TODO: Validate the params before sending
@@ -439,7 +439,7 @@ func (a *Client) GetSampleV3(params *GetSampleV3Params, opts ...ClientOption) (*
 }
 
 /*
-UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
+  UploadSampleV3 uploads a file for further cloud analysis after uploading call the specific analysis API endpoint
 */
 func (a *Client) UploadSampleV3(params *UploadSampleV3Params, opts ...ClientOption) (*UploadSampleV3OK, error) {
 	// TODO: Validate the params before sending

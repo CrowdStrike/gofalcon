@@ -53,12 +53,10 @@ func NewDeleteSavedSearchParamsWithHTTPClient(client *http.Client) *DeleteSavedS
 	}
 }
 
-/*
-DeleteSavedSearchParams contains all the parameters to send to the API endpoint
+/* DeleteSavedSearchParams contains all the parameters to send to the API endpoint
+   for the delete saved search operation.
 
-	for the delete saved search operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteSavedSearchParams struct {
 

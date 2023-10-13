@@ -53,12 +53,10 @@ func NewCombinedUserRolesV1ParamsWithHTTPClient(client *http.Client) *CombinedUs
 	}
 }
 
-/*
-CombinedUserRolesV1Params contains all the parameters to send to the API endpoint
+/* CombinedUserRolesV1Params contains all the parameters to send to the API endpoint
+   for the combined user roles v1 operation.
 
-	for the combined user roles v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CombinedUserRolesV1Params struct {
 

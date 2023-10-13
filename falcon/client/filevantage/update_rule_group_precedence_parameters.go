@@ -53,12 +53,10 @@ func NewUpdateRuleGroupPrecedenceParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateRuleGroupPrecedenceParams contains all the parameters to send to the API endpoint
+/* UpdateRuleGroupPrecedenceParams contains all the parameters to send to the API endpoint
+   for the update rule group precedence operation.
 
-	for the update rule group precedence operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRuleGroupPrecedenceParams struct {
 

@@ -54,12 +54,10 @@ func NewRTRListQueuedSessionsParamsWithHTTPClient(client *http.Client) *RTRListQ
 	}
 }
 
-/*
-RTRListQueuedSessionsParams contains all the parameters to send to the API endpoint
+/* RTRListQueuedSessionsParams contains all the parameters to send to the API endpoint
+   for the r t r list queued sessions operation.
 
-	for the r t r list queued sessions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRListQueuedSessionsParams struct {
 

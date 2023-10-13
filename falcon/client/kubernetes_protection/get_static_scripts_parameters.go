@@ -52,12 +52,10 @@ func NewGetStaticScriptsParamsWithHTTPClient(client *http.Client) *GetStaticScri
 	}
 }
 
-/*
-GetStaticScriptsParams contains all the parameters to send to the API endpoint
+/* GetStaticScriptsParams contains all the parameters to send to the API endpoint
+   for the get static scripts operation.
 
-	for the get static scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetStaticScriptsParams struct {
 	timeout    time.Duration

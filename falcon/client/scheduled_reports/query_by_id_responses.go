@@ -59,8 +59,7 @@ func NewQueryByIDOK() *QueryByIDOK {
 	return &QueryByIDOK{}
 }
 
-/*
-QueryByIDOK describes a response with status code 200, with default header values.
+/* QueryByIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryByIDBadRequest() *QueryByIDBadRequest {
 	return &QueryByIDBadRequest{}
 }
 
-/*
-QueryByIDBadRequest describes a response with status code 400, with default header values.
+/* QueryByIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryByIDForbidden() *QueryByIDForbidden {
 	return &QueryByIDForbidden{}
 }
 
-/*
-QueryByIDForbidden describes a response with status code 403, with default header values.
+/* QueryByIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryByIDTooManyRequests() *QueryByIDTooManyRequests {
 	return &QueryByIDTooManyRequests{}
 }
 
-/*
-QueryByIDTooManyRequests describes a response with status code 429, with default header values.
+/* QueryByIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -65,8 +65,7 @@ func NewRTRListScriptsOK() *RTRListScriptsOK {
 	return &RTRListScriptsOK{}
 }
 
-/*
-RTRListScriptsOK describes a response with status code 200, with default header values.
+/* RTRListScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRTRListScriptsBadRequest() *RTRListScriptsBadRequest {
 	return &RTRListScriptsBadRequest{}
 }
 
-/*
-RTRListScriptsBadRequest describes a response with status code 400, with default header values.
+/* RTRListScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRTRListScriptsForbidden() *RTRListScriptsForbidden {
 	return &RTRListScriptsForbidden{}
 }
 
-/*
-RTRListScriptsForbidden describes a response with status code 403, with default header values.
+/* RTRListScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRTRListScriptsNotFound() *RTRListScriptsNotFound {
 	return &RTRListScriptsNotFound{}
 }
 
-/*
-RTRListScriptsNotFound describes a response with status code 404, with default header values.
+/* RTRListScriptsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -505,8 +501,7 @@ func NewRTRListScriptsTooManyRequests() *RTRListScriptsTooManyRequests {
 	return &RTRListScriptsTooManyRequests{}
 }
 
-/*
-RTRListScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* RTRListScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

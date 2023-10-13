@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-ListAvailableStreamsOAuth2 discovers all event streams in your environment
+  ListAvailableStreamsOAuth2 discovers all event streams in your environment
 */
 func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Params, opts ...ClientOption) (*ListAvailableStreamsOAuth2OK, error) {
 	// TODO: Validate the params before sending
@@ -76,7 +76,7 @@ func (a *Client) ListAvailableStreamsOAuth2(params *ListAvailableStreamsOAuth2Pa
 }
 
 /*
-RefreshActiveStreamSession refreshes an active event stream use the URL shown in a g e t sensors entities datafeed v2 response
+  RefreshActiveStreamSession refreshes an active event stream use the URL shown in a g e t sensors entities datafeed v2 response
 */
 func (a *Client) RefreshActiveStreamSession(params *RefreshActiveStreamSessionParams, opts ...ClientOption) (*RefreshActiveStreamSessionOK, error) {
 	// TODO: Validate the params before sending

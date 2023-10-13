@@ -59,8 +59,7 @@ func NewGetCombinedSensorInstallersByQueryOK() *GetCombinedSensorInstallersByQue
 	return &GetCombinedSensorInstallersByQueryOK{}
 }
 
-/*
-GetCombinedSensorInstallersByQueryOK describes a response with status code 200, with default header values.
+/* GetCombinedSensorInstallersByQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetCombinedSensorInstallersByQueryBadRequest() *GetCombinedSensorInstall
 	return &GetCombinedSensorInstallersByQueryBadRequest{}
 }
 
-/*
-GetCombinedSensorInstallersByQueryBadRequest describes a response with status code 400, with default header values.
+/* GetCombinedSensorInstallersByQueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewGetCombinedSensorInstallersByQueryForbidden() *GetCombinedSensorInstalle
 	return &GetCombinedSensorInstallersByQueryForbidden{}
 }
 
-/*
-GetCombinedSensorInstallersByQueryForbidden describes a response with status code 403, with default header values.
+/* GetCombinedSensorInstallersByQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewGetCombinedSensorInstallersByQueryTooManyRequests() *GetCombinedSensorIn
 	return &GetCombinedSensorInstallersByQueryTooManyRequests{}
 }
 
-/*
-GetCombinedSensorInstallersByQueryTooManyRequests describes a response with status code 429, with default header values.
+/* GetCombinedSensorInstallersByQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

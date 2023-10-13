@@ -59,8 +59,7 @@ func NewAggregateScansOK() *AggregateScansOK {
 	return &AggregateScansOK{}
 }
 
-/*
-AggregateScansOK describes a response with status code 200, with default header values.
+/* AggregateScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewAggregateScansForbidden() *AggregateScansForbidden {
 	return &AggregateScansForbidden{}
 }
 
-/*
-AggregateScansForbidden describes a response with status code 403, with default header values.
+/* AggregateScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewAggregateScansNotFound() *AggregateScansNotFound {
 	return &AggregateScansNotFound{}
 }
 
-/*
-AggregateScansNotFound describes a response with status code 404, with default header values.
+/* AggregateScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewAggregateScansTooManyRequests() *AggregateScansTooManyRequests {
 	return &AggregateScansTooManyRequests{}
 }
 
-/*
-AggregateScansTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -65,8 +65,7 @@ func NewDeleteSensorUpdatePoliciesOK() *DeleteSensorUpdatePoliciesOK {
 	return &DeleteSensorUpdatePoliciesOK{}
 }
 
-/*
-DeleteSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
+/* DeleteSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewDeleteSensorUpdatePoliciesForbidden() *DeleteSensorUpdatePoliciesForbidd
 	return &DeleteSensorUpdatePoliciesForbidden{}
 }
 
-/*
-DeleteSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+/* DeleteSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewDeleteSensorUpdatePoliciesNotFound() *DeleteSensorUpdatePoliciesNotFound
 	return &DeleteSensorUpdatePoliciesNotFound{}
 }
 
-/*
-DeleteSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+/* DeleteSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewDeleteSensorUpdatePoliciesTooManyRequests() *DeleteSensorUpdatePoliciesT
 	return &DeleteSensorUpdatePoliciesTooManyRequests{}
 }
 
-/*
-DeleteSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewDeleteSensorUpdatePoliciesInternalServerError() *DeleteSensorUpdatePolic
 	return &DeleteSensorUpdatePoliciesInternalServerError{}
 }
 
-/*
-DeleteSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* DeleteSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

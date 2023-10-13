@@ -71,8 +71,7 @@ func NewGetMemoryDumpOK() *GetMemoryDumpOK {
 	return &GetMemoryDumpOK{}
 }
 
-/*
-GetMemoryDumpOK describes a response with status code 200, with default header values.
+/* GetMemoryDumpOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetMemoryDumpBadRequest() *GetMemoryDumpBadRequest {
 	return &GetMemoryDumpBadRequest{}
 }
 
-/*
-GetMemoryDumpBadRequest describes a response with status code 400, with default header values.
+/* GetMemoryDumpBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetMemoryDumpForbidden() *GetMemoryDumpForbidden {
 	return &GetMemoryDumpForbidden{}
 }
 
-/*
-GetMemoryDumpForbidden describes a response with status code 403, with default header values.
+/* GetMemoryDumpForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetMemoryDumpNotFound() *GetMemoryDumpNotFound {
 	return &GetMemoryDumpNotFound{}
 }
 
-/*
-GetMemoryDumpNotFound describes a response with status code 404, with default header values.
+/* GetMemoryDumpNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewGetMemoryDumpTooManyRequests() *GetMemoryDumpTooManyRequests {
 	return &GetMemoryDumpTooManyRequests{}
 }
 
-/*
-GetMemoryDumpTooManyRequests describes a response with status code 429, with default header values.
+/* GetMemoryDumpTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetMemoryDumpInternalServerError() *GetMemoryDumpInternalServerError {
 	return &GetMemoryDumpInternalServerError{}
 }
 
-/*
-GetMemoryDumpInternalServerError describes a response with status code 500, with default header values.
+/* GetMemoryDumpInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

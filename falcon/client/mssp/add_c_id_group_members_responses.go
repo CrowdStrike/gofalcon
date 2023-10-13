@@ -65,8 +65,7 @@ func NewAddCIDGroupMembersOK() *AddCIDGroupMembersOK {
 	return &AddCIDGroupMembersOK{}
 }
 
-/*
-AddCIDGroupMembersOK describes a response with status code 200, with default header values.
+/* AddCIDGroupMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewAddCIDGroupMembersMultiStatus() *AddCIDGroupMembersMultiStatus {
 	return &AddCIDGroupMembersMultiStatus{}
 }
 
-/*
-AddCIDGroupMembersMultiStatus describes a response with status code 207, with default header values.
+/* AddCIDGroupMembersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewAddCIDGroupMembersBadRequest() *AddCIDGroupMembersBadRequest {
 	return &AddCIDGroupMembersBadRequest{}
 }
 
-/*
-AddCIDGroupMembersBadRequest describes a response with status code 400, with default header values.
+/* AddCIDGroupMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewAddCIDGroupMembersForbidden() *AddCIDGroupMembersForbidden {
 	return &AddCIDGroupMembersForbidden{}
 }
 
-/*
-AddCIDGroupMembersForbidden describes a response with status code 403, with default header values.
+/* AddCIDGroupMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewAddCIDGroupMembersTooManyRequests() *AddCIDGroupMembersTooManyRequests {
 	return &AddCIDGroupMembersTooManyRequests{}
 }
 
-/*
-AddCIDGroupMembersTooManyRequests describes a response with status code 429, with default header values.
+/* AddCIDGroupMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

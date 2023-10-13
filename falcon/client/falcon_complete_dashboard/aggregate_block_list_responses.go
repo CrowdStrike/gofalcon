@@ -53,8 +53,7 @@ func NewAggregateBlockListOK() *AggregateBlockListOK {
 	return &AggregateBlockListOK{}
 }
 
-/*
-AggregateBlockListOK describes a response with status code 200, with default header values.
+/* AggregateBlockListOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregateBlockListForbidden() *AggregateBlockListForbidden {
 	return &AggregateBlockListForbidden{}
 }
 
-/*
-AggregateBlockListForbidden describes a response with status code 403, with default header values.
+/* AggregateBlockListForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregateBlockListTooManyRequests() *AggregateBlockListTooManyRequests {
 	return &AggregateBlockListTooManyRequests{}
 }
 
-/*
-AggregateBlockListTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateBlockListTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

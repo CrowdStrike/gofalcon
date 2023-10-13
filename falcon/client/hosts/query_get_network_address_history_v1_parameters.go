@@ -54,12 +54,10 @@ func NewQueryGetNetworkAddressHistoryV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-QueryGetNetworkAddressHistoryV1Params contains all the parameters to send to the API endpoint
+/* QueryGetNetworkAddressHistoryV1Params contains all the parameters to send to the API endpoint
+   for the query get network address history v1 operation.
 
-	for the query get network address history v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryGetNetworkAddressHistoryV1Params struct {
 

@@ -65,8 +65,7 @@ func NewRevealUninstallTokenOK() *RevealUninstallTokenOK {
 	return &RevealUninstallTokenOK{}
 }
 
-/*
-RevealUninstallTokenOK describes a response with status code 200, with default header values.
+/* RevealUninstallTokenOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRevealUninstallTokenBadRequest() *RevealUninstallTokenBadRequest {
 	return &RevealUninstallTokenBadRequest{}
 }
 
-/*
-RevealUninstallTokenBadRequest describes a response with status code 400, with default header values.
+/* RevealUninstallTokenBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRevealUninstallTokenForbidden() *RevealUninstallTokenForbidden {
 	return &RevealUninstallTokenForbidden{}
 }
 
-/*
-RevealUninstallTokenForbidden describes a response with status code 403, with default header values.
+/* RevealUninstallTokenForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRevealUninstallTokenTooManyRequests() *RevealUninstallTokenTooManyReques
 	return &RevealUninstallTokenTooManyRequests{}
 }
 
-/*
-RevealUninstallTokenTooManyRequests describes a response with status code 429, with default header values.
+/* RevealUninstallTokenTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewRevealUninstallTokenInternalServerError() *RevealUninstallTokenInternalS
 	return &RevealUninstallTokenInternalServerError{}
 }
 
-/*
-RevealUninstallTokenInternalServerError describes a response with status code 500, with default header values.
+/* RevealUninstallTokenInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

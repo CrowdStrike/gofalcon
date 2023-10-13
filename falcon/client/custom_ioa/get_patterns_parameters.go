@@ -53,12 +53,10 @@ func NewGetPatternsParamsWithHTTPClient(client *http.Client) *GetPatternsParams 
 	}
 }
 
-/*
-GetPatternsParams contains all the parameters to send to the API endpoint
+/* GetPatternsParams contains all the parameters to send to the API endpoint
+   for the get patterns operation.
 
-	for the get patterns operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetPatternsParams struct {
 

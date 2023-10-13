@@ -20,8 +20,7 @@ import (
 type DomainUserGrants struct {
 
 	// cid
-	// Required: true
-	Cid *string `json:"cid"`
+	Cid string `json:"cid,omitempty"`
 
 	// cid group id
 	CidGroupID string `json:"cid_group_id,omitempty"`
@@ -30,8 +29,7 @@ type DomainUserGrants struct {
 	CidGroupName string `json:"cid_group_name,omitempty"`
 
 	// grant type
-	// Required: true
-	GrantType *string `json:"grant_type"`
+	GrantType string `json:"grant_type,omitempty"`
 
 	// parent cid
 	ParentCid string `json:"parent_cid,omitempty"`
@@ -41,8 +39,7 @@ type DomainUserGrants struct {
 	RoleID *string `json:"role_id"`
 
 	// role name
-	// Required: true
-	RoleName *string `json:"role_name"`
+	RoleName string `json:"role_name,omitempty"`
 
 	// user group id
 	UserGroupID string `json:"user_group_id,omitempty"`
@@ -51,31 +48,14 @@ type DomainUserGrants struct {
 	UserGroupName string `json:"user_group_name,omitempty"`
 
 	// uuid
-	// Required: true
-	UUID *string `json:"uuid"`
+	UUID string `json:"uuid,omitempty"`
 }
 
 // Validate validates this domain user grants
 func (m *DomainUserGrants) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCid(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateGrantType(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateRoleID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRoleName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUUID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -85,45 +65,9 @@ func (m *DomainUserGrants) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainUserGrants) validateCid(formats strfmt.Registry) error {
-
-	if err := validate.Required("cid", "body", m.Cid); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainUserGrants) validateGrantType(formats strfmt.Registry) error {
-
-	if err := validate.Required("grant_type", "body", m.GrantType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *DomainUserGrants) validateRoleID(formats strfmt.Registry) error {
 
 	if err := validate.Required("role_id", "body", m.RoleID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainUserGrants) validateRoleName(formats strfmt.Registry) error {
-
-	if err := validate.Required("role_name", "body", m.RoleName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainUserGrants) validateUUID(formats strfmt.Registry) error {
-
-	if err := validate.Required("uuid", "body", m.UUID); err != nil {
 		return err
 	}
 

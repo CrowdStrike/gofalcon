@@ -52,12 +52,10 @@ func NewOauth2AccessTokenParamsWithHTTPClient(client *http.Client) *Oauth2Access
 	}
 }
 
-/*
-Oauth2AccessTokenParams contains all the parameters to send to the API endpoint
+/* Oauth2AccessTokenParams contains all the parameters to send to the API endpoint
+   for the oauth2 access token operation.
 
-	for the oauth2 access token operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type Oauth2AccessTokenParams struct {
 

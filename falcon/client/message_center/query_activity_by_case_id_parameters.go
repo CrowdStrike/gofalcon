@@ -53,12 +53,10 @@ func NewQueryActivityByCaseIDParamsWithHTTPClient(client *http.Client) *QueryAct
 	}
 }
 
-/*
-QueryActivityByCaseIDParams contains all the parameters to send to the API endpoint
+/* QueryActivityByCaseIDParams contains all the parameters to send to the API endpoint
+   for the query activity by case ID operation.
 
-	for the query activity by case ID operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryActivityByCaseIDParams struct {
 

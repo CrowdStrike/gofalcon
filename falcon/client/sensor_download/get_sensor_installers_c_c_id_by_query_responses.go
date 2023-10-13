@@ -59,8 +59,7 @@ func NewGetSensorInstallersCCIDByQueryOK() *GetSensorInstallersCCIDByQueryOK {
 	return &GetSensorInstallersCCIDByQueryOK{}
 }
 
-/*
-GetSensorInstallersCCIDByQueryOK describes a response with status code 200, with default header values.
+/* GetSensorInstallersCCIDByQueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetSensorInstallersCCIDByQueryBadRequest() *GetSensorInstallersCCIDByQue
 	return &GetSensorInstallersCCIDByQueryBadRequest{}
 }
 
-/*
-GetSensorInstallersCCIDByQueryBadRequest describes a response with status code 400, with default header values.
+/* GetSensorInstallersCCIDByQueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewGetSensorInstallersCCIDByQueryForbidden() *GetSensorInstallersCCIDByQuer
 	return &GetSensorInstallersCCIDByQueryForbidden{}
 }
 
-/*
-GetSensorInstallersCCIDByQueryForbidden describes a response with status code 403, with default header values.
+/* GetSensorInstallersCCIDByQueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewGetSensorInstallersCCIDByQueryTooManyRequests() *GetSensorInstallersCCID
 	return &GetSensorInstallersCCIDByQueryTooManyRequests{}
 }
 
-/*
-GetSensorInstallersCCIDByQueryTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorInstallersCCIDByQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

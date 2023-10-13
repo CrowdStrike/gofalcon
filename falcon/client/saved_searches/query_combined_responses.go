@@ -53,8 +53,7 @@ func NewQueryCombinedOK() *QueryCombinedOK {
 	return &QueryCombinedOK{}
 }
 
-/*
-QueryCombinedOK describes a response with status code 200, with default header values.
+/* QueryCombinedOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryCombinedForbidden() *QueryCombinedForbidden {
 	return &QueryCombinedForbidden{}
 }
 
-/*
-QueryCombinedForbidden describes a response with status code 403, with default header values.
+/* QueryCombinedForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryCombinedTooManyRequests() *QueryCombinedTooManyRequests {
 	return &QueryCombinedTooManyRequests{}
 }
 
-/*
-QueryCombinedTooManyRequests describes a response with status code 429, with default header values.
+/* QueryCombinedTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

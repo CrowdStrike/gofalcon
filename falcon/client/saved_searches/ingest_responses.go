@@ -53,8 +53,7 @@ func NewIngestOK() *IngestOK {
 	return &IngestOK{}
 }
 
-/*
-IngestOK describes a response with status code 200, with default header values.
+/* IngestOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIngestForbidden() *IngestForbidden {
 	return &IngestForbidden{}
 }
 
-/*
-IngestForbidden describes a response with status code 403, with default header values.
+/* IngestForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIngestTooManyRequests() *IngestTooManyRequests {
 	return &IngestTooManyRequests{}
 }
 
-/*
-IngestTooManyRequests describes a response with status code 429, with default header values.
+/* IngestTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

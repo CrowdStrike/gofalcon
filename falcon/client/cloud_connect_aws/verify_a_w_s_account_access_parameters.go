@@ -53,12 +53,10 @@ func NewVerifyAWSAccountAccessParamsWithHTTPClient(client *http.Client) *VerifyA
 	}
 }
 
-/*
-VerifyAWSAccountAccessParams contains all the parameters to send to the API endpoint
+/* VerifyAWSAccountAccessParams contains all the parameters to send to the API endpoint
+   for the verify a w s account access operation.
 
-	for the verify a w s account access operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type VerifyAWSAccountAccessParams struct {
 

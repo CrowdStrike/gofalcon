@@ -71,8 +71,7 @@ func NewGetSampleV3OK() *GetSampleV3OK {
 	return &GetSampleV3OK{}
 }
 
-/*
-GetSampleV3OK describes a response with status code 200, with default header values.
+/* GetSampleV3OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -179,8 +178,7 @@ func NewGetSampleV3BadRequest() *GetSampleV3BadRequest {
 	return &GetSampleV3BadRequest{}
 }
 
-/*
-GetSampleV3BadRequest describes a response with status code 400, with default header values.
+/* GetSampleV3BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -289,8 +287,7 @@ func NewGetSampleV3Forbidden() *GetSampleV3Forbidden {
 	return &GetSampleV3Forbidden{}
 }
 
-/*
-GetSampleV3Forbidden describes a response with status code 403, with default header values.
+/* GetSampleV3Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -399,8 +396,7 @@ func NewGetSampleV3NotFound() *GetSampleV3NotFound {
 	return &GetSampleV3NotFound{}
 }
 
-/*
-GetSampleV3NotFound describes a response with status code 404, with default header values.
+/* GetSampleV3NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -509,8 +505,7 @@ func NewGetSampleV3TooManyRequests() *GetSampleV3TooManyRequests {
 	return &GetSampleV3TooManyRequests{}
 }
 
-/*
-GetSampleV3TooManyRequests describes a response with status code 429, with default header values.
+/* GetSampleV3TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -634,8 +629,7 @@ func NewGetSampleV3InternalServerError() *GetSampleV3InternalServerError {
 	return &GetSampleV3InternalServerError{}
 }
 
-/*
-GetSampleV3InternalServerError describes a response with status code 500, with default header values.
+/* GetSampleV3InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -71,8 +71,7 @@ func NewGetMalQueryRequestV1OK() *GetMalQueryRequestV1OK {
 	return &GetMalQueryRequestV1OK{}
 }
 
-/*
-GetMalQueryRequestV1OK describes a response with status code 200, with default header values.
+/* GetMalQueryRequestV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetMalQueryRequestV1BadRequest() *GetMalQueryRequestV1BadRequest {
 	return &GetMalQueryRequestV1BadRequest{}
 }
 
-/*
-GetMalQueryRequestV1BadRequest describes a response with status code 400, with default header values.
+/* GetMalQueryRequestV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetMalQueryRequestV1Unauthorized() *GetMalQueryRequestV1Unauthorized {
 	return &GetMalQueryRequestV1Unauthorized{}
 }
 
-/*
-GetMalQueryRequestV1Unauthorized describes a response with status code 401, with default header values.
+/* GetMalQueryRequestV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewGetMalQueryRequestV1Forbidden() *GetMalQueryRequestV1Forbidden {
 	return &GetMalQueryRequestV1Forbidden{}
 }
 
-/*
-GetMalQueryRequestV1Forbidden describes a response with status code 403, with default header values.
+/* GetMalQueryRequestV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetMalQueryRequestV1TooManyRequests() *GetMalQueryRequestV1TooManyReques
 	return &GetMalQueryRequestV1TooManyRequests{}
 }
 
-/*
-GetMalQueryRequestV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetMalQueryRequestV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetMalQueryRequestV1InternalServerError() *GetMalQueryRequestV1InternalS
 	return &GetMalQueryRequestV1InternalServerError{}
 }
 
-/*
-GetMalQueryRequestV1InternalServerError describes a response with status code 500, with default header values.
+/* GetMalQueryRequestV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

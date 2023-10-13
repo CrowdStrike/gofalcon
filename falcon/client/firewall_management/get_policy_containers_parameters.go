@@ -53,12 +53,10 @@ func NewGetPolicyContainersParamsWithHTTPClient(client *http.Client) *GetPolicyC
 	}
 }
 
-/*
-GetPolicyContainersParams contains all the parameters to send to the API endpoint
+/* GetPolicyContainersParams contains all the parameters to send to the API endpoint
+   for the get policy containers operation.
 
-	for the get policy containers operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetPolicyContainersParams struct {
 

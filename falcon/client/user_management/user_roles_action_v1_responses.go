@@ -65,8 +65,7 @@ func NewUserRolesActionV1OK() *UserRolesActionV1OK {
 	return &UserRolesActionV1OK{}
 }
 
-/*
-UserRolesActionV1OK describes a response with status code 200, with default header values.
+/* UserRolesActionV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUserRolesActionV1BadRequest() *UserRolesActionV1BadRequest {
 	return &UserRolesActionV1BadRequest{}
 }
 
-/*
-UserRolesActionV1BadRequest describes a response with status code 400, with default header values.
+/* UserRolesActionV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUserRolesActionV1Forbidden() *UserRolesActionV1Forbidden {
 	return &UserRolesActionV1Forbidden{}
 }
 
-/*
-UserRolesActionV1Forbidden describes a response with status code 403, with default header values.
+/* UserRolesActionV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUserRolesActionV1TooManyRequests() *UserRolesActionV1TooManyRequests {
 	return &UserRolesActionV1TooManyRequests{}
 }
 
-/*
-UserRolesActionV1TooManyRequests describes a response with status code 429, with default header values.
+/* UserRolesActionV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUserRolesActionV1InternalServerError() *UserRolesActionV1InternalServerE
 	return &UserRolesActionV1InternalServerError{}
 }
 
-/*
-UserRolesActionV1InternalServerError describes a response with status code 500, with default header values.
+/* UserRolesActionV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,8 +53,7 @@ func NewQueryRolesOK() *QueryRolesOK {
 	return &QueryRolesOK{}
 }
 
-/*
-QueryRolesOK describes a response with status code 200, with default header values.
+/* QueryRolesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryRolesForbidden() *QueryRolesForbidden {
 	return &QueryRolesForbidden{}
 }
 
-/*
-QueryRolesForbidden describes a response with status code 403, with default header values.
+/* QueryRolesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryRolesTooManyRequests() *QueryRolesTooManyRequests {
 	return &QueryRolesTooManyRequests{}
 }
 
-/*
-QueryRolesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryRolesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

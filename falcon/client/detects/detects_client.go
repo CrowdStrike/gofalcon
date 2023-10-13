@@ -42,7 +42,7 @@ type ClientService interface {
 }
 
 /*
-GetAggregateDetects gets detect aggregates as specified via json in request body
+  GetAggregateDetects gets detect aggregates as specified via json in request body
 */
 func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...ClientOption) (*GetAggregateDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -80,7 +80,7 @@ func (a *Client) GetAggregateDetects(params *GetAggregateDetectsParams, opts ...
 }
 
 /*
-GetDetectSummaries views information about detections
+  GetDetectSummaries views information about detections
 */
 func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...ClientOption) (*GetDetectSummariesOK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) GetDetectSummaries(params *GetDetectSummariesParams, opts ...Cl
 }
 
 /*
-QueryDetects searches for detection i ds that match a given query
+  QueryDetects searches for detection i ds that match a given query
 */
 func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) (*QueryDetectsOK, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ func (a *Client) QueryDetects(params *QueryDetectsParams, opts ...ClientOption) 
 }
 
 /*
-UpdateDetectsByIdsV2 modifies the state assignee and visibility of detections
+  UpdateDetectsByIdsV2 modifies the state assignee and visibility of detections
 */
 func (a *Client) UpdateDetectsByIdsV2(params *UpdateDetectsByIdsV2Params, opts ...ClientOption) (*UpdateDetectsByIdsV2OK, error) {
 	// TODO: Validate the params before sending

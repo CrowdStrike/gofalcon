@@ -53,8 +53,7 @@ func NewGetDeviceDetailsV2OK() *GetDeviceDetailsV2OK {
 	return &GetDeviceDetailsV2OK{}
 }
 
-/*
-GetDeviceDetailsV2OK describes a response with status code 200, with default header values.
+/* GetDeviceDetailsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetDeviceDetailsV2Forbidden() *GetDeviceDetailsV2Forbidden {
 	return &GetDeviceDetailsV2Forbidden{}
 }
 
-/*
-GetDeviceDetailsV2Forbidden describes a response with status code 403, with default header values.
+/* GetDeviceDetailsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetDeviceDetailsV2TooManyRequests() *GetDeviceDetailsV2TooManyRequests {
 	return &GetDeviceDetailsV2TooManyRequests{}
 }
 
-/*
-GetDeviceDetailsV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetDeviceDetailsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

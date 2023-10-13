@@ -53,8 +53,7 @@ func NewIndicatorGetProcessesRanOnV1OK() *IndicatorGetProcessesRanOnV1OK {
 	return &IndicatorGetProcessesRanOnV1OK{}
 }
 
-/*
-IndicatorGetProcessesRanOnV1OK describes a response with status code 200, with default header values.
+/* IndicatorGetProcessesRanOnV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewIndicatorGetProcessesRanOnV1Forbidden() *IndicatorGetProcessesRanOnV1For
 	return &IndicatorGetProcessesRanOnV1Forbidden{}
 }
 
-/*
-IndicatorGetProcessesRanOnV1Forbidden describes a response with status code 403, with default header values.
+/* IndicatorGetProcessesRanOnV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewIndicatorGetProcessesRanOnV1TooManyRequests() *IndicatorGetProcessesRanO
 	return &IndicatorGetProcessesRanOnV1TooManyRequests{}
 }
 
-/*
-IndicatorGetProcessesRanOnV1TooManyRequests describes a response with status code 429, with default header values.
+/* IndicatorGetProcessesRanOnV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

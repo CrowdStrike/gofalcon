@@ -52,12 +52,10 @@ func NewGetDefaultDeviceControlPoliciesParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-GetDefaultDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+/* GetDefaultDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the get default device control policies operation.
 
-	for the get default device control policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetDefaultDeviceControlPoliciesParams struct {
 	timeout    time.Duration

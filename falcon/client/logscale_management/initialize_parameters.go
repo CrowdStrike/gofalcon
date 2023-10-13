@@ -52,12 +52,10 @@ func NewInitializeParamsWithHTTPClient(client *http.Client) *InitializeParams {
 	}
 }
 
-/*
-InitializeParams contains all the parameters to send to the API endpoint
+/* InitializeParams contains all the parameters to send to the API endpoint
+   for the initialize operation.
 
-	for the initialize operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type InitializeParams struct {
 	timeout    time.Duration

@@ -77,8 +77,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1OK() *PostMalQueryEntitiesSamp
 	return &PostMalQueryEntitiesSamplesMultidownloadV1OK{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1OK describes a response with status code 200, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -187,8 +186,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1BadRequest() *PostMalQueryEnti
 	return &PostMalQueryEntitiesSamplesMultidownloadV1BadRequest{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1BadRequest describes a response with status code 400, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -297,8 +295,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1Unauthorized() *PostMalQueryEn
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized describes a response with status code 401, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -407,8 +404,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1Forbidden() *PostMalQueryEntit
 	return &PostMalQueryEntitiesSamplesMultidownloadV1Forbidden{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1Forbidden describes a response with status code 403, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -517,8 +513,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1NotFound() *PostMalQueryEntiti
 	return &PostMalQueryEntitiesSamplesMultidownloadV1NotFound{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1NotFound describes a response with status code 404, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -627,8 +622,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests() *PostMalQuer
 	return &PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests describes a response with status code 429, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -752,8 +746,7 @@ func NewPostMalQueryEntitiesSamplesMultidownloadV1InternalServerError() *PostMal
 	return &PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError{}
 }
 
-/*
-PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError describes a response with status code 500, with default header values.
+/* PostMalQueryEntitiesSamplesMultidownloadV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

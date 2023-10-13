@@ -53,12 +53,10 @@ func NewGetEvaluationLogicMixin0ParamsWithHTTPClient(client *http.Client) *GetEv
 	}
 }
 
-/*
-GetEvaluationLogicMixin0Params contains all the parameters to send to the API endpoint
+/* GetEvaluationLogicMixin0Params contains all the parameters to send to the API endpoint
+   for the get evaluation logic mixin0 operation.
 
-	for the get evaluation logic mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetEvaluationLogicMixin0Params struct {
 

@@ -53,12 +53,10 @@ func NewQueryIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *QueryIOAE
 	}
 }
 
-/*
-QueryIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+/* QueryIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the query i o a exclusions v1 operation.
 
-	for the query i o a exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIOAExclusionsV1Params struct {
 

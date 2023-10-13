@@ -59,8 +59,7 @@ func NewGetAuditV1OK() *GetAuditV1OK {
 	return &GetAuditV1OK{}
 }
 
-/*
-GetAuditV1OK describes a response with status code 200, with default header values.
+/* GetAuditV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetAuditV1Forbidden() *GetAuditV1Forbidden {
 	return &GetAuditV1Forbidden{}
 }
 
-/*
-GetAuditV1Forbidden describes a response with status code 403, with default header values.
+/* GetAuditV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewGetAuditV1NotFound() *GetAuditV1NotFound {
 	return &GetAuditV1NotFound{}
 }
 
-/*
-GetAuditV1NotFound describes a response with status code 404, with default header values.
+/* GetAuditV1NotFound describes a response with status code 404, with default header values.
 
 One or more of the specified agent IDs is not found.
 */
@@ -389,8 +386,7 @@ func NewGetAuditV1TooManyRequests() *GetAuditV1TooManyRequests {
 	return &GetAuditV1TooManyRequests{}
 }
 
-/*
-GetAuditV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetAuditV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

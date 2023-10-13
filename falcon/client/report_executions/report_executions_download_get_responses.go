@@ -65,8 +65,7 @@ func NewReportExecutionsDownloadGetOK() *ReportExecutionsDownloadGetOK {
 	return &ReportExecutionsDownloadGetOK{}
 }
 
-/*
-ReportExecutionsDownloadGetOK describes a response with status code 200, with default header values.
+/* ReportExecutionsDownloadGetOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -173,8 +172,7 @@ func NewReportExecutionsDownloadGetBadRequest() *ReportExecutionsDownloadGetBadR
 	return &ReportExecutionsDownloadGetBadRequest{}
 }
 
-/*
-ReportExecutionsDownloadGetBadRequest describes a response with status code 400, with default header values.
+/* ReportExecutionsDownloadGetBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -283,8 +281,7 @@ func NewReportExecutionsDownloadGetForbidden() *ReportExecutionsDownloadGetForbi
 	return &ReportExecutionsDownloadGetForbidden{}
 }
 
-/*
-ReportExecutionsDownloadGetForbidden describes a response with status code 403, with default header values.
+/* ReportExecutionsDownloadGetForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -393,8 +390,7 @@ func NewReportExecutionsDownloadGetTooManyRequests() *ReportExecutionsDownloadGe
 	return &ReportExecutionsDownloadGetTooManyRequests{}
 }
 
-/*
-ReportExecutionsDownloadGetTooManyRequests describes a response with status code 429, with default header values.
+/* ReportExecutionsDownloadGetTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -518,8 +514,7 @@ func NewReportExecutionsDownloadGetInternalServerError() *ReportExecutionsDownlo
 	return &ReportExecutionsDownloadGetInternalServerError{}
 }
 
-/*
-ReportExecutionsDownloadGetInternalServerError describes a response with status code 500, with default header values.
+/* ReportExecutionsDownloadGetInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

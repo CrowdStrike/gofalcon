@@ -53,12 +53,10 @@ func NewGetIotHostsParamsWithHTTPClient(client *http.Client) *GetIotHostsParams 
 	}
 }
 
-/*
-GetIotHostsParams contains all the parameters to send to the API endpoint
+/* GetIotHostsParams contains all the parameters to send to the API endpoint
+   for the get iot hosts operation.
 
-	for the get iot hosts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIotHostsParams struct {
 

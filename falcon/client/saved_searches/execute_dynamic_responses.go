@@ -53,8 +53,7 @@ func NewExecuteDynamicOK() *ExecuteDynamicOK {
 	return &ExecuteDynamicOK{}
 }
 
-/*
-ExecuteDynamicOK describes a response with status code 200, with default header values.
+/* ExecuteDynamicOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewExecuteDynamicForbidden() *ExecuteDynamicForbidden {
 	return &ExecuteDynamicForbidden{}
 }
 
-/*
-ExecuteDynamicForbidden describes a response with status code 403, with default header values.
+/* ExecuteDynamicForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewExecuteDynamicTooManyRequests() *ExecuteDynamicTooManyRequests {
 	return &ExecuteDynamicTooManyRequests{}
 }
 
-/*
-ExecuteDynamicTooManyRequests describes a response with status code 429, with default header values.
+/* ExecuteDynamicTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

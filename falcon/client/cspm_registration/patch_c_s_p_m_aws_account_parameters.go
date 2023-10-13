@@ -54,12 +54,10 @@ func NewPatchCSPMAwsAccountParamsWithHTTPClient(client *http.Client) *PatchCSPMA
 	}
 }
 
-/*
-PatchCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+/* PatchCSPMAwsAccountParams contains all the parameters to send to the API endpoint
+   for the patch c s p m aws account operation.
 
-	for the patch c s p m aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PatchCSPMAwsAccountParams struct {
 

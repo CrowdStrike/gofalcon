@@ -54,12 +54,10 @@ func NewAggregateRemediationsParamsWithHTTPClient(client *http.Client) *Aggregat
 	}
 }
 
-/*
-AggregateRemediationsParams contains all the parameters to send to the API endpoint
+/* AggregateRemediationsParams contains all the parameters to send to the API endpoint
+   for the aggregate remediations operation.
 
-	for the aggregate remediations operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateRemediationsParams struct {
 

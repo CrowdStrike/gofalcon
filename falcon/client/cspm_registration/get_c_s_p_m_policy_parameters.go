@@ -53,12 +53,10 @@ func NewGetCSPMPolicyParamsWithHTTPClient(client *http.Client) *GetCSPMPolicyPar
 	}
 }
 
-/*
-GetCSPMPolicyParams contains all the parameters to send to the API endpoint
+/* GetCSPMPolicyParams contains all the parameters to send to the API endpoint
+   for the get c s p m policy operation.
 
-	for the get c s p m policy operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMPolicyParams struct {
 

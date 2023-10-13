@@ -53,12 +53,10 @@ func NewQueryIntelActorIdsParamsWithHTTPClient(client *http.Client) *QueryIntelA
 	}
 }
 
-/*
-QueryIntelActorIdsParams contains all the parameters to send to the API endpoint
+/* QueryIntelActorIdsParams contains all the parameters to send to the API endpoint
+   for the query intel actor ids operation.
 
-	for the query intel actor ids operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIntelActorIdsParams struct {
 

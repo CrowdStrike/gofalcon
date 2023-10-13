@@ -53,8 +53,7 @@ func NewGetPlatformsMixin0OK() *GetPlatformsMixin0OK {
 	return &GetPlatformsMixin0OK{}
 }
 
-/*
-GetPlatformsMixin0OK describes a response with status code 200, with default header values.
+/* GetPlatformsMixin0OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetPlatformsMixin0Forbidden() *GetPlatformsMixin0Forbidden {
 	return &GetPlatformsMixin0Forbidden{}
 }
 
-/*
-GetPlatformsMixin0Forbidden describes a response with status code 403, with default header values.
+/* GetPlatformsMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetPlatformsMixin0TooManyRequests() *GetPlatformsMixin0TooManyRequests {
 	return &GetPlatformsMixin0TooManyRequests{}
 }
 
-/*
-GetPlatformsMixin0TooManyRequests describes a response with status code 429, with default header values.
+/* GetPlatformsMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

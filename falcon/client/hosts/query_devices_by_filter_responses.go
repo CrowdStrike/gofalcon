@@ -53,8 +53,7 @@ func NewQueryDevicesByFilterOK() *QueryDevicesByFilterOK {
 	return &QueryDevicesByFilterOK{}
 }
 
-/*
-QueryDevicesByFilterOK describes a response with status code 200, with default header values.
+/* QueryDevicesByFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryDevicesByFilterForbidden() *QueryDevicesByFilterForbidden {
 	return &QueryDevicesByFilterForbidden{}
 }
 
-/*
-QueryDevicesByFilterForbidden describes a response with status code 403, with default header values.
+/* QueryDevicesByFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryDevicesByFilterTooManyRequests() *QueryDevicesByFilterTooManyReques
 	return &QueryDevicesByFilterTooManyRequests{}
 }
 
-/*
-QueryDevicesByFilterTooManyRequests describes a response with status code 429, with default header values.
+/* QueryDevicesByFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

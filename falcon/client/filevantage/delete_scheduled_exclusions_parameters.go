@@ -53,12 +53,10 @@ func NewDeleteScheduledExclusionsParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*
-DeleteScheduledExclusionsParams contains all the parameters to send to the API endpoint
+/* DeleteScheduledExclusionsParams contains all the parameters to send to the API endpoint
+   for the delete scheduled exclusions operation.
 
-	for the delete scheduled exclusions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteScheduledExclusionsParams struct {
 

@@ -59,8 +59,7 @@ func NewGetScheduledScansByScanIdsOK() *GetScheduledScansByScanIdsOK {
 	return &GetScheduledScansByScanIdsOK{}
 }
 
-/*
-GetScheduledScansByScanIdsOK describes a response with status code 200, with default header values.
+/* GetScheduledScansByScanIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetScheduledScansByScanIdsForbidden() *GetScheduledScansByScanIdsForbidd
 	return &GetScheduledScansByScanIdsForbidden{}
 }
 
-/*
-GetScheduledScansByScanIdsForbidden describes a response with status code 403, with default header values.
+/* GetScheduledScansByScanIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewGetScheduledScansByScanIdsNotFound() *GetScheduledScansByScanIdsNotFound
 	return &GetScheduledScansByScanIdsNotFound{}
 }
 
-/*
-GetScheduledScansByScanIdsNotFound describes a response with status code 404, with default header values.
+/* GetScheduledScansByScanIdsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewGetScheduledScansByScanIdsTooManyRequests() *GetScheduledScansByScanIdsT
 	return &GetScheduledScansByScanIdsTooManyRequests{}
 }
 
-/*
-GetScheduledScansByScanIdsTooManyRequests describes a response with status code 429, with default header values.
+/* GetScheduledScansByScanIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

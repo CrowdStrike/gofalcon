@@ -53,12 +53,10 @@ func NewGetRemediationsV2ParamsWithHTTPClient(client *http.Client) *GetRemediati
 	}
 }
 
-/*
-GetRemediationsV2Params contains all the parameters to send to the API endpoint
+/* GetRemediationsV2Params contains all the parameters to send to the API endpoint
+   for the get remediations v2 operation.
 
-	for the get remediations v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetRemediationsV2Params struct {
 

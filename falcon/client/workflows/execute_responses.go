@@ -71,8 +71,7 @@ func NewExecuteOK() *ExecuteOK {
 	return &ExecuteOK{}
 }
 
-/*
-ExecuteOK describes a response with status code 200, with default header values.
+/* ExecuteOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewExecuteBadRequest() *ExecuteBadRequest {
 	return &ExecuteBadRequest{}
 }
 
-/*
-ExecuteBadRequest describes a response with status code 400, with default header values.
+/* ExecuteBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewExecuteForbidden() *ExecuteForbidden {
 	return &ExecuteForbidden{}
 }
 
-/*
-ExecuteForbidden describes a response with status code 403, with default header values.
+/* ExecuteForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewExecuteNotFound() *ExecuteNotFound {
 	return &ExecuteNotFound{}
 }
 
-/*
-ExecuteNotFound describes a response with status code 404, with default header values.
+/* ExecuteNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewExecuteTooManyRequests() *ExecuteTooManyRequests {
 	return &ExecuteTooManyRequests{}
 }
 
-/*
-ExecuteTooManyRequests describes a response with status code 429, with default header values.
+/* ExecuteTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewExecuteInternalServerError() *ExecuteInternalServerError {
 	return &ExecuteInternalServerError{}
 }
 
-/*
-ExecuteInternalServerError describes a response with status code 500, with default header values.
+/* ExecuteInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewQueryIncidentsOK() *QueryIncidentsOK {
 	return &QueryIncidentsOK{}
 }
 
-/*
-QueryIncidentsOK describes a response with status code 200, with default header values.
+/* QueryIncidentsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryIncidentsBadRequest() *QueryIncidentsBadRequest {
 	return &QueryIncidentsBadRequest{}
 }
 
-/*
-QueryIncidentsBadRequest describes a response with status code 400, with default header values.
+/* QueryIncidentsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryIncidentsForbidden() *QueryIncidentsForbidden {
 	return &QueryIncidentsForbidden{}
 }
 
-/*
-QueryIncidentsForbidden describes a response with status code 403, with default header values.
+/* QueryIncidentsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryIncidentsTooManyRequests() *QueryIncidentsTooManyRequests {
 	return &QueryIncidentsTooManyRequests{}
 }
 
-/*
-QueryIncidentsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryIncidentsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryIncidentsInternalServerError() *QueryIncidentsInternalServerError {
 	return &QueryIncidentsInternalServerError{}
 }
 
-/*
-QueryIncidentsInternalServerError describes a response with status code 500, with default header values.
+/* QueryIncidentsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

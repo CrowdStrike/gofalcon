@@ -71,8 +71,7 @@ func NewCreateD4CGcpAccountCreated() *CreateD4CGcpAccountCreated {
 	return &CreateD4CGcpAccountCreated{}
 }
 
-/*
-CreateD4CGcpAccountCreated describes a response with status code 201, with default header values.
+/* CreateD4CGcpAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreateD4CGcpAccountMultiStatus() *CreateD4CGcpAccountMultiStatus {
 	return &CreateD4CGcpAccountMultiStatus{}
 }
 
-/*
-CreateD4CGcpAccountMultiStatus describes a response with status code 207, with default header values.
+/* CreateD4CGcpAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewCreateD4CGcpAccountBadRequest() *CreateD4CGcpAccountBadRequest {
 	return &CreateD4CGcpAccountBadRequest{}
 }
 
-/*
-CreateD4CGcpAccountBadRequest describes a response with status code 400, with default header values.
+/* CreateD4CGcpAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewCreateD4CGcpAccountForbidden() *CreateD4CGcpAccountForbidden {
 	return &CreateD4CGcpAccountForbidden{}
 }
 
-/*
-CreateD4CGcpAccountForbidden describes a response with status code 403, with default header values.
+/* CreateD4CGcpAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewCreateD4CGcpAccountTooManyRequests() *CreateD4CGcpAccountTooManyRequests
 	return &CreateD4CGcpAccountTooManyRequests{}
 }
 
-/*
-CreateD4CGcpAccountTooManyRequests describes a response with status code 429, with default header values.
+/* CreateD4CGcpAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateD4CGcpAccountInternalServerError() *CreateD4CGcpAccountInternalSer
 	return &CreateD4CGcpAccountInternalServerError{}
 }
 
-/*
-CreateD4CGcpAccountInternalServerError describes a response with status code 500, with default header values.
+/* CreateD4CGcpAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

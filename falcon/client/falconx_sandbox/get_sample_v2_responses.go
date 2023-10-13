@@ -71,8 +71,7 @@ func NewGetSampleV2OK() *GetSampleV2OK {
 	return &GetSampleV2OK{}
 }
 
-/*
-GetSampleV2OK describes a response with status code 200, with default header values.
+/* GetSampleV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -179,8 +178,7 @@ func NewGetSampleV2BadRequest() *GetSampleV2BadRequest {
 	return &GetSampleV2BadRequest{}
 }
 
-/*
-GetSampleV2BadRequest describes a response with status code 400, with default header values.
+/* GetSampleV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -289,8 +287,7 @@ func NewGetSampleV2Forbidden() *GetSampleV2Forbidden {
 	return &GetSampleV2Forbidden{}
 }
 
-/*
-GetSampleV2Forbidden describes a response with status code 403, with default header values.
+/* GetSampleV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -399,8 +396,7 @@ func NewGetSampleV2NotFound() *GetSampleV2NotFound {
 	return &GetSampleV2NotFound{}
 }
 
-/*
-GetSampleV2NotFound describes a response with status code 404, with default header values.
+/* GetSampleV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -509,8 +505,7 @@ func NewGetSampleV2TooManyRequests() *GetSampleV2TooManyRequests {
 	return &GetSampleV2TooManyRequests{}
 }
 
-/*
-GetSampleV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetSampleV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -634,8 +629,7 @@ func NewGetSampleV2InternalServerError() *GetSampleV2InternalServerError {
 	return &GetSampleV2InternalServerError{}
 }
 
-/*
-GetSampleV2InternalServerError describes a response with status code 500, with default header values.
+/* GetSampleV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewQueryIotHostsParamsWithHTTPClient(client *http.Client) *QueryIotHostsPar
 	}
 }
 
-/*
-QueryIotHostsParams contains all the parameters to send to the API endpoint
+/* QueryIotHostsParams contains all the parameters to send to the API endpoint
+   for the query iot hosts operation.
 
-	for the query iot hosts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIotHostsParams struct {
 

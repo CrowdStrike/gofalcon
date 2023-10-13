@@ -72,8 +72,7 @@ func NewQueryCombinedSensorUpdateBuildsOK() *QueryCombinedSensorUpdateBuildsOK {
 	return &QueryCombinedSensorUpdateBuildsOK{}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsOK describes a response with status code 200, with default header values.
+/* QueryCombinedSensorUpdateBuildsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -182,8 +181,7 @@ func NewQueryCombinedSensorUpdateBuildsBadRequest() *QueryCombinedSensorUpdateBu
 	return &QueryCombinedSensorUpdateBuildsBadRequest{}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsBadRequest describes a response with status code 400, with default header values.
+/* QueryCombinedSensorUpdateBuildsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -292,8 +290,7 @@ func NewQueryCombinedSensorUpdateBuildsForbidden() *QueryCombinedSensorUpdateBui
 	return &QueryCombinedSensorUpdateBuildsForbidden{}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsForbidden describes a response with status code 403, with default header values.
+/* QueryCombinedSensorUpdateBuildsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -402,8 +399,7 @@ func NewQueryCombinedSensorUpdateBuildsTooManyRequests() *QueryCombinedSensorUpd
 	return &QueryCombinedSensorUpdateBuildsTooManyRequests{}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryCombinedSensorUpdateBuildsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -527,8 +523,7 @@ func NewQueryCombinedSensorUpdateBuildsInternalServerError() *QueryCombinedSenso
 	return &QueryCombinedSensorUpdateBuildsInternalServerError{}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsInternalServerError describes a response with status code 500, with default header values.
+/* QueryCombinedSensorUpdateBuildsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -639,8 +634,7 @@ func NewQueryCombinedSensorUpdateBuildsDefault(code int) *QueryCombinedSensorUpd
 	}
 }
 
-/*
-QueryCombinedSensorUpdateBuildsDefault describes a response with status code -1, with default header values.
+/* QueryCombinedSensorUpdateBuildsDefault describes a response with status code -1, with default header values.
 
 default
 */

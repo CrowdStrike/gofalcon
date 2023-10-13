@@ -55,12 +55,10 @@ func NewBatchRefreshSessionsParamsWithHTTPClient(client *http.Client) *BatchRefr
 	}
 }
 
-/*
-BatchRefreshSessionsParams contains all the parameters to send to the API endpoint
+/* BatchRefreshSessionsParams contains all the parameters to send to the API endpoint
+   for the batch refresh sessions operation.
 
-	for the batch refresh sessions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type BatchRefreshSessionsParams struct {
 

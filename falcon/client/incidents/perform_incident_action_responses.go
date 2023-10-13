@@ -71,8 +71,7 @@ func NewPerformIncidentActionOK() *PerformIncidentActionOK {
 	return &PerformIncidentActionOK{}
 }
 
-/*
-PerformIncidentActionOK describes a response with status code 200, with default header values.
+/* PerformIncidentActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewPerformIncidentActionBadRequest() *PerformIncidentActionBadRequest {
 	return &PerformIncidentActionBadRequest{}
 }
 
-/*
-PerformIncidentActionBadRequest describes a response with status code 400, with default header values.
+/* PerformIncidentActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewPerformIncidentActionForbidden() *PerformIncidentActionForbidden {
 	return &PerformIncidentActionForbidden{}
 }
 
-/*
-PerformIncidentActionForbidden describes a response with status code 403, with default header values.
+/* PerformIncidentActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewPerformIncidentActionConflict() *PerformIncidentActionConflict {
 	return &PerformIncidentActionConflict{}
 }
 
-/*
-PerformIncidentActionConflict describes a response with status code 409, with default header values.
+/* PerformIncidentActionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewPerformIncidentActionTooManyRequests() *PerformIncidentActionTooManyRequ
 	return &PerformIncidentActionTooManyRequests{}
 }
 
-/*
-PerformIncidentActionTooManyRequests describes a response with status code 429, with default header values.
+/* PerformIncidentActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPerformIncidentActionInternalServerError() *PerformIncidentActionInterna
 	return &PerformIncidentActionInternalServerError{}
 }
 
-/*
-PerformIncidentActionInternalServerError describes a response with status code 500, with default header values.
+/* PerformIncidentActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

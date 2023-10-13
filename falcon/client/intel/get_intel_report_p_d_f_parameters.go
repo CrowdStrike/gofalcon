@@ -52,12 +52,10 @@ func NewGetIntelReportPDFParamsWithHTTPClient(client *http.Client) *GetIntelRepo
 	}
 }
 
-/*
-GetIntelReportPDFParams contains all the parameters to send to the API endpoint
+/* GetIntelReportPDFParams contains all the parameters to send to the API endpoint
+   for the get intel report p d f operation.
 
-	for the get intel report p d f operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIntelReportPDFParams struct {
 

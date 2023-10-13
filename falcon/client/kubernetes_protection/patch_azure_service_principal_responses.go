@@ -71,8 +71,7 @@ func NewPatchAzureServicePrincipalCreated() *PatchAzureServicePrincipalCreated {
 	return &PatchAzureServicePrincipalCreated{}
 }
 
-/*
-PatchAzureServicePrincipalCreated describes a response with status code 201, with default header values.
+/* PatchAzureServicePrincipalCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewPatchAzureServicePrincipalMultiStatus() *PatchAzureServicePrincipalMulti
 	return &PatchAzureServicePrincipalMultiStatus{}
 }
 
-/*
-PatchAzureServicePrincipalMultiStatus describes a response with status code 207, with default header values.
+/* PatchAzureServicePrincipalMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewPatchAzureServicePrincipalBadRequest() *PatchAzureServicePrincipalBadReq
 	return &PatchAzureServicePrincipalBadRequest{}
 }
 
-/*
-PatchAzureServicePrincipalBadRequest describes a response with status code 400, with default header values.
+/* PatchAzureServicePrincipalBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewPatchAzureServicePrincipalForbidden() *PatchAzureServicePrincipalForbidd
 	return &PatchAzureServicePrincipalForbidden{}
 }
 
-/*
-PatchAzureServicePrincipalForbidden describes a response with status code 403, with default header values.
+/* PatchAzureServicePrincipalForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewPatchAzureServicePrincipalTooManyRequests() *PatchAzureServicePrincipalT
 	return &PatchAzureServicePrincipalTooManyRequests{}
 }
 
-/*
-PatchAzureServicePrincipalTooManyRequests describes a response with status code 429, with default header values.
+/* PatchAzureServicePrincipalTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPatchAzureServicePrincipalInternalServerError() *PatchAzureServicePrinci
 	return &PatchAzureServicePrincipalInternalServerError{}
 }
 
-/*
-PatchAzureServicePrincipalInternalServerError describes a response with status code 500, with default header values.
+/* PatchAzureServicePrincipalInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

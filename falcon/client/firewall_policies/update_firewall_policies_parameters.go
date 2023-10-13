@@ -54,12 +54,10 @@ func NewUpdateFirewallPoliciesParamsWithHTTPClient(client *http.Client) *UpdateF
 	}
 }
 
-/*
-UpdateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+/* UpdateFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the update firewall policies operation.
 
-	for the update firewall policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateFirewallPoliciesParams struct {
 

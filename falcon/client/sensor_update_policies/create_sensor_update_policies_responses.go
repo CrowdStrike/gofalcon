@@ -71,8 +71,7 @@ func NewCreateSensorUpdatePoliciesCreated() *CreateSensorUpdatePoliciesCreated {
 	return &CreateSensorUpdatePoliciesCreated{}
 }
 
-/*
-CreateSensorUpdatePoliciesCreated describes a response with status code 201, with default header values.
+/* CreateSensorUpdatePoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreateSensorUpdatePoliciesBadRequest() *CreateSensorUpdatePoliciesBadReq
 	return &CreateSensorUpdatePoliciesBadRequest{}
 }
 
-/*
-CreateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
+/* CreateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateSensorUpdatePoliciesForbidden() *CreateSensorUpdatePoliciesForbidd
 	return &CreateSensorUpdatePoliciesForbidden{}
 }
 
-/*
-CreateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+/* CreateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateSensorUpdatePoliciesNotFound() *CreateSensorUpdatePoliciesNotFound
 	return &CreateSensorUpdatePoliciesNotFound{}
 }
 
-/*
-CreateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+/* CreateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewCreateSensorUpdatePoliciesTooManyRequests() *CreateSensorUpdatePoliciesT
 	return &CreateSensorUpdatePoliciesTooManyRequests{}
 }
 
-/*
-CreateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* CreateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateSensorUpdatePoliciesInternalServerError() *CreateSensorUpdatePolic
 	return &CreateSensorUpdatePoliciesInternalServerError{}
 }
 
-/*
-CreateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* CreateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

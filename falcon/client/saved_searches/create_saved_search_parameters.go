@@ -55,12 +55,10 @@ func NewCreateSavedSearchParamsWithHTTPClient(client *http.Client) *CreateSavedS
 	}
 }
 
-/*
-CreateSavedSearchParams contains all the parameters to send to the API endpoint
+/* CreateSavedSearchParams contains all the parameters to send to the API endpoint
+   for the create saved search operation.
 
-	for the create saved search operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateSavedSearchParams struct {
 

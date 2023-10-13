@@ -54,12 +54,10 @@ func NewGetIndicatorsReportParamsWithHTTPClient(client *http.Client) *GetIndicat
 	}
 }
 
-/*
-GetIndicatorsReportParams contains all the parameters to send to the API endpoint
+/* GetIndicatorsReportParams contains all the parameters to send to the API endpoint
+   for the get indicators report operation.
 
-	for the get indicators report operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIndicatorsReportParams struct {
 

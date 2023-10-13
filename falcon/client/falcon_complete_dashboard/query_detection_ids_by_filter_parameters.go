@@ -53,12 +53,10 @@ func NewQueryDetectionIdsByFilterParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*
-QueryDetectionIdsByFilterParams contains all the parameters to send to the API endpoint
+/* QueryDetectionIdsByFilterParams contains all the parameters to send to the API endpoint
+   for the query detection ids by filter operation.
 
-	for the query detection ids by filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryDetectionIdsByFilterParams struct {
 

@@ -53,12 +53,10 @@ func NewDeleteD4CAwsAccountParamsWithHTTPClient(client *http.Client) *DeleteD4CA
 	}
 }
 
-/*
-DeleteD4CAwsAccountParams contains all the parameters to send to the API endpoint
+/* DeleteD4CAwsAccountParams contains all the parameters to send to the API endpoint
+   for the delete d4 c aws account operation.
 
-	for the delete d4 c aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteD4CAwsAccountParams struct {
 

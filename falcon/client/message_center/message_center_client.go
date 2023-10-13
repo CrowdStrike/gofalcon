@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-AggregateCases retrieves aggregate case values based on the matched filter
+  AggregateCases retrieves aggregate case values based on the matched filter
 */
 func (a *Client) AggregateCases(params *AggregateCasesParams, opts ...ClientOption) (*AggregateCasesOK, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) AggregateCases(params *AggregateCasesParams, opts ...ClientOpti
 }
 
 /*
-CaseAddActivity adds an activity to case only activities of type comment are allowed via API
+  CaseAddActivity adds an activity to case only activities of type comment are allowed via API
 */
 func (a *Client) CaseAddActivity(params *CaseAddActivityParams, opts ...ClientOption) (*CaseAddActivityOK, error) {
 	// TODO: Validate the params before sending
@@ -130,17 +130,17 @@ func (a *Client) CaseAddActivity(params *CaseAddActivityParams, opts ...ClientOp
 }
 
 /*
-	 CaseAddAttachment uploads an attachment for the case
+  CaseAddAttachment uploads an attachment for the case
 
-	 Upload an attachment for the case. Maximum upload size allowed is *15 MB*.
+  Upload an attachment for the case. Maximum upload size allowed is *15 MB*.
 
-	Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\s]*.
+ Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\s]*.
 
-	Maximum file name is *255* characters
+ Maximum file name is *255* characters
 
 
 
-	Following attachment types are allowed:
+ Following attachment types are allowed:
 
 - png
 
@@ -204,7 +204,7 @@ func (a *Client) CaseAddAttachment(params *CaseAddAttachmentParams, opts ...Clie
 }
 
 /*
-CaseDownloadAttachment retrieves an attachment for the case given the attachment id
+  CaseDownloadAttachment retrieves an attachment for the case given the attachment id
 */
 func (a *Client) CaseDownloadAttachment(params *CaseDownloadAttachmentParams, opts ...ClientOption) (*CaseDownloadAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -242,7 +242,7 @@ func (a *Client) CaseDownloadAttachment(params *CaseDownloadAttachmentParams, op
 }
 
 /*
-CreateCase creates a new case
+  CreateCase creates a new case
 */
 func (a *Client) CreateCase(params *CreateCaseParams, opts ...ClientOption) (*CreateCaseOK, error) {
 	// TODO: Validate the params before sending
@@ -280,7 +280,7 @@ func (a *Client) CreateCase(params *CreateCaseParams, opts ...ClientOption) (*Cr
 }
 
 /*
-CreateCaseV2 creates a new case
+  CreateCaseV2 creates a new case
 */
 func (a *Client) CreateCaseV2(params *CreateCaseV2Params, opts ...ClientOption) (*CreateCaseV2OK, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) CreateCaseV2(params *CreateCaseV2Params, opts ...ClientOption) 
 }
 
 /*
-GetCaseActivityByIds retrieves activities for given id s
+  GetCaseActivityByIds retrieves activities for given id s
 */
 func (a *Client) GetCaseActivityByIds(params *GetCaseActivityByIdsParams, opts ...ClientOption) (*GetCaseActivityByIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -356,7 +356,7 @@ func (a *Client) GetCaseActivityByIds(params *GetCaseActivityByIdsParams, opts .
 }
 
 /*
-GetCaseEntitiesByIDs retrieves message center cases
+  GetCaseEntitiesByIDs retrieves message center cases
 */
 func (a *Client) GetCaseEntitiesByIDs(params *GetCaseEntitiesByIDsParams, opts ...ClientOption) (*GetCaseEntitiesByIDsOK, error) {
 	// TODO: Validate the params before sending
@@ -394,7 +394,7 @@ func (a *Client) GetCaseEntitiesByIDs(params *GetCaseEntitiesByIDsParams, opts .
 }
 
 /*
-QueryActivityByCaseID retrieves activities id s for a case
+  QueryActivityByCaseID retrieves activities id s for a case
 */
 func (a *Client) QueryActivityByCaseID(params *QueryActivityByCaseIDParams, opts ...ClientOption) (*QueryActivityByCaseIDOK, error) {
 	// TODO: Validate the params before sending
@@ -432,7 +432,7 @@ func (a *Client) QueryActivityByCaseID(params *QueryActivityByCaseIDParams, opts
 }
 
 /*
-QueryCasesIdsByFilter retrieves case id s that match the provided filter criteria
+  QueryCasesIdsByFilter retrieves case id s that match the provided filter criteria
 */
 func (a *Client) QueryCasesIdsByFilter(params *QueryCasesIdsByFilterParams, opts ...ClientOption) (*QueryCasesIdsByFilterOK, error) {
 	// TODO: Validate the params before sending

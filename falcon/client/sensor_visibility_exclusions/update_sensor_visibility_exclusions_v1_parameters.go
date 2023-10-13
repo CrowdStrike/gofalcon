@@ -54,12 +54,10 @@ func NewUpdateSensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-UpdateSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+/* UpdateSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the update sensor visibility exclusions v1 operation.
 
-	for the update sensor visibility exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateSensorVisibilityExclusionsV1Params struct {
 

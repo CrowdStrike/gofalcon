@@ -59,8 +59,7 @@ func NewUpsertNetworkLocationsOK() *UpsertNetworkLocationsOK {
 	return &UpsertNetworkLocationsOK{}
 }
 
-/*
-UpsertNetworkLocationsOK describes a response with status code 200, with default header values.
+/* UpsertNetworkLocationsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewUpsertNetworkLocationsBadRequest() *UpsertNetworkLocationsBadRequest {
 	return &UpsertNetworkLocationsBadRequest{}
 }
 
-/*
-UpsertNetworkLocationsBadRequest describes a response with status code 400, with default header values.
+/* UpsertNetworkLocationsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewUpsertNetworkLocationsForbidden() *UpsertNetworkLocationsForbidden {
 	return &UpsertNetworkLocationsForbidden{}
 }
 
-/*
-UpsertNetworkLocationsForbidden describes a response with status code 403, with default header values.
+/* UpsertNetworkLocationsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewUpsertNetworkLocationsTooManyRequests() *UpsertNetworkLocationsTooManyRe
 	return &UpsertNetworkLocationsTooManyRequests{}
 }
 
-/*
-UpsertNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
+/* UpsertNetworkLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

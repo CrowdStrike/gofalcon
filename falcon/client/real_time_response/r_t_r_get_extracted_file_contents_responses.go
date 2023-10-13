@@ -75,8 +75,7 @@ func NewRTRGetExtractedFileContentsOK(writer io.Writer) *RTRGetExtractedFileCont
 	}
 }
 
-/*
-RTRGetExtractedFileContentsOK describes a response with status code 200, with default header values.
+/* RTRGetExtractedFileContentsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -183,8 +182,7 @@ func NewRTRGetExtractedFileContentsBadRequest() *RTRGetExtractedFileContentsBadR
 	return &RTRGetExtractedFileContentsBadRequest{}
 }
 
-/*
-RTRGetExtractedFileContentsBadRequest describes a response with status code 400, with default header values.
+/* RTRGetExtractedFileContentsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -293,8 +291,7 @@ func NewRTRGetExtractedFileContentsForbidden() *RTRGetExtractedFileContentsForbi
 	return &RTRGetExtractedFileContentsForbidden{}
 }
 
-/*
-RTRGetExtractedFileContentsForbidden describes a response with status code 403, with default header values.
+/* RTRGetExtractedFileContentsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -403,8 +400,7 @@ func NewRTRGetExtractedFileContentsNotFound() *RTRGetExtractedFileContentsNotFou
 	return &RTRGetExtractedFileContentsNotFound{}
 }
 
-/*
-RTRGetExtractedFileContentsNotFound describes a response with status code 404, with default header values.
+/* RTRGetExtractedFileContentsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -513,8 +509,7 @@ func NewRTRGetExtractedFileContentsTooManyRequests() *RTRGetExtractedFileContent
 	return &RTRGetExtractedFileContentsTooManyRequests{}
 }
 
-/*
-RTRGetExtractedFileContentsTooManyRequests describes a response with status code 429, with default header values.
+/* RTRGetExtractedFileContentsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -638,8 +633,7 @@ func NewRTRGetExtractedFileContentsInternalServerError() *RTRGetExtractedFileCon
 	return &RTRGetExtractedFileContentsInternalServerError{}
 }
 
-/*
-RTRGetExtractedFileContentsInternalServerError describes a response with status code 500, with default header values.
+/* RTRGetExtractedFileContentsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

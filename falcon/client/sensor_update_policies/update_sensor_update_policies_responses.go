@@ -71,8 +71,7 @@ func NewUpdateSensorUpdatePoliciesOK() *UpdateSensorUpdatePoliciesOK {
 	return &UpdateSensorUpdatePoliciesOK{}
 }
 
-/*
-UpdateSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
+/* UpdateSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewUpdateSensorUpdatePoliciesBadRequest() *UpdateSensorUpdatePoliciesBadReq
 	return &UpdateSensorUpdatePoliciesBadRequest{}
 }
 
-/*
-UpdateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
+/* UpdateSensorUpdatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateSensorUpdatePoliciesForbidden() *UpdateSensorUpdatePoliciesForbidd
 	return &UpdateSensorUpdatePoliciesForbidden{}
 }
 
-/*
-UpdateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+/* UpdateSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateSensorUpdatePoliciesNotFound() *UpdateSensorUpdatePoliciesNotFound
 	return &UpdateSensorUpdatePoliciesNotFound{}
 }
 
-/*
-UpdateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+/* UpdateSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewUpdateSensorUpdatePoliciesTooManyRequests() *UpdateSensorUpdatePoliciesT
 	return &UpdateSensorUpdatePoliciesTooManyRequests{}
 }
 
-/*
-UpdateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateSensorUpdatePoliciesInternalServerError() *UpdateSensorUpdatePolic
 	return &UpdateSensorUpdatePoliciesInternalServerError{}
 }
 
-/*
-UpdateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* UpdateSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -52,12 +52,10 @@ func NewCaseAddAttachmentParamsWithHTTPClient(client *http.Client) *CaseAddAttac
 	}
 }
 
-/*
-CaseAddAttachmentParams contains all the parameters to send to the API endpoint
+/* CaseAddAttachmentParams contains all the parameters to send to the API endpoint
+   for the case add attachment operation.
 
-	for the case add attachment operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CaseAddAttachmentParams struct {
 

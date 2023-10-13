@@ -59,8 +59,7 @@ func NewReadImageVulnerabilitiesOK() *ReadImageVulnerabilitiesOK {
 	return &ReadImageVulnerabilitiesOK{}
 }
 
-/*
-ReadImageVulnerabilitiesOK describes a response with status code 200, with default header values.
+/* ReadImageVulnerabilitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewReadImageVulnerabilitiesForbidden() *ReadImageVulnerabilitiesForbidden {
 	return &ReadImageVulnerabilitiesForbidden{}
 }
 
-/*
-ReadImageVulnerabilitiesForbidden describes a response with status code 403, with default header values.
+/* ReadImageVulnerabilitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewReadImageVulnerabilitiesTooManyRequests() *ReadImageVulnerabilitiesTooMa
 	return &ReadImageVulnerabilitiesTooManyRequests{}
 }
 
-/*
-ReadImageVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
+/* ReadImageVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,8 +401,7 @@ func NewReadImageVulnerabilitiesInternalServerError() *ReadImageVulnerabilitiesI
 	return &ReadImageVulnerabilitiesInternalServerError{}
 }
 
-/*
-ReadImageVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
+/* ReadImageVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

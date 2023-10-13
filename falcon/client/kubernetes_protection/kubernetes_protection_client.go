@@ -70,7 +70,7 @@ type ClientService interface {
 }
 
 /*
-CreateAWSAccount creates a new a w s account in our system for a customer and generates the installation script
+  CreateAWSAccount creates a new a w s account in our system for a customer and generates the installation script
 */
 func (a *Client) CreateAWSAccount(params *CreateAWSAccountParams, opts ...ClientOption) (*CreateAWSAccountCreated, *CreateAWSAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -109,7 +109,7 @@ func (a *Client) CreateAWSAccount(params *CreateAWSAccountParams, opts ...Client
 }
 
 /*
-CreateAzureSubscription creates a new azure subscription in our system
+  CreateAzureSubscription creates a new azure subscription in our system
 */
 func (a *Client) CreateAzureSubscription(params *CreateAzureSubscriptionParams, opts ...ClientOption) (*CreateAzureSubscriptionCreated, *CreateAzureSubscriptionMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -148,7 +148,7 @@ func (a *Client) CreateAzureSubscription(params *CreateAzureSubscriptionParams, 
 }
 
 /*
-DeleteAWSAccountsMixin0 deletes a w s accounts
+  DeleteAWSAccountsMixin0 deletes a w s accounts
 */
 func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, opts ...ClientOption) (*DeleteAWSAccountsMixin0OK, *DeleteAWSAccountsMixin0MultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -187,7 +187,7 @@ func (a *Client) DeleteAWSAccountsMixin0(params *DeleteAWSAccountsMixin0Params, 
 }
 
 /*
-DeleteAzureSubscription deletes a new azure subscription in our system
+  DeleteAzureSubscription deletes a new azure subscription in our system
 */
 func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, opts ...ClientOption) (*DeleteAzureSubscriptionOK, *DeleteAzureSubscriptionMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -226,7 +226,7 @@ func (a *Client) DeleteAzureSubscription(params *DeleteAzureSubscriptionParams, 
 }
 
 /*
-GetAWSAccountsMixin0 provides a list of a w s accounts
+  GetAWSAccountsMixin0 provides a list of a w s accounts
 */
 func (a *Client) GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts ...ClientOption) (*GetAWSAccountsMixin0OK, *GetAWSAccountsMixin0MultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -265,7 +265,7 @@ func (a *Client) GetAWSAccountsMixin0(params *GetAWSAccountsMixin0Params, opts .
 }
 
 /*
-GetAzureInstallScript provides the script to run for a given tenant id and subscription i ds
+  GetAzureInstallScript provides the script to run for a given tenant id and subscription i ds
 */
 func (a *Client) GetAzureInstallScript(params *GetAzureInstallScriptParams, opts ...ClientOption) (*GetAzureInstallScriptOK, *GetAzureInstallScriptMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -304,7 +304,7 @@ func (a *Client) GetAzureInstallScript(params *GetAzureInstallScriptParams, opts
 }
 
 /*
-GetAzureTenantConfig gets the azure tenant config
+  GetAzureTenantConfig gets the azure tenant config
 */
 func (a *Client) GetAzureTenantConfig(params *GetAzureTenantConfigParams, opts ...ClientOption) (*GetAzureTenantConfigOK, *GetAzureTenantConfigMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -343,7 +343,7 @@ func (a *Client) GetAzureTenantConfig(params *GetAzureTenantConfigParams, opts .
 }
 
 /*
-GetAzureTenantIDs provides all the azure subscriptions and tenants
+  GetAzureTenantIDs provides all the azure subscriptions and tenants
 */
 func (a *Client) GetAzureTenantIDs(params *GetAzureTenantIDsParams, opts ...ClientOption) (*GetAzureTenantIDsOK, *GetAzureTenantIDsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -382,7 +382,7 @@ func (a *Client) GetAzureTenantIDs(params *GetAzureTenantIDsParams, opts ...Clie
 }
 
 /*
-GetClusters provides the clusters acknowledged by the kubernetes protection service
+  GetClusters provides the clusters acknowledged by the kubernetes protection service
 */
 func (a *Client) GetClusters(params *GetClustersParams, opts ...ClientOption) (*GetClustersOK, *GetClustersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -421,7 +421,7 @@ func (a *Client) GetClusters(params *GetClustersParams, opts ...ClientOption) (*
 }
 
 /*
-GetCombinedCloudClusters returns a combined list of provisioned cloud accounts and known kubernetes clusters
+  GetCombinedCloudClusters returns a combined list of provisioned cloud accounts and known kubernetes clusters
 */
 func (a *Client) GetCombinedCloudClusters(params *GetCombinedCloudClustersParams, opts ...ClientOption) (*GetCombinedCloudClustersOK, *GetCombinedCloudClustersMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -460,7 +460,7 @@ func (a *Client) GetCombinedCloudClusters(params *GetCombinedCloudClustersParams
 }
 
 /*
-GetHelmValuesYaml provides a sample helm values yaml file for a customer to install alongside the agent helm chart
+  GetHelmValuesYaml provides a sample helm values yaml file for a customer to install alongside the agent helm chart
 */
 func (a *Client) GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...ClientOption) (*GetHelmValuesYamlOK, error) {
 	// TODO: Validate the params before sending
@@ -498,7 +498,7 @@ func (a *Client) GetHelmValuesYaml(params *GetHelmValuesYamlParams, opts ...Clie
 }
 
 /*
-GetLocations provides the cloud locations acknowledged by the kubernetes protection service
+  GetLocations provides the cloud locations acknowledged by the kubernetes protection service
 */
 func (a *Client) GetLocations(params *GetLocationsParams, opts ...ClientOption) (*GetLocationsOK, *GetLocationsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -537,7 +537,7 @@ func (a *Client) GetLocations(params *GetLocationsParams, opts ...ClientOption) 
 }
 
 /*
-GetStaticScripts gets static bash scripts that are used during registration
+  GetStaticScripts gets static bash scripts that are used during registration
 */
 func (a *Client) GetStaticScripts(params *GetStaticScriptsParams, opts ...ClientOption) (*GetStaticScriptsOK, *GetStaticScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -576,7 +576,7 @@ func (a *Client) GetStaticScripts(params *GetStaticScriptsParams, opts ...Client
 }
 
 /*
-ListAzureAccounts provides the azure subscriptions registered to kubernetes protection
+  ListAzureAccounts provides the azure subscriptions registered to kubernetes protection
 */
 func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...ClientOption) (*ListAzureAccountsOK, *ListAzureAccountsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -615,7 +615,7 @@ func (a *Client) ListAzureAccounts(params *ListAzureAccountsParams, opts ...Clie
 }
 
 /*
-PatchAzureServicePrincipal adds the client ID for the given tenant ID to our system
+  PatchAzureServicePrincipal adds the client ID for the given tenant ID to our system
 */
 func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalParams, opts ...ClientOption) (*PatchAzureServicePrincipalCreated, *PatchAzureServicePrincipalMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -654,7 +654,7 @@ func (a *Client) PatchAzureServicePrincipal(params *PatchAzureServicePrincipalPa
 }
 
 /*
-RegenerateAPIKey regenerates API key for docker registry integrations
+  RegenerateAPIKey regenerates API key for docker registry integrations
 */
 func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...ClientOption) (*RegenerateAPIKeyOK, *RegenerateAPIKeyMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -693,7 +693,7 @@ func (a *Client) RegenerateAPIKey(params *RegenerateAPIKeyParams, opts ...Client
 }
 
 /*
-TriggerScan triggers a dry run or a full scan of a customer s kubernetes footprint
+  TriggerScan triggers a dry run or a full scan of a customer s kubernetes footprint
 */
 func (a *Client) TriggerScan(params *TriggerScanParams, opts ...ClientOption) (*TriggerScanCreated, *TriggerScanMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -732,7 +732,7 @@ func (a *Client) TriggerScan(params *TriggerScanParams, opts ...ClientOption) (*
 }
 
 /*
-UpdateAWSAccount updates the a w s account per the query parameters provided
+  UpdateAWSAccount updates the a w s account per the query parameters provided
 */
 func (a *Client) UpdateAWSAccount(params *UpdateAWSAccountParams, opts ...ClientOption) (*UpdateAWSAccountOK, *UpdateAWSAccountMultiStatus, error) {
 	// TODO: Validate the params before sending

@@ -54,7 +54,7 @@ type ClientService interface {
 }
 
 /*
-CreatePreventionPolicies creates prevention policies by specifying details about the policy to create
+  CreatePreventionPolicies creates prevention policies by specifying details about the policy to create
 */
 func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams, opts ...ClientOption) (*CreatePreventionPoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) CreatePreventionPolicies(params *CreatePreventionPoliciesParams
 }
 
 /*
-DeletePreventionPolicies deletes a set of prevention policies by specifying their i ds
+  DeletePreventionPolicies deletes a set of prevention policies by specifying their i ds
 */
 func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams, opts ...ClientOption) (*DeletePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -130,7 +130,7 @@ func (a *Client) DeletePreventionPolicies(params *DeletePreventionPoliciesParams
 }
 
 /*
-GetPreventionPolicies retrieves a set of prevention policies by specifying their i ds
+  GetPreventionPolicies retrieves a set of prevention policies by specifying their i ds
 */
 func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, opts ...ClientOption) (*GetPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -168,7 +168,7 @@ func (a *Client) GetPreventionPolicies(params *GetPreventionPoliciesParams, opts
 }
 
 /*
-PerformPreventionPoliciesAction performs the specified action on the prevention policies specified in the request
+  PerformPreventionPoliciesAction performs the specified action on the prevention policies specified in the request
 */
 func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPoliciesActionParams, opts ...ClientOption) (*PerformPreventionPoliciesActionOK, error) {
 	// TODO: Validate the params before sending
@@ -206,7 +206,7 @@ func (a *Client) PerformPreventionPoliciesAction(params *PerformPreventionPolici
 }
 
 /*
-QueryCombinedPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policies which match the filter criteria
+  QueryCombinedPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policies which match the filter criteria
 */
 func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPreventionPoliciesParams, opts ...ClientOption) (*QueryCombinedPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -244,7 +244,7 @@ func (a *Client) QueryCombinedPreventionPolicies(params *QueryCombinedPrevention
 }
 
 /*
-QueryCombinedPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+  QueryCombinedPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreventionPolicyMembersParams, opts ...ClientOption) (*QueryCombinedPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -282,7 +282,7 @@ func (a *Client) QueryCombinedPreventionPolicyMembers(params *QueryCombinedPreve
 }
 
 /*
-QueryPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policy i ds which match the filter criteria
+  QueryPreventionPolicies searches for prevention policies in your environment by providing an f q l filter and paging details returns a set of prevention policy i ds which match the filter criteria
 */
 func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, opts ...ClientOption) (*QueryPreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -320,7 +320,7 @@ func (a *Client) QueryPreventionPolicies(params *QueryPreventionPoliciesParams, 
 }
 
 /*
-QueryPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+  QueryPreventionPolicyMembers searches for members of a prevention policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembersParams, opts ...ClientOption) (*QueryPreventionPolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -358,7 +358,7 @@ func (a *Client) QueryPreventionPolicyMembers(params *QueryPreventionPolicyMembe
 }
 
 /*
-SetPreventionPoliciesPrecedence sets the precedence of prevention policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
+  SetPreventionPoliciesPrecedence sets the precedence of prevention policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
 func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPrecedenceParams, opts ...ClientOption) (*SetPreventionPoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -396,7 +396,7 @@ func (a *Client) SetPreventionPoliciesPrecedence(params *SetPreventionPoliciesPr
 }
 
 /*
-UpdatePreventionPolicies updates prevention policies by specifying the ID of the policy and details to update
+  UpdatePreventionPolicies updates prevention policies by specifying the ID of the policy and details to update
 */
 func (a *Client) UpdatePreventionPolicies(params *UpdatePreventionPoliciesParams, opts ...ClientOption) (*UpdatePreventionPoliciesOK, error) {
 	// TODO: Validate the params before sending

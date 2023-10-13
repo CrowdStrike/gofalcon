@@ -54,12 +54,10 @@ func NewPerformRTResponsePoliciesActionParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PerformRTResponsePoliciesActionParams contains all the parameters to send to the API endpoint
+/* PerformRTResponsePoliciesActionParams contains all the parameters to send to the API endpoint
+   for the perform r t response policies action operation.
 
-	for the perform r t response policies action operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PerformRTResponsePoliciesActionParams struct {
 

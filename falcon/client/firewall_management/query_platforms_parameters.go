@@ -53,12 +53,10 @@ func NewQueryPlatformsParamsWithHTTPClient(client *http.Client) *QueryPlatformsP
 	}
 }
 
-/*
-QueryPlatformsParams contains all the parameters to send to the API endpoint
+/* QueryPlatformsParams contains all the parameters to send to the API endpoint
+   for the query platforms operation.
 
-	for the query platforms operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryPlatformsParams struct {
 

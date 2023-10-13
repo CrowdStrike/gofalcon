@@ -53,12 +53,10 @@ func NewGetCIDGroupByIDParamsWithHTTPClient(client *http.Client) *GetCIDGroupByI
 	}
 }
 
-/*
-GetCIDGroupByIDParams contains all the parameters to send to the API endpoint
+/* GetCIDGroupByIDParams contains all the parameters to send to the API endpoint
+   for the get c ID group by Id operation.
 
-	for the get c ID group by Id operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCIDGroupByIDParams struct {
 

@@ -64,7 +64,7 @@ type ClientService interface {
 }
 
 /*
-DeleteReport deletes report based on the report ID operation can be checked for success by polling for the report ID on the report summaries endpoint
+  DeleteReport deletes report based on the report ID operation can be checked for success by polling for the report ID on the report summaries endpoint
 */
 func (a *Client) DeleteReport(params *DeleteReportParams, opts ...ClientOption) (*DeleteReportAccepted, error) {
 	// TODO: Validate the params before sending
@@ -102,7 +102,7 @@ func (a *Client) DeleteReport(params *DeleteReportParams, opts ...ClientOption) 
 }
 
 /*
-DeleteSampleV2 removes a sample including file meta and submissions from the collection
+  DeleteSampleV2 removes a sample including file meta and submissions from the collection
 */
 func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, opts ...ClientOption) (*DeleteSampleV2OK, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) DeleteSampleV2(params *DeleteSampleV2Params, opts ...ClientOpti
 }
 
 /*
-GetArtifacts downloads i o c packs p c a p files memory dumps and other analysis artifacts
+  GetArtifacts downloads i o c packs p c a p files memory dumps and other analysis artifacts
 */
 func (a *Client) GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) (*GetArtifactsOK, error) {
 	// TODO: Validate the params before sending
@@ -178,7 +178,7 @@ func (a *Client) GetArtifacts(params *GetArtifactsParams, opts ...ClientOption) 
 }
 
 /*
-GetMemoryDump gets memory dump content as binary
+  GetMemoryDump gets memory dump content as binary
 */
 func (a *Client) GetMemoryDump(params *GetMemoryDumpParams, opts ...ClientOption) (*GetMemoryDumpOK, error) {
 	// TODO: Validate the params before sending
@@ -216,7 +216,7 @@ func (a *Client) GetMemoryDump(params *GetMemoryDumpParams, opts ...ClientOption
 }
 
 /*
-GetMemoryDumpExtractedStrings gets extracted strings from a memory dump
+  GetMemoryDumpExtractedStrings gets extracted strings from a memory dump
 */
 func (a *Client) GetMemoryDumpExtractedStrings(params *GetMemoryDumpExtractedStringsParams, opts ...ClientOption) (*GetMemoryDumpExtractedStringsOK, error) {
 	// TODO: Validate the params before sending
@@ -254,7 +254,7 @@ func (a *Client) GetMemoryDumpExtractedStrings(params *GetMemoryDumpExtractedStr
 }
 
 /*
-GetMemoryDumpHexDump gets hex view of a memory dump
+  GetMemoryDumpHexDump gets hex view of a memory dump
 */
 func (a *Client) GetMemoryDumpHexDump(params *GetMemoryDumpHexDumpParams, opts ...ClientOption) (*GetMemoryDumpHexDumpOK, error) {
 	// TODO: Validate the params before sending
@@ -292,7 +292,7 @@ func (a *Client) GetMemoryDumpHexDump(params *GetMemoryDumpHexDumpParams, opts .
 }
 
 /*
-GetReports gets a full sandbox report
+  GetReports gets a full sandbox report
 */
 func (a *Client) GetReports(params *GetReportsParams, opts ...ClientOption) (*GetReportsOK, error) {
 	// TODO: Validate the params before sending
@@ -330,7 +330,7 @@ func (a *Client) GetReports(params *GetReportsParams, opts ...ClientOption) (*Ge
 }
 
 /*
-GetSampleV2 retrieves the file associated with the given ID s h a256
+  GetSampleV2 retrieves the file associated with the given ID s h a256
 */
 func (a *Client) GetSampleV2(params *GetSampleV2Params, opts ...ClientOption) (*GetSampleV2OK, error) {
 	// TODO: Validate the params before sending
@@ -368,7 +368,7 @@ func (a *Client) GetSampleV2(params *GetSampleV2Params, opts ...ClientOption) (*
 }
 
 /*
-GetSubmissions checks the status of a sandbox analysis time required for analysis varies but is usually less than 15 minutes
+  GetSubmissions checks the status of a sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
 func (a *Client) GetSubmissions(params *GetSubmissionsParams, opts ...ClientOption) (*GetSubmissionsOK, error) {
 	// TODO: Validate the params before sending
@@ -406,7 +406,7 @@ func (a *Client) GetSubmissions(params *GetSubmissionsParams, opts ...ClientOpti
 }
 
 /*
-GetSummaryReports gets a short summary version of a sandbox report
+  GetSummaryReports gets a short summary version of a sandbox report
 */
 func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, opts ...ClientOption) (*GetSummaryReportsOK, error) {
 	// TODO: Validate the params before sending
@@ -444,7 +444,7 @@ func (a *Client) GetSummaryReports(params *GetSummaryReportsParams, opts ...Clie
 }
 
 /*
-QueryReports finds sandbox reports by providing an f q l filter and paging details returns a set of report i ds that match your criteria
+  QueryReports finds sandbox reports by providing an f q l filter and paging details returns a set of report i ds that match your criteria
 */
 func (a *Client) QueryReports(params *QueryReportsParams, opts ...ClientOption) (*QueryReportsOK, error) {
 	// TODO: Validate the params before sending
@@ -482,7 +482,7 @@ func (a *Client) QueryReports(params *QueryReportsParams, opts ...ClientOption) 
 }
 
 /*
-QuerySampleV1 retrieves a list with sha256 of samples that exist and customer has rights to access them maximum number of accepted items is 200
+  QuerySampleV1 retrieves a list with sha256 of samples that exist and customer has rights to access them maximum number of accepted items is 200
 */
 func (a *Client) QuerySampleV1(params *QuerySampleV1Params, opts ...ClientOption) (*QuerySampleV1OK, error) {
 	// TODO: Validate the params before sending
@@ -520,7 +520,7 @@ func (a *Client) QuerySampleV1(params *QuerySampleV1Params, opts ...ClientOption
 }
 
 /*
-QuerySubmissions finds submission i ds for uploaded files by providing an f q l filter and paging details returns a set of submission i ds that match your criteria
+  QuerySubmissions finds submission i ds for uploaded files by providing an f q l filter and paging details returns a set of submission i ds that match your criteria
 */
 func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, opts ...ClientOption) (*QuerySubmissionsOK, error) {
 	// TODO: Validate the params before sending
@@ -558,7 +558,7 @@ func (a *Client) QuerySubmissions(params *QuerySubmissionsParams, opts ...Client
 }
 
 /*
-Submit submits an uploaded file or a URL for sandbox analysis time required for analysis varies but is usually less than 15 minutes
+  Submit submits an uploaded file or a URL for sandbox analysis time required for analysis varies but is usually less than 15 minutes
 */
 func (a *Client) Submit(params *SubmitParams, opts ...ClientOption) (*SubmitOK, error) {
 	// TODO: Validate the params before sending
@@ -596,7 +596,7 @@ func (a *Client) Submit(params *SubmitParams, opts ...ClientOption) (*SubmitOK, 
 }
 
 /*
-UploadSampleV2 uploads a file for sandbox analysis after uploading use falconx entities submissions v1 to start analyzing the file
+  UploadSampleV2 uploads a file for sandbox analysis after uploading use falconx entities submissions v1 to start analyzing the file
 */
 func (a *Client) UploadSampleV2(params *UploadSampleV2Params, opts ...ClientOption) (*UploadSampleV2OK, error) {
 	// TODO: Validate the params before sending

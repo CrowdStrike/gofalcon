@@ -54,12 +54,10 @@ func NewCreateMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *CreateMLE
 	}
 }
 
-/*
-CreateMLExclusionsV1Params contains all the parameters to send to the API endpoint
+/* CreateMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the create m l exclusions v1 operation.
 
-	for the create m l exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateMLExclusionsV1Params struct {
 

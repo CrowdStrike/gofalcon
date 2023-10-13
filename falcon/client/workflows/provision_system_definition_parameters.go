@@ -54,12 +54,10 @@ func NewProvisionSystemDefinitionParamsWithHTTPClient(client *http.Client) *Prov
 	}
 }
 
-/*
-ProvisionSystemDefinitionParams contains all the parameters to send to the API endpoint
+/* ProvisionSystemDefinitionParams contains all the parameters to send to the API endpoint
+   for the provision system definition operation.
 
-	for the provision system definition operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ProvisionSystemDefinitionParams struct {
 

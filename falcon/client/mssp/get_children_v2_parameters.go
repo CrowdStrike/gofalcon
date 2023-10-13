@@ -54,12 +54,10 @@ func NewGetChildrenV2ParamsWithHTTPClient(client *http.Client) *GetChildrenV2Par
 	}
 }
 
-/*
-GetChildrenV2Params contains all the parameters to send to the API endpoint
+/* GetChildrenV2Params contains all the parameters to send to the API endpoint
+   for the get children v2 operation.
 
-	for the get children v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetChildrenV2Params struct {
 

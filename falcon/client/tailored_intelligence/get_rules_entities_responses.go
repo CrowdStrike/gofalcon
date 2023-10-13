@@ -65,8 +65,7 @@ func NewGetRulesEntitiesOK() *GetRulesEntitiesOK {
 	return &GetRulesEntitiesOK{}
 }
 
-/*
-GetRulesEntitiesOK describes a response with status code 200, with default header values.
+/* GetRulesEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetRulesEntitiesBadRequest() *GetRulesEntitiesBadRequest {
 	return &GetRulesEntitiesBadRequest{}
 }
 
-/*
-GetRulesEntitiesBadRequest describes a response with status code 400, with default header values.
+/* GetRulesEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetRulesEntitiesForbidden() *GetRulesEntitiesForbidden {
 	return &GetRulesEntitiesForbidden{}
 }
 
-/*
-GetRulesEntitiesForbidden describes a response with status code 403, with default header values.
+/* GetRulesEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -382,8 +379,7 @@ func NewGetRulesEntitiesTooManyRequests() *GetRulesEntitiesTooManyRequests {
 	return &GetRulesEntitiesTooManyRequests{}
 }
 
-/*
-GetRulesEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetRulesEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -507,8 +503,7 @@ func NewGetRulesEntitiesInternalServerError() *GetRulesEntitiesInternalServerErr
 	return &GetRulesEntitiesInternalServerError{}
 }
 
-/*
-GetRulesEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* GetRulesEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

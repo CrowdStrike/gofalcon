@@ -59,8 +59,7 @@ func NewGetIntelIndicatorEntitiesOK() *GetIntelIndicatorEntitiesOK {
 	return &GetIntelIndicatorEntitiesOK{}
 }
 
-/*
-GetIntelIndicatorEntitiesOK describes a response with status code 200, with default header values.
+/* GetIntelIndicatorEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetIntelIndicatorEntitiesForbidden() *GetIntelIndicatorEntitiesForbidden
 	return &GetIntelIndicatorEntitiesForbidden{}
 }
 
-/*
-GetIntelIndicatorEntitiesForbidden describes a response with status code 403, with default header values.
+/* GetIntelIndicatorEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewGetIntelIndicatorEntitiesTooManyRequests() *GetIntelIndicatorEntitiesToo
 	return &GetIntelIndicatorEntitiesTooManyRequests{}
 }
 
-/*
-GetIntelIndicatorEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetIntelIndicatorEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -404,8 +401,7 @@ func NewGetIntelIndicatorEntitiesInternalServerError() *GetIntelIndicatorEntitie
 	return &GetIntelIndicatorEntitiesInternalServerError{}
 }
 
-/*
-GetIntelIndicatorEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* GetIntelIndicatorEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

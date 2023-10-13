@@ -53,8 +53,7 @@ func NewPutObjectOK() *PutObjectOK {
 	return &PutObjectOK{}
 }
 
-/*
-PutObjectOK describes a response with status code 200, with default header values.
+/* PutObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -72,7 +71,7 @@ type PutObjectOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.CustomType2096042126
+	Payload *models.CustomType4078359637
 }
 
 // IsSuccess returns true when this put object o k response has a 2xx status code
@@ -113,7 +112,7 @@ func (o *PutObjectOK) String() string {
 	return fmt.Sprintf("[PUT /customobjects/v1/collections/{collection_name}/objects/{object_key}][%d] putObjectOK  %+v", 200, o.Payload)
 }
 
-func (o *PutObjectOK) GetPayload() *models.CustomType2096042126 {
+func (o *PutObjectOK) GetPayload() *models.CustomType4078359637 {
 	return o.Payload
 }
 
@@ -148,7 +147,7 @@ func (o *PutObjectOK) readResponse(response runtime.ClientResponse, consumer run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.CustomType2096042126)
+	o.Payload = new(models.CustomType4078359637)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -163,8 +162,7 @@ func NewPutObjectForbidden() *PutObjectForbidden {
 	return &PutObjectForbidden{}
 }
 
-/*
-PutObjectForbidden describes a response with status code 403, with default header values.
+/* PutObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewPutObjectTooManyRequests() *PutObjectTooManyRequests {
 	return &PutObjectTooManyRequests{}
 }
 
-/*
-PutObjectTooManyRequests describes a response with status code 429, with default header values.
+/* PutObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

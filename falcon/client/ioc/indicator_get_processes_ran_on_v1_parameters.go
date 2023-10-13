@@ -52,12 +52,10 @@ func NewIndicatorGetProcessesRanOnV1ParamsWithHTTPClient(client *http.Client) *I
 	}
 }
 
-/*
-IndicatorGetProcessesRanOnV1Params contains all the parameters to send to the API endpoint
+/* IndicatorGetProcessesRanOnV1Params contains all the parameters to send to the API endpoint
+   for the indicator get processes ran on v1 operation.
 
-	for the indicator get processes ran on v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorGetProcessesRanOnV1Params struct {
 

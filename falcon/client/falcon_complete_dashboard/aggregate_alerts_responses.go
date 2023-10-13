@@ -53,8 +53,7 @@ func NewAggregateAlertsOK() *AggregateAlertsOK {
 	return &AggregateAlertsOK{}
 }
 
-/*
-AggregateAlertsOK describes a response with status code 200, with default header values.
+/* AggregateAlertsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregateAlertsForbidden() *AggregateAlertsForbidden {
 	return &AggregateAlertsForbidden{}
 }
 
-/*
-AggregateAlertsForbidden describes a response with status code 403, with default header values.
+/* AggregateAlertsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregateAlertsTooManyRequests() *AggregateAlertsTooManyRequests {
 	return &AggregateAlertsTooManyRequests{}
 }
 
-/*
-AggregateAlertsTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateAlertsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -55,12 +55,10 @@ func NewBatchAdminCmdParamsWithHTTPClient(client *http.Client) *BatchAdminCmdPar
 	}
 }
 
-/*
-BatchAdminCmdParams contains all the parameters to send to the API endpoint
+/* BatchAdminCmdParams contains all the parameters to send to the API endpoint
+   for the batch admin cmd operation.
 
-	for the batch admin cmd operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type BatchAdminCmdParams struct {
 

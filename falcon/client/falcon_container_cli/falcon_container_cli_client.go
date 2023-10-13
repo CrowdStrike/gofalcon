@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-ReadImageVulnerabilities retrieves known vulnerabilities for the provided image
+  ReadImageVulnerabilities retrieves known vulnerabilities for the provided image
 */
 func (a *Client) ReadImageVulnerabilities(params *ReadImageVulnerabilitiesParams, opts ...ClientOption) (*ReadImageVulnerabilitiesOK, error) {
 	// TODO: Validate the params before sending

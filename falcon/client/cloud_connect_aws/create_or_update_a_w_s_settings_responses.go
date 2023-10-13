@@ -65,8 +65,7 @@ func NewCreateOrUpdateAWSSettingsCreated() *CreateOrUpdateAWSSettingsCreated {
 	return &CreateOrUpdateAWSSettingsCreated{}
 }
 
-/*
-CreateOrUpdateAWSSettingsCreated describes a response with status code 201, with default header values.
+/* CreateOrUpdateAWSSettingsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewCreateOrUpdateAWSSettingsBadRequest() *CreateOrUpdateAWSSettingsBadReque
 	return &CreateOrUpdateAWSSettingsBadRequest{}
 }
 
-/*
-CreateOrUpdateAWSSettingsBadRequest describes a response with status code 400, with default header values.
+/* CreateOrUpdateAWSSettingsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCreateOrUpdateAWSSettingsForbidden() *CreateOrUpdateAWSSettingsForbidden
 	return &CreateOrUpdateAWSSettingsForbidden{}
 }
 
-/*
-CreateOrUpdateAWSSettingsForbidden describes a response with status code 403, with default header values.
+/* CreateOrUpdateAWSSettingsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCreateOrUpdateAWSSettingsTooManyRequests() *CreateOrUpdateAWSSettingsToo
 	return &CreateOrUpdateAWSSettingsTooManyRequests{}
 }
 
-/*
-CreateOrUpdateAWSSettingsTooManyRequests describes a response with status code 429, with default header values.
+/* CreateOrUpdateAWSSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCreateOrUpdateAWSSettingsInternalServerError() *CreateOrUpdateAWSSetting
 	return &CreateOrUpdateAWSSettingsInternalServerError{}
 }
 
-/*
-CreateOrUpdateAWSSettingsInternalServerError describes a response with status code 500, with default header values.
+/* CreateOrUpdateAWSSettingsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

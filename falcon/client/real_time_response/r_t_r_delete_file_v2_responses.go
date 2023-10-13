@@ -65,8 +65,7 @@ func NewRTRDeleteFileV2NoContent() *RTRDeleteFileV2NoContent {
 	return &RTRDeleteFileV2NoContent{}
 }
 
-/*
-RTRDeleteFileV2NoContent describes a response with status code 204, with default header values.
+/* RTRDeleteFileV2NoContent describes a response with status code 204, with default header values.
 
 No Content
 */
@@ -175,8 +174,7 @@ func NewRTRDeleteFileV2BadRequest() *RTRDeleteFileV2BadRequest {
 	return &RTRDeleteFileV2BadRequest{}
 }
 
-/*
-RTRDeleteFileV2BadRequest describes a response with status code 400, with default header values.
+/* RTRDeleteFileV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRTRDeleteFileV2Forbidden() *RTRDeleteFileV2Forbidden {
 	return &RTRDeleteFileV2Forbidden{}
 }
 
-/*
-RTRDeleteFileV2Forbidden describes a response with status code 403, with default header values.
+/* RTRDeleteFileV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRTRDeleteFileV2NotFound() *RTRDeleteFileV2NotFound {
 	return &RTRDeleteFileV2NotFound{}
 }
 
-/*
-RTRDeleteFileV2NotFound describes a response with status code 404, with default header values.
+/* RTRDeleteFileV2NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -505,8 +501,7 @@ func NewRTRDeleteFileV2TooManyRequests() *RTRDeleteFileV2TooManyRequests {
 	return &RTRDeleteFileV2TooManyRequests{}
 }
 
-/*
-RTRDeleteFileV2TooManyRequests describes a response with status code 429, with default header values.
+/* RTRDeleteFileV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -54,12 +54,10 @@ func NewUpdateQfByQueryParamsWithHTTPClient(client *http.Client) *UpdateQfByQuer
 	}
 }
 
-/*
-UpdateQfByQueryParams contains all the parameters to send to the API endpoint
+/* UpdateQfByQueryParams contains all the parameters to send to the API endpoint
+   for the update qf by query operation.
 
-	for the update qf by query operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateQfByQueryParams struct {
 

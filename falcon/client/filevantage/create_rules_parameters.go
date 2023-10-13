@@ -54,12 +54,10 @@ func NewCreateRulesParamsWithHTTPClient(client *http.Client) *CreateRulesParams 
 	}
 }
 
-/*
-CreateRulesParams contains all the parameters to send to the API endpoint
+/* CreateRulesParams contains all the parameters to send to the API endpoint
+   for the create rules operation.
 
-	for the create rules operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRulesParams struct {
 
@@ -83,7 +81,7 @@ type CreateRulesParams struct {
 
 	 * `depth` below the base path to monitor; must be one of: `1`, `2`, `3`, `4`, `5` or `ANY`
 
-	 * `precedence` - is not supported for creation of a rule, new rules will be added last in precedence order.will result this rule being placed before that existing rule.
+	 * `precedence` - is not supported for creation of a rule, new rules will be added last in precedence order.
 
 	Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.
 

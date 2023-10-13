@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-GetAssessmentV1 gets zero trust assessment data for one or more hosts by providing agent i ds a ID and a customer ID c ID
+  GetAssessmentV1 gets zero trust assessment data for one or more hosts by providing agent i ds a ID and a customer ID c ID
 */
 func (a *Client) GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOption) (*GetAssessmentV1OK, error) {
 	// TODO: Validate the params before sending
@@ -78,7 +78,7 @@ func (a *Client) GetAssessmentV1(params *GetAssessmentV1Params, opts ...ClientOp
 }
 
 /*
-GetAssessmentsByScoreV1 gets zero trust assessment data for one or more hosts by providing a customer ID c ID and a range of scores
+  GetAssessmentsByScoreV1 gets zero trust assessment data for one or more hosts by providing a customer ID c ID and a range of scores
 */
 func (a *Client) GetAssessmentsByScoreV1(params *GetAssessmentsByScoreV1Params, opts ...ClientOption) (*GetAssessmentsByScoreV1OK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) GetAssessmentsByScoreV1(params *GetAssessmentsByScoreV1Params, 
 }
 
 /*
-GetAuditV1 gets the zero trust assessment audit report for one customer ID c ID
+  GetAuditV1 gets the zero trust assessment audit report for one customer ID c ID
 */
 func (a *Client) GetAuditV1(params *GetAuditV1Params, opts ...ClientOption) (*GetAuditV1OK, error) {
 	// TODO: Validate the params before sending

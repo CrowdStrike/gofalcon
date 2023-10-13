@@ -52,12 +52,10 @@ func NewGetMalQueryQuotasV1ParamsWithHTTPClient(client *http.Client) *GetMalQuer
 	}
 }
 
-/*
-GetMalQueryQuotasV1Params contains all the parameters to send to the API endpoint
+/* GetMalQueryQuotasV1Params contains all the parameters to send to the API endpoint
+   for the get mal query quotas v1 operation.
 
-	for the get mal query quotas v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetMalQueryQuotasV1Params struct {
 	timeout    time.Duration

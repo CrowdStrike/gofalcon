@@ -53,12 +53,10 @@ func NewQueryCombinedPreventionPoliciesParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-QueryCombinedPreventionPoliciesParams contains all the parameters to send to the API endpoint
+/* QueryCombinedPreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the query combined prevention policies operation.
 
-	for the query combined prevention policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedPreventionPoliciesParams struct {
 

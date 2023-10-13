@@ -53,12 +53,10 @@ func NewQuerySensorUpdatePoliciesParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*
-QuerySensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+/* QuerySensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+   for the query sensor update policies operation.
 
-	for the query sensor update policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QuerySensorUpdatePoliciesParams struct {
 

@@ -71,8 +71,7 @@ func NewDeleteRuleGroupsOK() *DeleteRuleGroupsOK {
 	return &DeleteRuleGroupsOK{}
 }
 
-/*
-DeleteRuleGroupsOK describes a response with status code 200, with default header values.
+/* DeleteRuleGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteRuleGroupsBadRequest() *DeleteRuleGroupsBadRequest {
 	return &DeleteRuleGroupsBadRequest{}
 }
 
-/*
-DeleteRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* DeleteRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewDeleteRuleGroupsForbidden() *DeleteRuleGroupsForbidden {
 	return &DeleteRuleGroupsForbidden{}
 }
 
-/*
-DeleteRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* DeleteRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewDeleteRuleGroupsNotFound() *DeleteRuleGroupsNotFound {
 	return &DeleteRuleGroupsNotFound{}
 }
 
-/*
-DeleteRuleGroupsNotFound describes a response with status code 404, with default header values.
+/* DeleteRuleGroupsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewDeleteRuleGroupsTooManyRequests() *DeleteRuleGroupsTooManyRequests {
 	return &DeleteRuleGroupsTooManyRequests{}
 }
 
-/*
-DeleteRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteRuleGroupsInternalServerError() *DeleteRuleGroupsInternalServerErr
 	return &DeleteRuleGroupsInternalServerError{}
 }
 
-/*
-DeleteRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* DeleteRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

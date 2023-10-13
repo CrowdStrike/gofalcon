@@ -65,8 +65,7 @@ func NewRTRAuditSessionsOK() *RTRAuditSessionsOK {
 	return &RTRAuditSessionsOK{}
 }
 
-/*
-RTRAuditSessionsOK describes a response with status code 200, with default header values.
+/* RTRAuditSessionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRTRAuditSessionsBadRequest() *RTRAuditSessionsBadRequest {
 	return &RTRAuditSessionsBadRequest{}
 }
 
-/*
-RTRAuditSessionsBadRequest describes a response with status code 400, with default header values.
+/* RTRAuditSessionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRTRAuditSessionsForbidden() *RTRAuditSessionsForbidden {
 	return &RTRAuditSessionsForbidden{}
 }
 
-/*
-RTRAuditSessionsForbidden describes a response with status code 403, with default header values.
+/* RTRAuditSessionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRTRAuditSessionsNotFound() *RTRAuditSessionsNotFound {
 	return &RTRAuditSessionsNotFound{}
 }
 
-/*
-RTRAuditSessionsNotFound describes a response with status code 404, with default header values.
+/* RTRAuditSessionsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -505,8 +501,7 @@ func NewRTRAuditSessionsTooManyRequests() *RTRAuditSessionsTooManyRequests {
 	return &RTRAuditSessionsTooManyRequests{}
 }
 
-/*
-RTRAuditSessionsTooManyRequests describes a response with status code 429, with default header values.
+/* RTRAuditSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

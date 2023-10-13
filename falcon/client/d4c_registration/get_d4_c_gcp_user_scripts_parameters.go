@@ -52,12 +52,10 @@ func NewGetD4CGcpUserScriptsParamsWithHTTPClient(client *http.Client) *GetD4CGcp
 	}
 }
 
-/*
-GetD4CGcpUserScriptsParams contains all the parameters to send to the API endpoint
+/* GetD4CGcpUserScriptsParams contains all the parameters to send to the API endpoint
+   for the get d4 c gcp user scripts operation.
 
-	for the get d4 c gcp user scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetD4CGcpUserScriptsParams struct {
 

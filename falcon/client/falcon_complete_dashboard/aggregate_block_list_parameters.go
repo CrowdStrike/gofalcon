@@ -54,12 +54,10 @@ func NewAggregateBlockListParamsWithHTTPClient(client *http.Client) *AggregateBl
 	}
 }
 
-/*
-AggregateBlockListParams contains all the parameters to send to the API endpoint
+/* AggregateBlockListParams contains all the parameters to send to the API endpoint
+   for the aggregate block list operation.
 
-	for the aggregate block list operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateBlockListParams struct {
 

@@ -65,8 +65,7 @@ func NewGetQueriesAlertsV1OK() *GetQueriesAlertsV1OK {
 	return &GetQueriesAlertsV1OK{}
 }
 
-/*
-GetQueriesAlertsV1OK describes a response with status code 200, with default header values.
+/* GetQueriesAlertsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetQueriesAlertsV1BadRequest() *GetQueriesAlertsV1BadRequest {
 	return &GetQueriesAlertsV1BadRequest{}
 }
 
-/*
-GetQueriesAlertsV1BadRequest describes a response with status code 400, with default header values.
+/* GetQueriesAlertsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetQueriesAlertsV1Forbidden() *GetQueriesAlertsV1Forbidden {
 	return &GetQueriesAlertsV1Forbidden{}
 }
 
-/*
-GetQueriesAlertsV1Forbidden describes a response with status code 403, with default header values.
+/* GetQueriesAlertsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetQueriesAlertsV1TooManyRequests() *GetQueriesAlertsV1TooManyRequests {
 	return &GetQueriesAlertsV1TooManyRequests{}
 }
 
-/*
-GetQueriesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetQueriesAlertsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetQueriesAlertsV1InternalServerError() *GetQueriesAlertsV1InternalServe
 	return &GetQueriesAlertsV1InternalServerError{}
 }
 
-/*
-GetQueriesAlertsV1InternalServerError describes a response with status code 500, with default header values.
+/* GetQueriesAlertsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewGetCombinedImagesParamsWithHTTPClient(client *http.Client) *GetCombinedI
 	}
 }
 
-/*
-GetCombinedImagesParams contains all the parameters to send to the API endpoint
+/* GetCombinedImagesParams contains all the parameters to send to the API endpoint
+   for the get combined images operation.
 
-	for the get combined images operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCombinedImagesParams struct {
 

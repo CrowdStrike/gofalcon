@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewSearchObjectsParams creates a new SearchObjectsParams object,
@@ -52,12 +53,10 @@ func NewSearchObjectsParamsWithHTTPClient(client *http.Client) *SearchObjectsPar
 	}
 }
 
-/*
-SearchObjectsParams contains all the parameters to send to the API endpoint
+/* SearchObjectsParams contains all the parameters to send to the API endpoint
+   for the search objects operation.
 
-	for the search objects operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type SearchObjectsParams struct {
 
@@ -84,6 +83,24 @@ type SearchObjectsParams struct {
 	   The filter to limit the returned results.
 	*/
 	Filter string
+
+	/* Limit.
+
+	   The limit of results to return
+	*/
+	Limit int64
+
+	/* Offset.
+
+	   The offset of results to return
+	*/
+	Offset int64
+
+	/* Sort.
+
+	   The sort order for the returned results.
+	*/
+	Sort *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -182,6 +199,39 @@ func (o *SearchObjectsParams) SetFilter(filter string) {
 	o.Filter = filter
 }
 
+// WithLimit adds the limit to the search objects params
+func (o *SearchObjectsParams) WithLimit(limit int64) *SearchObjectsParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the search objects params
+func (o *SearchObjectsParams) SetLimit(limit int64) {
+	o.Limit = limit
+}
+
+// WithOffset adds the offset to the search objects params
+func (o *SearchObjectsParams) WithOffset(offset int64) *SearchObjectsParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the search objects params
+func (o *SearchObjectsParams) SetOffset(offset int64) {
+	o.Offset = offset
+}
+
+// WithSort adds the sort to the search objects params
+func (o *SearchObjectsParams) WithSort(sort *string) *SearchObjectsParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the search objects params
+func (o *SearchObjectsParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *SearchObjectsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -215,6 +265,39 @@ func (o *SearchObjectsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 
 		if err := r.SetQueryParam("filter", qFilter); err != nil {
 			return err
+		}
+	}
+
+	// query param limit
+	qrLimit := o.Limit
+	qLimit := swag.FormatInt64(qrLimit)
+
+	if err := r.SetQueryParam("limit", qLimit); err != nil {
+		return err
+	}
+
+	// query param offset
+	qrOffset := o.Offset
+	qOffset := swag.FormatInt64(qrOffset)
+
+	if err := r.SetQueryParam("offset", qOffset); err != nil {
+		return err
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
 		}
 	}
 

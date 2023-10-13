@@ -65,8 +65,7 @@ func NewGetVulnerabilitiesOK() *GetVulnerabilitiesOK {
 	return &GetVulnerabilitiesOK{}
 }
 
-/*
-GetVulnerabilitiesOK describes a response with status code 200, with default header values.
+/* GetVulnerabilitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetVulnerabilitiesForbidden() *GetVulnerabilitiesForbidden {
 	return &GetVulnerabilitiesForbidden{}
 }
 
-/*
-GetVulnerabilitiesForbidden describes a response with status code 403, with default header values.
+/* GetVulnerabilitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetVulnerabilitiesNotFound() *GetVulnerabilitiesNotFound {
 	return &GetVulnerabilitiesNotFound{}
 }
 
-/*
-GetVulnerabilitiesNotFound describes a response with status code 404, with default header values.
+/* GetVulnerabilitiesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetVulnerabilitiesTooManyRequests() *GetVulnerabilitiesTooManyRequests {
 	return &GetVulnerabilitiesTooManyRequests{}
 }
 
-/*
-GetVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetVulnerabilitiesInternalServerError() *GetVulnerabilitiesInternalServe
 	return &GetVulnerabilitiesInternalServerError{}
 }
 
-/*
-GetVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
+/* GetVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewUpdatePolicyRuleGroupsOK() *UpdatePolicyRuleGroupsOK {
 	return &UpdatePolicyRuleGroupsOK{}
 }
 
-/*
-UpdatePolicyRuleGroupsOK describes a response with status code 200, with default header values.
+/* UpdatePolicyRuleGroupsOK describes a response with status code 200, with default header values.
 
 Assigned rule groups have been updated.
 */
@@ -175,8 +174,7 @@ func NewUpdatePolicyRuleGroupsBadRequest() *UpdatePolicyRuleGroupsBadRequest {
 	return &UpdatePolicyRuleGroupsBadRequest{}
 }
 
-/*
-UpdatePolicyRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* UpdatePolicyRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUpdatePolicyRuleGroupsForbidden() *UpdatePolicyRuleGroupsForbidden {
 	return &UpdatePolicyRuleGroupsForbidden{}
 }
 
-/*
-UpdatePolicyRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* UpdatePolicyRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUpdatePolicyRuleGroupsTooManyRequests() *UpdatePolicyRuleGroupsTooManyRe
 	return &UpdatePolicyRuleGroupsTooManyRequests{}
 }
 
-/*
-UpdatePolicyRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdatePolicyRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdatePolicyRuleGroupsInternalServerError() *UpdatePolicyRuleGroupsInter
 	return &UpdatePolicyRuleGroupsInternalServerError{}
 }
 
-/*
-UpdatePolicyRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* UpdatePolicyRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

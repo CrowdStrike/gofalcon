@@ -52,12 +52,10 @@ func NewQueryScheduledExclusionsParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/*
-QueryScheduledExclusionsParams contains all the parameters to send to the API endpoint
+/* QueryScheduledExclusionsParams contains all the parameters to send to the API endpoint
+   for the query scheduled exclusions operation.
 
-	for the query scheduled exclusions operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryScheduledExclusionsParams struct {
 

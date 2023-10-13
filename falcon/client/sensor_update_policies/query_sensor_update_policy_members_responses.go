@@ -71,8 +71,7 @@ func NewQuerySensorUpdatePolicyMembersOK() *QuerySensorUpdatePolicyMembersOK {
 	return &QuerySensorUpdatePolicyMembersOK{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersOK describes a response with status code 200, with default header values.
+/* QuerySensorUpdatePolicyMembersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewQuerySensorUpdatePolicyMembersBadRequest() *QuerySensorUpdatePolicyMembe
 	return &QuerySensorUpdatePolicyMembersBadRequest{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersBadRequest describes a response with status code 400, with default header values.
+/* QuerySensorUpdatePolicyMembersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewQuerySensorUpdatePolicyMembersForbidden() *QuerySensorUpdatePolicyMember
 	return &QuerySensorUpdatePolicyMembersForbidden{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersForbidden describes a response with status code 403, with default header values.
+/* QuerySensorUpdatePolicyMembersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewQuerySensorUpdatePolicyMembersNotFound() *QuerySensorUpdatePolicyMembers
 	return &QuerySensorUpdatePolicyMembersNotFound{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersNotFound describes a response with status code 404, with default header values.
+/* QuerySensorUpdatePolicyMembersNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewQuerySensorUpdatePolicyMembersTooManyRequests() *QuerySensorUpdatePolicy
 	return &QuerySensorUpdatePolicyMembersTooManyRequests{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersTooManyRequests describes a response with status code 429, with default header values.
+/* QuerySensorUpdatePolicyMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewQuerySensorUpdatePolicyMembersInternalServerError() *QuerySensorUpdatePo
 	return &QuerySensorUpdatePolicyMembersInternalServerError{}
 }
 
-/*
-QuerySensorUpdatePolicyMembersInternalServerError describes a response with status code 500, with default header values.
+/* QuerySensorUpdatePolicyMembersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewQueryCombinedHostGroupsOK() *QueryCombinedHostGroupsOK {
 	return &QueryCombinedHostGroupsOK{}
 }
 
-/*
-QueryCombinedHostGroupsOK describes a response with status code 200, with default header values.
+/* QueryCombinedHostGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryCombinedHostGroupsBadRequest() *QueryCombinedHostGroupsBadRequest {
 	return &QueryCombinedHostGroupsBadRequest{}
 }
 
-/*
-QueryCombinedHostGroupsBadRequest describes a response with status code 400, with default header values.
+/* QueryCombinedHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryCombinedHostGroupsForbidden() *QueryCombinedHostGroupsForbidden {
 	return &QueryCombinedHostGroupsForbidden{}
 }
 
-/*
-QueryCombinedHostGroupsForbidden describes a response with status code 403, with default header values.
+/* QueryCombinedHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryCombinedHostGroupsTooManyRequests() *QueryCombinedHostGroupsTooMany
 	return &QueryCombinedHostGroupsTooManyRequests{}
 }
 
-/*
-QueryCombinedHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryCombinedHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryCombinedHostGroupsInternalServerError() *QueryCombinedHostGroupsInt
 	return &QueryCombinedHostGroupsInternalServerError{}
 }
 
-/*
-QueryCombinedHostGroupsInternalServerError describes a response with status code 500, with default header values.
+/* QueryCombinedHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -54,12 +54,10 @@ func NewCreateRuleGroupValidationParamsWithHTTPClient(client *http.Client) *Crea
 	}
 }
 
-/*
-CreateRuleGroupValidationParams contains all the parameters to send to the API endpoint
+/* CreateRuleGroupValidationParams contains all the parameters to send to the API endpoint
+   for the create rule group validation operation.
 
-	for the create rule group validation operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRuleGroupValidationParams struct {
 

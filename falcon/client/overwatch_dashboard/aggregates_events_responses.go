@@ -53,8 +53,7 @@ func NewAggregatesEventsOK() *AggregatesEventsOK {
 	return &AggregatesEventsOK{}
 }
 
-/*
-AggregatesEventsOK describes a response with status code 200, with default header values.
+/* AggregatesEventsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregatesEventsForbidden() *AggregatesEventsForbidden {
 	return &AggregatesEventsForbidden{}
 }
 
-/*
-AggregatesEventsForbidden describes a response with status code 403, with default header values.
+/* AggregatesEventsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregatesEventsTooManyRequests() *AggregatesEventsTooManyRequests {
 	return &AggregatesEventsTooManyRequests{}
 }
 
-/*
-AggregatesEventsTooManyRequests describes a response with status code 429, with default header values.
+/* AggregatesEventsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,8 +53,7 @@ func NewGetMitreReportOK() *GetMitreReportOK {
 	return &GetMitreReportOK{}
 }
 
-/*
-GetMitreReportOK describes a response with status code 200, with default header values.
+/* GetMitreReportOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -150,8 +149,7 @@ func NewGetMitreReportForbidden() *GetMitreReportForbidden {
 	return &GetMitreReportForbidden{}
 }
 
-/*
-GetMitreReportForbidden describes a response with status code 403, with default header values.
+/* GetMitreReportForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -260,8 +258,7 @@ func NewGetMitreReportTooManyRequests() *GetMitreReportTooManyRequests {
 	return &GetMitreReportTooManyRequests{}
 }
 
-/*
-GetMitreReportTooManyRequests describes a response with status code 429, with default header values.
+/* GetMitreReportTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

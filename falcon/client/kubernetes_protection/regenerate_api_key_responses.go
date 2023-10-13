@@ -71,8 +71,7 @@ func NewRegenerateAPIKeyOK() *RegenerateAPIKeyOK {
 	return &RegenerateAPIKeyOK{}
 }
 
-/*
-RegenerateAPIKeyOK describes a response with status code 200, with default header values.
+/* RegenerateAPIKeyOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewRegenerateAPIKeyMultiStatus() *RegenerateAPIKeyMultiStatus {
 	return &RegenerateAPIKeyMultiStatus{}
 }
 
-/*
-RegenerateAPIKeyMultiStatus describes a response with status code 207, with default header values.
+/* RegenerateAPIKeyMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewRegenerateAPIKeyBadRequest() *RegenerateAPIKeyBadRequest {
 	return &RegenerateAPIKeyBadRequest{}
 }
 
-/*
-RegenerateAPIKeyBadRequest describes a response with status code 400, with default header values.
+/* RegenerateAPIKeyBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewRegenerateAPIKeyForbidden() *RegenerateAPIKeyForbidden {
 	return &RegenerateAPIKeyForbidden{}
 }
 
-/*
-RegenerateAPIKeyForbidden describes a response with status code 403, with default header values.
+/* RegenerateAPIKeyForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewRegenerateAPIKeyTooManyRequests() *RegenerateAPIKeyTooManyRequests {
 	return &RegenerateAPIKeyTooManyRequests{}
 }
 
-/*
-RegenerateAPIKeyTooManyRequests describes a response with status code 429, with default header values.
+/* RegenerateAPIKeyTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewRegenerateAPIKeyInternalServerError() *RegenerateAPIKeyInternalServerErr
 	return &RegenerateAPIKeyInternalServerError{}
 }
 
-/*
-RegenerateAPIKeyInternalServerError describes a response with status code 500, with default header values.
+/* RegenerateAPIKeyInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

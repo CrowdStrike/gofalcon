@@ -71,8 +71,7 @@ func NewExtractionCreateV1OK() *ExtractionCreateV1OK {
 	return &ExtractionCreateV1OK{}
 }
 
-/*
-ExtractionCreateV1OK describes a response with status code 200, with default header values.
+/* ExtractionCreateV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewExtractionCreateV1Accepted() *ExtractionCreateV1Accepted {
 	return &ExtractionCreateV1Accepted{}
 }
 
-/*
-ExtractionCreateV1Accepted describes a response with status code 202, with default header values.
+/* ExtractionCreateV1Accepted describes a response with status code 202, with default header values.
 
 OK
 */
@@ -291,8 +289,7 @@ func NewExtractionCreateV1BadRequest() *ExtractionCreateV1BadRequest {
 	return &ExtractionCreateV1BadRequest{}
 }
 
-/*
-ExtractionCreateV1BadRequest describes a response with status code 400, with default header values.
+/* ExtractionCreateV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewExtractionCreateV1Forbidden() *ExtractionCreateV1Forbidden {
 	return &ExtractionCreateV1Forbidden{}
 }
 
-/*
-ExtractionCreateV1Forbidden describes a response with status code 403, with default header values.
+/* ExtractionCreateV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewExtractionCreateV1TooManyRequests() *ExtractionCreateV1TooManyRequests {
 	return &ExtractionCreateV1TooManyRequests{}
 }
 
-/*
-ExtractionCreateV1TooManyRequests describes a response with status code 429, with default header values.
+/* ExtractionCreateV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewExtractionCreateV1InternalServerError() *ExtractionCreateV1InternalServe
 	return &ExtractionCreateV1InternalServerError{}
 }
 
-/*
-ExtractionCreateV1InternalServerError describes a response with status code 500, with default header values.
+/* ExtractionCreateV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

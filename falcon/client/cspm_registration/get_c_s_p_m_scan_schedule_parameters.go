@@ -53,12 +53,10 @@ func NewGetCSPMScanScheduleParamsWithHTTPClient(client *http.Client) *GetCSPMSca
 	}
 }
 
-/*
-GetCSPMScanScheduleParams contains all the parameters to send to the API endpoint
+/* GetCSPMScanScheduleParams contains all the parameters to send to the API endpoint
+   for the get c s p m scan schedule operation.
 
-	for the get c s p m scan schedule operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMScanScheduleParams struct {
 

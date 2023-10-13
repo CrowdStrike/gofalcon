@@ -53,8 +53,7 @@ func NewAggregateDeviceCountCollectionOK() *AggregateDeviceCountCollectionOK {
 	return &AggregateDeviceCountCollectionOK{}
 }
 
-/*
-AggregateDeviceCountCollectionOK describes a response with status code 200, with default header values.
+/* AggregateDeviceCountCollectionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregateDeviceCountCollectionForbidden() *AggregateDeviceCountCollectio
 	return &AggregateDeviceCountCollectionForbidden{}
 }
 
-/*
-AggregateDeviceCountCollectionForbidden describes a response with status code 403, with default header values.
+/* AggregateDeviceCountCollectionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregateDeviceCountCollectionTooManyRequests() *AggregateDeviceCountCol
 	return &AggregateDeviceCountCollectionTooManyRequests{}
 }
 
-/*
-AggregateDeviceCountCollectionTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateDeviceCountCollectionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

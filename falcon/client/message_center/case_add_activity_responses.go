@@ -65,8 +65,7 @@ func NewCaseAddActivityOK() *CaseAddActivityOK {
 	return &CaseAddActivityOK{}
 }
 
-/*
-CaseAddActivityOK describes a response with status code 200, with default header values.
+/* CaseAddActivityOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCaseAddActivityBadRequest() *CaseAddActivityBadRequest {
 	return &CaseAddActivityBadRequest{}
 }
 
-/*
-CaseAddActivityBadRequest describes a response with status code 400, with default header values.
+/* CaseAddActivityBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCaseAddActivityForbidden() *CaseAddActivityForbidden {
 	return &CaseAddActivityForbidden{}
 }
 
-/*
-CaseAddActivityForbidden describes a response with status code 403, with default header values.
+/* CaseAddActivityForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCaseAddActivityTooManyRequests() *CaseAddActivityTooManyRequests {
 	return &CaseAddActivityTooManyRequests{}
 }
 
-/*
-CaseAddActivityTooManyRequests describes a response with status code 429, with default header values.
+/* CaseAddActivityTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCaseAddActivityInternalServerError() *CaseAddActivityInternalServerError
 	return &CaseAddActivityInternalServerError{}
 }
 
-/*
-CaseAddActivityInternalServerError describes a response with status code 500, with default header values.
+/* CaseAddActivityInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

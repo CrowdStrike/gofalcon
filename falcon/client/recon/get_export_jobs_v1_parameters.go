@@ -53,12 +53,10 @@ func NewGetExportJobsV1ParamsWithHTTPClient(client *http.Client) *GetExportJobsV
 	}
 }
 
-/*
-GetExportJobsV1Params contains all the parameters to send to the API endpoint
+/* GetExportJobsV1Params contains all the parameters to send to the API endpoint
+   for the get export jobs v1 operation.
 
-	for the get export jobs v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetExportJobsV1Params struct {
 

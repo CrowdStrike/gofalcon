@@ -59,8 +59,7 @@ func NewValidateFilepathPatternOK() *ValidateFilepathPatternOK {
 	return &ValidateFilepathPatternOK{}
 }
 
-/*
-ValidateFilepathPatternOK describes a response with status code 200, with default header values.
+/* ValidateFilepathPatternOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewValidateFilepathPatternBadRequest() *ValidateFilepathPatternBadRequest {
 	return &ValidateFilepathPatternBadRequest{}
 }
 
-/*
-ValidateFilepathPatternBadRequest describes a response with status code 400, with default header values.
+/* ValidateFilepathPatternBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewValidateFilepathPatternForbidden() *ValidateFilepathPatternForbidden {
 	return &ValidateFilepathPatternForbidden{}
 }
 
-/*
-ValidateFilepathPatternForbidden describes a response with status code 403, with default header values.
+/* ValidateFilepathPatternForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewValidateFilepathPatternTooManyRequests() *ValidateFilepathPatternTooMany
 	return &ValidateFilepathPatternTooManyRequests{}
 }
 
-/*
-ValidateFilepathPatternTooManyRequests describes a response with status code 429, with default header values.
+/* ValidateFilepathPatternTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

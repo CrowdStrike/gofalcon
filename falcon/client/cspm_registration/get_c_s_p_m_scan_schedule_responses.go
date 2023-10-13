@@ -65,8 +65,7 @@ func NewGetCSPMScanScheduleOK() *GetCSPMScanScheduleOK {
 	return &GetCSPMScanScheduleOK{}
 }
 
-/*
-GetCSPMScanScheduleOK describes a response with status code 200, with default header values.
+/* GetCSPMScanScheduleOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetCSPMScanScheduleBadRequest() *GetCSPMScanScheduleBadRequest {
 	return &GetCSPMScanScheduleBadRequest{}
 }
 
-/*
-GetCSPMScanScheduleBadRequest describes a response with status code 400, with default header values.
+/* GetCSPMScanScheduleBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetCSPMScanScheduleForbidden() *GetCSPMScanScheduleForbidden {
 	return &GetCSPMScanScheduleForbidden{}
 }
 
-/*
-GetCSPMScanScheduleForbidden describes a response with status code 403, with default header values.
+/* GetCSPMScanScheduleForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetCSPMScanScheduleTooManyRequests() *GetCSPMScanScheduleTooManyRequests
 	return &GetCSPMScanScheduleTooManyRequests{}
 }
 
-/*
-GetCSPMScanScheduleTooManyRequests describes a response with status code 429, with default header values.
+/* GetCSPMScanScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetCSPMScanScheduleInternalServerError() *GetCSPMScanScheduleInternalSer
 	return &GetCSPMScanScheduleInternalServerError{}
 }
 
-/*
-GetCSPMScanScheduleInternalServerError describes a response with status code 500, with default header values.
+/* GetCSPMScanScheduleInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -71,8 +71,7 @@ func NewDeleteExportJobsV1OK() *DeleteExportJobsV1OK {
 	return &DeleteExportJobsV1OK{}
 }
 
-/*
-DeleteExportJobsV1OK describes a response with status code 200, with default header values.
+/* DeleteExportJobsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteExportJobsV1BadRequest() *DeleteExportJobsV1BadRequest {
 	return &DeleteExportJobsV1BadRequest{}
 }
 
-/*
-DeleteExportJobsV1BadRequest describes a response with status code 400, with default header values.
+/* DeleteExportJobsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewDeleteExportJobsV1Unauthorized() *DeleteExportJobsV1Unauthorized {
 	return &DeleteExportJobsV1Unauthorized{}
 }
 
-/*
-DeleteExportJobsV1Unauthorized describes a response with status code 401, with default header values.
+/* DeleteExportJobsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewDeleteExportJobsV1Forbidden() *DeleteExportJobsV1Forbidden {
 	return &DeleteExportJobsV1Forbidden{}
 }
 
-/*
-DeleteExportJobsV1Forbidden describes a response with status code 403, with default header values.
+/* DeleteExportJobsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewDeleteExportJobsV1TooManyRequests() *DeleteExportJobsV1TooManyRequests {
 	return &DeleteExportJobsV1TooManyRequests{}
 }
 
-/*
-DeleteExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
+/* DeleteExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteExportJobsV1InternalServerError() *DeleteExportJobsV1InternalServe
 	return &DeleteExportJobsV1InternalServerError{}
 }
 
-/*
-DeleteExportJobsV1InternalServerError describes a response with status code 500, with default header values.
+/* DeleteExportJobsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,8 +53,7 @@ func NewInitializeOK() *InitializeOK {
 	return &InitializeOK{}
 }
 
-/*
-InitializeOK describes a response with status code 200, with default header values.
+/* InitializeOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewInitializeForbidden() *InitializeForbidden {
 	return &InitializeForbidden{}
 }
 
-/*
-InitializeForbidden describes a response with status code 403, with default header values.
+/* InitializeForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewInitializeTooManyRequests() *InitializeTooManyRequests {
 	return &InitializeTooManyRequests{}
 }
 
-/*
-InitializeTooManyRequests describes a response with status code 429, with default header values.
+/* InitializeTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

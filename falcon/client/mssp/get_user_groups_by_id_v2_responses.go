@@ -65,8 +65,7 @@ func NewGetUserGroupsByIDV2OK() *GetUserGroupsByIDV2OK {
 	return &GetUserGroupsByIDV2OK{}
 }
 
-/*
-GetUserGroupsByIDV2OK describes a response with status code 200, with default header values.
+/* GetUserGroupsByIDV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetUserGroupsByIDV2MultiStatus() *GetUserGroupsByIDV2MultiStatus {
 	return &GetUserGroupsByIDV2MultiStatus{}
 }
 
-/*
-GetUserGroupsByIDV2MultiStatus describes a response with status code 207, with default header values.
+/* GetUserGroupsByIDV2MultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewGetUserGroupsByIDV2BadRequest() *GetUserGroupsByIDV2BadRequest {
 	return &GetUserGroupsByIDV2BadRequest{}
 }
 
-/*
-GetUserGroupsByIDV2BadRequest describes a response with status code 400, with default header values.
+/* GetUserGroupsByIDV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewGetUserGroupsByIDV2Forbidden() *GetUserGroupsByIDV2Forbidden {
 	return &GetUserGroupsByIDV2Forbidden{}
 }
 
-/*
-GetUserGroupsByIDV2Forbidden describes a response with status code 403, with default header values.
+/* GetUserGroupsByIDV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewGetUserGroupsByIDV2TooManyRequests() *GetUserGroupsByIDV2TooManyRequests
 	return &GetUserGroupsByIDV2TooManyRequests{}
 }
 
-/*
-GetUserGroupsByIDV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetUserGroupsByIDV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

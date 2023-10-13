@@ -54,14 +54,18 @@ func NewAggregateScansParamsWithHTTPClient(client *http.Client) *AggregateScansP
 	}
 }
 
-/*
-AggregateScansParams contains all the parameters to send to the API endpoint
+/* AggregateScansParams contains all the parameters to send to the API endpoint
+   for the aggregate scans operation.
 
-	for the aggregate scans operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateScansParams struct {
+
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
 
 	// Body.
 	Body []*models.MsaAggregateQueryRequest
@@ -119,6 +123,17 @@ func (o *AggregateScansParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the aggregate scans params
+func (o *AggregateScansParams) WithXCSUSERUUID(xCSUSERUUID string) *AggregateScansParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the aggregate scans params
+func (o *AggregateScansParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithBody adds the body to the aggregate scans params
 func (o *AggregateScansParams) WithBody(body []*models.MsaAggregateQueryRequest) *AggregateScansParams {
 	o.SetBody(body)
@@ -137,6 +152,11 @@ func (o *AggregateScansParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

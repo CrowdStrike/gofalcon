@@ -53,8 +53,7 @@ func NewActionUpdateCountOK() *ActionUpdateCountOK {
 	return &ActionUpdateCountOK{}
 }
 
-/*
-ActionUpdateCountOK describes a response with status code 200, with default header values.
+/* ActionUpdateCountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewActionUpdateCountForbidden() *ActionUpdateCountForbidden {
 	return &ActionUpdateCountForbidden{}
 }
 
-/*
-ActionUpdateCountForbidden describes a response with status code 403, with default header values.
+/* ActionUpdateCountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewActionUpdateCountTooManyRequests() *ActionUpdateCountTooManyRequests {
 	return &ActionUpdateCountTooManyRequests{}
 }
 
-/*
-ActionUpdateCountTooManyRequests describes a response with status code 429, with default header values.
+/* ActionUpdateCountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

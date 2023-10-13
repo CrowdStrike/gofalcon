@@ -54,12 +54,10 @@ func NewPostDeviceDetailsV2ParamsWithHTTPClient(client *http.Client) *PostDevice
 	}
 }
 
-/*
-PostDeviceDetailsV2Params contains all the parameters to send to the API endpoint
+/* PostDeviceDetailsV2Params contains all the parameters to send to the API endpoint
+   for the post device details v2 operation.
 
-	for the post device details v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PostDeviceDetailsV2Params struct {
 

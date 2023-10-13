@@ -70,7 +70,7 @@ type ClientService interface {
 }
 
 /*
-CreateSensorUpdatePolicies creates sensor update policies by specifying details about the policy to create
+  CreateSensorUpdatePolicies creates sensor update policies by specifying details about the policy to create
 */
 func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesParams, opts ...ClientOption) (*CreateSensorUpdatePoliciesCreated, error) {
 	// TODO: Validate the params before sending
@@ -108,7 +108,7 @@ func (a *Client) CreateSensorUpdatePolicies(params *CreateSensorUpdatePoliciesPa
 }
 
 /*
-CreateSensorUpdatePoliciesV2 creates sensor update policies by specifying details about the policy to create with additional support for uninstall protection
+  CreateSensorUpdatePoliciesV2 creates sensor update policies by specifying details about the policy to create with additional support for uninstall protection
 */
 func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*CreateSensorUpdatePoliciesV2Created, error) {
 	// TODO: Validate the params before sending
@@ -146,7 +146,7 @@ func (a *Client) CreateSensorUpdatePoliciesV2(params *CreateSensorUpdatePolicies
 }
 
 /*
-DeleteSensorUpdatePolicies deletes a set of sensor update policies by specifying their i ds
+  DeleteSensorUpdatePolicies deletes a set of sensor update policies by specifying their i ds
 */
 func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesParams, opts ...ClientOption) (*DeleteSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -184,7 +184,7 @@ func (a *Client) DeleteSensorUpdatePolicies(params *DeleteSensorUpdatePoliciesPa
 }
 
 /*
-GetSensorUpdatePolicies retrieves a set of sensor update policies by specifying their i ds
+  GetSensorUpdatePolicies retrieves a set of sensor update policies by specifying their i ds
 */
 func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, opts ...ClientOption) (*GetSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) GetSensorUpdatePolicies(params *GetSensorUpdatePoliciesParams, 
 }
 
 /*
-GetSensorUpdatePoliciesV2 retrieves a set of sensor update policies with additional support for uninstall protection by specifying their i ds
+  GetSensorUpdatePoliciesV2 retrieves a set of sensor update policies with additional support for uninstall protection by specifying their i ds
 */
 func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Params, opts ...ClientOption) (*GetSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) GetSensorUpdatePoliciesV2(params *GetSensorUpdatePoliciesV2Para
 }
 
 /*
-PerformSensorUpdatePoliciesAction performs the specified action on the sensor update policies specified in the request
+  PerformSensorUpdatePoliciesAction performs the specified action on the sensor update policies specified in the request
 */
 func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePoliciesActionParams, opts ...ClientOption) (*PerformSensorUpdatePoliciesActionOK, error) {
 	// TODO: Validate the params before sending
@@ -298,7 +298,7 @@ func (a *Client) PerformSensorUpdatePoliciesAction(params *PerformSensorUpdatePo
 }
 
 /*
-QueryCombinedSensorUpdateBuilds retrieves available builds for use with sensor update policies
+  QueryCombinedSensorUpdateBuilds retrieves available builds for use with sensor update policies
 */
 func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpdateBuildsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateBuildsOK, error) {
 	// TODO: Validate the params before sending
@@ -335,7 +335,7 @@ func (a *Client) QueryCombinedSensorUpdateBuilds(params *QueryCombinedSensorUpda
 }
 
 /*
-QueryCombinedSensorUpdateKernels retrieves kernel compatibility info for sensor update builds
+  QueryCombinedSensorUpdateKernels retrieves kernel compatibility info for sensor update builds
 */
 func (a *Client) QueryCombinedSensorUpdateKernels(params *QueryCombinedSensorUpdateKernelsParams, opts ...ClientOption) (*QueryCombinedSensorUpdateKernelsOK, error) {
 	// TODO: Validate the params before sending
@@ -373,7 +373,7 @@ func (a *Client) QueryCombinedSensorUpdateKernels(params *QueryCombinedSensorUpd
 }
 
 /*
-QueryCombinedSensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
+  QueryCombinedSensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
 func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUpdatePoliciesParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -411,7 +411,7 @@ func (a *Client) QueryCombinedSensorUpdatePolicies(params *QueryCombinedSensorUp
 }
 
 /*
-QueryCombinedSensorUpdatePoliciesV2 searches for sensor update policies with additional support for uninstall protection in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
+  QueryCombinedSensorUpdatePoliciesV2 searches for sensor update policies with additional support for uninstall protection in your environment by providing an f q l filter and paging details returns a set of sensor update policies which match the filter criteria
 */
 func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensorUpdatePoliciesV2Params, opts ...ClientOption) (*QueryCombinedSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending
@@ -449,7 +449,7 @@ func (a *Client) QueryCombinedSensorUpdatePoliciesV2(params *QueryCombinedSensor
 }
 
 /*
-QueryCombinedSensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+  QueryCombinedSensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSensorUpdatePolicyMembersParams, opts ...ClientOption) (*QueryCombinedSensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -487,7 +487,7 @@ func (a *Client) QueryCombinedSensorUpdatePolicyMembers(params *QueryCombinedSen
 }
 
 /*
-QuerySensorUpdateKernelsDistinct retrieves kernel compatibility info for sensor update builds
+  QuerySensorUpdateKernelsDistinct retrieves kernel compatibility info for sensor update builds
 */
 func (a *Client) QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKernelsDistinctParams, opts ...ClientOption) (*QuerySensorUpdateKernelsDistinctOK, error) {
 	// TODO: Validate the params before sending
@@ -525,7 +525,7 @@ func (a *Client) QuerySensorUpdateKernelsDistinct(params *QuerySensorUpdateKerne
 }
 
 /*
-QuerySensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policy i ds which match the filter criteria
+  QuerySensorUpdatePolicies searches for sensor update policies in your environment by providing an f q l filter and paging details returns a set of sensor update policy i ds which match the filter criteria
 */
 func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesParams, opts ...ClientOption) (*QuerySensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -563,7 +563,7 @@ func (a *Client) QuerySensorUpdatePolicies(params *QuerySensorUpdatePoliciesPara
 }
 
 /*
-QuerySensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+  QuerySensorUpdatePolicyMembers searches for members of a sensor update policy in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyMembersParams, opts ...ClientOption) (*QuerySensorUpdatePolicyMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -601,7 +601,7 @@ func (a *Client) QuerySensorUpdatePolicyMembers(params *QuerySensorUpdatePolicyM
 }
 
 /*
-RevealUninstallToken reveals an uninstall token for a specific device to retrieve the bulk maintenance token pass the value m a i n t e n a n c e as the value for device id
+  RevealUninstallToken reveals an uninstall token for a specific device to retrieve the bulk maintenance token pass the value m a i n t e n a n c e as the value for device id
 */
 func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, opts ...ClientOption) (*RevealUninstallTokenOK, error) {
 	// TODO: Validate the params before sending
@@ -639,7 +639,7 @@ func (a *Client) RevealUninstallToken(params *RevealUninstallTokenParams, opts .
 }
 
 /*
-SetSensorUpdatePoliciesPrecedence sets the precedence of sensor update policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
+  SetSensorUpdatePoliciesPrecedence sets the precedence of sensor update policies based on the order of i ds specified in the request the first ID specified will have the highest precedence and the last ID specified will have the lowest you must specify all non default policies for a platform when updating precedence
 */
 func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePoliciesPrecedenceParams, opts ...ClientOption) (*SetSensorUpdatePoliciesPrecedenceOK, error) {
 	// TODO: Validate the params before sending
@@ -677,7 +677,7 @@ func (a *Client) SetSensorUpdatePoliciesPrecedence(params *SetSensorUpdatePolici
 }
 
 /*
-UpdateSensorUpdatePolicies updates sensor update policies by specifying the ID of the policy and details to update
+  UpdateSensorUpdatePolicies updates sensor update policies by specifying the ID of the policy and details to update
 */
 func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesParams, opts ...ClientOption) (*UpdateSensorUpdatePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -715,7 +715,7 @@ func (a *Client) UpdateSensorUpdatePolicies(params *UpdateSensorUpdatePoliciesPa
 }
 
 /*
-UpdateSensorUpdatePoliciesV2 updates sensor update policies by specifying the ID of the policy and details to update with additional support for uninstall protection
+  UpdateSensorUpdatePoliciesV2 updates sensor update policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 */
 func (a *Client) UpdateSensorUpdatePoliciesV2(params *UpdateSensorUpdatePoliciesV2Params, opts ...ClientOption) (*UpdateSensorUpdatePoliciesV2OK, error) {
 	// TODO: Validate the params before sending

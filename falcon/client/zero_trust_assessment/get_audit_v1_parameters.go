@@ -52,12 +52,10 @@ func NewGetAuditV1ParamsWithHTTPClient(client *http.Client) *GetAuditV1Params {
 	}
 }
 
-/*
-GetAuditV1Params contains all the parameters to send to the API endpoint
+/* GetAuditV1Params contains all the parameters to send to the API endpoint
+   for the get audit v1 operation.
 
-	for the get audit v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAuditV1Params struct {
 	timeout    time.Duration

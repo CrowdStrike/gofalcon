@@ -71,8 +71,7 @@ func NewPerformFirewallPoliciesActionOK() *PerformFirewallPoliciesActionOK {
 	return &PerformFirewallPoliciesActionOK{}
 }
 
-/*
-PerformFirewallPoliciesActionOK describes a response with status code 200, with default header values.
+/* PerformFirewallPoliciesActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewPerformFirewallPoliciesActionBadRequest() *PerformFirewallPoliciesAction
 	return &PerformFirewallPoliciesActionBadRequest{}
 }
 
-/*
-PerformFirewallPoliciesActionBadRequest describes a response with status code 400, with default header values.
+/* PerformFirewallPoliciesActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewPerformFirewallPoliciesActionForbidden() *PerformFirewallPoliciesActionF
 	return &PerformFirewallPoliciesActionForbidden{}
 }
 
-/*
-PerformFirewallPoliciesActionForbidden describes a response with status code 403, with default header values.
+/* PerformFirewallPoliciesActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewPerformFirewallPoliciesActionNotFound() *PerformFirewallPoliciesActionNo
 	return &PerformFirewallPoliciesActionNotFound{}
 }
 
-/*
-PerformFirewallPoliciesActionNotFound describes a response with status code 404, with default header values.
+/* PerformFirewallPoliciesActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewPerformFirewallPoliciesActionTooManyRequests() *PerformFirewallPoliciesA
 	return &PerformFirewallPoliciesActionTooManyRequests{}
 }
 
-/*
-PerformFirewallPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
+/* PerformFirewallPoliciesActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPerformFirewallPoliciesActionInternalServerError() *PerformFirewallPolic
 	return &PerformFirewallPoliciesActionInternalServerError{}
 }
 
-/*
-PerformFirewallPoliciesActionInternalServerError describes a response with status code 500, with default header values.
+/* PerformFirewallPoliciesActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewDeleteSensorUpdatePoliciesParamsWithHTTPClient(client *http.Client) *Del
 	}
 }
 
-/*
-DeleteSensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+/* DeleteSensorUpdatePoliciesParams contains all the parameters to send to the API endpoint
+   for the delete sensor update policies operation.
 
-	for the delete sensor update policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteSensorUpdatePoliciesParams struct {
 

@@ -54,12 +54,10 @@ func NewUpdatePreventionPoliciesParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+/* UpdatePreventionPoliciesParams contains all the parameters to send to the API endpoint
+   for the update prevention policies operation.
 
-	for the update prevention policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdatePreventionPoliciesParams struct {
 

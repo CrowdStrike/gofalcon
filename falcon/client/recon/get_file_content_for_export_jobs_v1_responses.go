@@ -71,8 +71,7 @@ func NewGetFileContentForExportJobsV1OK() *GetFileContentForExportJobsV1OK {
 	return &GetFileContentForExportJobsV1OK{}
 }
 
-/*
-GetFileContentForExportJobsV1OK describes a response with status code 200, with default header values.
+/* GetFileContentForExportJobsV1OK describes a response with status code 200, with default header values.
 
 Accepted
 */
@@ -179,8 +178,7 @@ func NewGetFileContentForExportJobsV1BadRequest() *GetFileContentForExportJobsV1
 	return &GetFileContentForExportJobsV1BadRequest{}
 }
 
-/*
-GetFileContentForExportJobsV1BadRequest describes a response with status code 400, with default header values.
+/* GetFileContentForExportJobsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -289,8 +287,7 @@ func NewGetFileContentForExportJobsV1Unauthorized() *GetFileContentForExportJobs
 	return &GetFileContentForExportJobsV1Unauthorized{}
 }
 
-/*
-GetFileContentForExportJobsV1Unauthorized describes a response with status code 401, with default header values.
+/* GetFileContentForExportJobsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -399,8 +396,7 @@ func NewGetFileContentForExportJobsV1Forbidden() *GetFileContentForExportJobsV1F
 	return &GetFileContentForExportJobsV1Forbidden{}
 }
 
-/*
-GetFileContentForExportJobsV1Forbidden describes a response with status code 403, with default header values.
+/* GetFileContentForExportJobsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -509,8 +505,7 @@ func NewGetFileContentForExportJobsV1TooManyRequests() *GetFileContentForExportJ
 	return &GetFileContentForExportJobsV1TooManyRequests{}
 }
 
-/*
-GetFileContentForExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetFileContentForExportJobsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -634,8 +629,7 @@ func NewGetFileContentForExportJobsV1InternalServerError() *GetFileContentForExp
 	return &GetFileContentForExportJobsV1InternalServerError{}
 }
 
-/*
-GetFileContentForExportJobsV1InternalServerError describes a response with status code 500, with default header values.
+/* GetFileContentForExportJobsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

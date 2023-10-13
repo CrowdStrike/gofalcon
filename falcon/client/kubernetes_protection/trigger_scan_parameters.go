@@ -52,12 +52,10 @@ func NewTriggerScanParamsWithHTTPClient(client *http.Client) *TriggerScanParams 
 	}
 }
 
-/*
-TriggerScanParams contains all the parameters to send to the API endpoint
+/* TriggerScanParams contains all the parameters to send to the API endpoint
+   for the trigger scan operation.
 
-	for the trigger scan operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type TriggerScanParams struct {
 

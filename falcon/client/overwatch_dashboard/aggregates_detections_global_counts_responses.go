@@ -53,8 +53,7 @@ func NewAggregatesDetectionsGlobalCountsOK() *AggregatesDetectionsGlobalCountsOK
 	return &AggregatesDetectionsGlobalCountsOK{}
 }
 
-/*
-AggregatesDetectionsGlobalCountsOK describes a response with status code 200, with default header values.
+/* AggregatesDetectionsGlobalCountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewAggregatesDetectionsGlobalCountsForbidden() *AggregatesDetectionsGlobalC
 	return &AggregatesDetectionsGlobalCountsForbidden{}
 }
 
-/*
-AggregatesDetectionsGlobalCountsForbidden describes a response with status code 403, with default header values.
+/* AggregatesDetectionsGlobalCountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewAggregatesDetectionsGlobalCountsTooManyRequests() *AggregatesDetectionsG
 	return &AggregatesDetectionsGlobalCountsTooManyRequests{}
 }
 
-/*
-AggregatesDetectionsGlobalCountsTooManyRequests describes a response with status code 429, with default header values.
+/* AggregatesDetectionsGlobalCountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -65,8 +65,7 @@ func NewQueryIntelRuleIdsOK() *QueryIntelRuleIdsOK {
 	return &QueryIntelRuleIdsOK{}
 }
 
-/*
-QueryIntelRuleIdsOK describes a response with status code 200, with default header values.
+/* QueryIntelRuleIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryIntelRuleIdsBadRequest() *QueryIntelRuleIdsBadRequest {
 	return &QueryIntelRuleIdsBadRequest{}
 }
 
-/*
-QueryIntelRuleIdsBadRequest describes a response with status code 400, with default header values.
+/* QueryIntelRuleIdsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryIntelRuleIdsForbidden() *QueryIntelRuleIdsForbidden {
 	return &QueryIntelRuleIdsForbidden{}
 }
 
-/*
-QueryIntelRuleIdsForbidden describes a response with status code 403, with default header values.
+/* QueryIntelRuleIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryIntelRuleIdsTooManyRequests() *QueryIntelRuleIdsTooManyRequests {
 	return &QueryIntelRuleIdsTooManyRequests{}
 }
 
-/*
-QueryIntelRuleIdsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryIntelRuleIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryIntelRuleIdsInternalServerError() *QueryIntelRuleIdsInternalServerE
 	return &QueryIntelRuleIdsInternalServerError{}
 }
 
-/*
-QueryIntelRuleIdsInternalServerError describes a response with status code 500, with default header values.
+/* QueryIntelRuleIdsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

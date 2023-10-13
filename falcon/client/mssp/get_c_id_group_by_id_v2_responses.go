@@ -65,8 +65,7 @@ func NewGetCIDGroupByIDV2OK() *GetCIDGroupByIDV2OK {
 	return &GetCIDGroupByIDV2OK{}
 }
 
-/*
-GetCIDGroupByIDV2OK describes a response with status code 200, with default header values.
+/* GetCIDGroupByIDV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetCIDGroupByIDV2MultiStatus() *GetCIDGroupByIDV2MultiStatus {
 	return &GetCIDGroupByIDV2MultiStatus{}
 }
 
-/*
-GetCIDGroupByIDV2MultiStatus describes a response with status code 207, with default header values.
+/* GetCIDGroupByIDV2MultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewGetCIDGroupByIDV2BadRequest() *GetCIDGroupByIDV2BadRequest {
 	return &GetCIDGroupByIDV2BadRequest{}
 }
 
-/*
-GetCIDGroupByIDV2BadRequest describes a response with status code 400, with default header values.
+/* GetCIDGroupByIDV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewGetCIDGroupByIDV2Forbidden() *GetCIDGroupByIDV2Forbidden {
 	return &GetCIDGroupByIDV2Forbidden{}
 }
 
-/*
-GetCIDGroupByIDV2Forbidden describes a response with status code 403, with default header values.
+/* GetCIDGroupByIDV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewGetCIDGroupByIDV2TooManyRequests() *GetCIDGroupByIDV2TooManyRequests {
 	return &GetCIDGroupByIDV2TooManyRequests{}
 }
 
-/*
-GetCIDGroupByIDV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetCIDGroupByIDV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

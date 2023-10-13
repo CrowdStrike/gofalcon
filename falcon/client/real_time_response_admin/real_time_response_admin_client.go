@@ -66,7 +66,7 @@ type ClientService interface {
 }
 
 /*
-BatchAdminCmd batches executes a r t r administrator command across the hosts mapped to the given batch ID
+  BatchAdminCmd batches executes a r t r administrator command across the hosts mapped to the given batch ID
 */
 func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, opts ...ClientOption) (*BatchAdminCmdCreated, error) {
 	// TODO: Validate the params before sending
@@ -104,7 +104,7 @@ func (a *Client) BatchAdminCmd(params *BatchAdminCmdParams, opts ...ClientOption
 }
 
 /*
-RTRCheckAdminCommandStatus gets status of an executed r t r administrator command on a single host
+  RTRCheckAdminCommandStatus gets status of an executed r t r administrator command on a single host
 */
 func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusParams, opts ...ClientOption) (*RTRCheckAdminCommandStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -142,7 +142,7 @@ func (a *Client) RTRCheckAdminCommandStatus(params *RTRCheckAdminCommandStatusPa
 }
 
 /*
-RTRCreatePutFiles uploads a new put file to use for the r t r put command
+  RTRCreatePutFiles uploads a new put file to use for the r t r put command
 */
 func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...ClientOption) (*RTRCreatePutFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) RTRCreatePutFiles(params *RTRCreatePutFilesParams, opts ...Clie
 }
 
 /*
-RTRCreateScripts uploads a new custom script to use for the r t r runscript command
+  RTRCreateScripts uploads a new custom script to use for the r t r runscript command
 */
 func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, opts ...ClientOption) (*RTRCreateScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -218,7 +218,7 @@ func (a *Client) RTRCreateScripts(params *RTRCreateScriptsParams, opts ...Client
 }
 
 /*
-RTRDeletePutFiles deletes a put file based on the ID given can only delete one file at a time
+  RTRDeletePutFiles deletes a put file based on the ID given can only delete one file at a time
 */
 func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, opts ...ClientOption) (*RTRDeletePutFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -256,7 +256,7 @@ func (a *Client) RTRDeletePutFiles(params *RTRDeletePutFilesParams, opts ...Clie
 }
 
 /*
-RTRDeleteScripts deletes a custom script based on the ID given can only delete one script at a time
+  RTRDeleteScripts deletes a custom script based on the ID given can only delete one script at a time
 */
 func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, opts ...ClientOption) (*RTRDeleteScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -294,7 +294,7 @@ func (a *Client) RTRDeleteScripts(params *RTRDeleteScriptsParams, opts ...Client
 }
 
 /*
-RTRExecuteAdminCommand executes a r t r administrator command on a single host
+  RTRExecuteAdminCommand executes a r t r administrator command on a single host
 */
 func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, opts ...ClientOption) (*RTRExecuteAdminCommandCreated, error) {
 	// TODO: Validate the params before sending
@@ -332,7 +332,7 @@ func (a *Client) RTRExecuteAdminCommand(params *RTRExecuteAdminCommandParams, op
 }
 
 /*
-RTRGetFalconScripts gets falcon scripts with metadata and content of script
+  RTRGetFalconScripts gets falcon scripts with metadata and content of script
 */
 func (a *Client) RTRGetFalconScripts(params *RTRGetFalconScriptsParams, opts ...ClientOption) (*RTRGetFalconScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -370,7 +370,7 @@ func (a *Client) RTRGetFalconScripts(params *RTRGetFalconScriptsParams, opts ...
 }
 
 /*
-RTRGetPutFiles gets put files based on the ID s given these are used for the r t r put command
+  RTRGetPutFiles gets put files based on the ID s given these are used for the r t r put command
 */
 func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOption) (*RTRGetPutFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -408,7 +408,7 @@ func (a *Client) RTRGetPutFiles(params *RTRGetPutFilesParams, opts ...ClientOpti
 }
 
 /*
-RTRGetPutFilesV2 gets put files based on the ID s given these are used for the r t r put command
+  RTRGetPutFilesV2 gets put files based on the ID s given these are used for the r t r put command
 */
 func (a *Client) RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...ClientOption) (*RTRGetPutFilesV2OK, error) {
 	// TODO: Validate the params before sending
@@ -446,7 +446,7 @@ func (a *Client) RTRGetPutFilesV2(params *RTRGetPutFilesV2Params, opts ...Client
 }
 
 /*
-RTRGetScripts gets custom scripts based on the ID s given these are used for the r t r runscript command
+  RTRGetScripts gets custom scripts based on the ID s given these are used for the r t r runscript command
 */
 func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption) (*RTRGetScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -484,7 +484,7 @@ func (a *Client) RTRGetScripts(params *RTRGetScriptsParams, opts ...ClientOption
 }
 
 /*
-RTRGetScriptsV2 gets custom scripts based on the ID s given these are used for the r t r runscript command
+  RTRGetScriptsV2 gets custom scripts based on the ID s given these are used for the r t r runscript command
 */
 func (a *Client) RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOption) (*RTRGetScriptsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -522,7 +522,7 @@ func (a *Client) RTRGetScriptsV2(params *RTRGetScriptsV2Params, opts ...ClientOp
 }
 
 /*
-RTRListFalconScripts gets a list of falcon script i ds available to the user to run
+  RTRListFalconScripts gets a list of falcon script i ds available to the user to run
 */
 func (a *Client) RTRListFalconScripts(params *RTRListFalconScriptsParams, opts ...ClientOption) (*RTRListFalconScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -560,7 +560,7 @@ func (a *Client) RTRListFalconScripts(params *RTRListFalconScriptsParams, opts .
 }
 
 /*
-RTRListPutFiles gets a list of put file ID s that are available to the user for the put command
+  RTRListPutFiles gets a list of put file ID s that are available to the user for the put command
 */
 func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOption) (*RTRListPutFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -598,7 +598,7 @@ func (a *Client) RTRListPutFiles(params *RTRListPutFilesParams, opts ...ClientOp
 }
 
 /*
-RTRListScripts gets a list of custom script ID s that are available to the user for the runscript command
+  RTRListScripts gets a list of custom script ID s that are available to the user for the runscript command
 */
 func (a *Client) RTRListScripts(params *RTRListScriptsParams, opts ...ClientOption) (*RTRListScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -636,7 +636,7 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams, opts ...ClientOpti
 }
 
 /*
-RTRUpdateScripts uploads a new scripts to replace an existing one
+  RTRUpdateScripts uploads a new scripts to replace an existing one
 */
 func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsOK, error) {
 	// TODO: Validate the params before sending

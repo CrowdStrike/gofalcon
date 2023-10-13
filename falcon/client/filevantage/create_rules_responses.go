@@ -71,8 +71,7 @@ func NewCreateRulesOK() *CreateRulesOK {
 	return &CreateRulesOK{}
 }
 
-/*
-CreateRulesOK describes a response with status code 200, with default header values.
+/* CreateRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewCreateRulesBadRequest() *CreateRulesBadRequest {
 	return &CreateRulesBadRequest{}
 }
 
-/*
-CreateRulesBadRequest describes a response with status code 400, with default header values.
+/* CreateRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateRulesForbidden() *CreateRulesForbidden {
 	return &CreateRulesForbidden{}
 }
 
-/*
-CreateRulesForbidden describes a response with status code 403, with default header values.
+/* CreateRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateRulesConflict() *CreateRulesConflict {
 	return &CreateRulesConflict{}
 }
 
-/*
-CreateRulesConflict describes a response with status code 409, with default header values.
+/* CreateRulesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewCreateRulesTooManyRequests() *CreateRulesTooManyRequests {
 	return &CreateRulesTooManyRequests{}
 }
 
-/*
-CreateRulesTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateRulesInternalServerError() *CreateRulesInternalServerError {
 	return &CreateRulesInternalServerError{}
 }
 
-/*
-CreateRulesInternalServerError describes a response with status code 500, with default header values.
+/* CreateRulesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

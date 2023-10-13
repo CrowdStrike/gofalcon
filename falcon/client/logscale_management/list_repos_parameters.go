@@ -52,12 +52,10 @@ func NewListReposParamsWithHTTPClient(client *http.Client) *ListReposParams {
 	}
 }
 
-/*
-ListReposParams contains all the parameters to send to the API endpoint
+/* ListReposParams contains all the parameters to send to the API endpoint
+   for the list repos operation.
 
-	for the list repos operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ListReposParams struct {
 	timeout    time.Duration

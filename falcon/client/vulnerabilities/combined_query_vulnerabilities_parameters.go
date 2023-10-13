@@ -53,12 +53,10 @@ func NewCombinedQueryVulnerabilitiesParamsWithHTTPClient(client *http.Client) *C
 	}
 }
 
-/*
-CombinedQueryVulnerabilitiesParams contains all the parameters to send to the API endpoint
+/* CombinedQueryVulnerabilitiesParams contains all the parameters to send to the API endpoint
+   for the combined query vulnerabilities operation.
 
-	for the combined query vulnerabilities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CombinedQueryVulnerabilitiesParams struct {
 

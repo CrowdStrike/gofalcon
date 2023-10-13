@@ -54,12 +54,10 @@ func NewDeprovisionSystemDefinitionParamsWithHTTPClient(client *http.Client) *De
 	}
 }
 
-/*
-DeprovisionSystemDefinitionParams contains all the parameters to send to the API endpoint
+/* DeprovisionSystemDefinitionParams contains all the parameters to send to the API endpoint
+   for the deprovision system definition operation.
 
-	for the deprovision system definition operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeprovisionSystemDefinitionParams struct {
 

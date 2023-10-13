@@ -53,8 +53,7 @@ func NewQueryFirewallFieldsOK() *QueryFirewallFieldsOK {
 	return &QueryFirewallFieldsOK{}
 }
 
-/*
-QueryFirewallFieldsOK describes a response with status code 200, with default header values.
+/* QueryFirewallFieldsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryFirewallFieldsForbidden() *QueryFirewallFieldsForbidden {
 	return &QueryFirewallFieldsForbidden{}
 }
 
-/*
-QueryFirewallFieldsForbidden describes a response with status code 403, with default header values.
+/* QueryFirewallFieldsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryFirewallFieldsTooManyRequests() *QueryFirewallFieldsTooManyRequests
 	return &QueryFirewallFieldsTooManyRequests{}
 }
 
-/*
-QueryFirewallFieldsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryFirewallFieldsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -66,7 +66,7 @@ type ClientService interface {
 }
 
 /*
-CreateD4CAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
+  CreateD4CAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
 */
 func (a *Client) CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...ClientOption) (*CreateD4CAwsAccountCreated, *CreateD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -105,7 +105,7 @@ func (a *Client) CreateD4CAwsAccount(params *CreateD4CAwsAccountParams, opts ...
 }
 
 /*
-CreateD4CGcpAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
+  CreateD4CGcpAccount creates a new account in our system for a customer and generates a new service account for them to add access to in their g c p environment to grant us access
 */
 func (a *Client) CreateD4CGcpAccount(params *CreateD4CGcpAccountParams, opts ...ClientOption) (*CreateD4CGcpAccountCreated, *CreateD4CGcpAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -144,7 +144,7 @@ func (a *Client) CreateD4CGcpAccount(params *CreateD4CGcpAccountParams, opts ...
 }
 
 /*
-CreateDiscoverCloudAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
+  CreateDiscoverCloudAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
 */
 func (a *Client) CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzureAccountParams, opts ...ClientOption) (*CreateDiscoverCloudAzureAccountCreated, *CreateDiscoverCloudAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -183,7 +183,7 @@ func (a *Client) CreateDiscoverCloudAzureAccount(params *CreateDiscoverCloudAzur
 }
 
 /*
-DeleteD4CAwsAccount deletes an existing a w s account or organization in our system
+  DeleteD4CAwsAccount deletes an existing a w s account or organization in our system
 */
 func (a *Client) DeleteD4CAwsAccount(params *DeleteD4CAwsAccountParams, opts ...ClientOption) (*DeleteD4CAwsAccountOK, *DeleteD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) DeleteD4CAwsAccount(params *DeleteD4CAwsAccountParams, opts ...
 }
 
 /*
-DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+  DiscoverCloudAzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
 */
 func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzureDownloadCertificateParams, opts ...ClientOption) (*DiscoverCloudAzureDownloadCertificateOK, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) DiscoverCloudAzureDownloadCertificate(params *DiscoverCloudAzur
 }
 
 /*
-GetD4CAWSAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
+  GetD4CAWSAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
 */
 func (a *Client) GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScriptsAttachmentParams, opts ...ClientOption) (*GetD4CAWSAccountScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -298,7 +298,7 @@ func (a *Client) GetD4CAWSAccountScriptsAttachment(params *GetD4CAWSAccountScrip
 }
 
 /*
-GetD4CAwsAccount returns information about the current status of an a w s account
+  GetD4CAwsAccount returns information about the current status of an a w s account
 */
 func (a *Client) GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...ClientOption) (*GetD4CAwsAccountOK, *GetD4CAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -337,7 +337,7 @@ func (a *Client) GetD4CAwsAccount(params *GetD4CAwsAccountParams, opts ...Client
 }
 
 /*
-GetD4CAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
+  GetD4CAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
 */
 func (a *Client) GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetD4CAwsConsoleSetupURLsOK, *GetD4CAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -376,7 +376,7 @@ func (a *Client) GetD4CAwsConsoleSetupURLs(params *GetD4CAwsConsoleSetupURLsPara
 }
 
 /*
-GetD4CGcpAccount returns information about the current status of an g c p account
+  GetD4CGcpAccount returns information about the current status of an g c p account
 */
 func (a *Client) GetD4CGcpAccount(params *GetD4CGcpAccountParams, opts ...ClientOption) (*GetD4CGcpAccountOK, *GetD4CGcpAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -415,7 +415,7 @@ func (a *Client) GetD4CGcpAccount(params *GetD4CGcpAccountParams, opts ...Client
 }
 
 /*
-GetD4CGcpUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
+  GetD4CGcpUserScripts returns a script for customer to run in their cloud environment to grant us access to their g c p environment
 */
 func (a *Client) GetD4CGcpUserScripts(params *GetD4CGcpUserScriptsParams, opts ...ClientOption) (*GetD4CGcpUserScriptsOK, *GetD4CGcpUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -454,7 +454,7 @@ func (a *Client) GetD4CGcpUserScripts(params *GetD4CGcpUserScriptsParams, opts .
 }
 
 /*
-GetDiscoverCloudAzureAccount returns information about azure account registration
+  GetDiscoverCloudAzureAccount returns information about azure account registration
 */
 func (a *Client) GetDiscoverCloudAzureAccount(params *GetDiscoverCloudAzureAccountParams, opts ...ClientOption) (*GetDiscoverCloudAzureAccountOK, *GetDiscoverCloudAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -493,7 +493,7 @@ func (a *Client) GetDiscoverCloudAzureAccount(params *GetDiscoverCloudAzureAccou
 }
 
 /*
-GetDiscoverCloudAzureTenantIDs returns available tenant ids for discover for cloud
+  GetDiscoverCloudAzureTenantIDs returns available tenant ids for discover for cloud
 */
 func (a *Client) GetDiscoverCloudAzureTenantIDs(params *GetDiscoverCloudAzureTenantIDsParams, opts ...ClientOption) (*GetDiscoverCloudAzureTenantIDsOK, error) {
 	// TODO: Validate the params before sending
@@ -531,7 +531,7 @@ func (a *Client) GetDiscoverCloudAzureTenantIDs(params *GetDiscoverCloudAzureTen
 }
 
 /*
-GetDiscoverCloudAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
+  GetDiscoverCloudAzureUserScripts returns a script for customer to run in their cloud environment to grant us access to their azure environment
 */
 func (a *Client) GetDiscoverCloudAzureUserScripts(params *GetDiscoverCloudAzureUserScriptsParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsOK, *GetDiscoverCloudAzureUserScriptsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -570,7 +570,7 @@ func (a *Client) GetDiscoverCloudAzureUserScripts(params *GetDiscoverCloudAzureU
 }
 
 /*
-GetDiscoverCloudAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
+  GetDiscoverCloudAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
 */
 func (a *Client) GetDiscoverCloudAzureUserScriptsAttachment(params *GetDiscoverCloudAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetDiscoverCloudAzureUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -608,7 +608,7 @@ func (a *Client) GetDiscoverCloudAzureUserScriptsAttachment(params *GetDiscoverC
 }
 
 /*
-GetHorizonD4CScripts returns static install scripts for horizon
+  GetHorizonD4CScripts returns static install scripts for horizon
 */
 func (a *Client) GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts ...ClientOption) (*GetHorizonD4CScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -646,7 +646,7 @@ func (a *Client) GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts .
 }
 
 /*
-UpdateDiscoverCloudAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
+  UpdateDiscoverCloudAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
 */
 func (a *Client) UpdateDiscoverCloudAzureAccountClientID(params *UpdateDiscoverCloudAzureAccountClientIDParams, opts ...ClientOption) (*UpdateDiscoverCloudAzureAccountClientIDCreated, error) {
 	// TODO: Validate the params before sending

@@ -64,7 +64,7 @@ type ClientService interface {
 }
 
 /*
-GetIndicatorsReport launches an indicators report creation job
+  GetIndicatorsReport launches an indicators report creation job
 */
 func (a *Client) GetIndicatorsReport(params *GetIndicatorsReportParams, opts ...ClientOption) (*GetIndicatorsReportOK, error) {
 	// TODO: Validate the params before sending
@@ -102,7 +102,7 @@ func (a *Client) GetIndicatorsReport(params *GetIndicatorsReportParams, opts ...
 }
 
 /*
-ActionGetV1 gets actions by ids
+  ActionGetV1 gets actions by ids
 */
 func (a *Client) ActionGetV1(params *ActionGetV1Params, opts ...ClientOption) (*ActionGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) ActionGetV1(params *ActionGetV1Params, opts ...ClientOption) (*
 }
 
 /*
-ActionQueryV1 queries actions
+  ActionQueryV1 queries actions
 */
 func (a *Client) ActionQueryV1(params *ActionQueryV1Params, opts ...ClientOption) (*ActionQueryV1OK, error) {
 	// TODO: Validate the params before sending
@@ -178,7 +178,7 @@ func (a *Client) ActionQueryV1(params *ActionQueryV1Params, opts ...ClientOption
 }
 
 /*
-IndicatorAggregateV1 gets indicators aggregates as specified via json in the request body
+  IndicatorAggregateV1 gets indicators aggregates as specified via json in the request body
 */
 func (a *Client) IndicatorAggregateV1(params *IndicatorAggregateV1Params, opts ...ClientOption) (*IndicatorAggregateV1OK, error) {
 	// TODO: Validate the params before sending
@@ -216,7 +216,7 @@ func (a *Client) IndicatorAggregateV1(params *IndicatorAggregateV1Params, opts .
 }
 
 /*
-IndicatorCombinedV1 gets combined for indicators
+  IndicatorCombinedV1 gets combined for indicators
 */
 func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...ClientOption) (*IndicatorCombinedV1OK, error) {
 	// TODO: Validate the params before sending
@@ -254,7 +254,7 @@ func (a *Client) IndicatorCombinedV1(params *IndicatorCombinedV1Params, opts ...
 }
 
 /*
-IndicatorCreateV1 creates indicators
+  IndicatorCreateV1 creates indicators
 */
 func (a *Client) IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...ClientOption) (*IndicatorCreateV1Created, error) {
 	// TODO: Validate the params before sending
@@ -292,7 +292,7 @@ func (a *Client) IndicatorCreateV1(params *IndicatorCreateV1Params, opts ...Clie
 }
 
 /*
-IndicatorDeleteV1 deletes indicators by ids
+  IndicatorDeleteV1 deletes indicators by ids
 */
 func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...ClientOption) (*IndicatorDeleteV1OK, error) {
 	// TODO: Validate the params before sending
@@ -330,7 +330,7 @@ func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...Clie
 }
 
 /*
-IndicatorGetDevicesRanOnV1 gets the number of devices the indicator has run on
+  IndicatorGetDevicesRanOnV1 gets the number of devices the indicator has run on
 */
 func (a *Client) IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Params, opts ...ClientOption) (*IndicatorGetDevicesRanOnV1OK, error) {
 	// TODO: Validate the params before sending
@@ -368,7 +368,7 @@ func (a *Client) IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Pa
 }
 
 /*
-IndicatorGetProcessesRanOnV1 gets the number of processes the indicator has run on
+  IndicatorGetProcessesRanOnV1 gets the number of processes the indicator has run on
 */
 func (a *Client) IndicatorGetProcessesRanOnV1(params *IndicatorGetProcessesRanOnV1Params, opts ...ClientOption) (*IndicatorGetProcessesRanOnV1OK, error) {
 	// TODO: Validate the params before sending
@@ -406,7 +406,7 @@ func (a *Client) IndicatorGetProcessesRanOnV1(params *IndicatorGetProcessesRanOn
 }
 
 /*
-IndicatorGetV1 gets indicators by ids
+  IndicatorGetV1 gets indicators by ids
 */
 func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOption) (*IndicatorGetV1OK, error) {
 	// TODO: Validate the params before sending
@@ -444,7 +444,7 @@ func (a *Client) IndicatorGetV1(params *IndicatorGetV1Params, opts ...ClientOpti
 }
 
 /*
-IndicatorSearchV1 searches for indicators
+  IndicatorSearchV1 searches for indicators
 */
 func (a *Client) IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...ClientOption) (*IndicatorSearchV1OK, error) {
 	// TODO: Validate the params before sending
@@ -482,7 +482,7 @@ func (a *Client) IndicatorSearchV1(params *IndicatorSearchV1Params, opts ...Clie
 }
 
 /*
-IndicatorUpdateV1 updates indicators
+  IndicatorUpdateV1 updates indicators
 */
 func (a *Client) IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...ClientOption) (*IndicatorUpdateV1OK, error) {
 	// TODO: Validate the params before sending
@@ -520,7 +520,7 @@ func (a *Client) IndicatorUpdateV1(params *IndicatorUpdateV1Params, opts ...Clie
 }
 
 /*
-IocTypeQueryV1 queries i o c types
+  IocTypeQueryV1 queries i o c types
 */
 func (a *Client) IocTypeQueryV1(params *IocTypeQueryV1Params, opts ...ClientOption) (*IocTypeQueryV1OK, error) {
 	// TODO: Validate the params before sending
@@ -558,7 +558,7 @@ func (a *Client) IocTypeQueryV1(params *IocTypeQueryV1Params, opts ...ClientOpti
 }
 
 /*
-PlatformQueryV1 queries platforms
+  PlatformQueryV1 queries platforms
 */
 func (a *Client) PlatformQueryV1(params *PlatformQueryV1Params, opts ...ClientOption) (*PlatformQueryV1OK, error) {
 	// TODO: Validate the params before sending
@@ -596,7 +596,7 @@ func (a *Client) PlatformQueryV1(params *PlatformQueryV1Params, opts ...ClientOp
 }
 
 /*
-SeverityQueryV1 queries severities
+  SeverityQueryV1 queries severities
 */
 func (a *Client) SeverityQueryV1(params *SeverityQueryV1Params, opts ...ClientOption) (*SeverityQueryV1OK, error) {
 	// TODO: Validate the params before sending

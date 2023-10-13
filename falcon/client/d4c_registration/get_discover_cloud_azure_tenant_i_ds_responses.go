@@ -65,8 +65,7 @@ func NewGetDiscoverCloudAzureTenantIDsOK() *GetDiscoverCloudAzureTenantIDsOK {
 	return &GetDiscoverCloudAzureTenantIDsOK{}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsOK describes a response with status code 200, with default header values.
+/* GetDiscoverCloudAzureTenantIDsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetDiscoverCloudAzureTenantIDsBadRequest() *GetDiscoverCloudAzureTenantI
 	return &GetDiscoverCloudAzureTenantIDsBadRequest{}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsBadRequest describes a response with status code 400, with default header values.
+/* GetDiscoverCloudAzureTenantIDsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetDiscoverCloudAzureTenantIDsForbidden() *GetDiscoverCloudAzureTenantID
 	return &GetDiscoverCloudAzureTenantIDsForbidden{}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsForbidden describes a response with status code 403, with default header values.
+/* GetDiscoverCloudAzureTenantIDsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetDiscoverCloudAzureTenantIDsTooManyRequests() *GetDiscoverCloudAzureTe
 	return &GetDiscoverCloudAzureTenantIDsTooManyRequests{}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsTooManyRequests describes a response with status code 429, with default header values.
+/* GetDiscoverCloudAzureTenantIDsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetDiscoverCloudAzureTenantIDsInternalServerError() *GetDiscoverCloudAzu
 	return &GetDiscoverCloudAzureTenantIDsInternalServerError{}
 }
 
-/*
-GetDiscoverCloudAzureTenantIDsInternalServerError describes a response with status code 500, with default header values.
+/* GetDiscoverCloudAzureTenantIDsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-GetEvaluationLogicMixin0 gets details on evaluation logic items by providing one or more finding i ds
+  GetEvaluationLogicMixin0 gets details on evaluation logic items by providing one or more finding i ds
 */
 func (a *Client) GetEvaluationLogicMixin0(params *GetEvaluationLogicMixin0Params, opts ...ClientOption) (*GetEvaluationLogicMixin0OK, error) {
 	// TODO: Validate the params before sending

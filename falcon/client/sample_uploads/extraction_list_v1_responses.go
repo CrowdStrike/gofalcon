@@ -65,8 +65,7 @@ func NewExtractionListV1OK() *ExtractionListV1OK {
 	return &ExtractionListV1OK{}
 }
 
-/*
-ExtractionListV1OK describes a response with status code 200, with default header values.
+/* ExtractionListV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewExtractionListV1BadRequest() *ExtractionListV1BadRequest {
 	return &ExtractionListV1BadRequest{}
 }
 
-/*
-ExtractionListV1BadRequest describes a response with status code 400, with default header values.
+/* ExtractionListV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewExtractionListV1Forbidden() *ExtractionListV1Forbidden {
 	return &ExtractionListV1Forbidden{}
 }
 
-/*
-ExtractionListV1Forbidden describes a response with status code 403, with default header values.
+/* ExtractionListV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewExtractionListV1TooManyRequests() *ExtractionListV1TooManyRequests {
 	return &ExtractionListV1TooManyRequests{}
 }
 
-/*
-ExtractionListV1TooManyRequests describes a response with status code 429, with default header values.
+/* ExtractionListV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewExtractionListV1InternalServerError() *ExtractionListV1InternalServerErr
 	return &ExtractionListV1InternalServerError{}
 }
 
-/*
-ExtractionListV1InternalServerError describes a response with status code 500, with default header values.
+/* ExtractionListV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

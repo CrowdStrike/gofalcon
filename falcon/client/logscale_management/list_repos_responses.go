@@ -53,8 +53,7 @@ func NewListReposOK() *ListReposOK {
 	return &ListReposOK{}
 }
 
-/*
-ListReposOK describes a response with status code 200, with default header values.
+/* ListReposOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewListReposForbidden() *ListReposForbidden {
 	return &ListReposForbidden{}
 }
 
-/*
-ListReposForbidden describes a response with status code 403, with default header values.
+/* ListReposForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewListReposTooManyRequests() *ListReposTooManyRequests {
 	return &ListReposTooManyRequests{}
 }
 
-/*
-ListReposTooManyRequests describes a response with status code 429, with default header values.
+/* ListReposTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

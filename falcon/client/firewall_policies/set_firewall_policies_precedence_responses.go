@@ -65,8 +65,7 @@ func NewSetFirewallPoliciesPrecedenceOK() *SetFirewallPoliciesPrecedenceOK {
 	return &SetFirewallPoliciesPrecedenceOK{}
 }
 
-/*
-SetFirewallPoliciesPrecedenceOK describes a response with status code 200, with default header values.
+/* SetFirewallPoliciesPrecedenceOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewSetFirewallPoliciesPrecedenceBadRequest() *SetFirewallPoliciesPrecedence
 	return &SetFirewallPoliciesPrecedenceBadRequest{}
 }
 
-/*
-SetFirewallPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
+/* SetFirewallPoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewSetFirewallPoliciesPrecedenceForbidden() *SetFirewallPoliciesPrecedenceF
 	return &SetFirewallPoliciesPrecedenceForbidden{}
 }
 
-/*
-SetFirewallPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
+/* SetFirewallPoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewSetFirewallPoliciesPrecedenceTooManyRequests() *SetFirewallPoliciesPrece
 	return &SetFirewallPoliciesPrecedenceTooManyRequests{}
 }
 
-/*
-SetFirewallPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/* SetFirewallPoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewSetFirewallPoliciesPrecedenceInternalServerError() *SetFirewallPoliciesP
 	return &SetFirewallPoliciesPrecedenceInternalServerError{}
 }
 
-/*
-SetFirewallPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/* SetFirewallPoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewGetIntelRuleEntitiesParamsWithHTTPClient(client *http.Client) *GetIntelR
 	}
 }
 
-/*
-GetIntelRuleEntitiesParams contains all the parameters to send to the API endpoint
+/* GetIntelRuleEntitiesParams contains all the parameters to send to the API endpoint
+   for the get intel rule entities operation.
 
-	for the get intel rule entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIntelRuleEntitiesParams struct {
 

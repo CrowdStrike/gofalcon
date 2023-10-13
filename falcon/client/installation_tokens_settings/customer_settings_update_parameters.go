@@ -54,12 +54,10 @@ func NewCustomerSettingsUpdateParamsWithHTTPClient(client *http.Client) *Custome
 	}
 }
 
-/*
-CustomerSettingsUpdateParams contains all the parameters to send to the API endpoint
+/* CustomerSettingsUpdateParams contains all the parameters to send to the API endpoint
+   for the customer settings update operation.
 
-	for the customer settings update operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CustomerSettingsUpdateParams struct {
 

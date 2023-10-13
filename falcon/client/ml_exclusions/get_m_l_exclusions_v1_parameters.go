@@ -53,12 +53,10 @@ func NewGetMLExclusionsV1ParamsWithHTTPClient(client *http.Client) *GetMLExclusi
 	}
 }
 
-/*
-GetMLExclusionsV1Params contains all the parameters to send to the API endpoint
+/* GetMLExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the get m l exclusions v1 operation.
 
-	for the get m l exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetMLExclusionsV1Params struct {
 

@@ -65,8 +65,7 @@ func NewDeletePoliciesOK() *DeletePoliciesOK {
 	return &DeletePoliciesOK{}
 }
 
-/*
-DeletePoliciesOK describes a response with status code 200, with default header values.
+/* DeletePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewDeletePoliciesBadRequest() *DeletePoliciesBadRequest {
 	return &DeletePoliciesBadRequest{}
 }
 
-/*
-DeletePoliciesBadRequest describes a response with status code 400, with default header values.
+/* DeletePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewDeletePoliciesForbidden() *DeletePoliciesForbidden {
 	return &DeletePoliciesForbidden{}
 }
 
-/*
-DeletePoliciesForbidden describes a response with status code 403, with default header values.
+/* DeletePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewDeletePoliciesTooManyRequests() *DeletePoliciesTooManyRequests {
 	return &DeletePoliciesTooManyRequests{}
 }
 
-/*
-DeletePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* DeletePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewDeletePoliciesInternalServerError() *DeletePoliciesInternalServerError {
 	return &DeletePoliciesInternalServerError{}
 }
 
-/*
-DeletePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* DeletePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

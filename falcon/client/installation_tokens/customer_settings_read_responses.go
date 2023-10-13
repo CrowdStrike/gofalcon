@@ -65,8 +65,7 @@ func NewCustomerSettingsReadOK() *CustomerSettingsReadOK {
 	return &CustomerSettingsReadOK{}
 }
 
-/*
-CustomerSettingsReadOK describes a response with status code 200, with default header values.
+/* CustomerSettingsReadOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCustomerSettingsReadBadRequest() *CustomerSettingsReadBadRequest {
 	return &CustomerSettingsReadBadRequest{}
 }
 
-/*
-CustomerSettingsReadBadRequest describes a response with status code 400, with default header values.
+/* CustomerSettingsReadBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCustomerSettingsReadForbidden() *CustomerSettingsReadForbidden {
 	return &CustomerSettingsReadForbidden{}
 }
 
-/*
-CustomerSettingsReadForbidden describes a response with status code 403, with default header values.
+/* CustomerSettingsReadForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCustomerSettingsReadTooManyRequests() *CustomerSettingsReadTooManyReques
 	return &CustomerSettingsReadTooManyRequests{}
 }
 
-/*
-CustomerSettingsReadTooManyRequests describes a response with status code 429, with default header values.
+/* CustomerSettingsReadTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCustomerSettingsReadInternalServerError() *CustomerSettingsReadInternalS
 	return &CustomerSettingsReadInternalServerError{}
 }
 
-/*
-CustomerSettingsReadInternalServerError describes a response with status code 500, with default header values.
+/* CustomerSettingsReadInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewQueryCombinedHostGroupsParamsWithHTTPClient(client *http.Client) *QueryC
 	}
 }
 
-/*
-QueryCombinedHostGroupsParams contains all the parameters to send to the API endpoint
+/* QueryCombinedHostGroupsParams contains all the parameters to send to the API endpoint
+   for the query combined host groups operation.
 
-	for the query combined host groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedHostGroupsParams struct {
 

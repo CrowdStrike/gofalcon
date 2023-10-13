@@ -52,12 +52,10 @@ func NewGetCredentialsMixin0ParamsWithHTTPClient(client *http.Client) *GetCreden
 	}
 }
 
-/*
-GetCredentialsMixin0Params contains all the parameters to send to the API endpoint
+/* GetCredentialsMixin0Params contains all the parameters to send to the API endpoint
+   for the get credentials mixin0 operation.
 
-	for the get credentials mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCredentialsMixin0Params struct {
 	timeout    time.Duration

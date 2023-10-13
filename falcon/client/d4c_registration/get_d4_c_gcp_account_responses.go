@@ -71,8 +71,7 @@ func NewGetD4CGcpAccountOK() *GetD4CGcpAccountOK {
 	return &GetD4CGcpAccountOK{}
 }
 
-/*
-GetD4CGcpAccountOK describes a response with status code 200, with default header values.
+/* GetD4CGcpAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetD4CGcpAccountMultiStatus() *GetD4CGcpAccountMultiStatus {
 	return &GetD4CGcpAccountMultiStatus{}
 }
 
-/*
-GetD4CGcpAccountMultiStatus describes a response with status code 207, with default header values.
+/* GetD4CGcpAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetD4CGcpAccountBadRequest() *GetD4CGcpAccountBadRequest {
 	return &GetD4CGcpAccountBadRequest{}
 }
 
-/*
-GetD4CGcpAccountBadRequest describes a response with status code 400, with default header values.
+/* GetD4CGcpAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetD4CGcpAccountForbidden() *GetD4CGcpAccountForbidden {
 	return &GetD4CGcpAccountForbidden{}
 }
 
-/*
-GetD4CGcpAccountForbidden describes a response with status code 403, with default header values.
+/* GetD4CGcpAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetD4CGcpAccountTooManyRequests() *GetD4CGcpAccountTooManyRequests {
 	return &GetD4CGcpAccountTooManyRequests{}
 }
 
-/*
-GetD4CGcpAccountTooManyRequests describes a response with status code 429, with default header values.
+/* GetD4CGcpAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetD4CGcpAccountInternalServerError() *GetD4CGcpAccountInternalServerErr
 	return &GetD4CGcpAccountInternalServerError{}
 }
 
-/*
-GetD4CGcpAccountInternalServerError describes a response with status code 500, with default header values.
+/* GetD4CGcpAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewQueryIntelRuleIdsParamsWithHTTPClient(client *http.Client) *QueryIntelRu
 	}
 }
 
-/*
-QueryIntelRuleIdsParams contains all the parameters to send to the API endpoint
+/* QueryIntelRuleIdsParams contains all the parameters to send to the API endpoint
+   for the query intel rule ids operation.
 
-	for the query intel rule ids operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIntelRuleIdsParams struct {
 

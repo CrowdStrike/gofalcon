@@ -65,8 +65,7 @@ func NewGetIotHostsOK() *GetIotHostsOK {
 	return &GetIotHostsOK{}
 }
 
-/*
-GetIotHostsOK describes a response with status code 200, with default header values.
+/* GetIotHostsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetIotHostsBadRequest() *GetIotHostsBadRequest {
 	return &GetIotHostsBadRequest{}
 }
 
-/*
-GetIotHostsBadRequest describes a response with status code 400, with default header values.
+/* GetIotHostsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetIotHostsForbidden() *GetIotHostsForbidden {
 	return &GetIotHostsForbidden{}
 }
 
-/*
-GetIotHostsForbidden describes a response with status code 403, with default header values.
+/* GetIotHostsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetIotHostsTooManyRequests() *GetIotHostsTooManyRequests {
 	return &GetIotHostsTooManyRequests{}
 }
 
-/*
-GetIotHostsTooManyRequests describes a response with status code 429, with default header values.
+/* GetIotHostsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetIotHostsInternalServerError() *GetIotHostsInternalServerError {
 	return &GetIotHostsInternalServerError{}
 }
 
-/*
-GetIotHostsInternalServerError describes a response with status code 500, with default header values.
+/* GetIotHostsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

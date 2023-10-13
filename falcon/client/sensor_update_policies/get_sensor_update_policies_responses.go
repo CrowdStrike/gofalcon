@@ -65,8 +65,7 @@ func NewGetSensorUpdatePoliciesOK() *GetSensorUpdatePoliciesOK {
 	return &GetSensorUpdatePoliciesOK{}
 }
 
-/*
-GetSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
+/* GetSensorUpdatePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetSensorUpdatePoliciesForbidden() *GetSensorUpdatePoliciesForbidden {
 	return &GetSensorUpdatePoliciesForbidden{}
 }
 
-/*
-GetSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
+/* GetSensorUpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetSensorUpdatePoliciesNotFound() *GetSensorUpdatePoliciesNotFound {
 	return &GetSensorUpdatePoliciesNotFound{}
 }
 
-/*
-GetSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
+/* GetSensorUpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetSensorUpdatePoliciesTooManyRequests() *GetSensorUpdatePoliciesTooMany
 	return &GetSensorUpdatePoliciesTooManyRequests{}
 }
 
-/*
-GetSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorUpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetSensorUpdatePoliciesInternalServerError() *GetSensorUpdatePoliciesInt
 	return &GetSensorUpdatePoliciesInternalServerError{}
 }
 
-/*
-GetSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* GetSensorUpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

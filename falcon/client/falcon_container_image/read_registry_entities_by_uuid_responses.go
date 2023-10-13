@@ -65,8 +65,7 @@ func NewReadRegistryEntitiesByUUIDOK() *ReadRegistryEntitiesByUUIDOK {
 	return &ReadRegistryEntitiesByUUIDOK{}
 }
 
-/*
-ReadRegistryEntitiesByUUIDOK describes a response with status code 200, with default header values.
+/* ReadRegistryEntitiesByUUIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewReadRegistryEntitiesByUUIDForbidden() *ReadRegistryEntitiesByUUIDForbidd
 	return &ReadRegistryEntitiesByUUIDForbidden{}
 }
 
-/*
-ReadRegistryEntitiesByUUIDForbidden describes a response with status code 403, with default header values.
+/* ReadRegistryEntitiesByUUIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewReadRegistryEntitiesByUUIDNotFound() *ReadRegistryEntitiesByUUIDNotFound
 	return &ReadRegistryEntitiesByUUIDNotFound{}
 }
 
-/*
-ReadRegistryEntitiesByUUIDNotFound describes a response with status code 404, with default header values.
+/* ReadRegistryEntitiesByUUIDNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewReadRegistryEntitiesByUUIDTooManyRequests() *ReadRegistryEntitiesByUUIDT
 	return &ReadRegistryEntitiesByUUIDTooManyRequests{}
 }
 
-/*
-ReadRegistryEntitiesByUUIDTooManyRequests describes a response with status code 429, with default header values.
+/* ReadRegistryEntitiesByUUIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewReadRegistryEntitiesByUUIDInternalServerError() *ReadRegistryEntitiesByU
 	return &ReadRegistryEntitiesByUUIDInternalServerError{}
 }
 
-/*
-ReadRegistryEntitiesByUUIDInternalServerError describes a response with status code 500, with default header values.
+/* ReadRegistryEntitiesByUUIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

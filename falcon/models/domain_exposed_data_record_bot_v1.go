@@ -33,7 +33,8 @@ type DomainExposedDataRecordBotV1 struct {
 
 	// infection date
 	// Required: true
-	InfectionDate *string `json:"infection_date"`
+	// Format: date-time
+	InfectionDate *strfmt.DateTime `json:"infection_date"`
 
 	// infection path
 	// Required: true
@@ -119,6 +120,10 @@ func (m *DomainExposedDataRecordBotV1) validateInfectionBuildID(formats strfmt.R
 func (m *DomainExposedDataRecordBotV1) validateInfectionDate(formats strfmt.Registry) error {
 
 	if err := validate.Required("infection_date", "body", m.InfectionDate); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("infection_date", "body", "date-time", m.InfectionDate.String(), formats); err != nil {
 		return err
 	}
 

@@ -65,8 +65,7 @@ func NewUpdateDefaultDeviceControlPoliciesOK() *UpdateDefaultDeviceControlPolici
 	return &UpdateDefaultDeviceControlPoliciesOK{}
 }
 
-/*
-UpdateDefaultDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+/* UpdateDefaultDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdateDefaultDeviceControlPoliciesForbidden() *UpdateDefaultDeviceContro
 	return &UpdateDefaultDeviceControlPoliciesForbidden{}
 }
 
-/*
-UpdateDefaultDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+/* UpdateDefaultDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewUpdateDefaultDeviceControlPoliciesNotFound() *UpdateDefaultDeviceControl
 	return &UpdateDefaultDeviceControlPoliciesNotFound{}
 }
 
-/*
-UpdateDefaultDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+/* UpdateDefaultDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewUpdateDefaultDeviceControlPoliciesTooManyRequests() *UpdateDefaultDevice
 	return &UpdateDefaultDeviceControlPoliciesTooManyRequests{}
 }
 
-/*
-UpdateDefaultDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateDefaultDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdateDefaultDeviceControlPoliciesInternalServerError() *UpdateDefaultDe
 	return &UpdateDefaultDeviceControlPoliciesInternalServerError{}
 }
 
-/*
-UpdateDefaultDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+/* UpdateDefaultDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewAggregateRuleGroupsOK() *AggregateRuleGroupsOK {
 	return &AggregateRuleGroupsOK{}
 }
 
-/*
-AggregateRuleGroupsOK describes a response with status code 200, with default header values.
+/* AggregateRuleGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewAggregateRuleGroupsBadRequest() *AggregateRuleGroupsBadRequest {
 	return &AggregateRuleGroupsBadRequest{}
 }
 
-/*
-AggregateRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* AggregateRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewAggregateRuleGroupsForbidden() *AggregateRuleGroupsForbidden {
 	return &AggregateRuleGroupsForbidden{}
 }
 
-/*
-AggregateRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* AggregateRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewAggregateRuleGroupsTooManyRequests() *AggregateRuleGroupsTooManyRequests
 	return &AggregateRuleGroupsTooManyRequests{}
 }
 
-/*
-AggregateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* AggregateRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewAggregateRuleGroupsInternalServerError() *AggregateRuleGroupsInternalSer
 	return &AggregateRuleGroupsInternalServerError{}
 }
 
-/*
-AggregateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* AggregateRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

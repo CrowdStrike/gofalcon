@@ -53,12 +53,10 @@ func NewGetNotificationsDetailedTranslatedV1ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-GetNotificationsDetailedTranslatedV1Params contains all the parameters to send to the API endpoint
+/* GetNotificationsDetailedTranslatedV1Params contains all the parameters to send to the API endpoint
+   for the get notifications detailed translated v1 operation.
 
-	for the get notifications detailed translated v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetNotificationsDetailedTranslatedV1Params struct {
 

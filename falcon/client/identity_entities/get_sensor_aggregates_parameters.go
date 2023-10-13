@@ -54,12 +54,10 @@ func NewGetSensorAggregatesParamsWithHTTPClient(client *http.Client) *GetSensorA
 	}
 }
 
-/*
-GetSensorAggregatesParams contains all the parameters to send to the API endpoint
+/* GetSensorAggregatesParams contains all the parameters to send to the API endpoint
+   for the get sensor aggregates operation.
 
-	for the get sensor aggregates operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSensorAggregatesParams struct {
 

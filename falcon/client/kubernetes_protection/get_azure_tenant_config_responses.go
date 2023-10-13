@@ -71,8 +71,7 @@ func NewGetAzureTenantConfigOK() *GetAzureTenantConfigOK {
 	return &GetAzureTenantConfigOK{}
 }
 
-/*
-GetAzureTenantConfigOK describes a response with status code 200, with default header values.
+/* GetAzureTenantConfigOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetAzureTenantConfigMultiStatus() *GetAzureTenantConfigMultiStatus {
 	return &GetAzureTenantConfigMultiStatus{}
 }
 
-/*
-GetAzureTenantConfigMultiStatus describes a response with status code 207, with default header values.
+/* GetAzureTenantConfigMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetAzureTenantConfigBadRequest() *GetAzureTenantConfigBadRequest {
 	return &GetAzureTenantConfigBadRequest{}
 }
 
-/*
-GetAzureTenantConfigBadRequest describes a response with status code 400, with default header values.
+/* GetAzureTenantConfigBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetAzureTenantConfigForbidden() *GetAzureTenantConfigForbidden {
 	return &GetAzureTenantConfigForbidden{}
 }
 
-/*
-GetAzureTenantConfigForbidden describes a response with status code 403, with default header values.
+/* GetAzureTenantConfigForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetAzureTenantConfigTooManyRequests() *GetAzureTenantConfigTooManyReques
 	return &GetAzureTenantConfigTooManyRequests{}
 }
 
-/*
-GetAzureTenantConfigTooManyRequests describes a response with status code 429, with default header values.
+/* GetAzureTenantConfigTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetAzureTenantConfigInternalServerError() *GetAzureTenantConfigInternalS
 	return &GetAzureTenantConfigInternalServerError{}
 }
 
-/*
-GetAzureTenantConfigInternalServerError describes a response with status code 500, with default header values.
+/* GetAzureTenantConfigInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

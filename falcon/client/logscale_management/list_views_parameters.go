@@ -52,12 +52,10 @@ func NewListViewsParamsWithHTTPClient(client *http.Client) *ListViewsParams {
 	}
 }
 
-/*
-ListViewsParams contains all the parameters to send to the API endpoint
+/* ListViewsParams contains all the parameters to send to the API endpoint
+   for the list views operation.
 
-	for the list views operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ListViewsParams struct {
 	timeout    time.Duration

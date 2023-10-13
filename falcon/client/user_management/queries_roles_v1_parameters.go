@@ -52,12 +52,10 @@ func NewQueriesRolesV1ParamsWithHTTPClient(client *http.Client) *QueriesRolesV1P
 	}
 }
 
-/*
-QueriesRolesV1Params contains all the parameters to send to the API endpoint
+/* QueriesRolesV1Params contains all the parameters to send to the API endpoint
+   for the queries roles v1 operation.
 
-	for the queries roles v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueriesRolesV1Params struct {
 

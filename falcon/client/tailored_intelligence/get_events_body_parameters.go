@@ -52,12 +52,10 @@ func NewGetEventsBodyParamsWithHTTPClient(client *http.Client) *GetEventsBodyPar
 	}
 }
 
-/*
-GetEventsBodyParams contains all the parameters to send to the API endpoint
+/* GetEventsBodyParams contains all the parameters to send to the API endpoint
+   for the get events body operation.
 
-	for the get events body operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetEventsBodyParams struct {
 

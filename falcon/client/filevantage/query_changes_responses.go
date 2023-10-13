@@ -65,8 +65,7 @@ func NewQueryChangesOK() *QueryChangesOK {
 	return &QueryChangesOK{}
 }
 
-/*
-QueryChangesOK describes a response with status code 200, with default header values.
+/* QueryChangesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryChangesBadRequest() *QueryChangesBadRequest {
 	return &QueryChangesBadRequest{}
 }
 
-/*
-QueryChangesBadRequest describes a response with status code 400, with default header values.
+/* QueryChangesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryChangesForbidden() *QueryChangesForbidden {
 	return &QueryChangesForbidden{}
 }
 
-/*
-QueryChangesForbidden describes a response with status code 403, with default header values.
+/* QueryChangesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryChangesTooManyRequests() *QueryChangesTooManyRequests {
 	return &QueryChangesTooManyRequests{}
 }
 
-/*
-QueryChangesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryChangesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryChangesInternalServerError() *QueryChangesInternalServerError {
 	return &QueryChangesInternalServerError{}
 }
 
-/*
-QueryChangesInternalServerError describes a response with status code 500, with default header values.
+/* QueryChangesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewGetConfigurationDetectionIDsV2OK() *GetConfigurationDetectionIDsV2OK {
 	return &GetConfigurationDetectionIDsV2OK{}
 }
 
-/*
-GetConfigurationDetectionIDsV2OK describes a response with status code 200, with default header values.
+/* GetConfigurationDetectionIDsV2OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetConfigurationDetectionIDsV2BadRequest() *GetConfigurationDetectionIDs
 	return &GetConfigurationDetectionIDsV2BadRequest{}
 }
 
-/*
-GetConfigurationDetectionIDsV2BadRequest describes a response with status code 400, with default header values.
+/* GetConfigurationDetectionIDsV2BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetConfigurationDetectionIDsV2Forbidden() *GetConfigurationDetectionIDsV
 	return &GetConfigurationDetectionIDsV2Forbidden{}
 }
 
-/*
-GetConfigurationDetectionIDsV2Forbidden describes a response with status code 403, with default header values.
+/* GetConfigurationDetectionIDsV2Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetConfigurationDetectionIDsV2TooManyRequests() *GetConfigurationDetecti
 	return &GetConfigurationDetectionIDsV2TooManyRequests{}
 }
 
-/*
-GetConfigurationDetectionIDsV2TooManyRequests describes a response with status code 429, with default header values.
+/* GetConfigurationDetectionIDsV2TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetConfigurationDetectionIDsV2InternalServerError() *GetConfigurationDet
 	return &GetConfigurationDetectionIDsV2InternalServerError{}
 }
 
-/*
-GetConfigurationDetectionIDsV2InternalServerError describes a response with status code 500, with default header values.
+/* GetConfigurationDetectionIDsV2InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

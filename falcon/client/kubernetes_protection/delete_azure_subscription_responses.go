@@ -71,8 +71,7 @@ func NewDeleteAzureSubscriptionOK() *DeleteAzureSubscriptionOK {
 	return &DeleteAzureSubscriptionOK{}
 }
 
-/*
-DeleteAzureSubscriptionOK describes a response with status code 200, with default header values.
+/* DeleteAzureSubscriptionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteAzureSubscriptionMultiStatus() *DeleteAzureSubscriptionMultiStatus
 	return &DeleteAzureSubscriptionMultiStatus{}
 }
 
-/*
-DeleteAzureSubscriptionMultiStatus describes a response with status code 207, with default header values.
+/* DeleteAzureSubscriptionMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewDeleteAzureSubscriptionBadRequest() *DeleteAzureSubscriptionBadRequest {
 	return &DeleteAzureSubscriptionBadRequest{}
 }
 
-/*
-DeleteAzureSubscriptionBadRequest describes a response with status code 400, with default header values.
+/* DeleteAzureSubscriptionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewDeleteAzureSubscriptionForbidden() *DeleteAzureSubscriptionForbidden {
 	return &DeleteAzureSubscriptionForbidden{}
 }
 
-/*
-DeleteAzureSubscriptionForbidden describes a response with status code 403, with default header values.
+/* DeleteAzureSubscriptionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewDeleteAzureSubscriptionTooManyRequests() *DeleteAzureSubscriptionTooMany
 	return &DeleteAzureSubscriptionTooManyRequests{}
 }
 
-/*
-DeleteAzureSubscriptionTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteAzureSubscriptionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteAzureSubscriptionInternalServerError() *DeleteAzureSubscriptionInt
 	return &DeleteAzureSubscriptionInternalServerError{}
 }
 
-/*
-DeleteAzureSubscriptionInternalServerError describes a response with status code 500, with default header values.
+/* DeleteAzureSubscriptionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

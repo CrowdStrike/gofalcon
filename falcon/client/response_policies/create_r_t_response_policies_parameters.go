@@ -54,12 +54,10 @@ func NewCreateRTResponsePoliciesParamsWithHTTPClient(client *http.Client) *Creat
 	}
 }
 
-/*
-CreateRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+/* CreateRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+   for the create r t response policies operation.
 
-	for the create r t response policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRTResponsePoliciesParams struct {
 

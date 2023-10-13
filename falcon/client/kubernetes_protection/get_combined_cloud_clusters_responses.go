@@ -71,8 +71,7 @@ func NewGetCombinedCloudClustersOK() *GetCombinedCloudClustersOK {
 	return &GetCombinedCloudClustersOK{}
 }
 
-/*
-GetCombinedCloudClustersOK describes a response with status code 200, with default header values.
+/* GetCombinedCloudClustersOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCombinedCloudClustersMultiStatus() *GetCombinedCloudClustersMultiStat
 	return &GetCombinedCloudClustersMultiStatus{}
 }
 
-/*
-GetCombinedCloudClustersMultiStatus describes a response with status code 207, with default header values.
+/* GetCombinedCloudClustersMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetCombinedCloudClustersBadRequest() *GetCombinedCloudClustersBadRequest
 	return &GetCombinedCloudClustersBadRequest{}
 }
 
-/*
-GetCombinedCloudClustersBadRequest describes a response with status code 400, with default header values.
+/* GetCombinedCloudClustersBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetCombinedCloudClustersForbidden() *GetCombinedCloudClustersForbidden {
 	return &GetCombinedCloudClustersForbidden{}
 }
 
-/*
-GetCombinedCloudClustersForbidden describes a response with status code 403, with default header values.
+/* GetCombinedCloudClustersForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCombinedCloudClustersTooManyRequests() *GetCombinedCloudClustersTooMa
 	return &GetCombinedCloudClustersTooManyRequests{}
 }
 
-/*
-GetCombinedCloudClustersTooManyRequests describes a response with status code 429, with default header values.
+/* GetCombinedCloudClustersTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCombinedCloudClustersInternalServerError() *GetCombinedCloudClustersI
 	return &GetCombinedCloudClustersInternalServerError{}
 }
 
-/*
-GetCombinedCloudClustersInternalServerError describes a response with status code 500, with default header values.
+/* GetCombinedCloudClustersInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

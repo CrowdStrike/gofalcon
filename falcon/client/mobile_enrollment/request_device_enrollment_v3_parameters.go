@@ -54,12 +54,10 @@ func NewRequestDeviceEnrollmentV3ParamsWithHTTPClient(client *http.Client) *Requ
 	}
 }
 
-/*
-RequestDeviceEnrollmentV3Params contains all the parameters to send to the API endpoint
+/* RequestDeviceEnrollmentV3Params contains all the parameters to send to the API endpoint
+   for the request device enrollment v3 operation.
 
-	for the request device enrollment v3 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RequestDeviceEnrollmentV3Params struct {
 

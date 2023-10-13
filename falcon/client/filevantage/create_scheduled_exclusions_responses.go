@@ -71,8 +71,7 @@ func NewCreateScheduledExclusionsOK() *CreateScheduledExclusionsOK {
 	return &CreateScheduledExclusionsOK{}
 }
 
-/*
-CreateScheduledExclusionsOK describes a response with status code 200, with default header values.
+/* CreateScheduledExclusionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewCreateScheduledExclusionsBadRequest() *CreateScheduledExclusionsBadReque
 	return &CreateScheduledExclusionsBadRequest{}
 }
 
-/*
-CreateScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
+/* CreateScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateScheduledExclusionsForbidden() *CreateScheduledExclusionsForbidden
 	return &CreateScheduledExclusionsForbidden{}
 }
 
-/*
-CreateScheduledExclusionsForbidden describes a response with status code 403, with default header values.
+/* CreateScheduledExclusionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateScheduledExclusionsNotFound() *CreateScheduledExclusionsNotFound {
 	return &CreateScheduledExclusionsNotFound{}
 }
 
-/*
-CreateScheduledExclusionsNotFound describes a response with status code 404, with default header values.
+/* CreateScheduledExclusionsNotFound describes a response with status code 404, with default header values.
 
 The policy to add the scheduled exclusion to does not exist.
 */
@@ -511,8 +507,7 @@ func NewCreateScheduledExclusionsTooManyRequests() *CreateScheduledExclusionsToo
 	return &CreateScheduledExclusionsTooManyRequests{}
 }
 
-/*
-CreateScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
+/* CreateScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateScheduledExclusionsInternalServerError() *CreateScheduledExclusion
 	return &CreateScheduledExclusionsInternalServerError{}
 }
 
-/*
-CreateScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
+/* CreateScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

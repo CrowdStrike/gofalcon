@@ -71,8 +71,7 @@ func NewGetD4CAwsConsoleSetupURLsOK() *GetD4CAwsConsoleSetupURLsOK {
 	return &GetD4CAwsConsoleSetupURLsOK{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsOK describes a response with status code 200, with default header values.
+/* GetD4CAwsConsoleSetupURLsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetD4CAwsConsoleSetupURLsMultiStatus() *GetD4CAwsConsoleSetupURLsMultiSt
 	return &GetD4CAwsConsoleSetupURLsMultiStatus{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsMultiStatus describes a response with status code 207, with default header values.
+/* GetD4CAwsConsoleSetupURLsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetD4CAwsConsoleSetupURLsBadRequest() *GetD4CAwsConsoleSetupURLsBadReque
 	return &GetD4CAwsConsoleSetupURLsBadRequest{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsBadRequest describes a response with status code 400, with default header values.
+/* GetD4CAwsConsoleSetupURLsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetD4CAwsConsoleSetupURLsForbidden() *GetD4CAwsConsoleSetupURLsForbidden
 	return &GetD4CAwsConsoleSetupURLsForbidden{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsForbidden describes a response with status code 403, with default header values.
+/* GetD4CAwsConsoleSetupURLsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetD4CAwsConsoleSetupURLsTooManyRequests() *GetD4CAwsConsoleSetupURLsToo
 	return &GetD4CAwsConsoleSetupURLsTooManyRequests{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsTooManyRequests describes a response with status code 429, with default header values.
+/* GetD4CAwsConsoleSetupURLsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetD4CAwsConsoleSetupURLsInternalServerError() *GetD4CAwsConsoleSetupURL
 	return &GetD4CAwsConsoleSetupURLsInternalServerError{}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsInternalServerError describes a response with status code 500, with default header values.
+/* GetD4CAwsConsoleSetupURLsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

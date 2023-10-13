@@ -77,8 +77,7 @@ func NewGetMalQueryDownloadV1OK() *GetMalQueryDownloadV1OK {
 	return &GetMalQueryDownloadV1OK{}
 }
 
-/*
-GetMalQueryDownloadV1OK describes a response with status code 200, with default header values.
+/* GetMalQueryDownloadV1OK describes a response with status code 200, with default header values.
 
 The file content
 */
@@ -174,8 +173,7 @@ func NewGetMalQueryDownloadV1BadRequest() *GetMalQueryDownloadV1BadRequest {
 	return &GetMalQueryDownloadV1BadRequest{}
 }
 
-/*
-GetMalQueryDownloadV1BadRequest describes a response with status code 400, with default header values.
+/* GetMalQueryDownloadV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -284,8 +282,7 @@ func NewGetMalQueryDownloadV1Unauthorized() *GetMalQueryDownloadV1Unauthorized {
 	return &GetMalQueryDownloadV1Unauthorized{}
 }
 
-/*
-GetMalQueryDownloadV1Unauthorized describes a response with status code 401, with default header values.
+/* GetMalQueryDownloadV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -394,8 +391,7 @@ func NewGetMalQueryDownloadV1Forbidden() *GetMalQueryDownloadV1Forbidden {
 	return &GetMalQueryDownloadV1Forbidden{}
 }
 
-/*
-GetMalQueryDownloadV1Forbidden describes a response with status code 403, with default header values.
+/* GetMalQueryDownloadV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -504,8 +500,7 @@ func NewGetMalQueryDownloadV1NotFound() *GetMalQueryDownloadV1NotFound {
 	return &GetMalQueryDownloadV1NotFound{}
 }
 
-/*
-GetMalQueryDownloadV1NotFound describes a response with status code 404, with default header values.
+/* GetMalQueryDownloadV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -614,8 +609,7 @@ func NewGetMalQueryDownloadV1TooManyRequests() *GetMalQueryDownloadV1TooManyRequ
 	return &GetMalQueryDownloadV1TooManyRequests{}
 }
 
-/*
-GetMalQueryDownloadV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetMalQueryDownloadV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -739,8 +733,7 @@ func NewGetMalQueryDownloadV1InternalServerError() *GetMalQueryDownloadV1Interna
 	return &GetMalQueryDownloadV1InternalServerError{}
 }
 
-/*
-GetMalQueryDownloadV1InternalServerError describes a response with status code 500, with default header values.
+/* GetMalQueryDownloadV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

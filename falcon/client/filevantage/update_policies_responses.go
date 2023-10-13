@@ -71,8 +71,7 @@ func NewUpdatePoliciesOK() *UpdatePoliciesOK {
 	return &UpdatePoliciesOK{}
 }
 
-/*
-UpdatePoliciesOK describes a response with status code 200, with default header values.
+/* UpdatePoliciesOK describes a response with status code 200, with default header values.
 
 Policy has been updated
 */
@@ -181,8 +180,7 @@ func NewUpdatePoliciesBadRequest() *UpdatePoliciesBadRequest {
 	return &UpdatePoliciesBadRequest{}
 }
 
-/*
-UpdatePoliciesBadRequest describes a response with status code 400, with default header values.
+/* UpdatePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdatePoliciesForbidden() *UpdatePoliciesForbidden {
 	return &UpdatePoliciesForbidden{}
 }
 
-/*
-UpdatePoliciesForbidden describes a response with status code 403, with default header values.
+/* UpdatePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdatePoliciesNotFound() *UpdatePoliciesNotFound {
 	return &UpdatePoliciesNotFound{}
 }
 
-/*
-UpdatePoliciesNotFound describes a response with status code 404, with default header values.
+/* UpdatePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewUpdatePoliciesTooManyRequests() *UpdatePoliciesTooManyRequests {
 	return &UpdatePoliciesTooManyRequests{}
 }
 
-/*
-UpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* UpdatePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdatePoliciesInternalServerError() *UpdatePoliciesInternalServerError {
 	return &UpdatePoliciesInternalServerError{}
 }
 
-/*
-UpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* UpdatePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

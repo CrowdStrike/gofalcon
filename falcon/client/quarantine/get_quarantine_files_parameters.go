@@ -54,12 +54,10 @@ func NewGetQuarantineFilesParamsWithHTTPClient(client *http.Client) *GetQuaranti
 	}
 }
 
-/*
-GetQuarantineFilesParams contains all the parameters to send to the API endpoint
+/* GetQuarantineFilesParams contains all the parameters to send to the API endpoint
+   for the get quarantine files operation.
 
-	for the get quarantine files operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetQuarantineFilesParams struct {
 

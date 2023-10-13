@@ -53,12 +53,10 @@ func NewDeleteAWSAccountsParamsWithHTTPClient(client *http.Client) *DeleteAWSAcc
 	}
 }
 
-/*
-DeleteAWSAccountsParams contains all the parameters to send to the API endpoint
+/* DeleteAWSAccountsParams contains all the parameters to send to the API endpoint
+   for the delete a w s accounts operation.
 
-	for the delete a w s accounts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteAWSAccountsParams struct {
 

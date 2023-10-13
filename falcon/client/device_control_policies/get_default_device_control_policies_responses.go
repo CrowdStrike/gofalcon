@@ -65,8 +65,7 @@ func NewGetDefaultDeviceControlPoliciesOK() *GetDefaultDeviceControlPoliciesOK {
 	return &GetDefaultDeviceControlPoliciesOK{}
 }
 
-/*
-GetDefaultDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+/* GetDefaultDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetDefaultDeviceControlPoliciesForbidden() *GetDefaultDeviceControlPolic
 	return &GetDefaultDeviceControlPoliciesForbidden{}
 }
 
-/*
-GetDefaultDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+/* GetDefaultDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetDefaultDeviceControlPoliciesNotFound() *GetDefaultDeviceControlPolici
 	return &GetDefaultDeviceControlPoliciesNotFound{}
 }
 
-/*
-GetDefaultDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+/* GetDefaultDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetDefaultDeviceControlPoliciesTooManyRequests() *GetDefaultDeviceContro
 	return &GetDefaultDeviceControlPoliciesTooManyRequests{}
 }
 
-/*
-GetDefaultDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* GetDefaultDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetDefaultDeviceControlPoliciesInternalServerError() *GetDefaultDeviceCo
 	return &GetDefaultDeviceControlPoliciesInternalServerError{}
 }
 
-/*
-GetDefaultDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+/* GetDefaultDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

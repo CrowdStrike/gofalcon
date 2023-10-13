@@ -53,12 +53,10 @@ func NewGetConfigurationDetectionEntitiesParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-GetConfigurationDetectionEntitiesParams contains all the parameters to send to the API endpoint
+/* GetConfigurationDetectionEntitiesParams contains all the parameters to send to the API endpoint
+   for the get configuration detection entities operation.
 
-	for the get configuration detection entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetConfigurationDetectionEntitiesParams struct {
 

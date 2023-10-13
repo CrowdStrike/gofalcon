@@ -71,8 +71,7 @@ func NewCreateRTResponsePoliciesCreated() *CreateRTResponsePoliciesCreated {
 	return &CreateRTResponsePoliciesCreated{}
 }
 
-/*
-CreateRTResponsePoliciesCreated describes a response with status code 201, with default header values.
+/* CreateRTResponsePoliciesCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreateRTResponsePoliciesBadRequest() *CreateRTResponsePoliciesBadRequest
 	return &CreateRTResponsePoliciesBadRequest{}
 }
 
-/*
-CreateRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
+/* CreateRTResponsePoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCreateRTResponsePoliciesForbidden() *CreateRTResponsePoliciesForbidden {
 	return &CreateRTResponsePoliciesForbidden{}
 }
 
-/*
-CreateRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
+/* CreateRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCreateRTResponsePoliciesNotFound() *CreateRTResponsePoliciesNotFound {
 	return &CreateRTResponsePoliciesNotFound{}
 }
 
-/*
-CreateRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
+/* CreateRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewCreateRTResponsePoliciesTooManyRequests() *CreateRTResponsePoliciesTooMa
 	return &CreateRTResponsePoliciesTooManyRequests{}
 }
 
-/*
-CreateRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateRTResponsePoliciesInternalServerError() *CreateRTResponsePoliciesI
 	return &CreateRTResponsePoliciesInternalServerError{}
 }
 
-/*
-CreateRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* CreateRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

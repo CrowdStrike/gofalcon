@@ -80,7 +80,7 @@ type ClientService interface {
 }
 
 /*
-AzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
+  AzureDownloadCertificate returns JSON object s that contain the base64 encoded certificate for a service principal
 */
 func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams, opts ...ClientOption) (*AzureDownloadCertificateOK, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) AzureDownloadCertificate(params *AzureDownloadCertificateParams
 }
 
 /*
-CreateCSPMAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
+  CreateCSPMAwsAccount creates a new account in our system for a customer and generates a script for them to run in their a w s cloud environment to grant us access
 */
 func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts ...ClientOption) (*CreateCSPMAwsAccountCreated, *CreateCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -157,7 +157,7 @@ func (a *Client) CreateCSPMAwsAccount(params *CreateCSPMAwsAccountParams, opts .
 }
 
 /*
-CreateCSPMAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
+  CreateCSPMAzureAccount creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access
 */
 func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, opts ...ClientOption) (*CreateCSPMAzureAccountCreated, *CreateCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -196,7 +196,7 @@ func (a *Client) CreateCSPMAzureAccount(params *CreateCSPMAzureAccountParams, op
 }
 
 /*
-DeleteCSPMAwsAccount deletes an existing a w s account or organization in our system
+  DeleteCSPMAwsAccount deletes an existing a w s account or organization in our system
 */
 func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts ...ClientOption) (*DeleteCSPMAwsAccountOK, *DeleteCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -235,7 +235,7 @@ func (a *Client) DeleteCSPMAwsAccount(params *DeleteCSPMAwsAccountParams, opts .
 }
 
 /*
-DeleteCSPMAzureAccount deletes an azure subscription from the system
+  DeleteCSPMAzureAccount deletes an azure subscription from the system
 */
 func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -274,7 +274,7 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, op
 }
 
 /*
-GetBehaviorDetections gets list of detected behaviors
+  GetBehaviorDetections gets list of detected behaviors
 */
 func (a *Client) GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts ...ClientOption) (*GetBehaviorDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -312,7 +312,7 @@ func (a *Client) GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts
 }
 
 /*
-GetCSPMAwsAccount returns information about the current status of an a w s account
+  GetCSPMAwsAccount returns information about the current status of an a w s account
 */
 func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...ClientOption) (*GetCSPMAwsAccountOK, *GetCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ func (a *Client) GetCSPMAwsAccount(params *GetCSPMAwsAccountParams, opts ...Clie
 }
 
 /*
-GetCSPMAwsAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
+  GetCSPMAwsAccountScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their a w s environment as a downloadable attachment
 */
 func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAwsAccountScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -389,7 +389,7 @@ func (a *Client) GetCSPMAwsAccountScriptsAttachment(params *GetCSPMAwsAccountScr
 }
 
 /*
-GetCSPMAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
+  GetCSPMAwsConsoleSetupURLs returns a URL for customer to visit in their cloud environment to grant us access to their a w s environment
 */
 func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsParams, opts ...ClientOption) (*GetCSPMAwsConsoleSetupURLsOK, *GetCSPMAwsConsoleSetupURLsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -428,7 +428,7 @@ func (a *Client) GetCSPMAwsConsoleSetupURLs(params *GetCSPMAwsConsoleSetupURLsPa
 }
 
 /*
-GetCSPMAzureAccount returns information about azure account registration
+  GetCSPMAzureAccount returns information about azure account registration
 */
 func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...ClientOption) (*GetCSPMAzureAccountOK, *GetCSPMAzureAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -467,7 +467,7 @@ func (a *Client) GetCSPMAzureAccount(params *GetCSPMAzureAccountParams, opts ...
 }
 
 /*
-GetCSPMAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
+  GetCSPMAzureUserScriptsAttachment returns a script for customer to run in their cloud environment to grant us access to their azure environment as a downloadable attachment
 */
 func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMAzureUserScriptsAttachmentOK, error) {
 	// TODO: Validate the params before sending
@@ -505,7 +505,7 @@ func (a *Client) GetCSPMAzureUserScriptsAttachment(params *GetCSPMAzureUserScrip
 }
 
 /*
-GetCSPMPoliciesDetails givens an array of policy i ds returns detailed policies information
+  GetCSPMPoliciesDetails givens an array of policy i ds returns detailed policies information
 */
 func (a *Client) GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -544,7 +544,7 @@ func (a *Client) GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, op
 }
 
 /*
-GetCSPMPolicy givens a policy ID returns detailed policy information
+  GetCSPMPolicy givens a policy ID returns detailed policy information
 */
 func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption) (*GetCSPMPolicyOK, *GetCSPMPolicyMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -583,7 +583,7 @@ func (a *Client) GetCSPMPolicy(params *GetCSPMPolicyParams, opts ...ClientOption
 }
 
 /*
-GetCSPMPolicySettings returns information about current policy settings
+  GetCSPMPolicySettings returns information about current policy settings
 */
 func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts ...ClientOption) (*GetCSPMPolicySettingsOK, *GetCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -622,7 +622,7 @@ func (a *Client) GetCSPMPolicySettings(params *GetCSPMPolicySettingsParams, opts
 }
 
 /*
-GetCSPMScanSchedule returns scan schedule configuration for one or more cloud platforms
+  GetCSPMScanSchedule returns scan schedule configuration for one or more cloud platforms
 */
 func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...ClientOption) (*GetCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending
@@ -660,7 +660,7 @@ func (a *Client) GetCSPMScanSchedule(params *GetCSPMScanScheduleParams, opts ...
 }
 
 /*
-GetConfigurationDetectionEntities gets misconfigurations based on the ID including custom policy detections in addition to default policy detections
+  GetConfigurationDetectionEntities gets misconfigurations based on the ID including custom policy detections in addition to default policy detections
 */
 func (a *Client) GetConfigurationDetectionEntities(params *GetConfigurationDetectionEntitiesParams, opts ...ClientOption) (*GetConfigurationDetectionEntitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -698,7 +698,7 @@ func (a *Client) GetConfigurationDetectionEntities(params *GetConfigurationDetec
 }
 
 /*
-GetConfigurationDetectionIDsV2 gets list of active misconfiguration ids including custom policy detections in addition to default policy detections
+  GetConfigurationDetectionIDsV2 gets list of active misconfiguration ids including custom policy detections in addition to default policy detections
 */
 func (a *Client) GetConfigurationDetectionIDsV2(params *GetConfigurationDetectionIDsV2Params, opts ...ClientOption) (*GetConfigurationDetectionIDsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -736,7 +736,7 @@ func (a *Client) GetConfigurationDetectionIDsV2(params *GetConfigurationDetectio
 }
 
 /*
-GetConfigurationDetections gets list of active misconfigurations
+  GetConfigurationDetections gets list of active misconfigurations
 */
 func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsParams, opts ...ClientOption) (*GetConfigurationDetectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -774,7 +774,7 @@ func (a *Client) GetConfigurationDetections(params *GetConfigurationDetectionsPa
 }
 
 /*
-PatchCSPMAwsAccount patches a existing account in our system for a customer
+  PatchCSPMAwsAccount patches a existing account in our system for a customer
 */
 func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...ClientOption) (*PatchCSPMAwsAccountCreated, *PatchCSPMAwsAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -813,7 +813,7 @@ func (a *Client) PatchCSPMAwsAccount(params *PatchCSPMAwsAccountParams, opts ...
 }
 
 /*
-UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
+  UpdateCSPMAzureAccountClientID updates an azure service account in our system by with the user created client id created with the public key we ve provided
 */
 func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountClientIDParams, opts ...ClientOption) (*UpdateCSPMAzureAccountClientIDCreated, error) {
 	// TODO: Validate the params before sending
@@ -851,7 +851,7 @@ func (a *Client) UpdateCSPMAzureAccountClientID(params *UpdateCSPMAzureAccountCl
 }
 
 /*
-UpdateCSPMAzureTenantDefaultSubscriptionID updates an azure default subscription id in our system for given tenant id
+  UpdateCSPMAzureTenantDefaultSubscriptionID updates an azure default subscription id in our system for given tenant id
 */
 func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error) {
 	// TODO: Validate the params before sending
@@ -889,7 +889,7 @@ func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAz
 }
 
 /*
-UpdateCSPMPolicySettings updates a policy setting can be used to override policy severity or to disable a policy entirely
+  UpdateCSPMPolicySettings updates a policy setting can be used to override policy severity or to disable a policy entirely
 */
 func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error) {
 	// TODO: Validate the params before sending
@@ -928,7 +928,7 @@ func (a *Client) UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams
 }
 
 /*
-UpdateCSPMScanSchedule updates scan schedule configuration for one or more cloud platforms
+  UpdateCSPMScanSchedule updates scan schedule configuration for one or more cloud platforms
 */
 func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error) {
 	// TODO: Validate the params before sending

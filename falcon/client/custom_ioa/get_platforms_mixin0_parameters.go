@@ -53,12 +53,10 @@ func NewGetPlatformsMixin0ParamsWithHTTPClient(client *http.Client) *GetPlatform
 	}
 }
 
-/*
-GetPlatformsMixin0Params contains all the parameters to send to the API endpoint
+/* GetPlatformsMixin0Params contains all the parameters to send to the API endpoint
+   for the get platforms mixin0 operation.
 
-	for the get platforms mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetPlatformsMixin0Params struct {
 

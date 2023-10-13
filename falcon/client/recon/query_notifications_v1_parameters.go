@@ -53,12 +53,10 @@ func NewQueryNotificationsV1ParamsWithHTTPClient(client *http.Client) *QueryNoti
 	}
 }
 
-/*
-QueryNotificationsV1Params contains all the parameters to send to the API endpoint
+/* QueryNotificationsV1Params contains all the parameters to send to the API endpoint
+   for the query notifications v1 operation.
 
-	for the query notifications v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryNotificationsV1Params struct {
 

@@ -54,12 +54,10 @@ func NewUserRolesActionV1ParamsWithHTTPClient(client *http.Client) *UserRolesAct
 	}
 }
 
-/*
-UserRolesActionV1Params contains all the parameters to send to the API endpoint
+/* UserRolesActionV1Params contains all the parameters to send to the API endpoint
+   for the user roles action v1 operation.
 
-	for the user roles action v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UserRolesActionV1Params struct {
 

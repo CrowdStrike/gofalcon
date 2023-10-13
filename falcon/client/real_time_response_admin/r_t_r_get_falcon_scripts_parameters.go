@@ -53,12 +53,10 @@ func NewRTRGetFalconScriptsParamsWithHTTPClient(client *http.Client) *RTRGetFalc
 	}
 }
 
-/*
-RTRGetFalconScriptsParams contains all the parameters to send to the API endpoint
+/* RTRGetFalconScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r get falcon scripts operation.
 
-	for the r t r get falcon scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRGetFalconScriptsParams struct {
 

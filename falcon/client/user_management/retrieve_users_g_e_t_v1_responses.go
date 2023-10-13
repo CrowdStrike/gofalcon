@@ -65,8 +65,7 @@ func NewRetrieveUsersGETV1OK() *RetrieveUsersGETV1OK {
 	return &RetrieveUsersGETV1OK{}
 }
 
-/*
-RetrieveUsersGETV1OK describes a response with status code 200, with default header values.
+/* RetrieveUsersGETV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRetrieveUsersGETV1BadRequest() *RetrieveUsersGETV1BadRequest {
 	return &RetrieveUsersGETV1BadRequest{}
 }
 
-/*
-RetrieveUsersGETV1BadRequest describes a response with status code 400, with default header values.
+/* RetrieveUsersGETV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRetrieveUsersGETV1Forbidden() *RetrieveUsersGETV1Forbidden {
 	return &RetrieveUsersGETV1Forbidden{}
 }
 
-/*
-RetrieveUsersGETV1Forbidden describes a response with status code 403, with default header values.
+/* RetrieveUsersGETV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRetrieveUsersGETV1TooManyRequests() *RetrieveUsersGETV1TooManyRequests {
 	return &RetrieveUsersGETV1TooManyRequests{}
 }
 
-/*
-RetrieveUsersGETV1TooManyRequests describes a response with status code 429, with default header values.
+/* RetrieveUsersGETV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewRetrieveUsersGETV1InternalServerError() *RetrieveUsersGETV1InternalServe
 	return &RetrieveUsersGETV1InternalServerError{}
 }
 
-/*
-RetrieveUsersGETV1InternalServerError describes a response with status code 500, with default header values.
+/* RetrieveUsersGETV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -71,8 +71,7 @@ func NewDeleteD4CAwsAccountOK() *DeleteD4CAwsAccountOK {
 	return &DeleteD4CAwsAccountOK{}
 }
 
-/*
-DeleteD4CAwsAccountOK describes a response with status code 200, with default header values.
+/* DeleteD4CAwsAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteD4CAwsAccountMultiStatus() *DeleteD4CAwsAccountMultiStatus {
 	return &DeleteD4CAwsAccountMultiStatus{}
 }
 
-/*
-DeleteD4CAwsAccountMultiStatus describes a response with status code 207, with default header values.
+/* DeleteD4CAwsAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewDeleteD4CAwsAccountBadRequest() *DeleteD4CAwsAccountBadRequest {
 	return &DeleteD4CAwsAccountBadRequest{}
 }
 
-/*
-DeleteD4CAwsAccountBadRequest describes a response with status code 400, with default header values.
+/* DeleteD4CAwsAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewDeleteD4CAwsAccountForbidden() *DeleteD4CAwsAccountForbidden {
 	return &DeleteD4CAwsAccountForbidden{}
 }
 
-/*
-DeleteD4CAwsAccountForbidden describes a response with status code 403, with default header values.
+/* DeleteD4CAwsAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewDeleteD4CAwsAccountTooManyRequests() *DeleteD4CAwsAccountTooManyRequests
 	return &DeleteD4CAwsAccountTooManyRequests{}
 }
 
-/*
-DeleteD4CAwsAccountTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteD4CAwsAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteD4CAwsAccountInternalServerError() *DeleteD4CAwsAccountInternalSer
 	return &DeleteD4CAwsAccountInternalServerError{}
 }
 
-/*
-DeleteD4CAwsAccountInternalServerError describes a response with status code 500, with default header values.
+/* DeleteD4CAwsAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

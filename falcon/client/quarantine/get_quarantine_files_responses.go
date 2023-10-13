@@ -53,8 +53,7 @@ func NewGetQuarantineFilesOK() *GetQuarantineFilesOK {
 	return &GetQuarantineFilesOK{}
 }
 
-/*
-GetQuarantineFilesOK describes a response with status code 200, with default header values.
+/* GetQuarantineFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetQuarantineFilesForbidden() *GetQuarantineFilesForbidden {
 	return &GetQuarantineFilesForbidden{}
 }
 
-/*
-GetQuarantineFilesForbidden describes a response with status code 403, with default header values.
+/* GetQuarantineFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetQuarantineFilesTooManyRequests() *GetQuarantineFilesTooManyRequests {
 	return &GetQuarantineFilesTooManyRequests{}
 }
 
-/*
-GetQuarantineFilesTooManyRequests describes a response with status code 429, with default header values.
+/* GetQuarantineFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

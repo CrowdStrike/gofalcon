@@ -54,12 +54,10 @@ func NewRTRPulseSessionParamsWithHTTPClient(client *http.Client) *RTRPulseSessio
 	}
 }
 
-/*
-RTRPulseSessionParams contains all the parameters to send to the API endpoint
+/* RTRPulseSessionParams contains all the parameters to send to the API endpoint
+   for the r t r pulse session operation.
 
-	for the r t r pulse session operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRPulseSessionParams struct {
 

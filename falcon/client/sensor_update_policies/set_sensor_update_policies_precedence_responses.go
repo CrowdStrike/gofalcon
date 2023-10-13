@@ -65,8 +65,7 @@ func NewSetSensorUpdatePoliciesPrecedenceOK() *SetSensorUpdatePoliciesPrecedence
 	return &SetSensorUpdatePoliciesPrecedenceOK{}
 }
 
-/*
-SetSensorUpdatePoliciesPrecedenceOK describes a response with status code 200, with default header values.
+/* SetSensorUpdatePoliciesPrecedenceOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewSetSensorUpdatePoliciesPrecedenceBadRequest() *SetSensorUpdatePoliciesPr
 	return &SetSensorUpdatePoliciesPrecedenceBadRequest{}
 }
 
-/*
-SetSensorUpdatePoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
+/* SetSensorUpdatePoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewSetSensorUpdatePoliciesPrecedenceForbidden() *SetSensorUpdatePoliciesPre
 	return &SetSensorUpdatePoliciesPrecedenceForbidden{}
 }
 
-/*
-SetSensorUpdatePoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
+/* SetSensorUpdatePoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewSetSensorUpdatePoliciesPrecedenceTooManyRequests() *SetSensorUpdatePolic
 	return &SetSensorUpdatePoliciesPrecedenceTooManyRequests{}
 }
 
-/*
-SetSensorUpdatePoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/* SetSensorUpdatePoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewSetSensorUpdatePoliciesPrecedenceInternalServerError() *SetSensorUpdateP
 	return &SetSensorUpdatePoliciesPrecedenceInternalServerError{}
 }
 
-/*
-SetSensorUpdatePoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/* SetSensorUpdatePoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -54,12 +54,10 @@ func NewCreateDiscoverCloudAzureAccountParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-CreateDiscoverCloudAzureAccountParams contains all the parameters to send to the API endpoint
+/* CreateDiscoverCloudAzureAccountParams contains all the parameters to send to the API endpoint
+   for the create discover cloud azure account operation.
 
-	for the create discover cloud azure account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateDiscoverCloudAzureAccountParams struct {
 

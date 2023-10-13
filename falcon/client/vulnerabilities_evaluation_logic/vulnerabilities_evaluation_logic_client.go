@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-CombinedQueryEvaluationLogic searches for evaluation logic in your environment by providing a f q l filter and paging details returns a set of evaluation logic entities which match the filter criteria
+  CombinedQueryEvaluationLogic searches for evaluation logic in your environment by providing a f q l filter and paging details returns a set of evaluation logic entities which match the filter criteria
 */
 func (a *Client) CombinedQueryEvaluationLogic(params *CombinedQueryEvaluationLogicParams, opts ...ClientOption) (*CombinedQueryEvaluationLogicOK, error) {
 	// TODO: Validate the params before sending
@@ -78,7 +78,7 @@ func (a *Client) CombinedQueryEvaluationLogic(params *CombinedQueryEvaluationLog
 }
 
 /*
-GetEvaluationLogic gets details on evaluation logic items by providing one or more i ds
+  GetEvaluationLogic gets details on evaluation logic items by providing one or more i ds
 */
 func (a *Client) GetEvaluationLogic(params *GetEvaluationLogicParams, opts ...ClientOption) (*GetEvaluationLogicOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) GetEvaluationLogic(params *GetEvaluationLogicParams, opts ...Cl
 }
 
 /*
-QueryEvaluationLogic searches for evaluation logic in your environment by providing a f q l filter and paging details returns a set of evaluation logic i ds which match the filter criteria
+  QueryEvaluationLogic searches for evaluation logic in your environment by providing a f q l filter and paging details returns a set of evaluation logic i ds which match the filter criteria
 */
 func (a *Client) QueryEvaluationLogic(params *QueryEvaluationLogicParams, opts ...ClientOption) (*QueryEvaluationLogicOK, error) {
 	// TODO: Validate the params before sending

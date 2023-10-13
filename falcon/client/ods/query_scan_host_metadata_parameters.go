@@ -53,14 +53,18 @@ func NewQueryScanHostMetadataParamsWithHTTPClient(client *http.Client) *QuerySca
 	}
 }
 
-/*
-QueryScanHostMetadataParams contains all the parameters to send to the API endpoint
+/* QueryScanHostMetadataParams contains all the parameters to send to the API endpoint
+   for the query scan host metadata operation.
 
-	for the query scan host metadata operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryScanHostMetadataParams struct {
+
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
 
 	/* Filter.
 
@@ -160,6 +164,17 @@ func (o *QueryScanHostMetadataParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the query scan host metadata params
+func (o *QueryScanHostMetadataParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryScanHostMetadataParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the query scan host metadata params
+func (o *QueryScanHostMetadataParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithFilter adds the filter to the query scan host metadata params
 func (o *QueryScanHostMetadataParams) WithFilter(filter string) *QueryScanHostMetadataParams {
 	o.SetFilter(filter)
@@ -211,6 +226,11 @@ func (o *QueryScanHostMetadataParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	// query param filter
 	qrFilter := o.Filter

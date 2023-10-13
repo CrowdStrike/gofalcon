@@ -53,12 +53,10 @@ func NewFdrschemaEntitiesFieldGetParamsWithHTTPClient(client *http.Client) *Fdrs
 	}
 }
 
-/*
-FdrschemaEntitiesFieldGetParams contains all the parameters to send to the API endpoint
+/* FdrschemaEntitiesFieldGetParams contains all the parameters to send to the API endpoint
+   for the fdrschema entities field get operation.
 
-	for the fdrschema entities field get operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type FdrschemaEntitiesFieldGetParams struct {
 

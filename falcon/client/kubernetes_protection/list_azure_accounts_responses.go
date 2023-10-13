@@ -71,8 +71,7 @@ func NewListAzureAccountsOK() *ListAzureAccountsOK {
 	return &ListAzureAccountsOK{}
 }
 
-/*
-ListAzureAccountsOK describes a response with status code 200, with default header values.
+/* ListAzureAccountsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewListAzureAccountsMultiStatus() *ListAzureAccountsMultiStatus {
 	return &ListAzureAccountsMultiStatus{}
 }
 
-/*
-ListAzureAccountsMultiStatus describes a response with status code 207, with default header values.
+/* ListAzureAccountsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewListAzureAccountsBadRequest() *ListAzureAccountsBadRequest {
 	return &ListAzureAccountsBadRequest{}
 }
 
-/*
-ListAzureAccountsBadRequest describes a response with status code 400, with default header values.
+/* ListAzureAccountsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewListAzureAccountsForbidden() *ListAzureAccountsForbidden {
 	return &ListAzureAccountsForbidden{}
 }
 
-/*
-ListAzureAccountsForbidden describes a response with status code 403, with default header values.
+/* ListAzureAccountsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewListAzureAccountsTooManyRequests() *ListAzureAccountsTooManyRequests {
 	return &ListAzureAccountsTooManyRequests{}
 }
 
-/*
-ListAzureAccountsTooManyRequests describes a response with status code 429, with default header values.
+/* ListAzureAccountsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewListAzureAccountsInternalServerError() *ListAzureAccountsInternalServerE
 	return &ListAzureAccountsInternalServerError{}
 }
 
-/*
-ListAzureAccountsInternalServerError describes a response with status code 500, with default header values.
+/* ListAzureAccountsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

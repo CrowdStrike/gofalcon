@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-Execute launches scheduled reports executions for the provided report i ds
+  Execute launches scheduled reports executions for the provided report i ds
 */
 func (a *Client) Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteOK, error) {
 	// TODO: Validate the params before sending
@@ -78,7 +78,7 @@ func (a *Client) Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteO
 }
 
 /*
-Query finds all report i ds matching the query with filter
+  Query finds all report i ds matching the query with filter
 */
 func (a *Client) Query(params *QueryParams, opts ...ClientOption) (*QueryOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) Query(params *QueryParams, opts ...ClientOption) (*QueryOK, err
 }
 
 /*
-QueryByID retrieves scheduled reports for the provided report i ds
+  QueryByID retrieves scheduled reports for the provided report i ds
 */
 func (a *Client) QueryByID(params *QueryByIDParams, opts ...ClientOption) (*QueryByIDOK, error) {
 	// TODO: Validate the params before sending

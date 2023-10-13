@@ -53,12 +53,10 @@ func NewHighVolumeQueryChangesParamsWithHTTPClient(client *http.Client) *HighVol
 	}
 }
 
-/*
-HighVolumeQueryChangesParams contains all the parameters to send to the API endpoint
+/* HighVolumeQueryChangesParams contains all the parameters to send to the API endpoint
+   for the high volume query changes operation.
 
-	for the high volume query changes operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type HighVolumeQueryChangesParams struct {
 

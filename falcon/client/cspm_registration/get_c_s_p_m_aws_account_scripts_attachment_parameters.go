@@ -53,12 +53,10 @@ func NewGetCSPMAwsAccountScriptsAttachmentParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentParams contains all the parameters to send to the API endpoint
+/* GetCSPMAwsAccountScriptsAttachmentParams contains all the parameters to send to the API endpoint
+   for the get c s p m aws account scripts attachment operation.
 
-	for the get c s p m aws account scripts attachment operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMAwsAccountScriptsAttachmentParams struct {
 

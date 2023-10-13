@@ -71,8 +71,7 @@ func NewGetStaticScriptsOK() *GetStaticScriptsOK {
 	return &GetStaticScriptsOK{}
 }
 
-/*
-GetStaticScriptsOK describes a response with status code 200, with default header values.
+/* GetStaticScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetStaticScriptsMultiStatus() *GetStaticScriptsMultiStatus {
 	return &GetStaticScriptsMultiStatus{}
 }
 
-/*
-GetStaticScriptsMultiStatus describes a response with status code 207, with default header values.
+/* GetStaticScriptsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetStaticScriptsBadRequest() *GetStaticScriptsBadRequest {
 	return &GetStaticScriptsBadRequest{}
 }
 
-/*
-GetStaticScriptsBadRequest describes a response with status code 400, with default header values.
+/* GetStaticScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetStaticScriptsForbidden() *GetStaticScriptsForbidden {
 	return &GetStaticScriptsForbidden{}
 }
 
-/*
-GetStaticScriptsForbidden describes a response with status code 403, with default header values.
+/* GetStaticScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetStaticScriptsTooManyRequests() *GetStaticScriptsTooManyRequests {
 	return &GetStaticScriptsTooManyRequests{}
 }
 
-/*
-GetStaticScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* GetStaticScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetStaticScriptsInternalServerError() *GetStaticScriptsInternalServerErr
 	return &GetStaticScriptsInternalServerError{}
 }
 
-/*
-GetStaticScriptsInternalServerError describes a response with status code 500, with default header values.
+/* GetStaticScriptsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

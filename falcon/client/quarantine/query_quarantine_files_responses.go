@@ -53,8 +53,7 @@ func NewQueryQuarantineFilesOK() *QueryQuarantineFilesOK {
 	return &QueryQuarantineFilesOK{}
 }
 
-/*
-QueryQuarantineFilesOK describes a response with status code 200, with default header values.
+/* QueryQuarantineFilesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryQuarantineFilesForbidden() *QueryQuarantineFilesForbidden {
 	return &QueryQuarantineFilesForbidden{}
 }
 
-/*
-QueryQuarantineFilesForbidden describes a response with status code 403, with default header values.
+/* QueryQuarantineFilesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryQuarantineFilesTooManyRequests() *QueryQuarantineFilesTooManyReques
 	return &QueryQuarantineFilesTooManyRequests{}
 }
 
-/*
-QueryQuarantineFilesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryQuarantineFilesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

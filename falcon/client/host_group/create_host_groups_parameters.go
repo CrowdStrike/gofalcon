@@ -54,12 +54,10 @@ func NewCreateHostGroupsParamsWithHTTPClient(client *http.Client) *CreateHostGro
 	}
 }
 
-/*
-CreateHostGroupsParams contains all the parameters to send to the API endpoint
+/* CreateHostGroupsParams contains all the parameters to send to the API endpoint
+   for the create host groups operation.
 
-	for the create host groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateHostGroupsParams struct {
 

@@ -54,12 +54,10 @@ func NewAggregateAlertsParamsWithHTTPClient(client *http.Client) *AggregateAlert
 	}
 }
 
-/*
-AggregateAlertsParams contains all the parameters to send to the API endpoint
+/* AggregateAlertsParams contains all the parameters to send to the API endpoint
+   for the aggregate alerts operation.
 
-	for the aggregate alerts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregateAlertsParams struct {
 

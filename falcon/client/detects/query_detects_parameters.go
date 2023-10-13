@@ -53,12 +53,10 @@ func NewQueryDetectsParamsWithHTTPClient(client *http.Client) *QueryDetectsParam
 	}
 }
 
-/*
-QueryDetectsParams contains all the parameters to send to the API endpoint
+/* QueryDetectsParams contains all the parameters to send to the API endpoint
+   for the query detects operation.
 
-	for the query detects operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryDetectsParams struct {
 

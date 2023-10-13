@@ -65,8 +65,7 @@ func NewRequestDeviceEnrollmentV3OK() *RequestDeviceEnrollmentV3OK {
 	return &RequestDeviceEnrollmentV3OK{}
 }
 
-/*
-RequestDeviceEnrollmentV3OK describes a response with status code 200, with default header values.
+/* RequestDeviceEnrollmentV3OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRequestDeviceEnrollmentV3BadRequest() *RequestDeviceEnrollmentV3BadReque
 	return &RequestDeviceEnrollmentV3BadRequest{}
 }
 
-/*
-RequestDeviceEnrollmentV3BadRequest describes a response with status code 400, with default header values.
+/* RequestDeviceEnrollmentV3BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRequestDeviceEnrollmentV3Forbidden() *RequestDeviceEnrollmentV3Forbidden
 	return &RequestDeviceEnrollmentV3Forbidden{}
 }
 
-/*
-RequestDeviceEnrollmentV3Forbidden describes a response with status code 403, with default header values.
+/* RequestDeviceEnrollmentV3Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRequestDeviceEnrollmentV3TooManyRequests() *RequestDeviceEnrollmentV3Too
 	return &RequestDeviceEnrollmentV3TooManyRequests{}
 }
 
-/*
-RequestDeviceEnrollmentV3TooManyRequests describes a response with status code 429, with default header values.
+/* RequestDeviceEnrollmentV3TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewRequestDeviceEnrollmentV3InternalServerError() *RequestDeviceEnrollmentV
 	return &RequestDeviceEnrollmentV3InternalServerError{}
 }
 
-/*
-RequestDeviceEnrollmentV3InternalServerError describes a response with status code 500, with default header values.
+/* RequestDeviceEnrollmentV3InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

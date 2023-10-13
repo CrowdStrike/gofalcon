@@ -54,12 +54,10 @@ func NewCreateRuleGroupMixin0ParamsWithHTTPClient(client *http.Client) *CreateRu
 	}
 }
 
-/*
-CreateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
+/* CreateRuleGroupMixin0Params contains all the parameters to send to the API endpoint
+   for the create rule group mixin0 operation.
 
-	for the create rule group mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRuleGroupMixin0Params struct {
 

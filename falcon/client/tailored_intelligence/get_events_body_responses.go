@@ -65,8 +65,7 @@ func NewGetEventsBodyOK() *GetEventsBodyOK {
 	return &GetEventsBodyOK{}
 }
 
-/*
-GetEventsBodyOK describes a response with status code 200, with default header values.
+/* GetEventsBodyOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -173,8 +172,7 @@ func NewGetEventsBodyBadRequest() *GetEventsBodyBadRequest {
 	return &GetEventsBodyBadRequest{}
 }
 
-/*
-GetEventsBodyBadRequest describes a response with status code 400, with default header values.
+/* GetEventsBodyBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -281,8 +279,7 @@ func NewGetEventsBodyForbidden() *GetEventsBodyForbidden {
 	return &GetEventsBodyForbidden{}
 }
 
-/*
-GetEventsBodyForbidden describes a response with status code 403, with default header values.
+/* GetEventsBodyForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -378,8 +375,7 @@ func NewGetEventsBodyTooManyRequests() *GetEventsBodyTooManyRequests {
 	return &GetEventsBodyTooManyRequests{}
 }
 
-/*
-GetEventsBodyTooManyRequests describes a response with status code 429, with default header values.
+/* GetEventsBodyTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -503,8 +499,7 @@ func NewGetEventsBodyInternalServerError() *GetEventsBodyInternalServerError {
 	return &GetEventsBodyInternalServerError{}
 }
 
-/*
-GetEventsBodyInternalServerError describes a response with status code 500, with default header values.
+/* GetEventsBodyInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

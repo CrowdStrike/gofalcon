@@ -53,8 +53,7 @@ func NewFdrschemaQueriesEventGetOK() *FdrschemaQueriesEventGetOK {
 	return &FdrschemaQueriesEventGetOK{}
 }
 
-/*
-FdrschemaQueriesEventGetOK describes a response with status code 200, with default header values.
+/* FdrschemaQueriesEventGetOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewFdrschemaQueriesEventGetForbidden() *FdrschemaQueriesEventGetForbidden {
 	return &FdrschemaQueriesEventGetForbidden{}
 }
 
-/*
-FdrschemaQueriesEventGetForbidden describes a response with status code 403, with default header values.
+/* FdrschemaQueriesEventGetForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewFdrschemaQueriesEventGetTooManyRequests() *FdrschemaQueriesEventGetTooMa
 	return &FdrschemaQueriesEventGetTooManyRequests{}
 }
 
-/*
-FdrschemaQueriesEventGetTooManyRequests describes a response with status code 429, with default header values.
+/* FdrschemaQueriesEventGetTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

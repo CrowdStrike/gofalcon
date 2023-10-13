@@ -53,12 +53,10 @@ func NewQueryByIDParamsWithHTTPClient(client *http.Client) *QueryByIDParams {
 	}
 }
 
-/*
-QueryByIDParams contains all the parameters to send to the API endpoint
+/* QueryByIDParams contains all the parameters to send to the API endpoint
+   for the query by Id operation.
 
-	for the query by Id operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryByIDParams struct {
 

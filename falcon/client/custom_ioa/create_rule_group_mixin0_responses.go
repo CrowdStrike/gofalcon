@@ -59,8 +59,7 @@ func NewCreateRuleGroupMixin0Created() *CreateRuleGroupMixin0Created {
 	return &CreateRuleGroupMixin0Created{}
 }
 
-/*
-CreateRuleGroupMixin0Created describes a response with status code 201, with default header values.
+/* CreateRuleGroupMixin0Created describes a response with status code 201, with default header values.
 
 Created
 */
@@ -169,8 +168,7 @@ func NewCreateRuleGroupMixin0Forbidden() *CreateRuleGroupMixin0Forbidden {
 	return &CreateRuleGroupMixin0Forbidden{}
 }
 
-/*
-CreateRuleGroupMixin0Forbidden describes a response with status code 403, with default header values.
+/* CreateRuleGroupMixin0Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewCreateRuleGroupMixin0NotFound() *CreateRuleGroupMixin0NotFound {
 	return &CreateRuleGroupMixin0NotFound{}
 }
 
-/*
-CreateRuleGroupMixin0NotFound describes a response with status code 404, with default header values.
+/* CreateRuleGroupMixin0NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewCreateRuleGroupMixin0TooManyRequests() *CreateRuleGroupMixin0TooManyRequ
 	return &CreateRuleGroupMixin0TooManyRequests{}
 }
 
-/*
-CreateRuleGroupMixin0TooManyRequests describes a response with status code 429, with default header values.
+/* CreateRuleGroupMixin0TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

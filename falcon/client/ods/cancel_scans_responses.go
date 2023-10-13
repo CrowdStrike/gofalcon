@@ -59,8 +59,7 @@ func NewCancelScansOK() *CancelScansOK {
 	return &CancelScansOK{}
 }
 
-/*
-CancelScansOK describes a response with status code 200, with default header values.
+/* CancelScansOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewCancelScansForbidden() *CancelScansForbidden {
 	return &CancelScansForbidden{}
 }
 
-/*
-CancelScansForbidden describes a response with status code 403, with default header values.
+/* CancelScansForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewCancelScansNotFound() *CancelScansNotFound {
 	return &CancelScansNotFound{}
 }
 
-/*
-CancelScansNotFound describes a response with status code 404, with default header values.
+/* CancelScansNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewCancelScansTooManyRequests() *CancelScansTooManyRequests {
 	return &CancelScansTooManyRequests{}
 }
 
-/*
-CancelScansTooManyRequests describes a response with status code 429, with default header values.
+/* CancelScansTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

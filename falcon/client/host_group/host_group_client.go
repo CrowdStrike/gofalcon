@@ -52,7 +52,7 @@ type ClientService interface {
 }
 
 /*
-CreateHostGroups creates host groups by specifying details about the group to create
+  CreateHostGroups creates host groups by specifying details about the group to create
 */
 func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, opts ...ClientOption) (*CreateHostGroupsCreated, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +90,7 @@ func (a *Client) CreateHostGroups(params *CreateHostGroupsParams, opts ...Client
 }
 
 /*
-DeleteHostGroups deletes a set of host groups by specifying their i ds
+  DeleteHostGroups deletes a set of host groups by specifying their i ds
 */
 func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, opts ...ClientOption) (*DeleteHostGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -128,7 +128,7 @@ func (a *Client) DeleteHostGroups(params *DeleteHostGroupsParams, opts ...Client
 }
 
 /*
-GetHostGroups retrieves a set of host groups by specifying their i ds
+  GetHostGroups retrieves a set of host groups by specifying their i ds
 */
 func (a *Client) GetHostGroups(params *GetHostGroupsParams, opts ...ClientOption) (*GetHostGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -166,7 +166,7 @@ func (a *Client) GetHostGroups(params *GetHostGroupsParams, opts ...ClientOption
 }
 
 /*
-PerformGroupAction performs the specified action on the host groups specified in the request
+  PerformGroupAction performs the specified action on the host groups specified in the request
 */
 func (a *Client) PerformGroupAction(params *PerformGroupActionParams, opts ...ClientOption) (*PerformGroupActionOK, error) {
 	// TODO: Validate the params before sending
@@ -204,7 +204,7 @@ func (a *Client) PerformGroupAction(params *PerformGroupActionParams, opts ...Cl
 }
 
 /*
-QueryCombinedGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
+  QueryCombinedGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of host details which match the filter criteria
 */
 func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersParams, opts ...ClientOption) (*QueryCombinedGroupMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -242,7 +242,7 @@ func (a *Client) QueryCombinedGroupMembers(params *QueryCombinedGroupMembersPara
 }
 
 /*
-QueryCombinedHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host groups which match the filter criteria
+  QueryCombinedHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host groups which match the filter criteria
 */
 func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, opts ...ClientOption) (*QueryCombinedHostGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -280,7 +280,7 @@ func (a *Client) QueryCombinedHostGroups(params *QueryCombinedHostGroupsParams, 
 }
 
 /*
-QueryGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
+  QueryGroupMembers searches for members of a host group in your environment by providing an f q l filter and paging details returns a set of agent i ds which match the filter criteria
 */
 func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, opts ...ClientOption) (*QueryGroupMembersOK, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) QueryGroupMembers(params *QueryGroupMembersParams, opts ...Clie
 }
 
 /*
-QueryHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host group i ds which match the filter criteria
+  QueryHostGroups searches for host groups in your environment by providing an f q l filter and paging details returns a set of host group i ds which match the filter criteria
 */
 func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, opts ...ClientOption) (*QueryHostGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -356,7 +356,7 @@ func (a *Client) QueryHostGroups(params *QueryHostGroupsParams, opts ...ClientOp
 }
 
 /*
-UpdateHostGroups updates host groups by specifying the ID of the group and details to update
+  UpdateHostGroups updates host groups by specifying the ID of the group and details to update
 */
 func (a *Client) UpdateHostGroups(params *UpdateHostGroupsParams, opts ...ClientOption) (*UpdateHostGroupsOK, error) {
 	// TODO: Validate the params before sending

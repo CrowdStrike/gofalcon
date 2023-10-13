@@ -65,8 +65,7 @@ func NewGetHostsOK() *GetHostsOK {
 	return &GetHostsOK{}
 }
 
-/*
-GetHostsOK describes a response with status code 200, with default header values.
+/* GetHostsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetHostsBadRequest() *GetHostsBadRequest {
 	return &GetHostsBadRequest{}
 }
 
-/*
-GetHostsBadRequest describes a response with status code 400, with default header values.
+/* GetHostsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetHostsForbidden() *GetHostsForbidden {
 	return &GetHostsForbidden{}
 }
 
-/*
-GetHostsForbidden describes a response with status code 403, with default header values.
+/* GetHostsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetHostsTooManyRequests() *GetHostsTooManyRequests {
 	return &GetHostsTooManyRequests{}
 }
 
-/*
-GetHostsTooManyRequests describes a response with status code 429, with default header values.
+/* GetHostsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetHostsInternalServerError() *GetHostsInternalServerError {
 	return &GetHostsInternalServerError{}
 }
 
-/*
-GetHostsInternalServerError describes a response with status code 500, with default header values.
+/* GetHostsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

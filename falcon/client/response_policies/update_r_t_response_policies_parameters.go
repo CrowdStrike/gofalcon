@@ -54,12 +54,10 @@ func NewUpdateRTResponsePoliciesParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdateRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+/* UpdateRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+   for the update r t response policies operation.
 
-	for the update r t response policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRTResponsePoliciesParams struct {
 

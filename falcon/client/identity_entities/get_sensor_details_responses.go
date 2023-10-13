@@ -53,8 +53,7 @@ func NewGetSensorDetailsOK() *GetSensorDetailsOK {
 	return &GetSensorDetailsOK{}
 }
 
-/*
-GetSensorDetailsOK describes a response with status code 200, with default header values.
+/* GetSensorDetailsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetSensorDetailsForbidden() *GetSensorDetailsForbidden {
 	return &GetSensorDetailsForbidden{}
 }
 
-/*
-GetSensorDetailsForbidden describes a response with status code 403, with default header values.
+/* GetSensorDetailsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetSensorDetailsTooManyRequests() *GetSensorDetailsTooManyRequests {
 	return &GetSensorDetailsTooManyRequests{}
 }
 
-/*
-GetSensorDetailsTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorDetailsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

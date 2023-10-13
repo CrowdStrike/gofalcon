@@ -65,8 +65,7 @@ func NewCreateCaseOK() *CreateCaseOK {
 	return &CreateCaseOK{}
 }
 
-/*
-CreateCaseOK describes a response with status code 200, with default header values.
+/* CreateCaseOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCreateCaseBadRequest() *CreateCaseBadRequest {
 	return &CreateCaseBadRequest{}
 }
 
-/*
-CreateCaseBadRequest describes a response with status code 400, with default header values.
+/* CreateCaseBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCreateCaseForbidden() *CreateCaseForbidden {
 	return &CreateCaseForbidden{}
 }
 
-/*
-CreateCaseForbidden describes a response with status code 403, with default header values.
+/* CreateCaseForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCreateCaseTooManyRequests() *CreateCaseTooManyRequests {
 	return &CreateCaseTooManyRequests{}
 }
 
-/*
-CreateCaseTooManyRequests describes a response with status code 429, with default header values.
+/* CreateCaseTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCreateCaseInternalServerError() *CreateCaseInternalServerError {
 	return &CreateCaseInternalServerError{}
 }
 
-/*
-CreateCaseInternalServerError describes a response with status code 500, with default header values.
+/* CreateCaseInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

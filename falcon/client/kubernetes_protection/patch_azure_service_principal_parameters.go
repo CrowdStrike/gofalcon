@@ -52,12 +52,10 @@ func NewPatchAzureServicePrincipalParamsWithHTTPClient(client *http.Client) *Pat
 	}
 }
 
-/*
-PatchAzureServicePrincipalParams contains all the parameters to send to the API endpoint
+/* PatchAzureServicePrincipalParams contains all the parameters to send to the API endpoint
+   for the patch azure service principal operation.
 
-	for the patch azure service principal operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PatchAzureServicePrincipalParams struct {
 

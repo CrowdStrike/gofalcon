@@ -53,8 +53,7 @@ func NewDeleteRegistryEntitiesOK() *DeleteRegistryEntitiesOK {
 	return &DeleteRegistryEntitiesOK{}
 }
 
-/*
-DeleteRegistryEntitiesOK describes a response with status code 200, with default header values.
+/* DeleteRegistryEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewDeleteRegistryEntitiesForbidden() *DeleteRegistryEntitiesForbidden {
 	return &DeleteRegistryEntitiesForbidden{}
 }
 
-/*
-DeleteRegistryEntitiesForbidden describes a response with status code 403, with default header values.
+/* DeleteRegistryEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewDeleteRegistryEntitiesTooManyRequests() *DeleteRegistryEntitiesTooManyRe
 	return &DeleteRegistryEntitiesTooManyRequests{}
 }
 
-/*
-DeleteRegistryEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteRegistryEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

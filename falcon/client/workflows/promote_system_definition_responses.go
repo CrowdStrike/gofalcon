@@ -71,8 +71,7 @@ func NewPromoteSystemDefinitionOK() *PromoteSystemDefinitionOK {
 	return &PromoteSystemDefinitionOK{}
 }
 
-/*
-PromoteSystemDefinitionOK describes a response with status code 200, with default header values.
+/* PromoteSystemDefinitionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewPromoteSystemDefinitionBadRequest() *PromoteSystemDefinitionBadRequest {
 	return &PromoteSystemDefinitionBadRequest{}
 }
 
-/*
-PromoteSystemDefinitionBadRequest describes a response with status code 400, with default header values.
+/* PromoteSystemDefinitionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewPromoteSystemDefinitionForbidden() *PromoteSystemDefinitionForbidden {
 	return &PromoteSystemDefinitionForbidden{}
 }
 
-/*
-PromoteSystemDefinitionForbidden describes a response with status code 403, with default header values.
+/* PromoteSystemDefinitionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewPromoteSystemDefinitionNotFound() *PromoteSystemDefinitionNotFound {
 	return &PromoteSystemDefinitionNotFound{}
 }
 
-/*
-PromoteSystemDefinitionNotFound describes a response with status code 404, with default header values.
+/* PromoteSystemDefinitionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewPromoteSystemDefinitionTooManyRequests() *PromoteSystemDefinitionTooMany
 	return &PromoteSystemDefinitionTooManyRequests{}
 }
 
-/*
-PromoteSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
+/* PromoteSystemDefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPromoteSystemDefinitionInternalServerError() *PromoteSystemDefinitionInt
 	return &PromoteSystemDefinitionInternalServerError{}
 }
 
-/*
-PromoteSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
+/* PromoteSystemDefinitionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

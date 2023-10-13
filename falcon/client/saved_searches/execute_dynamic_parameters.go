@@ -55,12 +55,10 @@ func NewExecuteDynamicParamsWithHTTPClient(client *http.Client) *ExecuteDynamicP
 	}
 }
 
-/*
-ExecuteDynamicParams contains all the parameters to send to the API endpoint
+/* ExecuteDynamicParams contains all the parameters to send to the API endpoint
+   for the execute dynamic operation.
 
-	for the execute dynamic operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ExecuteDynamicParams struct {
 

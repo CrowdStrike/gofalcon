@@ -54,12 +54,10 @@ func NewUpdateRuleGroupParamsWithHTTPClient(client *http.Client) *UpdateRuleGrou
 	}
 }
 
-/*
-UpdateRuleGroupParams contains all the parameters to send to the API endpoint
+/* UpdateRuleGroupParams contains all the parameters to send to the API endpoint
+   for the update rule group operation.
 
-	for the update rule group operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateRuleGroupParams struct {
 

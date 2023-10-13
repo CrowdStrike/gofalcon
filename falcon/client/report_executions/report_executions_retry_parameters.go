@@ -54,12 +54,10 @@ func NewReportExecutionsRetryParamsWithHTTPClient(client *http.Client) *ReportEx
 	}
 }
 
-/*
-ReportExecutionsRetryParams contains all the parameters to send to the API endpoint
+/* ReportExecutionsRetryParams contains all the parameters to send to the API endpoint
+   for the report executions retry operation.
 
-	for the report executions retry operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ReportExecutionsRetryParams struct {
 

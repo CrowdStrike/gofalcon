@@ -52,12 +52,10 @@ func NewGetObjectMetadataParamsWithHTTPClient(client *http.Client) *GetObjectMet
 	}
 }
 
-/*
-GetObjectMetadataParams contains all the parameters to send to the API endpoint
+/* GetObjectMetadataParams contains all the parameters to send to the API endpoint
+   for the get object metadata operation.
 
-	for the get object metadata operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetObjectMetadataParams struct {
 

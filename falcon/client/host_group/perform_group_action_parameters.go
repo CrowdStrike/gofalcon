@@ -55,12 +55,10 @@ func NewPerformGroupActionParamsWithHTTPClient(client *http.Client) *PerformGrou
 	}
 }
 
-/*
-PerformGroupActionParams contains all the parameters to send to the API endpoint
+/* PerformGroupActionParams contains all the parameters to send to the API endpoint
+   for the perform group action operation.
 
-	for the perform group action operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type PerformGroupActionParams struct {
 

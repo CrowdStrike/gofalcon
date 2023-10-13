@@ -71,8 +71,7 @@ func NewGetCSPMPoliciesDetailsOK() *GetCSPMPoliciesDetailsOK {
 	return &GetCSPMPoliciesDetailsOK{}
 }
 
-/*
-GetCSPMPoliciesDetailsOK describes a response with status code 200, with default header values.
+/* GetCSPMPoliciesDetailsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCSPMPoliciesDetailsMultiStatus() *GetCSPMPoliciesDetailsMultiStatus {
 	return &GetCSPMPoliciesDetailsMultiStatus{}
 }
 
-/*
-GetCSPMPoliciesDetailsMultiStatus describes a response with status code 207, with default header values.
+/* GetCSPMPoliciesDetailsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetCSPMPoliciesDetailsBadRequest() *GetCSPMPoliciesDetailsBadRequest {
 	return &GetCSPMPoliciesDetailsBadRequest{}
 }
 
-/*
-GetCSPMPoliciesDetailsBadRequest describes a response with status code 400, with default header values.
+/* GetCSPMPoliciesDetailsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetCSPMPoliciesDetailsForbidden() *GetCSPMPoliciesDetailsForbidden {
 	return &GetCSPMPoliciesDetailsForbidden{}
 }
 
-/*
-GetCSPMPoliciesDetailsForbidden describes a response with status code 403, with default header values.
+/* GetCSPMPoliciesDetailsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCSPMPoliciesDetailsTooManyRequests() *GetCSPMPoliciesDetailsTooManyRe
 	return &GetCSPMPoliciesDetailsTooManyRequests{}
 }
 
-/*
-GetCSPMPoliciesDetailsTooManyRequests describes a response with status code 429, with default header values.
+/* GetCSPMPoliciesDetailsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCSPMPoliciesDetailsInternalServerError() *GetCSPMPoliciesDetailsInter
 	return &GetCSPMPoliciesDetailsInternalServerError{}
 }
 
-/*
-GetCSPMPoliciesDetailsInternalServerError describes a response with status code 500, with default header values.
+/* GetCSPMPoliciesDetailsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

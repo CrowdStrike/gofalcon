@@ -53,8 +53,7 @@ func NewQueryPatternsOK() *QueryPatternsOK {
 	return &QueryPatternsOK{}
 }
 
-/*
-QueryPatternsOK describes a response with status code 200, with default header values.
+/* QueryPatternsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryPatternsForbidden() *QueryPatternsForbidden {
 	return &QueryPatternsForbidden{}
 }
 
-/*
-QueryPatternsForbidden describes a response with status code 403, with default header values.
+/* QueryPatternsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryPatternsTooManyRequests() *QueryPatternsTooManyRequests {
 	return &QueryPatternsTooManyRequests{}
 }
 
-/*
-QueryPatternsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryPatternsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

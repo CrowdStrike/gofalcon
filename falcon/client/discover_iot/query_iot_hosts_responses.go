@@ -65,8 +65,7 @@ func NewQueryIotHostsOK() *QueryIotHostsOK {
 	return &QueryIotHostsOK{}
 }
 
-/*
-QueryIotHostsOK describes a response with status code 200, with default header values.
+/* QueryIotHostsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryIotHostsBadRequest() *QueryIotHostsBadRequest {
 	return &QueryIotHostsBadRequest{}
 }
 
-/*
-QueryIotHostsBadRequest describes a response with status code 400, with default header values.
+/* QueryIotHostsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryIotHostsForbidden() *QueryIotHostsForbidden {
 	return &QueryIotHostsForbidden{}
 }
 
-/*
-QueryIotHostsForbidden describes a response with status code 403, with default header values.
+/* QueryIotHostsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryIotHostsTooManyRequests() *QueryIotHostsTooManyRequests {
 	return &QueryIotHostsTooManyRequests{}
 }
 
-/*
-QueryIotHostsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryIotHostsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryIotHostsInternalServerError() *QueryIotHostsInternalServerError {
 	return &QueryIotHostsInternalServerError{}
 }
 
-/*
-QueryIotHostsInternalServerError describes a response with status code 500, with default header values.
+/* QueryIotHostsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

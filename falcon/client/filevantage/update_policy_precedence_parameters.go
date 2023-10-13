@@ -53,12 +53,10 @@ func NewUpdatePolicyPrecedenceParamsWithHTTPClient(client *http.Client) *UpdateP
 	}
 }
 
-/*
-UpdatePolicyPrecedenceParams contains all the parameters to send to the API endpoint
+/* UpdatePolicyPrecedenceParams contains all the parameters to send to the API endpoint
+   for the update policy precedence operation.
 
-	for the update policy precedence operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdatePolicyPrecedenceParams struct {
 

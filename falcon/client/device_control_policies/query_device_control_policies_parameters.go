@@ -53,12 +53,10 @@ func NewQueryDeviceControlPoliciesParamsWithHTTPClient(client *http.Client) *Que
 	}
 }
 
-/*
-QueryDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+/* QueryDeviceControlPoliciesParams contains all the parameters to send to the API endpoint
+   for the query device control policies operation.
 
-	for the query device control policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryDeviceControlPoliciesParams struct {
 

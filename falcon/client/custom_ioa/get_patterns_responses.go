@@ -53,8 +53,7 @@ func NewGetPatternsOK() *GetPatternsOK {
 	return &GetPatternsOK{}
 }
 
-/*
-GetPatternsOK describes a response with status code 200, with default header values.
+/* GetPatternsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetPatternsForbidden() *GetPatternsForbidden {
 	return &GetPatternsForbidden{}
 }
 
-/*
-GetPatternsForbidden describes a response with status code 403, with default header values.
+/* GetPatternsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetPatternsTooManyRequests() *GetPatternsTooManyRequests {
 	return &GetPatternsTooManyRequests{}
 }
 
-/*
-GetPatternsTooManyRequests describes a response with status code 429, with default header values.
+/* GetPatternsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

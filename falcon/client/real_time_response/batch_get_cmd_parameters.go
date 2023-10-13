@@ -55,12 +55,10 @@ func NewBatchGetCmdParamsWithHTTPClient(client *http.Client) *BatchGetCmdParams 
 	}
 }
 
-/*
-BatchGetCmdParams contains all the parameters to send to the API endpoint
+/* BatchGetCmdParams contains all the parameters to send to the API endpoint
+   for the batch get cmd operation.
 
-	for the batch get cmd operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type BatchGetCmdParams struct {
 

@@ -53,8 +53,7 @@ func NewQueryAlertIdsByFilterOK() *QueryAlertIdsByFilterOK {
 	return &QueryAlertIdsByFilterOK{}
 }
 
-/*
-QueryAlertIdsByFilterOK describes a response with status code 200, with default header values.
+/* QueryAlertIdsByFilterOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryAlertIdsByFilterForbidden() *QueryAlertIdsByFilterForbidden {
 	return &QueryAlertIdsByFilterForbidden{}
 }
 
-/*
-QueryAlertIdsByFilterForbidden describes a response with status code 403, with default header values.
+/* QueryAlertIdsByFilterForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryAlertIdsByFilterTooManyRequests() *QueryAlertIdsByFilterTooManyRequ
 	return &QueryAlertIdsByFilterTooManyRequests{}
 }
 
-/*
-QueryAlertIdsByFilterTooManyRequests describes a response with status code 429, with default header values.
+/* QueryAlertIdsByFilterTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

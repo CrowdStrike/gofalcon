@@ -53,12 +53,10 @@ func NewDeleteSensorVisibilityExclusionsV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-DeleteSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+/* DeleteSensorVisibilityExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the delete sensor visibility exclusions v1 operation.
 
-	for the delete sensor visibility exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteSensorVisibilityExclusionsV1Params struct {
 

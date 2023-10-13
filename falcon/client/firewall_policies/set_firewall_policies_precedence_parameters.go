@@ -54,12 +54,10 @@ func NewSetFirewallPoliciesPrecedenceParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-SetFirewallPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
+/* SetFirewallPoliciesPrecedenceParams contains all the parameters to send to the API endpoint
+   for the set firewall policies precedence operation.
 
-	for the set firewall policies precedence operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type SetFirewallPoliciesPrecedenceParams struct {
 

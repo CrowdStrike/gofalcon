@@ -59,8 +59,7 @@ func NewRTRExecuteAdminCommandCreated() *RTRExecuteAdminCommandCreated {
 	return &RTRExecuteAdminCommandCreated{}
 }
 
-/*
-RTRExecuteAdminCommandCreated describes a response with status code 201, with default header values.
+/* RTRExecuteAdminCommandCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -169,8 +168,7 @@ func NewRTRExecuteAdminCommandBadRequest() *RTRExecuteAdminCommandBadRequest {
 	return &RTRExecuteAdminCommandBadRequest{}
 }
 
-/*
-RTRExecuteAdminCommandBadRequest describes a response with status code 400, with default header values.
+/* RTRExecuteAdminCommandBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewRTRExecuteAdminCommandForbidden() *RTRExecuteAdminCommandForbidden {
 	return &RTRExecuteAdminCommandForbidden{}
 }
 
-/*
-RTRExecuteAdminCommandForbidden describes a response with status code 403, with default header values.
+/* RTRExecuteAdminCommandForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewRTRExecuteAdminCommandTooManyRequests() *RTRExecuteAdminCommandTooManyRe
 	return &RTRExecuteAdminCommandTooManyRequests{}
 }
 
-/*
-RTRExecuteAdminCommandTooManyRequests describes a response with status code 429, with default header values.
+/* RTRExecuteAdminCommandTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -65,8 +65,7 @@ func NewGetConfigurationDetectionEntitiesOK() *GetConfigurationDetectionEntities
 	return &GetConfigurationDetectionEntitiesOK{}
 }
 
-/*
-GetConfigurationDetectionEntitiesOK describes a response with status code 200, with default header values.
+/* GetConfigurationDetectionEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetConfigurationDetectionEntitiesBadRequest() *GetConfigurationDetection
 	return &GetConfigurationDetectionEntitiesBadRequest{}
 }
 
-/*
-GetConfigurationDetectionEntitiesBadRequest describes a response with status code 400, with default header values.
+/* GetConfigurationDetectionEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetConfigurationDetectionEntitiesForbidden() *GetConfigurationDetectionE
 	return &GetConfigurationDetectionEntitiesForbidden{}
 }
 
-/*
-GetConfigurationDetectionEntitiesForbidden describes a response with status code 403, with default header values.
+/* GetConfigurationDetectionEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetConfigurationDetectionEntitiesTooManyRequests() *GetConfigurationDete
 	return &GetConfigurationDetectionEntitiesTooManyRequests{}
 }
 
-/*
-GetConfigurationDetectionEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetConfigurationDetectionEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetConfigurationDetectionEntitiesInternalServerError() *GetConfiguration
 	return &GetConfigurationDetectionEntitiesInternalServerError{}
 }
 
-/*
-GetConfigurationDetectionEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* GetConfigurationDetectionEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

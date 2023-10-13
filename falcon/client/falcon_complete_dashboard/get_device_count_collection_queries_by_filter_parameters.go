@@ -53,12 +53,10 @@ func NewGetDeviceCountCollectionQueriesByFilterParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-GetDeviceCountCollectionQueriesByFilterParams contains all the parameters to send to the API endpoint
+/* GetDeviceCountCollectionQueriesByFilterParams contains all the parameters to send to the API endpoint
+   for the get device count collection queries by filter operation.
 
-	for the get device count collection queries by filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetDeviceCountCollectionQueriesByFilterParams struct {
 

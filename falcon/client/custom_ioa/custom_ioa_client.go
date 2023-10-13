@@ -72,7 +72,7 @@ type ClientService interface {
 }
 
 /*
-CreateRule creates a rule within a rule group returns the rule
+  CreateRule creates a rule within a rule group returns the rule
 */
 func (a *Client) CreateRule(params *CreateRuleParams, opts ...ClientOption) (*CreateRuleCreated, error) {
 	// TODO: Validate the params before sending
@@ -110,7 +110,7 @@ func (a *Client) CreateRule(params *CreateRuleParams, opts ...ClientOption) (*Cr
 }
 
 /*
-CreateRuleGroupMixin0 creates a rule group for a platform with a name and an optional description returns the rule group
+  CreateRuleGroupMixin0 creates a rule group for a platform with a name and an optional description returns the rule group
 */
 func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, opts ...ClientOption) (*CreateRuleGroupMixin0Created, error) {
 	// TODO: Validate the params before sending
@@ -148,7 +148,7 @@ func (a *Client) CreateRuleGroupMixin0(params *CreateRuleGroupMixin0Params, opts
 }
 
 /*
-DeleteRuleGroupsMixin0 deletes rule groups by ID
+  DeleteRuleGroupsMixin0 deletes rule groups by ID
 */
 func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, opts ...ClientOption) (*DeleteRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -186,7 +186,7 @@ func (a *Client) DeleteRuleGroupsMixin0(params *DeleteRuleGroupsMixin0Params, op
 }
 
 /*
-DeleteRules deletes rules from a rule group by ID
+  DeleteRules deletes rules from a rule group by ID
 */
 func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*DeleteRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -224,7 +224,7 @@ func (a *Client) DeleteRules(params *DeleteRulesParams, opts ...ClientOption) (*
 }
 
 /*
-GetPatterns gets pattern severities by ID
+  GetPatterns gets pattern severities by ID
 */
 func (a *Client) GetPatterns(params *GetPatternsParams, opts ...ClientOption) (*GetPatternsOK, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) GetPatterns(params *GetPatternsParams, opts ...ClientOption) (*
 }
 
 /*
-GetPlatformsMixin0 gets platforms by ID
+  GetPlatformsMixin0 gets platforms by ID
 */
 func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, opts ...ClientOption) (*GetPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -300,7 +300,7 @@ func (a *Client) GetPlatformsMixin0(params *GetPlatformsMixin0Params, opts ...Cl
 }
 
 /*
-GetRuleGroupsMixin0 gets rule groups by ID
+  GetRuleGroupsMixin0 gets rule groups by ID
 */
 func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, opts ...ClientOption) (*GetRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -338,7 +338,7 @@ func (a *Client) GetRuleGroupsMixin0(params *GetRuleGroupsMixin0Params, opts ...
 }
 
 /*
-GetRuleTypes gets rule types by ID
+  GetRuleTypes gets rule types by ID
 */
 func (a *Client) GetRuleTypes(params *GetRuleTypesParams, opts ...ClientOption) (*GetRuleTypesOK, error) {
 	// TODO: Validate the params before sending
@@ -376,7 +376,7 @@ func (a *Client) GetRuleTypes(params *GetRuleTypesParams, opts ...ClientOption) 
 }
 
 /*
-GetRulesGet gets rules by ID and optionally with cid and or version in the following format cid ID version
+  GetRulesGet gets rules by ID and optionally with cid and or version in the following format cid ID version
 */
 func (a *Client) GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*GetRulesGetOK, error) {
 	// TODO: Validate the params before sending
@@ -414,7 +414,7 @@ func (a *Client) GetRulesGet(params *GetRulesGetParams, opts ...ClientOption) (*
 }
 
 /*
-GetRulesMixin0 gets rules by ID and optionally with cid and or version in the following format cid ID version the max number of i ds is constrained by URL size
+  GetRulesMixin0 gets rules by ID and optionally with cid and or version in the following format cid ID version the max number of i ds is constrained by URL size
 */
 func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, opts ...ClientOption) (*GetRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -452,7 +452,7 @@ func (a *Client) GetRulesMixin0(params *GetRulesMixin0Params, opts ...ClientOpti
 }
 
 /*
-QueryPatterns gets all pattern severity i ds
+  QueryPatterns gets all pattern severity i ds
 */
 func (a *Client) QueryPatterns(params *QueryPatternsParams, opts ...ClientOption) (*QueryPatternsOK, error) {
 	// TODO: Validate the params before sending
@@ -490,7 +490,7 @@ func (a *Client) QueryPatterns(params *QueryPatternsParams, opts ...ClientOption
 }
 
 /*
-QueryPlatformsMixin0 gets all platform i ds
+  QueryPlatformsMixin0 gets all platform i ds
 */
 func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, opts ...ClientOption) (*QueryPlatformsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -528,7 +528,7 @@ func (a *Client) QueryPlatformsMixin0(params *QueryPlatformsMixin0Params, opts .
 }
 
 /*
-QueryRuleGroupsFull finds all rule groups matching the query with optional filter
+  QueryRuleGroupsFull finds all rule groups matching the query with optional filter
 */
 func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, opts ...ClientOption) (*QueryRuleGroupsFullOK, error) {
 	// TODO: Validate the params before sending
@@ -566,7 +566,7 @@ func (a *Client) QueryRuleGroupsFull(params *QueryRuleGroupsFullParams, opts ...
 }
 
 /*
-QueryRuleGroupsMixin0 finds all rule group i ds matching the query with optional filter
+  QueryRuleGroupsMixin0 finds all rule group i ds matching the query with optional filter
 */
 func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, opts ...ClientOption) (*QueryRuleGroupsMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -604,7 +604,7 @@ func (a *Client) QueryRuleGroupsMixin0(params *QueryRuleGroupsMixin0Params, opts
 }
 
 /*
-QueryRuleTypes gets all rule type i ds
+  QueryRuleTypes gets all rule type i ds
 */
 func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, opts ...ClientOption) (*QueryRuleTypesOK, error) {
 	// TODO: Validate the params before sending
@@ -642,7 +642,7 @@ func (a *Client) QueryRuleTypes(params *QueryRuleTypesParams, opts ...ClientOpti
 }
 
 /*
-QueryRulesMixin0 finds all rule i ds matching the query with optional filter
+  QueryRulesMixin0 finds all rule i ds matching the query with optional filter
 */
 func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...ClientOption) (*QueryRulesMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -680,7 +680,7 @@ func (a *Client) QueryRulesMixin0(params *QueryRulesMixin0Params, opts ...Client
 }
 
 /*
-UpdateRuleGroupMixin0 updates a rule group the following properties can be modified name description enabled
+  UpdateRuleGroupMixin0 updates a rule group the following properties can be modified name description enabled
 */
 func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, opts ...ClientOption) (*UpdateRuleGroupMixin0OK, error) {
 	// TODO: Validate the params before sending
@@ -718,7 +718,7 @@ func (a *Client) UpdateRuleGroupMixin0(params *UpdateRuleGroupMixin0Params, opts
 }
 
 /*
-UpdateRules updates rules within a rule group return the updated rules
+  UpdateRules updates rules within a rule group return the updated rules
 */
 func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error) {
 	// TODO: Validate the params before sending
@@ -756,7 +756,7 @@ func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*
 }
 
 /*
-Validate validates field values and checks for matches if a test string is provided
+  Validate validates field values and checks for matches if a test string is provided
 */
 func (a *Client) Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error) {
 	// TODO: Validate the params before sending

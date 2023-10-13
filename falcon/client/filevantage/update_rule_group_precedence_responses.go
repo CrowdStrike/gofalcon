@@ -71,8 +71,7 @@ func NewUpdateRuleGroupPrecedenceOK() *UpdateRuleGroupPrecedenceOK {
 	return &UpdateRuleGroupPrecedenceOK{}
 }
 
-/*
-UpdateRuleGroupPrecedenceOK describes a response with status code 200, with default header values.
+/* UpdateRuleGroupPrecedenceOK describes a response with status code 200, with default header values.
 
 Rule precedence order has been set.
 */
@@ -181,8 +180,7 @@ func NewUpdateRuleGroupPrecedenceBadRequest() *UpdateRuleGroupPrecedenceBadReque
 	return &UpdateRuleGroupPrecedenceBadRequest{}
 }
 
-/*
-UpdateRuleGroupPrecedenceBadRequest describes a response with status code 400, with default header values.
+/* UpdateRuleGroupPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewUpdateRuleGroupPrecedenceForbidden() *UpdateRuleGroupPrecedenceForbidden
 	return &UpdateRuleGroupPrecedenceForbidden{}
 }
 
-/*
-UpdateRuleGroupPrecedenceForbidden describes a response with status code 403, with default header values.
+/* UpdateRuleGroupPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewUpdateRuleGroupPrecedenceConflict() *UpdateRuleGroupPrecedenceConflict {
 	return &UpdateRuleGroupPrecedenceConflict{}
 }
 
-/*
-UpdateRuleGroupPrecedenceConflict describes a response with status code 409, with default header values.
+/* UpdateRuleGroupPrecedenceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -511,8 +507,7 @@ func NewUpdateRuleGroupPrecedenceTooManyRequests() *UpdateRuleGroupPrecedenceToo
 	return &UpdateRuleGroupPrecedenceTooManyRequests{}
 }
 
-/*
-UpdateRuleGroupPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateRuleGroupPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewUpdateRuleGroupPrecedenceInternalServerError() *UpdateRuleGroupPrecedenc
 	return &UpdateRuleGroupPrecedenceInternalServerError{}
 }
 
-/*
-UpdateRuleGroupPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/* UpdateRuleGroupPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -71,8 +71,7 @@ func NewDeleteScheduledExclusionsOK() *DeleteScheduledExclusionsOK {
 	return &DeleteScheduledExclusionsOK{}
 }
 
-/*
-DeleteScheduledExclusionsOK describes a response with status code 200, with default header values.
+/* DeleteScheduledExclusionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteScheduledExclusionsBadRequest() *DeleteScheduledExclusionsBadReque
 	return &DeleteScheduledExclusionsBadRequest{}
 }
 
-/*
-DeleteScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
+/* DeleteScheduledExclusionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewDeleteScheduledExclusionsForbidden() *DeleteScheduledExclusionsForbidden
 	return &DeleteScheduledExclusionsForbidden{}
 }
 
-/*
-DeleteScheduledExclusionsForbidden describes a response with status code 403, with default header values.
+/* DeleteScheduledExclusionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewDeleteScheduledExclusionsNotFound() *DeleteScheduledExclusionsNotFound {
 	return &DeleteScheduledExclusionsNotFound{}
 }
 
-/*
-DeleteScheduledExclusionsNotFound describes a response with status code 404, with default header values.
+/* DeleteScheduledExclusionsNotFound describes a response with status code 404, with default header values.
 
 The policy to remove the scheduled exclusions from does not exist.
 */
@@ -511,8 +507,7 @@ func NewDeleteScheduledExclusionsTooManyRequests() *DeleteScheduledExclusionsToo
 	return &DeleteScheduledExclusionsTooManyRequests{}
 }
 
-/*
-DeleteScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteScheduledExclusionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteScheduledExclusionsInternalServerError() *DeleteScheduledExclusion
 	return &DeleteScheduledExclusionsInternalServerError{}
 }
 
-/*
-DeleteScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
+/* DeleteScheduledExclusionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

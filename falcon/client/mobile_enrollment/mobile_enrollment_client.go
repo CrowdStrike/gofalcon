@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-RequestDeviceEnrollmentV3 triggers on boarding process for a mobile device
+  RequestDeviceEnrollmentV3 triggers on boarding process for a mobile device
 */
 func (a *Client) RequestDeviceEnrollmentV3(params *RequestDeviceEnrollmentV3Params, opts ...ClientOption) (*RequestDeviceEnrollmentV3OK, error) {
 	// TODO: Validate the params before sending

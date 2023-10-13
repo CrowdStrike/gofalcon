@@ -53,12 +53,10 @@ func NewActionGetV1ParamsWithHTTPClient(client *http.Client) *ActionGetV1Params 
 	}
 }
 
-/*
-ActionGetV1Params contains all the parameters to send to the API endpoint
+/* ActionGetV1Params contains all the parameters to send to the API endpoint
+   for the action get v1 operation.
 
-	for the action get v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ActionGetV1Params struct {
 

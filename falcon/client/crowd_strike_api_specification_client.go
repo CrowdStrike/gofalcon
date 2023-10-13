@@ -12,6 +12,7 @@ import (
 
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
+	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
@@ -41,10 +42,10 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens"
 	"github.com/crowdstrike/gofalcon/falcon/client/installation_tokens_settings"
 	"github.com/crowdstrike/gofalcon/falcon/client/intel"
-	"github.com/crowdstrike/gofalcon/falcon/client/inventories"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioa_exclusions"
 	"github.com/crowdstrike/gofalcon/falcon/client/ioc"
 	"github.com/crowdstrike/gofalcon/falcon/client/iocs"
+	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_ioms"
 	"github.com/crowdstrike/gofalcon/falcon/client/kubernetes_protection"
 	"github.com/crowdstrike/gofalcon/falcon/client/logscale_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/malquery"
@@ -55,6 +56,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
+	"github.com/crowdstrike/gofalcon/falcon/client/packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/provision"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
@@ -63,7 +65,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_audit"
 	"github.com/crowdstrike/gofalcon/falcon/client/recon"
-	"github.com/crowdstrike/gofalcon/falcon/client/registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/report_executions"
 	"github.com/crowdstrike/gofalcon/falcon/client/response_policies"
 	"github.com/crowdstrike/gofalcon/falcon/client/sample_uploads"
@@ -124,6 +125,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Transport = transport
 	cli.Alerts = alerts.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
+	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.CspmRegistration = cspm_registration.New(transport, formats)
@@ -153,10 +155,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.InstallationTokens = installation_tokens.New(transport, formats)
 	cli.InstallationTokensSettings = installation_tokens_settings.New(transport, formats)
 	cli.Intel = intel.New(transport, formats)
-	cli.Inventories = inventories.New(transport, formats)
 	cli.IoaExclusions = ioa_exclusions.New(transport, formats)
 	cli.Ioc = ioc.New(transport, formats)
 	cli.Iocs = iocs.New(transport, formats)
+	cli.KubernetesIoms = kubernetes_ioms.New(transport, formats)
 	cli.KubernetesProtection = kubernetes_protection.New(transport, formats)
 	cli.LogscaleManagement = logscale_management.New(transport, formats)
 	cli.Malquery = malquery.New(transport, formats)
@@ -167,6 +169,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
+	cli.Packages = packages.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
 	cli.Provision = provision.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
@@ -175,7 +178,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.RealTimeResponseAdmin = real_time_response_admin.New(transport, formats)
 	cli.RealTimeResponseAudit = real_time_response_audit.New(transport, formats)
 	cli.Recon = recon.New(transport, formats)
-	cli.Registration = registration.New(transport, formats)
 	cli.ReportExecutions = report_executions.New(transport, formats)
 	cli.ResponsePolicies = response_policies.New(transport, formats)
 	cli.SampleUploads = sample_uploads.New(transport, formats)
@@ -238,6 +240,8 @@ type CrowdStrikeAPISpecification struct {
 
 	CloudConnectAws cloud_connect_aws.ClientService
 
+	CloudSnapshots cloud_snapshots.ClientService
+
 	ConfigurationAssessment configuration_assessment.ClientService
 
 	ConfigurationAssessmentEvaluationLogic configuration_assessment_evaluation_logic.ClientService
@@ -296,13 +300,13 @@ type CrowdStrikeAPISpecification struct {
 
 	Intel intel.ClientService
 
-	Inventories inventories.ClientService
-
 	IoaExclusions ioa_exclusions.ClientService
 
 	Ioc ioc.ClientService
 
 	Iocs iocs.ClientService
+
+	KubernetesIoms kubernetes_ioms.ClientService
 
 	KubernetesProtection kubernetes_protection.ClientService
 
@@ -324,6 +328,8 @@ type CrowdStrikeAPISpecification struct {
 
 	OverwatchDashboard overwatch_dashboard.ClientService
 
+	Packages packages.ClientService
+
 	PreventionPolicies prevention_policies.ClientService
 
 	Provision provision.ClientService
@@ -339,8 +345,6 @@ type CrowdStrikeAPISpecification struct {
 	RealTimeResponseAudit real_time_response_audit.ClientService
 
 	Recon recon.ClientService
-
-	Registration registration.ClientService
 
 	ReportExecutions report_executions.ClientService
 
@@ -378,6 +382,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Transport = transport
 	c.Alerts.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
+	c.CloudSnapshots.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.CspmRegistration.SetTransport(transport)
@@ -407,10 +412,10 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.InstallationTokens.SetTransport(transport)
 	c.InstallationTokensSettings.SetTransport(transport)
 	c.Intel.SetTransport(transport)
-	c.Inventories.SetTransport(transport)
 	c.IoaExclusions.SetTransport(transport)
 	c.Ioc.SetTransport(transport)
 	c.Iocs.SetTransport(transport)
+	c.KubernetesIoms.SetTransport(transport)
 	c.KubernetesProtection.SetTransport(transport)
 	c.LogscaleManagement.SetTransport(transport)
 	c.Malquery.SetTransport(transport)
@@ -421,6 +426,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
+	c.Packages.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
 	c.Provision.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
@@ -429,7 +435,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.RealTimeResponseAdmin.SetTransport(transport)
 	c.RealTimeResponseAudit.SetTransport(transport)
 	c.Recon.SetTransport(transport)
-	c.Registration.SetTransport(transport)
 	c.ReportExecutions.SetTransport(transport)
 	c.ResponsePolicies.SetTransport(transport)
 	c.SampleUploads.SetTransport(transport)

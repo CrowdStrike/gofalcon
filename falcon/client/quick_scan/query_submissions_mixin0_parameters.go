@@ -53,12 +53,10 @@ func NewQuerySubmissionsMixin0ParamsWithHTTPClient(client *http.Client) *QuerySu
 	}
 }
 
-/*
-QuerySubmissionsMixin0Params contains all the parameters to send to the API endpoint
+/* QuerySubmissionsMixin0Params contains all the parameters to send to the API endpoint
+   for the query submissions mixin0 operation.
 
-	for the query submissions mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QuerySubmissionsMixin0Params struct {
 

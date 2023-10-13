@@ -59,8 +59,7 @@ func NewCreateRuleGroupCreated() *CreateRuleGroupCreated {
 	return &CreateRuleGroupCreated{}
 }
 
-/*
-CreateRuleGroupCreated describes a response with status code 201, with default header values.
+/* CreateRuleGroupCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -169,8 +168,7 @@ func NewCreateRuleGroupBadRequest() *CreateRuleGroupBadRequest {
 	return &CreateRuleGroupBadRequest{}
 }
 
-/*
-CreateRuleGroupBadRequest describes a response with status code 400, with default header values.
+/* CreateRuleGroupBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewCreateRuleGroupForbidden() *CreateRuleGroupForbidden {
 	return &CreateRuleGroupForbidden{}
 }
 
-/*
-CreateRuleGroupForbidden describes a response with status code 403, with default header values.
+/* CreateRuleGroupForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewCreateRuleGroupTooManyRequests() *CreateRuleGroupTooManyRequests {
 	return &CreateRuleGroupTooManyRequests{}
 }
 
-/*
-CreateRuleGroupTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRuleGroupTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

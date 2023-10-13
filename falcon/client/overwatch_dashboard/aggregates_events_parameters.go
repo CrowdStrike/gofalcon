@@ -54,12 +54,10 @@ func NewAggregatesEventsParamsWithHTTPClient(client *http.Client) *AggregatesEve
 	}
 }
 
-/*
-AggregatesEventsParams contains all the parameters to send to the API endpoint
+/* AggregatesEventsParams contains all the parameters to send to the API endpoint
+   for the aggregates events operation.
 
-	for the aggregates events operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type AggregatesEventsParams struct {
 

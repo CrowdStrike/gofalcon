@@ -65,8 +65,7 @@ func NewUpdatePolicyHostGroupsOK() *UpdatePolicyHostGroupsOK {
 	return &UpdatePolicyHostGroupsOK{}
 }
 
-/*
-UpdatePolicyHostGroupsOK describes a response with status code 200, with default header values.
+/* UpdatePolicyHostGroupsOK describes a response with status code 200, with default header values.
 
 Assigned hosts have been updated.
 */
@@ -175,8 +174,7 @@ func NewUpdatePolicyHostGroupsBadRequest() *UpdatePolicyHostGroupsBadRequest {
 	return &UpdatePolicyHostGroupsBadRequest{}
 }
 
-/*
-UpdatePolicyHostGroupsBadRequest describes a response with status code 400, with default header values.
+/* UpdatePolicyHostGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUpdatePolicyHostGroupsForbidden() *UpdatePolicyHostGroupsForbidden {
 	return &UpdatePolicyHostGroupsForbidden{}
 }
 
-/*
-UpdatePolicyHostGroupsForbidden describes a response with status code 403, with default header values.
+/* UpdatePolicyHostGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUpdatePolicyHostGroupsTooManyRequests() *UpdatePolicyHostGroupsTooManyRe
 	return &UpdatePolicyHostGroupsTooManyRequests{}
 }
 
-/*
-UpdatePolicyHostGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdatePolicyHostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdatePolicyHostGroupsInternalServerError() *UpdatePolicyHostGroupsInter
 	return &UpdatePolicyHostGroupsInternalServerError{}
 }
 
-/*
-UpdatePolicyHostGroupsInternalServerError describes a response with status code 500, with default header values.
+/* UpdatePolicyHostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

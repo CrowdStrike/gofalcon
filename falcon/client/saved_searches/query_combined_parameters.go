@@ -53,12 +53,10 @@ func NewQueryCombinedParamsWithHTTPClient(client *http.Client) *QueryCombinedPar
 	}
 }
 
-/*
-QueryCombinedParams contains all the parameters to send to the API endpoint
+/* QueryCombinedParams contains all the parameters to send to the API endpoint
+   for the query combined operation.
 
-	for the query combined operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedParams struct {
 

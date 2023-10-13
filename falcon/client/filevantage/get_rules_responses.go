@@ -71,8 +71,7 @@ func NewGetRulesOK() *GetRulesOK {
 	return &GetRulesOK{}
 }
 
-/*
-GetRulesOK describes a response with status code 200, with default header values.
+/* GetRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetRulesBadRequest() *GetRulesBadRequest {
 	return &GetRulesBadRequest{}
 }
 
-/*
-GetRulesBadRequest describes a response with status code 400, with default header values.
+/* GetRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetRulesForbidden() *GetRulesForbidden {
 	return &GetRulesForbidden{}
 }
 
-/*
-GetRulesForbidden describes a response with status code 403, with default header values.
+/* GetRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetRulesNotFound() *GetRulesNotFound {
 	return &GetRulesNotFound{}
 }
 
-/*
-GetRulesNotFound describes a response with status code 404, with default header values.
+/* GetRulesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewGetRulesTooManyRequests() *GetRulesTooManyRequests {
 	return &GetRulesTooManyRequests{}
 }
 
-/*
-GetRulesTooManyRequests describes a response with status code 429, with default header values.
+/* GetRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetRulesInternalServerError() *GetRulesInternalServerError {
 	return &GetRulesInternalServerError{}
 }
 
-/*
-GetRulesInternalServerError describes a response with status code 500, with default header values.
+/* GetRulesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

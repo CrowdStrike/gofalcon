@@ -52,12 +52,10 @@ func NewDeleteSampleV3ParamsWithHTTPClient(client *http.Client) *DeleteSampleV3P
 	}
 }
 
-/*
-DeleteSampleV3Params contains all the parameters to send to the API endpoint
+/* DeleteSampleV3Params contains all the parameters to send to the API endpoint
+   for the delete sample v3 operation.
 
-	for the delete sample v3 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteSampleV3Params struct {
 

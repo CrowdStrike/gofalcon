@@ -53,12 +53,10 @@ func NewArchiveUploadV1ParamsWithHTTPClient(client *http.Client) *ArchiveUploadV
 	}
 }
 
-/*
-ArchiveUploadV1Params contains all the parameters to send to the API endpoint
+/* ArchiveUploadV1Params contains all the parameters to send to the API endpoint
+   for the archive upload v1 operation.
 
-	for the archive upload v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ArchiveUploadV1Params struct {
 

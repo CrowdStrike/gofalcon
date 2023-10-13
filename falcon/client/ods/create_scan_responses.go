@@ -53,8 +53,7 @@ func NewCreateScanCreated() *CreateScanCreated {
 	return &CreateScanCreated{}
 }
 
-/*
-CreateScanCreated describes a response with status code 201, with default header values.
+/* CreateScanCreated describes a response with status code 201, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewCreateScanForbidden() *CreateScanForbidden {
 	return &CreateScanForbidden{}
 }
 
-/*
-CreateScanForbidden describes a response with status code 403, with default header values.
+/* CreateScanForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewCreateScanTooManyRequests() *CreateScanTooManyRequests {
 	return &CreateScanTooManyRequests{}
 }
 
-/*
-CreateScanTooManyRequests describes a response with status code 429, with default header values.
+/* CreateScanTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

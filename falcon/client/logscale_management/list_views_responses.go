@@ -53,8 +53,7 @@ func NewListViewsOK() *ListViewsOK {
 	return &ListViewsOK{}
 }
 
-/*
-ListViewsOK describes a response with status code 200, with default header values.
+/* ListViewsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewListViewsForbidden() *ListViewsForbidden {
 	return &ListViewsForbidden{}
 }
 
-/*
-ListViewsForbidden describes a response with status code 403, with default header values.
+/* ListViewsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewListViewsTooManyRequests() *ListViewsTooManyRequests {
 	return &ListViewsTooManyRequests{}
 }
 
-/*
-ListViewsTooManyRequests describes a response with status code 429, with default header values.
+/* ListViewsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

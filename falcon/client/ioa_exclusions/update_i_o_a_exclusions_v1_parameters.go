@@ -54,12 +54,10 @@ func NewUpdateIOAExclusionsV1ParamsWithHTTPClient(client *http.Client) *UpdateIO
 	}
 }
 
-/*
-UpdateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+/* UpdateIOAExclusionsV1Params contains all the parameters to send to the API endpoint
+   for the update i o a exclusions v1 operation.
 
-	for the update i o a exclusions v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateIOAExclusionsV1Params struct {
 

@@ -53,8 +53,7 @@ func NewQueryMitreAttacksOK() *QueryMitreAttacksOK {
 	return &QueryMitreAttacksOK{}
 }
 
-/*
-QueryMitreAttacksOK describes a response with status code 200, with default header values.
+/* QueryMitreAttacksOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryMitreAttacksForbidden() *QueryMitreAttacksForbidden {
 	return &QueryMitreAttacksForbidden{}
 }
 
-/*
-QueryMitreAttacksForbidden describes a response with status code 403, with default header values.
+/* QueryMitreAttacksForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryMitreAttacksTooManyRequests() *QueryMitreAttacksTooManyRequests {
 	return &QueryMitreAttacksTooManyRequests{}
 }
 
-/*
-QueryMitreAttacksTooManyRequests describes a response with status code 429, with default header values.
+/* QueryMitreAttacksTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

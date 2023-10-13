@@ -53,8 +53,7 @@ func NewQueryCIDGroupsOK() *QueryCIDGroupsOK {
 	return &QueryCIDGroupsOK{}
 }
 
-/*
-QueryCIDGroupsOK describes a response with status code 200, with default header values.
+/* QueryCIDGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewQueryCIDGroupsForbidden() *QueryCIDGroupsForbidden {
 	return &QueryCIDGroupsForbidden{}
 }
 
-/*
-QueryCIDGroupsForbidden describes a response with status code 403, with default header values.
+/* QueryCIDGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewQueryCIDGroupsTooManyRequests() *QueryCIDGroupsTooManyRequests {
 	return &QueryCIDGroupsTooManyRequests{}
 }
 
-/*
-QueryCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryCIDGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

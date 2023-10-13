@@ -65,8 +65,7 @@ func NewGetRTResponsePoliciesOK() *GetRTResponsePoliciesOK {
 	return &GetRTResponsePoliciesOK{}
 }
 
-/*
-GetRTResponsePoliciesOK describes a response with status code 200, with default header values.
+/* GetRTResponsePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetRTResponsePoliciesForbidden() *GetRTResponsePoliciesForbidden {
 	return &GetRTResponsePoliciesForbidden{}
 }
 
-/*
-GetRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
+/* GetRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetRTResponsePoliciesNotFound() *GetRTResponsePoliciesNotFound {
 	return &GetRTResponsePoliciesNotFound{}
 }
 
-/*
-GetRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
+/* GetRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetRTResponsePoliciesTooManyRequests() *GetRTResponsePoliciesTooManyRequ
 	return &GetRTResponsePoliciesTooManyRequests{}
 }
 
-/*
-GetRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* GetRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetRTResponsePoliciesInternalServerError() *GetRTResponsePoliciesInterna
 	return &GetRTResponsePoliciesInternalServerError{}
 }
 
-/*
-GetRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* GetRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

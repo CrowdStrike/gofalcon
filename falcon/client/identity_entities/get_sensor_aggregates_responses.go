@@ -53,8 +53,7 @@ func NewGetSensorAggregatesOK() *GetSensorAggregatesOK {
 	return &GetSensorAggregatesOK{}
 }
 
-/*
-GetSensorAggregatesOK describes a response with status code 200, with default header values.
+/* GetSensorAggregatesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetSensorAggregatesForbidden() *GetSensorAggregatesForbidden {
 	return &GetSensorAggregatesForbidden{}
 }
 
-/*
-GetSensorAggregatesForbidden describes a response with status code 403, with default header values.
+/* GetSensorAggregatesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetSensorAggregatesTooManyRequests() *GetSensorAggregatesTooManyRequests
 	return &GetSensorAggregatesTooManyRequests{}
 }
 
-/*
-GetSensorAggregatesTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorAggregatesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,8 +53,7 @@ func NewResultOK() *ResultOK {
 	return &ResultOK{}
 }
 
-/*
-ResultOK describes a response with status code 200, with default header values.
+/* ResultOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewResultForbidden() *ResultForbidden {
 	return &ResultForbidden{}
 }
 
-/*
-ResultForbidden describes a response with status code 403, with default header values.
+/* ResultForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewResultTooManyRequests() *ResultTooManyRequests {
 	return &ResultTooManyRequests{}
 }
 
-/*
-ResultTooManyRequests describes a response with status code 429, with default header values.
+/* ResultTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

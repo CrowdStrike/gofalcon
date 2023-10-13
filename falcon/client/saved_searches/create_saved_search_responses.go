@@ -53,8 +53,7 @@ func NewCreateSavedSearchOK() *CreateSavedSearchOK {
 	return &CreateSavedSearchOK{}
 }
 
-/*
-CreateSavedSearchOK describes a response with status code 200, with default header values.
+/* CreateSavedSearchOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewCreateSavedSearchForbidden() *CreateSavedSearchForbidden {
 	return &CreateSavedSearchForbidden{}
 }
 
-/*
-CreateSavedSearchForbidden describes a response with status code 403, with default header values.
+/* CreateSavedSearchForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewCreateSavedSearchTooManyRequests() *CreateSavedSearchTooManyRequests {
 	return &CreateSavedSearchTooManyRequests{}
 }
 
-/*
-CreateSavedSearchTooManyRequests describes a response with status code 429, with default header values.
+/* CreateSavedSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

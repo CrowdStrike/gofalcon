@@ -65,8 +65,7 @@ func NewGetPoliciesOK() *GetPoliciesOK {
 	return &GetPoliciesOK{}
 }
 
-/*
-GetPoliciesOK describes a response with status code 200, with default header values.
+/* GetPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetPoliciesBadRequest() *GetPoliciesBadRequest {
 	return &GetPoliciesBadRequest{}
 }
 
-/*
-GetPoliciesBadRequest describes a response with status code 400, with default header values.
+/* GetPoliciesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetPoliciesForbidden() *GetPoliciesForbidden {
 	return &GetPoliciesForbidden{}
 }
 
-/*
-GetPoliciesForbidden describes a response with status code 403, with default header values.
+/* GetPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetPoliciesTooManyRequests() *GetPoliciesTooManyRequests {
 	return &GetPoliciesTooManyRequests{}
 }
 
-/*
-GetPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* GetPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetPoliciesInternalServerError() *GetPoliciesInternalServerError {
 	return &GetPoliciesInternalServerError{}
 }
 
-/*
-GetPoliciesInternalServerError describes a response with status code 500, with default header values.
+/* GetPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

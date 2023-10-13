@@ -54,12 +54,10 @@ func NewGetScansAggregatesParamsWithHTTPClient(client *http.Client) *GetScansAgg
 	}
 }
 
-/*
-GetScansAggregatesParams contains all the parameters to send to the API endpoint
+/* GetScansAggregatesParams contains all the parameters to send to the API endpoint
+   for the get scans aggregates operation.
 
-	for the get scans aggregates operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetScansAggregatesParams struct {
 

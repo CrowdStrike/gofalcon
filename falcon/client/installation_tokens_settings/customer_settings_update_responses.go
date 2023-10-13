@@ -71,8 +71,7 @@ func NewCustomerSettingsUpdateOK() *CustomerSettingsUpdateOK {
 	return &CustomerSettingsUpdateOK{}
 }
 
-/*
-CustomerSettingsUpdateOK describes a response with status code 200, with default header values.
+/* CustomerSettingsUpdateOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewCustomerSettingsUpdateBadRequest() *CustomerSettingsUpdateBadRequest {
 	return &CustomerSettingsUpdateBadRequest{}
 }
 
-/*
-CustomerSettingsUpdateBadRequest describes a response with status code 400, with default header values.
+/* CustomerSettingsUpdateBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewCustomerSettingsUpdateForbidden() *CustomerSettingsUpdateForbidden {
 	return &CustomerSettingsUpdateForbidden{}
 }
 
-/*
-CustomerSettingsUpdateForbidden describes a response with status code 403, with default header values.
+/* CustomerSettingsUpdateForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewCustomerSettingsUpdateNotFound() *CustomerSettingsUpdateNotFound {
 	return &CustomerSettingsUpdateNotFound{}
 }
 
-/*
-CustomerSettingsUpdateNotFound describes a response with status code 404, with default header values.
+/* CustomerSettingsUpdateNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewCustomerSettingsUpdateTooManyRequests() *CustomerSettingsUpdateTooManyRe
 	return &CustomerSettingsUpdateTooManyRequests{}
 }
 
-/*
-CustomerSettingsUpdateTooManyRequests describes a response with status code 429, with default header values.
+/* CustomerSettingsUpdateTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCustomerSettingsUpdateInternalServerError() *CustomerSettingsUpdateInter
 	return &CustomerSettingsUpdateInternalServerError{}
 }
 
-/*
-CustomerSettingsUpdateInternalServerError describes a response with status code 500, with default header values.
+/* CustomerSettingsUpdateInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -65,8 +65,7 @@ func NewGetDeviceControlPoliciesOK() *GetDeviceControlPoliciesOK {
 	return &GetDeviceControlPoliciesOK{}
 }
 
-/*
-GetDeviceControlPoliciesOK describes a response with status code 200, with default header values.
+/* GetDeviceControlPoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetDeviceControlPoliciesForbidden() *GetDeviceControlPoliciesForbidden {
 	return &GetDeviceControlPoliciesForbidden{}
 }
 
-/*
-GetDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
+/* GetDeviceControlPoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewGetDeviceControlPoliciesNotFound() *GetDeviceControlPoliciesNotFound {
 	return &GetDeviceControlPoliciesNotFound{}
 }
 
-/*
-GetDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
+/* GetDeviceControlPoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewGetDeviceControlPoliciesTooManyRequests() *GetDeviceControlPoliciesTooMa
 	return &GetDeviceControlPoliciesTooManyRequests{}
 }
 
-/*
-GetDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* GetDeviceControlPoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetDeviceControlPoliciesInternalServerError() *GetDeviceControlPoliciesI
 	return &GetDeviceControlPoliciesInternalServerError{}
 }
 
-/*
-GetDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
+/* GetDeviceControlPoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

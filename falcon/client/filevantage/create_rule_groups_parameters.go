@@ -54,12 +54,10 @@ func NewCreateRuleGroupsParamsWithHTTPClient(client *http.Client) *CreateRuleGro
 	}
 }
 
-/*
-CreateRuleGroupsParams contains all the parameters to send to the API endpoint
+/* CreateRuleGroupsParams contains all the parameters to send to the API endpoint
+   for the create rule groups operation.
 
-	for the create rule groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRuleGroupsParams struct {
 

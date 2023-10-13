@@ -65,8 +65,7 @@ func NewGetCSPMAwsAccountScriptsAttachmentOK() *GetCSPMAwsAccountScriptsAttachme
 	return &GetCSPMAwsAccountScriptsAttachmentOK{}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentOK describes a response with status code 200, with default header values.
+/* GetCSPMAwsAccountScriptsAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetCSPMAwsAccountScriptsAttachmentBadRequest() *GetCSPMAwsAccountScripts
 	return &GetCSPMAwsAccountScriptsAttachmentBadRequest{}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
+/* GetCSPMAwsAccountScriptsAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetCSPMAwsAccountScriptsAttachmentForbidden() *GetCSPMAwsAccountScriptsA
 	return &GetCSPMAwsAccountScriptsAttachmentForbidden{}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentForbidden describes a response with status code 403, with default header values.
+/* GetCSPMAwsAccountScriptsAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetCSPMAwsAccountScriptsAttachmentTooManyRequests() *GetCSPMAwsAccountSc
 	return &GetCSPMAwsAccountScriptsAttachmentTooManyRequests{}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/* GetCSPMAwsAccountScriptsAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetCSPMAwsAccountScriptsAttachmentInternalServerError() *GetCSPMAwsAccou
 	return &GetCSPMAwsAccountScriptsAttachmentInternalServerError{}
 }
 
-/*
-GetCSPMAwsAccountScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
+/* GetCSPMAwsAccountScriptsAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -71,8 +71,7 @@ func NewAggregateNotificationsExposedDataRecordsV1OK() *AggregateNotificationsEx
 	return &AggregateNotificationsExposedDataRecordsV1OK{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewAggregateNotificationsExposedDataRecordsV1BadRequest() *AggregateNotific
 	return &AggregateNotificationsExposedDataRecordsV1BadRequest{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewAggregateNotificationsExposedDataRecordsV1Unauthorized() *AggregateNotif
 	return &AggregateNotificationsExposedDataRecordsV1Unauthorized{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewAggregateNotificationsExposedDataRecordsV1Forbidden() *AggregateNotifica
 	return &AggregateNotificationsExposedDataRecordsV1Forbidden{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewAggregateNotificationsExposedDataRecordsV1TooManyRequests() *AggregateNo
 	return &AggregateNotificationsExposedDataRecordsV1TooManyRequests{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewAggregateNotificationsExposedDataRecordsV1InternalServerError() *Aggrega
 	return &AggregateNotificationsExposedDataRecordsV1InternalServerError{}
 }
 
-/*
-AggregateNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
+/* AggregateNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

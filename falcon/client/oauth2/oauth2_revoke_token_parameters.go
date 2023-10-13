@@ -52,12 +52,10 @@ func NewOauth2RevokeTokenParamsWithHTTPClient(client *http.Client) *Oauth2Revoke
 	}
 }
 
-/*
-Oauth2RevokeTokenParams contains all the parameters to send to the API endpoint
+/* Oauth2RevokeTokenParams contains all the parameters to send to the API endpoint
+   for the oauth2 revoke token operation.
 
-	for the oauth2 revoke token operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type Oauth2RevokeTokenParams struct {
 

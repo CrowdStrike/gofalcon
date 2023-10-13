@@ -54,12 +54,10 @@ func NewValidateFilepathPatternParamsWithHTTPClient(client *http.Client) *Valida
 	}
 }
 
-/*
-ValidateFilepathPatternParams contains all the parameters to send to the API endpoint
+/* ValidateFilepathPatternParams contains all the parameters to send to the API endpoint
+   for the validate filepath pattern operation.
 
-	for the validate filepath pattern operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ValidateFilepathPatternParams struct {
 

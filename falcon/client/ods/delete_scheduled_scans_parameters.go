@@ -53,14 +53,18 @@ func NewDeleteScheduledScansParamsWithHTTPClient(client *http.Client) *DeleteSch
 	}
 }
 
-/*
-DeleteScheduledScansParams contains all the parameters to send to the API endpoint
+/* DeleteScheduledScansParams contains all the parameters to send to the API endpoint
+   for the delete scheduled scans operation.
 
-	for the delete scheduled scans operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type DeleteScheduledScansParams struct {
+
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
 
 	/* Filter.
 
@@ -127,6 +131,17 @@ func (o *DeleteScheduledScansParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the delete scheduled scans params
+func (o *DeleteScheduledScansParams) WithXCSUSERUUID(xCSUSERUUID string) *DeleteScheduledScansParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the delete scheduled scans params
+func (o *DeleteScheduledScansParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithFilter adds the filter to the delete scheduled scans params
 func (o *DeleteScheduledScansParams) WithFilter(filter *string) *DeleteScheduledScansParams {
 	o.SetFilter(filter)
@@ -156,6 +171,11 @@ func (o *DeleteScheduledScansParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Filter != nil {
 

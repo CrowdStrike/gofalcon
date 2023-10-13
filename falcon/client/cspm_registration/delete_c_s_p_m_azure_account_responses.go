@@ -71,8 +71,7 @@ func NewDeleteCSPMAzureAccountOK() *DeleteCSPMAzureAccountOK {
 	return &DeleteCSPMAzureAccountOK{}
 }
 
-/*
-DeleteCSPMAzureAccountOK describes a response with status code 200, with default header values.
+/* DeleteCSPMAzureAccountOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewDeleteCSPMAzureAccountMultiStatus() *DeleteCSPMAzureAccountMultiStatus {
 	return &DeleteCSPMAzureAccountMultiStatus{}
 }
 
-/*
-DeleteCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
+/* DeleteCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewDeleteCSPMAzureAccountBadRequest() *DeleteCSPMAzureAccountBadRequest {
 	return &DeleteCSPMAzureAccountBadRequest{}
 }
 
-/*
-DeleteCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
+/* DeleteCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewDeleteCSPMAzureAccountForbidden() *DeleteCSPMAzureAccountForbidden {
 	return &DeleteCSPMAzureAccountForbidden{}
 }
 
-/*
-DeleteCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
+/* DeleteCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewDeleteCSPMAzureAccountTooManyRequests() *DeleteCSPMAzureAccountTooManyRe
 	return &DeleteCSPMAzureAccountTooManyRequests{}
 }
 
-/*
-DeleteCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewDeleteCSPMAzureAccountInternalServerError() *DeleteCSPMAzureAccountInter
 	return &DeleteCSPMAzureAccountInternalServerError{}
 }
 
-/*
-DeleteCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
+/* DeleteCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

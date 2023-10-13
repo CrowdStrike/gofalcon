@@ -65,8 +65,7 @@ func NewDeleteRTResponsePoliciesOK() *DeleteRTResponsePoliciesOK {
 	return &DeleteRTResponsePoliciesOK{}
 }
 
-/*
-DeleteRTResponsePoliciesOK describes a response with status code 200, with default header values.
+/* DeleteRTResponsePoliciesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewDeleteRTResponsePoliciesForbidden() *DeleteRTResponsePoliciesForbidden {
 	return &DeleteRTResponsePoliciesForbidden{}
 }
 
-/*
-DeleteRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
+/* DeleteRTResponsePoliciesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewDeleteRTResponsePoliciesNotFound() *DeleteRTResponsePoliciesNotFound {
 	return &DeleteRTResponsePoliciesNotFound{}
 }
 
-/*
-DeleteRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
+/* DeleteRTResponsePoliciesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewDeleteRTResponsePoliciesTooManyRequests() *DeleteRTResponsePoliciesTooMa
 	return &DeleteRTResponsePoliciesTooManyRequests{}
 }
 
-/*
-DeleteRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteRTResponsePoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewDeleteRTResponsePoliciesInternalServerError() *DeleteRTResponsePoliciesI
 	return &DeleteRTResponsePoliciesInternalServerError{}
 }
 
-/*
-DeleteRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
+/* DeleteRTResponsePoliciesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

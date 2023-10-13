@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-GetCredentials gets the registry credentials
+  GetCredentials gets the registry credentials
 */
 func (a *Client) GetCredentials(params *GetCredentialsParams, opts ...ClientOption) (*GetCredentialsOK, error) {
 	// TODO: Validate the params before sending

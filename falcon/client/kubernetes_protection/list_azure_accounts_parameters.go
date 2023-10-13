@@ -53,12 +53,10 @@ func NewListAzureAccountsParamsWithHTTPClient(client *http.Client) *ListAzureAcc
 	}
 }
 
-/*
-ListAzureAccountsParams contains all the parameters to send to the API endpoint
+/* ListAzureAccountsParams contains all the parameters to send to the API endpoint
+   for the list azure accounts operation.
 
-	for the list azure accounts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ListAzureAccountsParams struct {
 

@@ -71,8 +71,7 @@ func NewEntitiesRolesV1OK() *EntitiesRolesV1OK {
 	return &EntitiesRolesV1OK{}
 }
 
-/*
-EntitiesRolesV1OK describes a response with status code 200, with default header values.
+/* EntitiesRolesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewEntitiesRolesV1BadRequest() *EntitiesRolesV1BadRequest {
 	return &EntitiesRolesV1BadRequest{}
 }
 
-/*
-EntitiesRolesV1BadRequest describes a response with status code 400, with default header values.
+/* EntitiesRolesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewEntitiesRolesV1Forbidden() *EntitiesRolesV1Forbidden {
 	return &EntitiesRolesV1Forbidden{}
 }
 
-/*
-EntitiesRolesV1Forbidden describes a response with status code 403, with default header values.
+/* EntitiesRolesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewEntitiesRolesV1NotFound() *EntitiesRolesV1NotFound {
 	return &EntitiesRolesV1NotFound{}
 }
 
-/*
-EntitiesRolesV1NotFound describes a response with status code 404, with default header values.
+/* EntitiesRolesV1NotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewEntitiesRolesV1TooManyRequests() *EntitiesRolesV1TooManyRequests {
 	return &EntitiesRolesV1TooManyRequests{}
 }
 
-/*
-EntitiesRolesV1TooManyRequests describes a response with status code 429, with default header values.
+/* EntitiesRolesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewEntitiesRolesV1InternalServerError() *EntitiesRolesV1InternalServerError
 	return &EntitiesRolesV1InternalServerError{}
 }
 
-/*
-EntitiesRolesV1InternalServerError describes a response with status code 500, with default header values.
+/* EntitiesRolesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

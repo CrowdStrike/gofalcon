@@ -65,8 +65,7 @@ func NewUpdatePolicyContainerV1OK() *UpdatePolicyContainerV1OK {
 	return &UpdatePolicyContainerV1OK{}
 }
 
-/*
-UpdatePolicyContainerV1OK describes a response with status code 200, with default header values.
+/* UpdatePolicyContainerV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdatePolicyContainerV1Created() *UpdatePolicyContainerV1Created {
 	return &UpdatePolicyContainerV1Created{}
 }
 
-/*
-UpdatePolicyContainerV1Created describes a response with status code 201, with default header values.
+/* UpdatePolicyContainerV1Created describes a response with status code 201, with default header values.
 
 Created
 */
@@ -285,8 +283,7 @@ func NewUpdatePolicyContainerV1BadRequest() *UpdatePolicyContainerV1BadRequest {
 	return &UpdatePolicyContainerV1BadRequest{}
 }
 
-/*
-UpdatePolicyContainerV1BadRequest describes a response with status code 400, with default header values.
+/* UpdatePolicyContainerV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewUpdatePolicyContainerV1Forbidden() *UpdatePolicyContainerV1Forbidden {
 	return &UpdatePolicyContainerV1Forbidden{}
 }
 
-/*
-UpdatePolicyContainerV1Forbidden describes a response with status code 403, with default header values.
+/* UpdatePolicyContainerV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewUpdatePolicyContainerV1TooManyRequests() *UpdatePolicyContainerV1TooMany
 	return &UpdatePolicyContainerV1TooManyRequests{}
 }
 
-/*
-UpdatePolicyContainerV1TooManyRequests describes a response with status code 429, with default header values.
+/* UpdatePolicyContainerV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

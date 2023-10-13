@@ -59,8 +59,7 @@ func NewGetScanHostMetadataByIdsOK() *GetScanHostMetadataByIdsOK {
 	return &GetScanHostMetadataByIdsOK{}
 }
 
-/*
-GetScanHostMetadataByIdsOK describes a response with status code 200, with default header values.
+/* GetScanHostMetadataByIdsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewGetScanHostMetadataByIdsForbidden() *GetScanHostMetadataByIdsForbidden {
 	return &GetScanHostMetadataByIdsForbidden{}
 }
 
-/*
-GetScanHostMetadataByIdsForbidden describes a response with status code 403, with default header values.
+/* GetScanHostMetadataByIdsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -279,8 +277,7 @@ func NewGetScanHostMetadataByIdsNotFound() *GetScanHostMetadataByIdsNotFound {
 	return &GetScanHostMetadataByIdsNotFound{}
 }
 
-/*
-GetScanHostMetadataByIdsNotFound describes a response with status code 404, with default header values.
+/* GetScanHostMetadataByIdsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -389,8 +386,7 @@ func NewGetScanHostMetadataByIdsTooManyRequests() *GetScanHostMetadataByIdsTooMa
 	return &GetScanHostMetadataByIdsTooManyRequests{}
 }
 
-/*
-GetScanHostMetadataByIdsTooManyRequests describes a response with status code 429, with default header values.
+/* GetScanHostMetadataByIdsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

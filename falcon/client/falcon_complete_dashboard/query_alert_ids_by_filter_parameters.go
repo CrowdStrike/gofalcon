@@ -53,12 +53,10 @@ func NewQueryAlertIdsByFilterParamsWithHTTPClient(client *http.Client) *QueryAle
 	}
 }
 
-/*
-QueryAlertIdsByFilterParams contains all the parameters to send to the API endpoint
+/* QueryAlertIdsByFilterParams contains all the parameters to send to the API endpoint
+   for the query alert ids by filter operation.
 
-	for the query alert ids by filter operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryAlertIdsByFilterParams struct {
 

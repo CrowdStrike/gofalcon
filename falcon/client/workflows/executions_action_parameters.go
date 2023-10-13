@@ -54,12 +54,10 @@ func NewExecutionsActionParamsWithHTTPClient(client *http.Client) *ExecutionsAct
 	}
 }
 
-/*
-ExecutionsActionParams contains all the parameters to send to the API endpoint
+/* ExecutionsActionParams contains all the parameters to send to the API endpoint
+   for the executions action operation.
 
-	for the executions action operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ExecutionsActionParams struct {
 

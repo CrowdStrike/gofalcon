@@ -59,8 +59,7 @@ func NewQueryPolicyRulesOK() *QueryPolicyRulesOK {
 	return &QueryPolicyRulesOK{}
 }
 
-/*
-QueryPolicyRulesOK describes a response with status code 200, with default header values.
+/* QueryPolicyRulesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryPolicyRulesBadRequest() *QueryPolicyRulesBadRequest {
 	return &QueryPolicyRulesBadRequest{}
 }
 
-/*
-QueryPolicyRulesBadRequest describes a response with status code 400, with default header values.
+/* QueryPolicyRulesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryPolicyRulesForbidden() *QueryPolicyRulesForbidden {
 	return &QueryPolicyRulesForbidden{}
 }
 
-/*
-QueryPolicyRulesForbidden describes a response with status code 403, with default header values.
+/* QueryPolicyRulesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryPolicyRulesTooManyRequests() *QueryPolicyRulesTooManyRequests {
 	return &QueryPolicyRulesTooManyRequests{}
 }
 
-/*
-QueryPolicyRulesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryPolicyRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

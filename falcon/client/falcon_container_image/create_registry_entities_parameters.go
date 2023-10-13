@@ -54,12 +54,10 @@ func NewCreateRegistryEntitiesParamsWithHTTPClient(client *http.Client) *CreateR
 	}
 }
 
-/*
-CreateRegistryEntitiesParams contains all the parameters to send to the API endpoint
+/* CreateRegistryEntitiesParams contains all the parameters to send to the API endpoint
+   for the create registry entities operation.
 
-	for the create registry entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type CreateRegistryEntitiesParams struct {
 

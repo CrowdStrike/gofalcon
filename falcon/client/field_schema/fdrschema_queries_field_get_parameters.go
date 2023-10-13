@@ -53,12 +53,10 @@ func NewFdrschemaQueriesFieldGetParamsWithHTTPClient(client *http.Client) *Fdrsc
 	}
 }
 
-/*
-FdrschemaQueriesFieldGetParams contains all the parameters to send to the API endpoint
+/* FdrschemaQueriesFieldGetParams contains all the parameters to send to the API endpoint
+   for the fdrschema queries field get operation.
 
-	for the fdrschema queries field get operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type FdrschemaQueriesFieldGetParams struct {
 

@@ -53,8 +53,7 @@ func NewPostMitreAttacksOK() *PostMitreAttacksOK {
 	return &PostMitreAttacksOK{}
 }
 
-/*
-PostMitreAttacksOK describes a response with status code 200, with default header values.
+/* PostMitreAttacksOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -150,8 +149,7 @@ func NewPostMitreAttacksForbidden() *PostMitreAttacksForbidden {
 	return &PostMitreAttacksForbidden{}
 }
 
-/*
-PostMitreAttacksForbidden describes a response with status code 403, with default header values.
+/* PostMitreAttacksForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -260,8 +258,7 @@ func NewPostMitreAttacksTooManyRequests() *PostMitreAttacksTooManyRequests {
 	return &PostMitreAttacksTooManyRequests{}
 }
 
-/*
-PostMitreAttacksTooManyRequests describes a response with status code 429, with default header values.
+/* PostMitreAttacksTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

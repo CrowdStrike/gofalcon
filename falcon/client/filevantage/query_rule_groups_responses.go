@@ -65,8 +65,7 @@ func NewQueryRuleGroupsOK() *QueryRuleGroupsOK {
 	return &QueryRuleGroupsOK{}
 }
 
-/*
-QueryRuleGroupsOK describes a response with status code 200, with default header values.
+/* QueryRuleGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryRuleGroupsBadRequest() *QueryRuleGroupsBadRequest {
 	return &QueryRuleGroupsBadRequest{}
 }
 
-/*
-QueryRuleGroupsBadRequest describes a response with status code 400, with default header values.
+/* QueryRuleGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryRuleGroupsForbidden() *QueryRuleGroupsForbidden {
 	return &QueryRuleGroupsForbidden{}
 }
 
-/*
-QueryRuleGroupsForbidden describes a response with status code 403, with default header values.
+/* QueryRuleGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryRuleGroupsTooManyRequests() *QueryRuleGroupsTooManyRequests {
 	return &QueryRuleGroupsTooManyRequests{}
 }
 
-/*
-QueryRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* QueryRuleGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryRuleGroupsInternalServerError() *QueryRuleGroupsInternalServerError
 	return &QueryRuleGroupsInternalServerError{}
 }
 
-/*
-QueryRuleGroupsInternalServerError describes a response with status code 500, with default header values.
+/* QueryRuleGroupsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

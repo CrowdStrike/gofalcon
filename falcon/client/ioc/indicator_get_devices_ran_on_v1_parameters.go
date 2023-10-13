@@ -52,12 +52,10 @@ func NewIndicatorGetDevicesRanOnV1ParamsWithHTTPClient(client *http.Client) *Ind
 	}
 }
 
-/*
-IndicatorGetDevicesRanOnV1Params contains all the parameters to send to the API endpoint
+/* IndicatorGetDevicesRanOnV1Params contains all the parameters to send to the API endpoint
+   for the indicator get devices ran on v1 operation.
 
-	for the indicator get devices ran on v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorGetDevicesRanOnV1Params struct {
 

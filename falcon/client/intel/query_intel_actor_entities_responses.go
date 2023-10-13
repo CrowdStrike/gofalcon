@@ -65,8 +65,7 @@ func NewQueryIntelActorEntitiesOK() *QueryIntelActorEntitiesOK {
 	return &QueryIntelActorEntitiesOK{}
 }
 
-/*
-QueryIntelActorEntitiesOK describes a response with status code 200, with default header values.
+/* QueryIntelActorEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryIntelActorEntitiesBadRequest() *QueryIntelActorEntitiesBadRequest {
 	return &QueryIntelActorEntitiesBadRequest{}
 }
 
-/*
-QueryIntelActorEntitiesBadRequest describes a response with status code 400, with default header values.
+/* QueryIntelActorEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQueryIntelActorEntitiesForbidden() *QueryIntelActorEntitiesForbidden {
 	return &QueryIntelActorEntitiesForbidden{}
 }
 
-/*
-QueryIntelActorEntitiesForbidden describes a response with status code 403, with default header values.
+/* QueryIntelActorEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQueryIntelActorEntitiesTooManyRequests() *QueryIntelActorEntitiesTooMany
 	return &QueryIntelActorEntitiesTooManyRequests{}
 }
 
-/*
-QueryIntelActorEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryIntelActorEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryIntelActorEntitiesInternalServerError() *QueryIntelActorEntitiesInt
 	return &QueryIntelActorEntitiesInternalServerError{}
 }
 
-/*
-QueryIntelActorEntitiesInternalServerError describes a response with status code 500, with default header values.
+/* QueryIntelActorEntitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

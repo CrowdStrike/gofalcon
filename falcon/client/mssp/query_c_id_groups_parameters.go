@@ -53,12 +53,10 @@ func NewQueryCIDGroupsParamsWithHTTPClient(client *http.Client) *QueryCIDGroupsP
 	}
 }
 
-/*
-QueryCIDGroupsParams contains all the parameters to send to the API endpoint
+/* QueryCIDGroupsParams contains all the parameters to send to the API endpoint
+   for the query c ID groups operation.
 
-	for the query c ID groups operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCIDGroupsParams struct {
 

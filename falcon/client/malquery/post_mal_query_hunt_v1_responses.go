@@ -71,8 +71,7 @@ func NewPostMalQueryHuntV1OK() *PostMalQueryHuntV1OK {
 	return &PostMalQueryHuntV1OK{}
 }
 
-/*
-PostMalQueryHuntV1OK describes a response with status code 200, with default header values.
+/* PostMalQueryHuntV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewPostMalQueryHuntV1BadRequest() *PostMalQueryHuntV1BadRequest {
 	return &PostMalQueryHuntV1BadRequest{}
 }
 
-/*
-PostMalQueryHuntV1BadRequest describes a response with status code 400, with default header values.
+/* PostMalQueryHuntV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewPostMalQueryHuntV1Unauthorized() *PostMalQueryHuntV1Unauthorized {
 	return &PostMalQueryHuntV1Unauthorized{}
 }
 
-/*
-PostMalQueryHuntV1Unauthorized describes a response with status code 401, with default header values.
+/* PostMalQueryHuntV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewPostMalQueryHuntV1Forbidden() *PostMalQueryHuntV1Forbidden {
 	return &PostMalQueryHuntV1Forbidden{}
 }
 
-/*
-PostMalQueryHuntV1Forbidden describes a response with status code 403, with default header values.
+/* PostMalQueryHuntV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewPostMalQueryHuntV1TooManyRequests() *PostMalQueryHuntV1TooManyRequests {
 	return &PostMalQueryHuntV1TooManyRequests{}
 }
 
-/*
-PostMalQueryHuntV1TooManyRequests describes a response with status code 429, with default header values.
+/* PostMalQueryHuntV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewPostMalQueryHuntV1InternalServerError() *PostMalQueryHuntV1InternalServe
 	return &PostMalQueryHuntV1InternalServerError{}
 }
 
-/*
-PostMalQueryHuntV1InternalServerError describes a response with status code 500, with default header values.
+/* PostMalQueryHuntV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

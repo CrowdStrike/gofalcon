@@ -53,12 +53,10 @@ func NewQueryIntelReportEntitiesParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/*
-QueryIntelReportEntitiesParams contains all the parameters to send to the API endpoint
+/* QueryIntelReportEntitiesParams contains all the parameters to send to the API endpoint
+   for the query intel report entities operation.
 
-	for the query intel report entities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryIntelReportEntitiesParams struct {
 

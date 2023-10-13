@@ -52,12 +52,10 @@ func NewRTRDeleteScriptsParamsWithHTTPClient(client *http.Client) *RTRDeleteScri
 	}
 }
 
-/*
-RTRDeleteScriptsParams contains all the parameters to send to the API endpoint
+/* RTRDeleteScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r delete scripts operation.
 
-	for the r t r delete scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRDeleteScriptsParams struct {
 

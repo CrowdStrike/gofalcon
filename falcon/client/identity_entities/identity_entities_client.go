@@ -40,7 +40,7 @@ type ClientService interface {
 }
 
 /*
-GetSensorAggregates gets sensor aggregates as specified via json in request body
+  GetSensorAggregates gets sensor aggregates as specified via json in request body
 */
 func (a *Client) GetSensorAggregates(params *GetSensorAggregatesParams, opts ...ClientOption) (*GetSensorAggregatesOK, error) {
 	// TODO: Validate the params before sending
@@ -78,7 +78,7 @@ func (a *Client) GetSensorAggregates(params *GetSensorAggregatesParams, opts ...
 }
 
 /*
-GetSensorDetails gets details on one or more sensors by providing device i ds in a p o s t body supports up to a maximum of 5000 i ds
+  GetSensorDetails gets details on one or more sensors by providing device i ds in a p o s t body supports up to a maximum of 5000 i ds
 */
 func (a *Client) GetSensorDetails(params *GetSensorDetailsParams, opts ...ClientOption) (*GetSensorDetailsOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) GetSensorDetails(params *GetSensorDetailsParams, opts ...Client
 }
 
 /*
-QuerySensorsByFilter searches for sensors in your environment by hostname IP and other criteria
+  QuerySensorsByFilter searches for sensors in your environment by hostname IP and other criteria
 */
 func (a *Client) QuerySensorsByFilter(params *QuerySensorsByFilterParams, opts ...ClientOption) (*QuerySensorsByFilterOK, error) {
 	// TODO: Validate the params before sending

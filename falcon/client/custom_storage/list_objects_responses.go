@@ -53,8 +53,7 @@ func NewListObjectsOK() *ListObjectsOK {
 	return &ListObjectsOK{}
 }
 
-/*
-ListObjectsOK describes a response with status code 200, with default header values.
+/* ListObjectsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewListObjectsForbidden() *ListObjectsForbidden {
 	return &ListObjectsForbidden{}
 }
 
-/*
-ListObjectsForbidden describes a response with status code 403, with default header values.
+/* ListObjectsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewListObjectsTooManyRequests() *ListObjectsTooManyRequests {
 	return &ListObjectsTooManyRequests{}
 }
 
-/*
-ListObjectsTooManyRequests describes a response with status code 429, with default header values.
+/* ListObjectsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

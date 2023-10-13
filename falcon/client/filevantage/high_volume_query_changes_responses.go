@@ -65,8 +65,7 @@ func NewHighVolumeQueryChangesOK() *HighVolumeQueryChangesOK {
 	return &HighVolumeQueryChangesOK{}
 }
 
-/*
-HighVolumeQueryChangesOK describes a response with status code 200, with default header values.
+/* HighVolumeQueryChangesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewHighVolumeQueryChangesBadRequest() *HighVolumeQueryChangesBadRequest {
 	return &HighVolumeQueryChangesBadRequest{}
 }
 
-/*
-HighVolumeQueryChangesBadRequest describes a response with status code 400, with default header values.
+/* HighVolumeQueryChangesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewHighVolumeQueryChangesForbidden() *HighVolumeQueryChangesForbidden {
 	return &HighVolumeQueryChangesForbidden{}
 }
 
-/*
-HighVolumeQueryChangesForbidden describes a response with status code 403, with default header values.
+/* HighVolumeQueryChangesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewHighVolumeQueryChangesTooManyRequests() *HighVolumeQueryChangesTooManyRe
 	return &HighVolumeQueryChangesTooManyRequests{}
 }
 
-/*
-HighVolumeQueryChangesTooManyRequests describes a response with status code 429, with default header values.
+/* HighVolumeQueryChangesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewHighVolumeQueryChangesInternalServerError() *HighVolumeQueryChangesInter
 	return &HighVolumeQueryChangesInternalServerError{}
 }
 
-/*
-HighVolumeQueryChangesInternalServerError describes a response with status code 500, with default header values.
+/* HighVolumeQueryChangesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

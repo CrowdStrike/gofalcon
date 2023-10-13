@@ -53,12 +53,10 @@ func NewGetSummaryReportsParamsWithHTTPClient(client *http.Client) *GetSummaryRe
 	}
 }
 
-/*
-GetSummaryReportsParams contains all the parameters to send to the API endpoint
+/* GetSummaryReportsParams contains all the parameters to send to the API endpoint
+   for the get summary reports operation.
 
-	for the get summary reports operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetSummaryReportsParams struct {
 

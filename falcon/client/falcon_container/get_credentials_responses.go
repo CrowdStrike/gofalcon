@@ -71,8 +71,7 @@ func NewGetCredentialsOK() *GetCredentialsOK {
 	return &GetCredentialsOK{}
 }
 
-/*
-GetCredentialsOK describes a response with status code 200, with default header values.
+/* GetCredentialsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetCredentialsBadRequest() *GetCredentialsBadRequest {
 	return &GetCredentialsBadRequest{}
 }
 
-/*
-GetCredentialsBadRequest describes a response with status code 400, with default header values.
+/* GetCredentialsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetCredentialsUnauthorized() *GetCredentialsUnauthorized {
 	return &GetCredentialsUnauthorized{}
 }
 
-/*
-GetCredentialsUnauthorized describes a response with status code 401, with default header values.
+/* GetCredentialsUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewGetCredentialsForbidden() *GetCredentialsForbidden {
 	return &GetCredentialsForbidden{}
 }
 
-/*
-GetCredentialsForbidden describes a response with status code 403, with default header values.
+/* GetCredentialsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetCredentialsTooManyRequests() *GetCredentialsTooManyRequests {
 	return &GetCredentialsTooManyRequests{}
 }
 
-/*
-GetCredentialsTooManyRequests describes a response with status code 429, with default header values.
+/* GetCredentialsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetCredentialsInternalServerError() *GetCredentialsInternalServerError {
 	return &GetCredentialsInternalServerError{}
 }
 
-/*
-GetCredentialsInternalServerError describes a response with status code 500, with default header values.
+/* GetCredentialsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewGetCSPMAzureAccountParamsWithHTTPClient(client *http.Client) *GetCSPMAzu
 	}
 }
 
-/*
-GetCSPMAzureAccountParams contains all the parameters to send to the API endpoint
+/* GetCSPMAzureAccountParams contains all the parameters to send to the API endpoint
+   for the get c s p m azure account operation.
 
-	for the get c s p m azure account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMAzureAccountParams struct {
 

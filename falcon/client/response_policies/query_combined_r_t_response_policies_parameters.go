@@ -53,12 +53,10 @@ func NewQueryCombinedRTResponsePoliciesParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-QueryCombinedRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+/* QueryCombinedRTResponsePoliciesParams contains all the parameters to send to the API endpoint
+   for the query combined r t response policies operation.
 
-	for the query combined r t response policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedRTResponsePoliciesParams struct {
 

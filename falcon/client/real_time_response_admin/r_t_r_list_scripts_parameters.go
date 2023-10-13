@@ -53,12 +53,10 @@ func NewRTRListScriptsParamsWithHTTPClient(client *http.Client) *RTRListScriptsP
 	}
 }
 
-/*
-RTRListScriptsParams contains all the parameters to send to the API endpoint
+/* RTRListScriptsParams contains all the parameters to send to the API endpoint
+   for the r t r list scripts operation.
 
-	for the r t r list scripts operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RTRListScriptsParams struct {
 

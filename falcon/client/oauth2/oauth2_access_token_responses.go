@@ -65,8 +65,7 @@ func NewOauth2AccessTokenCreated() *Oauth2AccessTokenCreated {
 	return &Oauth2AccessTokenCreated{}
 }
 
-/*
-Oauth2AccessTokenCreated describes a response with status code 201, with default header values.
+/* Oauth2AccessTokenCreated describes a response with status code 201, with default header values.
 
 Successfully issued token
 */
@@ -183,8 +182,7 @@ func NewOauth2AccessTokenBadRequest() *Oauth2AccessTokenBadRequest {
 	return &Oauth2AccessTokenBadRequest{}
 }
 
-/*
-Oauth2AccessTokenBadRequest describes a response with status code 400, with default header values.
+/* Oauth2AccessTokenBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -293,8 +291,7 @@ func NewOauth2AccessTokenForbidden() *Oauth2AccessTokenForbidden {
 	return &Oauth2AccessTokenForbidden{}
 }
 
-/*
-Oauth2AccessTokenForbidden describes a response with status code 403, with default header values.
+/* Oauth2AccessTokenForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -403,8 +400,7 @@ func NewOauth2AccessTokenTooManyRequests() *Oauth2AccessTokenTooManyRequests {
 	return &Oauth2AccessTokenTooManyRequests{}
 }
 
-/*
-Oauth2AccessTokenTooManyRequests describes a response with status code 429, with default header values.
+/* Oauth2AccessTokenTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -528,8 +524,7 @@ func NewOauth2AccessTokenInternalServerError() *Oauth2AccessTokenInternalServerE
 	return &Oauth2AccessTokenInternalServerError{}
 }
 
-/*
-Oauth2AccessTokenInternalServerError describes a response with status code 500, with default header values.
+/* Oauth2AccessTokenInternalServerError describes a response with status code 500, with default header values.
 
 Failed to issue token
 */

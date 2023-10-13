@@ -52,12 +52,10 @@ func NewGetAvailableRoleIdsParamsWithHTTPClient(client *http.Client) *GetAvailab
 	}
 }
 
-/*
-GetAvailableRoleIdsParams contains all the parameters to send to the API endpoint
+/* GetAvailableRoleIdsParams contains all the parameters to send to the API endpoint
+   for the get available role ids operation.
 
-	for the get available role ids operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAvailableRoleIdsParams struct {
 	timeout    time.Duration

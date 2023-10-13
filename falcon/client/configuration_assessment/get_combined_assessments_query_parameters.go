@@ -53,12 +53,10 @@ func NewGetCombinedAssessmentsQueryParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetCombinedAssessmentsQueryParams contains all the parameters to send to the API endpoint
+/* GetCombinedAssessmentsQueryParams contains all the parameters to send to the API endpoint
+   for the get combined assessments query operation.
 
-	for the get combined assessments query operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCombinedAssessmentsQueryParams struct {
 

@@ -65,8 +65,7 @@ func NewGetConfigurationDetectionsOK() *GetConfigurationDetectionsOK {
 	return &GetConfigurationDetectionsOK{}
 }
 
-/*
-GetConfigurationDetectionsOK describes a response with status code 200, with default header values.
+/* GetConfigurationDetectionsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetConfigurationDetectionsBadRequest() *GetConfigurationDetectionsBadReq
 	return &GetConfigurationDetectionsBadRequest{}
 }
 
-/*
-GetConfigurationDetectionsBadRequest describes a response with status code 400, with default header values.
+/* GetConfigurationDetectionsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewGetConfigurationDetectionsForbidden() *GetConfigurationDetectionsForbidd
 	return &GetConfigurationDetectionsForbidden{}
 }
 
-/*
-GetConfigurationDetectionsForbidden describes a response with status code 403, with default header values.
+/* GetConfigurationDetectionsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewGetConfigurationDetectionsTooManyRequests() *GetConfigurationDetectionsT
 	return &GetConfigurationDetectionsTooManyRequests{}
 }
 
-/*
-GetConfigurationDetectionsTooManyRequests describes a response with status code 429, with default header values.
+/* GetConfigurationDetectionsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewGetConfigurationDetectionsInternalServerError() *GetConfigurationDetecti
 	return &GetConfigurationDetectionsInternalServerError{}
 }
 
-/*
-GetConfigurationDetectionsInternalServerError describes a response with status code 500, with default header values.
+/* GetConfigurationDetectionsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

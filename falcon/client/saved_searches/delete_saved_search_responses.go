@@ -53,8 +53,7 @@ func NewDeleteSavedSearchOK() *DeleteSavedSearchOK {
 	return &DeleteSavedSearchOK{}
 }
 
-/*
-DeleteSavedSearchOK describes a response with status code 200, with default header values.
+/* DeleteSavedSearchOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewDeleteSavedSearchForbidden() *DeleteSavedSearchForbidden {
 	return &DeleteSavedSearchForbidden{}
 }
 
-/*
-DeleteSavedSearchForbidden describes a response with status code 403, with default header values.
+/* DeleteSavedSearchForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewDeleteSavedSearchTooManyRequests() *DeleteSavedSearchTooManyRequests {
 	return &DeleteSavedSearchTooManyRequests{}
 }
 
-/*
-DeleteSavedSearchTooManyRequests describes a response with status code 429, with default header values.
+/* DeleteSavedSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

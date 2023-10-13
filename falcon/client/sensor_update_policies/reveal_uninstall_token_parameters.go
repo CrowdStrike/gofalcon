@@ -54,12 +54,10 @@ func NewRevealUninstallTokenParamsWithHTTPClient(client *http.Client) *RevealUni
 	}
 }
 
-/*
-RevealUninstallTokenParams contains all the parameters to send to the API endpoint
+/* RevealUninstallTokenParams contains all the parameters to send to the API endpoint
+   for the reveal uninstall token operation.
 
-	for the reveal uninstall token operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type RevealUninstallTokenParams struct {
 

@@ -54,12 +54,10 @@ func NewUpdateDeviceTagsParamsWithHTTPClient(client *http.Client) *UpdateDeviceT
 	}
 }
 
-/*
-UpdateDeviceTagsParams contains all the parameters to send to the API endpoint
+/* UpdateDeviceTagsParams contains all the parameters to send to the API endpoint
+   for the update device tags operation.
 
-	for the update device tags operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpdateDeviceTagsParams struct {
 

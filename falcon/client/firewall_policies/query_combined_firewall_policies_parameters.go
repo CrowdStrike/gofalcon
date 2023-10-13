@@ -53,12 +53,10 @@ func NewQueryCombinedFirewallPoliciesParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-QueryCombinedFirewallPoliciesParams contains all the parameters to send to the API endpoint
+/* QueryCombinedFirewallPoliciesParams contains all the parameters to send to the API endpoint
+   for the query combined firewall policies operation.
 
-	for the query combined firewall policies operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryCombinedFirewallPoliciesParams struct {
 

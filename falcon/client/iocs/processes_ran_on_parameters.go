@@ -52,12 +52,10 @@ func NewProcessesRanOnParamsWithHTTPClient(client *http.Client) *ProcessesRanOnP
 	}
 }
 
-/*
-ProcessesRanOnParams contains all the parameters to send to the API endpoint
+/* ProcessesRanOnParams contains all the parameters to send to the API endpoint
+   for the processes ran on operation.
 
-	for the processes ran on operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ProcessesRanOnParams struct {
 

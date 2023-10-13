@@ -53,12 +53,10 @@ func NewGetAssessmentsByScoreV1ParamsWithHTTPClient(client *http.Client) *GetAss
 	}
 }
 
-/*
-GetAssessmentsByScoreV1Params contains all the parameters to send to the API endpoint
+/* GetAssessmentsByScoreV1Params contains all the parameters to send to the API endpoint
+   for the get assessments by score v1 operation.
 
-	for the get assessments by score v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetAssessmentsByScoreV1Params struct {
 

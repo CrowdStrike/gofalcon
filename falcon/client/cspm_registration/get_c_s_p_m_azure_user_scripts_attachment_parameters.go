@@ -53,12 +53,10 @@ func NewGetCSPMAzureUserScriptsAttachmentParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-GetCSPMAzureUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
+/* GetCSPMAzureUserScriptsAttachmentParams contains all the parameters to send to the API endpoint
+   for the get c s p m azure user scripts attachment operation.
 
-	for the get c s p m azure user scripts attachment operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCSPMAzureUserScriptsAttachmentParams struct {
 

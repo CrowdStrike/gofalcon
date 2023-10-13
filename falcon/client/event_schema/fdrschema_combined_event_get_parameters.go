@@ -52,12 +52,10 @@ func NewFdrschemaCombinedEventGetParamsWithHTTPClient(client *http.Client) *Fdrs
 	}
 }
 
-/*
-FdrschemaCombinedEventGetParams contains all the parameters to send to the API endpoint
+/* FdrschemaCombinedEventGetParams contains all the parameters to send to the API endpoint
+   for the fdrschema combined event get operation.
 
-	for the fdrschema combined event get operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type FdrschemaCombinedEventGetParams struct {
 	timeout    time.Duration

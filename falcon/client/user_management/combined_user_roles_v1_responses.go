@@ -65,8 +65,7 @@ func NewCombinedUserRolesV1OK() *CombinedUserRolesV1OK {
 	return &CombinedUserRolesV1OK{}
 }
 
-/*
-CombinedUserRolesV1OK describes a response with status code 200, with default header values.
+/* CombinedUserRolesV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewCombinedUserRolesV1BadRequest() *CombinedUserRolesV1BadRequest {
 	return &CombinedUserRolesV1BadRequest{}
 }
 
-/*
-CombinedUserRolesV1BadRequest describes a response with status code 400, with default header values.
+/* CombinedUserRolesV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewCombinedUserRolesV1Forbidden() *CombinedUserRolesV1Forbidden {
 	return &CombinedUserRolesV1Forbidden{}
 }
 
-/*
-CombinedUserRolesV1Forbidden describes a response with status code 403, with default header values.
+/* CombinedUserRolesV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewCombinedUserRolesV1TooManyRequests() *CombinedUserRolesV1TooManyRequests
 	return &CombinedUserRolesV1TooManyRequests{}
 }
 
-/*
-CombinedUserRolesV1TooManyRequests describes a response with status code 429, with default header values.
+/* CombinedUserRolesV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewCombinedUserRolesV1InternalServerError() *CombinedUserRolesV1InternalSer
 	return &CombinedUserRolesV1InternalServerError{}
 }
 
-/*
-CombinedUserRolesV1InternalServerError describes a response with status code 500, with default header values.
+/* CombinedUserRolesV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

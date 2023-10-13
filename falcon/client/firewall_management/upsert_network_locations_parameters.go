@@ -54,12 +54,10 @@ func NewUpsertNetworkLocationsParamsWithHTTPClient(client *http.Client) *UpsertN
 	}
 }
 
-/*
-UpsertNetworkLocationsParams contains all the parameters to send to the API endpoint
+/* UpsertNetworkLocationsParams contains all the parameters to send to the API endpoint
+   for the upsert network locations operation.
 
-	for the upsert network locations operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type UpsertNetworkLocationsParams struct {
 

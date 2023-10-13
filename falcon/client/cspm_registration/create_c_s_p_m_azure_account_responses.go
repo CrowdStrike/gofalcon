@@ -71,8 +71,7 @@ func NewCreateCSPMAzureAccountCreated() *CreateCSPMAzureAccountCreated {
 	return &CreateCSPMAzureAccountCreated{}
 }
 
-/*
-CreateCSPMAzureAccountCreated describes a response with status code 201, with default header values.
+/* CreateCSPMAzureAccountCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -181,8 +180,7 @@ func NewCreateCSPMAzureAccountMultiStatus() *CreateCSPMAzureAccountMultiStatus {
 	return &CreateCSPMAzureAccountMultiStatus{}
 }
 
-/*
-CreateCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
+/* CreateCSPMAzureAccountMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewCreateCSPMAzureAccountBadRequest() *CreateCSPMAzureAccountBadRequest {
 	return &CreateCSPMAzureAccountBadRequest{}
 }
 
-/*
-CreateCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
+/* CreateCSPMAzureAccountBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewCreateCSPMAzureAccountForbidden() *CreateCSPMAzureAccountForbidden {
 	return &CreateCSPMAzureAccountForbidden{}
 }
 
-/*
-CreateCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
+/* CreateCSPMAzureAccountForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewCreateCSPMAzureAccountTooManyRequests() *CreateCSPMAzureAccountTooManyRe
 	return &CreateCSPMAzureAccountTooManyRequests{}
 }
 
-/*
-CreateCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
+/* CreateCSPMAzureAccountTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewCreateCSPMAzureAccountInternalServerError() *CreateCSPMAzureAccountInter
 	return &CreateCSPMAzureAccountInternalServerError{}
 }
 
-/*
-CreateCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
+/* CreateCSPMAzureAccountInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

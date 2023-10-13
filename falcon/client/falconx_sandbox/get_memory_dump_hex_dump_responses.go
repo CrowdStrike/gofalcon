@@ -71,8 +71,7 @@ func NewGetMemoryDumpHexDumpOK() *GetMemoryDumpHexDumpOK {
 	return &GetMemoryDumpHexDumpOK{}
 }
 
-/*
-GetMemoryDumpHexDumpOK describes a response with status code 200, with default header values.
+/* GetMemoryDumpHexDumpOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetMemoryDumpHexDumpBadRequest() *GetMemoryDumpHexDumpBadRequest {
 	return &GetMemoryDumpHexDumpBadRequest{}
 }
 
-/*
-GetMemoryDumpHexDumpBadRequest describes a response with status code 400, with default header values.
+/* GetMemoryDumpHexDumpBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetMemoryDumpHexDumpForbidden() *GetMemoryDumpHexDumpForbidden {
 	return &GetMemoryDumpHexDumpForbidden{}
 }
 
-/*
-GetMemoryDumpHexDumpForbidden describes a response with status code 403, with default header values.
+/* GetMemoryDumpHexDumpForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetMemoryDumpHexDumpNotFound() *GetMemoryDumpHexDumpNotFound {
 	return &GetMemoryDumpHexDumpNotFound{}
 }
 
-/*
-GetMemoryDumpHexDumpNotFound describes a response with status code 404, with default header values.
+/* GetMemoryDumpHexDumpNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewGetMemoryDumpHexDumpTooManyRequests() *GetMemoryDumpHexDumpTooManyReques
 	return &GetMemoryDumpHexDumpTooManyRequests{}
 }
 
-/*
-GetMemoryDumpHexDumpTooManyRequests describes a response with status code 429, with default header values.
+/* GetMemoryDumpHexDumpTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetMemoryDumpHexDumpInternalServerError() *GetMemoryDumpHexDumpInternalS
 	return &GetMemoryDumpHexDumpInternalServerError{}
 }
 
-/*
-GetMemoryDumpHexDumpInternalServerError describes a response with status code 500, with default header values.
+/* GetMemoryDumpHexDumpInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

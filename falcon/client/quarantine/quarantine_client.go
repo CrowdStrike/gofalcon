@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-ActionUpdateCount returns count of potentially affected quarantined files for each action
+  ActionUpdateCount returns count of potentially affected quarantined files for each action
 */
 func (a *Client) ActionUpdateCount(params *ActionUpdateCountParams, opts ...ClientOption) (*ActionUpdateCountOK, error) {
 	// TODO: Validate the params before sending
@@ -84,7 +84,7 @@ func (a *Client) ActionUpdateCount(params *ActionUpdateCountParams, opts ...Clie
 }
 
 /*
-GetAggregateFiles gets quarantine file aggregates as specified via json in request body
+  GetAggregateFiles gets quarantine file aggregates as specified via json in request body
 */
 func (a *Client) GetAggregateFiles(params *GetAggregateFilesParams, opts ...ClientOption) (*GetAggregateFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ func (a *Client) GetAggregateFiles(params *GetAggregateFilesParams, opts ...Clie
 }
 
 /*
-GetQuarantineFiles gets quarantine file metadata for specified ids
+  GetQuarantineFiles gets quarantine file metadata for specified ids
 */
 func (a *Client) GetQuarantineFiles(params *GetQuarantineFilesParams, opts ...ClientOption) (*GetQuarantineFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -160,7 +160,7 @@ func (a *Client) GetQuarantineFiles(params *GetQuarantineFilesParams, opts ...Cl
 }
 
 /*
-QueryQuarantineFiles gets quarantine file ids that match the provided filter criteria
+  QueryQuarantineFiles gets quarantine file ids that match the provided filter criteria
 */
 func (a *Client) QueryQuarantineFiles(params *QueryQuarantineFilesParams, opts ...ClientOption) (*QueryQuarantineFilesOK, error) {
 	// TODO: Validate the params before sending
@@ -198,7 +198,7 @@ func (a *Client) QueryQuarantineFiles(params *QueryQuarantineFilesParams, opts .
 }
 
 /*
-UpdateQfByQuery applies quarantine file actions by query
+  UpdateQfByQuery applies quarantine file actions by query
 */
 func (a *Client) UpdateQfByQuery(params *UpdateQfByQueryParams, opts ...ClientOption) (*UpdateQfByQueryOK, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) UpdateQfByQuery(params *UpdateQfByQueryParams, opts ...ClientOp
 }
 
 /*
-UpdateQuarantinedDetectsByIds applies action by quarantine file ids
+  UpdateQuarantinedDetectsByIds applies action by quarantine file ids
 */
 func (a *Client) UpdateQuarantinedDetectsByIds(params *UpdateQuarantinedDetectsByIdsParams, opts ...ClientOption) (*UpdateQuarantinedDetectsByIdsOK, error) {
 	// TODO: Validate the params before sending

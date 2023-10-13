@@ -65,8 +65,7 @@ func NewGetUserGroupMembersByIDOK() *GetUserGroupMembersByIDOK {
 	return &GetUserGroupMembersByIDOK{}
 }
 
-/*
-GetUserGroupMembersByIDOK describes a response with status code 200, with default header values.
+/* GetUserGroupMembersByIDOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewGetUserGroupMembersByIDMultiStatus() *GetUserGroupMembersByIDMultiStatus
 	return &GetUserGroupMembersByIDMultiStatus{}
 }
 
-/*
-GetUserGroupMembersByIDMultiStatus describes a response with status code 207, with default header values.
+/* GetUserGroupMembersByIDMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewGetUserGroupMembersByIDBadRequest() *GetUserGroupMembersByIDBadRequest {
 	return &GetUserGroupMembersByIDBadRequest{}
 }
 
-/*
-GetUserGroupMembersByIDBadRequest describes a response with status code 400, with default header values.
+/* GetUserGroupMembersByIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewGetUserGroupMembersByIDForbidden() *GetUserGroupMembersByIDForbidden {
 	return &GetUserGroupMembersByIDForbidden{}
 }
 
-/*
-GetUserGroupMembersByIDForbidden describes a response with status code 403, with default header values.
+/* GetUserGroupMembersByIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewGetUserGroupMembersByIDTooManyRequests() *GetUserGroupMembersByIDTooMany
 	return &GetUserGroupMembersByIDTooManyRequests{}
 }
 
-/*
-GetUserGroupMembersByIDTooManyRequests describes a response with status code 429, with default header values.
+/* GetUserGroupMembersByIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

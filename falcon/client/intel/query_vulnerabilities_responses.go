@@ -65,8 +65,7 @@ func NewQueryVulnerabilitiesOK() *QueryVulnerabilitiesOK {
 	return &QueryVulnerabilitiesOK{}
 }
 
-/*
-QueryVulnerabilitiesOK describes a response with status code 200, with default header values.
+/* QueryVulnerabilitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQueryVulnerabilitiesForbidden() *QueryVulnerabilitiesForbidden {
 	return &QueryVulnerabilitiesForbidden{}
 }
 
-/*
-QueryVulnerabilitiesForbidden describes a response with status code 403, with default header values.
+/* QueryVulnerabilitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -285,8 +283,7 @@ func NewQueryVulnerabilitiesNotFound() *QueryVulnerabilitiesNotFound {
 	return &QueryVulnerabilitiesNotFound{}
 }
 
-/*
-QueryVulnerabilitiesNotFound describes a response with status code 404, with default header values.
+/* QueryVulnerabilitiesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -395,8 +392,7 @@ func NewQueryVulnerabilitiesTooManyRequests() *QueryVulnerabilitiesTooManyReques
 	return &QueryVulnerabilitiesTooManyRequests{}
 }
 
-/*
-QueryVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
+/* QueryVulnerabilitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQueryVulnerabilitiesInternalServerError() *QueryVulnerabilitiesInternalS
 	return &QueryVulnerabilitiesInternalServerError{}
 }
 
-/*
-QueryVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
+/* QueryVulnerabilitiesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

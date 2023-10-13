@@ -55,12 +55,10 @@ func NewIndicatorAggregateV1ParamsWithHTTPClient(client *http.Client) *Indicator
 	}
 }
 
-/*
-IndicatorAggregateV1Params contains all the parameters to send to the API endpoint
+/* IndicatorAggregateV1Params contains all the parameters to send to the API endpoint
+   for the indicator aggregate v1 operation.
 
-	for the indicator aggregate v1 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type IndicatorAggregateV1Params struct {
 

@@ -53,12 +53,10 @@ func NewGetD4CAwsAccountParamsWithHTTPClient(client *http.Client) *GetD4CAwsAcco
 	}
 }
 
-/*
-GetD4CAwsAccountParams contains all the parameters to send to the API endpoint
+/* GetD4CAwsAccountParams contains all the parameters to send to the API endpoint
+   for the get d4 c aws account operation.
 
-	for the get d4 c aws account operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetD4CAwsAccountParams struct {
 

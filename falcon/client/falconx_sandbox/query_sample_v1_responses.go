@@ -65,8 +65,7 @@ func NewQuerySampleV1OK() *QuerySampleV1OK {
 	return &QuerySampleV1OK{}
 }
 
-/*
-QuerySampleV1OK describes a response with status code 200, with default header values.
+/* QuerySampleV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewQuerySampleV1BadRequest() *QuerySampleV1BadRequest {
 	return &QuerySampleV1BadRequest{}
 }
 
-/*
-QuerySampleV1BadRequest describes a response with status code 400, with default header values.
+/* QuerySampleV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewQuerySampleV1Forbidden() *QuerySampleV1Forbidden {
 	return &QuerySampleV1Forbidden{}
 }
 
-/*
-QuerySampleV1Forbidden describes a response with status code 403, with default header values.
+/* QuerySampleV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewQuerySampleV1TooManyRequests() *QuerySampleV1TooManyRequests {
 	return &QuerySampleV1TooManyRequests{}
 }
 
-/*
-QuerySampleV1TooManyRequests describes a response with status code 429, with default header values.
+/* QuerySampleV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewQuerySampleV1InternalServerError() *QuerySampleV1InternalServerError {
 	return &QuerySampleV1InternalServerError{}
 }
 
-/*
-QuerySampleV1InternalServerError describes a response with status code 500, with default header values.
+/* QuerySampleV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

@@ -53,12 +53,10 @@ func NewQueryRuleGroupsFullParamsWithHTTPClient(client *http.Client) *QueryRuleG
 	}
 }
 
-/*
-QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
+/* QueryRuleGroupsFullParams contains all the parameters to send to the API endpoint
+   for the query rule groups full operation.
 
-	for the query rule groups full operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryRuleGroupsFullParams struct {
 
@@ -88,7 +86,7 @@ type QueryRuleGroupsFullParams struct {
 
 	/* Sort.
 
-	   Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+	   Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
 	*/
 	Sort *string
 

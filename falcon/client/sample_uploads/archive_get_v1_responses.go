@@ -65,8 +65,7 @@ func NewArchiveGetV1OK() *ArchiveGetV1OK {
 	return &ArchiveGetV1OK{}
 }
 
-/*
-ArchiveGetV1OK describes a response with status code 200, with default header values.
+/* ArchiveGetV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewArchiveGetV1BadRequest() *ArchiveGetV1BadRequest {
 	return &ArchiveGetV1BadRequest{}
 }
 
-/*
-ArchiveGetV1BadRequest describes a response with status code 400, with default header values.
+/* ArchiveGetV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewArchiveGetV1Forbidden() *ArchiveGetV1Forbidden {
 	return &ArchiveGetV1Forbidden{}
 }
 
-/*
-ArchiveGetV1Forbidden describes a response with status code 403, with default header values.
+/* ArchiveGetV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewArchiveGetV1TooManyRequests() *ArchiveGetV1TooManyRequests {
 	return &ArchiveGetV1TooManyRequests{}
 }
 
-/*
-ArchiveGetV1TooManyRequests describes a response with status code 429, with default header values.
+/* ArchiveGetV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewArchiveGetV1InternalServerError() *ArchiveGetV1InternalServerError {
 	return &ArchiveGetV1InternalServerError{}
 }
 
-/*
-ArchiveGetV1InternalServerError describes a response with status code 500, with default header values.
+/* ArchiveGetV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

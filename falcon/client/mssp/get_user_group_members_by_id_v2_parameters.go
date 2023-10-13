@@ -53,12 +53,10 @@ func NewGetUserGroupMembersByIDV2ParamsWithHTTPClient(client *http.Client) *GetU
 	}
 }
 
-/*
-GetUserGroupMembersByIDV2Params contains all the parameters to send to the API endpoint
+/* GetUserGroupMembersByIDV2Params contains all the parameters to send to the API endpoint
+   for the get user group members by ID v2 operation.
 
-	for the get user group members by ID v2 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetUserGroupMembersByIDV2Params struct {
 

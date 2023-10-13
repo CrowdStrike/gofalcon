@@ -65,8 +65,7 @@ func NewUpdateUserGroupsOK() *UpdateUserGroupsOK {
 	return &UpdateUserGroupsOK{}
 }
 
-/*
-UpdateUserGroupsOK describes a response with status code 200, with default header values.
+/* UpdateUserGroupsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewUpdateUserGroupsMultiStatus() *UpdateUserGroupsMultiStatus {
 	return &UpdateUserGroupsMultiStatus{}
 }
 
-/*
-UpdateUserGroupsMultiStatus describes a response with status code 207, with default header values.
+/* UpdateUserGroupsMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -285,8 +283,7 @@ func NewUpdateUserGroupsBadRequest() *UpdateUserGroupsBadRequest {
 	return &UpdateUserGroupsBadRequest{}
 }
 
-/*
-UpdateUserGroupsBadRequest describes a response with status code 400, with default header values.
+/* UpdateUserGroupsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -395,8 +392,7 @@ func NewUpdateUserGroupsForbidden() *UpdateUserGroupsForbidden {
 	return &UpdateUserGroupsForbidden{}
 }
 
-/*
-UpdateUserGroupsForbidden describes a response with status code 403, with default header values.
+/* UpdateUserGroupsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -505,8 +501,7 @@ func NewUpdateUserGroupsTooManyRequests() *UpdateUserGroupsTooManyRequests {
 	return &UpdateUserGroupsTooManyRequests{}
 }
 
-/*
-UpdateUserGroupsTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateUserGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

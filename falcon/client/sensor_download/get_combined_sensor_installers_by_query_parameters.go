@@ -53,12 +53,10 @@ func NewGetCombinedSensorInstallersByQueryParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-GetCombinedSensorInstallersByQueryParams contains all the parameters to send to the API endpoint
+/* GetCombinedSensorInstallersByQueryParams contains all the parameters to send to the API endpoint
+   for the get combined sensor installers by query operation.
 
-	for the get combined sensor installers by query operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetCombinedSensorInstallersByQueryParams struct {
 

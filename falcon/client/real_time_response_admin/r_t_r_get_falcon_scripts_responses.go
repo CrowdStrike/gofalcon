@@ -65,8 +65,7 @@ func NewRTRGetFalconScriptsOK() *RTRGetFalconScriptsOK {
 	return &RTRGetFalconScriptsOK{}
 }
 
-/*
-RTRGetFalconScriptsOK describes a response with status code 200, with default header values.
+/* RTRGetFalconScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewRTRGetFalconScriptsBadRequest() *RTRGetFalconScriptsBadRequest {
 	return &RTRGetFalconScriptsBadRequest{}
 }
 
-/*
-RTRGetFalconScriptsBadRequest describes a response with status code 400, with default header values.
+/* RTRGetFalconScriptsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewRTRGetFalconScriptsForbidden() *RTRGetFalconScriptsForbidden {
 	return &RTRGetFalconScriptsForbidden{}
 }
 
-/*
-RTRGetFalconScriptsForbidden describes a response with status code 403, with default header values.
+/* RTRGetFalconScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewRTRGetFalconScriptsNotFound() *RTRGetFalconScriptsNotFound {
 	return &RTRGetFalconScriptsNotFound{}
 }
 
-/*
-RTRGetFalconScriptsNotFound describes a response with status code 404, with default header values.
+/* RTRGetFalconScriptsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -505,8 +501,7 @@ func NewRTRGetFalconScriptsTooManyRequests() *RTRGetFalconScriptsTooManyRequests
 	return &RTRGetFalconScriptsTooManyRequests{}
 }
 
-/*
-RTRGetFalconScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* RTRGetFalconScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

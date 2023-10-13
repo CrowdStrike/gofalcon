@@ -71,8 +71,7 @@ func NewGetMemoryDumpExtractedStringsOK() *GetMemoryDumpExtractedStringsOK {
 	return &GetMemoryDumpExtractedStringsOK{}
 }
 
-/*
-GetMemoryDumpExtractedStringsOK describes a response with status code 200, with default header values.
+/* GetMemoryDumpExtractedStringsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetMemoryDumpExtractedStringsBadRequest() *GetMemoryDumpExtractedStrings
 	return &GetMemoryDumpExtractedStringsBadRequest{}
 }
 
-/*
-GetMemoryDumpExtractedStringsBadRequest describes a response with status code 400, with default header values.
+/* GetMemoryDumpExtractedStringsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetMemoryDumpExtractedStringsForbidden() *GetMemoryDumpExtractedStringsF
 	return &GetMemoryDumpExtractedStringsForbidden{}
 }
 
-/*
-GetMemoryDumpExtractedStringsForbidden describes a response with status code 403, with default header values.
+/* GetMemoryDumpExtractedStringsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewGetMemoryDumpExtractedStringsNotFound() *GetMemoryDumpExtractedStringsNo
 	return &GetMemoryDumpExtractedStringsNotFound{}
 }
 
-/*
-GetMemoryDumpExtractedStringsNotFound describes a response with status code 404, with default header values.
+/* GetMemoryDumpExtractedStringsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewGetMemoryDumpExtractedStringsTooManyRequests() *GetMemoryDumpExtractedSt
 	return &GetMemoryDumpExtractedStringsTooManyRequests{}
 }
 
-/*
-GetMemoryDumpExtractedStringsTooManyRequests describes a response with status code 429, with default header values.
+/* GetMemoryDumpExtractedStringsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetMemoryDumpExtractedStringsInternalServerError() *GetMemoryDumpExtract
 	return &GetMemoryDumpExtractedStringsInternalServerError{}
 }
 
-/*
-GetMemoryDumpExtractedStringsInternalServerError describes a response with status code 500, with default header values.
+/* GetMemoryDumpExtractedStringsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

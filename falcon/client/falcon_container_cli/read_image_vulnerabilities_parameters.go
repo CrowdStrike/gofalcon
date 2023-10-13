@@ -54,12 +54,10 @@ func NewReadImageVulnerabilitiesParamsWithHTTPClient(client *http.Client) *ReadI
 	}
 }
 
-/*
-ReadImageVulnerabilitiesParams contains all the parameters to send to the API endpoint
+/* ReadImageVulnerabilitiesParams contains all the parameters to send to the API endpoint
+   for the read image vulnerabilities operation.
 
-	for the read image vulnerabilities operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type ReadImageVulnerabilitiesParams struct {
 

@@ -65,8 +65,7 @@ func NewSetRTResponsePoliciesPrecedenceOK() *SetRTResponsePoliciesPrecedenceOK {
 	return &SetRTResponsePoliciesPrecedenceOK{}
 }
 
-/*
-SetRTResponsePoliciesPrecedenceOK describes a response with status code 200, with default header values.
+/* SetRTResponsePoliciesPrecedenceOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -175,8 +174,7 @@ func NewSetRTResponsePoliciesPrecedenceBadRequest() *SetRTResponsePoliciesPreced
 	return &SetRTResponsePoliciesPrecedenceBadRequest{}
 }
 
-/*
-SetRTResponsePoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
+/* SetRTResponsePoliciesPrecedenceBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewSetRTResponsePoliciesPrecedenceForbidden() *SetRTResponsePoliciesPrecede
 	return &SetRTResponsePoliciesPrecedenceForbidden{}
 }
 
-/*
-SetRTResponsePoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
+/* SetRTResponsePoliciesPrecedenceForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewSetRTResponsePoliciesPrecedenceTooManyRequests() *SetRTResponsePoliciesP
 	return &SetRTResponsePoliciesPrecedenceTooManyRequests{}
 }
 
-/*
-SetRTResponsePoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
+/* SetRTResponsePoliciesPrecedenceTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewSetRTResponsePoliciesPrecedenceInternalServerError() *SetRTResponsePolic
 	return &SetRTResponsePoliciesPrecedenceInternalServerError{}
 }
 
-/*
-SetRTResponsePoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
+/* SetRTResponsePoliciesPrecedenceInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

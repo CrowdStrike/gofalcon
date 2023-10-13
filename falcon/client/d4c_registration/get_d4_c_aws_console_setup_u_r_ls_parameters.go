@@ -52,12 +52,10 @@ func NewGetD4CAwsConsoleSetupURLsParamsWithHTTPClient(client *http.Client) *GetD
 	}
 }
 
-/*
-GetD4CAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
+/* GetD4CAwsConsoleSetupURLsParams contains all the parameters to send to the API endpoint
+   for the get d4 c aws console setup u r ls operation.
 
-	for the get d4 c aws console setup u r ls operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetD4CAwsConsoleSetupURLsParams struct {
 

@@ -53,12 +53,10 @@ func NewGetFirewallFieldsParamsWithHTTPClient(client *http.Client) *GetFirewallF
 	}
 }
 
-/*
-GetFirewallFieldsParams contains all the parameters to send to the API endpoint
+/* GetFirewallFieldsParams contains all the parameters to send to the API endpoint
+   for the get firewall fields operation.
 
-	for the get firewall fields operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetFirewallFieldsParams struct {
 

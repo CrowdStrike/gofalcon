@@ -71,8 +71,7 @@ func NewGetSensorInstallersEntitiesOK() *GetSensorInstallersEntitiesOK {
 	return &GetSensorInstallersEntitiesOK{}
 }
 
-/*
-GetSensorInstallersEntitiesOK describes a response with status code 200, with default header values.
+/* GetSensorInstallersEntitiesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetSensorInstallersEntitiesMultiStatus() *GetSensorInstallersEntitiesMul
 	return &GetSensorInstallersEntitiesMultiStatus{}
 }
 
-/*
-GetSensorInstallersEntitiesMultiStatus describes a response with status code 207, with default header values.
+/* GetSensorInstallersEntitiesMultiStatus describes a response with status code 207, with default header values.
 
 Multi-Status
 */
@@ -291,8 +289,7 @@ func NewGetSensorInstallersEntitiesBadRequest() *GetSensorInstallersEntitiesBadR
 	return &GetSensorInstallersEntitiesBadRequest{}
 }
 
-/*
-GetSensorInstallersEntitiesBadRequest describes a response with status code 400, with default header values.
+/* GetSensorInstallersEntitiesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -401,8 +398,7 @@ func NewGetSensorInstallersEntitiesForbidden() *GetSensorInstallersEntitiesForbi
 	return &GetSensorInstallersEntitiesForbidden{}
 }
 
-/*
-GetSensorInstallersEntitiesForbidden describes a response with status code 403, with default header values.
+/* GetSensorInstallersEntitiesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetSensorInstallersEntitiesNotFound() *GetSensorInstallersEntitiesNotFou
 	return &GetSensorInstallersEntitiesNotFound{}
 }
 
-/*
-GetSensorInstallersEntitiesNotFound describes a response with status code 404, with default header values.
+/* GetSensorInstallersEntitiesNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -621,8 +616,7 @@ func NewGetSensorInstallersEntitiesTooManyRequests() *GetSensorInstallersEntitie
 	return &GetSensorInstallersEntitiesTooManyRequests{}
 }
 
-/*
-GetSensorInstallersEntitiesTooManyRequests describes a response with status code 429, with default header values.
+/* GetSensorInstallersEntitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

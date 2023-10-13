@@ -71,8 +71,7 @@ func NewGetNotificationsExposedDataRecordsV1OK() *GetNotificationsExposedDataRec
 	return &GetNotificationsExposedDataRecordsV1OK{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
+/* GetNotificationsExposedDataRecordsV1OK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewGetNotificationsExposedDataRecordsV1BadRequest() *GetNotificationsExpose
 	return &GetNotificationsExposedDataRecordsV1BadRequest{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
+/* GetNotificationsExposedDataRecordsV1BadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewGetNotificationsExposedDataRecordsV1Unauthorized() *GetNotificationsExpo
 	return &GetNotificationsExposedDataRecordsV1Unauthorized{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
+/* GetNotificationsExposedDataRecordsV1Unauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -401,8 +398,7 @@ func NewGetNotificationsExposedDataRecordsV1Forbidden() *GetNotificationsExposed
 	return &GetNotificationsExposedDataRecordsV1Forbidden{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
+/* GetNotificationsExposedDataRecordsV1Forbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -511,8 +507,7 @@ func NewGetNotificationsExposedDataRecordsV1TooManyRequests() *GetNotificationsE
 	return &GetNotificationsExposedDataRecordsV1TooManyRequests{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
+/* GetNotificationsExposedDataRecordsV1TooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewGetNotificationsExposedDataRecordsV1InternalServerError() *GetNotificati
 	return &GetNotificationsExposedDataRecordsV1InternalServerError{}
 }
 
-/*
-GetNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
+/* GetNotificationsExposedDataRecordsV1InternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

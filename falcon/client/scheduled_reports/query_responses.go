@@ -59,8 +59,7 @@ func NewQueryOK() *QueryOK {
 	return &QueryOK{}
 }
 
-/*
-QueryOK describes a response with status code 200, with default header values.
+/* QueryOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -169,8 +168,7 @@ func NewQueryBadRequest() *QueryBadRequest {
 	return &QueryBadRequest{}
 }
 
-/*
-QueryBadRequest describes a response with status code 400, with default header values.
+/* QueryBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewQueryForbidden() *QueryForbidden {
 	return &QueryForbidden{}
 }
 
-/*
-QueryForbidden describes a response with status code 403, with default header values.
+/* QueryForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewQueryTooManyRequests() *QueryTooManyRequests {
 	return &QueryTooManyRequests{}
 }
 
-/*
-QueryTooManyRequests describes a response with status code 429, with default header values.
+/* QueryTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

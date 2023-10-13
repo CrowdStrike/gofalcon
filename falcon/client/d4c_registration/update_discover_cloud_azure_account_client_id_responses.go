@@ -65,8 +65,7 @@ func NewUpdateDiscoverCloudAzureAccountClientIDCreated() *UpdateDiscoverCloudAzu
 	return &UpdateDiscoverCloudAzureAccountClientIDCreated{}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDCreated describes a response with status code 201, with default header values.
+/* UpdateDiscoverCloudAzureAccountClientIDCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewUpdateDiscoverCloudAzureAccountClientIDBadRequest() *UpdateDiscoverCloud
 	return &UpdateDiscoverCloudAzureAccountClientIDBadRequest{}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDBadRequest describes a response with status code 400, with default header values.
+/* UpdateDiscoverCloudAzureAccountClientIDBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewUpdateDiscoverCloudAzureAccountClientIDForbidden() *UpdateDiscoverCloudA
 	return &UpdateDiscoverCloudAzureAccountClientIDForbidden{}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDForbidden describes a response with status code 403, with default header values.
+/* UpdateDiscoverCloudAzureAccountClientIDForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewUpdateDiscoverCloudAzureAccountClientIDTooManyRequests() *UpdateDiscover
 	return &UpdateDiscoverCloudAzureAccountClientIDTooManyRequests{}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDTooManyRequests describes a response with status code 429, with default header values.
+/* UpdateDiscoverCloudAzureAccountClientIDTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewUpdateDiscoverCloudAzureAccountClientIDInternalServerError() *UpdateDisc
 	return &UpdateDiscoverCloudAzureAccountClientIDInternalServerError{}
 }
 
-/*
-UpdateDiscoverCloudAzureAccountClientIDInternalServerError describes a response with status code 500, with default header values.
+/* UpdateDiscoverCloudAzureAccountClientIDInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

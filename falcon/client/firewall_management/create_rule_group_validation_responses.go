@@ -59,8 +59,7 @@ func NewCreateRuleGroupValidationCreated() *CreateRuleGroupValidationCreated {
 	return &CreateRuleGroupValidationCreated{}
 }
 
-/*
-CreateRuleGroupValidationCreated describes a response with status code 201, with default header values.
+/* CreateRuleGroupValidationCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -169,8 +168,7 @@ func NewCreateRuleGroupValidationBadRequest() *CreateRuleGroupValidationBadReque
 	return &CreateRuleGroupValidationBadRequest{}
 }
 
-/*
-CreateRuleGroupValidationBadRequest describes a response with status code 400, with default header values.
+/* CreateRuleGroupValidationBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -279,8 +277,7 @@ func NewCreateRuleGroupValidationForbidden() *CreateRuleGroupValidationForbidden
 	return &CreateRuleGroupValidationForbidden{}
 }
 
-/*
-CreateRuleGroupValidationForbidden describes a response with status code 403, with default header values.
+/* CreateRuleGroupValidationForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -389,8 +386,7 @@ func NewCreateRuleGroupValidationTooManyRequests() *CreateRuleGroupValidationToo
 	return &CreateRuleGroupValidationTooManyRequests{}
 }
 
-/*
-CreateRuleGroupValidationTooManyRequests describes a response with status code 429, with default header values.
+/* CreateRuleGroupValidationTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -65,8 +65,7 @@ func NewBatchAdminCmdCreated() *BatchAdminCmdCreated {
 	return &BatchAdminCmdCreated{}
 }
 
-/*
-BatchAdminCmdCreated describes a response with status code 201, with default header values.
+/* BatchAdminCmdCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -175,8 +174,7 @@ func NewBatchAdminCmdBadRequest() *BatchAdminCmdBadRequest {
 	return &BatchAdminCmdBadRequest{}
 }
 
-/*
-BatchAdminCmdBadRequest describes a response with status code 400, with default header values.
+/* BatchAdminCmdBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -285,8 +283,7 @@ func NewBatchAdminCmdForbidden() *BatchAdminCmdForbidden {
 	return &BatchAdminCmdForbidden{}
 }
 
-/*
-BatchAdminCmdForbidden describes a response with status code 403, with default header values.
+/* BatchAdminCmdForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -395,8 +392,7 @@ func NewBatchAdminCmdTooManyRequests() *BatchAdminCmdTooManyRequests {
 	return &BatchAdminCmdTooManyRequests{}
 }
 
-/*
-BatchAdminCmdTooManyRequests describes a response with status code 429, with default header values.
+/* BatchAdminCmdTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -520,8 +516,7 @@ func NewBatchAdminCmdInternalServerError() *BatchAdminCmdInternalServerError {
 	return &BatchAdminCmdInternalServerError{}
 }
 
-/*
-BatchAdminCmdInternalServerError describes a response with status code 500, with default header values.
+/* BatchAdminCmdInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

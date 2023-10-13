@@ -53,12 +53,10 @@ func NewQueryRuleGroupsMixin0ParamsWithHTTPClient(client *http.Client) *QueryRul
 	}
 }
 
-/*
-QueryRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
+/* QueryRuleGroupsMixin0Params contains all the parameters to send to the API endpoint
+   for the query rule groups mixin0 operation.
 
-	for the query rule groups mixin0 operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type QueryRuleGroupsMixin0Params struct {
 
@@ -88,7 +86,7 @@ type QueryRuleGroupsMixin0Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+	   Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
 	*/
 	Sort *string
 

@@ -71,8 +71,7 @@ func NewCaseDownloadAttachmentOK() *CaseDownloadAttachmentOK {
 	return &CaseDownloadAttachmentOK{}
 }
 
-/*
-CaseDownloadAttachmentOK describes a response with status code 200, with default header values.
+/* CaseDownloadAttachmentOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -179,8 +178,7 @@ func NewCaseDownloadAttachmentBadRequest() *CaseDownloadAttachmentBadRequest {
 	return &CaseDownloadAttachmentBadRequest{}
 }
 
-/*
-CaseDownloadAttachmentBadRequest describes a response with status code 400, with default header values.
+/* CaseDownloadAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -289,8 +287,7 @@ func NewCaseDownloadAttachmentForbidden() *CaseDownloadAttachmentForbidden {
 	return &CaseDownloadAttachmentForbidden{}
 }
 
-/*
-CaseDownloadAttachmentForbidden describes a response with status code 403, with default header values.
+/* CaseDownloadAttachmentForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -399,8 +396,7 @@ func NewCaseDownloadAttachmentNotFound() *CaseDownloadAttachmentNotFound {
 	return &CaseDownloadAttachmentNotFound{}
 }
 
-/*
-CaseDownloadAttachmentNotFound describes a response with status code 404, with default header values.
+/* CaseDownloadAttachmentNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -509,8 +505,7 @@ func NewCaseDownloadAttachmentTooManyRequests() *CaseDownloadAttachmentTooManyRe
 	return &CaseDownloadAttachmentTooManyRequests{}
 }
 
-/*
-CaseDownloadAttachmentTooManyRequests describes a response with status code 429, with default header values.
+/* CaseDownloadAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -634,8 +629,7 @@ func NewCaseDownloadAttachmentInternalServerError() *CaseDownloadAttachmentInter
 	return &CaseDownloadAttachmentInternalServerError{}
 }
 
-/*
-CaseDownloadAttachmentInternalServerError describes a response with status code 500, with default header values.
+/* CaseDownloadAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

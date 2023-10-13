@@ -54,12 +54,10 @@ func NewGetIncidentsParamsWithHTTPClient(client *http.Client) *GetIncidentsParam
 	}
 }
 
-/*
-GetIncidentsParams contains all the parameters to send to the API endpoint
+/* GetIncidentsParams contains all the parameters to send to the API endpoint
+   for the get incidents operation.
 
-	for the get incidents operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetIncidentsParams struct {
 

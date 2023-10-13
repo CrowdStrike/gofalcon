@@ -52,12 +52,10 @@ func NewGetMemoryDumpHexDumpParamsWithHTTPClient(client *http.Client) *GetMemory
 	}
 }
 
-/*
-GetMemoryDumpHexDumpParams contains all the parameters to send to the API endpoint
+/* GetMemoryDumpHexDumpParams contains all the parameters to send to the API endpoint
+   for the get memory dump hex dump operation.
 
-	for the get memory dump hex dump operation.
-
-	Typically these are written to a http.Request.
+   Typically these are written to a http.Request.
 */
 type GetMemoryDumpHexDumpParams struct {
 

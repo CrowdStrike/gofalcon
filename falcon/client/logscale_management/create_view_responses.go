@@ -53,8 +53,7 @@ func NewCreateViewOK() *CreateViewOK {
 	return &CreateViewOK{}
 }
 
-/*
-CreateViewOK describes a response with status code 200, with default header values.
+/* CreateViewOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewCreateViewForbidden() *CreateViewForbidden {
 	return &CreateViewForbidden{}
 }
 
-/*
-CreateViewForbidden describes a response with status code 403, with default header values.
+/* CreateViewForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewCreateViewTooManyRequests() *CreateViewTooManyRequests {
 	return &CreateViewTooManyRequests{}
 }
 
-/*
-CreateViewTooManyRequests describes a response with status code 429, with default header values.
+/* CreateViewTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

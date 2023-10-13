@@ -69,8 +69,7 @@ func NewGetIntelReportPDFOK(writer io.Writer) *GetIntelReportPDFOK {
 	}
 }
 
-/*
-GetIntelReportPDFOK describes a response with status code 200, with default header values.
+/* GetIntelReportPDFOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -177,8 +176,7 @@ func NewGetIntelReportPDFBadRequest() *GetIntelReportPDFBadRequest {
 	return &GetIntelReportPDFBadRequest{}
 }
 
-/*
-GetIntelReportPDFBadRequest describes a response with status code 400, with default header values.
+/* GetIntelReportPDFBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -287,8 +285,7 @@ func NewGetIntelReportPDFForbidden() *GetIntelReportPDFForbidden {
 	return &GetIntelReportPDFForbidden{}
 }
 
-/*
-GetIntelReportPDFForbidden describes a response with status code 403, with default header values.
+/* GetIntelReportPDFForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -397,8 +394,7 @@ func NewGetIntelReportPDFTooManyRequests() *GetIntelReportPDFTooManyRequests {
 	return &GetIntelReportPDFTooManyRequests{}
 }
 
-/*
-GetIntelReportPDFTooManyRequests describes a response with status code 429, with default header values.
+/* GetIntelReportPDFTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -522,8 +518,7 @@ func NewGetIntelReportPDFInternalServerError() *GetIntelReportPDFInternalServerE
 	return &GetIntelReportPDFInternalServerError{}
 }
 
-/*
-GetIntelReportPDFInternalServerError describes a response with status code 500, with default header values.
+/* GetIntelReportPDFInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

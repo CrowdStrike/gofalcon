@@ -71,8 +71,7 @@ func NewExecutionsActionOK() *ExecutionsActionOK {
 	return &ExecutionsActionOK{}
 }
 
-/*
-ExecutionsActionOK describes a response with status code 200, with default header values.
+/* ExecutionsActionOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -181,8 +180,7 @@ func NewExecutionsActionBadRequest() *ExecutionsActionBadRequest {
 	return &ExecutionsActionBadRequest{}
 }
 
-/*
-ExecutionsActionBadRequest describes a response with status code 400, with default header values.
+/* ExecutionsActionBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -291,8 +289,7 @@ func NewExecutionsActionForbidden() *ExecutionsActionForbidden {
 	return &ExecutionsActionForbidden{}
 }
 
-/*
-ExecutionsActionForbidden describes a response with status code 403, with default header values.
+/* ExecutionsActionForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -401,8 +398,7 @@ func NewExecutionsActionNotFound() *ExecutionsActionNotFound {
 	return &ExecutionsActionNotFound{}
 }
 
-/*
-ExecutionsActionNotFound describes a response with status code 404, with default header values.
+/* ExecutionsActionNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -511,8 +507,7 @@ func NewExecutionsActionTooManyRequests() *ExecutionsActionTooManyRequests {
 	return &ExecutionsActionTooManyRequests{}
 }
 
-/*
-ExecutionsActionTooManyRequests describes a response with status code 429, with default header values.
+/* ExecutionsActionTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
@@ -636,8 +631,7 @@ func NewExecutionsActionInternalServerError() *ExecutionsActionInternalServerErr
 	return &ExecutionsActionInternalServerError{}
 }
 
-/*
-ExecutionsActionInternalServerError describes a response with status code 500, with default header values.
+/* ExecutionsActionInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

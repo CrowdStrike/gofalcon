@@ -53,8 +53,7 @@ func NewGetScansAggregatesOK() *GetScansAggregatesOK {
 	return &GetScansAggregatesOK{}
 }
 
-/*
-GetScansAggregatesOK describes a response with status code 200, with default header values.
+/* GetScansAggregatesOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -150,8 +149,7 @@ func NewGetScansAggregatesForbidden() *GetScansAggregatesForbidden {
 	return &GetScansAggregatesForbidden{}
 }
 
-/*
-GetScansAggregatesForbidden describes a response with status code 403, with default header values.
+/* GetScansAggregatesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -260,8 +258,7 @@ func NewGetScansAggregatesTooManyRequests() *GetScansAggregatesTooManyRequests {
 	return &GetScansAggregatesTooManyRequests{}
 }
 
-/*
-GetScansAggregatesTooManyRequests describes a response with status code 429, with default header values.
+/* GetScansAggregatesTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

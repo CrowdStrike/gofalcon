@@ -36,7 +36,7 @@ type ClientService interface {
 }
 
 /*
-GetCombinedAssessmentsQuery searches for assessments in your environment by providing an f q l filter and paging details returns a set of host finding entities which match the filter criteria
+  GetCombinedAssessmentsQuery searches for assessments in your environment by providing an f q l filter and paging details returns a set of host finding entities which match the filter criteria
 */
 func (a *Client) GetCombinedAssessmentsQuery(params *GetCombinedAssessmentsQueryParams, opts ...ClientOption) (*GetCombinedAssessmentsQueryOK, error) {
 	// TODO: Validate the params before sending

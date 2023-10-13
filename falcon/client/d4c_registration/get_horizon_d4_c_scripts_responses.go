@@ -53,8 +53,7 @@ func NewGetHorizonD4CScriptsOK() *GetHorizonD4CScriptsOK {
 	return &GetHorizonD4CScriptsOK{}
 }
 
-/*
-GetHorizonD4CScriptsOK describes a response with status code 200, with default header values.
+/* GetHorizonD4CScriptsOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -163,8 +162,7 @@ func NewGetHorizonD4CScriptsForbidden() *GetHorizonD4CScriptsForbidden {
 	return &GetHorizonD4CScriptsForbidden{}
 }
 
-/*
-GetHorizonD4CScriptsForbidden describes a response with status code 403, with default header values.
+/* GetHorizonD4CScriptsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,8 +271,7 @@ func NewGetHorizonD4CScriptsTooManyRequests() *GetHorizonD4CScriptsTooManyReques
 	return &GetHorizonD4CScriptsTooManyRequests{}
 }
 
-/*
-GetHorizonD4CScriptsTooManyRequests describes a response with status code 429, with default header values.
+/* GetHorizonD4CScriptsTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
