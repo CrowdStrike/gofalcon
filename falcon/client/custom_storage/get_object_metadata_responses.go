@@ -53,7 +53,8 @@ func NewGetObjectMetadataOK() *GetObjectMetadataOK {
 	return &GetObjectMetadataOK{}
 }
 
-/* GetObjectMetadataOK describes a response with status code 200, with default header values.
+/*
+	GetObjectMetadataOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -162,7 +163,8 @@ func NewGetObjectMetadataForbidden() *GetObjectMetadataForbidden {
 	return &GetObjectMetadataForbidden{}
 }
 
-/* GetObjectMetadataForbidden describes a response with status code 403, with default header values.
+/*
+	GetObjectMetadataForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +273,8 @@ func NewGetObjectMetadataTooManyRequests() *GetObjectMetadataTooManyRequests {
 	return &GetObjectMetadataTooManyRequests{}
 }
 
-/* GetObjectMetadataTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetObjectMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

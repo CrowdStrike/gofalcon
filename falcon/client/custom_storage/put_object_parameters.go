@@ -54,10 +54,12 @@ func NewPutObjectParamsWithHTTPClient(client *http.Client) *PutObjectParams {
 	}
 }
 
-/* PutObjectParams contains all the parameters to send to the API endpoint
-   for the put object operation.
+/*
+PutObjectParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the put object operation.
+
+	Typically these are written to a http.Request.
 */
 type PutObjectParams struct {
 

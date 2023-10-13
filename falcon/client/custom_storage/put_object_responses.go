@@ -53,7 +53,8 @@ func NewPutObjectOK() *PutObjectOK {
 	return &PutObjectOK{}
 }
 
-/* PutObjectOK describes a response with status code 200, with default header values.
+/*
+	PutObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -162,7 +163,8 @@ func NewPutObjectForbidden() *PutObjectForbidden {
 	return &PutObjectForbidden{}
 }
 
-/* PutObjectForbidden describes a response with status code 403, with default header values.
+/*
+	PutObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +273,8 @@ func NewPutObjectTooManyRequests() *PutObjectTooManyRequests {
 	return &PutObjectTooManyRequests{}
 }
 
-/* PutObjectTooManyRequests describes a response with status code 429, with default header values.
+/*
+	PutObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

@@ -53,7 +53,8 @@ func NewDeleteObjectOK() *DeleteObjectOK {
 	return &DeleteObjectOK{}
 }
 
-/* DeleteObjectOK describes a response with status code 200, with default header values.
+/*
+	DeleteObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -162,7 +163,8 @@ func NewDeleteObjectForbidden() *DeleteObjectForbidden {
 	return &DeleteObjectForbidden{}
 }
 
-/* DeleteObjectForbidden describes a response with status code 403, with default header values.
+/*
+	DeleteObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -271,7 +273,8 @@ func NewDeleteObjectTooManyRequests() *DeleteObjectTooManyRequests {
 	return &DeleteObjectTooManyRequests{}
 }
 
-/* DeleteObjectTooManyRequests describes a response with status code 429, with default header values.
+/*
+	DeleteObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */

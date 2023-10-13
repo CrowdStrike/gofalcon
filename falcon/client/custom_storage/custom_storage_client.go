@@ -47,7 +47,7 @@ type ClientService interface {
 }
 
 /*
-  DeleteObject deletes the specified object
+DeleteObject deletes the specified object
 */
 func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error) {
 	// TODO: Validate the params before sending
@@ -85,7 +85,7 @@ func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) 
 }
 
 /*
-  GetObject gets the bytes for the specified object
+GetObject gets the bytes for the specified object
 */
 func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error) {
 	// TODO: Validate the params before sending
@@ -123,7 +123,7 @@ func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...Cl
 }
 
 /*
-  GetObjectMetadata gets the metadata for the specified object
+GetObjectMetadata gets the metadata for the specified object
 */
 func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error) {
 	// TODO: Validate the params before sending
@@ -161,7 +161,7 @@ func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...Clie
 }
 
 /*
-  ListObjects lists the object keys in the specified collection in alphabetical order
+ListObjects lists the object keys in the specified collection in alphabetical order
 */
 func (a *Client) ListObjects(params *ListObjectsParams, opts ...ClientOption) (*ListObjectsOK, error) {
 	// TODO: Validate the params before sending
@@ -199,7 +199,7 @@ func (a *Client) ListObjects(params *ListObjectsParams, opts ...ClientOption) (*
 }
 
 /*
-  PutObject puts the specified new object at the given key or overwrite an existing object at the given key
+PutObject puts the specified new object at the given key or overwrite an existing object at the given key
 */
 func (a *Client) PutObject(params *PutObjectParams, opts ...ClientOption) (*PutObjectOK, error) {
 	// TODO: Validate the params before sending
@@ -237,7 +237,7 @@ func (a *Client) PutObject(params *PutObjectParams, opts ...ClientOption) (*PutO
 }
 
 /*
-  SearchObjects searches for objects that match the specified filter criteria returns metadata not actual objects
+SearchObjects searches for objects that match the specified filter criteria returns metadata not actual objects
 */
 func (a *Client) SearchObjects(params *SearchObjectsParams, opts ...ClientOption) (*SearchObjectsOK, error) {
 	// TODO: Validate the params before sending

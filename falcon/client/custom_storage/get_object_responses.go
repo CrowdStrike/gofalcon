@@ -57,7 +57,8 @@ func NewGetObjectOK(writer io.Writer) *GetObjectOK {
 	}
 }
 
-/* GetObjectOK describes a response with status code 200, with default header values.
+/*
+	GetObjectOK describes a response with status code 200, with default header values.
 
 OK
 */
@@ -164,7 +165,8 @@ func NewGetObjectForbidden() *GetObjectForbidden {
 	return &GetObjectForbidden{}
 }
 
-/* GetObjectForbidden describes a response with status code 403, with default header values.
+/*
+	GetObjectForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -273,7 +275,8 @@ func NewGetObjectTooManyRequests() *GetObjectTooManyRequests {
 	return &GetObjectTooManyRequests{}
 }
 
-/* GetObjectTooManyRequests describes a response with status code 429, with default header values.
+/*
+	GetObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Too Many Requests
 */
