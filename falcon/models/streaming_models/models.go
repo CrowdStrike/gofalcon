@@ -72,6 +72,7 @@ type Event struct {
 	IncidentType      *IntOrString      `json:"IncidentType,omitempty"`
 	IncidentStartTime *json.Number      `json:"IncidentStartTime,omitempty"`
 	IncidentEndTime   *json.Number      `json:"IncidentEndTime,omitempty"`
+	IncidentId        *string           `json:"IncidentId,omitempty"`
 	State             *string           `json:"State,omitempty"`
 	FineScore         *float64          `json:"FineScore,omitempty"`
 	LateralMovement   *json.Number      `json:"LateralMovement,omitempty"`
