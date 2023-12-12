@@ -19,6 +19,12 @@ import (
 // swagger:model rulegroups.Rule
 type RulegroupsRule struct {
 
+	// content files
+	ContentFiles []string `json:"content_files"`
+
+	// content registry values
+	ContentRegistryValues []string `json:"content_registry_values"`
+
 	// created timestamp
 	CreatedTimestamp string `json:"created_timestamp,omitempty"`
 
@@ -28,6 +34,9 @@ type RulegroupsRule struct {
 
 	// description
 	Description string `json:"description,omitempty"`
+
+	// enable content capture
+	EnableContentCapture bool `json:"enable_content_capture,omitempty"`
 
 	// exclude
 	Exclude string `json:"exclude,omitempty"`

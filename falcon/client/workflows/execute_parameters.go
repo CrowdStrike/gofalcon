@@ -91,6 +91,12 @@ type ExecuteParams struct {
 	*/
 	Name *string
 
+	/* SourceEventURL.
+
+	   Used to record a URL to the source that led to triggering this workflow
+	*/
+	SourceEventURL *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -199,6 +205,17 @@ func (o *ExecuteParams) SetName(name *string) {
 	o.Name = name
 }
 
+// WithSourceEventURL adds the sourceEventURL to the execute params
+func (o *ExecuteParams) WithSourceEventURL(sourceEventURL *string) *ExecuteParams {
+	o.SetSourceEventURL(sourceEventURL)
+	return o
+}
+
+// SetSourceEventURL adds the sourceEventUrl to the execute params
+func (o *ExecuteParams) SetSourceEventURL(sourceEventURL *string) {
+	o.SourceEventURL = sourceEventURL
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *ExecuteParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -269,6 +286,23 @@ func (o *ExecuteParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 		if qName != "" {
 
 			if err := r.SetQueryParam("name", qName); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SourceEventURL != nil {
+
+		// query param source_event_url
+		var qrSourceEventURL string
+
+		if o.SourceEventURL != nil {
+			qrSourceEventURL = *o.SourceEventURL
+		}
+		qSourceEventURL := qrSourceEventURL
+		if qSourceEventURL != "" {
+
+			if err := r.SetQueryParam("source_event_url", qSourceEventURL); err != nil {
 				return err
 			}
 		}

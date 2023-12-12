@@ -44,6 +44,8 @@ type ClientService interface {
 
 	IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...ClientOption) (*IndicatorDeleteV1OK, error)
 
+	IndicatorGetDeviceCountV1(params *IndicatorGetDeviceCountV1Params, opts ...ClientOption) (*IndicatorGetDeviceCountV1OK, error)
+
 	IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Params, opts ...ClientOption) (*IndicatorGetDevicesRanOnV1OK, error)
 
 	IndicatorGetProcessesRanOnV1(params *IndicatorGetProcessesRanOnV1Params, opts ...ClientOption) (*IndicatorGetProcessesRanOnV1OK, error)
@@ -330,7 +332,45 @@ func (a *Client) IndicatorDeleteV1(params *IndicatorDeleteV1Params, opts ...Clie
 }
 
 /*
-IndicatorGetDevicesRanOnV1 gets the number of devices the indicator has run on
+IndicatorGetDeviceCountV1 gets the number of devices the indicator has run on
+*/
+func (a *Client) IndicatorGetDeviceCountV1(params *IndicatorGetDeviceCountV1Params, opts ...ClientOption) (*IndicatorGetDeviceCountV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIndicatorGetDeviceCountV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "indicator.get.device_count.v1",
+		Method:             "GET",
+		PathPattern:        "/iocs/aggregates/indicators/device-count/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IndicatorGetDeviceCountV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IndicatorGetDeviceCountV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for indicator.get.device_count.v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+IndicatorGetDevicesRanOnV1 gets the i ds of devices the indicator has run on
 */
 func (a *Client) IndicatorGetDevicesRanOnV1(params *IndicatorGetDevicesRanOnV1Params, opts ...ClientOption) (*IndicatorGetDevicesRanOnV1OK, error) {
 	// TODO: Validate the params before sending

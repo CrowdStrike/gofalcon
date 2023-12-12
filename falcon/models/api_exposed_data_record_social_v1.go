@@ -17,31 +17,31 @@ import (
 // swagger:model api.ExposedDataRecordSocialV1
 type APIExposedDataRecordSocialV1 struct {
 
-	// aim id
+	// AIM ID of the affected user
 	AimID string `json:"aim_id,omitempty"`
 
-	// facebook id
+	// Facebook ID of the affected user
 	FacebookID string `json:"facebook_id,omitempty"`
 
-	// icq id
+	// ICQ ID of the affected user
 	IcqID string `json:"icq_id,omitempty"`
 
-	// instagram id
+	// Instagram ID of the affected user
 	InstagramID string `json:"instagram_id,omitempty"`
 
-	// msn id
+	// MSN ID of the affected user
 	MsnID string `json:"msn_id,omitempty"`
 
-	// skype id
+	// Skype ID of the affected user
 	SkypeID string `json:"skype_id,omitempty"`
 
-	// twitter id
+	// Twitter ID of the affected user
 	TwitterID string `json:"twitter_id,omitempty"`
 
-	// vk id
+	// VK ID of the affected user
 	VkID string `json:"vk_id,omitempty"`
 
-	// vk token
+	// VK Access Token of the affected user
 	VkToken string `json:"vk_token,omitempty"`
 }
 

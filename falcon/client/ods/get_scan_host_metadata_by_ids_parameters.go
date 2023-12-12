@@ -62,6 +62,12 @@ GetScanHostMetadataByIdsParams contains all the parameters to send to the API en
 */
 type GetScanHostMetadataByIdsParams struct {
 
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
+
 	/* Ids.
 
 	   The scan IDs to retrieve the scan entities
@@ -121,6 +127,17 @@ func (o *GetScanHostMetadataByIdsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the get scan host metadata by ids params
+func (o *GetScanHostMetadataByIdsParams) WithXCSUSERUUID(xCSUSERUUID string) *GetScanHostMetadataByIdsParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get scan host metadata by ids params
+func (o *GetScanHostMetadataByIdsParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithIds adds the ids to the get scan host metadata by ids params
 func (o *GetScanHostMetadataByIdsParams) WithIds(ids []string) *GetScanHostMetadataByIdsParams {
 	o.SetIds(ids)
@@ -139,6 +156,11 @@ func (o *GetScanHostMetadataByIdsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Ids != nil {
 

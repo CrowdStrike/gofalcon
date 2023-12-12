@@ -42,6 +42,9 @@ type DeviceMappedDevicePolicies struct {
 	// global config
 	GlobalConfig *DeviceDevicePolicy `json:"global_config,omitempty"`
 
+	// host retention
+	HostRetention *DeviceDevicePolicy `json:"host-retention,omitempty"`
+
 	// identity protection
 	IdentityProtection *DeviceDevicePolicy `json:"identity-protection,omitempty"`
 
@@ -109,6 +112,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGlobalConfig(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHostRetention(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -306,6 +313,25 @@ func (m *DeviceMappedDevicePolicies) validateGlobalConfig(formats strfmt.Registr
 				return ve.ValidateName("global_config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("global_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) validateHostRetention(formats strfmt.Registry) error {
+	if swag.IsZero(m.HostRetention) { // not required
+		return nil
+	}
+
+	if m.HostRetention != nil {
+		if err := m.HostRetention.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host-retention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host-retention")
 			}
 			return err
 		}
@@ -559,6 +585,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateHostRetention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIdentityProtection(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -769,6 +799,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateGlobalConfig(ctx context.Con
 				return ve.ValidateName("global_config")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("global_config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateHostRetention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HostRetention != nil {
+
+		if swag.IsZero(m.HostRetention) { // not required
+			return nil
+		}
+
+		if err := m.HostRetention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("host-retention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("host-retention")
 			}
 			return err
 		}

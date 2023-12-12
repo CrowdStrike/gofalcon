@@ -26,7 +26,7 @@ type APIProcessesRanOnRespV1 struct {
 
 	// msa meta info
 	// Required: true
-	MsaMetaInfo *APIIndicatorsQueryMeta `json:"MsaMetaInfo"`
+	MsaMetaInfo *APIDetectsQueryMeta `json:"MsaMetaInfo"`
 
 	// resources
 	// Required: true

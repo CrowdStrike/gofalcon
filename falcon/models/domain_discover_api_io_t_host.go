@@ -211,6 +211,14 @@ type DomainDiscoverAPIIoTHost struct {
 	// The OS version of the asset.
 	OsVersion string `json:"os_version,omitempty"`
 
+	// A list of sources through which host is discovered
+	// Required: true
+	OtInformationSources []string `json:"ot_information_sources"`
+
+	// A list of ot serial numbers that discovered with host
+	// Required: true
+	OtSerialNumbers []string `json:"ot_serial_numbers"`
+
 	// The organizational unit of the asset (applies only to Windows hosts).
 	Ou string `json:"ou,omitempty"`
 
@@ -328,6 +336,14 @@ func (m *DomainDiscoverAPIIoTHost) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateNetworkInterfaces(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOtInformationSources(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOtSerialNumbers(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -480,6 +496,24 @@ func (m *DomainDiscoverAPIIoTHost) validateNetworkInterfaces(formats strfmt.Regi
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIIoTHost) validateOtInformationSources(formats strfmt.Registry) error {
+
+	if err := validate.Required("ot_information_sources", "body", m.OtInformationSources); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverAPIIoTHost) validateOtSerialNumbers(formats strfmt.Registry) error {
+
+	if err := validate.Required("ot_serial_numbers", "body", m.OtSerialNumbers); err != nil {
+		return err
 	}
 
 	return nil

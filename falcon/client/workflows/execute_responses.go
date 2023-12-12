@@ -62,7 +62,7 @@ func (o *ExecuteReader) ReadResponse(response runtime.ClientResponse, consumer r
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[POST /workflows/entities/execute/v1] execute", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /workflows/entities/execute/v1] Execute", response, response.Code())
 	}
 }
 

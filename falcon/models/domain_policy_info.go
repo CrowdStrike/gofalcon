@@ -108,6 +108,12 @@ type DomainPolicyInfo struct {
 	// fql policy
 	FqlPolicy string `json:"fql_policy,omitempty"`
 
+	// hipaa benchmark ids
+	HipaaBenchmarkIds []int64 `json:"hipaa_benchmark_ids"`
+
+	// hitrust benchmark ids
+	HitrustBenchmarkIds []int64 `json:"hitrust_benchmark_ids"`
+
 	// internal only
 	InternalOnly bool `json:"internal_only,omitempty"`
 

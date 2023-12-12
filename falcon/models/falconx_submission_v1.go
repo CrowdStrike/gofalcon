@@ -25,6 +25,15 @@ type FalconxSubmissionV1 struct {
 	// created timestamp
 	CreatedTimestamp string `json:"created_timestamp,omitempty"`
 
+	// error message
+	ErrorMessage string `json:"error_message,omitempty"`
+
+	// error origin
+	ErrorOrigin string `json:"error_origin,omitempty"`
+
+	// error type
+	ErrorType string `json:"error_type,omitempty"`
+
 	// id
 	ID string `json:"id,omitempty"`
 

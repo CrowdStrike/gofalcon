@@ -36,7 +36,10 @@ type SadomainTyposquattingComponent struct {
 	PunycodeFormat *string `json:"punycode_format"`
 
 	// submit for blocking info
-	SubmitForBlockingInfo *SadomainSubmitForBlockingInfo `json:"submit_for_blocking_info,omitempty"`
+	SubmitForBlockingInfo *SadomainSubmissionInformation `json:"submit_for_blocking_info,omitempty"`
+
+	// submit for takedown info
+	SubmitForTakedownInfo *SadomainSubmissionInformation `json:"submit_for_takedown_info,omitempty"`
 
 	// The Unicode representation of the infrastructure component
 	// Required: true
@@ -64,6 +67,10 @@ func (m *SadomainTyposquattingComponent) Validate(formats strfmt.Registry) error
 	}
 
 	if err := m.validateSubmitForBlockingInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubmitForTakedownInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -154,6 +161,25 @@ func (m *SadomainTyposquattingComponent) validateSubmitForBlockingInfo(formats s
 	return nil
 }
 
+func (m *SadomainTyposquattingComponent) validateSubmitForTakedownInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.SubmitForTakedownInfo) { // not required
+		return nil
+	}
+
+	if m.SubmitForTakedownInfo != nil {
+		if err := m.SubmitForTakedownInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_takedown_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_takedown_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SadomainTyposquattingComponent) validateUnicodeFormat(formats strfmt.Registry) error {
 
 	if err := validate.Required("unicode_format", "body", m.UnicodeFormat); err != nil {
@@ -176,6 +202,10 @@ func (m *SadomainTyposquattingComponent) ContextValidate(ctx context.Context, fo
 	}
 
 	if err := m.contextValidateSubmitForBlockingInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubmitForTakedownInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -232,6 +262,27 @@ func (m *SadomainTyposquattingComponent) contextValidateSubmitForBlockingInfo(ct
 				return ve.ValidateName("submit_for_blocking_info")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("submit_for_blocking_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SadomainTyposquattingComponent) contextValidateSubmitForTakedownInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SubmitForTakedownInfo != nil {
+
+		if swag.IsZero(m.SubmitForTakedownInfo) { // not required
+			return nil
+		}
+
+		if err := m.SubmitForTakedownInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submit_for_takedown_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submit_for_takedown_info")
 			}
 			return err
 		}

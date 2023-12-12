@@ -40,6 +40,8 @@ type ClientService interface {
 
 	QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, opts ...ClientOption) (*QueryDeviceLoginHistoryOK, error)
 
+	QueryDeviceLoginHistoryV2(params *QueryDeviceLoginHistoryV2Params, opts ...ClientOption) (*QueryDeviceLoginHistoryV2OK, error)
+
 	QueryDevicesByFilter(params *QueryDevicesByFilterParams, opts ...ClientOption) (*QueryDevicesByFilterOK, error)
 
 	QueryDevicesByFilterScroll(params *QueryDevicesByFilterScrollParams, opts ...ClientOption) (*QueryDevicesByFilterScrollOK, error)
@@ -242,6 +244,44 @@ func (a *Client) QueryDeviceLoginHistory(params *QueryDeviceLoginHistoryParams, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryDeviceLoginHistory: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryDeviceLoginHistoryV2 retrieves details about recent interactive login sessions for a set of devices powered by the host timeline a max of 10 device ids can be specified
+*/
+func (a *Client) QueryDeviceLoginHistoryV2(params *QueryDeviceLoginHistoryV2Params, opts ...ClientOption) (*QueryDeviceLoginHistoryV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryDeviceLoginHistoryV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryDeviceLoginHistoryV2",
+		Method:             "POST",
+		PathPattern:        "/devices/combined/devices/login-history/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryDeviceLoginHistoryV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryDeviceLoginHistoryV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryDeviceLoginHistoryV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

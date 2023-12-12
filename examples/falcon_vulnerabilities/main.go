@@ -9,7 +9,7 @@ import (
 
 	"github.com/crowdstrike/gofalcon/falcon"
 	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/models"
 	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
 )
@@ -88,8 +88,8 @@ func queryVulnerabilities(client *client.CrowdStrikeAPISpecification, filter str
 	go func() {
 		lastSeen := (*string)(nil)
 		for {
-			response, err := client.Vulnerabilities.CombinedQueryVulnerabilities(
-				&vulnerabilities.CombinedQueryVulnerabilitiesParams{
+			response, err := client.SpotlightVulnerabilities.CombinedQueryVulnerabilities(
+				&spotlight_vulnerabilities.CombinedQueryVulnerabilitiesParams{
 					Context: context.Background(),
 					Facet:   []string{"cve", "host_info", "remediation", "evaluation_logic"},
 					Filter:  filter,

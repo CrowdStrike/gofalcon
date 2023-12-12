@@ -99,6 +99,12 @@ type UpdateRulesParams struct {
 
 	 * `exclude_processes` represents the changes performed by specific processes that will be `NOT` monitored.
 
+	 * `content_files` represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern
+
+	 * `content_registry_values` represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern
+
+	 * `enable_content_capture`
+
 	File system directory monitoring:
 
 	 * `watch_delete_directory_changes`

@@ -30,38 +30,38 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeprovisionSystemDefinition(params *DeprovisionSystemDefinitionParams, opts ...ClientOption) (*DeprovisionSystemDefinitionOK, error)
+	Deprovision(params *DeprovisionParams, opts ...ClientOption) (*DeprovisionOK, error)
 
 	Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteOK, error)
 
-	ExecutionsAction(params *ExecutionsActionParams, opts ...ClientOption) (*ExecutionsActionOK, error)
+	ExecutionAction(params *ExecutionActionParams, opts ...ClientOption) (*ExecutionActionOK, error)
 
-	ExecutionsResult(params *ExecutionsResultParams, opts ...ClientOption) (*ExecutionsResultOK, error)
+	ExecutionResults(params *ExecutionResultsParams, opts ...ClientOption) (*ExecutionResultsOK, error)
 
-	PromoteSystemDefinition(params *PromoteSystemDefinitionParams, opts ...ClientOption) (*PromoteSystemDefinitionOK, error)
+	Promote(params *PromoteParams, opts ...ClientOption) (*PromoteOK, error)
 
-	ProvisionSystemDefinition(params *ProvisionSystemDefinitionParams, opts ...ClientOption) (*ProvisionSystemDefinitionOK, error)
+	Provision(params *ProvisionParams, opts ...ClientOption) (*ProvisionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeprovisionSystemDefinition deprovisions a system definition that was previously provisioned on the target c ID
+Deprovision deprovisions a system definition that was previously provisioned on the target c ID
 */
-func (a *Client) DeprovisionSystemDefinition(params *DeprovisionSystemDefinitionParams, opts ...ClientOption) (*DeprovisionSystemDefinitionOK, error) {
+func (a *Client) Deprovision(params *DeprovisionParams, opts ...ClientOption) (*DeprovisionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeprovisionSystemDefinitionParams()
+		params = NewDeprovisionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "deprovision.system-definition",
+		ID:                 "Deprovision",
 		Method:             "POST",
 		PathPattern:        "/workflows/system-definitions/deprovision/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeprovisionSystemDefinitionReader{formats: a.formats},
+		Reader:             &DeprovisionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -73,13 +73,13 @@ func (a *Client) DeprovisionSystemDefinition(params *DeprovisionSystemDefinition
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeprovisionSystemDefinitionOK)
+	success, ok := result.(*DeprovisionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deprovision.system-definition: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Deprovision: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -92,7 +92,7 @@ func (a *Client) Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteO
 		params = NewExecuteParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "execute",
+		ID:                 "Execute",
 		Method:             "POST",
 		PathPattern:        "/workflows/entities/execute/v1",
 		ProducesMediaTypes: []string{"application/json"},
@@ -117,27 +117,27 @@ func (a *Client) Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteO
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for execute: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Execute: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ExecutionsAction allows a user to resume retry a failed workflow execution
+ExecutionAction allows a user to resume retry a failed workflow execution
 */
-func (a *Client) ExecutionsAction(params *ExecutionsActionParams, opts ...ClientOption) (*ExecutionsActionOK, error) {
+func (a *Client) ExecutionAction(params *ExecutionActionParams, opts ...ClientOption) (*ExecutionActionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewExecutionsActionParams()
+		params = NewExecutionActionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "executions.action",
+		ID:                 "ExecutionAction",
 		Method:             "POST",
 		PathPattern:        "/workflows/entities/execution-actions/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ExecutionsActionReader{formats: a.formats},
+		Reader:             &ExecutionActionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -149,33 +149,33 @@ func (a *Client) ExecutionsAction(params *ExecutionsActionParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ExecutionsActionOK)
+	success, ok := result.(*ExecutionActionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for executions.action: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for ExecutionAction: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ExecutionsResult gets execution result of a given execution
+ExecutionResults gets execution result of a given execution
 */
-func (a *Client) ExecutionsResult(params *ExecutionsResultParams, opts ...ClientOption) (*ExecutionsResultOK, error) {
+func (a *Client) ExecutionResults(params *ExecutionResultsParams, opts ...ClientOption) (*ExecutionResultsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewExecutionsResultParams()
+		params = NewExecutionResultsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "executions.result",
+		ID:                 "ExecutionResults",
 		Method:             "GET",
 		PathPattern:        "/workflows/entities/execution-results/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ExecutionsResultReader{formats: a.formats},
+		Reader:             &ExecutionResultsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -187,33 +187,33 @@ func (a *Client) ExecutionsResult(params *ExecutionsResultParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ExecutionsResultOK)
+	success, ok := result.(*ExecutionResultsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for executions.result: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for ExecutionResults: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PromoteSystemDefinition promotes a version of a system definition on a customer the customer must already have been provisioned this allows the callerto apply an updated template version to a specific cid and expects all parameters to be supplied if the template supports multi instancethe customer scope definition ID must be supplied to determine which customer workflow should be updated
+Promote promotes a version of a system definition for a customer the customer must already have been provisioned this allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied if the template supports multi instance the customer scope definition ID must be supplied to determine which customer workflow should be updated
 */
-func (a *Client) PromoteSystemDefinition(params *PromoteSystemDefinitionParams, opts ...ClientOption) (*PromoteSystemDefinitionOK, error) {
+func (a *Client) Promote(params *PromoteParams, opts ...ClientOption) (*PromoteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPromoteSystemDefinitionParams()
+		params = NewPromoteParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "promote.system-definition",
+		ID:                 "Promote",
 		Method:             "POST",
 		PathPattern:        "/workflows/system-definitions/promote/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PromoteSystemDefinitionReader{formats: a.formats},
+		Reader:             &PromoteReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -225,33 +225,33 @@ func (a *Client) PromoteSystemDefinition(params *PromoteSystemDefinitionParams, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PromoteSystemDefinitionOK)
+	success, ok := result.(*PromoteOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for promote.system-definition: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Promote: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ProvisionSystemDefinition provisions a system definition onto the target c ID by using the template and provided parameters
+Provision provisions a system definition onto the target c ID by using the template and provided parameters
 */
-func (a *Client) ProvisionSystemDefinition(params *ProvisionSystemDefinitionParams, opts ...ClientOption) (*ProvisionSystemDefinitionOK, error) {
+func (a *Client) Provision(params *ProvisionParams, opts ...ClientOption) (*ProvisionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewProvisionSystemDefinitionParams()
+		params = NewProvisionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "provision.system-definition",
+		ID:                 "Provision",
 		Method:             "POST",
 		PathPattern:        "/workflows/system-definitions/provision/v1",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ProvisionSystemDefinitionReader{formats: a.formats},
+		Reader:             &ProvisionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -263,13 +263,13 @@ func (a *Client) ProvisionSystemDefinition(params *ProvisionSystemDefinitionPara
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ProvisionSystemDefinitionOK)
+	success, ok := result.(*ProvisionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for provision.system-definition: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for Provision: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
