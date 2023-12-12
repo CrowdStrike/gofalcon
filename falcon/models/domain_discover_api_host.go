@@ -141,6 +141,9 @@ type DomainDiscoverAPIHost struct {
 	// The last seen local IPv4 address of the asset.
 	CurrentLocalIP string `json:"current_local_ip,omitempty"`
 
+	// The last seen network prefix of the asset.
+	CurrentNetworkPrefix string `json:"current_network_prefix,omitempty"`
+
 	// Where the data about the asset came from (such as CrowdStrike, ServiceNow, or Active Directory).
 	DataProviders []string `json:"data_providers"`
 
@@ -387,6 +390,12 @@ type DomainDiscoverAPIHost struct {
 
 	// What the asset is used for, such as production, staging, or QA.
 	UsedFor string `json:"used_for,omitempty"`
+
+	// The asset role or roles manually assigned to the asset.
+	UserAssetRoles []string `json:"user_asset_roles"`
+
+	// The internet exposure manually assigned to the asset
+	UserInternetExposure string `json:"user_internet_exposure,omitempty"`
 }
 
 // Validate validates this domain discover API host

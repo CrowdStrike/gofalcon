@@ -24,6 +24,9 @@ type FwmgrMsaAggregationResult struct {
 	// Required: true
 	Buckets []*FwmgrMsaAggregationResultItem `json:"buckets"`
 
+	// doc count error upper bound
+	DocCountErrorUpperBound int64 `json:"doc_count_error_upper_bound,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`

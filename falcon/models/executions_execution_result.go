@@ -60,6 +60,10 @@ type ExecutionsExecutionResult struct {
 	// Overall status for the execution.
 	// Required: true
 	Status *string `json:"status"`
+
+	// Details for the result of the trigger node
+	// Required: true
+	Trigger *ExecutionsTriggerResult `json:"trigger"`
 }
 
 // Validate validates this executions execution result
@@ -103,6 +107,10 @@ func (m *ExecutionsExecutionResult) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTrigger(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -263,6 +271,26 @@ func (m *ExecutionsExecutionResult) validateStatus(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *ExecutionsExecutionResult) validateTrigger(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger", "body", m.Trigger); err != nil {
+		return err
+	}
+
+	if m.Trigger != nil {
+		if err := m.Trigger.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trigger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trigger")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this executions execution result based on the context it is used
 func (m *ExecutionsExecutionResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -276,6 +304,10 @@ func (m *ExecutionsExecutionResult) ContextValidate(ctx context.Context, formats
 	}
 
 	if err := m.contextValidateLoops(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrigger(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -355,6 +387,23 @@ func (m *ExecutionsExecutionResult) contextValidateLoops(ctx context.Context, fo
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ExecutionsExecutionResult) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trigger != nil {
+
+		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trigger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trigger")
+			}
+			return err
+		}
 	}
 
 	return nil

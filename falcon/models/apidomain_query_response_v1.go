@@ -25,6 +25,7 @@ type ApidomainQueryResponseV1 struct {
 	EventCount *int32 `json:"event_count"`
 
 	// events
+	// Required: true
 	Events []ApidomainQueryResponseV1Events `json:"events"`
 
 	// fields
@@ -45,6 +46,10 @@ func (m *ApidomainQueryResponseV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateEventCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEvents(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -73,6 +78,15 @@ func (m *ApidomainQueryResponseV1) Validate(formats strfmt.Registry) error {
 func (m *ApidomainQueryResponseV1) validateEventCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("event_count", "body", m.EventCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApidomainQueryResponseV1) validateEvents(formats strfmt.Registry) error {
+
+	if err := validate.Required("events", "body", m.Events); err != nil {
 		return err
 	}
 

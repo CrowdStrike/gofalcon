@@ -130,6 +130,9 @@ type DeviceapiDeviceSwagger struct {
 	// last login timestamp
 	LastLoginTimestamp string `json:"last_login_timestamp,omitempty"`
 
+	// last login user
+	LastLoginUser string `json:"last_login_user,omitempty"`
+
 	// last reboot
 	LastReboot string `json:"last_reboot,omitempty"`
 

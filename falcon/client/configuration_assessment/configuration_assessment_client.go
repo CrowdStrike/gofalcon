@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetCombinedAssessmentsQuery(params *GetCombinedAssessmentsQueryParams, opts ...ClientOption) (*GetCombinedAssessmentsQueryOK, error)
 
+	GetRuleDetails(params *GetRuleDetailsParams, opts ...ClientOption) (*GetRuleDetailsOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -70,6 +72,44 @@ func (a *Client) GetCombinedAssessmentsQuery(params *GetCombinedAssessmentsQuery
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getCombinedAssessmentsQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetRuleDetails gets rules details for provided one or more rule i ds
+*/
+func (a *Client) GetRuleDetails(params *GetRuleDetailsParams, opts ...ClientOption) (*GetRuleDetailsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRuleDetailsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getRuleDetails",
+		Method:             "GET",
+		PathPattern:        "/configuration-assessment/entities/rule-details/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRuleDetailsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRuleDetailsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getRuleDetails: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

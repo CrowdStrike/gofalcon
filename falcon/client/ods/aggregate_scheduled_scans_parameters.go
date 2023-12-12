@@ -63,6 +63,12 @@ AggregateScheduledScansParams contains all the parameters to send to the API end
 */
 type AggregateScheduledScansParams struct {
 
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
+
 	// Body.
 	Body []*models.MsaAggregateQueryRequest
 
@@ -119,6 +125,17 @@ func (o *AggregateScheduledScansParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the aggregate scheduled scans params
+func (o *AggregateScheduledScansParams) WithXCSUSERUUID(xCSUSERUUID string) *AggregateScheduledScansParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the aggregate scheduled scans params
+func (o *AggregateScheduledScansParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithBody adds the body to the aggregate scheduled scans params
 func (o *AggregateScheduledScansParams) WithBody(body []*models.MsaAggregateQueryRequest) *AggregateScheduledScansParams {
 	o.SetBody(body)
@@ -137,6 +154,11 @@ func (o *AggregateScheduledScansParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

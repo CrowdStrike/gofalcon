@@ -19,8 +19,20 @@ import (
 // swagger:model client.JobStatus
 type ClientJobStatus struct {
 
+	// content length
+	ContentLength int32 `json:"content_length,omitempty"`
+
+	// digest algo
+	DigestAlgo string `json:"digest_algo,omitempty"`
+
+	// digest hex
+	DigestHex string `json:"digest_hex,omitempty"`
+
 	// event count
 	EventCount int64 `json:"event_count,omitempty"`
+
+	// file link
+	FileLink string `json:"file_link,omitempty"`
 
 	// job id
 	// Required: true

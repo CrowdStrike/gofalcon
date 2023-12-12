@@ -31,38 +31,38 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error)
+	Delete(params *DeleteParams, opts ...ClientOption) (*DeleteOK, error)
 
-	GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error)
+	Get(params *GetParams, writer io.Writer, opts ...ClientOption) (*GetOK, error)
 
-	GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error)
+	List(params *ListParams, opts ...ClientOption) (*ListOK, error)
 
-	ListObjects(params *ListObjectsParams, opts ...ClientOption) (*ListObjectsOK, error)
+	Metadata(params *MetadataParams, opts ...ClientOption) (*MetadataOK, error)
 
-	PutObject(params *PutObjectParams, opts ...ClientOption) (*PutObjectOK, error)
+	Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error)
 
-	SearchObjects(params *SearchObjectsParams, opts ...ClientOption) (*SearchObjectsOK, error)
+	Upload(params *UploadParams, opts ...ClientOption) (*UploadOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteObject deletes the specified object
+Delete deletes the specified object
 */
-func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) (*DeleteObjectOK, error) {
+func (a *Client) Delete(params *DeleteParams, opts ...ClientOption) (*DeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteObjectParams()
+		params = NewDeleteParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteObject",
+		ID:                 "delete",
 		Method:             "DELETE",
 		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects/{object_key}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DeleteObjectReader{formats: a.formats},
+		Reader:             &DeleteReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -74,33 +74,33 @@ func (a *Client) DeleteObject(params *DeleteObjectParams, opts ...ClientOption) 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteObjectOK)
+	success, ok := result.(*DeleteOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteObject: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for delete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetObject gets the bytes for the specified object
+Get gets the bytes for the specified object
 */
-func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...ClientOption) (*GetObjectOK, error) {
+func (a *Client) Get(params *GetParams, writer io.Writer, opts ...ClientOption) (*GetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetObjectParams()
+		params = NewGetParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetObject",
+		ID:                 "get",
 		Method:             "GET",
 		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects/{object_key}",
 		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetObjectReader{formats: a.formats, writer: writer},
+		Reader:             &GetReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -112,33 +112,71 @@ func (a *Client) GetObject(params *GetObjectParams, writer io.Writer, opts ...Cl
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetObjectOK)
+	success, ok := result.(*GetOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetObject: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetObjectMetadata gets the metadata for the specified object
+List lists the object keys in the specified collection in alphabetical order
 */
-func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...ClientOption) (*GetObjectMetadataOK, error) {
+func (a *Client) List(params *ListParams, opts ...ClientOption) (*ListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetObjectMetadataParams()
+		params = NewListParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetObjectMetadata",
+		ID:                 "list",
+		Method:             "GET",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ListOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for list: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Metadata gets the metadata for the specified object
+*/
+func (a *Client) Metadata(params *MetadataParams, opts ...ClientOption) (*MetadataOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewMetadataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "metadata",
 		Method:             "GET",
 		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetObjectMetadataReader{formats: a.formats},
+		Reader:             &MetadataReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -150,109 +188,33 @@ func (a *Client) GetObjectMetadata(params *GetObjectMetadataParams, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetObjectMetadataOK)
+	success, ok := result.(*MetadataOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetObjectMetadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for metadata: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ListObjects lists the object keys in the specified collection in alphabetical order
+Search searches for objects that match the specified filter criteria returns metadata not actual objects
 */
-func (a *Client) ListObjects(params *ListObjectsParams, opts ...ClientOption) (*ListObjectsOK, error) {
+func (a *Client) Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewListObjectsParams()
+		params = NewSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "ListObjects",
-		Method:             "GET",
-		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ListObjectsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ListObjectsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ListObjects: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-PutObject puts the specified new object at the given key or overwrite an existing object at the given key
-*/
-func (a *Client) PutObject(params *PutObjectParams, opts ...ClientOption) (*PutObjectOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPutObjectParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "PutObject",
-		Method:             "PUT",
-		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects/{object_key}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutObjectReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*PutObjectOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutObject: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-SearchObjects searches for objects that match the specified filter criteria returns metadata not actual objects
-*/
-func (a *Client) SearchObjects(params *SearchObjectsParams, opts ...ClientOption) (*SearchObjectsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewSearchObjectsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "SearchObjects",
+		ID:                 "search",
 		Method:             "POST",
 		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &SearchObjectsReader{formats: a.formats},
+		Reader:             &SearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -264,13 +226,51 @@ func (a *Client) SearchObjects(params *SearchObjectsParams, opts ...ClientOption
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SearchObjectsOK)
+	success, ok := result.(*SearchOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SearchObjects: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for search: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+Upload puts the specified new object at the given key or overwrite an existing object at the given key
+*/
+func (a *Client) Upload(params *UploadParams, opts ...ClientOption) (*UploadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUploadParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "upload",
+		Method:             "PUT",
+		PathPattern:        "/customobjects/v1/collections/{collection_name}/objects/{object_key}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UploadReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UploadOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for upload: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

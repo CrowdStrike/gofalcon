@@ -88,7 +88,7 @@ type QueryRuleGroupsFullParams struct {
 
 	/* Sort.
 
-	   Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+	   Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
 	*/
 	Sort *string
 

@@ -82,8 +82,7 @@ type DetectsAlert struct {
 	External bool `json:"external,omitempty"`
 
 	// Vertex key which triggers the formation of the Alert
-	// Required: true
-	ID *string `json:"id"`
+	ID string `json:"id,omitempty"`
 
 	// Pattern Name coming either from Taxonomy or directly from the ingested Alert
 	Name string `json:"name,omitempty"`
@@ -161,10 +160,6 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -201,15 +196,6 @@ func (m *DetectsAlert) validateCreatedTimestamp(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DetectsAlert) validateID(formats strfmt.Registry) error {
-
-	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 

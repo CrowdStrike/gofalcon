@@ -62,6 +62,12 @@ QueryMaliciousFilesParams contains all the parameters to send to the API endpoin
 */
 type QueryMaliciousFilesParams struct {
 
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
+
 	/* Filter.
 
 	   A FQL compatible query string. Terms: [id scan_id host_id host_scan_id filepath filename hash pattern_id severity quarantined last_updated]
@@ -160,6 +166,17 @@ func (o *QueryMaliciousFilesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the query malicious files params
+func (o *QueryMaliciousFilesParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryMaliciousFilesParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the query malicious files params
+func (o *QueryMaliciousFilesParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithFilter adds the filter to the query malicious files params
 func (o *QueryMaliciousFilesParams) WithFilter(filter string) *QueryMaliciousFilesParams {
 	o.SetFilter(filter)
@@ -211,6 +228,11 @@ func (o *QueryMaliciousFilesParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	// query param filter
 	qrFilter := o.Filter

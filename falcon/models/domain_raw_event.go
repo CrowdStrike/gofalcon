@@ -20,14 +20,6 @@ import (
 // swagger:model domain.RawEvent
 type DomainRawEvent struct {
 
-	// associated event i ds
-	// Required: true
-	AssociatedEventIDs *string `json:"AssociatedEventIDs"`
-
-	// associated events
-	// Required: true
-	AssociatedEvents map[string]DomainRawEvent `json:"AssociatedEvents"`
-
 	// c ID
 	// Required: true
 	CID *string `json:"CID"`
@@ -86,14 +78,6 @@ type DomainRawEvent struct {
 func (m *DomainRawEvent) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAssociatedEventIDs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAssociatedEvents(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateCID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -149,42 +133,6 @@ func (m *DomainRawEvent) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainRawEvent) validateAssociatedEventIDs(formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEventIDs", "body", m.AssociatedEventIDs); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainRawEvent) validateAssociatedEvents(formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEvents", "body", m.AssociatedEvents); err != nil {
-		return err
-	}
-
-	for k := range m.AssociatedEvents {
-
-		if err := validate.Required("AssociatedEvents"+"."+k, "body", m.AssociatedEvents[k]); err != nil {
-			return err
-		}
-		if val, ok := m.AssociatedEvents[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("AssociatedEvents" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("AssociatedEvents" + "." + k)
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -350,10 +298,6 @@ func (m *DomainRawEvent) validateSourceEvent(formats strfmt.Registry) error {
 func (m *DomainRawEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateAssociatedEvents(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -369,25 +313,6 @@ func (m *DomainRawEvent) ContextValidate(ctx context.Context, formats strfmt.Reg
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainRawEvent) contextValidateAssociatedEvents(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEvents", "body", m.AssociatedEvents); err != nil {
-		return err
-	}
-
-	for k := range m.AssociatedEvents {
-
-		if val, ok := m.AssociatedEvents[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

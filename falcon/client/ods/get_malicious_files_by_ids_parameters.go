@@ -62,6 +62,12 @@ GetMaliciousFilesByIdsParams contains all the parameters to send to the API endp
 */
 type GetMaliciousFilesByIdsParams struct {
 
+	/* XCSUSERUUID.
+
+	   The user ID
+	*/
+	XCSUSERUUID string
+
 	/* Ids.
 
 	   The scan IDs to retrieve the scan entities
@@ -121,6 +127,17 @@ func (o *GetMaliciousFilesByIdsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithXCSUSERUUID adds the xCSUSERUUID to the get malicious files by ids params
+func (o *GetMaliciousFilesByIdsParams) WithXCSUSERUUID(xCSUSERUUID string) *GetMaliciousFilesByIdsParams {
+	o.SetXCSUSERUUID(xCSUSERUUID)
+	return o
+}
+
+// SetXCSUSERUUID adds the xCSUSERUuid to the get malicious files by ids params
+func (o *GetMaliciousFilesByIdsParams) SetXCSUSERUUID(xCSUSERUUID string) {
+	o.XCSUSERUUID = xCSUSERUUID
+}
+
 // WithIds adds the ids to the get malicious files by ids params
 func (o *GetMaliciousFilesByIdsParams) WithIds(ids []string) *GetMaliciousFilesByIdsParams {
 	o.SetIds(ids)
@@ -139,6 +156,11 @@ func (o *GetMaliciousFilesByIdsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
+
+	// header param X-CS-USERUUID
+	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
+		return err
+	}
 
 	if o.Ids != nil {
 

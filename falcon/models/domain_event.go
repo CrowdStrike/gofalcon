@@ -19,14 +19,6 @@ import (
 // swagger:model domain.Event
 type DomainEvent struct {
 
-	// associated event i ds
-	// Required: true
-	AssociatedEventIDs *string `json:"AssociatedEventIDs"`
-
-	// associated events
-	// Required: true
-	AssociatedEvents map[string]DomainRawEvent `json:"AssociatedEvents"`
-
 	// attributes
 	// Required: true
 	Attributes map[string]string `json:"Attributes"`
@@ -58,6 +50,14 @@ type DomainEvent struct {
 	// metadata
 	// Required: true
 	Metadata *DomainEventMetadata `json:"Metadata"`
+
+	// parent incident i ds
+	// Required: true
+	ParentIncidentIDs []string `json:"ParentIncidentIDs"`
+
+	// parent indicator i ds
+	// Required: true
+	ParentIndicatorIDs []string `json:"ParentIndicatorIDs"`
 
 	// product
 	// Required: true
@@ -101,14 +101,6 @@ type DomainEvent struct {
 func (m *DomainEvent) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAssociatedEventIDs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateAssociatedEvents(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateAttributes(formats); err != nil {
 		res = append(res, err)
 	}
@@ -138,6 +130,14 @@ func (m *DomainEvent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetadata(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParentIncidentIDs(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParentIndicatorIDs(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -180,42 +180,6 @@ func (m *DomainEvent) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainEvent) validateAssociatedEventIDs(formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEventIDs", "body", m.AssociatedEventIDs); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateAssociatedEvents(formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEvents", "body", m.AssociatedEvents); err != nil {
-		return err
-	}
-
-	for k := range m.AssociatedEvents {
-
-		if err := validate.Required("AssociatedEvents"+"."+k, "body", m.AssociatedEvents[k]); err != nil {
-			return err
-		}
-		if val, ok := m.AssociatedEvents[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("AssociatedEvents" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("AssociatedEvents" + "." + k)
-				}
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 
@@ -297,6 +261,24 @@ func (m *DomainEvent) validateMetadata(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateParentIncidentIDs(formats strfmt.Registry) error {
+
+	if err := validate.Required("ParentIncidentIDs", "body", m.ParentIncidentIDs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateParentIndicatorIDs(formats strfmt.Registry) error {
+
+	if err := validate.Required("ParentIndicatorIDs", "body", m.ParentIndicatorIDs); err != nil {
+		return err
 	}
 
 	return nil
@@ -402,10 +384,6 @@ func (m *DomainEvent) validateSourceEvent(formats strfmt.Registry) error {
 func (m *DomainEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateAssociatedEvents(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -417,25 +395,6 @@ func (m *DomainEvent) ContextValidate(ctx context.Context, formats strfmt.Regist
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *DomainEvent) contextValidateAssociatedEvents(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.Required("AssociatedEvents", "body", m.AssociatedEvents); err != nil {
-		return err
-	}
-
-	for k := range m.AssociatedEvents {
-
-		if val, ok := m.AssociatedEvents[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
-			}
-		}
-
-	}
-
 	return nil
 }
 

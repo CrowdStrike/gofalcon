@@ -50,6 +50,10 @@ type DomainExposedDataRecordSocialV1 struct {
 	// vk id
 	// Required: true
 	VkID *string `json:"vk_id"`
+
+	// vk token
+	// Required: true
+	VkToken *string `json:"vk_token"`
 }
 
 // Validate validates this domain exposed data record social v1
@@ -85,6 +89,10 @@ func (m *DomainExposedDataRecordSocialV1) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateVkID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVkToken(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,6 +168,15 @@ func (m *DomainExposedDataRecordSocialV1) validateTwitterID(formats strfmt.Regis
 func (m *DomainExposedDataRecordSocialV1) validateVkID(formats strfmt.Registry) error {
 
 	if err := validate.Required("vk_id", "body", m.VkID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainExposedDataRecordSocialV1) validateVkToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("vk_token", "body", m.VkToken); err != nil {
 		return err
 	}
 

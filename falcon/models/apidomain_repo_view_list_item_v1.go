@@ -43,6 +43,10 @@ type ApidomainRepoViewListItemV1 struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// name contracted
+	// Required: true
+	NameContracted *string `json:"name_contracted"`
+
 	// size
 	Size int64 `json:"size,omitempty"`
 
@@ -76,6 +80,10 @@ func (m *ApidomainRepoViewListItemV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNameContracted(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -154,6 +162,15 @@ func (m *ApidomainRepoViewListItemV1) validateID(formats strfmt.Registry) error 
 func (m *ApidomainRepoViewListItemV1) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApidomainRepoViewListItemV1) validateNameContracted(formats strfmt.Registry) error {
+
+	if err := validate.Required("name_contracted", "body", m.NameContracted); err != nil {
 		return err
 	}
 

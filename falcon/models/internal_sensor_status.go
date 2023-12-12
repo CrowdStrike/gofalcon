@@ -39,14 +39,32 @@ type InternalSensorStatus struct {
 	// idp policy name
 	IdpPolicyName string `json:"idp_policy_name,omitempty"`
 
+	// kerberos config
+	KerberosConfig string `json:"kerberos_config,omitempty"`
+
+	// ldap config
+	LdapConfig string `json:"ldap_config,omitempty"`
+
+	// ldaps config
+	LdapsConfig string `json:"ldaps_config,omitempty"`
+
 	// local ip
 	LocalIP string `json:"local_ip,omitempty"`
 
 	// machine domain
 	MachineDomain string `json:"machine_domain,omitempty"`
 
+	// ntlm config
+	NtlmConfig string `json:"ntlm_config,omitempty"`
+
 	// os version
 	OsVersion string `json:"os_version,omitempty"`
+
+	// rdp to dc config
+	RdpToDcConfig string `json:"rdp_to_dc_config,omitempty"`
+
+	// smb to dc config
+	SmbToDcConfig string `json:"smb_to_dc_config,omitempty"`
 
 	// status
 	Status string `json:"status,omitempty"`

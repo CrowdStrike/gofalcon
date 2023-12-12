@@ -17,22 +17,22 @@ import (
 // swagger:model api.ExposedDataRecordLocationV1
 type APIExposedDataRecordLocationV1 struct {
 
-	// city
+	// City name
 	City string `json:"city,omitempty"`
 
-	// country code
+	// The country code
 	CountryCode string `json:"country_code,omitempty"`
 
-	// federal admin region
+	// Federal Administrative Region
 	FederalAdminRegion string `json:"federal_admin_region,omitempty"`
 
-	// federal district
+	// Federal District
 	FederalDistrict string `json:"federal_district,omitempty"`
 
-	// postal code
+	// The postal code
 	PostalCode string `json:"postal_code,omitempty"`
 
-	// state
+	// State name
 	State string `json:"state,omitempty"`
 }
 
