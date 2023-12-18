@@ -7,7 +7,7 @@ require (
 	github.com/go-openapi/errors v0.21.0
 	github.com/go-openapi/runtime v0.26.2
 	github.com/go-openapi/strfmt v0.21.10
-	github.com/go-openapi/swag v0.22.4
+	github.com/go-openapi/swag v0.22.5
 	github.com/go-openapi/validate v0.22.3
 	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/oauth2 v0.15.0
