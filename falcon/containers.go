@@ -8,6 +8,7 @@ type SensorType string
 
 const (
 	SidecarSensor SensorType = "falcon-container"
+	ImageSensor   SensorType = "falcon-imageanalyzer"
 	KacSensor     SensorType = "falcon-kac"
 	NodeSensor    SensorType = "falcon-sensor"
 )
@@ -33,6 +34,8 @@ func FalconContainerSensorImageURI(falconCloud CloudType, sensorType SensorType)
 	switch sensorType {
 	case SidecarSensor:
 		return fmt.Sprintf("%s/falcon-container/%s/release/falcon-sensor", registryFQDN(falconCloud), registryCloud(falconCloud))
+	case ImageSensor:
+		return fmt.Sprintf("%s/falcon-imageanalyzer/%s/release/falcon-imageanalyzer", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case KacSensor:
 		return fmt.Sprintf("%s/falcon-kac/%s/release/falcon-kac", registryFQDN(falconCloud), registryCloud(falconCloud))
 	case NodeSensor:
