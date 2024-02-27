@@ -22,15 +22,14 @@ type APIProcessesRanOnRespV1 struct {
 
 	// errors
 	// Required: true
-	Errors []*MsaAPIError `json:"Errors"`
+	Errors []*MsaAPIError `json:"errors"`
 
-	// msa meta info
-	// Required: true
-	MsaMetaInfo *APIDetectsQueryMeta `json:"MsaMetaInfo"`
+	// meta
+	Meta *APIDetectsQueryMeta `json:"meta,omitempty"`
 
 	// resources
 	// Required: true
-	Resources []string `json:"Resources"`
+	Resources []string `json:"resources"`
 }
 
 // Validate validates this api processes ran on resp v1
@@ -41,7 +40,7 @@ func (m *APIProcessesRanOnRespV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateMsaMetaInfo(formats); err != nil {
+	if err := m.validateMeta(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -57,7 +56,7 @@ func (m *APIProcessesRanOnRespV1) Validate(formats strfmt.Registry) error {
 
 func (m *APIProcessesRanOnRespV1) validateErrors(formats strfmt.Registry) error {
 
-	if err := validate.Required("Errors", "body", m.Errors); err != nil {
+	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
 	}
 
@@ -69,9 +68,9 @@ func (m *APIProcessesRanOnRespV1) validateErrors(formats strfmt.Registry) error 
 		if m.Errors[i] != nil {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -82,18 +81,17 @@ func (m *APIProcessesRanOnRespV1) validateErrors(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *APIProcessesRanOnRespV1) validateMsaMetaInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("MsaMetaInfo", "body", m.MsaMetaInfo); err != nil {
-		return err
+func (m *APIProcessesRanOnRespV1) validateMeta(formats strfmt.Registry) error {
+	if swag.IsZero(m.Meta) { // not required
+		return nil
 	}
 
-	if m.MsaMetaInfo != nil {
-		if err := m.MsaMetaInfo.Validate(formats); err != nil {
+	if m.Meta != nil {
+		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
+				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -104,7 +102,7 @@ func (m *APIProcessesRanOnRespV1) validateMsaMetaInfo(formats strfmt.Registry) e
 
 func (m *APIProcessesRanOnRespV1) validateResources(formats strfmt.Registry) error {
 
-	if err := validate.Required("Resources", "body", m.Resources); err != nil {
+	if err := validate.Required("resources", "body", m.Resources); err != nil {
 		return err
 	}
 
@@ -119,7 +117,7 @@ func (m *APIProcessesRanOnRespV1) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateMsaMetaInfo(ctx, formats); err != nil {
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -141,9 +139,9 @@ func (m *APIProcessesRanOnRespV1) contextValidateErrors(ctx context.Context, for
 
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -154,15 +152,19 @@ func (m *APIProcessesRanOnRespV1) contextValidateErrors(ctx context.Context, for
 	return nil
 }
 
-func (m *APIProcessesRanOnRespV1) contextValidateMsaMetaInfo(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIProcessesRanOnRespV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.MsaMetaInfo != nil {
+	if m.Meta != nil {
 
-		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
+				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
+				return ce.ValidateName("meta")
 			}
 			return err
 		}

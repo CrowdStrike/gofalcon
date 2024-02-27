@@ -55,6 +55,10 @@ type RegistrationIOMEventV2 struct {
 	// Required: true
 	Finding interface{} `json:"finding"`
 
+	// findings
+	// Required: true
+	Findings []RegistrationIOMEventV2Findings `json:"findings"`
+
 	// id
 	// Required: true
 	ID *string `json:"id"`
@@ -163,6 +167,10 @@ func (m *RegistrationIOMEventV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFinding(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFindings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -324,6 +332,15 @@ func (m *RegistrationIOMEventV2) validateFinding(formats strfmt.Registry) error 
 
 	if m.Finding == nil {
 		return errors.Required("finding", "body", nil)
+	}
+
+	return nil
+}
+
+func (m *RegistrationIOMEventV2) validateFindings(formats strfmt.Registry) error {
+
+	if err := validate.Required("findings", "body", m.Findings); err != nil {
+		return err
 	}
 
 	return nil

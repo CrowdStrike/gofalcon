@@ -22,11 +22,10 @@ type APIDeviceCountRespV1 struct {
 
 	// errors
 	// Required: true
-	Errors []*MsaAPIError `json:"Errors"`
+	Errors []*MsaAPIError `json:"errors"`
 
-	// msa meta info
-	// Required: true
-	MsaMetaInfo *MsaMetaInfo `json:"MsaMetaInfo"`
+	// meta
+	Meta *MsaMetaInfo `json:"meta,omitempty"`
 
 	// resources
 	// Required: true
@@ -41,7 +40,7 @@ func (m *APIDeviceCountRespV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateMsaMetaInfo(formats); err != nil {
+	if err := m.validateMeta(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -57,7 +56,7 @@ func (m *APIDeviceCountRespV1) Validate(formats strfmt.Registry) error {
 
 func (m *APIDeviceCountRespV1) validateErrors(formats strfmt.Registry) error {
 
-	if err := validate.Required("Errors", "body", m.Errors); err != nil {
+	if err := validate.Required("errors", "body", m.Errors); err != nil {
 		return err
 	}
 
@@ -69,9 +68,9 @@ func (m *APIDeviceCountRespV1) validateErrors(formats strfmt.Registry) error {
 		if m.Errors[i] != nil {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -82,18 +81,17 @@ func (m *APIDeviceCountRespV1) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *APIDeviceCountRespV1) validateMsaMetaInfo(formats strfmt.Registry) error {
-
-	if err := validate.Required("MsaMetaInfo", "body", m.MsaMetaInfo); err != nil {
-		return err
+func (m *APIDeviceCountRespV1) validateMeta(formats strfmt.Registry) error {
+	if swag.IsZero(m.Meta) { // not required
+		return nil
 	}
 
-	if m.MsaMetaInfo != nil {
-		if err := m.MsaMetaInfo.Validate(formats); err != nil {
+	if m.Meta != nil {
+		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
+				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -137,7 +135,7 @@ func (m *APIDeviceCountRespV1) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateMsaMetaInfo(ctx, formats); err != nil {
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -163,9 +161,9 @@ func (m *APIDeviceCountRespV1) contextValidateErrors(ctx context.Context, format
 
 			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("Errors" + "." + strconv.Itoa(i))
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -176,15 +174,19 @@ func (m *APIDeviceCountRespV1) contextValidateErrors(ctx context.Context, format
 	return nil
 }
 
-func (m *APIDeviceCountRespV1) contextValidateMsaMetaInfo(ctx context.Context, formats strfmt.Registry) error {
+func (m *APIDeviceCountRespV1) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.MsaMetaInfo != nil {
+	if m.Meta != nil {
 
-		if err := m.MsaMetaInfo.ContextValidate(ctx, formats); err != nil {
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("MsaMetaInfo")
+				return ve.ValidateName("meta")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("MsaMetaInfo")
+				return ce.ValidateName("meta")
 			}
 			return err
 		}

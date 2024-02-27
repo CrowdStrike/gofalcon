@@ -69,9 +69,11 @@ type SubmitParams struct {
 
 	**`environment_id`**: Specifies the sandbox environment used for analysis. Values:
 
+	- `400`: MacOS Catalina 10.15
 	- `300`: Linux Ubuntu 16.04, 64-bit
 	- `200`: Android (static analysis)
 	- `160`: Windows 10, 64-bit
+	- `140`: Windows 11, 64-bit
 	- `110`: Windows 7, 64-bit
 	- `100`: Windows 7, 32-bit
 

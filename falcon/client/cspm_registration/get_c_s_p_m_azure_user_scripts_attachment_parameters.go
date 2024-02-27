@@ -65,6 +65,12 @@ type GetCSPMAzureUserScriptsAttachmentParams struct {
 	// AccountType.
 	AccountType *string
 
+	/* AzureManagementGroup.
+
+	   Use Azure Management Group
+	*/
+	AzureManagementGroup *bool
+
 	/* SubscriptionIds.
 
 	   Subscription IDs to generate script for. Defaults to all.
@@ -147,6 +153,17 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) SetAccountType(accountType *st
 	o.AccountType = accountType
 }
 
+// WithAzureManagementGroup adds the azureManagementGroup to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) WithAzureManagementGroup(azureManagementGroup *bool) *GetCSPMAzureUserScriptsAttachmentParams {
+	o.SetAzureManagementGroup(azureManagementGroup)
+	return o
+}
+
+// SetAzureManagementGroup adds the azureManagementGroup to the get c s p m azure user scripts attachment params
+func (o *GetCSPMAzureUserScriptsAttachmentParams) SetAzureManagementGroup(azureManagementGroup *bool) {
+	o.AzureManagementGroup = azureManagementGroup
+}
+
 // WithSubscriptionIds adds the subscriptionIds to the get c s p m azure user scripts attachment params
 func (o *GetCSPMAzureUserScriptsAttachmentParams) WithSubscriptionIds(subscriptionIds []string) *GetCSPMAzureUserScriptsAttachmentParams {
 	o.SetSubscriptionIds(subscriptionIds)
@@ -200,6 +217,23 @@ func (o *GetCSPMAzureUserScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		if qAccountType != "" {
 
 			if err := r.SetQueryParam("account_type", qAccountType); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.AzureManagementGroup != nil {
+
+		// query param azure_management_group
+		var qrAzureManagementGroup bool
+
+		if o.AzureManagementGroup != nil {
+			qrAzureManagementGroup = *o.AzureManagementGroup
+		}
+		qAzureManagementGroup := swag.FormatBool(qrAzureManagementGroup)
+		if qAzureManagementGroup != "" {
+
+			if err := r.SetQueryParam("azure_management_group", qAzureManagementGroup); err != nil {
 				return err
 			}
 		}

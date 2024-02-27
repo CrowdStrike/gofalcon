@@ -90,7 +90,7 @@ type TokensDeleteOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens delete o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *TokensDeleteOK) String() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteOK  %+v", 200, o.Payload)
 }
 
-func (o *TokensDeleteOK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensDeleteOK) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *TokensDeleteOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type TokensDeleteBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens delete bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *TokensDeleteBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *TokensDeleteBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensDeleteBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *TokensDeleteBadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type TokensDeleteForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens delete forbidden response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *TokensDeleteForbidden) String() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteForbidden  %+v", 403, o.Payload)
 }
 
-func (o *TokensDeleteForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensDeleteForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *TokensDeleteForbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type TokensDeleteNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this tokens delete not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *TokensDeleteNotFound) String() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteNotFound  %+v", 404, o.Payload)
 }
 
-func (o *TokensDeleteNotFound) GetPayload() *models.MsaQueryResponse {
+func (o *TokensDeleteNotFound) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *TokensDeleteNotFound) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type TokensDeleteInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens delete internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *TokensDeleteInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /installation-tokens/entities/tokens/v1][%d] tokensDeleteInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *TokensDeleteInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensDeleteInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *TokensDeleteInternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -41,6 +41,9 @@ type SvExclusionsSVExclusionV1 struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// is descendant process
+	IsDescendantProcess bool `json:"is_descendant_process,omitempty"`
+
 	// last modified
 	// Required: true
 	// Format: date-time

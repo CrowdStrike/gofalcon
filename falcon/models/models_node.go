@@ -120,6 +120,10 @@ type ModelsNode struct {
 	// Required: true
 	LastSeen *string `json:"last_seen"`
 
+	// linux sensor coverage
+	// Required: true
+	LinuxSensorCoverage *bool `json:"linux_sensor_coverage"`
+
 	// memory
 	// Required: true
 	Memory *string `json:"memory"`
@@ -258,6 +262,10 @@ func (m *ModelsNode) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinuxSensorCoverage(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -537,6 +545,15 @@ func (m *ModelsNode) validateLabelsList(formats strfmt.Registry) error {
 func (m *ModelsNode) validateLastSeen(formats strfmt.Registry) error {
 
 	if err := validate.Required("last_seen", "body", m.LastSeen); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsNode) validateLinuxSensorCoverage(formats strfmt.Registry) error {
+
+	if err := validate.Required("linux_sensor_coverage", "body", m.LinuxSensorCoverage); err != nil {
 		return err
 	}
 

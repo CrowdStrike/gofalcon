@@ -79,6 +79,12 @@ type ExecuteParams struct {
 	*/
 	Depth *int64
 
+	/* ExecutionCid.
+
+	   CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+	*/
+	ExecutionCid []string
+
 	/* Key.
 
 	   Key used to help deduplicate executions, if unset a new UUID is used
@@ -183,6 +189,17 @@ func (o *ExecuteParams) SetDepth(depth *int64) {
 	o.Depth = depth
 }
 
+// WithExecutionCid adds the executionCid to the execute params
+func (o *ExecuteParams) WithExecutionCid(executionCid []string) *ExecuteParams {
+	o.SetExecutionCid(executionCid)
+	return o
+}
+
+// SetExecutionCid adds the executionCid to the execute params
+func (o *ExecuteParams) SetExecutionCid(executionCid []string) {
+	o.ExecutionCid = executionCid
+}
+
 // WithKey adds the key to the execute params
 func (o *ExecuteParams) WithKey(key *string) *ExecuteParams {
 	o.SetKey(key)
@@ -254,6 +271,17 @@ func (o *ExecuteParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 			if err := r.SetQueryParam("depth", qDepth); err != nil {
 				return err
 			}
+		}
+	}
+
+	if o.ExecutionCid != nil {
+
+		// binding items for execution_cid
+		joinedExecutionCid := o.bindParamExecutionCid(reg)
+
+		// query array param execution_cid
+		if err := r.SetQueryParam("execution_cid", joinedExecutionCid...); err != nil {
+			return err
 		}
 	}
 
@@ -329,4 +357,21 @@ func (o *ExecuteParams) bindParamDefinitionID(formats strfmt.Registry) []string 
 	definitionIDIS := swag.JoinByFormat(definitionIDIC, "csv")
 
 	return definitionIDIS
+}
+
+// bindParamExecute binds the parameter execution_cid
+func (o *ExecuteParams) bindParamExecutionCid(formats strfmt.Registry) []string {
+	executionCidIR := o.ExecutionCid
+
+	var executionCidIC []string
+	for _, executionCidIIR := range executionCidIR { // explode []string
+
+		executionCidIIV := executionCidIIR // string as string
+		executionCidIC = append(executionCidIC, executionCidIIV)
+	}
+
+	// items.CollectionFormat: "csv"
+	executionCidIS := swag.JoinByFormat(executionCidIC, "csv")
+
+	return executionCidIS
 }

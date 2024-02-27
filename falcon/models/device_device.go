@@ -133,8 +133,14 @@ type DeviceDevice struct {
 	// last login timestamp
 	LastLoginTimestamp string `json:"last_login_timestamp,omitempty"`
 
+	// last login uid
+	LastLoginUID string `json:"last_login_uid,omitempty"`
+
 	// last login user
 	LastLoginUser string `json:"last_login_user,omitempty"`
+
+	// last login user sid
+	LastLoginUserSid string `json:"last_login_user_sid,omitempty"`
 
 	// last reboot
 	LastReboot string `json:"last_reboot,omitempty"`

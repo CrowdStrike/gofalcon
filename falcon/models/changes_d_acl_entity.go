@@ -31,6 +31,10 @@ type ChangesDACLEntity struct {
 	// Required: true
 	ACLPrincipal *string `json:"acl_principal"`
 
+	// acl principal id
+	// Required: true
+	ACLPrincipalID *string `json:"acl_principal_id"`
+
 	// Possible values: 0 - ALLOW, 1 - DENY
 	// Required: true
 	ACLType *int32 `json:"acl_type"`
@@ -45,6 +49,10 @@ func (m *ChangesDACLEntity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateACLPrincipal(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateACLPrincipalID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -88,6 +96,15 @@ func (m *ChangesDACLEntity) validateACLPermissionChange(formats strfmt.Registry)
 func (m *ChangesDACLEntity) validateACLPrincipal(formats strfmt.Registry) error {
 
 	if err := validate.Required("acl_principal", "body", m.ACLPrincipal); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ChangesDACLEntity) validateACLPrincipalID(formats strfmt.Registry) error {
+
+	if err := validate.Required("acl_principal_id", "body", m.ACLPrincipalID); err != nil {
 		return err
 	}
 

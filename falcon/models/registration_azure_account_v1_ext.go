@@ -72,8 +72,17 @@ type RegistrationAzureAccountV1Ext struct {
 	// environment
 	Environment string `json:"environment,omitempty"`
 
+	// Is CSPM Lite enabled.
+	IsCspmLite bool `json:"is_cspm_lite,omitempty"`
+
 	// object id
 	ObjectID string `json:"object_id,omitempty"`
+
+	// parent management group id
+	ParentManagementGroupID string `json:"parent_management_group_id,omitempty"`
+
+	// parent management group name
+	ParentManagementGroupName string `json:"parent_management_group_name,omitempty"`
 
 	// public certificate
 	PublicCertificate string `json:"public_certificate,omitempty"`

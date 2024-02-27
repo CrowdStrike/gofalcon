@@ -26,7 +26,7 @@ type RegistrationIOMEventIDsResponseV2 struct {
 
 	// meta
 	// Required: true
-	Meta *RegistrationMSASpecMetaInfoExtension `json:"meta"`
+	Meta *RegistrationIOMEventIDResponseMeta `json:"meta"`
 
 	// resources
 	// Required: true

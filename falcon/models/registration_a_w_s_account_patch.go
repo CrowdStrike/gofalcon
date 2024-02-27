@@ -29,6 +29,9 @@ type RegistrationAWSAccountPatch struct {
 	// cloudtrail region
 	CloudtrailRegion string `json:"cloudtrail_region,omitempty"`
 
+	// environment
+	Environment string `json:"environment,omitempty"`
+
 	// iam role arn
 	// Required: true
 	IamRoleArn *string `json:"iam_role_arn"`

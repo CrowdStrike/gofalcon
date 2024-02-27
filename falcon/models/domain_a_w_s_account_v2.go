@@ -103,6 +103,9 @@ type DomainAWSAccountV2 struct {
 	// intermediate role arn
 	IntermediateRoleArn string `json:"intermediate_role_arn,omitempty"`
 
+	// Is CSPM Lite enabled.
+	IsCspmLite bool `json:"is_cspm_lite,omitempty"`
+
 	// is custom rolename
 	// Required: true
 	IsCustomRolename *bool `json:"is_custom_rolename"`

@@ -90,7 +90,7 @@ type CustomerSettingsUpdateOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this customer settings update o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *CustomerSettingsUpdateOK) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateOK) GetPayload() *models.MsaQueryResponse {
+func (o *CustomerSettingsUpdateOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *CustomerSettingsUpdateOK) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type CustomerSettingsUpdateBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings update bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *CustomerSettingsUpdateBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsUpdateBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *CustomerSettingsUpdateBadRequest) readResponse(response runtime.ClientR
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type CustomerSettingsUpdateForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings update forbidden response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *CustomerSettingsUpdateForbidden) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsUpdateForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *CustomerSettingsUpdateForbidden) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type CustomerSettingsUpdateNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this customer settings update not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *CustomerSettingsUpdateNotFound) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateNotFound  %+v", 404, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateNotFound) GetPayload() *models.MsaQueryResponse {
+func (o *CustomerSettingsUpdateNotFound) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *CustomerSettingsUpdateNotFound) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type CustomerSettingsUpdateInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings update internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *CustomerSettingsUpdateInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/customer-settings/v1][%d] customerSettingsUpdateInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CustomerSettingsUpdateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsUpdateInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *CustomerSettingsUpdateInternalServerError) readResponse(response runtim
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

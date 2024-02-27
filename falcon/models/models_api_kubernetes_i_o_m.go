@@ -75,6 +75,36 @@ type ModelsAPIKubernetesIOM struct {
 	// Required: true
 	DetectionType *string `json:"detection_type"`
 
+	// image assessment matched cves
+	ImageAssessmentMatchedCves []string `json:"image_assessment_matched_cves"`
+
+	// image assessment policy description
+	ImageAssessmentPolicyDescription string `json:"image_assessment_policy_description,omitempty"`
+
+	// image assessment policy id
+	ImageAssessmentPolicyID string `json:"image_assessment_policy_id,omitempty"`
+
+	// image assessment policy name
+	ImageAssessmentPolicyName string `json:"image_assessment_policy_name,omitempty"`
+
+	// image digest
+	ImageDigest string `json:"image_digest,omitempty"`
+
+	// image has been assessed
+	ImageHasBeenAssessed bool `json:"image_has_been_assessed,omitempty"`
+
+	// image id
+	ImageID string `json:"image_id,omitempty"`
+
+	// image registry
+	ImageRegistry string `json:"image_registry,omitempty"`
+
+	// image repository
+	ImageRepository string `json:"image_repository,omitempty"`
+
+	// image tag
+	ImageTag string `json:"image_tag,omitempty"`
+
 	// last seen timestamp
 	LastSeenTimestamp string `json:"last_seen_timestamp,omitempty"`
 

@@ -23,6 +23,9 @@ type SvExclusionsCreateReqV1 struct {
 	// groups
 	Groups []string `json:"groups"`
 
+	// is descendant process
+	IsDescendantProcess bool `json:"is_descendant_process,omitempty"`
+
 	// value
 	Value string `json:"value,omitempty"`
 }
