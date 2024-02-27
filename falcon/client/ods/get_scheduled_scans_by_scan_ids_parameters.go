@@ -62,12 +62,6 @@ GetScheduledScansByScanIdsParams contains all the parameters to send to the API 
 */
 type GetScheduledScansByScanIdsParams struct {
 
-	/* XCSUSERUUID.
-
-	   The user ID
-	*/
-	XCSUSERUUID string
-
 	/* Ids.
 
 	   The scan IDs to retrieve the scan entities
@@ -127,17 +121,6 @@ func (o *GetScheduledScansByScanIdsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the get scheduled scans by scan ids params
-func (o *GetScheduledScansByScanIdsParams) WithXCSUSERUUID(xCSUSERUUID string) *GetScheduledScansByScanIdsParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the get scheduled scans by scan ids params
-func (o *GetScheduledScansByScanIdsParams) SetXCSUSERUUID(xCSUSERUUID string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithIds adds the ids to the get scheduled scans by scan ids params
 func (o *GetScheduledScansByScanIdsParams) WithIds(ids []string) *GetScheduledScansByScanIdsParams {
 	o.SetIds(ids)
@@ -156,11 +139,6 @@ func (o *GetScheduledScansByScanIdsParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERUUID
-	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
-		return err
-	}
 
 	if o.Ids != nil {
 

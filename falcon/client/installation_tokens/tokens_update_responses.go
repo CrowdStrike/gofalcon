@@ -90,7 +90,7 @@ type TokensUpdateOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this tokens update o k response has a 2xx status code
@@ -131,7 +131,7 @@ func (o *TokensUpdateOK) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *TokensUpdateOK) GetPayload() *models.MsaQueryResponse {
+func (o *TokensUpdateOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -166,7 +166,7 @@ func (o *TokensUpdateOK) readResponse(response runtime.ClientResponse, consumer 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -200,7 +200,7 @@ type TokensUpdateBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens update bad request response has a 2xx status code
@@ -241,7 +241,7 @@ func (o *TokensUpdateBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *TokensUpdateBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensUpdateBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -276,7 +276,7 @@ func (o *TokensUpdateBadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,7 +310,7 @@ type TokensUpdateForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens update forbidden response has a 2xx status code
@@ -351,7 +351,7 @@ func (o *TokensUpdateForbidden) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateForbidden  %+v", 403, o.Payload)
 }
 
-func (o *TokensUpdateForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensUpdateForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -386,7 +386,7 @@ func (o *TokensUpdateForbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -420,7 +420,7 @@ type TokensUpdateNotFound struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this tokens update not found response has a 2xx status code
@@ -461,7 +461,7 @@ func (o *TokensUpdateNotFound) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateNotFound  %+v", 404, o.Payload)
 }
 
-func (o *TokensUpdateNotFound) GetPayload() *models.MsaQueryResponse {
+func (o *TokensUpdateNotFound) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -496,7 +496,7 @@ func (o *TokensUpdateNotFound) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -655,7 +655,7 @@ type TokensUpdateInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens update internal server error response has a 2xx status code
@@ -696,7 +696,7 @@ func (o *TokensUpdateInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /installation-tokens/entities/tokens/v1][%d] tokensUpdateInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *TokensUpdateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensUpdateInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -731,7 +731,7 @@ func (o *TokensUpdateInternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

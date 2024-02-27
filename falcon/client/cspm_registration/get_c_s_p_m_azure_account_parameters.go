@@ -62,6 +62,12 @@ GetCSPMAzureAccountParams contains all the parameters to send to the API endpoin
 */
 type GetCSPMAzureAccountParams struct {
 
+	/* CspmLite.
+
+	   Only return CSPM Lite accounts
+	*/
+	CspmLite *string
+
 	/* Ids.
 
 	   SubscriptionIDs of accounts to select for this status operation. If this is empty then all accounts are returned.
@@ -164,6 +170,17 @@ func (o *GetCSPMAzureAccountParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCspmLite adds the cspmLite to the get c s p m azure account params
+func (o *GetCSPMAzureAccountParams) WithCspmLite(cspmLite *string) *GetCSPMAzureAccountParams {
+	o.SetCspmLite(cspmLite)
+	return o
+}
+
+// SetCspmLite adds the cspmLite to the get c s p m azure account params
+func (o *GetCSPMAzureAccountParams) SetCspmLite(cspmLite *string) {
+	o.CspmLite = cspmLite
+}
+
 // WithIds adds the ids to the get c s p m azure account params
 func (o *GetCSPMAzureAccountParams) WithIds(ids []string) *GetCSPMAzureAccountParams {
 	o.SetIds(ids)
@@ -237,6 +254,23 @@ func (o *GetCSPMAzureAccountParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.CspmLite != nil {
+
+		// query param cspm_lite
+		var qrCspmLite string
+
+		if o.CspmLite != nil {
+			qrCspmLite = *o.CspmLite
+		}
+		qCspmLite := qrCspmLite
+		if qCspmLite != "" {
+
+			if err := r.SetQueryParam("cspm_lite", qCspmLite); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Ids != nil {
 

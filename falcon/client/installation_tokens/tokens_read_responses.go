@@ -194,7 +194,7 @@ type TokensReadBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens read bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *TokensReadBadRequest) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *TokensReadBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensReadBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *TokensReadBadRequest) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type TokensReadForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens read forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *TokensReadForbidden) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadForbidden  %+v", 403, o.Payload)
 }
 
-func (o *TokensReadForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensReadForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *TokensReadForbidden) readResponse(response runtime.ClientResponse, cons
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type TokensReadInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens read internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *TokensReadInternalServerError) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/tokens/v1][%d] tokensReadInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *TokensReadInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensReadInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *TokensReadInternalServerError) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -34,8 +34,6 @@ type ClientService interface {
 
 	DeleteRegistryEntities(params *DeleteRegistryEntitiesParams, opts ...ClientOption) (*DeleteRegistryEntitiesOK, error)
 
-	GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error)
-
 	ReadRegistryEntities(params *ReadRegistryEntitiesParams, opts ...ClientOption) (*ReadRegistryEntitiesOK, error)
 
 	ReadRegistryEntitiesByUUID(params *ReadRegistryEntitiesByUUIDParams, opts ...ClientOption) (*ReadRegistryEntitiesByUUIDOK, error)
@@ -118,44 +116,6 @@ func (a *Client) DeleteRegistryEntities(params *DeleteRegistryEntitiesParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for DeleteRegistryEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetCombinedImages gets image assessment results by providing an f q l filter and paging details
-*/
-func (a *Client) GetCombinedImages(params *GetCombinedImagesParams, opts ...ClientOption) (*GetCombinedImagesOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetCombinedImagesParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "GetCombinedImages",
-		Method:             "GET",
-		PathPattern:        "/container-security/combined/image-assessment/images/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetCombinedImagesReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetCombinedImagesOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetCombinedImages: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

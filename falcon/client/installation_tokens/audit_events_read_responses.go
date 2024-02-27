@@ -194,7 +194,7 @@ type AuditEventsReadBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this audit events read bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *AuditEventsReadBadRequest) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *AuditEventsReadBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *AuditEventsReadBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *AuditEventsReadBadRequest) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type AuditEventsReadForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this audit events read forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *AuditEventsReadForbidden) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadForbidden  %+v", 403, o.Payload)
 }
 
-func (o *AuditEventsReadForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *AuditEventsReadForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *AuditEventsReadForbidden) readResponse(response runtime.ClientResponse,
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type AuditEventsReadInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this audit events read internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *AuditEventsReadInternalServerError) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/audit-events/v1][%d] auditEventsReadInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *AuditEventsReadInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *AuditEventsReadInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *AuditEventsReadInternalServerError) readResponse(response runtime.Clien
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -194,7 +194,7 @@ type CustomerSettingsReadBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings read bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *CustomerSettingsReadBadRequest) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *CustomerSettingsReadBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsReadBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *CustomerSettingsReadBadRequest) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type CustomerSettingsReadForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings read forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *CustomerSettingsReadForbidden) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadForbidden  %+v", 403, o.Payload)
 }
 
-func (o *CustomerSettingsReadForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsReadForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *CustomerSettingsReadForbidden) readResponse(response runtime.ClientResp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type CustomerSettingsReadInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this customer settings read internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *CustomerSettingsReadInternalServerError) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/entities/customer-settings/v1][%d] customerSettingsReadInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *CustomerSettingsReadInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CustomerSettingsReadInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *CustomerSettingsReadInternalServerError) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

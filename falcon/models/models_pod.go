@@ -140,6 +140,10 @@ type ModelsPod struct {
 	// Required: true
 	OwnerType *string `json:"owner_type"`
 
+	// pod external id
+	// Required: true
+	PodExternalID *string `json:"pod_external_id"`
+
 	// pod id
 	// Required: true
 	PodID *string `json:"pod_id"`
@@ -306,6 +310,10 @@ func (m *ModelsPod) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOwnerType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePodExternalID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -653,6 +661,15 @@ func (m *ModelsPod) validateOwnerID(formats strfmt.Registry) error {
 func (m *ModelsPod) validateOwnerType(formats strfmt.Registry) error {
 
 	if err := validate.Required("owner_type", "body", m.OwnerType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsPod) validatePodExternalID(formats strfmt.Registry) error {
+
+	if err := validate.Required("pod_external_id", "body", m.PodExternalID); err != nil {
 		return err
 	}
 

@@ -84,7 +84,7 @@ type TokensQueryOK struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaQueryResponse
+	Payload *models.MsaspecQueryResponse
 }
 
 // IsSuccess returns true when this tokens query o k response has a 2xx status code
@@ -125,7 +125,7 @@ func (o *TokensQueryOK) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryOK  %+v", 200, o.Payload)
 }
 
-func (o *TokensQueryOK) GetPayload() *models.MsaQueryResponse {
+func (o *TokensQueryOK) GetPayload() *models.MsaspecQueryResponse {
 	return o.Payload
 }
 
@@ -160,7 +160,7 @@ func (o *TokensQueryOK) readResponse(response runtime.ClientResponse, consumer r
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaQueryResponse)
+	o.Payload = new(models.MsaspecQueryResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -194,7 +194,7 @@ type TokensQueryBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens query bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *TokensQueryBadRequest) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *TokensQueryBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensQueryBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *TokensQueryBadRequest) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type TokensQueryForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens query forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *TokensQueryForbidden) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryForbidden  %+v", 403, o.Payload)
 }
 
-func (o *TokensQueryForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensQueryForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *TokensQueryForbidden) readResponse(response runtime.ClientResponse, con
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type TokensQueryInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens query internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *TokensQueryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /installation-tokens/queries/tokens/v1][%d] tokensQueryInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *TokensQueryInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensQueryInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *TokensQueryInternalServerError) readResponse(response runtime.ClientRes
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

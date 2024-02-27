@@ -27,6 +27,10 @@ type K8sassetsPodEnrichmentData struct {
 	// container info
 	// Required: true
 	ContainerInfo []*K8sassetsContainerInfo `json:"container_info"`
+
+	// deployment id
+	// Required: true
+	DeploymentID *string `json:"deployment_id"`
 }
 
 // Validate validates this k8sassets pod enrichment data
@@ -38,6 +42,10 @@ func (m *K8sassetsPodEnrichmentData) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateContainerInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDeploymentID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -78,6 +86,15 @@ func (m *K8sassetsPodEnrichmentData) validateContainerInfo(formats strfmt.Regist
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *K8sassetsPodEnrichmentData) validateDeploymentID(formats strfmt.Registry) error {
+
+	if err := validate.Required("deployment_id", "body", m.DeploymentID); err != nil {
+		return err
 	}
 
 	return nil

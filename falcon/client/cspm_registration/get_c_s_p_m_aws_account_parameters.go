@@ -62,6 +62,12 @@ GetCSPMAwsAccountParams contains all the parameters to send to the API endpoint
 */
 type GetCSPMAwsAccountParams struct {
 
+	/* CspmLite.
+
+	   Only return CSPM Lite accounts
+	*/
+	CspmLite *string
+
 	/* GroupBy.
 
 	   Field to group by.
@@ -182,6 +188,17 @@ func (o *GetCSPMAwsAccountParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithCspmLite adds the cspmLite to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) WithCspmLite(cspmLite *string) *GetCSPMAwsAccountParams {
+	o.SetCspmLite(cspmLite)
+	return o
+}
+
+// SetCspmLite adds the cspmLite to the get c s p m aws account params
+func (o *GetCSPMAwsAccountParams) SetCspmLite(cspmLite *string) {
+	o.CspmLite = cspmLite
+}
+
 // WithGroupBy adds the groupBy to the get c s p m aws account params
 func (o *GetCSPMAwsAccountParams) WithGroupBy(groupBy *string) *GetCSPMAwsAccountParams {
 	o.SetGroupBy(groupBy)
@@ -288,6 +305,23 @@ func (o *GetCSPMAwsAccountParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.CspmLite != nil {
+
+		// query param cspm_lite
+		var qrCspmLite string
+
+		if o.CspmLite != nil {
+			qrCspmLite = *o.CspmLite
+		}
+		qCspmLite := qrCspmLite
+		if qCspmLite != "" {
+
+			if err := r.SetQueryParam("cspm_lite", qCspmLite); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.GroupBy != nil {
 

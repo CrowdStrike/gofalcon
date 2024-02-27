@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/crowdstrike/gofalcon/falcon/models"
 )
@@ -66,6 +67,14 @@ type GetV2Params struct {
 	// Body.
 	Body *models.DetectsapiPostEntitiesAlertsV2Request
 
+	/* IncludeHidden.
+
+	   allows previously hidden alerts to be retrieved
+
+	   Default: true
+	*/
+	IncludeHidden *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -83,7 +92,18 @@ func (o *GetV2Params) WithDefaults() *GetV2Params {
 //
 // All values with no default are reset to their zero value.
 func (o *GetV2Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		includeHiddenDefault = bool(true)
+	)
+
+	val := GetV2Params{
+		IncludeHidden: &includeHiddenDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get v2 params
@@ -130,6 +150,17 @@ func (o *GetV2Params) SetBody(body *models.DetectsapiPostEntitiesAlertsV2Request
 	o.Body = body
 }
 
+// WithIncludeHidden adds the includeHidden to the get v2 params
+func (o *GetV2Params) WithIncludeHidden(includeHidden *bool) *GetV2Params {
+	o.SetIncludeHidden(includeHidden)
+	return o
+}
+
+// SetIncludeHidden adds the includeHidden to the get v2 params
+func (o *GetV2Params) SetIncludeHidden(includeHidden *bool) {
+	o.IncludeHidden = includeHidden
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -140,6 +171,23 @@ func (o *GetV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registr
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
+		}
+	}
+
+	if o.IncludeHidden != nil {
+
+		// query param include_hidden
+		var qrIncludeHidden bool
+
+		if o.IncludeHidden != nil {
+			qrIncludeHidden = *o.IncludeHidden
+		}
+		qIncludeHidden := swag.FormatBool(qrIncludeHidden)
+		if qIncludeHidden != "" {
+
+			if err := r.SetQueryParam("include_hidden", qIncludeHidden); err != nil {
+				return err
+			}
 		}
 	}
 

@@ -63,6 +63,12 @@ type DomainCIDPolicyAssignments struct {
 	// fql policy
 	FqlPolicy string `json:"fql_policy,omitempty"`
 
+	// hipaa benchmark
+	HipaaBenchmark []*DomainBenchmark `json:"hipaa_benchmark"`
+
+	// hitrust benchmark
+	HitrustBenchmark []*DomainBenchmark `json:"hitrust_benchmark"`
+
 	// is remediable
 	// Required: true
 	IsRemediable *bool `json:"is_remediable"`
@@ -116,6 +122,14 @@ func (m *DomainCIDPolicyAssignments) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHipaaBenchmark(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHitrustBenchmark(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -216,6 +230,58 @@ func (m *DomainCIDPolicyAssignments) validateCreatedAt(formats strfmt.Registry) 
 
 	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validateHipaaBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.HipaaBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.HipaaBenchmark); i++ {
+		if swag.IsZero(m.HipaaBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.HipaaBenchmark[i] != nil {
+			if err := m.HipaaBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hipaa_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hipaa_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) validateHitrustBenchmark(formats strfmt.Registry) error {
+	if swag.IsZero(m.HitrustBenchmark) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.HitrustBenchmark); i++ {
+		if swag.IsZero(m.HitrustBenchmark[i]) { // not required
+			continue
+		}
+
+		if m.HitrustBenchmark[i] != nil {
+			if err := m.HitrustBenchmark[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hitrust_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hitrust_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -396,6 +462,14 @@ func (m *DomainCIDPolicyAssignments) ContextValidate(ctx context.Context, format
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateHipaaBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHitrustBenchmark(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIsoBenchmark(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -462,6 +536,56 @@ func (m *DomainCIDPolicyAssignments) contextValidateCisaBenchmark(ctx context.Co
 					return ve.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("cisa_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateHipaaBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HipaaBenchmark); i++ {
+
+		if m.HipaaBenchmark[i] != nil {
+
+			if swag.IsZero(m.HipaaBenchmark[i]) { // not required
+				return nil
+			}
+
+			if err := m.HipaaBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hipaa_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hipaa_benchmark" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainCIDPolicyAssignments) contextValidateHitrustBenchmark(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HitrustBenchmark); i++ {
+
+		if m.HitrustBenchmark[i] != nil {
+
+			if swag.IsZero(m.HitrustBenchmark[i]) { // not required
+				return nil
+			}
+
+			if err := m.HitrustBenchmark[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("hitrust_benchmark" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("hitrust_benchmark" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

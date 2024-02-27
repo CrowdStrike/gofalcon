@@ -77,6 +77,14 @@ type QueryV2Params struct {
 	*/
 	Filter *string
 
+	/* IncludeHidden.
+
+	   allows previously hidden alerts to be retrieved
+
+	   Default: true
+	*/
+	IncludeHidden *bool
+
 	/* Limit.
 
 	   The maximum number of detections to return in this response (default: 100; max: 10000). Use with the `offset` parameter to manage pagination of results.
@@ -121,7 +129,18 @@ func (o *QueryV2Params) WithDefaults() *QueryV2Params {
 //
 // All values with no default are reset to their zero value.
 func (o *QueryV2Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		includeHiddenDefault = bool(true)
+	)
+
+	val := QueryV2Params{
+		IncludeHidden: &includeHiddenDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the query v2 params
@@ -166,6 +185,17 @@ func (o *QueryV2Params) WithFilter(filter *string) *QueryV2Params {
 // SetFilter adds the filter to the query v2 params
 func (o *QueryV2Params) SetFilter(filter *string) {
 	o.Filter = filter
+}
+
+// WithIncludeHidden adds the includeHidden to the query v2 params
+func (o *QueryV2Params) WithIncludeHidden(includeHidden *bool) *QueryV2Params {
+	o.SetIncludeHidden(includeHidden)
+	return o
+}
+
+// SetIncludeHidden adds the includeHidden to the query v2 params
+func (o *QueryV2Params) SetIncludeHidden(includeHidden *bool) {
+	o.IncludeHidden = includeHidden
 }
 
 // WithLimit adds the limit to the query v2 params
@@ -232,6 +262,23 @@ func (o *QueryV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 		if qFilter != "" {
 
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeHidden != nil {
+
+		// query param include_hidden
+		var qrIncludeHidden bool
+
+		if o.IncludeHidden != nil {
+			qrIncludeHidden = *o.IncludeHidden
+		}
+		qIncludeHidden := swag.FormatBool(qrIncludeHidden)
+		if qIncludeHidden != "" {
+
+			if err := r.SetQueryParam("include_hidden", qIncludeHidden); err != nil {
 				return err
 			}
 		}

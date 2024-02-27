@@ -94,6 +94,10 @@ type DomainGCPAccountV1 struct {
 	// service account private key id
 	ServiceAccountPrivateKeyID string `json:"service_account_private_key_id,omitempty"`
 
+	// service account project id
+	// Required: true
+	ServiceAccountProjectID *string `json:"service_account_project_id"`
+
 	// Account registration status.
 	Status string `json:"status,omitempty"`
 }
@@ -135,6 +139,10 @@ func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateParentID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateServiceAccountProjectID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -266,6 +274,15 @@ func (m *DomainGCPAccountV1) validateGcpPermissionsStatus(formats strfmt.Registr
 func (m *DomainGCPAccountV1) validateParentID(formats strfmt.Registry) error {
 
 	if err := validate.Required("parent_id", "body", m.ParentID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) validateServiceAccountProjectID(formats strfmt.Registry) error {
+
+	if err := validate.Required("service_account_project_id", "body", m.ServiceAccountProjectID); err != nil {
 		return err
 	}
 

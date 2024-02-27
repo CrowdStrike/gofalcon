@@ -56,12 +56,6 @@ type DomainMaliciousFile struct {
 
 	// severity
 	Severity int64 `json:"severity,omitempty"`
-
-	// tactic
-	Tactic string `json:"tactic,omitempty"`
-
-	// technique
-	Technique string `json:"technique,omitempty"`
 }
 
 // Validate validates this domain malicious file

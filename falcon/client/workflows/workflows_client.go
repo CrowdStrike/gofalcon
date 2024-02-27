@@ -42,6 +42,22 @@ type ClientService interface {
 
 	Provision(params *ProvisionParams, opts ...ClientOption) (*ProvisionOK, error)
 
+	WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error)
+
+	WorkflowDefinitionsCreate(params *WorkflowDefinitionsCreateParams, opts ...ClientOption) (*WorkflowDefinitionsCreateOK, error)
+
+	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
+
+	WorkflowDefinitionsImport(params *WorkflowDefinitionsImportParams, opts ...ClientOption) (*WorkflowDefinitionsImportOK, error)
+
+	WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdateParams, opts ...ClientOption) (*WorkflowDefinitionsUpdateOK, error)
+
+	WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error)
+
+	WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, opts ...ClientOption) (*WorkflowGetHumanInputV1OK, error)
+
+	WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Params, opts ...ClientOption) (*WorkflowUpdateHumanInputV1OK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -270,6 +286,311 @@ func (a *Client) Provision(params *ProvisionParams, opts ...ClientOption) (*Prov
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for Provision: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowDefinitionsCombined searches workflow definitions based on the provided filter
+*/
+func (a *Client) WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowDefinitionsCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowDefinitionsCombined",
+		Method:             "GET",
+		PathPattern:        "/workflows/combined/definitions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowDefinitionsCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowDefinitionsCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowDefinitionsCreate creates a workflow definition based on the provided model
+*/
+func (a *Client) WorkflowDefinitionsCreate(params *WorkflowDefinitionsCreateParams, opts ...ClientOption) (*WorkflowDefinitionsCreateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowDefinitionsCreateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowDefinitionsCreate",
+		Method:             "POST",
+		PathPattern:        "/workflows/entities/definitions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowDefinitionsCreateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowDefinitionsCreateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsCreate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowDefinitionsExport exports a workflow definition for the given definition ID
+*/
+func (a *Client) WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowDefinitionsExportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowDefinitionsExport",
+		Method:             "GET",
+		PathPattern:        "/workflows/entities/definitions/export/v1",
+		ProducesMediaTypes: []string{"application/yaml"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowDefinitionsExportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *WorkflowDefinitionsExportOK:
+		return value, nil, nil
+	case *WorkflowDefinitionsExportStatus299:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for workflows: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowDefinitionsImport imports a workflow definition based on the provided model
+*/
+func (a *Client) WorkflowDefinitionsImport(params *WorkflowDefinitionsImportParams, opts ...ClientOption) (*WorkflowDefinitionsImportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowDefinitionsImportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowDefinitionsImport",
+		Method:             "POST",
+		PathPattern:        "/workflows/entities/definitions/import/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowDefinitionsImportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowDefinitionsImportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsImport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowDefinitionsUpdate updates a workflow definition based on the provided model
+*/
+func (a *Client) WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdateParams, opts ...ClientOption) (*WorkflowDefinitionsUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowDefinitionsUpdateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowDefinitionsUpdate",
+		Method:             "PUT",
+		PathPattern:        "/workflows/entities/definitions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowDefinitionsUpdateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowDefinitionsUpdateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsUpdate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowExecutionsCombined searches workflow executions based on the provided filter
+*/
+func (a *Client) WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowExecutionsCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowExecutionsCombined",
+		Method:             "GET",
+		PathPattern:        "/workflows/combined/executions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowExecutionsCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowExecutionsCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowExecutionsCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowGetHumanInputV1 gets one or more specific human inputs by their i ds
+*/
+func (a *Client) WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, opts ...ClientOption) (*WorkflowGetHumanInputV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowGetHumanInputV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowGetHumanInputV1",
+		Method:             "GET",
+		PathPattern:        "/workflows/entities/human-inputs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowGetHumanInputV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowGetHumanInputV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowGetHumanInputV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowUpdateHumanInputV1 provides an input in response to a human input action depending on action configuration one or more of approve decline and or escalate are permitted
+*/
+func (a *Client) WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Params, opts ...ClientOption) (*WorkflowUpdateHumanInputV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowUpdateHumanInputV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowUpdateHumanInputV1",
+		Method:             "PATCH",
+		PathPattern:        "/workflows/entities/human-inputs/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowUpdateHumanInputV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowUpdateHumanInputV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowUpdateHumanInputV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

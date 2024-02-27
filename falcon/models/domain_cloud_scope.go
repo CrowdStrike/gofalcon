@@ -50,6 +50,10 @@ type DomainCloudScope struct {
 
 	// total accounts
 	TotalAccounts int32 `json:"total_accounts,omitempty"`
+
+	// updated at
+	// Format: date-time
+	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 }
 
 // Validate validates this domain cloud scope
@@ -61,6 +65,10 @@ func (m *DomainCloudScope) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUpdatedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,6 +110,18 @@ func (m *DomainCloudScope) validateCreatedAt(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCloudScope) validateUpdatedAt(formats strfmt.Registry) error {
+	if swag.IsZero(m.UpdatedAt) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("updated_at", "body", "date-time", m.UpdatedAt.String(), formats); err != nil {
 		return err
 	}
 

@@ -194,7 +194,7 @@ type TokensCreateBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens create bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *TokensCreateBadRequest) String() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *TokensCreateBadRequest) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensCreateBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *TokensCreateBadRequest) readResponse(response runtime.ClientResponse, c
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type TokensCreateForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens create forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *TokensCreateForbidden) String() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateForbidden  %+v", 403, o.Payload)
 }
 
-func (o *TokensCreateForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensCreateForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *TokensCreateForbidden) readResponse(response runtime.ClientResponse, co
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type TokensCreateInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this tokens create internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *TokensCreateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /installation-tokens/entities/tokens/v1][%d] tokensCreateInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *TokensCreateInternalServerError) GetPayload() *models.MsaReplyMetaOnly {
+func (o *TokensCreateInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *TokensCreateInternalServerError) readResponse(response runtime.ClientRe
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

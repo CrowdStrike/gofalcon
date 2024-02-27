@@ -62,6 +62,12 @@ GetDiscoverCloudAzureUserScriptsAttachmentParams contains all the parameters to 
 */
 type GetDiscoverCloudAzureUserScriptsAttachmentParams struct {
 
+	/* AzureManagementGroup.
+
+	   Use Azure Management Group
+	*/
+	AzureManagementGroup *bool
+
 	/* SubscriptionIds.
 
 	   Azure Subscription ID
@@ -133,6 +139,17 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentParams) SetHTTPClient(client 
 	o.HTTPClient = client
 }
 
+// WithAzureManagementGroup adds the azureManagementGroup to the get discover cloud azure user scripts attachment params
+func (o *GetDiscoverCloudAzureUserScriptsAttachmentParams) WithAzureManagementGroup(azureManagementGroup *bool) *GetDiscoverCloudAzureUserScriptsAttachmentParams {
+	o.SetAzureManagementGroup(azureManagementGroup)
+	return o
+}
+
+// SetAzureManagementGroup adds the azureManagementGroup to the get discover cloud azure user scripts attachment params
+func (o *GetDiscoverCloudAzureUserScriptsAttachmentParams) SetAzureManagementGroup(azureManagementGroup *bool) {
+	o.AzureManagementGroup = azureManagementGroup
+}
+
 // WithSubscriptionIds adds the subscriptionIds to the get discover cloud azure user scripts attachment params
 func (o *GetDiscoverCloudAzureUserScriptsAttachmentParams) WithSubscriptionIds(subscriptionIds []string) *GetDiscoverCloudAzureUserScriptsAttachmentParams {
 	o.SetSubscriptionIds(subscriptionIds)
@@ -173,6 +190,23 @@ func (o *GetDiscoverCloudAzureUserScriptsAttachmentParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
+
+	if o.AzureManagementGroup != nil {
+
+		// query param azure_management_group
+		var qrAzureManagementGroup bool
+
+		if o.AzureManagementGroup != nil {
+			qrAzureManagementGroup = *o.AzureManagementGroup
+		}
+		qAzureManagementGroup := swag.FormatBool(qrAzureManagementGroup)
+		if qAzureManagementGroup != "" {
+
+			if err := r.SetQueryParam("azure_management_group", qAzureManagementGroup); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.SubscriptionIds != nil {
 

@@ -31,11 +31,21 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateSavedSearchesDynamicExecuteAltV1(params *CreateSavedSearchesDynamicExecuteAltV1Params, opts ...ClientOption) (*CreateSavedSearchesDynamicExecuteAltV1OK, error)
+
+	CreateSavedSearchesExecuteAltV1(params *CreateSavedSearchesExecuteAltV1Params, opts ...ClientOption) (*CreateSavedSearchesExecuteAltV1OK, error)
+
+	CreateSavedSearchesIngestAltV1(params *CreateSavedSearchesIngestAltV1Params, opts ...ClientOption) (*CreateSavedSearchesIngestAltV1OK, error)
+
 	DownloadResults(params *DownloadResultsParams, writer io.Writer, opts ...ClientOption) (*DownloadResultsOK, error)
 
 	Execute(params *ExecuteParams, opts ...ClientOption) (*ExecuteOK, error)
 
 	ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOption) (*ExecuteDynamicOK, error)
+
+	GetSavedSearchesExecuteAltV1(params *GetSavedSearchesExecuteAltV1Params, opts ...ClientOption) (*GetSavedSearchesExecuteAltV1OK, error)
+
+	GetSavedSearchesJobResultsDownloadAltV1(params *GetSavedSearchesJobResultsDownloadAltV1Params, writer io.Writer, opts ...ClientOption) (*GetSavedSearchesJobResultsDownloadAltV1OK, error)
 
 	GetSearchResults(params *GetSearchResultsParams, opts ...ClientOption) (*GetSearchResultsOK, error)
 
@@ -48,6 +58,120 @@ type ClientService interface {
 	Populate(params *PopulateParams, opts ...ClientOption) (*PopulateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreateSavedSearchesDynamicExecuteAltV1 executes a dynamic saved search
+*/
+func (a *Client) CreateSavedSearchesDynamicExecuteAltV1(params *CreateSavedSearchesDynamicExecuteAltV1Params, opts ...ClientOption) (*CreateSavedSearchesDynamicExecuteAltV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSavedSearchesDynamicExecuteAltV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSavedSearchesDynamicExecuteAltV1",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-dynamic-execute/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateSavedSearchesDynamicExecuteAltV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSavedSearchesDynamicExecuteAltV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesDynamicExecuteAltV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateSavedSearchesExecuteAltV1 executes a saved search
+*/
+func (a *Client) CreateSavedSearchesExecuteAltV1(params *CreateSavedSearchesExecuteAltV1Params, opts ...ClientOption) (*CreateSavedSearchesExecuteAltV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSavedSearchesExecuteAltV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSavedSearchesExecuteAltV1",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-execute/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateSavedSearchesExecuteAltV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSavedSearchesExecuteAltV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesExecuteAltV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+CreateSavedSearchesIngestAltV1 populates a saved search
+*/
+func (a *Client) CreateSavedSearchesIngestAltV1(params *CreateSavedSearchesIngestAltV1Params, opts ...ClientOption) (*CreateSavedSearchesIngestAltV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateSavedSearchesIngestAltV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateSavedSearchesIngestAltV1",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/saved-searches-ingest/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateSavedSearchesIngestAltV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateSavedSearchesIngestAltV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateSavedSearchesIngestAltV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*
@@ -161,6 +285,82 @@ func (a *Client) ExecuteDynamic(params *ExecuteDynamicParams, opts ...ClientOpti
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ExecuteDynamic: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSavedSearchesExecuteAltV1 gets the results of a saved search
+*/
+func (a *Client) GetSavedSearchesExecuteAltV1(params *GetSavedSearchesExecuteAltV1Params, opts ...ClientOption) (*GetSavedSearchesExecuteAltV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSavedSearchesExecuteAltV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSavedSearchesExecuteAltV1",
+		Method:             "GET",
+		PathPattern:        "/loggingapi/entities/saved-searches-execute/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSavedSearchesExecuteAltV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSavedSearchesExecuteAltV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSavedSearchesExecuteAltV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSavedSearchesJobResultsDownloadAltV1 gets the results of a saved search as a file
+*/
+func (a *Client) GetSavedSearchesJobResultsDownloadAltV1(params *GetSavedSearchesJobResultsDownloadAltV1Params, writer io.Writer, opts ...ClientOption) (*GetSavedSearchesJobResultsDownloadAltV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSavedSearchesJobResultsDownloadAltV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSavedSearchesJobResultsDownloadAltV1",
+		Method:             "GET",
+		PathPattern:        "/loggingapi/entities/saved-searches-job-results-download/v1",
+		ProducesMediaTypes: []string{"application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSavedSearchesJobResultsDownloadAltV1Reader{formats: a.formats, writer: writer},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSavedSearchesJobResultsDownloadAltV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSavedSearchesJobResultsDownloadAltV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

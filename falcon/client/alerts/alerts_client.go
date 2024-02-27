@@ -164,7 +164,7 @@ func (a *Client) GetV2(params *GetV2Params, opts ...ClientOption) (*GetV2OK, err
 }
 
 /*
-PatchEntitiesAlertsV2 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
+PatchEntitiesAlertsV2 performs actions on alerts identified by composite ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
 */
 func (a *Client) PatchEntitiesAlertsV2(params *PatchEntitiesAlertsV2Params, opts ...ClientOption) (*PatchEntitiesAlertsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -316,7 +316,7 @@ func (a *Client) QueryV2(params *QueryV2Params, opts ...ClientOption) (*QueryV2O
 }
 
 /*
-UpdateV3 performs actions on detections identified by detection ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
+UpdateV3 performs actions on alerts identified by composite ID s in request each action has a name and a description which describes what the action does if a request adds and removes tag in a single request the order of processing would be to remove tags before adding new ones in
 */
 func (a *Client) UpdateV3(params *UpdateV3Params, opts ...ClientOption) (*UpdateV3OK, error) {
 	// TODO: Validate the params before sending

@@ -62,12 +62,6 @@ QueryScheduledScansParams contains all the parameters to send to the API endpoin
 */
 type QueryScheduledScansParams struct {
 
-	/* XCSUSERUUID.
-
-	   The user ID
-	*/
-	XCSUSERUUID string
-
 	/* Filter.
 
 	   A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
@@ -166,17 +160,6 @@ func (o *QueryScheduledScansParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the query scheduled scans params
-func (o *QueryScheduledScansParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryScheduledScansParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the query scheduled scans params
-func (o *QueryScheduledScansParams) SetXCSUSERUUID(xCSUSERUUID string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithFilter adds the filter to the query scheduled scans params
 func (o *QueryScheduledScansParams) WithFilter(filter string) *QueryScheduledScansParams {
 	o.SetFilter(filter)
@@ -228,11 +211,6 @@ func (o *QueryScheduledScansParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERUUID
-	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
-		return err
-	}
 
 	// query param filter
 	qrFilter := o.Filter

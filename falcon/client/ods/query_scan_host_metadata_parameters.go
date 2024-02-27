@@ -62,12 +62,6 @@ QueryScanHostMetadataParams contains all the parameters to send to the API endpo
 */
 type QueryScanHostMetadataParams struct {
 
-	/* XCSUSERUUID.
-
-	   The user ID
-	*/
-	XCSUSERUUID string
-
 	/* Filter.
 
 	   A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
@@ -166,17 +160,6 @@ func (o *QueryScanHostMetadataParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXCSUSERUUID adds the xCSUSERUUID to the query scan host metadata params
-func (o *QueryScanHostMetadataParams) WithXCSUSERUUID(xCSUSERUUID string) *QueryScanHostMetadataParams {
-	o.SetXCSUSERUUID(xCSUSERUUID)
-	return o
-}
-
-// SetXCSUSERUUID adds the xCSUSERUuid to the query scan host metadata params
-func (o *QueryScanHostMetadataParams) SetXCSUSERUUID(xCSUSERUUID string) {
-	o.XCSUSERUUID = xCSUSERUUID
-}
-
 // WithFilter adds the filter to the query scan host metadata params
 func (o *QueryScanHostMetadataParams) WithFilter(filter string) *QueryScanHostMetadataParams {
 	o.SetFilter(filter)
@@ -228,11 +211,6 @@ func (o *QueryScanHostMetadataParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
-	// header param X-CS-USERUUID
-	if err := r.SetHeaderParam("X-CS-USERUUID", o.XCSUSERUUID); err != nil {
-		return err
-	}
 
 	// query param filter
 	qrFilter := o.Filter

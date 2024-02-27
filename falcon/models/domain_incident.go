@@ -115,9 +115,6 @@ type DomainIncident struct {
 
 	// users
 	Users []string `json:"users"`
-
-	// visibility
-	Visibility int32 `json:"visibility,omitempty"`
 }
 
 // Validate validates this domain incident
