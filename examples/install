@@ -13,47 +13,57 @@ os=$(
 )
 
 arch=$(
-    case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac
+    uname -m
 )
 
 latest_package_urls() {
     curl -s https://api.github.com/repos/crowdstrike/gofalcon/releases/latest | grep '"browser_download_url":' | sed 's/"$//g ; s/^.*browser_download_url": "//g'
 }
 
-package_discriminator=$(
-    case "${os}" in
-        darwin)
-            if [ "$arch" = "amd64" ]; then
-                echo "macOS"
+case "${os}" in
+    darwin)
+        if [ "${arch}" = "amd64" ]; then
+            package_discriminator="Darwin_x86_64"
+        elif [ "${arch}" = "arm64" ]; then
+            package_discriminator="Darwin_arm64"
+        else
+            die "Unsupported architecture for MacOS"
+        fi
+        ;;
+    linux)
+        pkg_arch=$(
+            if [ "${arch}" = "x86_64" ] || [ "${arch}" = "aarch64" ]; then
+                echo "${arch}"
             else
-                die "Unsupported architecture"
+                die "Unsupported architecture for Linux"
             fi
-            ;;
-        linux)
-            pkg_arch=$(
-                echo "$arch" | sed s/amd64/x86_64/g
-            )
+        )
 
-            if type rpm > /dev/null 2>&1; then
-                echo "${pkg_arch}.rpm"
-            elif type dpkg > /dev/null 2>&1; then
-                echo "${pkg_arch}.deb"
-            else
-                die "Unsupported packaging system"
-            fi
-            ;;
-        *)
-            die "Unsupported OS"
-            ;;
-    esac
-)
+        if type rpm > /dev/null 2>&1; then
+            package_discriminator="${pkg_arch}.rpm"
+        elif type dpkg > /dev/null 2>&1; then
+            package_discriminator="${pkg_arch}.deb"
+        else
+            die "Unsupported packaging system"
+        fi
+        ;;
+    *)
+        die "Unsupported OS"
+        ;;
+esac
+
 package_url=$(
     latest_package_urls | grep "$package_discriminator"
 )
 
 package_install() {
     pkg=$1
-    if type dnf > /dev/null 2>&1; then
+    if [ "$os" = "darwin" ]; then
+        file=$(basename "$pkg")
+        curl -LO "$pkg"
+        tar -xzf "$file" -C /usr/local/bin/
+        rm "$file"
+    elif type dnf > /dev/null 2>&1; then
         dnf install -q -y "$pkg" || rpm -ivh --nodeps "$pkg"
     elif type yum > /dev/null 2>&1; then
         yum install -q -y "$pkg" || rpm -ivh --nodeps "$pkg"
