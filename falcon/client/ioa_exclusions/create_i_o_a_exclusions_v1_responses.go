@@ -25,7 +25,7 @@ type CreateIOAExclusionsV1Reader struct {
 // ReadResponse reads a server response into the received o.
 func (o *CreateIOAExclusionsV1Reader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
+	case 201:
 		result := NewCreateIOAExclusionsV1OK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
