@@ -82,7 +82,11 @@ func getIOCType(iocStr string) (string, error) {
 // addCrowdStrikeIOC will add a supported iocs with an optional description
 // defaults to an expiration date of 10 years & a severity of medium.
 // will detect on domains/ips and block on hashes. Retro detection enabled by default.
-func addCrowdStrikeIOCs(iocs []string, description string, client *client.CrowdStrikeAPISpecification) error {
+func addCrowdStrikeIOCs(
+	iocs []string,
+	description string,
+	client *client.CrowdStrikeAPISpecification,
+) error {
 
 	body := models.APIIndicatorCreateReqsV1{}
 
@@ -100,6 +104,8 @@ func addCrowdStrikeIOCs(iocs []string, description string, client *client.CrowdS
 			action = "prevent"
 		}
 
+		expiration := strfmt.DateTime(time.Now().Add(24 * time.Hour * 365 * 10))
+
 		// add iocs to body
 		truth := true
 		body.Indicators = append(body.Indicators, &models.APIIndicatorCreateReqV1{
@@ -110,7 +116,7 @@ func addCrowdStrikeIOCs(iocs []string, description string, client *client.CrowdS
 			Description:     description,
 			Platforms:       []string{"windows", "mac", "linux"},
 			Value:           iocStr,
-			Expiration:      strfmt.DateTime(time.Now().Add(24 * time.Hour * 365 * 10)),
+			Expiration:      &expiration,
 			// Tags:   []string{"example_tag1", "example_tag2"},
 		})
 	}
@@ -134,13 +140,20 @@ func addCrowdStrikeIOCs(iocs []string, description string, client *client.CrowdS
 	return nil
 }
 
-func addCrowdStrikeIOC(iocStr string, description string, client *client.CrowdStrikeAPISpecification) error {
+func addCrowdStrikeIOC(
+	iocStr string,
+	description string,
+	client *client.CrowdStrikeAPISpecification,
+) error {
 	return addCrowdStrikeIOCs([]string{iocStr}, description, client)
 }
 
 // searchCrowdStrikeIOC searches custom IOCs for an IOC and returns an id if found.
 // if no IOC is found, an empty string is returned
-func _getCrowdStrikeIOCID(iocStr string, client *client.CrowdStrikeAPISpecification) (id string, err error) {
+func _getCrowdStrikeIOCID(
+	iocStr string,
+	client *client.CrowdStrikeAPISpecification,
+) (id string, err error) {
 	fql := fmt.Sprintf(`value:"%s"`, iocStr)
 
 	params := ioc.NewIndicatorSearchV1Params().WithFilter(&fql)
@@ -219,9 +232,21 @@ func showCrowdStrikeIOC(iocStr string, client *client.CrowdStrikeAPISpecificatio
 
 func main() {
 
-	falconClientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
-	falconClientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
-	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
+	falconClientId := flag.String(
+		"client-id",
+		os.Getenv("FALCON_CLIENT_ID"),
+		"Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)",
+	)
+	falconClientSecret := flag.String(
+		"client-secret",
+		os.Getenv("FALCON_CLIENT_SECRET"),
+		"Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)",
+	)
+	clientCloud := flag.String(
+		"cloud",
+		os.Getenv("FALCON_CLOUD"),
+		"Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)",
+	)
 	debug := flag.Bool("debug", false, "Debug requests")
 
 	list := flag.Bool("list", false, "list all IOC values in the IOC management panel")
