@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetSavedSearchesJobResultsDownloadAltV1Params creates a new GetSavedSearchesJobResultsDownloadAltV1Params object,
@@ -61,6 +62,12 @@ GetSavedSearchesJobResultsDownloadAltV1Params contains all the parameters to sen
 */
 type GetSavedSearchesJobResultsDownloadAltV1Params struct {
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
 	/* JobID.
 
 	   Job ID for a previously executed async query
@@ -90,7 +97,18 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1Params) WithDefaults() *GetSaved
 //
 // All values with no default are reset to their zero value.
 func (o *GetSavedSearchesJobResultsDownloadAltV1Params) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		inferJSONTypesDefault = bool(false)
+	)
+
+	val := GetSavedSearchesJobResultsDownloadAltV1Params{
+		InferJSONTypes: &inferJSONTypesDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get saved searches job results download alt v1 params
@@ -126,6 +144,17 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1Params) SetHTTPClient(client *ht
 	o.HTTPClient = client
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the get saved searches job results download alt v1 params
+func (o *GetSavedSearchesJobResultsDownloadAltV1Params) WithInferJSONTypes(inferJSONTypes *bool) *GetSavedSearchesJobResultsDownloadAltV1Params {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the get saved searches job results download alt v1 params
+func (o *GetSavedSearchesJobResultsDownloadAltV1Params) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
 // WithJobID adds the jobID to the get saved searches job results download alt v1 params
 func (o *GetSavedSearchesJobResultsDownloadAltV1Params) WithJobID(jobID string) *GetSavedSearchesJobResultsDownloadAltV1Params {
 	o.SetJobID(jobID)
@@ -155,6 +184,23 @@ func (o *GetSavedSearchesJobResultsDownloadAltV1Params) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
+
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
 
 	// query param job_id
 	qrJobID := o.JobID

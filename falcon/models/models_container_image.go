@@ -23,6 +23,10 @@ type ModelsContainerImage struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
+	// cluster ids
+	// Required: true
+	ClusterIds []string `json:"cluster_ids"`
+
 	// container count
 	// Required: true
 	ContainerCount *int32 `json:"container_count"`
@@ -89,6 +93,10 @@ func (m *ModelsContainerImage) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateClusterIds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -161,6 +169,15 @@ func (m *ModelsContainerImage) Validate(formats strfmt.Registry) error {
 func (m *ModelsContainerImage) validateCid(formats strfmt.Registry) error {
 
 	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsContainerImage) validateClusterIds(formats strfmt.Registry) error {
+
+	if err := validate.Required("cluster_ids", "body", m.ClusterIds); err != nil {
 		return err
 	}
 

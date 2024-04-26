@@ -22,6 +22,9 @@ type DomainDiscoverAPIApplication struct {
 	// Represents the application architectures (x86 / x64).
 	Architectures []string `json:"architectures"`
 
+	// Details about the browser extension. Populated for applications of a browser extension type
+	BrowserExtension *DomainDiscoverAPIApplicationBrowserExtension `json:"browser_extension,omitempty"`
+
 	// The category of the application.
 	Category string `json:"category,omitempty"`
 
@@ -81,6 +84,9 @@ type DomainDiscoverAPIApplication struct {
 	// The combined field on which we will be able to group by app + version.
 	NameVendorVersion string `json:"name_vendor_version,omitempty"`
 
+	// The type of software of the application.
+	SoftwareType string `json:"software_type,omitempty"`
+
 	// The name the application's vendor.
 	Vendor string `json:"vendor,omitempty"`
 
@@ -94,6 +100,10 @@ type DomainDiscoverAPIApplication struct {
 // Validate validates this domain discover API application
 func (m *DomainDiscoverAPIApplication) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBrowserExtension(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateCid(formats); err != nil {
 		res = append(res, err)
@@ -110,6 +120,25 @@ func (m *DomainDiscoverAPIApplication) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) validateBrowserExtension(formats strfmt.Registry) error {
+	if swag.IsZero(m.BrowserExtension) { // not required
+		return nil
+	}
+
+	if m.BrowserExtension != nil {
+		if err := m.BrowserExtension.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("browser_extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser_extension")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -154,6 +183,10 @@ func (m *DomainDiscoverAPIApplication) validateID(formats strfmt.Registry) error
 func (m *DomainDiscoverAPIApplication) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateBrowserExtension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateHost(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -161,6 +194,27 @@ func (m *DomainDiscoverAPIApplication) ContextValidate(ctx context.Context, form
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainDiscoverAPIApplication) contextValidateBrowserExtension(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BrowserExtension != nil {
+
+		if swag.IsZero(m.BrowserExtension) { // not required
+			return nil
+		}
+
+		if err := m.BrowserExtension.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("browser_extension")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser_extension")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

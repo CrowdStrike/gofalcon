@@ -85,6 +85,18 @@ type CreateSavedSearchesDynamicExecuteAltV1Params struct {
 	*/
 	IncludeTestData *bool
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
+	/* MatchResponseSchema.
+
+	   Whether to validate search results against their schema
+	*/
+	MatchResponseSchema *bool
+
 	/* Metadata.
 
 	   Whether to include metadata in the response
@@ -119,12 +131,18 @@ func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetDefaults() {
 
 		includeTestDataDefault = bool(false)
 
+		inferJSONTypesDefault = bool(false)
+
+		matchResponseSchemaDefault = bool(false)
+
 		metadataDefault = bool(false)
 	)
 
 	val := CreateSavedSearchesDynamicExecuteAltV1Params{
 		IncludeSchemaGeneration: &includeSchemaGenerationDefault,
 		IncludeTestData:         &includeTestDataDefault,
+		InferJSONTypes:          &inferJSONTypesDefault,
+		MatchResponseSchema:     &matchResponseSchemaDefault,
 		Metadata:                &metadataDefault,
 	}
 
@@ -211,6 +229,28 @@ func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetIncludeTestData(includ
 	o.IncludeTestData = includeTestData
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WithInferJSONTypes(inferJSONTypes *bool) *CreateSavedSearchesDynamicExecuteAltV1Params {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
+// WithMatchResponseSchema adds the matchResponseSchema to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WithMatchResponseSchema(matchResponseSchema *bool) *CreateSavedSearchesDynamicExecuteAltV1Params {
+	o.SetMatchResponseSchema(matchResponseSchema)
+	return o
+}
+
+// SetMatchResponseSchema adds the matchResponseSchema to the create saved searches dynamic execute alt v1 params
+func (o *CreateSavedSearchesDynamicExecuteAltV1Params) SetMatchResponseSchema(matchResponseSchema *bool) {
+	o.MatchResponseSchema = matchResponseSchema
+}
+
 // WithMetadata adds the metadata to the create saved searches dynamic execute alt v1 params
 func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WithMetadata(metadata *bool) *CreateSavedSearchesDynamicExecuteAltV1Params {
 	o.SetMetadata(metadata)
@@ -292,6 +332,40 @@ func (o *CreateSavedSearchesDynamicExecuteAltV1Params) WriteToRequest(r runtime.
 		if qIncludeTestData != "" {
 
 			if err := r.SetQueryParam("include_test_data", qIncludeTestData); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.MatchResponseSchema != nil {
+
+		// query param match_response_schema
+		var qrMatchResponseSchema bool
+
+		if o.MatchResponseSchema != nil {
+			qrMatchResponseSchema = *o.MatchResponseSchema
+		}
+		qMatchResponseSchema := swag.FormatBool(qrMatchResponseSchema)
+		if qMatchResponseSchema != "" {
+
+			if err := r.SetQueryParam("match_response_schema", qMatchResponseSchema); err != nil {
 				return err
 			}
 		}

@@ -75,6 +75,9 @@ type DeviceMappedDevicePolicies struct {
 	// system tray
 	SystemTray *DeviceDevicePolicy `json:"system-tray,omitempty"`
 
+	// vulnerability management
+	VulnerabilityManagement *DeviceDevicePolicy `json:"vulnerability-management,omitempty"`
+
 	// ztl
 	Ztl *DeviceDevicePolicy `json:"ztl,omitempty"`
 }
@@ -156,6 +159,10 @@ func (m *DeviceMappedDevicePolicies) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSystemTray(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilityManagement(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -530,6 +537,25 @@ func (m *DeviceMappedDevicePolicies) validateSystemTray(formats strfmt.Registry)
 	return nil
 }
 
+func (m *DeviceMappedDevicePolicies) validateVulnerabilityManagement(formats strfmt.Registry) error {
+	if swag.IsZero(m.VulnerabilityManagement) { // not required
+		return nil
+	}
+
+	if m.VulnerabilityManagement != nil {
+		if err := m.VulnerabilityManagement.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability-management")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceMappedDevicePolicies) validateZtl(formats strfmt.Registry) error {
 	if swag.IsZero(m.Ztl) { // not required
 		return nil
@@ -626,6 +652,10 @@ func (m *DeviceMappedDevicePolicies) ContextValidate(ctx context.Context, format
 	}
 
 	if err := m.contextValidateSystemTray(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilityManagement(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1030,6 +1060,27 @@ func (m *DeviceMappedDevicePolicies) contextValidateSystemTray(ctx context.Conte
 				return ve.ValidateName("system-tray")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("system-tray")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceMappedDevicePolicies) contextValidateVulnerabilityManagement(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VulnerabilityManagement != nil {
+
+		if swag.IsZero(m.VulnerabilityManagement) { // not required
+			return nil
+		}
+
+		if err := m.VulnerabilityManagement.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerability-management")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerability-management")
 			}
 			return err
 		}

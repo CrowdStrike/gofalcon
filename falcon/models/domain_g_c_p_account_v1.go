@@ -46,6 +46,9 @@ type DomainGCPAccountV1 struct {
 	// cloud scopes
 	CloudScopes []*DomainCloudScope `json:"cloud_scopes"`
 
+	// conditions
+	Conditions []*DomainCondition `json:"conditions"`
+
 	// cspm enabled
 	// Required: true
 	CspmEnabled *bool `json:"cspm_enabled"`
@@ -87,6 +90,9 @@ type DomainGCPAccountV1 struct {
 
 	// service account client id
 	ServiceAccountClientID string `json:"service_account_client_id,omitempty"`
+
+	// service account conditions
+	ServiceAccountConditions []*DomainCondition `json:"service_account_conditions"`
 
 	// GCP service account ID
 	ServiceAccountID int64 `json:"service_account_id,omitempty"`
@@ -130,6 +136,10 @@ func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateConditions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCspmEnabled(formats); err != nil {
 		res = append(res, err)
 	}
@@ -139,6 +149,10 @@ func (m *DomainGCPAccountV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateParentID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateServiceAccountConditions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -235,6 +249,32 @@ func (m *DomainGCPAccountV1) validateCloudScopes(formats strfmt.Registry) error 
 	return nil
 }
 
+func (m *DomainGCPAccountV1) validateConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Conditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Conditions); i++ {
+		if swag.IsZero(m.Conditions[i]) { // not required
+			continue
+		}
+
+		if m.Conditions[i] != nil {
+			if err := m.Conditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainGCPAccountV1) validateCspmEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("cspm_enabled", "body", m.CspmEnabled); err != nil {
@@ -280,6 +320,32 @@ func (m *DomainGCPAccountV1) validateParentID(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainGCPAccountV1) validateServiceAccountConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.ServiceAccountConditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ServiceAccountConditions); i++ {
+		if swag.IsZero(m.ServiceAccountConditions[i]) { // not required
+			continue
+		}
+
+		if m.ServiceAccountConditions[i] != nil {
+			if err := m.ServiceAccountConditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainGCPAccountV1) validateServiceAccountProjectID(formats strfmt.Registry) error {
 
 	if err := validate.Required("service_account_project_id", "body", m.ServiceAccountProjectID); err != nil {
@@ -297,7 +363,15 @@ func (m *DomainGCPAccountV1) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateGcpPermissionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceAccountConditions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -332,6 +406,31 @@ func (m *DomainGCPAccountV1) contextValidateCloudScopes(ctx context.Context, for
 	return nil
 }
 
+func (m *DomainGCPAccountV1) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Conditions); i++ {
+
+		if m.Conditions[i] != nil {
+
+			if swag.IsZero(m.Conditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.Conditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainGCPAccountV1) contextValidateGcpPermissionsStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.GcpPermissionsStatus); i++ {
@@ -347,6 +446,31 @@ func (m *DomainGCPAccountV1) contextValidateGcpPermissionsStatus(ctx context.Con
 					return ve.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("gcp_permissions_status" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainGCPAccountV1) contextValidateServiceAccountConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ServiceAccountConditions); i++ {
+
+		if m.ServiceAccountConditions[i] != nil {
+
+			if swag.IsZero(m.ServiceAccountConditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.ServiceAccountConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

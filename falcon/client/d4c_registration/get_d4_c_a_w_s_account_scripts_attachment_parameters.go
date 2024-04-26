@@ -62,11 +62,50 @@ GetD4CAWSAccountScriptsAttachmentParams contains all the parameters to send to t
 */
 type GetD4CAWSAccountScriptsAttachmentParams struct {
 
+	/* Accounts.
+
+	   The list of accounts to register
+	*/
+	Accounts []string
+
+	/* AwsProfile.
+
+	   The AWS profile to be used during registration
+	*/
+	AwsProfile *string
+
+	// BehaviorAssessmentEnabled.
+	BehaviorAssessmentEnabled *string
+
+	/* CustomRoleName.
+
+	   The custom IAM role to be used during registration
+	*/
+	CustomRoleName *string
+
 	/* Ids.
 
 	   AWS account IDs
 	*/
 	Ids []string
+
+	/* OrganizationID.
+
+	   The AWS organization ID to be registered
+	*/
+	OrganizationID *string
+
+	// SensorManagementEnabled.
+	SensorManagementEnabled *string
+
+	/* Template.
+
+	   Template to be rendered
+	*/
+	Template *string
+
+	// UseExistingCloudtrail.
+	UseExistingCloudtrail *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -121,6 +160,50 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) SetHTTPClient(client *http.Cli
 	o.HTTPClient = client
 }
 
+// WithAccounts adds the accounts to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithAccounts(accounts []string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetAccounts(accounts)
+	return o
+}
+
+// SetAccounts adds the accounts to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetAccounts(accounts []string) {
+	o.Accounts = accounts
+}
+
+// WithAwsProfile adds the awsProfile to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithAwsProfile(awsProfile *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetAwsProfile(awsProfile)
+	return o
+}
+
+// SetAwsProfile adds the awsProfile to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetAwsProfile(awsProfile *string) {
+	o.AwsProfile = awsProfile
+}
+
+// WithBehaviorAssessmentEnabled adds the behaviorAssessmentEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithBehaviorAssessmentEnabled(behaviorAssessmentEnabled *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetBehaviorAssessmentEnabled(behaviorAssessmentEnabled)
+	return o
+}
+
+// SetBehaviorAssessmentEnabled adds the behaviorAssessmentEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetBehaviorAssessmentEnabled(behaviorAssessmentEnabled *string) {
+	o.BehaviorAssessmentEnabled = behaviorAssessmentEnabled
+}
+
+// WithCustomRoleName adds the customRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithCustomRoleName(customRoleName *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetCustomRoleName(customRoleName)
+	return o
+}
+
+// SetCustomRoleName adds the customRoleName to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetCustomRoleName(customRoleName *string) {
+	o.CustomRoleName = customRoleName
+}
+
 // WithIds adds the ids to the get d4 c a w s account scripts attachment params
 func (o *GetD4CAWSAccountScriptsAttachmentParams) WithIds(ids []string) *GetD4CAWSAccountScriptsAttachmentParams {
 	o.SetIds(ids)
@@ -132,6 +215,50 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) SetIds(ids []string) {
 	o.Ids = ids
 }
 
+// WithOrganizationID adds the organizationID to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithOrganizationID(organizationID *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetOrganizationID(organizationID)
+	return o
+}
+
+// SetOrganizationID adds the organizationId to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetOrganizationID(organizationID *string) {
+	o.OrganizationID = organizationID
+}
+
+// WithSensorManagementEnabled adds the sensorManagementEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithSensorManagementEnabled(sensorManagementEnabled *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetSensorManagementEnabled(sensorManagementEnabled)
+	return o
+}
+
+// SetSensorManagementEnabled adds the sensorManagementEnabled to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetSensorManagementEnabled(sensorManagementEnabled *string) {
+	o.SensorManagementEnabled = sensorManagementEnabled
+}
+
+// WithTemplate adds the template to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithTemplate(template *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetTemplate(template)
+	return o
+}
+
+// SetTemplate adds the template to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetTemplate(template *string) {
+	o.Template = template
+}
+
+// WithUseExistingCloudtrail adds the useExistingCloudtrail to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) WithUseExistingCloudtrail(useExistingCloudtrail *string) *GetD4CAWSAccountScriptsAttachmentParams {
+	o.SetUseExistingCloudtrail(useExistingCloudtrail)
+	return o
+}
+
+// SetUseExistingCloudtrail adds the useExistingCloudtrail to the get d4 c a w s account scripts attachment params
+func (o *GetD4CAWSAccountScriptsAttachmentParams) SetUseExistingCloudtrail(useExistingCloudtrail *string) {
+	o.UseExistingCloudtrail = useExistingCloudtrail
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -139,6 +266,68 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
+
+	if o.Accounts != nil {
+
+		// binding items for accounts
+		joinedAccounts := o.bindParamAccounts(reg)
+
+		// query array param accounts
+		if err := r.SetQueryParam("accounts", joinedAccounts...); err != nil {
+			return err
+		}
+	}
+
+	if o.AwsProfile != nil {
+
+		// query param aws_profile
+		var qrAwsProfile string
+
+		if o.AwsProfile != nil {
+			qrAwsProfile = *o.AwsProfile
+		}
+		qAwsProfile := qrAwsProfile
+		if qAwsProfile != "" {
+
+			if err := r.SetQueryParam("aws_profile", qAwsProfile); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.BehaviorAssessmentEnabled != nil {
+
+		// query param behavior_assessment_enabled
+		var qrBehaviorAssessmentEnabled string
+
+		if o.BehaviorAssessmentEnabled != nil {
+			qrBehaviorAssessmentEnabled = *o.BehaviorAssessmentEnabled
+		}
+		qBehaviorAssessmentEnabled := qrBehaviorAssessmentEnabled
+		if qBehaviorAssessmentEnabled != "" {
+
+			if err := r.SetQueryParam("behavior_assessment_enabled", qBehaviorAssessmentEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.CustomRoleName != nil {
+
+		// query param custom_role_name
+		var qrCustomRoleName string
+
+		if o.CustomRoleName != nil {
+			qrCustomRoleName = *o.CustomRoleName
+		}
+		qCustomRoleName := qrCustomRoleName
+		if qCustomRoleName != "" {
+
+			if err := r.SetQueryParam("custom_role_name", qCustomRoleName); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Ids != nil {
 
@@ -151,10 +340,95 @@ func (o *GetD4CAWSAccountScriptsAttachmentParams) WriteToRequest(r runtime.Clien
 		}
 	}
 
+	if o.OrganizationID != nil {
+
+		// query param organization_id
+		var qrOrganizationID string
+
+		if o.OrganizationID != nil {
+			qrOrganizationID = *o.OrganizationID
+		}
+		qOrganizationID := qrOrganizationID
+		if qOrganizationID != "" {
+
+			if err := r.SetQueryParam("organization_id", qOrganizationID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.SensorManagementEnabled != nil {
+
+		// query param sensor_management_enabled
+		var qrSensorManagementEnabled string
+
+		if o.SensorManagementEnabled != nil {
+			qrSensorManagementEnabled = *o.SensorManagementEnabled
+		}
+		qSensorManagementEnabled := qrSensorManagementEnabled
+		if qSensorManagementEnabled != "" {
+
+			if err := r.SetQueryParam("sensor_management_enabled", qSensorManagementEnabled); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Template != nil {
+
+		// query param template
+		var qrTemplate string
+
+		if o.Template != nil {
+			qrTemplate = *o.Template
+		}
+		qTemplate := qrTemplate
+		if qTemplate != "" {
+
+			if err := r.SetQueryParam("template", qTemplate); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.UseExistingCloudtrail != nil {
+
+		// query param use_existing_cloudtrail
+		var qrUseExistingCloudtrail string
+
+		if o.UseExistingCloudtrail != nil {
+			qrUseExistingCloudtrail = *o.UseExistingCloudtrail
+		}
+		qUseExistingCloudtrail := qrUseExistingCloudtrail
+		if qUseExistingCloudtrail != "" {
+
+			if err := r.SetQueryParam("use_existing_cloudtrail", qUseExistingCloudtrail); err != nil {
+				return err
+			}
+		}
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetD4CAWSAccountScriptsAttachment binds the parameter accounts
+func (o *GetD4CAWSAccountScriptsAttachmentParams) bindParamAccounts(formats strfmt.Registry) []string {
+	accountsIR := o.Accounts
+
+	var accountsIC []string
+	for _, accountsIIR := range accountsIR { // explode []string
+
+		accountsIIV := accountsIIR // string as string
+		accountsIC = append(accountsIC, accountsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	accountsIS := swag.JoinByFormat(accountsIC, "multi")
+
+	return accountsIS
 }
 
 // bindParamGetD4CAWSAccountScriptsAttachment binds the parameter ids

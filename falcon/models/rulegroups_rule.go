@@ -38,6 +38,9 @@ type RulegroupsRule struct {
 	// enable content capture
 	EnableContentCapture bool `json:"enable_content_capture,omitempty"`
 
+	// enable hash capture
+	EnableHashCapture bool `json:"enable_hash_capture,omitempty"`
+
 	// exclude
 	Exclude string `json:"exclude,omitempty"`
 
@@ -115,6 +118,9 @@ type RulegroupsRule struct {
 
 	// watch permissions file changes
 	WatchPermissionsFileChanges bool `json:"watch_permissions_file_changes,omitempty"`
+
+	// watch permissions key changes
+	WatchPermissionsKeyChanges bool `json:"watch_permissions_key_changes,omitempty"`
 
 	// watch rename directory changes
 	WatchRenameDirectoryChanges bool `json:"watch_rename_directory_changes,omitempty"`

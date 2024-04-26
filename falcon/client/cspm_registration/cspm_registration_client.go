@@ -46,6 +46,8 @@ type ClientService interface {
 
 	DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, opts ...ClientOption) (*DeleteCSPMAzureAccountOK, *DeleteCSPMAzureAccountMultiStatus, error)
 
+	DeleteCSPMAzureManagementGroup(params *DeleteCSPMAzureManagementGroupParams, opts ...ClientOption) (*DeleteCSPMAzureManagementGroupOK, *DeleteCSPMAzureManagementGroupMultiStatus, error)
+
 	DeleteCSPMGCPAccount(params *DeleteCSPMGCPAccountParams, opts ...ClientOption) (*DeleteCSPMGCPAccountOK, *DeleteCSPMGCPAccountMultiStatus, error)
 
 	GetBehaviorDetections(params *GetBehaviorDetectionsParams, opts ...ClientOption) (*GetBehaviorDetectionsOK, error)
@@ -67,6 +69,8 @@ type ClientService interface {
 	GetCSPMGCPServiceAccountsExt(params *GetCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPServiceAccountsExtOK, error)
 
 	GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAttachmentParams, opts ...ClientOption) (*GetCSPMGCPUserScriptsAttachmentOK, error)
+
+	GetCSPMGCPValidateAccountsExt(params *GetCSPMGCPValidateAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPValidateAccountsExtOK, error)
 
 	GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error)
 
@@ -90,11 +94,15 @@ type ClientService interface {
 
 	UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAzureTenantDefaultSubscriptionIDParams, opts ...ClientOption) (*UpdateCSPMAzureTenantDefaultSubscriptionIDCreated, error)
 
-	UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountCreated, *UpdateCSPMGCPAccountMultiStatus, error)
+	UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountOK, *UpdateCSPMGCPAccountMultiStatus, error)
+
+	UpdateCSPMGCPServiceAccountsExt(params *UpdateCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateCSPMGCPServiceAccountsExtOK, error)
 
 	UpdateCSPMPolicySettings(params *UpdateCSPMPolicySettingsParams, opts ...ClientOption) (*UpdateCSPMPolicySettingsOK, *UpdateCSPMPolicySettingsMultiStatus, error)
 
 	UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, opts ...ClientOption) (*UpdateCSPMScanScheduleOK, error)
+
+	ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPServiceAccountExtParams, opts ...ClientOption) (*ValidateCSPMGCPServiceAccountExtOK, *ValidateCSPMGCPServiceAccountExtMultiStatus, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -403,6 +411,45 @@ func (a *Client) DeleteCSPMAzureAccount(params *DeleteCSPMAzureAccountParams, op
 	case *DeleteCSPMAzureAccountOK:
 		return value, nil, nil
 	case *DeleteCSPMAzureAccountMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+DeleteCSPMAzureManagementGroup deletes azure management groups from the system
+*/
+func (a *Client) DeleteCSPMAzureManagementGroup(params *DeleteCSPMAzureManagementGroupParams, opts ...ClientOption) (*DeleteCSPMAzureManagementGroupOK, *DeleteCSPMAzureManagementGroupMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteCSPMAzureManagementGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteCSPMAzureManagementGroup",
+		Method:             "DELETE",
+		PathPattern:        "/cloud-connect-cspm-azure/entities/management-group/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteCSPMAzureManagementGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteCSPMAzureManagementGroupOK:
+		return value, nil, nil
+	case *DeleteCSPMAzureManagementGroupMultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
@@ -835,6 +882,44 @@ func (a *Client) GetCSPMGCPUserScriptsAttachment(params *GetCSPMGCPUserScriptsAt
 }
 
 /*
+GetCSPMGCPValidateAccountsExt runs a synchronous health check
+*/
+func (a *Client) GetCSPMGCPValidateAccountsExt(params *GetCSPMGCPValidateAccountsExtParams, opts ...ClientOption) (*GetCSPMGCPValidateAccountsExtOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCSPMGCPValidateAccountsExtParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCSPMGCPValidateAccountsExt",
+		Method:             "POST",
+		PathPattern:        "/cloud-connect-cspm-gcp/entities/account/validate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCSPMGCPValidateAccountsExtReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCSPMGCPValidateAccountsExtOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCSPMGCPValidateAccountsExt: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetCSPMPoliciesDetails givens an array of policy i ds returns detailed policies information
 */
 func (a *Client) GetCSPMPoliciesDetails(params *GetCSPMPoliciesDetailsParams, opts ...ClientOption) (*GetCSPMPoliciesDetailsOK, *GetCSPMPoliciesDetailsMultiStatus, error) {
@@ -1260,7 +1345,7 @@ func (a *Client) UpdateCSPMAzureTenantDefaultSubscriptionID(params *UpdateCSPMAz
 /*
 UpdateCSPMGCPAccount patches a existing account in our system for a customer
 */
-func (a *Client) UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountCreated, *UpdateCSPMGCPAccountMultiStatus, error) {
+func (a *Client) UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts ...ClientOption) (*UpdateCSPMGCPAccountOK, *UpdateCSPMGCPAccountMultiStatus, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCSPMGCPAccountParams()
@@ -1286,13 +1371,51 @@ func (a *Client) UpdateCSPMGCPAccount(params *UpdateCSPMGCPAccountParams, opts .
 		return nil, nil, err
 	}
 	switch value := result.(type) {
-	case *UpdateCSPMGCPAccountCreated:
+	case *UpdateCSPMGCPAccountOK:
 		return value, nil, nil
 	case *UpdateCSPMGCPAccountMultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateCSPMGCPServiceAccountsExt patches the service account key for external clients
+*/
+func (a *Client) UpdateCSPMGCPServiceAccountsExt(params *UpdateCSPMGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateCSPMGCPServiceAccountsExtOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateCSPMGCPServiceAccountsExtParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateCSPMGCPServiceAccountsExt",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-connect-cspm-gcp/entities/service-accounts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateCSPMGCPServiceAccountsExtReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateCSPMGCPServiceAccountsExtOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateCSPMGCPServiceAccountsExt: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -1370,6 +1493,45 @@ func (a *Client) UpdateCSPMScanSchedule(params *UpdateCSPMScanScheduleParams, op
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for UpdateCSPMScanSchedule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ValidateCSPMGCPServiceAccountExt validates credentials for a service account
+*/
+func (a *Client) ValidateCSPMGCPServiceAccountExt(params *ValidateCSPMGCPServiceAccountExtParams, opts ...ClientOption) (*ValidateCSPMGCPServiceAccountExtOK, *ValidateCSPMGCPServiceAccountExtMultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewValidateCSPMGCPServiceAccountExtParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ValidateCSPMGCPServiceAccountExt",
+		Method:             "POST",
+		PathPattern:        "/cloud-connect-cspm-gcp/entities/service-accounts/validate/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ValidateCSPMGCPServiceAccountExtReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ValidateCSPMGCPServiceAccountExtOK:
+		return value, nil, nil
+	case *ValidateCSPMGCPServiceAccountExtMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for cspm_registration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

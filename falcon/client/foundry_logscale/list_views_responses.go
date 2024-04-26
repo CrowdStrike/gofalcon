@@ -31,14 +31,32 @@ func (o *ListViewsReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewListViewsBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewListViewsForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewListViewsNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewListViewsTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewListViewsInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *ListViewsOK) readResponse(response runtime.ClientResponse, consumer run
 	return nil
 }
 
+// NewListViewsBadRequest creates a ListViewsBadRequest with default headers values
+func NewListViewsBadRequest() *ListViewsBadRequest {
+	return &ListViewsBadRequest{}
+}
+
+/*
+ListViewsBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type ListViewsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list views bad request response has a 2xx status code
+func (o *ListViewsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list views bad request response has a 3xx status code
+func (o *ListViewsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list views bad request response has a 4xx status code
+func (o *ListViewsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list views bad request response has a 5xx status code
+func (o *ListViewsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list views bad request response a status code equal to that given
+func (o *ListViewsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the list views bad request response
+func (o *ListViewsBadRequest) Code() int {
+	return 400
+}
+
+func (o *ListViewsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ListViewsBadRequest) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ListViewsBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListViewsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewListViewsForbidden creates a ListViewsForbidden with default headers values
 func NewListViewsForbidden() *ListViewsForbidden {
 	return &ListViewsForbidden{}
@@ -182,7 +310,7 @@ type ListViewsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this list views forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *ListViewsForbidden) String() string {
 	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ListViewsForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ListViewsForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *ListViewsForbidden) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListViewsNotFound creates a ListViewsNotFound with default headers values
+func NewListViewsNotFound() *ListViewsNotFound {
+	return &ListViewsNotFound{}
+}
+
+/*
+ListViewsNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type ListViewsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list views not found response has a 2xx status code
+func (o *ListViewsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list views not found response has a 3xx status code
+func (o *ListViewsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list views not found response has a 4xx status code
+func (o *ListViewsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list views not found response has a 5xx status code
+func (o *ListViewsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list views not found response a status code equal to that given
+func (o *ListViewsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list views not found response
+func (o *ListViewsNotFound) Code() int {
+	return 404
+}
+
+func (o *ListViewsNotFound) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ListViewsNotFound) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ListViewsNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListViewsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *ListViewsTooManyRequests) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListViewsInternalServerError creates a ListViewsInternalServerError with default headers values
+func NewListViewsInternalServerError() *ListViewsInternalServerError {
+	return &ListViewsInternalServerError{}
+}
+
+/*
+ListViewsInternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type ListViewsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list views internal server error response has a 2xx status code
+func (o *ListViewsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list views internal server error response has a 3xx status code
+func (o *ListViewsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list views internal server error response has a 4xx status code
+func (o *ListViewsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list views internal server error response has a 5xx status code
+func (o *ListViewsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this list views internal server error response a status code equal to that given
+func (o *ListViewsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the list views internal server error response
+func (o *ListViewsInternalServerError) Code() int {
+	return 500
+}
+
+func (o *ListViewsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListViewsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/views/v1][%d] listViewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListViewsInternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListViewsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

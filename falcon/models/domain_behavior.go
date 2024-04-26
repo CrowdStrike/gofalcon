@@ -52,6 +52,9 @@ type DomainBehavior struct {
 	// filepath
 	Filepath string `json:"filepath,omitempty"`
 
+	// grouping ids
+	GroupingIds []string `json:"grouping_ids"`
+
 	// incident id
 	IncidentID string `json:"incident_id,omitempty"`
 

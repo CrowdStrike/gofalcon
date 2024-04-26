@@ -85,6 +85,18 @@ type ExecuteDynamicParams struct {
 	*/
 	IncludeTestData *bool
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
+	/* MatchResponseSchema.
+
+	   Whether to validate search results against their schema
+	*/
+	MatchResponseSchema *bool
+
 	/* Metadata.
 
 	   Whether to include metadata in the response
@@ -119,12 +131,18 @@ func (o *ExecuteDynamicParams) SetDefaults() {
 
 		includeTestDataDefault = bool(false)
 
+		inferJSONTypesDefault = bool(false)
+
+		matchResponseSchemaDefault = bool(false)
+
 		metadataDefault = bool(false)
 	)
 
 	val := ExecuteDynamicParams{
 		IncludeSchemaGeneration: &includeSchemaGenerationDefault,
 		IncludeTestData:         &includeTestDataDefault,
+		InferJSONTypes:          &inferJSONTypesDefault,
+		MatchResponseSchema:     &matchResponseSchemaDefault,
 		Metadata:                &metadataDefault,
 	}
 
@@ -211,6 +229,28 @@ func (o *ExecuteDynamicParams) SetIncludeTestData(includeTestData *bool) {
 	o.IncludeTestData = includeTestData
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the execute dynamic params
+func (o *ExecuteDynamicParams) WithInferJSONTypes(inferJSONTypes *bool) *ExecuteDynamicParams {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the execute dynamic params
+func (o *ExecuteDynamicParams) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
+// WithMatchResponseSchema adds the matchResponseSchema to the execute dynamic params
+func (o *ExecuteDynamicParams) WithMatchResponseSchema(matchResponseSchema *bool) *ExecuteDynamicParams {
+	o.SetMatchResponseSchema(matchResponseSchema)
+	return o
+}
+
+// SetMatchResponseSchema adds the matchResponseSchema to the execute dynamic params
+func (o *ExecuteDynamicParams) SetMatchResponseSchema(matchResponseSchema *bool) {
+	o.MatchResponseSchema = matchResponseSchema
+}
+
 // WithMetadata adds the metadata to the execute dynamic params
 func (o *ExecuteDynamicParams) WithMetadata(metadata *bool) *ExecuteDynamicParams {
 	o.SetMetadata(metadata)
@@ -292,6 +332,40 @@ func (o *ExecuteDynamicParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		if qIncludeTestData != "" {
 
 			if err := r.SetQueryParam("include_test_data", qIncludeTestData); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.MatchResponseSchema != nil {
+
+		// query param match_response_schema
+		var qrMatchResponseSchema bool
+
+		if o.MatchResponseSchema != nil {
+			qrMatchResponseSchema = *o.MatchResponseSchema
+		}
+		qMatchResponseSchema := swag.FormatBool(qrMatchResponseSchema)
+		if qMatchResponseSchema != "" {
+
+			if err := r.SetQueryParam("match_response_schema", qMatchResponseSchema); err != nil {
 				return err
 			}
 		}

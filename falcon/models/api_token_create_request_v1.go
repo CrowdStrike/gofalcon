@@ -16,7 +16,7 @@ import (
 
 // APITokenCreateRequestV1 api token create request v1
 //
-// swagger:model api.tokenCreateRequestV1
+// swagger:model api.TokenCreateRequestV1
 type APITokenCreateRequestV1 struct {
 
 	// The token's expiration time (RFC-3339). Null, if the token never expires.

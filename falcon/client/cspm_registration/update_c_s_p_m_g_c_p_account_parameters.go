@@ -64,7 +64,7 @@ UpdateCSPMGCPAccountParams contains all the parameters to send to the API endpoi
 type UpdateCSPMGCPAccountParams struct {
 
 	// Body.
-	Body *models.RegistrationGCPAccountPatchRequest
+	Body *models.RegistrationGCPAccountPatchRequestV1
 
 	timeout    time.Duration
 	Context    context.Context
@@ -120,13 +120,13 @@ func (o *UpdateCSPMGCPAccountParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the update c s p m g c p account params
-func (o *UpdateCSPMGCPAccountParams) WithBody(body *models.RegistrationGCPAccountPatchRequest) *UpdateCSPMGCPAccountParams {
+func (o *UpdateCSPMGCPAccountParams) WithBody(body *models.RegistrationGCPAccountPatchRequestV1) *UpdateCSPMGCPAccountParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the update c s p m g c p account params
-func (o *UpdateCSPMGCPAccountParams) SetBody(body *models.RegistrationGCPAccountPatchRequest) {
+func (o *UpdateCSPMGCPAccountParams) SetBody(body *models.RegistrationGCPAccountPatchRequestV1) {
 	o.Body = body
 }
 

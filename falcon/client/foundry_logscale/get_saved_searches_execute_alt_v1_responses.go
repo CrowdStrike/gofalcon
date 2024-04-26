@@ -31,14 +31,32 @@ func (o *GetSavedSearchesExecuteAltV1Reader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewGetSavedSearchesExecuteAltV1BadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetSavedSearchesExecuteAltV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewGetSavedSearchesExecuteAltV1NotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewGetSavedSearchesExecuteAltV1TooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewGetSavedSearchesExecuteAltV1InternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *GetSavedSearchesExecuteAltV1OK) readResponse(response runtime.ClientRes
 	return nil
 }
 
+// NewGetSavedSearchesExecuteAltV1BadRequest creates a GetSavedSearchesExecuteAltV1BadRequest with default headers values
+func NewGetSavedSearchesExecuteAltV1BadRequest() *GetSavedSearchesExecuteAltV1BadRequest {
+	return &GetSavedSearchesExecuteAltV1BadRequest{}
+}
+
+/*
+GetSavedSearchesExecuteAltV1BadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type GetSavedSearchesExecuteAltV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get saved searches execute alt v1 bad request response has a 2xx status code
+func (o *GetSavedSearchesExecuteAltV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get saved searches execute alt v1 bad request response has a 3xx status code
+func (o *GetSavedSearchesExecuteAltV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get saved searches execute alt v1 bad request response has a 4xx status code
+func (o *GetSavedSearchesExecuteAltV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get saved searches execute alt v1 bad request response has a 5xx status code
+func (o *GetSavedSearchesExecuteAltV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get saved searches execute alt v1 bad request response a status code equal to that given
+func (o *GetSavedSearchesExecuteAltV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the get saved searches execute alt v1 bad request response
+func (o *GetSavedSearchesExecuteAltV1BadRequest) Code() int {
+	return 400
+}
+
+func (o *GetSavedSearchesExecuteAltV1BadRequest) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1BadRequest) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1BadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSavedSearchesExecuteAltV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetSavedSearchesExecuteAltV1Forbidden creates a GetSavedSearchesExecuteAltV1Forbidden with default headers values
 func NewGetSavedSearchesExecuteAltV1Forbidden() *GetSavedSearchesExecuteAltV1Forbidden {
 	return &GetSavedSearchesExecuteAltV1Forbidden{}
@@ -182,7 +310,7 @@ type GetSavedSearchesExecuteAltV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get saved searches execute alt v1 forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *GetSavedSearchesExecuteAltV1Forbidden) String() string {
 	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetSavedSearchesExecuteAltV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetSavedSearchesExecuteAltV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *GetSavedSearchesExecuteAltV1Forbidden) readResponse(response runtime.Cl
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSavedSearchesExecuteAltV1NotFound creates a GetSavedSearchesExecuteAltV1NotFound with default headers values
+func NewGetSavedSearchesExecuteAltV1NotFound() *GetSavedSearchesExecuteAltV1NotFound {
+	return &GetSavedSearchesExecuteAltV1NotFound{}
+}
+
+/*
+GetSavedSearchesExecuteAltV1NotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type GetSavedSearchesExecuteAltV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get saved searches execute alt v1 not found response has a 2xx status code
+func (o *GetSavedSearchesExecuteAltV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get saved searches execute alt v1 not found response has a 3xx status code
+func (o *GetSavedSearchesExecuteAltV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get saved searches execute alt v1 not found response has a 4xx status code
+func (o *GetSavedSearchesExecuteAltV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get saved searches execute alt v1 not found response has a 5xx status code
+func (o *GetSavedSearchesExecuteAltV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get saved searches execute alt v1 not found response a status code equal to that given
+func (o *GetSavedSearchesExecuteAltV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get saved searches execute alt v1 not found response
+func (o *GetSavedSearchesExecuteAltV1NotFound) Code() int {
+	return 404
+}
+
+func (o *GetSavedSearchesExecuteAltV1NotFound) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1NotFound) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1NotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSavedSearchesExecuteAltV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *GetSavedSearchesExecuteAltV1TooManyRequests) readResponse(response runt
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSavedSearchesExecuteAltV1InternalServerError creates a GetSavedSearchesExecuteAltV1InternalServerError with default headers values
+func NewGetSavedSearchesExecuteAltV1InternalServerError() *GetSavedSearchesExecuteAltV1InternalServerError {
+	return &GetSavedSearchesExecuteAltV1InternalServerError{}
+}
+
+/*
+GetSavedSearchesExecuteAltV1InternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type GetSavedSearchesExecuteAltV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get saved searches execute alt v1 internal server error response has a 2xx status code
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get saved searches execute alt v1 internal server error response has a 3xx status code
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get saved searches execute alt v1 internal server error response has a 4xx status code
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get saved searches execute alt v1 internal server error response has a 5xx status code
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get saved searches execute alt v1 internal server error response a status code equal to that given
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the get saved searches execute alt v1 internal server error response
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) Code() int {
+	return 500
+}
+
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches-execute/v1][%d] getSavedSearchesExecuteAltV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSavedSearchesExecuteAltV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

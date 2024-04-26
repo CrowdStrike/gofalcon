@@ -26,6 +26,9 @@ type V2ForLoop struct {
 	// input
 	// Required: true
 	Input *string `json:"input"`
+
+	// sequential
+	Sequential bool `json:"sequential,omitempty"`
 }
 
 // Validate validates this v2 for loop

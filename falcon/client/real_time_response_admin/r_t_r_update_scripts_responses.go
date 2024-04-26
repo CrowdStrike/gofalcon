@@ -25,8 +25,8 @@ type RTRUpdateScriptsReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *RTRUpdateScriptsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewRTRUpdateScriptsOK()
+	case 202:
+		result := NewRTRUpdateScriptsAccepted()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -54,17 +54,17 @@ func (o *RTRUpdateScriptsReader) ReadResponse(response runtime.ClientResponse, c
 	}
 }
 
-// NewRTRUpdateScriptsOK creates a RTRUpdateScriptsOK with default headers values
-func NewRTRUpdateScriptsOK() *RTRUpdateScriptsOK {
-	return &RTRUpdateScriptsOK{}
+// NewRTRUpdateScriptsAccepted creates a RTRUpdateScriptsAccepted with default headers values
+func NewRTRUpdateScriptsAccepted() *RTRUpdateScriptsAccepted {
+	return &RTRUpdateScriptsAccepted{}
 }
 
 /*
-RTRUpdateScriptsOK describes a response with status code 200, with default header values.
+RTRUpdateScriptsAccepted describes a response with status code 202, with default header values.
 
 OK
 */
-type RTRUpdateScriptsOK struct {
+type RTRUpdateScriptsAccepted struct {
 
 	/* Trace-ID: submit to support if resolving an issue
 	 */
@@ -81,49 +81,49 @@ type RTRUpdateScriptsOK struct {
 	Payload *models.MsaReplyMetaOnly
 }
 
-// IsSuccess returns true when this r t r update scripts o k response has a 2xx status code
-func (o *RTRUpdateScriptsOK) IsSuccess() bool {
+// IsSuccess returns true when this r t r update scripts accepted response has a 2xx status code
+func (o *RTRUpdateScriptsAccepted) IsSuccess() bool {
 	return true
 }
 
-// IsRedirect returns true when this r t r update scripts o k response has a 3xx status code
-func (o *RTRUpdateScriptsOK) IsRedirect() bool {
+// IsRedirect returns true when this r t r update scripts accepted response has a 3xx status code
+func (o *RTRUpdateScriptsAccepted) IsRedirect() bool {
 	return false
 }
 
-// IsClientError returns true when this r t r update scripts o k response has a 4xx status code
-func (o *RTRUpdateScriptsOK) IsClientError() bool {
+// IsClientError returns true when this r t r update scripts accepted response has a 4xx status code
+func (o *RTRUpdateScriptsAccepted) IsClientError() bool {
 	return false
 }
 
-// IsServerError returns true when this r t r update scripts o k response has a 5xx status code
-func (o *RTRUpdateScriptsOK) IsServerError() bool {
+// IsServerError returns true when this r t r update scripts accepted response has a 5xx status code
+func (o *RTRUpdateScriptsAccepted) IsServerError() bool {
 	return false
 }
 
-// IsCode returns true when this r t r update scripts o k response a status code equal to that given
-func (o *RTRUpdateScriptsOK) IsCode(code int) bool {
-	return code == 200
+// IsCode returns true when this r t r update scripts accepted response a status code equal to that given
+func (o *RTRUpdateScriptsAccepted) IsCode(code int) bool {
+	return code == 202
 }
 
-// Code gets the status code for the r t r update scripts o k response
-func (o *RTRUpdateScriptsOK) Code() int {
-	return 200
+// Code gets the status code for the r t r update scripts accepted response
+func (o *RTRUpdateScriptsAccepted) Code() int {
+	return 202
 }
 
-func (o *RTRUpdateScriptsOK) Error() string {
-	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsOK  %+v", 200, o.Payload)
+func (o *RTRUpdateScriptsAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsAccepted  %+v", 202, o.Payload)
 }
 
-func (o *RTRUpdateScriptsOK) String() string {
-	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsOK  %+v", 200, o.Payload)
+func (o *RTRUpdateScriptsAccepted) String() string {
+	return fmt.Sprintf("[PATCH /real-time-response/entities/scripts/v1][%d] rTRUpdateScriptsAccepted  %+v", 202, o.Payload)
 }
 
-func (o *RTRUpdateScriptsOK) GetPayload() *models.MsaReplyMetaOnly {
+func (o *RTRUpdateScriptsAccepted) GetPayload() *models.MsaReplyMetaOnly {
 	return o.Payload
 }
 
-func (o *RTRUpdateScriptsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *RTRUpdateScriptsAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

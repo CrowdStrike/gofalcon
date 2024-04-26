@@ -60,7 +60,7 @@ type ClientService interface {
 
 	RTRListScripts(params *RTRListScriptsParams, opts ...ClientOption) (*RTRListScriptsOK, error)
 
-	RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsOK, error)
+	RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsAccepted, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -638,7 +638,7 @@ func (a *Client) RTRListScripts(params *RTRListScriptsParams, opts ...ClientOpti
 /*
 RTRUpdateScripts uploads a new scripts to replace an existing one
 */
-func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsOK, error) {
+func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...ClientOption) (*RTRUpdateScriptsAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRTRUpdateScriptsParams()
@@ -663,7 +663,7 @@ func (a *Client) RTRUpdateScripts(params *RTRUpdateScriptsParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*RTRUpdateScriptsOK)
+	success, ok := result.(*RTRUpdateScriptsAccepted)
 	if ok {
 		return success, nil
 	}

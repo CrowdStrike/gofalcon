@@ -68,6 +68,12 @@ type GetSearchResultsParams struct {
 	*/
 	AppID *string
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
 	/* JobID.
 
 	   Job ID for a previously executed async query
@@ -79,6 +85,12 @@ type GetSearchResultsParams struct {
 	   Maximum number of records to return.
 	*/
 	Limit *string
+
+	/* MatchResponseSchema.
+
+	   Whether to validate search results against their schema
+	*/
+	MatchResponseSchema *bool
 
 	/* Metadata.
 
@@ -110,11 +122,17 @@ func (o *GetSearchResultsParams) WithDefaults() *GetSearchResultsParams {
 // All values with no default are reset to their zero value.
 func (o *GetSearchResultsParams) SetDefaults() {
 	var (
+		inferJSONTypesDefault = bool(false)
+
+		matchResponseSchemaDefault = bool(false)
+
 		metadataDefault = bool(false)
 	)
 
 	val := GetSearchResultsParams{
-		Metadata: &metadataDefault,
+		InferJSONTypes:      &inferJSONTypesDefault,
+		MatchResponseSchema: &matchResponseSchemaDefault,
+		Metadata:            &metadataDefault,
 	}
 
 	val.timeout = o.timeout
@@ -167,6 +185,17 @@ func (o *GetSearchResultsParams) SetAppID(appID *string) {
 	o.AppID = appID
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the get search results params
+func (o *GetSearchResultsParams) WithInferJSONTypes(inferJSONTypes *bool) *GetSearchResultsParams {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the get search results params
+func (o *GetSearchResultsParams) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
 // WithJobID adds the jobID to the get search results params
 func (o *GetSearchResultsParams) WithJobID(jobID string) *GetSearchResultsParams {
 	o.SetJobID(jobID)
@@ -187,6 +216,17 @@ func (o *GetSearchResultsParams) WithLimit(limit *string) *GetSearchResultsParam
 // SetLimit adds the limit to the get search results params
 func (o *GetSearchResultsParams) SetLimit(limit *string) {
 	o.Limit = limit
+}
+
+// WithMatchResponseSchema adds the matchResponseSchema to the get search results params
+func (o *GetSearchResultsParams) WithMatchResponseSchema(matchResponseSchema *bool) *GetSearchResultsParams {
+	o.SetMatchResponseSchema(matchResponseSchema)
+	return o
+}
+
+// SetMatchResponseSchema adds the matchResponseSchema to the get search results params
+func (o *GetSearchResultsParams) SetMatchResponseSchema(matchResponseSchema *bool) {
+	o.MatchResponseSchema = matchResponseSchema
 }
 
 // WithMetadata adds the metadata to the get search results params
@@ -236,6 +276,23 @@ func (o *GetSearchResultsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		}
 	}
 
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
+
 	// query param job_id
 	qrJobID := o.JobID
 	qJobID := qrJobID
@@ -258,6 +315,23 @@ func (o *GetSearchResultsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.MatchResponseSchema != nil {
+
+		// query param match_response_schema
+		var qrMatchResponseSchema bool
+
+		if o.MatchResponseSchema != nil {
+			qrMatchResponseSchema = *o.MatchResponseSchema
+		}
+		qMatchResponseSchema := swag.FormatBool(qrMatchResponseSchema)
+		if qMatchResponseSchema != "" {
+
+			if err := r.SetQueryParam("match_response_schema", qMatchResponseSchema); err != nil {
 				return err
 			}
 		}

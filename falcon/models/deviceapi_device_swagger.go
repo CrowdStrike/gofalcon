@@ -29,6 +29,9 @@ type DeviceapiDeviceSwagger struct {
 	// agent version
 	AgentVersion string `json:"agent_version,omitempty"`
 
+	// base image version
+	BaseImageVersion string `json:"base_image_version,omitempty"`
+
 	// bios manufacturer
 	BiosManufacturer string `json:"bios_manufacturer,omitempty"`
 
@@ -169,6 +172,9 @@ type DeviceapiDeviceSwagger struct {
 	// meta
 	Meta *DeviceDeviceMeta `json:"meta,omitempty"`
 
+	// migration completed time
+	MigrationCompletedTime string `json:"migration_completed_time,omitempty"`
+
 	// minor version
 	MinorVersion string `json:"minor_version,omitempty"`
 
@@ -249,6 +255,9 @@ type DeviceapiDeviceSwagger struct {
 
 	// release group
 	ReleaseGroup string `json:"release_group,omitempty"`
+
+	// rtr state
+	RtrState string `json:"rtr_state,omitempty"`
 
 	// serial number
 	SerialNumber string `json:"serial_number,omitempty"`

@@ -31,7 +31,7 @@ type APIIndicatorCreateReqV1 struct {
 
 	// expiration
 	// Format: date-time
-	Expiration strfmt.DateTime `json:"expiration,omitempty"`
+	Expiration *strfmt.DateTime `json:"expiration,omitempty"`
 
 	// host groups
 	HostGroups []string `json:"host_groups"`

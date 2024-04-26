@@ -31,6 +31,10 @@ type ApidomainQueryResponseV1 struct {
 	// fields
 	Fields []*ClientField `json:"fields"`
 
+	// filtered event count
+	// Required: true
+	FilteredEventCount *int32 `json:"filtered_event_count"`
+
 	// job status
 	JobStatus *ClientJobStatus `json:"job_status,omitempty"`
 
@@ -54,6 +58,10 @@ func (m *ApidomainQueryResponseV1) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFields(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFilteredEventCount(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,6 +122,15 @@ func (m *ApidomainQueryResponseV1) validateFields(formats strfmt.Registry) error
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *ApidomainQueryResponseV1) validateFilteredEventCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("filtered_event_count", "body", m.FilteredEventCount); err != nil {
+		return err
 	}
 
 	return nil

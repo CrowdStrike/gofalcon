@@ -31,14 +31,32 @@ func (o *ListReposReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewListReposBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewListReposForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewListReposNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewListReposTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewListReposInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *ListReposOK) readResponse(response runtime.ClientResponse, consumer run
 	return nil
 }
 
+// NewListReposBadRequest creates a ListReposBadRequest with default headers values
+func NewListReposBadRequest() *ListReposBadRequest {
+	return &ListReposBadRequest{}
+}
+
+/*
+ListReposBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type ListReposBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list repos bad request response has a 2xx status code
+func (o *ListReposBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list repos bad request response has a 3xx status code
+func (o *ListReposBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list repos bad request response has a 4xx status code
+func (o *ListReposBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list repos bad request response has a 5xx status code
+func (o *ListReposBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list repos bad request response a status code equal to that given
+func (o *ListReposBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the list repos bad request response
+func (o *ListReposBadRequest) Code() int {
+	return 400
+}
+
+func (o *ListReposBadRequest) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ListReposBadRequest) String() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ListReposBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListReposBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewListReposForbidden creates a ListReposForbidden with default headers values
 func NewListReposForbidden() *ListReposForbidden {
 	return &ListReposForbidden{}
@@ -182,7 +310,7 @@ type ListReposForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this list repos forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *ListReposForbidden) String() string {
 	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ListReposForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ListReposForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *ListReposForbidden) readResponse(response runtime.ClientResponse, consu
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListReposNotFound creates a ListReposNotFound with default headers values
+func NewListReposNotFound() *ListReposNotFound {
+	return &ListReposNotFound{}
+}
+
+/*
+ListReposNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type ListReposNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list repos not found response has a 2xx status code
+func (o *ListReposNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list repos not found response has a 3xx status code
+func (o *ListReposNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list repos not found response has a 4xx status code
+func (o *ListReposNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list repos not found response has a 5xx status code
+func (o *ListReposNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list repos not found response a status code equal to that given
+func (o *ListReposNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list repos not found response
+func (o *ListReposNotFound) Code() int {
+	return 404
+}
+
+func (o *ListReposNotFound) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ListReposNotFound) String() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ListReposNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListReposNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *ListReposTooManyRequests) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListReposInternalServerError creates a ListReposInternalServerError with default headers values
+func NewListReposInternalServerError() *ListReposInternalServerError {
+	return &ListReposInternalServerError{}
+}
+
+/*
+ListReposInternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type ListReposInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this list repos internal server error response has a 2xx status code
+func (o *ListReposInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list repos internal server error response has a 3xx status code
+func (o *ListReposInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list repos internal server error response has a 4xx status code
+func (o *ListReposInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list repos internal server error response has a 5xx status code
+func (o *ListReposInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this list repos internal server error response a status code equal to that given
+func (o *ListReposInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the list repos internal server error response
+func (o *ListReposInternalServerError) Code() int {
+	return 500
+}
+
+func (o *ListReposInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListReposInternalServerError) String() string {
+	return fmt.Sprintf("[GET /loggingapi/combined/repos/v1][%d] listReposInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ListReposInternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ListReposInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

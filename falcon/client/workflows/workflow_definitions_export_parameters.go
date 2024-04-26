@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewWorkflowDefinitionsExportParams creates a new WorkflowDefinitionsExportParams object,
@@ -67,6 +68,14 @@ type WorkflowDefinitionsExportParams struct {
 	*/
 	ID string
 
+	/* Sanitize.
+
+	   whether or not to sanitize PII from workflow before it's exported
+
+	   Default: true
+	*/
+	Sanitize *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -84,7 +93,18 @@ func (o *WorkflowDefinitionsExportParams) WithDefaults() *WorkflowDefinitionsExp
 //
 // All values with no default are reset to their zero value.
 func (o *WorkflowDefinitionsExportParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		sanitizeDefault = bool(true)
+	)
+
+	val := WorkflowDefinitionsExportParams{
+		Sanitize: &sanitizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the workflow definitions export params
@@ -131,6 +151,17 @@ func (o *WorkflowDefinitionsExportParams) SetID(id string) {
 	o.ID = id
 }
 
+// WithSanitize adds the sanitize to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) WithSanitize(sanitize *bool) *WorkflowDefinitionsExportParams {
+	o.SetSanitize(sanitize)
+	return o
+}
+
+// SetSanitize adds the sanitize to the workflow definitions export params
+func (o *WorkflowDefinitionsExportParams) SetSanitize(sanitize *bool) {
+	o.Sanitize = sanitize
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *WorkflowDefinitionsExportParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -146,6 +177,23 @@ func (o *WorkflowDefinitionsExportParams) WriteToRequest(r runtime.ClientRequest
 
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
+		}
+	}
+
+	if o.Sanitize != nil {
+
+		// query param sanitize
+		var qrSanitize bool
+
+		if o.Sanitize != nil {
+			qrSanitize = *o.Sanitize
+		}
+		qSanitize := swag.FormatBool(qrSanitize)
+		if qSanitize != "" {
+
+			if err := r.SetQueryParam("sanitize", qSanitize); err != nil {
+				return err
+			}
 		}
 	}
 

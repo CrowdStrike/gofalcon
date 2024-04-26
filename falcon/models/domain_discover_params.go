@@ -31,6 +31,10 @@ type DomainDiscoverParams struct {
 	// Required: true
 	ApplicationVendors *string `json:"application_vendors"`
 
+	// inline app filter
+	// Required: true
+	InlineAppFilter *string `json:"inline_app_filter"`
+
 	// requirement criteria
 	// Required: true
 	RequirementCriteria *string `json:"requirement_criteria"`
@@ -49,6 +53,10 @@ func (m *DomainDiscoverParams) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateApplicationVendors(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInlineAppFilter(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -83,6 +91,15 @@ func (m *DomainDiscoverParams) validateApplicationGroupID(formats strfmt.Registr
 func (m *DomainDiscoverParams) validateApplicationVendors(formats strfmt.Registry) error {
 
 	if err := validate.Required("application_vendors", "body", m.ApplicationVendors); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainDiscoverParams) validateInlineAppFilter(formats strfmt.Registry) error {
+
+	if err := validate.Required("inline_app_filter", "body", m.InlineAppFilter); err != nil {
 		return err
 	}
 

@@ -105,6 +105,8 @@ type UpdateRulesParams struct {
 
 	 * `enable_content_capture`
 
+	 * `enable_hash_capture`
+
 	File system directory monitoring:
 
 	 * `watch_delete_directory_changes`

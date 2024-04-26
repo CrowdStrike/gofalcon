@@ -85,6 +85,10 @@ type ModelsAPICustomerAndImage struct {
 	// uuid
 	// Required: true
 	UUID *string `json:"uuid"`
+
+	// warning
+	// Required: true
+	Warning *int32 `json:"warning"`
 }
 
 // Validate validates this models API customer and image
@@ -156,6 +160,10 @@ func (m *ModelsAPICustomerAndImage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUUID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWarning(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -322,6 +330,15 @@ func (m *ModelsAPICustomerAndImage) validateUpdatedAt(formats strfmt.Registry) e
 func (m *ModelsAPICustomerAndImage) validateUUID(formats strfmt.Registry) error {
 
 	if err := validate.Required("uuid", "body", m.UUID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsAPICustomerAndImage) validateWarning(formats strfmt.Registry) error {
+
+	if err := validate.Required("warning", "body", m.Warning); err != nil {
 		return err
 	}
 

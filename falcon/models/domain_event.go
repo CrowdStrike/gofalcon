@@ -7,7 +7,6 @@ package models
 
 import (
 	"context"
-	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,105 +19,161 @@ import (
 // swagger:model domain.Event
 type DomainEvent struct {
 
-	// The raw body of the event
+	// attributes
 	// Required: true
-	Body *string `json:"body"`
+	Attributes map[string]string `json:"Attributes"`
 
-	// By default, event bodies are truncated to 64kb and bodyIsTruncated is set to True. For event bodies larger than 64kb, call the /events-full-body endpoint with the respective eventId
+	// c ID
 	// Required: true
-	BodyIsTruncated *bool `json:"body_is_truncated"`
+	CID *string `json:"CID"`
 
-	// Link to the event, can be missing
-	BodyLink string `json:"body_link,omitempty"`
-
-	// botnet config source
-	BotnetConfigSource *DomainBotnetConfigSource `json:"botnet_config_source,omitempty"`
-
-	// The date the event was created (in UTC format)
+	// data domain
 	// Required: true
-	CreatedDate *string `json:"created_date"`
+	DataDomain *string `json:"DataDomain"`
 
-	// ddos attack source
-	DdosAttackSource *DomainDDOSAttackSource `json:"ddos_attack_source,omitempty"`
-
-	// The type of event. One of `TweetEvent`, `CodePasteEvent`, `BotnetConfigEvent`, `DdosAttackEvent`
+	// event ID
 	// Required: true
-	EventType *string `json:"event_type"`
+	EventID *int32 `json:"EventID"`
 
-	// The event's fingerprint
+	// event name
 	// Required: true
-	Fingerprint *string `json:"fingerprint"`
+	EventName *string `json:"EventName"`
 
-	// The unique event ID
+	// internal metadata
 	// Required: true
-	ID *string `json:"id"`
+	InternalMetadata interface{} `json:"InternalMetadata"`
 
-	// List of objects with rules that matched the event
-	MatchedRules []*DomainMatchedRule `json:"matched_rules"`
-
-	// pastebin text source
-	PastebinTextSource *DomainPastebinTextSource `json:"pastebin_text_source,omitempty"`
-
-	// A list of tags summarizing event content
-	Tags []string `json:"tags"`
-
-	// tweet source
-	TweetSource *DomainTweetSource `json:"tweet_source,omitempty"`
-
-	// The date the event was last updated (in UTC format)
+	// local ID
 	// Required: true
-	UpdatedDate *string `json:"updated_date"`
+	LocalID *string `json:"LocalID"`
+
+	// metadata
+	// Required: true
+	Metadata *DomainEventMetadata `json:"Metadata"`
+
+	// parent incident i ds
+	// Required: true
+	ParentIncidentIDs []string `json:"ParentIncidentIDs"`
+
+	// parent indicator i ds
+	// Required: true
+	ParentIndicatorIDs []string `json:"ParentIndicatorIDs"`
+
+	// product
+	// Required: true
+	Product *string `json:"Product"`
+
+	// source
+	// Required: true
+	Source *string `json:"Source"`
+
+	// source vertex ID
+	// Required: true
+	SourceVertexID *string `json:"SourceVertexID"`
+
+	// timestamp
+	// Required: true
+	// Format: date-time
+	Timestamp *strfmt.DateTime `json:"Timestamp"`
+
+	// vendor
+	// Required: true
+	Vendor *string `json:"Vendor"`
+
+	// x d r detection ID
+	// Required: true
+	XDRDetectionID *string `json:"XDRDetectionID"`
+
+	// x d r event ID
+	// Required: true
+	XDREventID *string `json:"XDREventID"`
+
+	// x d r indicator ID
+	// Required: true
+	XDRIndicatorID *string `json:"XDRIndicatorID"`
+
+	// source event
+	// Required: true
+	SourceEvent *DomainRawEvent `json:"sourceEvent"`
 }
 
 // Validate validates this domain event
 func (m *DomainEvent) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBody(formats); err != nil {
+	if err := m.validateAttributes(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBodyIsTruncated(formats); err != nil {
+	if err := m.validateCID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBotnetConfigSource(formats); err != nil {
+	if err := m.validateDataDomain(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCreatedDate(formats); err != nil {
+	if err := m.validateEventID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDdosAttackSource(formats); err != nil {
+	if err := m.validateEventName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEventType(formats); err != nil {
+	if err := m.validateInternalMetadata(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFingerprint(formats); err != nil {
+	if err := m.validateLocalID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateID(formats); err != nil {
+	if err := m.validateMetadata(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMatchedRules(formats); err != nil {
+	if err := m.validateParentIncidentIDs(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePastebinTextSource(formats); err != nil {
+	if err := m.validateParentIndicatorIDs(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTweetSource(formats); err != nil {
+	if err := m.validateProduct(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateUpdatedDate(formats); err != nil {
+	if err := m.validateSource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceVertexID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVendor(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXDRDetectionID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXDREventID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateXDRIndicatorID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSourceEvent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -128,35 +183,81 @@ func (m *DomainEvent) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainEvent) validateBody(formats strfmt.Registry) error {
+func (m *DomainEvent) validateAttributes(formats strfmt.Registry) error {
 
-	if err := validate.Required("body", "body", m.Body); err != nil {
+	if err := validate.Required("Attributes", "body", m.Attributes); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainEvent) validateBodyIsTruncated(formats strfmt.Registry) error {
+func (m *DomainEvent) validateCID(formats strfmt.Registry) error {
 
-	if err := validate.Required("body_is_truncated", "body", m.BodyIsTruncated); err != nil {
+	if err := validate.Required("CID", "body", m.CID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainEvent) validateBotnetConfigSource(formats strfmt.Registry) error {
-	if swag.IsZero(m.BotnetConfigSource) { // not required
-		return nil
+func (m *DomainEvent) validateDataDomain(formats strfmt.Registry) error {
+
+	if err := validate.Required("DataDomain", "body", m.DataDomain); err != nil {
+		return err
 	}
 
-	if m.BotnetConfigSource != nil {
-		if err := m.BotnetConfigSource.Validate(formats); err != nil {
+	return nil
+}
+
+func (m *DomainEvent) validateEventID(formats strfmt.Registry) error {
+
+	if err := validate.Required("EventID", "body", m.EventID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateEventName(formats strfmt.Registry) error {
+
+	if err := validate.Required("EventName", "body", m.EventName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateInternalMetadata(formats strfmt.Registry) error {
+
+	if m.InternalMetadata == nil {
+		return errors.Required("InternalMetadata", "body", nil)
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateLocalID(formats strfmt.Registry) error {
+
+	if err := validate.Required("LocalID", "body", m.LocalID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateMetadata(formats strfmt.Registry) error {
+
+	if err := validate.Required("Metadata", "body", m.Metadata); err != nil {
+		return err
+	}
+
+	if m.Metadata != nil {
+		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("botnet_config_source")
+				return ve.ValidateName("Metadata")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("botnet_config_source")
+				return ce.ValidateName("Metadata")
 			}
 			return err
 		}
@@ -165,129 +266,115 @@ func (m *DomainEvent) validateBotnetConfigSource(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *DomainEvent) validateCreatedDate(formats strfmt.Registry) error {
+func (m *DomainEvent) validateParentIncidentIDs(formats strfmt.Registry) error {
 
-	if err := validate.Required("created_date", "body", m.CreatedDate); err != nil {
+	if err := validate.Required("ParentIncidentIDs", "body", m.ParentIncidentIDs); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainEvent) validateDdosAttackSource(formats strfmt.Registry) error {
-	if swag.IsZero(m.DdosAttackSource) { // not required
-		return nil
+func (m *DomainEvent) validateParentIndicatorIDs(formats strfmt.Registry) error {
+
+	if err := validate.Required("ParentIndicatorIDs", "body", m.ParentIndicatorIDs); err != nil {
+		return err
 	}
 
-	if m.DdosAttackSource != nil {
-		if err := m.DdosAttackSource.Validate(formats); err != nil {
+	return nil
+}
+
+func (m *DomainEvent) validateProduct(formats strfmt.Registry) error {
+
+	if err := validate.Required("Product", "body", m.Product); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateSource(formats strfmt.Registry) error {
+
+	if err := validate.Required("Source", "body", m.Source); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateSourceVertexID(formats strfmt.Registry) error {
+
+	if err := validate.Required("SourceVertexID", "body", m.SourceVertexID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateTimestamp(formats strfmt.Registry) error {
+
+	if err := validate.Required("Timestamp", "body", m.Timestamp); err != nil {
+		return err
+	}
+
+	if err := validate.FormatOf("Timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateVendor(formats strfmt.Registry) error {
+
+	if err := validate.Required("Vendor", "body", m.Vendor); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateXDRDetectionID(formats strfmt.Registry) error {
+
+	if err := validate.Required("XDRDetectionID", "body", m.XDRDetectionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateXDREventID(formats strfmt.Registry) error {
+
+	if err := validate.Required("XDREventID", "body", m.XDREventID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateXDRIndicatorID(formats strfmt.Registry) error {
+
+	if err := validate.Required("XDRIndicatorID", "body", m.XDRIndicatorID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainEvent) validateSourceEvent(formats strfmt.Registry) error {
+
+	if err := validate.Required("sourceEvent", "body", m.SourceEvent); err != nil {
+		return err
+	}
+
+	if m.SourceEvent != nil {
+		if err := m.SourceEvent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("ddos_attack_source")
+				return ve.ValidateName("sourceEvent")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("ddos_attack_source")
+				return ce.ValidateName("sourceEvent")
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateEventType(formats strfmt.Registry) error {
-
-	if err := validate.Required("event_type", "body", m.EventType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateFingerprint(formats strfmt.Registry) error {
-
-	if err := validate.Required("fingerprint", "body", m.Fingerprint); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateID(formats strfmt.Registry) error {
-
-	if err := validate.Required("id", "body", m.ID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateMatchedRules(formats strfmt.Registry) error {
-	if swag.IsZero(m.MatchedRules) { // not required
-		return nil
-	}
-
-	for i := 0; i < len(m.MatchedRules); i++ {
-		if swag.IsZero(m.MatchedRules[i]) { // not required
-			continue
-		}
-
-		if m.MatchedRules[i] != nil {
-			if err := m.MatchedRules[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("matched_rules" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("matched_rules" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validatePastebinTextSource(formats strfmt.Registry) error {
-	if swag.IsZero(m.PastebinTextSource) { // not required
-		return nil
-	}
-
-	if m.PastebinTextSource != nil {
-		if err := m.PastebinTextSource.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("pastebin_text_source")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("pastebin_text_source")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateTweetSource(formats strfmt.Registry) error {
-	if swag.IsZero(m.TweetSource) { // not required
-		return nil
-	}
-
-	if m.TweetSource != nil {
-		if err := m.TweetSource.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("tweet_source")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tweet_source")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) validateUpdatedDate(formats strfmt.Registry) error {
-
-	if err := validate.Required("updated_date", "body", m.UpdatedDate); err != nil {
-		return err
 	}
 
 	return nil
@@ -297,23 +384,11 @@ func (m *DomainEvent) validateUpdatedDate(formats strfmt.Registry) error {
 func (m *DomainEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateBotnetConfigSource(ctx, formats); err != nil {
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateDdosAttackSource(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateMatchedRules(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidatePastebinTextSource(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTweetSource(ctx, formats); err != nil {
+	if err := m.contextValidateSourceEvent(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -323,19 +398,15 @@ func (m *DomainEvent) ContextValidate(ctx context.Context, formats strfmt.Regist
 	return nil
 }
 
-func (m *DomainEvent) contextValidateBotnetConfigSource(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainEvent) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.BotnetConfigSource != nil {
+	if m.Metadata != nil {
 
-		if swag.IsZero(m.BotnetConfigSource) { // not required
-			return nil
-		}
-
-		if err := m.BotnetConfigSource.ContextValidate(ctx, formats); err != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("botnet_config_source")
+				return ve.ValidateName("Metadata")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("botnet_config_source")
+				return ce.ValidateName("Metadata")
 			}
 			return err
 		}
@@ -344,86 +415,15 @@ func (m *DomainEvent) contextValidateBotnetConfigSource(ctx context.Context, for
 	return nil
 }
 
-func (m *DomainEvent) contextValidateDdosAttackSource(ctx context.Context, formats strfmt.Registry) error {
+func (m *DomainEvent) contextValidateSourceEvent(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.DdosAttackSource != nil {
+	if m.SourceEvent != nil {
 
-		if swag.IsZero(m.DdosAttackSource) { // not required
-			return nil
-		}
-
-		if err := m.DdosAttackSource.ContextValidate(ctx, formats); err != nil {
+		if err := m.SourceEvent.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("ddos_attack_source")
+				return ve.ValidateName("sourceEvent")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("ddos_attack_source")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) contextValidateMatchedRules(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.MatchedRules); i++ {
-
-		if m.MatchedRules[i] != nil {
-
-			if swag.IsZero(m.MatchedRules[i]) { // not required
-				return nil
-			}
-
-			if err := m.MatchedRules[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("matched_rules" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("matched_rules" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) contextValidatePastebinTextSource(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.PastebinTextSource != nil {
-
-		if swag.IsZero(m.PastebinTextSource) { // not required
-			return nil
-		}
-
-		if err := m.PastebinTextSource.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("pastebin_text_source")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("pastebin_text_source")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainEvent) contextValidateTweetSource(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.TweetSource != nil {
-
-		if swag.IsZero(m.TweetSource) { // not required
-			return nil
-		}
-
-		if err := m.TweetSource.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("tweet_source")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tweet_source")
+				return ce.ValidateName("sourceEvent")
 			}
 			return err
 		}

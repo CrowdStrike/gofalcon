@@ -68,6 +68,8 @@ type ClientService interface {
 
 	GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts ...ClientOption) (*GetHorizonD4CScriptsOK, error)
 
+	UpdateD4CGCPServiceAccountsExt(params *UpdateD4CGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateD4CGCPServiceAccountsExtOK, error)
+
 	UpdateDiscoverCloudAzureAccountClientID(params *UpdateDiscoverCloudAzureAccountClientIDParams, opts ...ClientOption) (*UpdateDiscoverCloudAzureAccountClientIDCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -804,6 +806,44 @@ func (a *Client) GetHorizonD4CScripts(params *GetHorizonD4CScriptsParams, opts .
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetHorizonD4CScripts: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateD4CGCPServiceAccountsExt patches the service account key for external clients
+*/
+func (a *Client) UpdateD4CGCPServiceAccountsExt(params *UpdateD4CGCPServiceAccountsExtParams, opts ...ClientOption) (*UpdateD4CGCPServiceAccountsExtOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateD4CGCPServiceAccountsExtParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateD4CGCPServiceAccountsExt",
+		Method:             "PATCH",
+		PathPattern:        "/cloud-connect-gcp/entities/service-accounts/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateD4CGCPServiceAccountsExtReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateD4CGCPServiceAccountsExtOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for UpdateD4CGCPServiceAccountsExt: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

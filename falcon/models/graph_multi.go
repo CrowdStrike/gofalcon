@@ -34,6 +34,9 @@ type GraphMulti struct {
 	// Maximum number of iterations allowed in sub model
 	// Required: true
 	MaxIterationCount *int32 `json:"max_iteration_count"`
+
+	// Indicates the loop will run sequentially
+	Sequential bool `json:"sequential,omitempty"`
 }
 
 // Validate validates this graph multi

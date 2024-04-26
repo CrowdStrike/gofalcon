@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DomainUserActionRequest ID(s) of users the action(s) are to applied to
+// DomainUserActionRequest ID(s) of users the action are to applied to
 //
 // swagger:model domain.UserActionRequest
 type DomainUserActionRequest struct {

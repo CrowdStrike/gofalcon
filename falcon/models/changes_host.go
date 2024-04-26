@@ -39,6 +39,9 @@ type ChangesHost struct {
 
 	// os version
 	OsVersion string `json:"os_version,omitempty"`
+
+	// tags
+	Tags []string `json:"tags"`
 }
 
 // Validate validates this changes host

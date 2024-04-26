@@ -51,6 +51,8 @@ type ClientService interface {
 
 	IngestData(params *IngestDataParams, opts ...ClientOption) (*IngestDataOK, error)
 
+	IngestDataAsyncV1(params *IngestDataAsyncV1Params, opts ...ClientOption) (*IngestDataAsyncV1OK, error)
+
 	ListRepos(params *ListReposParams, opts ...ClientOption) (*ListReposOK, error)
 
 	ListViews(params *ListViewsParams, opts ...ClientOption) (*ListViewsOK, error)
@@ -403,7 +405,7 @@ func (a *Client) GetSearchResults(params *GetSearchResultsParams, opts ...Client
 }
 
 /*
-IngestData ingests data into the application repository
+IngestData synchronouslies ingest data into the application repository
 */
 func (a *Client) IngestData(params *IngestDataParams, opts ...ClientOption) (*IngestDataOK, error) {
 	// TODO: Validate the params before sending
@@ -437,6 +439,44 @@ func (a *Client) IngestData(params *IngestDataParams, opts ...ClientOption) (*In
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for IngestData: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+IngestDataAsyncV1 asynchronouslies ingest data into the application repository
+*/
+func (a *Client) IngestDataAsyncV1(params *IngestDataAsyncV1Params, opts ...ClientOption) (*IngestDataAsyncV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewIngestDataAsyncV1Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "IngestDataAsyncV1",
+		Method:             "POST",
+		PathPattern:        "/loggingapi/entities/data-ingestion/ingest-async/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &IngestDataAsyncV1Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*IngestDataAsyncV1OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for IngestDataAsyncV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

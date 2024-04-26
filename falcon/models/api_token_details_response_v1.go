@@ -17,7 +17,7 @@ import (
 
 // APITokenDetailsResponseV1 api token details response v1
 //
-// swagger:model api.tokenDetailsResponseV1
+// swagger:model api.TokenDetailsResponseV1
 type APITokenDetailsResponseV1 struct {
 
 	// errors

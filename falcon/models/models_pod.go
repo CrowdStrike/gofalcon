@@ -72,6 +72,9 @@ type ModelsPod struct {
 	// Required: true
 	CreatedAt *string `json:"created_at"`
 
+	// deleted at
+	DeletedAt string `json:"deleted_at,omitempty"`
+
 	// first seen
 	// Required: true
 	FirstSeen *string `json:"first_seen"`

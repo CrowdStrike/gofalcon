@@ -48,6 +48,10 @@ type V2Definition struct {
 	// parameters
 	Parameters *V2Parameters `json:"parameters,omitempty"`
 
+	// parent
+	// Required: true
+	Parent *V2Model `json:"parent"`
+
 	// provision on install
 	ProvisionOnInstall bool `json:"provision_on_install,omitempty"`
 
@@ -88,6 +92,10 @@ func (m *V2Definition) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateParameters(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -220,6 +228,26 @@ func (m *V2Definition) validateParameters(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V2Definition) validateParent(formats strfmt.Registry) error {
+
+	if err := validate.Required("parent", "body", m.Parent); err != nil {
+		return err
+	}
+
+	if m.Parent != nil {
+		if err := m.Parent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V2Definition) validateTrigger(formats strfmt.Registry) error {
 
 	if err := validate.Required("trigger", "body", m.Trigger); err != nil {
@@ -266,6 +294,10 @@ func (m *V2Definition) ContextValidate(ctx context.Context, formats strfmt.Regis
 	}
 
 	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParent(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -337,6 +369,23 @@ func (m *V2Definition) contextValidateParameters(ctx context.Context, formats st
 				return ve.ValidateName("parameters")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V2Definition) contextValidateParent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parent != nil {
+
+		if err := m.Parent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
 			}
 			return err
 		}

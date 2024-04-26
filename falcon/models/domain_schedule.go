@@ -8,8 +8,10 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DomainSchedule domain schedule
@@ -17,18 +19,65 @@ import (
 // swagger:model domain.Schedule
 type DomainSchedule struct {
 
-	// ignored by channelfile
-	IgnoredByChannelfile bool `json:"ignored_by_channelfile,omitempty"`
+	// can stagger
+	// Required: true
+	CanStagger *bool `json:"can_stagger"`
 
-	// interval
-	Interval int32 `json:"interval,omitempty"`
+	// definition
+	// Required: true
+	Definition *string `json:"definition"`
 
-	// start timestamp
-	StartTimestamp string `json:"start_timestamp,omitempty"`
+	// display
+	// Required: true
+	Display *string `json:"display"`
 }
 
 // Validate validates this domain schedule
 func (m *DomainSchedule) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCanStagger(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDefinition(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDisplay(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainSchedule) validateCanStagger(formats strfmt.Registry) error {
+
+	if err := validate.Required("can_stagger", "body", m.CanStagger); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainSchedule) validateDefinition(formats strfmt.Registry) error {
+
+	if err := validate.Required("definition", "body", m.Definition); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainSchedule) validateDisplay(formats strfmt.Registry) error {
+
+	if err := validate.Required("display", "body", m.Display); err != nil {
+		return err
+	}
+
 	return nil
 }
 

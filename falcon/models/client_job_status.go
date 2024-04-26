@@ -34,6 +34,9 @@ type ClientJobStatus struct {
 	// file link
 	FileLink string `json:"file_link,omitempty"`
 
+	// filtered event count
+	FilteredEventCount int64 `json:"filtered_event_count,omitempty"`
+
 	// job id
 	// Required: true
 	JobID *string `json:"job_id"`

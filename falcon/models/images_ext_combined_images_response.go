@@ -17,7 +17,7 @@ import (
 
 // ImagesExtCombinedImagesResponse images ext combined images response
 //
-// swagger:model images.extCombinedImagesResponse
+// swagger:model images.ExtCombinedImagesResponse
 type ImagesExtCombinedImagesResponse struct {
 
 	// errors

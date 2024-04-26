@@ -65,7 +65,7 @@ type RTRExecuteAdminCommandParams struct {
 
 	/* Body.
 
-	     Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands):
+	     Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0):
 	- `cat`
 	- `cd`
 	- `clear`

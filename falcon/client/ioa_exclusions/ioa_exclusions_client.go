@@ -30,7 +30,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error)
+	CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1Created, error)
 
 	DeleteIOAExclusionsV1(params *DeleteIOAExclusionsV1Params, opts ...ClientOption) (*DeleteIOAExclusionsV1OK, error)
 
@@ -46,7 +46,7 @@ type ClientService interface {
 /*
 CreateIOAExclusionsV1 creates the i o a exclusions
 */
-func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1OK, error) {
+func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts ...ClientOption) (*CreateIOAExclusionsV1Created, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateIOAExclusionsV1Params()
@@ -71,7 +71,7 @@ func (a *Client) CreateIOAExclusionsV1(params *CreateIOAExclusionsV1Params, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CreateIOAExclusionsV1OK)
+	success, ok := result.(*CreateIOAExclusionsV1Created)
 	if ok {
 		return success, nil
 	}

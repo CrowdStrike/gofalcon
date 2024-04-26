@@ -48,8 +48,6 @@ type ClientService interface {
 
 	ContainerCountByRegistry(params *ContainerCountByRegistryParams, opts ...ClientOption) (*ContainerCountByRegistryOK, error)
 
-	ContainerEnrichment(params *ContainerEnrichmentParams, opts ...ClientOption) (*ContainerEnrichmentOK, error)
-
 	ContainerImageDetectionsCountByDate(params *ContainerImageDetectionsCountByDateParams, opts ...ClientOption) (*ContainerImageDetectionsCountByDateOK, error)
 
 	ContainerImagesByMostUsed(params *ContainerImagesByMostUsedParams, opts ...ClientOption) (*ContainerImagesByMostUsedOK, error)
@@ -73,8 +71,6 @@ type ClientService interface {
 	DeploymentCombined(params *DeploymentCombinedParams, opts ...ClientOption) (*DeploymentCombinedOK, error)
 
 	DeploymentCount(params *DeploymentCountParams, opts ...ClientOption) (*DeploymentCountOK, error)
-
-	DeploymentEnrichment(params *DeploymentEnrichmentParams, opts ...ClientOption) (*DeploymentEnrichmentOK, error)
 
 	DeploymentsByDateRangeCount(params *DeploymentsByDateRangeCountParams, opts ...ClientOption) (*DeploymentsByDateRangeCountOK, error)
 
@@ -131,8 +127,6 @@ type ClientService interface {
 	PodCombined(params *PodCombinedParams, opts ...ClientOption) (*PodCombinedOK, error)
 
 	PodCount(params *PodCountParams, opts ...ClientOption) (*PodCountOK, error)
-
-	PodEnrichment(params *PodEnrichmentParams, opts ...ClientOption) (*PodEnrichmentOK, error)
 
 	PodsByDateRangeCount(params *PodsByDateRangeCountParams, opts ...ClientOption) (*PodsByDateRangeCountOK, error)
 
@@ -490,44 +484,6 @@ func (a *Client) ContainerCountByRegistry(params *ContainerCountByRegistryParams
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for ContainerCountByRegistry: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ContainerEnrichment retrieves container enrichment data
-*/
-func (a *Client) ContainerEnrichment(params *ContainerEnrichmentParams, opts ...ClientOption) (*ContainerEnrichmentOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewContainerEnrichmentParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "ContainerEnrichment",
-		Method:             "GET",
-		PathPattern:        "/container-security/aggregates/enrichment/containers/entities/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ContainerEnrichmentReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ContainerEnrichmentOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContainerEnrichment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -988,44 +944,6 @@ func (a *Client) DeploymentCount(params *DeploymentCountParams, opts ...ClientOp
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for DeploymentCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeploymentEnrichment retrieves deployment enrichment data
-*/
-func (a *Client) DeploymentEnrichment(params *DeploymentEnrichmentParams, opts ...ClientOption) (*DeploymentEnrichmentOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeploymentEnrichmentParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "DeploymentEnrichment",
-		Method:             "GET",
-		PathPattern:        "/container-security/aggregates/enrichment/deployments/entities/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeploymentEnrichmentReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*DeploymentEnrichmentOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeploymentEnrichment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -2100,44 +2018,6 @@ func (a *Client) PodCount(params *PodCountParams, opts ...ClientOption) (*PodCou
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for PodCount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-PodEnrichment retrieves pod enrichment data
-*/
-func (a *Client) PodEnrichment(params *PodEnrichmentParams, opts ...ClientOption) (*PodEnrichmentOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPodEnrichmentParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "PodEnrichment",
-		Method:             "GET",
-		PathPattern:        "/container-security/aggregates/enrichment/pods/entities/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PodEnrichmentReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*PodEnrichmentOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PodEnrichment: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

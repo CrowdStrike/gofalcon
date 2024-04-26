@@ -72,6 +72,10 @@ type ModelsCluster struct {
 	// Required: true
 	FirstSeen *string `json:"first_seen"`
 
+	// iar coverage
+	// Required: true
+	IarCoverage *bool `json:"iar_coverage"`
+
 	// kubernetes version
 	// Required: true
 	KubernetesVersion *string `json:"kubernetes_version"`
@@ -162,6 +166,10 @@ func (m *ModelsCluster) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateFirstSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIarCoverage(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -333,6 +341,15 @@ func (m *ModelsCluster) validateContainerCount(formats strfmt.Registry) error {
 func (m *ModelsCluster) validateFirstSeen(formats strfmt.Registry) error {
 
 	if err := validate.Required("first_seen", "body", m.FirstSeen); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsCluster) validateIarCoverage(formats strfmt.Registry) error {
+
+	if err := validate.Required("iar_coverage", "body", m.IarCoverage); err != nil {
 		return err
 	}
 

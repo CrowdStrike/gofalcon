@@ -20,7 +20,7 @@ import (
 type APIResponsePagination struct {
 
 	// Encoded state used for pagination
-	Offset APIResponsePaginationOffset `json:"offset,omitempty"`
+	Offset string `json:"offset,omitempty"`
 
 	// The total number of elements
 	// Required: true

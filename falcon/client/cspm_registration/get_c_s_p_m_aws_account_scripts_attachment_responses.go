@@ -194,7 +194,7 @@ type GetCSPMAwsAccountScriptsAttachmentBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSProvisionGetAccountScriptResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account scripts attachment bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) GetPayload() *models.RegistrationAWSProvisionGetAccountScriptResponseV2 {
+func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentBadRequest) readResponse(response run
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSProvisionGetAccountScriptResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetCSPMAwsAccountScriptsAttachmentForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account scripts attachment forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentForbidden) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetCSPMAwsAccountScriptsAttachmentInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSProvisionGetAccountScriptResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get c s p m aws account scripts attachment internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) String() string 
 	return fmt.Sprintf("[GET /cloud-connect-cspm-aws/entities/user-scripts-download/v1][%d] getCSPMAwsAccountScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) GetPayload() *models.RegistrationAWSProvisionGetAccountScriptResponseV2 {
+func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetCSPMAwsAccountScriptsAttachmentInternalServerError) readResponse(res
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSProvisionGetAccountScriptResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
