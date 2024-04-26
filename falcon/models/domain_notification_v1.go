@@ -84,6 +84,15 @@ type DomainNotificationV1 struct {
 	// Required: true
 	RawIntelID *string `json:"raw_intel_id"`
 
+	// The name of the user who created the rule
+	RuleCreatorName string `json:"rule_creator_name,omitempty"`
+
+	// The user ID of the user who created the rule
+	RuleCreatorUID string `json:"rule_creator_uid,omitempty"`
+
+	// The unique UUID of the user who created the rule
+	RuleCreatorUUID string `json:"rule_creator_uuid,omitempty"`
+
 	// The ID of the rule that generated this notification
 	// Required: true
 	RuleID *string `json:"rule_id"`

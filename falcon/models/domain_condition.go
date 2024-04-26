@@ -19,6 +19,14 @@ import (
 // swagger:model domain.Condition
 type DomainCondition struct {
 
+	// feature
+	// Required: true
+	Feature *string `json:"feature"`
+
+	// is visible
+	// Required: true
+	IsVisible *bool `json:"is_visible"`
+
 	// last transition
 	// Required: true
 	// Format: date-time
@@ -43,6 +51,14 @@ type DomainCondition struct {
 func (m *DomainCondition) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateFeature(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIsVisible(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastTransition(formats); err != nil {
 		res = append(res, err)
 	}
@@ -58,6 +74,24 @@ func (m *DomainCondition) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainCondition) validateFeature(formats strfmt.Registry) error {
+
+	if err := validate.Required("feature", "body", m.Feature); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainCondition) validateIsVisible(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_visible", "body", m.IsVisible); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -68,6 +68,12 @@ type GetSavedSearchesExecuteAltV1Params struct {
 	*/
 	AppID *string
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
 	/* JobID.
 
 	   Job ID for a previously executed async query
@@ -79,6 +85,12 @@ type GetSavedSearchesExecuteAltV1Params struct {
 	   Maximum number of records to return.
 	*/
 	Limit *string
+
+	/* MatchResponseSchema.
+
+	   Whether to validate search results against their schema
+	*/
+	MatchResponseSchema *bool
 
 	/* Metadata.
 
@@ -110,11 +122,17 @@ func (o *GetSavedSearchesExecuteAltV1Params) WithDefaults() *GetSavedSearchesExe
 // All values with no default are reset to their zero value.
 func (o *GetSavedSearchesExecuteAltV1Params) SetDefaults() {
 	var (
+		inferJSONTypesDefault = bool(false)
+
+		matchResponseSchemaDefault = bool(false)
+
 		metadataDefault = bool(false)
 	)
 
 	val := GetSavedSearchesExecuteAltV1Params{
-		Metadata: &metadataDefault,
+		InferJSONTypes:      &inferJSONTypesDefault,
+		MatchResponseSchema: &matchResponseSchemaDefault,
+		Metadata:            &metadataDefault,
 	}
 
 	val.timeout = o.timeout
@@ -167,6 +185,17 @@ func (o *GetSavedSearchesExecuteAltV1Params) SetAppID(appID *string) {
 	o.AppID = appID
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) WithInferJSONTypes(inferJSONTypes *bool) *GetSavedSearchesExecuteAltV1Params {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
 // WithJobID adds the jobID to the get saved searches execute alt v1 params
 func (o *GetSavedSearchesExecuteAltV1Params) WithJobID(jobID string) *GetSavedSearchesExecuteAltV1Params {
 	o.SetJobID(jobID)
@@ -187,6 +216,17 @@ func (o *GetSavedSearchesExecuteAltV1Params) WithLimit(limit *string) *GetSavedS
 // SetLimit adds the limit to the get saved searches execute alt v1 params
 func (o *GetSavedSearchesExecuteAltV1Params) SetLimit(limit *string) {
 	o.Limit = limit
+}
+
+// WithMatchResponseSchema adds the matchResponseSchema to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) WithMatchResponseSchema(matchResponseSchema *bool) *GetSavedSearchesExecuteAltV1Params {
+	o.SetMatchResponseSchema(matchResponseSchema)
+	return o
+}
+
+// SetMatchResponseSchema adds the matchResponseSchema to the get saved searches execute alt v1 params
+func (o *GetSavedSearchesExecuteAltV1Params) SetMatchResponseSchema(matchResponseSchema *bool) {
+	o.MatchResponseSchema = matchResponseSchema
 }
 
 // WithMetadata adds the metadata to the get saved searches execute alt v1 params
@@ -236,6 +276,23 @@ func (o *GetSavedSearchesExecuteAltV1Params) WriteToRequest(r runtime.ClientRequ
 		}
 	}
 
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
+
 	// query param job_id
 	qrJobID := o.JobID
 	qJobID := qrJobID
@@ -258,6 +315,23 @@ func (o *GetSavedSearchesExecuteAltV1Params) WriteToRequest(r runtime.ClientRequ
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.MatchResponseSchema != nil {
+
+		// query param match_response_schema
+		var qrMatchResponseSchema bool
+
+		if o.MatchResponseSchema != nil {
+			qrMatchResponseSchema = *o.MatchResponseSchema
+		}
+		qMatchResponseSchema := swag.FormatBool(qrMatchResponseSchema)
+		if qMatchResponseSchema != "" {
+
+			if err := r.SetQueryParam("match_response_schema", qMatchResponseSchema); err != nil {
 				return err
 			}
 		}

@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewDownloadResultsParams creates a new DownloadResultsParams object,
@@ -61,6 +62,12 @@ DownloadResultsParams contains all the parameters to send to the API endpoint
 */
 type DownloadResultsParams struct {
 
+	/* InferJSONTypes.
+
+	   Whether to try to infer data types in json event response instead of returning map[string]string
+	*/
+	InferJSONTypes *bool
+
 	/* JobID.
 
 	   Job ID for a previously executed async query
@@ -90,7 +97,18 @@ func (o *DownloadResultsParams) WithDefaults() *DownloadResultsParams {
 //
 // All values with no default are reset to their zero value.
 func (o *DownloadResultsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		inferJSONTypesDefault = bool(false)
+	)
+
+	val := DownloadResultsParams{
+		InferJSONTypes: &inferJSONTypesDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the download results params
@@ -126,6 +144,17 @@ func (o *DownloadResultsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithInferJSONTypes adds the inferJSONTypes to the download results params
+func (o *DownloadResultsParams) WithInferJSONTypes(inferJSONTypes *bool) *DownloadResultsParams {
+	o.SetInferJSONTypes(inferJSONTypes)
+	return o
+}
+
+// SetInferJSONTypes adds the inferJsonTypes to the download results params
+func (o *DownloadResultsParams) SetInferJSONTypes(inferJSONTypes *bool) {
+	o.InferJSONTypes = inferJSONTypes
+}
+
 // WithJobID adds the jobID to the download results params
 func (o *DownloadResultsParams) WithJobID(jobID string) *DownloadResultsParams {
 	o.SetJobID(jobID)
@@ -155,6 +184,23 @@ func (o *DownloadResultsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
+
+	if o.InferJSONTypes != nil {
+
+		// query param infer_json_types
+		var qrInferJSONTypes bool
+
+		if o.InferJSONTypes != nil {
+			qrInferJSONTypes = *o.InferJSONTypes
+		}
+		qInferJSONTypes := swag.FormatBool(qrInferJSONTypes)
+		if qInferJSONTypes != "" {
+
+			if err := r.SetQueryParam("infer_json_types", qInferJSONTypes); err != nil {
+				return err
+			}
+		}
+	}
 
 	// query param job_id
 	qrJobID := o.JobID

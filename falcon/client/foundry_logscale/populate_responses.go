@@ -31,14 +31,32 @@ func (o *PopulateReader) ReadResponse(response runtime.ClientResponse, consumer 
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewPopulateBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewPopulateForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewPopulateNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewPopulateTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewPopulateInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *PopulateOK) readResponse(response runtime.ClientResponse, consumer runt
 	return nil
 }
 
+// NewPopulateBadRequest creates a PopulateBadRequest with default headers values
+func NewPopulateBadRequest() *PopulateBadRequest {
+	return &PopulateBadRequest{}
+}
+
+/*
+PopulateBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type PopulateBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this populate bad request response has a 2xx status code
+func (o *PopulateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this populate bad request response has a 3xx status code
+func (o *PopulateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this populate bad request response has a 4xx status code
+func (o *PopulateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this populate bad request response has a 5xx status code
+func (o *PopulateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this populate bad request response a status code equal to that given
+func (o *PopulateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the populate bad request response
+func (o *PopulateBadRequest) Code() int {
+	return 400
+}
+
+func (o *PopulateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PopulateBadRequest) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PopulateBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *PopulateBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPopulateForbidden creates a PopulateForbidden with default headers values
 func NewPopulateForbidden() *PopulateForbidden {
 	return &PopulateForbidden{}
@@ -182,7 +310,7 @@ type PopulateForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this populate forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *PopulateForbidden) String() string {
 	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateForbidden  %+v", 403, o.Payload)
 }
 
-func (o *PopulateForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *PopulateForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *PopulateForbidden) readResponse(response runtime.ClientResponse, consum
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPopulateNotFound creates a PopulateNotFound with default headers values
+func NewPopulateNotFound() *PopulateNotFound {
+	return &PopulateNotFound{}
+}
+
+/*
+PopulateNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type PopulateNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this populate not found response has a 2xx status code
+func (o *PopulateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this populate not found response has a 3xx status code
+func (o *PopulateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this populate not found response has a 4xx status code
+func (o *PopulateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this populate not found response has a 5xx status code
+func (o *PopulateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this populate not found response a status code equal to that given
+func (o *PopulateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the populate not found response
+func (o *PopulateNotFound) Code() int {
+	return 404
+}
+
+func (o *PopulateNotFound) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PopulateNotFound) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PopulateNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *PopulateNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *PopulateTooManyRequests) readResponse(response runtime.ClientResponse, 
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPopulateInternalServerError creates a PopulateInternalServerError with default headers values
+func NewPopulateInternalServerError() *PopulateInternalServerError {
+	return &PopulateInternalServerError{}
+}
+
+/*
+PopulateInternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type PopulateInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this populate internal server error response has a 2xx status code
+func (o *PopulateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this populate internal server error response has a 3xx status code
+func (o *PopulateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this populate internal server error response has a 4xx status code
+func (o *PopulateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this populate internal server error response has a 5xx status code
+func (o *PopulateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this populate internal server error response a status code equal to that given
+func (o *PopulateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the populate internal server error response
+func (o *PopulateInternalServerError) Code() int {
+	return 500
+}
+
+func (o *PopulateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PopulateInternalServerError) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/ingest/v1][%d] populateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PopulateInternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *PopulateInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -23,6 +23,10 @@ type K8sassetsClusterEnrichmentData struct {
 	// Required: true
 	ContainerCount *int64 `json:"container_count"`
 
+	// image count
+	// Required: true
+	ImageCount *int64 `json:"image_count"`
+
 	// node count
 	// Required: true
 	NodeCount *int64 `json:"node_count"`
@@ -37,6 +41,10 @@ func (m *K8sassetsClusterEnrichmentData) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateContainerCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateImageCount(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -57,6 +65,15 @@ func (m *K8sassetsClusterEnrichmentData) Validate(formats strfmt.Registry) error
 func (m *K8sassetsClusterEnrichmentData) validateContainerCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("container_count", "body", m.ContainerCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *K8sassetsClusterEnrichmentData) validateImageCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("image_count", "body", m.ImageCount); err != nil {
 		return err
 	}
 

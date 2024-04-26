@@ -64,7 +64,7 @@ type GetConfigurationDetectionIDsV2Params struct {
 
 	/* Filter.
 
-	     use_current_scan_ids - *use this to get records for latest scans*
+	     use_current_scan_ids - *use this to get records for latest scans (ignored when next_token is set)*
 	account_name
 	account_id
 	agent_id

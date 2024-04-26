@@ -31,14 +31,32 @@ func (o *GetSearchResultsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewGetSearchResultsBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewGetSearchResultsForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewGetSearchResultsNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewGetSearchResultsTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewGetSearchResultsInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *GetSearchResultsOK) readResponse(response runtime.ClientResponse, consu
 	return nil
 }
 
+// NewGetSearchResultsBadRequest creates a GetSearchResultsBadRequest with default headers values
+func NewGetSearchResultsBadRequest() *GetSearchResultsBadRequest {
+	return &GetSearchResultsBadRequest{}
+}
+
+/*
+GetSearchResultsBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type GetSearchResultsBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get search results bad request response has a 2xx status code
+func (o *GetSearchResultsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search results bad request response has a 3xx status code
+func (o *GetSearchResultsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search results bad request response has a 4xx status code
+func (o *GetSearchResultsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search results bad request response has a 5xx status code
+func (o *GetSearchResultsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search results bad request response a status code equal to that given
+func (o *GetSearchResultsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the get search results bad request response
+func (o *GetSearchResultsBadRequest) Code() int {
+	return 400
+}
+
+func (o *GetSearchResultsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSearchResultsBadRequest) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSearchResultsBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSearchResultsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewGetSearchResultsForbidden creates a GetSearchResultsForbidden with default headers values
 func NewGetSearchResultsForbidden() *GetSearchResultsForbidden {
 	return &GetSearchResultsForbidden{}
@@ -182,7 +310,7 @@ type GetSearchResultsForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get search results forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *GetSearchResultsForbidden) String() string {
 	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetSearchResultsForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetSearchResultsForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *GetSearchResultsForbidden) readResponse(response runtime.ClientResponse
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSearchResultsNotFound creates a GetSearchResultsNotFound with default headers values
+func NewGetSearchResultsNotFound() *GetSearchResultsNotFound {
+	return &GetSearchResultsNotFound{}
+}
+
+/*
+GetSearchResultsNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type GetSearchResultsNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get search results not found response has a 2xx status code
+func (o *GetSearchResultsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search results not found response has a 3xx status code
+func (o *GetSearchResultsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search results not found response has a 4xx status code
+func (o *GetSearchResultsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search results not found response has a 5xx status code
+func (o *GetSearchResultsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search results not found response a status code equal to that given
+func (o *GetSearchResultsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get search results not found response
+func (o *GetSearchResultsNotFound) Code() int {
+	return 404
+}
+
+func (o *GetSearchResultsNotFound) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSearchResultsNotFound) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSearchResultsNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSearchResultsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *GetSearchResultsTooManyRequests) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGetSearchResultsInternalServerError creates a GetSearchResultsInternalServerError with default headers values
+func NewGetSearchResultsInternalServerError() *GetSearchResultsInternalServerError {
+	return &GetSearchResultsInternalServerError{}
+}
+
+/*
+GetSearchResultsInternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type GetSearchResultsInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this get search results internal server error response has a 2xx status code
+func (o *GetSearchResultsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search results internal server error response has a 3xx status code
+func (o *GetSearchResultsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search results internal server error response has a 4xx status code
+func (o *GetSearchResultsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search results internal server error response has a 5xx status code
+func (o *GetSearchResultsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get search results internal server error response a status code equal to that given
+func (o *GetSearchResultsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the get search results internal server error response
+func (o *GetSearchResultsInternalServerError) Code() int {
+	return 500
+}
+
+func (o *GetSearchResultsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSearchResultsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /loggingapi/entities/saved-searches/execute/v1][%d] getSearchResultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSearchResultsInternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *GetSearchResultsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -25,6 +25,9 @@ type FalconxSummaryReportV1 struct {
 	// created timestamp
 	CreatedTimestamp string `json:"created_timestamp,omitempty"`
 
+	// has recording
+	HasRecording bool `json:"has_recording,omitempty"`
+
 	// id
 	ID string `json:"id,omitempty"`
 

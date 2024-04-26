@@ -66,6 +66,8 @@ type ClientService interface {
 
 	UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*UpdateRulesOK, error)
 
+	UpdateRulesV2(params *UpdateRulesV2Params, opts ...ClientOption) (*UpdateRulesV2OK, error)
+
 	Validate(params *ValidateParams, opts ...ClientOption) (*ValidateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -752,6 +754,44 @@ func (a *Client) UpdateRules(params *UpdateRulesParams, opts ...ClientOption) (*
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for update-rules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+UpdateRulesV2 updates name description enabled or field values for individual rules within a rule group the v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group return the updated rules
+*/
+func (a *Client) UpdateRulesV2(params *UpdateRulesV2Params, opts ...ClientOption) (*UpdateRulesV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateRulesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "update-rules-v2",
+		Method:             "PATCH",
+		PathPattern:        "/ioarules/entities/rules/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateRulesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*UpdateRulesV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for update-rules-v2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

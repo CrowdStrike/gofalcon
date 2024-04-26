@@ -30,6 +30,9 @@ type DomainScanMetadata struct {
 	// Required: true
 	HostID *string `json:"host_id"`
 
+	// host name
+	HostName string `json:"host_name,omitempty"`
+
 	// host scan id
 	HostScanID string `json:"host_scan_id,omitempty"`
 

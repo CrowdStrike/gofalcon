@@ -43,12 +43,6 @@ func (o *GetAssessmentV1Reader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-	case 404:
-		result := NewGetAssessmentV1NotFound()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	case 429:
 		result := NewGetAssessmentV1TooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -381,116 +375,6 @@ func (o *GetAssessmentV1Forbidden) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewGetAssessmentV1NotFound creates a GetAssessmentV1NotFound with default headers values
-func NewGetAssessmentV1NotFound() *GetAssessmentV1NotFound {
-	return &GetAssessmentV1NotFound{}
-}
-
-/*
-GetAssessmentV1NotFound describes a response with status code 404, with default header values.
-
-One or more of the specified agent IDs is not found.
-*/
-type GetAssessmentV1NotFound struct {
-
-	/* Trace-ID: submit to support if resolving an issue
-	 */
-	XCSTRACEID string
-
-	/* Request limit per minute.
-	 */
-	XRateLimitLimit int64
-
-	/* The number of requests remaining for the sliding one minute window.
-	 */
-	XRateLimitRemaining int64
-
-	Payload *models.DomainAssessmentsResponse
-}
-
-// IsSuccess returns true when this get assessment v1 not found response has a 2xx status code
-func (o *GetAssessmentV1NotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get assessment v1 not found response has a 3xx status code
-func (o *GetAssessmentV1NotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get assessment v1 not found response has a 4xx status code
-func (o *GetAssessmentV1NotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get assessment v1 not found response has a 5xx status code
-func (o *GetAssessmentV1NotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get assessment v1 not found response a status code equal to that given
-func (o *GetAssessmentV1NotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get assessment v1 not found response
-func (o *GetAssessmentV1NotFound) Code() int {
-	return 404
-}
-
-func (o *GetAssessmentV1NotFound) Error() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1NotFound  %+v", 404, o.Payload)
-}
-
-func (o *GetAssessmentV1NotFound) String() string {
-	return fmt.Sprintf("[GET /zero-trust-assessment/entities/assessments/v1][%d] getAssessmentV1NotFound  %+v", 404, o.Payload)
-}
-
-func (o *GetAssessmentV1NotFound) GetPayload() *models.DomainAssessmentsResponse {
-	return o.Payload
-}
-
-func (o *GetAssessmentV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// hydrates response header X-CS-TRACEID
-	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
-
-	if hdrXCSTRACEID != "" {
-		o.XCSTRACEID = hdrXCSTRACEID
-	}
-
-	// hydrates response header X-RateLimit-Limit
-	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
-
-	if hdrXRateLimitLimit != "" {
-		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
-		}
-		o.XRateLimitLimit = valxRateLimitLimit
-	}
-
-	// hydrates response header X-RateLimit-Remaining
-	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
-
-	if hdrXRateLimitRemaining != "" {
-		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
-		if err != nil {
-			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
-		}
-		o.XRateLimitRemaining = valxRateLimitRemaining
-	}
-
-	o.Payload = new(models.DomainAssessmentsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

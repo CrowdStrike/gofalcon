@@ -45,6 +45,9 @@ type RegistrationAWSAccountPatch struct {
 
 	// sensor management enabled
 	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
+
+	// target ous
+	TargetOus []string `json:"target_ous"`
 }
 
 // Validate validates this registration a w s account patch

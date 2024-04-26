@@ -20,7 +20,7 @@ import (
 type HostGroupsUpdateGroupReqV1 struct {
 
 	// The new assignment rule of the group. Note: If the group type is static, this field cannot be updated manually
-	AssignmentRule string `json:"assignment_rule,omitempty"`
+	AssignmentRule *string `json:"assignment_rule,omitempty"`
 
 	// The new description of the group
 	Description string `json:"description,omitempty"`

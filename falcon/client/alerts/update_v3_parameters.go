@@ -66,7 +66,7 @@ type UpdateV3Params struct {
 
 	/* Body.
 
-	   request body takes a list of action parameter request that is applied against all "ids" provided
+	   request body takes a list of action parameter request that is applied against all "composite_ids" provided
 	*/
 	Body *models.DetectsapiPatchEntitiesAlertsV3Request
 

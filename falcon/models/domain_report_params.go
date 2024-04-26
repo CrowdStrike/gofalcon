@@ -19,6 +19,10 @@ import (
 // swagger:model domain.ReportParams
 type DomainReportParams struct {
 
+	// columns
+	// Required: true
+	Columns []string `json:"columns"`
+
 	// dashboard id
 	// Required: true
 	DashboardID *string `json:"dashboard_id"`
@@ -55,6 +59,10 @@ type DomainReportParams struct {
 func (m *DomainReportParams) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateColumns(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDashboardID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -86,6 +94,15 @@ func (m *DomainReportParams) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainReportParams) validateColumns(formats strfmt.Registry) error {
+
+	if err := validate.Required("columns", "body", m.Columns); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -20,6 +20,10 @@ import (
 // swagger:model policies.Policy
 type PoliciesPolicy struct {
 
+	// cid
+	// Required: true
+	Cid *string `json:"cid"`
+
 	// created by
 	CreatedBy string `json:"created_by,omitempty"`
 
@@ -66,6 +70,10 @@ type PoliciesPolicy struct {
 func (m *PoliciesPolicy) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCid(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
@@ -97,6 +105,15 @@ func (m *PoliciesPolicy) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *PoliciesPolicy) validateCid(formats strfmt.Registry) error {
+
+	if err := validate.Required("cid", "body", m.Cid); err != nil {
+		return err
+	}
+
 	return nil
 }
 

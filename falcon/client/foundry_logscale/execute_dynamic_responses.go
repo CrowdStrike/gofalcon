@@ -31,14 +31,32 @@ func (o *ExecuteDynamicReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewExecuteDynamicBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewExecuteDynamicForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewExecuteDynamicNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewExecuteDynamicTooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewExecuteDynamicInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *ExecuteDynamicOK) readResponse(response runtime.ClientResponse, consume
 	return nil
 }
 
+// NewExecuteDynamicBadRequest creates a ExecuteDynamicBadRequest with default headers values
+func NewExecuteDynamicBadRequest() *ExecuteDynamicBadRequest {
+	return &ExecuteDynamicBadRequest{}
+}
+
+/*
+ExecuteDynamicBadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type ExecuteDynamicBadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this execute dynamic bad request response has a 2xx status code
+func (o *ExecuteDynamicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this execute dynamic bad request response has a 3xx status code
+func (o *ExecuteDynamicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this execute dynamic bad request response has a 4xx status code
+func (o *ExecuteDynamicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this execute dynamic bad request response has a 5xx status code
+func (o *ExecuteDynamicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this execute dynamic bad request response a status code equal to that given
+func (o *ExecuteDynamicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the execute dynamic bad request response
+func (o *ExecuteDynamicBadRequest) Code() int {
+	return 400
+}
+
+func (o *ExecuteDynamicBadRequest) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ExecuteDynamicBadRequest) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *ExecuteDynamicBadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ExecuteDynamicBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewExecuteDynamicForbidden creates a ExecuteDynamicForbidden with default headers values
 func NewExecuteDynamicForbidden() *ExecuteDynamicForbidden {
 	return &ExecuteDynamicForbidden{}
@@ -182,7 +310,7 @@ type ExecuteDynamicForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this execute dynamic forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *ExecuteDynamicForbidden) String() string {
 	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicForbidden  %+v", 403, o.Payload)
 }
 
-func (o *ExecuteDynamicForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *ExecuteDynamicForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *ExecuteDynamicForbidden) readResponse(response runtime.ClientResponse, 
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewExecuteDynamicNotFound creates a ExecuteDynamicNotFound with default headers values
+func NewExecuteDynamicNotFound() *ExecuteDynamicNotFound {
+	return &ExecuteDynamicNotFound{}
+}
+
+/*
+ExecuteDynamicNotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type ExecuteDynamicNotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this execute dynamic not found response has a 2xx status code
+func (o *ExecuteDynamicNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this execute dynamic not found response has a 3xx status code
+func (o *ExecuteDynamicNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this execute dynamic not found response has a 4xx status code
+func (o *ExecuteDynamicNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this execute dynamic not found response has a 5xx status code
+func (o *ExecuteDynamicNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this execute dynamic not found response a status code equal to that given
+func (o *ExecuteDynamicNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the execute dynamic not found response
+func (o *ExecuteDynamicNotFound) Code() int {
+	return 404
+}
+
+func (o *ExecuteDynamicNotFound) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ExecuteDynamicNotFound) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *ExecuteDynamicNotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ExecuteDynamicNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *ExecuteDynamicTooManyRequests) readResponse(response runtime.ClientResp
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewExecuteDynamicInternalServerError creates a ExecuteDynamicInternalServerError with default headers values
+func NewExecuteDynamicInternalServerError() *ExecuteDynamicInternalServerError {
+	return &ExecuteDynamicInternalServerError{}
+}
+
+/*
+ExecuteDynamicInternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type ExecuteDynamicInternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this execute dynamic internal server error response has a 2xx status code
+func (o *ExecuteDynamicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this execute dynamic internal server error response has a 3xx status code
+func (o *ExecuteDynamicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this execute dynamic internal server error response has a 4xx status code
+func (o *ExecuteDynamicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this execute dynamic internal server error response has a 5xx status code
+func (o *ExecuteDynamicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this execute dynamic internal server error response a status code equal to that given
+func (o *ExecuteDynamicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the execute dynamic internal server error response
+func (o *ExecuteDynamicInternalServerError) Code() int {
+	return 500
+}
+
+func (o *ExecuteDynamicInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ExecuteDynamicInternalServerError) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches/execute-dynamic/v1][%d] executeDynamicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *ExecuteDynamicInternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *ExecuteDynamicInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

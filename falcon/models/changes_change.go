@@ -57,6 +57,10 @@ type ChangesChange struct {
 	// Required: true
 	EntityType *string `json:"entity_type"`
 
+	// file size
+	// Required: true
+	FileSize *int64 `json:"file_size"`
+
 	// grandparent process image file name
 	GrandparentProcessImageFileName string `json:"grandparent_process_image_file_name,omitempty"`
 
@@ -72,7 +76,8 @@ type ChangesChange struct {
 	IngestionTimestamp *string `json:"ingestion_timestamp"`
 
 	// is from different mount namespace
-	IsFromDifferentMountNamespace bool `json:"is_from_different_mount_namespace,omitempty"`
+	// Required: true
+	IsFromDifferentMountNamespace *bool `json:"is_from_different_mount_namespace"`
 
 	// is suppressed
 	// Required: true
@@ -89,6 +94,9 @@ type ChangesChange struct {
 
 	// permissions lin
 	PermissionsLin *ChangesPermissionsLin `json:"permissions_lin,omitempty"`
+
+	// permissions mac
+	PermissionsMac *ChangesPermissionsMac `json:"permissions_mac,omitempty"`
 
 	// platform name
 	// Required: true
@@ -167,6 +175,10 @@ func (m *ChangesChange) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateFileSize(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHost(formats); err != nil {
 		res = append(res, err)
 	}
@@ -179,6 +191,10 @@ func (m *ChangesChange) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateIsFromDifferentMountNamespace(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateIsSuppressed(formats); err != nil {
 		res = append(res, err)
 	}
@@ -188,6 +204,10 @@ func (m *ChangesChange) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePermissionsLin(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePermissionsMac(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -341,6 +361,15 @@ func (m *ChangesChange) validateEntityType(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *ChangesChange) validateFileSize(formats strfmt.Registry) error {
+
+	if err := validate.Required("file_size", "body", m.FileSize); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ChangesChange) validateHost(formats strfmt.Registry) error {
 	if swag.IsZero(m.Host) { // not required
 		return nil
@@ -372,6 +401,15 @@ func (m *ChangesChange) validateID(formats strfmt.Registry) error {
 func (m *ChangesChange) validateIngestionTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.Required("ingestion_timestamp", "body", m.IngestionTimestamp); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ChangesChange) validateIsFromDifferentMountNamespace(formats strfmt.Registry) error {
+
+	if err := validate.Required("is_from_different_mount_namespace", "body", m.IsFromDifferentMountNamespace); err != nil {
 		return err
 	}
 
@@ -417,6 +455,25 @@ func (m *ChangesChange) validatePermissionsLin(formats strfmt.Registry) error {
 				return ve.ValidateName("permissions_lin")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("permissions_lin")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ChangesChange) validatePermissionsMac(formats strfmt.Registry) error {
+	if swag.IsZero(m.PermissionsMac) { // not required
+		return nil
+	}
+
+	if m.PermissionsMac != nil {
+		if err := m.PermissionsMac.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("permissions_mac")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("permissions_mac")
 			}
 			return err
 		}
@@ -567,6 +624,10 @@ func (m *ChangesChange) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidatePermissionsMac(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePolicy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -686,6 +747,27 @@ func (m *ChangesChange) contextValidatePermissionsLin(ctx context.Context, forma
 				return ve.ValidateName("permissions_lin")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("permissions_lin")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ChangesChange) contextValidatePermissionsMac(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PermissionsMac != nil {
+
+		if swag.IsZero(m.PermissionsMac) { // not required
+			return nil
+		}
+
+		if err := m.PermissionsMac.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("permissions_mac")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("permissions_mac")
 			}
 			return err
 		}

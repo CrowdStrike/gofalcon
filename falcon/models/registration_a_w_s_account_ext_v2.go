@@ -47,6 +47,9 @@ type RegistrationAWSAccountExtV2 struct {
 	// sensor management enabled
 	SensorManagementEnabled bool `json:"sensor_management_enabled,omitempty"`
 
+	// target ous
+	TargetOus []string `json:"target_ous"`
+
 	// use existing cloudtrail
 	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
 }

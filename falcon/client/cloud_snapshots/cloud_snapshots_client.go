@@ -30,9 +30,209 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateDeploymentEntity(params *CreateDeploymentEntityParams, opts ...ClientOption) (*CreateDeploymentEntityOK, error)
+
+	GetCredentialsMixin0(params *GetCredentialsMixin0Params, opts ...ClientOption) (*GetCredentialsMixin0OK, error)
+
+	GetScanReport(params *GetScanReportParams, opts ...ClientOption) (*GetScanReportOK, error)
+
+	ReadDeploymentsCombined(params *ReadDeploymentsCombinedParams, opts ...ClientOption) (*ReadDeploymentsCombinedOK, error)
+
+	ReadDeploymentsEntities(params *ReadDeploymentsEntitiesParams, opts ...ClientOption) (*ReadDeploymentsEntitiesOK, error)
+
 	Register(params *RegisterParams, opts ...ClientOption) (*RegisterOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CreateDeploymentEntity launches a snapshot scan for a given cloud asset
+*/
+func (a *Client) CreateDeploymentEntity(params *CreateDeploymentEntityParams, opts ...ClientOption) (*CreateDeploymentEntityOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateDeploymentEntityParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateDeploymentEntity",
+		Method:             "POST",
+		PathPattern:        "/snapshots/entities/deployments/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateDeploymentEntityReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateDeploymentEntityOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateDeploymentEntity: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetCredentialsMixin0 gets the registry credentials
+*/
+func (a *Client) GetCredentialsMixin0(params *GetCredentialsMixin0Params, opts ...ClientOption) (*GetCredentialsMixin0OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCredentialsMixin0Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCredentialsMixin0",
+		Method:             "GET",
+		PathPattern:        "/snapshots/entities/image-registry-credentials/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCredentialsMixin0Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCredentialsMixin0OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCredentialsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetScanReport retrieves the scan report for an instance
+*/
+func (a *Client) GetScanReport(params *GetScanReportParams, opts ...ClientOption) (*GetScanReportOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetScanReportParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetScanReport",
+		Method:             "GET",
+		PathPattern:        "/snapshots/entities/scanreports/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetScanReportReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetScanReportOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetScanReport: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReadDeploymentsCombined retrieves snapshot jobs identified by the provided i ds
+*/
+func (a *Client) ReadDeploymentsCombined(params *ReadDeploymentsCombinedParams, opts ...ClientOption) (*ReadDeploymentsCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReadDeploymentsCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReadDeploymentsCombined",
+		Method:             "GET",
+		PathPattern:        "/snapshots/combined/deployments/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReadDeploymentsCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReadDeploymentsCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReadDeploymentsCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+ReadDeploymentsEntities retrieves snapshot jobs identified by the provided i ds
+*/
+func (a *Client) ReadDeploymentsEntities(params *ReadDeploymentsEntitiesParams, opts ...ClientOption) (*ReadDeploymentsEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReadDeploymentsEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReadDeploymentsEntities",
+		Method:             "GET",
+		PathPattern:        "/snapshots/entities/deployments/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ReadDeploymentsEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*ReadDeploymentsEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for ReadDeploymentsEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
 }
 
 /*

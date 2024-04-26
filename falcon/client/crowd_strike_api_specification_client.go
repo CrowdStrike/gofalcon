@@ -31,6 +31,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
+	"github.com/crowdstrike/gofalcon/falcon/client/exposure_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container_cli"
@@ -61,9 +62,9 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/mssp"
 	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
 	"github.com/crowdstrike/gofalcon/falcon/client/ods"
+	"github.com/crowdstrike/gofalcon/falcon/client/operations"
 	"github.com/crowdstrike/gofalcon/falcon/client/overwatch_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/prevention_policies"
-	"github.com/crowdstrike/gofalcon/falcon/client/provision"
 	"github.com/crowdstrike/gofalcon/falcon/client/quarantine"
 	"github.com/crowdstrike/gofalcon/falcon/client/quick_scan"
 	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
@@ -150,6 +151,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
+	cli.ExposureManagement = exposure_management.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconContainer = falcon_container.New(transport, formats)
 	cli.FalconContainerCli = falcon_container_cli.New(transport, formats)
@@ -180,9 +182,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Mssp = mssp.New(transport, formats)
 	cli.Oauth2 = oauth2.New(transport, formats)
 	cli.Ods = ods.New(transport, formats)
+	cli.Operations = operations.New(transport, formats)
 	cli.OverwatchDashboard = overwatch_dashboard.New(transport, formats)
 	cli.PreventionPolicies = prevention_policies.New(transport, formats)
-	cli.Provision = provision.New(transport, formats)
 	cli.Quarantine = quarantine.New(transport, formats)
 	cli.QuickScan = quick_scan.New(transport, formats)
 	cli.RealTimeResponse = real_time_response.New(transport, formats)
@@ -290,6 +292,8 @@ type CrowdStrikeAPISpecification struct {
 
 	EventStreams event_streams.ClientService
 
+	ExposureManagement exposure_management.ClientService
+
 	FalconCompleteDashboard falcon_complete_dashboard.ClientService
 
 	FalconContainer falcon_container.ClientService
@@ -350,11 +354,11 @@ type CrowdStrikeAPISpecification struct {
 
 	Ods ods.ClientService
 
+	Operations operations.ClientService
+
 	OverwatchDashboard overwatch_dashboard.ClientService
 
 	PreventionPolicies prevention_policies.ClientService
-
-	Provision provision.ClientService
 
 	Quarantine quarantine.ClientService
 
@@ -425,6 +429,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DriftIndicators.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
+	c.ExposureManagement.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconContainer.SetTransport(transport)
 	c.FalconContainerCli.SetTransport(transport)
@@ -455,9 +460,9 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Mssp.SetTransport(transport)
 	c.Oauth2.SetTransport(transport)
 	c.Ods.SetTransport(transport)
+	c.Operations.SetTransport(transport)
 	c.OverwatchDashboard.SetTransport(transport)
 	c.PreventionPolicies.SetTransport(transport)
-	c.Provision.SetTransport(transport)
 	c.Quarantine.SetTransport(transport)
 	c.QuickScan.SetTransport(transport)
 	c.RealTimeResponse.SetTransport(transport)

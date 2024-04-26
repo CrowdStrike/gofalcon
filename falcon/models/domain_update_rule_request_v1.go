@@ -19,6 +19,10 @@ import (
 // swagger:model domain.UpdateRuleRequestV1
 type DomainUpdateRuleRequestV1 struct {
 
+	// Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true.
+	// Required: true
+	BreachMonitorOnly *bool `json:"breach_monitor_only"`
+
 	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
@@ -52,6 +56,10 @@ type DomainUpdateRuleRequestV1 struct {
 func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBreachMonitorOnly(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateBreachMonitoringEnabled(formats); err != nil {
 		res = append(res, err)
 	}
@@ -83,6 +91,15 @@ func (m *DomainUpdateRuleRequestV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainUpdateRuleRequestV1) validateBreachMonitorOnly(formats strfmt.Registry) error {
+
+	if err := validate.Required("breach_monitor_only", "body", m.BreachMonitorOnly); err != nil {
+		return err
+	}
+
 	return nil
 }
 

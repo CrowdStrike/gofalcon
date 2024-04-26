@@ -33,6 +33,8 @@
 
   # IOA Rule Groups Combined API has incorrect swagger response object: list of ids instead of list of objects
   | .paths."/ioarules/queries/rule-groups-full/v1".get.responses."200" = .paths."/ioarules/entities/rule-groups/v1".get.responses."200"
+  | .paths."/policy/entities/ioa-exclusions/v1".post.responses."201" = .paths."/policy/entities/ioa-exclusions/v1".post.responses."200"
+  | del(.paths."/policy/entities/ioa-exclusions/v1".post.responses."200")
 
   # Add response code "202" to "/devices/entities/devices/tags/v1" endpoint
   | .paths."/devices/entities/devices/tags/v1".patch.responses."202" = .paths."/devices/entities/devices/tags/v1".patch.responses."200"
@@ -180,43 +182,15 @@
   | .paths."/container-security/combined/kubernetes-ioms/v1".get.operationId = "KubernetesIomEntitiesCombined"
   | .paths."/container-security/queries/kubernetes-ioms/v1".get.operationId = "QueryKubernetesIoms"
 
+# Allow an empty string be passed to assignment_rule
+ | .definitions."host_groups.UpdateGroupReqV1".properties.assignment_rule += {"x-nullable": true}
 
+ # Allow expiration to be nullable
+ | .definitions."api.IndicatorCreateReqV1".properties.expiration += {"x-nullable": true}
 
+ # 202 is a valid response for /real-time-response/entities/scripts/v1 patch
+| .paths."/real-time-response/entities/scripts/v1".patch.responses."202" = .paths."/real-time-response/entities/scripts/v1".patch.responses."200"
+| del(.paths."/real-time-response/entities/scripts/v1".patch.responses."200")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 200 is a valid response from /real-time-response/entities/queued-sessions/command/v1
+| .paths."/real-time-response/entities/queued-sessions/command/v1".delete.responses."200" = .paths."/real-time-response/entities/put-files/v1".delete.responses."200"

@@ -29,6 +29,9 @@ type DeviceDevice struct {
 	// agent version
 	AgentVersion string `json:"agent_version,omitempty"`
 
+	// base image version
+	BaseImageVersion string `json:"base_image_version,omitempty"`
+
 	// bios manufacturer
 	BiosManufacturer string `json:"bios_manufacturer,omitempty"`
 
@@ -65,6 +68,9 @@ type DeviceDevice struct {
 
 	// cpu signature
 	CPUSignature string `json:"cpu_signature,omitempty"`
+
+	// cpu vendor
+	CPUVendor string `json:"cpu_vendor,omitempty"`
 
 	// default gateway ip
 	DefaultGatewayIP string `json:"default_gateway_ip,omitempty"`
@@ -169,6 +175,9 @@ type DeviceDevice struct {
 	// meta
 	Meta *DeviceDeviceMeta `json:"meta,omitempty"`
 
+	// migration completed time
+	MigrationCompletedTime string `json:"migration_completed_time,omitempty"`
+
 	// minor version
 	MinorVersion string `json:"minor_version,omitempty"`
 
@@ -249,6 +258,9 @@ type DeviceDevice struct {
 
 	// release group
 	ReleaseGroup string `json:"release_group,omitempty"`
+
+	// rtr state
+	RtrState string `json:"rtr_state,omitempty"`
 
 	// serial number
 	SerialNumber string `json:"serial_number,omitempty"`

@@ -40,6 +40,9 @@ type GraphValidationError struct {
 
 	// Used to specify an exact property that is invalid for fql evaluation
 	Property string `json:"property,omitempty"`
+
+	// Resouce ID for property if it exists, e.g. trigger ID or activity ID
+	ResourceID string `json:"resource_id,omitempty"`
 }
 
 // Validate validates this graph validation error

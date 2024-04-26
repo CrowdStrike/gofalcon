@@ -137,6 +137,12 @@ type QueryIntelRuleIdsParams struct {
 	common-event-format
 
 	netwitness
+
+	cql-master
+
+	cql-update
+
+	cql-changelog
 	*/
 	Type string
 

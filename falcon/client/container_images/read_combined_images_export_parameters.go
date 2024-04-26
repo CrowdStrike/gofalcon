@@ -94,7 +94,7 @@ type ReadCombinedImagesExportParams struct {
 
 	/* Sort.
 
-	   The fields to sort the records on. Supported columns:  [base_os cid containers detections firstScanned first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository tag vulnerabilities]
+	   The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository tag vulnerabilities]
 	*/
 	Sort *string
 

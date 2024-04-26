@@ -45,6 +45,8 @@ type ClientService interface {
 
 	GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, writer io.Writer, opts ...ClientOption) (*GetLatestIntelRuleFileOK, error)
 
+	GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...ClientOption) (*GetMalwareEntitiesOK, error)
+
 	GetMitreReport(params *GetMitreReportParams, opts ...ClientOption) (*GetMitreReportOK, error)
 
 	GetVulnerabilities(params *GetVulnerabilitiesParams, opts ...ClientOption) (*GetVulnerabilitiesOK, error)
@@ -65,7 +67,11 @@ type ClientService interface {
 
 	QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...ClientOption) (*QueryIntelRuleIdsOK, error)
 
+	QueryMalware(params *QueryMalwareParams, opts ...ClientOption) (*QueryMalwareOK, error)
+
 	QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...ClientOption) (*QueryMitreAttacksOK, error)
+
+	QueryMitreAttacksForMalware(params *QueryMitreAttacksForMalwareParams, opts ...ClientOption) (*QueryMitreAttacksForMalwareOK, error)
 
 	QueryVulnerabilities(params *QueryVulnerabilitiesParams, opts ...ClientOption) (*QueryVulnerabilitiesOK, error)
 
@@ -335,6 +341,44 @@ func (a *Client) GetLatestIntelRuleFile(params *GetLatestIntelRuleFileParams, wr
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetLatestIntelRuleFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetMalwareEntities gets malware entities for specified ids
+*/
+func (a *Client) GetMalwareEntities(params *GetMalwareEntitiesParams, opts ...ClientOption) (*GetMalwareEntitiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetMalwareEntitiesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetMalwareEntities",
+		Method:             "GET",
+		PathPattern:        "/intel/entities/malware/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetMalwareEntitiesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetMalwareEntitiesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetMalwareEntities: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -719,6 +763,44 @@ func (a *Client) QueryIntelRuleIds(params *QueryIntelRuleIdsParams, opts ...Clie
 }
 
 /*
+QueryMalware gets malware family names that match provided f q l filters
+*/
+func (a *Client) QueryMalware(params *QueryMalwareParams, opts ...ClientOption) (*QueryMalwareOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryMalwareParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryMalware",
+		Method:             "GET",
+		PathPattern:        "/intel/queries/malware/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryMalwareReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryMalwareOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryMalware: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryMitreAttacks gets m i t r e tactics and techniques for the given actor returning concatenation of id and tactic and technique ids example fancy bear t a0011 t1071
 */
 func (a *Client) QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...ClientOption) (*QueryMitreAttacksOK, error) {
@@ -753,6 +835,44 @@ func (a *Client) QueryMitreAttacks(params *QueryMitreAttacksParams, opts ...Clie
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for QueryMitreAttacks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+QueryMitreAttacksForMalware gets m i t r e tactics and techniques for the given malware
+*/
+func (a *Client) QueryMitreAttacksForMalware(params *QueryMitreAttacksForMalwareParams, opts ...ClientOption) (*QueryMitreAttacksForMalwareOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryMitreAttacksForMalwareParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "QueryMitreAttacksForMalware",
+		Method:             "GET",
+		PathPattern:        "/intel/queries/mitre-malware/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryMitreAttacksForMalwareReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryMitreAttacksForMalwareOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for QueryMitreAttacksForMalware: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

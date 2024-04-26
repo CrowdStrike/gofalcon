@@ -84,6 +84,9 @@ type ModelsNode struct {
 	// Required: true
 	CreatedAt *string `json:"created_at"`
 
+	// deleted at
+	DeletedAt string `json:"deleted_at,omitempty"`
+
 	// external ip
 	// Required: true
 	ExternalIP *string `json:"external_ip"`

@@ -44,17 +44,19 @@ type ClientService interface {
 
 	WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error)
 
-	WorkflowDefinitionsCreate(params *WorkflowDefinitionsCreateParams, opts ...ClientOption) (*WorkflowDefinitionsCreateOK, error)
-
 	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
 
 	WorkflowDefinitionsImport(params *WorkflowDefinitionsImportParams, opts ...ClientOption) (*WorkflowDefinitionsImportOK, error)
 
 	WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdateParams, opts ...ClientOption) (*WorkflowDefinitionsUpdateOK, error)
 
+	WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, opts ...ClientOption) (*WorkflowExecuteInternalOK, error)
+
 	WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error)
 
 	WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, opts ...ClientOption) (*WorkflowGetHumanInputV1OK, error)
+
+	WorkflowMockExecute(params *WorkflowMockExecuteParams, opts ...ClientOption) (*WorkflowMockExecuteOK, error)
 
 	WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Params, opts ...ClientOption) (*WorkflowUpdateHumanInputV1OK, error)
 
@@ -301,7 +303,7 @@ func (a *Client) WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombined
 		ID:                 "WorkflowDefinitionsCombined",
 		Method:             "GET",
 		PathPattern:        "/workflows/combined/definitions/v1",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"application/json", "application/yaml"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -324,44 +326,6 @@ func (a *Client) WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombined
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-WorkflowDefinitionsCreate creates a workflow definition based on the provided model
-*/
-func (a *Client) WorkflowDefinitionsCreate(params *WorkflowDefinitionsCreateParams, opts ...ClientOption) (*WorkflowDefinitionsCreateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewWorkflowDefinitionsCreateParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "WorkflowDefinitionsCreate",
-		Method:             "POST",
-		PathPattern:        "/workflows/entities/definitions/v1",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/yaml"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &WorkflowDefinitionsCreateReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*WorkflowDefinitionsCreateOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WorkflowDefinitionsCreate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -481,6 +445,44 @@ func (a *Client) WorkflowDefinitionsUpdate(params *WorkflowDefinitionsUpdatePara
 }
 
 /*
+WorkflowExecuteInternal executes an on demand workflow internal workflows permitted the body is JSON used to trigger the execution the response the execution ID s
+*/
+func (a *Client) WorkflowExecuteInternal(params *WorkflowExecuteInternalParams, opts ...ClientOption) (*WorkflowExecuteInternalOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowExecuteInternalParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowExecuteInternal",
+		Method:             "POST",
+		PathPattern:        "/workflows/entities/execute/internal/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowExecuteInternalReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowExecuteInternalOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowExecuteInternal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 WorkflowExecutionsCombined searches workflow executions based on the provided filter
 */
 func (a *Client) WorkflowExecutionsCombined(params *WorkflowExecutionsCombinedParams, opts ...ClientOption) (*WorkflowExecutionsCombinedOK, error) {
@@ -553,6 +555,44 @@ func (a *Client) WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, 
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowGetHumanInputV1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowMockExecute executes a workflow definition with mocks
+*/
+func (a *Client) WorkflowMockExecute(params *WorkflowMockExecuteParams, opts ...ClientOption) (*WorkflowMockExecuteOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowMockExecuteParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowMockExecute",
+		Method:             "POST",
+		PathPattern:        "/workflows/entities/mock-executions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowMockExecuteReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowMockExecuteOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowMockExecute: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

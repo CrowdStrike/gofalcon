@@ -33,13 +33,21 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	DownloadSensorInstallerByID(params *DownloadSensorInstallerByIDParams, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDOK, error)
 
+	DownloadSensorInstallerByIDV2(params *DownloadSensorInstallerByIDV2Params, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDV2OK, error)
+
 	GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryOK, error)
 
+	GetCombinedSensorInstallersByQueryV2(params *GetCombinedSensorInstallersByQueryV2Params, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryV2OK, error)
+
 	GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, opts ...ClientOption) (*GetSensorInstallersByQueryOK, error)
+
+	GetSensorInstallersByQueryV2(params *GetSensorInstallersByQueryV2Params, opts ...ClientOption) (*GetSensorInstallersByQueryV2OK, error)
 
 	GetSensorInstallersCCIDByQuery(params *GetSensorInstallersCCIDByQueryParams, opts ...ClientOption) (*GetSensorInstallersCCIDByQueryOK, error)
 
 	GetSensorInstallersEntities(params *GetSensorInstallersEntitiesParams, opts ...ClientOption) (*GetSensorInstallersEntitiesOK, *GetSensorInstallersEntitiesMultiStatus, error)
+
+	GetSensorInstallersEntitiesV2(params *GetSensorInstallersEntitiesV2Params, opts ...ClientOption) (*GetSensorInstallersEntitiesV2OK, *GetSensorInstallersEntitiesV2MultiStatus, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -83,6 +91,44 @@ func (a *Client) DownloadSensorInstallerByID(params *DownloadSensorInstallerByID
 }
 
 /*
+DownloadSensorInstallerByIDV2 downloads sensor installer by s h a256 ID
+*/
+func (a *Client) DownloadSensorInstallerByIDV2(params *DownloadSensorInstallerByIDV2Params, writer io.Writer, opts ...ClientOption) (*DownloadSensorInstallerByIDV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDownloadSensorInstallerByIDV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DownloadSensorInstallerByIdV2",
+		Method:             "GET",
+		PathPattern:        "/sensors/entities/download-installer/v2",
+		ProducesMediaTypes: []string{"application/json", "application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DownloadSensorInstallerByIDV2Reader{formats: a.formats, writer: writer},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*DownloadSensorInstallerByIDV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for DownloadSensorInstallerByIdV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetCombinedSensorInstallersByQuery gets sensor installer details by provided query
 */
 func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorInstallersByQueryParams, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryOK, error) {
@@ -121,6 +167,44 @@ func (a *Client) GetCombinedSensorInstallersByQuery(params *GetCombinedSensorIns
 }
 
 /*
+GetCombinedSensorInstallersByQueryV2 gets sensor installer details by provided query
+*/
+func (a *Client) GetCombinedSensorInstallersByQueryV2(params *GetCombinedSensorInstallersByQueryV2Params, opts ...ClientOption) (*GetCombinedSensorInstallersByQueryV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetCombinedSensorInstallersByQueryV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetCombinedSensorInstallersByQueryV2",
+		Method:             "GET",
+		PathPattern:        "/sensors/combined/installers/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetCombinedSensorInstallersByQueryV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetCombinedSensorInstallersByQueryV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetCombinedSensorInstallersByQueryV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetSensorInstallersByQuery gets sensor installer i ds by provided query
 */
 func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryParams, opts ...ClientOption) (*GetSensorInstallersByQueryOK, error) {
@@ -155,6 +239,44 @@ func (a *Client) GetSensorInstallersByQuery(params *GetSensorInstallersByQueryPa
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for GetSensorInstallersByQuery: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSensorInstallersByQueryV2 gets sensor installer i ds by provided query
+*/
+func (a *Client) GetSensorInstallersByQueryV2(params *GetSensorInstallersByQueryV2Params, opts ...ClientOption) (*GetSensorInstallersByQueryV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSensorInstallersByQueryV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSensorInstallersByQueryV2",
+		Method:             "GET",
+		PathPattern:        "/sensors/queries/installers/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSensorInstallersByQueryV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSensorInstallersByQueryV2OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSensorInstallersByQueryV2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -228,6 +350,45 @@ func (a *Client) GetSensorInstallersEntities(params *GetSensorInstallersEntities
 	case *GetSensorInstallersEntitiesOK:
 		return value, nil, nil
 	case *GetSensorInstallersEntitiesMultiStatus:
+		return nil, value, nil
+	}
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for sensor_download: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSensorInstallersEntitiesV2 gets sensor installer details by provided s h a256 i ds
+*/
+func (a *Client) GetSensorInstallersEntitiesV2(params *GetSensorInstallersEntitiesV2Params, opts ...ClientOption) (*GetSensorInstallersEntitiesV2OK, *GetSensorInstallersEntitiesV2MultiStatus, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSensorInstallersEntitiesV2Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSensorInstallersEntitiesV2",
+		Method:             "GET",
+		PathPattern:        "/sensors/entities/installers/v2",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSensorInstallersEntitiesV2Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetSensorInstallersEntitiesV2OK:
+		return value, nil, nil
+	case *GetSensorInstallersEntitiesV2MultiStatus:
 		return nil, value, nil
 	}
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue

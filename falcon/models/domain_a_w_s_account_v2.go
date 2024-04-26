@@ -103,6 +103,10 @@ type DomainAWSAccountV2 struct {
 	// intermediate role arn
 	IntermediateRoleArn string `json:"intermediate_role_arn,omitempty"`
 
+	// inventory filter
+	// Required: true
+	InventoryFilter []*DomainAWSInventoryFilterSetting `json:"inventory_filter"`
+
 	// Is CSPM Lite enabled.
 	IsCspmLite bool `json:"is_cspm_lite,omitempty"`
 
@@ -145,6 +149,9 @@ type DomainAWSAccountV2 struct {
 	// Account registration status.
 	Status string `json:"status,omitempty"`
 
+	// target ous
+	TargetOus []string `json:"target_ous"`
+
 	// use existing cloudtrail
 	UseExistingCloudtrail bool `json:"use_existing_cloudtrail,omitempty"`
 
@@ -185,6 +192,10 @@ func (m *DomainAWSAccountV2) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateD4c(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInventoryFilter(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -352,6 +363,33 @@ func (m *DomainAWSAccountV2) validateD4c(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DomainAWSAccountV2) validateInventoryFilter(formats strfmt.Registry) error {
+
+	if err := validate.Required("inventory_filter", "body", m.InventoryFilter); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.InventoryFilter); i++ {
+		if swag.IsZero(m.InventoryFilter[i]) { // not required
+			continue
+		}
+
+		if m.InventoryFilter[i] != nil {
+			if err := m.InventoryFilter[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("inventory_filter" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("inventory_filter" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *DomainAWSAccountV2) validateIsCustomRolename(formats strfmt.Registry) error {
 
 	if err := validate.Required("is_custom_rolename", "body", m.IsCustomRolename); err != nil {
@@ -399,6 +437,10 @@ func (m *DomainAWSAccountV2) ContextValidate(ctx context.Context, formats strfmt
 	}
 
 	if err := m.contextValidateD4c(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInventoryFilter(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -499,6 +541,31 @@ func (m *DomainAWSAccountV2) contextValidateD4c(ctx context.Context, formats str
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainAWSAccountV2) contextValidateInventoryFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.InventoryFilter); i++ {
+
+		if m.InventoryFilter[i] != nil {
+
+			if swag.IsZero(m.InventoryFilter[i]) { // not required
+				return nil
+			}
+
+			if err := m.InventoryFilter[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("inventory_filter" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("inventory_filter" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

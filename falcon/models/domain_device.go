@@ -19,9 +19,9 @@ import (
 // swagger:model domain.Device
 type DomainDevice struct {
 
-	// platform ID numeric
+	//
 	// Required: true
-	PlatformIDNumeric *int32 `json:"PlatformIDNumeric"`
+	Nr *int32 `json:"_"`
 
 	// agent version
 	AgentVersion string `json:"agent_version,omitempty"`
@@ -131,7 +131,7 @@ type DomainDevice struct {
 func (m *DomainDevice) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validatePlatformIDNumeric(formats); err != nil {
+	if err := m.validateNr(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -149,9 +149,9 @@ func (m *DomainDevice) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainDevice) validatePlatformIDNumeric(formats strfmt.Registry) error {
+func (m *DomainDevice) validateNr(formats strfmt.Registry) error {
 
-	if err := validate.Required("PlatformIDNumeric", "body", m.PlatformIDNumeric); err != nil {
+	if err := validate.Required("_", "body", m.Nr); err != nil {
 		return err
 	}
 

@@ -194,7 +194,7 @@ type GetD4CAWSAccountScriptsAttachmentBadRequest struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSProvisionGetAccountScriptResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c a w s account scripts attachment bad request response has a 2xx status code
@@ -235,7 +235,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) GetPayload() *models.RegistrationAWSProvisionGetAccountScriptResponseV2 {
+func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -270,7 +270,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentBadRequest) readResponse(response runt
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSProvisionGetAccountScriptResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -304,7 +304,7 @@ type GetD4CAWSAccountScriptsAttachmentForbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c a w s account scripts attachment forbidden response has a 2xx status code
@@ -345,7 +345,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentForbidden) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetD4CAWSAccountScriptsAttachmentForbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *GetD4CAWSAccountScriptsAttachmentForbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -380,7 +380,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentForbidden) readResponse(response runti
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ type GetD4CAWSAccountScriptsAttachmentInternalServerError struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.RegistrationAWSProvisionGetAccountScriptResponseV2
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this get d4 c a w s account scripts attachment internal server error response has a 2xx status code
@@ -580,7 +580,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /cloud-connect-aws/entities/user-scripts-download/v1][%d] getD4CAWSAccountScriptsAttachmentInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) GetPayload() *models.RegistrationAWSProvisionGetAccountScriptResponseV2 {
+func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -615,7 +615,7 @@ func (o *GetD4CAWSAccountScriptsAttachmentInternalServerError) readResponse(resp
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.RegistrationAWSProvisionGetAccountScriptResponseV2)
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

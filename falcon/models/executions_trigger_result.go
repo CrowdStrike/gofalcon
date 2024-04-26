@@ -30,7 +30,7 @@ type ExecutionsTriggerResult struct {
 	Name *string `json:"name"`
 
 	// Opaque blob for result of trigger. Structured according to the trigger's JSON schema'.
-	Result string `json:"result,omitempty"`
+	Result interface{} `json:"result,omitempty"`
 }
 
 // Validate validates this executions trigger result

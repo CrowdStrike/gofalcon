@@ -105,6 +105,8 @@ type CreateRulesParams struct {
 
 	 * `enable_content_capture`
 
+	 * `enable_hash_capture`
+
 	File system directory monitoring:
 
 	 * `watch_delete_directory_changes`
@@ -140,6 +142,8 @@ type CreateRulesParams struct {
 	 * `watch_rename_key_changes`
 
 	 * `watch_set_value_changes`
+
+	 * `watch_permissions_key_changes`
 
 	 * `watch_delete_value_changes`
 

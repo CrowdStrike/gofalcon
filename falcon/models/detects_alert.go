@@ -22,8 +22,9 @@ type DetectsAlert struct {
 	// Device or sensor ID for which the Alert was generated
 	AgentID string `json:"agent_id,omitempty"`
 
-	// Common linkage between multiple Alerts that belong so the same detection bouquet
-	AggregateID string `json:"aggregate_id,omitempty"`
+	// Common linkage between multiple Alerts that belong to the same detection bouquet
+	// Required: true
+	AggregateID *string `json:"aggregate_id"`
 
 	// Name of the person this Alert is assigned to
 	AssignedToName string `json:"assigned_to_name,omitempty"`
@@ -102,8 +103,20 @@ type DetectsAlert struct {
 	// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
 	Product string `json:"product,omitempty"`
 
+	// indicates when the Alert was marked as 'Resolved'
+	// Format: date-time
+	ResolvedTimestamp strfmt.DateTime `json:"resolved_timestamp,omitempty"`
+
 	// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
 	Scenario string `json:"scenario,omitempty"`
+
+	// Seconds To Resolved represents the seconds elapsed since this alert has been resolved
+	// Required: true
+	SecondsToResolved *int64 `json:"seconds_to_resolved"`
+
+	// Seconds To Triage represents the seconds elapsed since this alert has been triaged
+	// Required: true
+	SecondsToTriaged *int64 `json:"seconds_to_triaged"`
 
 	// Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
 	Severity int64 `json:"severity,omitempty"`
@@ -152,11 +165,27 @@ type DetectsAlert struct {
 func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAggregateID(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCrawledTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateCreatedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResolvedTimestamp(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecondsToResolved(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSecondsToTriaged(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -178,6 +207,15 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DetectsAlert) validateAggregateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("aggregate_id", "body", m.AggregateID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DetectsAlert) validateCrawledTimestamp(formats strfmt.Registry) error {
 	if swag.IsZero(m.CrawledTimestamp) { // not required
 		return nil
@@ -196,6 +234,36 @@ func (m *DetectsAlert) validateCreatedTimestamp(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created_timestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateResolvedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ResolvedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("resolved_timestamp", "body", "date-time", m.ResolvedTimestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateSecondsToResolved(formats strfmt.Registry) error {
+
+	if err := validate.Required("seconds_to_resolved", "body", m.SecondsToResolved); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateSecondsToTriaged(formats strfmt.Registry) error {
+
+	if err := validate.Required("seconds_to_triaged", "body", m.SecondsToTriaged); err != nil {
 		return err
 	}
 

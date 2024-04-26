@@ -64,7 +64,7 @@ type QueryKubernetesIomsParams struct {
 
 	/* Filter.
 
-	   Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+	   Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
 	*/
 	Filter *string
 

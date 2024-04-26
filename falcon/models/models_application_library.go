@@ -20,12 +20,6 @@ type ModelsApplicationLibrary struct {
 	// hash
 	Hash string `json:"Hash,omitempty"`
 
-	// layer hash
-	LayerHash string `json:"LayerHash,omitempty"`
-
-	// layer index
-	LayerIndex int32 `json:"LayerIndex,omitempty"`
-
 	// license
 	License string `json:"License,omitempty"`
 

@@ -49,6 +49,12 @@ func (o *ConnectCSPMGCPAccountReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewConnectCSPMGCPAccountConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewConnectCSPMGCPAccountTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -497,6 +503,116 @@ func (o *ConnectCSPMGCPAccountForbidden) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConnectCSPMGCPAccountConflict creates a ConnectCSPMGCPAccountConflict with default headers values
+func NewConnectCSPMGCPAccountConflict() *ConnectCSPMGCPAccountConflict {
+	return &ConnectCSPMGCPAccountConflict{}
+}
+
+/*
+ConnectCSPMGCPAccountConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type ConnectCSPMGCPAccountConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.RegistrationGCPAccountResponseExtV2
+}
+
+// IsSuccess returns true when this connect c s p m g c p account conflict response has a 2xx status code
+func (o *ConnectCSPMGCPAccountConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this connect c s p m g c p account conflict response has a 3xx status code
+func (o *ConnectCSPMGCPAccountConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this connect c s p m g c p account conflict response has a 4xx status code
+func (o *ConnectCSPMGCPAccountConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this connect c s p m g c p account conflict response has a 5xx status code
+func (o *ConnectCSPMGCPAccountConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this connect c s p m g c p account conflict response a status code equal to that given
+func (o *ConnectCSPMGCPAccountConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the connect c s p m g c p account conflict response
+func (o *ConnectCSPMGCPAccountConflict) Code() int {
+	return 409
+}
+
+func (o *ConnectCSPMGCPAccountConflict) Error() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *ConnectCSPMGCPAccountConflict) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-gcp/entities/account/v2][%d] connectCSPMGCPAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *ConnectCSPMGCPAccountConflict) GetPayload() *models.RegistrationGCPAccountResponseExtV2 {
+	return o.Payload
+}
+
+func (o *ConnectCSPMGCPAccountConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.RegistrationGCPAccountResponseExtV2)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -53,6 +53,9 @@ type DomainIncident struct {
 	// Required: true
 	FineScore *int32 `json:"fine_score"`
 
+	// grouping ids
+	GroupingIds []string `json:"grouping_ids"`
+
 	// host ids
 	// Required: true
 	HostIds []string `json:"host_ids"`

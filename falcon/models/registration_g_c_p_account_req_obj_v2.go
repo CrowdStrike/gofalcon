@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -41,6 +42,9 @@ type RegistrationGCPAccountReqObjV2 struct {
 	// project id
 	ProjectID string `json:"project_id,omitempty"`
 
+	// service account conditions
+	ServiceAccountConditions []*DomainCondition `json:"service_account_conditions"`
+
 	// service account id
 	ServiceAccountID int64 `json:"service_account_id,omitempty"`
 }
@@ -50,6 +54,10 @@ func (m *RegistrationGCPAccountReqObjV2) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateParentID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateServiceAccountConditions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,8 +76,68 @@ func (m *RegistrationGCPAccountReqObjV2) validateParentID(formats strfmt.Registr
 	return nil
 }
 
-// ContextValidate validates this registration g c p account req obj v2 based on context it is used
+func (m *RegistrationGCPAccountReqObjV2) validateServiceAccountConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.ServiceAccountConditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ServiceAccountConditions); i++ {
+		if swag.IsZero(m.ServiceAccountConditions[i]) { // not required
+			continue
+		}
+
+		if m.ServiceAccountConditions[i] != nil {
+			if err := m.ServiceAccountConditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this registration g c p account req obj v2 based on the context it is used
 func (m *RegistrationGCPAccountReqObjV2) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateServiceAccountConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RegistrationGCPAccountReqObjV2) contextValidateServiceAccountConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ServiceAccountConditions); i++ {
+
+		if m.ServiceAccountConditions[i] != nil {
+
+			if swag.IsZero(m.ServiceAccountConditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.ServiceAccountConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("service_account_conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

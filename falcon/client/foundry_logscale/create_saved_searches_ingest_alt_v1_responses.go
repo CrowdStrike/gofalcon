@@ -31,14 +31,32 @@ func (o *CreateSavedSearchesIngestAltV1Reader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewCreateSavedSearchesIngestAltV1BadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 403:
 		result := NewCreateSavedSearchesIngestAltV1Forbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
+	case 404:
+		result := NewCreateSavedSearchesIngestAltV1NotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewCreateSavedSearchesIngestAltV1TooManyRequests()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
+	case 500:
+		result := NewCreateSavedSearchesIngestAltV1InternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -158,6 +176,116 @@ func (o *CreateSavedSearchesIngestAltV1OK) readResponse(response runtime.ClientR
 	return nil
 }
 
+// NewCreateSavedSearchesIngestAltV1BadRequest creates a CreateSavedSearchesIngestAltV1BadRequest with default headers values
+func NewCreateSavedSearchesIngestAltV1BadRequest() *CreateSavedSearchesIngestAltV1BadRequest {
+	return &CreateSavedSearchesIngestAltV1BadRequest{}
+}
+
+/*
+CreateSavedSearchesIngestAltV1BadRequest describes a response with status code 400, with default header values.
+
+Bad Request
+*/
+type CreateSavedSearchesIngestAltV1BadRequest struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this create saved searches ingest alt v1 bad request response has a 2xx status code
+func (o *CreateSavedSearchesIngestAltV1BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create saved searches ingest alt v1 bad request response has a 3xx status code
+func (o *CreateSavedSearchesIngestAltV1BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create saved searches ingest alt v1 bad request response has a 4xx status code
+func (o *CreateSavedSearchesIngestAltV1BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create saved searches ingest alt v1 bad request response has a 5xx status code
+func (o *CreateSavedSearchesIngestAltV1BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create saved searches ingest alt v1 bad request response a status code equal to that given
+func (o *CreateSavedSearchesIngestAltV1BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+// Code gets the status code for the create saved searches ingest alt v1 bad request response
+func (o *CreateSavedSearchesIngestAltV1BadRequest) Code() int {
+	return 400
+}
+
+func (o *CreateSavedSearchesIngestAltV1BadRequest) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1BadRequest) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1BadRequest  %+v", 400, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1BadRequest) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CreateSavedSearchesIngestAltV1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewCreateSavedSearchesIngestAltV1Forbidden creates a CreateSavedSearchesIngestAltV1Forbidden with default headers values
 func NewCreateSavedSearchesIngestAltV1Forbidden() *CreateSavedSearchesIngestAltV1Forbidden {
 	return &CreateSavedSearchesIngestAltV1Forbidden{}
@@ -182,7 +310,7 @@ type CreateSavedSearchesIngestAltV1Forbidden struct {
 	 */
 	XRateLimitRemaining int64
 
-	Payload *models.MsaReplyMetaOnly
+	Payload *models.MsaspecResponseFields
 }
 
 // IsSuccess returns true when this create saved searches ingest alt v1 forbidden response has a 2xx status code
@@ -223,7 +351,7 @@ func (o *CreateSavedSearchesIngestAltV1Forbidden) String() string {
 	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1Forbidden  %+v", 403, o.Payload)
 }
 
-func (o *CreateSavedSearchesIngestAltV1Forbidden) GetPayload() *models.MsaReplyMetaOnly {
+func (o *CreateSavedSearchesIngestAltV1Forbidden) GetPayload() *models.MsaspecResponseFields {
 	return o.Payload
 }
 
@@ -258,7 +386,117 @@ func (o *CreateSavedSearchesIngestAltV1Forbidden) readResponse(response runtime.
 		o.XRateLimitRemaining = valxRateLimitRemaining
 	}
 
-	o.Payload = new(models.MsaReplyMetaOnly)
+	o.Payload = new(models.MsaspecResponseFields)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateSavedSearchesIngestAltV1NotFound creates a CreateSavedSearchesIngestAltV1NotFound with default headers values
+func NewCreateSavedSearchesIngestAltV1NotFound() *CreateSavedSearchesIngestAltV1NotFound {
+	return &CreateSavedSearchesIngestAltV1NotFound{}
+}
+
+/*
+CreateSavedSearchesIngestAltV1NotFound describes a response with status code 404, with default header values.
+
+Not Found
+*/
+type CreateSavedSearchesIngestAltV1NotFound struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this create saved searches ingest alt v1 not found response has a 2xx status code
+func (o *CreateSavedSearchesIngestAltV1NotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create saved searches ingest alt v1 not found response has a 3xx status code
+func (o *CreateSavedSearchesIngestAltV1NotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create saved searches ingest alt v1 not found response has a 4xx status code
+func (o *CreateSavedSearchesIngestAltV1NotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create saved searches ingest alt v1 not found response has a 5xx status code
+func (o *CreateSavedSearchesIngestAltV1NotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create saved searches ingest alt v1 not found response a status code equal to that given
+func (o *CreateSavedSearchesIngestAltV1NotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create saved searches ingest alt v1 not found response
+func (o *CreateSavedSearchesIngestAltV1NotFound) Code() int {
+	return 404
+}
+
+func (o *CreateSavedSearchesIngestAltV1NotFound) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1NotFound) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1NotFound  %+v", 404, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1NotFound) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CreateSavedSearchesIngestAltV1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -384,6 +622,116 @@ func (o *CreateSavedSearchesIngestAltV1TooManyRequests) readResponse(response ru
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateSavedSearchesIngestAltV1InternalServerError creates a CreateSavedSearchesIngestAltV1InternalServerError with default headers values
+func NewCreateSavedSearchesIngestAltV1InternalServerError() *CreateSavedSearchesIngestAltV1InternalServerError {
+	return &CreateSavedSearchesIngestAltV1InternalServerError{}
+}
+
+/*
+CreateSavedSearchesIngestAltV1InternalServerError describes a response with status code 500, with default header values.
+
+Internal Server Error
+*/
+type CreateSavedSearchesIngestAltV1InternalServerError struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.MsaspecResponseFields
+}
+
+// IsSuccess returns true when this create saved searches ingest alt v1 internal server error response has a 2xx status code
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create saved searches ingest alt v1 internal server error response has a 3xx status code
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create saved searches ingest alt v1 internal server error response has a 4xx status code
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create saved searches ingest alt v1 internal server error response has a 5xx status code
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this create saved searches ingest alt v1 internal server error response a status code equal to that given
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
+// Code gets the status code for the create saved searches ingest alt v1 internal server error response
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) Code() int {
+	return 500
+}
+
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) Error() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) String() string {
+	return fmt.Sprintf("[POST /loggingapi/entities/saved-searches-ingest/v1][%d] createSavedSearchesIngestAltV1InternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) GetPayload() *models.MsaspecResponseFields {
+	return o.Payload
+}
+
+func (o *CreateSavedSearchesIngestAltV1InternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.MsaspecResponseFields)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

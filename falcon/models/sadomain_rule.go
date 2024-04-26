@@ -19,6 +19,10 @@ import (
 // swagger:model sadomain.Rule
 type SadomainRule struct {
 
+	// Weather to monitor exclusively for breach data. breach_monitoring_enabled also needs to be sent as true for this to be enabled.
+	// Required: true
+	BreachMonitorOnly *bool `json:"breach_monitor_only"`
+
 	// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
 	// Required: true
 	BreachMonitoringEnabled *bool `json:"breach_monitoring_enabled"`
@@ -43,6 +47,9 @@ type SadomainRule struct {
 	// The name of a given rule
 	// Required: true
 	Name *string `json:"name"`
+
+	// If the rule was generated based on a template, the id of the template
+	OriginatingTemplateID string `json:"originating_template_id,omitempty"`
 
 	// The customer assets for which ownership must be verified, in order to monitor for breach data
 	OwnershipAssets *SadomainCustomerAssets `json:"ownership_assets,omitempty"`
@@ -89,6 +96,10 @@ type SadomainRule struct {
 // Validate validates this sadomain rule
 func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateBreachMonitorOnly(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateBreachMonitoringEnabled(formats); err != nil {
 		res = append(res, err)
@@ -149,6 +160,15 @@ func (m *SadomainRule) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SadomainRule) validateBreachMonitorOnly(formats strfmt.Registry) error {
+
+	if err := validate.Required("breach_monitor_only", "body", m.BreachMonitorOnly); err != nil {
+		return err
+	}
+
 	return nil
 }
 

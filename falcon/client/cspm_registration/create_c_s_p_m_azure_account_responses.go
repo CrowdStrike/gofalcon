@@ -49,6 +49,12 @@ func (o *CreateCSPMAzureAccountReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewCreateCSPMAzureAccountConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 429:
 		result := NewCreateCSPMAzureAccountTooManyRequests()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -497,6 +503,116 @@ func (o *CreateCSPMAzureAccountForbidden) readResponse(response runtime.ClientRe
 	}
 
 	o.Payload = new(models.MsaReplyMetaOnly)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCreateCSPMAzureAccountConflict creates a CreateCSPMAzureAccountConflict with default headers values
+func NewCreateCSPMAzureAccountConflict() *CreateCSPMAzureAccountConflict {
+	return &CreateCSPMAzureAccountConflict{}
+}
+
+/*
+CreateCSPMAzureAccountConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type CreateCSPMAzureAccountConflict struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.RegistrationAzureAccountResponseV1
+}
+
+// IsSuccess returns true when this create c s p m azure account conflict response has a 2xx status code
+func (o *CreateCSPMAzureAccountConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create c s p m azure account conflict response has a 3xx status code
+func (o *CreateCSPMAzureAccountConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create c s p m azure account conflict response has a 4xx status code
+func (o *CreateCSPMAzureAccountConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create c s p m azure account conflict response has a 5xx status code
+func (o *CreateCSPMAzureAccountConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create c s p m azure account conflict response a status code equal to that given
+func (o *CreateCSPMAzureAccountConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+// Code gets the status code for the create c s p m azure account conflict response
+func (o *CreateCSPMAzureAccountConflict) Code() int {
+	return 409
+}
+
+func (o *CreateCSPMAzureAccountConflict) Error() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/account/v1][%d] createCSPMAzureAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *CreateCSPMAzureAccountConflict) String() string {
+	return fmt.Sprintf("[POST /cloud-connect-cspm-azure/entities/account/v1][%d] createCSPMAzureAccountConflict  %+v", 409, o.Payload)
+}
+
+func (o *CreateCSPMAzureAccountConflict) GetPayload() *models.RegistrationAzureAccountResponseV1 {
+	return o.Payload
+}
+
+func (o *CreateCSPMAzureAccountConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.RegistrationAzureAccountResponseV1)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
