@@ -194,3 +194,8 @@
 
 # 200 is a valid response from /real-time-response/entities/queued-sessions/command/v1
 | .paths."/real-time-response/entities/queued-sessions/command/v1".delete.responses."200" = .paths."/real-time-response/entities/put-files/v1".delete.responses."200"
+
+# last_seen and first_seen should be a string
+ | .definitions."models.Container".properties.first_seen.type = "string"
+ | .definitions."models.Container".properties.last_seen.type = "string"
+

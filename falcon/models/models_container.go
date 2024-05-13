@@ -61,7 +61,7 @@ type ModelsContainer struct {
 	CveIds []string `json:"cve_ids"`
 
 	// first seen
-	FirstSeen int64 `json:"first_seen,omitempty"`
+	FirstSeen string `json:"first_seen,omitempty"`
 
 	// host config devices
 	HostConfigDevices string `json:"host_config_devices,omitempty"`
@@ -146,7 +146,7 @@ type ModelsContainer struct {
 	LabelsList []string `json:"labels_list"`
 
 	// last seen
-	LastSeen int64 `json:"last_seen,omitempty"`
+	LastSeen string `json:"last_seen,omitempty"`
 
 	// linux sensor aid
 	LinuxSensorAid string `json:"linux_sensor_aid,omitempty"`
