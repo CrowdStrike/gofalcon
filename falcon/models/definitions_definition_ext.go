@@ -19,9 +19,14 @@ import (
 // swagger:model definitions.DefinitionExt
 type DefinitionsDefinitionExt struct {
 
-	// definition
-	// Required: true
-	Definition *V2Definition `json:"Definition"`
+	// actions
+	Actions map[string]V2Activity `json:"actions,omitempty"`
+
+	// conditions
+	Conditions map[string]V2Condition `json:"conditions,omitempty"`
+
+	// description
+	Description string `json:"description,omitempty"`
 
 	// Indicates whether the workflow is enabled and active or not.
 	// Required: true
@@ -31,10 +36,48 @@ type DefinitionsDefinitionExt struct {
 	// Required: true
 	ID *string `json:"id"`
 
+	// labels
+	Labels []string `json:"labels"`
+
 	// Timestamp of when this version of the workflow was created.
 	// Required: true
 	// Format: date-time
 	LastModifiedTimestamp *strfmt.DateTime `json:"last_modified_timestamp"`
+
+	// loops
+	Loops map[string]V2Loop `json:"loops,omitempty"`
+
+	// multi instance
+	MultiInstance bool `json:"multi_instance,omitempty"`
+
+	// name
+	// Required: true
+	Name *string `json:"name"`
+
+	// node registry
+	// Required: true
+	NodeRegistry map[string]string `json:"nodeRegistry"`
+
+	// parameters
+	Parameters *V2Parameters `json:"parameters,omitempty"`
+
+	// parent
+	// Required: true
+	Parent *V2Model `json:"parent"`
+
+	// provision on install
+	ProvisionOnInstall bool `json:"provision_on_install,omitempty"`
+
+	// trigger
+	// Required: true
+	Trigger *V2Trigger `json:"trigger"`
+
+	// type
+	Type string `json:"type,omitempty"`
+
+	// uniq node seen
+	// Required: true
+	UniqNodeSeen map[string]bool `json:"uniqNodeSeen"`
 
 	// Version of the workflow. A given definition ID can have many versions. Each time an update is applied a new version is generated.
 	// Required: true
@@ -45,7 +88,11 @@ type DefinitionsDefinitionExt struct {
 func (m *DefinitionsDefinitionExt) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDefinition(formats); err != nil {
+	if err := m.validateActions(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConditions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -61,6 +108,34 @@ func (m *DefinitionsDefinitionExt) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLoops(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNodeRegistry(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParameters(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParent(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTrigger(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUniqNodeSeen(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
@@ -71,21 +146,53 @@ func (m *DefinitionsDefinitionExt) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DefinitionsDefinitionExt) validateDefinition(formats strfmt.Registry) error {
-
-	if err := validate.Required("Definition", "body", m.Definition); err != nil {
-		return err
+func (m *DefinitionsDefinitionExt) validateActions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Actions) { // not required
+		return nil
 	}
 
-	if m.Definition != nil {
-		if err := m.Definition.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("Definition")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("Definition")
-			}
+	for k := range m.Actions {
+
+		if err := validate.Required("actions"+"."+k, "body", m.Actions[k]); err != nil {
 			return err
 		}
+		if val, ok := m.Actions[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("actions" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actions" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.Conditions) { // not required
+		return nil
+	}
+
+	for k := range m.Conditions {
+
+		if err := validate.Required("conditions"+"."+k, "body", m.Conditions[k]); err != nil {
+			return err
+		}
+		if val, ok := m.Conditions[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conditions" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conditions" + "." + k)
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -122,6 +229,118 @@ func (m *DefinitionsDefinitionExt) validateLastModifiedTimestamp(formats strfmt.
 	return nil
 }
 
+func (m *DefinitionsDefinitionExt) validateLoops(formats strfmt.Registry) error {
+	if swag.IsZero(m.Loops) { // not required
+		return nil
+	}
+
+	for k := range m.Loops {
+
+		if err := validate.Required("loops"+"."+k, "body", m.Loops[k]); err != nil {
+			return err
+		}
+		if val, ok := m.Loops[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("loops" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("loops" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateName(formats strfmt.Registry) error {
+
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateNodeRegistry(formats strfmt.Registry) error {
+
+	if err := validate.Required("nodeRegistry", "body", m.NodeRegistry); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateParameters(formats strfmt.Registry) error {
+	if swag.IsZero(m.Parameters) { // not required
+		return nil
+	}
+
+	if m.Parameters != nil {
+		if err := m.Parameters.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parameters")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateParent(formats strfmt.Registry) error {
+
+	if err := validate.Required("parent", "body", m.Parent); err != nil {
+		return err
+	}
+
+	if m.Parent != nil {
+		if err := m.Parent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateTrigger(formats strfmt.Registry) error {
+
+	if err := validate.Required("trigger", "body", m.Trigger); err != nil {
+		return err
+	}
+
+	if m.Trigger != nil {
+		if err := m.Trigger.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trigger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trigger")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) validateUniqNodeSeen(formats strfmt.Registry) error {
+
+	if err := validate.Required("uniqNodeSeen", "body", m.UniqNodeSeen); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *DefinitionsDefinitionExt) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
@@ -135,7 +354,27 @@ func (m *DefinitionsDefinitionExt) validateVersion(formats strfmt.Registry) erro
 func (m *DefinitionsDefinitionExt) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateDefinition(ctx, formats); err != nil {
+	if err := m.contextValidateActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLoops(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrigger(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -145,15 +384,98 @@ func (m *DefinitionsDefinitionExt) ContextValidate(ctx context.Context, formats 
 	return nil
 }
 
-func (m *DefinitionsDefinitionExt) contextValidateDefinition(ctx context.Context, formats strfmt.Registry) error {
+func (m *DefinitionsDefinitionExt) contextValidateActions(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Definition != nil {
+	for k := range m.Actions {
 
-		if err := m.Definition.ContextValidate(ctx, formats); err != nil {
+		if val, ok := m.Actions[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Conditions {
+
+		if val, ok := m.Conditions[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) contextValidateLoops(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Loops {
+
+		if val, ok := m.Loops[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parameters != nil {
+
+		if swag.IsZero(m.Parameters) { // not required
+			return nil
+		}
+
+		if err := m.Parameters.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("Definition")
+				return ve.ValidateName("parameters")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("Definition")
+				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) contextValidateParent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parent != nil {
+
+		if err := m.Parent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefinitionsDefinitionExt) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trigger != nil {
+
+		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trigger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trigger")
 			}
 			return err
 		}

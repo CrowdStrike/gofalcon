@@ -26,7 +26,7 @@ type ModelsApplicationPackageInfoType struct {
 
 	// type
 	// Required: true
-	Type *string `json:"type"`
+	Type *int32 `json:"type"`
 }
 
 // Validate validates this models application package info type

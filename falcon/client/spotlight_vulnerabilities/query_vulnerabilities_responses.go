@@ -55,6 +55,12 @@ func (o *QueryVulnerabilitiesReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
+	case 503:
+		result := NewQueryVulnerabilitiesServiceUnavailable()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /spotlight/queries/vulnerabilities/v1] queryVulnerabilities", response, response.Code())
 	}
@@ -585,6 +591,116 @@ func (o *QueryVulnerabilitiesInternalServerError) GetPayload() *models.DomainSPA
 }
 
 func (o *QueryVulnerabilitiesInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	o.Payload = new(models.DomainSPAPIQueryResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryVulnerabilitiesServiceUnavailable creates a QueryVulnerabilitiesServiceUnavailable with default headers values
+func NewQueryVulnerabilitiesServiceUnavailable() *QueryVulnerabilitiesServiceUnavailable {
+	return &QueryVulnerabilitiesServiceUnavailable{}
+}
+
+/*
+QueryVulnerabilitiesServiceUnavailable describes a response with status code 503, with default header values.
+
+Service Unavailable
+*/
+type QueryVulnerabilitiesServiceUnavailable struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+
+	Payload *models.DomainSPAPIQueryResponse
+}
+
+// IsSuccess returns true when this query vulnerabilities service unavailable response has a 2xx status code
+func (o *QueryVulnerabilitiesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this query vulnerabilities service unavailable response has a 3xx status code
+func (o *QueryVulnerabilitiesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this query vulnerabilities service unavailable response has a 4xx status code
+func (o *QueryVulnerabilitiesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this query vulnerabilities service unavailable response has a 5xx status code
+func (o *QueryVulnerabilitiesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this query vulnerabilities service unavailable response a status code equal to that given
+func (o *QueryVulnerabilitiesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
+// Code gets the status code for the query vulnerabilities service unavailable response
+func (o *QueryVulnerabilitiesServiceUnavailable) Code() int {
+	return 503
+}
+
+func (o *QueryVulnerabilitiesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *QueryVulnerabilitiesServiceUnavailable) String() string {
+	return fmt.Sprintf("[GET /spotlight/queries/vulnerabilities/v1][%d] queryVulnerabilitiesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *QueryVulnerabilitiesServiceUnavailable) GetPayload() *models.DomainSPAPIQueryResponse {
+	return o.Payload
+}
+
+func (o *QueryVulnerabilitiesServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

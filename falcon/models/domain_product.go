@@ -19,154 +19,32 @@ import (
 // swagger:model domain.Product
 type DomainProduct struct {
 
-	// c p e
+	// id
 	// Required: true
-	CPE *string `json:"CPE"`
+	ID *string `json:"id"`
 
-	// closed timestamp
+	// name
 	// Required: true
-	// Format: date-time
-	ClosedTimestamp *strfmt.DateTime `json:"ClosedTimestamp"`
+	Name *string `json:"name"`
 
-	// created timestamp
+	// type
 	// Required: true
-	// Format: date-time
-	CreatedTimestamp *strfmt.DateTime `json:"CreatedTimestamp"`
-
-	// evaluation logic ID
-	// Required: true
-	EvaluationLogicID *string `json:"EvaluationLogicID"`
-
-	// hardware architecture
-	// Required: true
-	HardwareArchitecture *string `json:"HardwareArchitecture"`
-
-	// major version
-	// Required: true
-	MajorVersion *string `json:"MajorVersion"`
-
-	// package hash
-	// Required: true
-	PackageHash *string `json:"PackageHash"`
-
-	// package provider
-	// Required: true
-	PackageProvider *string `json:"PackageProvider"`
-
-	// package source
-	// Required: true
-	PackageSource *string `json:"PackageSource"`
-
-	// platform type
-	// Required: true
-	PlatformType *string `json:"PlatformType"`
-
-	// product
-	// Required: true
-	Product *string `json:"Product"`
-
-	// product normalized
-	// Required: true
-	ProductNormalized *string `json:"ProductNormalized"`
-
-	// remediation i ds
-	// Required: true
-	RemediationIDs *DomainRemediationIDs `json:"RemediationIDs"`
-
-	// software architecture
-	// Required: true
-	SoftwareArchitecture *string `json:"SoftwareArchitecture"`
-
-	// sub status
-	// Required: true
-	SubStatus *string `json:"SubStatus"`
-
-	// update k bs
-	// Required: true
-	UpdateKBs *DomainKBList `json:"UpdateKBs"`
-
-	// vendor
-	// Required: true
-	Vendor *string `json:"Vendor"`
-
-	// vendor normalized
-	// Required: true
-	VendorNormalized *string `json:"VendorNormalized"`
+	Type *string `json:"type"`
 }
 
 // Validate validates this domain product
 func (m *DomainProduct) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCPE(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateClosedTimestamp(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCreatedTimestamp(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEvaluationLogicID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateHardwareArchitecture(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMajorVersion(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePackageHash(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePackageProvider(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePackageSource(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePlatformType(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProduct(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProductNormalized(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRemediationIDs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSoftwareArchitecture(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSubStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUpdateKBs(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVendor(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVendorNormalized(formats); err != nil {
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,247 +54,35 @@ func (m *DomainProduct) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DomainProduct) validateCPE(formats strfmt.Registry) error {
+func (m *DomainProduct) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("CPE", "body", m.CPE); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainProduct) validateClosedTimestamp(formats strfmt.Registry) error {
+func (m *DomainProduct) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("ClosedTimestamp", "body", m.ClosedTimestamp); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("ClosedTimestamp", "body", "date-time", m.ClosedTimestamp.String(), formats); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainProduct) validateCreatedTimestamp(formats strfmt.Registry) error {
+func (m *DomainProduct) validateType(formats strfmt.Registry) error {
 
-	if err := validate.Required("CreatedTimestamp", "body", m.CreatedTimestamp); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("CreatedTimestamp", "body", "date-time", m.CreatedTimestamp.String(), formats); err != nil {
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *DomainProduct) validateEvaluationLogicID(formats strfmt.Registry) error {
-
-	if err := validate.Required("EvaluationLogicID", "body", m.EvaluationLogicID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateHardwareArchitecture(formats strfmt.Registry) error {
-
-	if err := validate.Required("HardwareArchitecture", "body", m.HardwareArchitecture); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateMajorVersion(formats strfmt.Registry) error {
-
-	if err := validate.Required("MajorVersion", "body", m.MajorVersion); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validatePackageHash(formats strfmt.Registry) error {
-
-	if err := validate.Required("PackageHash", "body", m.PackageHash); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validatePackageProvider(formats strfmt.Registry) error {
-
-	if err := validate.Required("PackageProvider", "body", m.PackageProvider); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validatePackageSource(formats strfmt.Registry) error {
-
-	if err := validate.Required("PackageSource", "body", m.PackageSource); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validatePlatformType(formats strfmt.Registry) error {
-
-	if err := validate.Required("PlatformType", "body", m.PlatformType); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateProduct(formats strfmt.Registry) error {
-
-	if err := validate.Required("Product", "body", m.Product); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateProductNormalized(formats strfmt.Registry) error {
-
-	if err := validate.Required("ProductNormalized", "body", m.ProductNormalized); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateRemediationIDs(formats strfmt.Registry) error {
-
-	if err := validate.Required("RemediationIDs", "body", m.RemediationIDs); err != nil {
-		return err
-	}
-
-	if m.RemediationIDs != nil {
-		if err := m.RemediationIDs.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("RemediationIDs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("RemediationIDs")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateSoftwareArchitecture(formats strfmt.Registry) error {
-
-	if err := validate.Required("SoftwareArchitecture", "body", m.SoftwareArchitecture); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateSubStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("SubStatus", "body", m.SubStatus); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateUpdateKBs(formats strfmt.Registry) error {
-
-	if err := validate.Required("UpdateKBs", "body", m.UpdateKBs); err != nil {
-		return err
-	}
-
-	if m.UpdateKBs != nil {
-		if err := m.UpdateKBs.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("UpdateKBs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("UpdateKBs")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateVendor(formats strfmt.Registry) error {
-
-	if err := validate.Required("Vendor", "body", m.Vendor); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) validateVendorNormalized(formats strfmt.Registry) error {
-
-	if err := validate.Required("VendorNormalized", "body", m.VendorNormalized); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// ContextValidate validate this domain product based on the context it is used
+// ContextValidate validates this domain product based on context it is used
 func (m *DomainProduct) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateRemediationIDs(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateUpdateKBs(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DomainProduct) contextValidateRemediationIDs(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.RemediationIDs != nil {
-
-		if err := m.RemediationIDs.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("RemediationIDs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("RemediationIDs")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DomainProduct) contextValidateUpdateKBs(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.UpdateKBs != nil {
-
-		if err := m.UpdateKBs.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("UpdateKBs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("UpdateKBs")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

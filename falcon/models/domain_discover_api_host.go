@@ -168,6 +168,9 @@ type DomainDiscoverAPIHost struct {
 	// The Device Family of IoT Asset
 	DeviceFamily string `json:"device_family,omitempty"`
 
+	// The device mode of the host
+	DeviceMode string `json:"device_mode,omitempty"`
+
 	// The slots of IoT Asset
 	DeviceSlots []*DomainDiscoverAPIDeviceSlot `json:"device_slots"`
 

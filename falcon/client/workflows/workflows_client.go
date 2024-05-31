@@ -42,6 +42,8 @@ type ClientService interface {
 
 	Provision(params *ProvisionParams, opts ...ClientOption) (*ProvisionOK, error)
 
+	WorkflowActivitiesCombined(params *WorkflowActivitiesCombinedParams, opts ...ClientOption) (*WorkflowActivitiesCombinedOK, error)
+
 	WorkflowDefinitionsCombined(params *WorkflowDefinitionsCombinedParams, opts ...ClientOption) (*WorkflowDefinitionsCombinedOK, error)
 
 	WorkflowDefinitionsExport(params *WorkflowDefinitionsExportParams, opts ...ClientOption) (*WorkflowDefinitionsExportOK, *WorkflowDefinitionsExportStatus299, error)
@@ -57,6 +59,8 @@ type ClientService interface {
 	WorkflowGetHumanInputV1(params *WorkflowGetHumanInputV1Params, opts ...ClientOption) (*WorkflowGetHumanInputV1OK, error)
 
 	WorkflowMockExecute(params *WorkflowMockExecuteParams, opts ...ClientOption) (*WorkflowMockExecuteOK, error)
+
+	WorkflowTriggersCombined(params *WorkflowTriggersCombinedParams, opts ...ClientOption) (*WorkflowTriggersCombinedOK, error)
 
 	WorkflowUpdateHumanInputV1(params *WorkflowUpdateHumanInputV1Params, opts ...ClientOption) (*WorkflowUpdateHumanInputV1OK, error)
 
@@ -288,6 +292,44 @@ func (a *Client) Provision(params *ProvisionParams, opts ...ClientOption) (*Prov
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for Provision: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowActivitiesCombined searches for activities by name returns all supported activities if no filter specified
+*/
+func (a *Client) WorkflowActivitiesCombined(params *WorkflowActivitiesCombinedParams, opts ...ClientOption) (*WorkflowActivitiesCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowActivitiesCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowActivitiesCombined",
+		Method:             "GET",
+		PathPattern:        "/workflows/combined/activities/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowActivitiesCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowActivitiesCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowActivitiesCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -593,6 +635,44 @@ func (a *Client) WorkflowMockExecute(params *WorkflowMockExecuteParams, opts ...
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for WorkflowMockExecute: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+WorkflowTriggersCombined searches for triggers by namespaced identifier i e falcon audit detection or falcon audit detection status returns all triggers if no filter specified
+*/
+func (a *Client) WorkflowTriggersCombined(params *WorkflowTriggersCombinedParams, opts ...ClientOption) (*WorkflowTriggersCombinedOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewWorkflowTriggersCombinedParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "WorkflowTriggersCombined",
+		Method:             "GET",
+		PathPattern:        "/workflows/combined/triggers/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &WorkflowTriggersCombinedReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*WorkflowTriggersCombinedOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for WorkflowTriggersCombined: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -29,6 +29,9 @@ type DomainUserMetadata struct {
 	// last name
 	LastName string `json:"lastName,omitempty"`
 
+	// status
+	Status string `json:"status,omitempty"`
+
 	// uid
 	UID string `json:"uid,omitempty"`
 

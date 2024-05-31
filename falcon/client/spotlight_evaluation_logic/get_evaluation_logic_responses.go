@@ -55,6 +55,12 @@ func (o *GetEvaluationLogicReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+	case 503:
+		result := NewGetEvaluationLogicServiceUnavailable()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /spotlight/entities/evaluation-logic/v1] getEvaluationLogic", response, response.Code())
 	}
@@ -566,6 +572,103 @@ func (o *GetEvaluationLogicInternalServerError) String() string {
 }
 
 func (o *GetEvaluationLogicInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
+}
+
+// NewGetEvaluationLogicServiceUnavailable creates a GetEvaluationLogicServiceUnavailable with default headers values
+func NewGetEvaluationLogicServiceUnavailable() *GetEvaluationLogicServiceUnavailable {
+	return &GetEvaluationLogicServiceUnavailable{}
+}
+
+/*
+GetEvaluationLogicServiceUnavailable describes a response with status code 503, with default header values.
+
+Service Unavailable
+*/
+type GetEvaluationLogicServiceUnavailable struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+}
+
+// IsSuccess returns true when this get evaluation logic service unavailable response has a 2xx status code
+func (o *GetEvaluationLogicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get evaluation logic service unavailable response has a 3xx status code
+func (o *GetEvaluationLogicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get evaluation logic service unavailable response has a 4xx status code
+func (o *GetEvaluationLogicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get evaluation logic service unavailable response has a 5xx status code
+func (o *GetEvaluationLogicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get evaluation logic service unavailable response a status code equal to that given
+func (o *GetEvaluationLogicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
+// Code gets the status code for the get evaluation logic service unavailable response
+func (o *GetEvaluationLogicServiceUnavailable) Code() int {
+	return 503
+}
+
+func (o *GetEvaluationLogicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable ", 503)
+}
+
+func (o *GetEvaluationLogicServiceUnavailable) String() string {
+	return fmt.Sprintf("[GET /spotlight/entities/evaluation-logic/v1][%d] getEvaluationLogicServiceUnavailable ", 503)
+}
+
+func (o *GetEvaluationLogicServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

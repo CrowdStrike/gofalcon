@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -23,9 +24,9 @@ type ModelsContainerImage struct {
 	// Required: true
 	Cid *string `json:"cid"`
 
-	// cluster ids
+	// cluster info
 	// Required: true
-	ClusterIds []string `json:"cluster_ids"`
+	ClusterInfo []*ModelsClusterInfo `json:"cluster_info"`
 
 	// container count
 	// Required: true
@@ -96,7 +97,7 @@ func (m *ModelsContainerImage) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateClusterIds(formats); err != nil {
+	if err := m.validateClusterInfo(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -175,10 +176,28 @@ func (m *ModelsContainerImage) validateCid(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ModelsContainerImage) validateClusterIds(formats strfmt.Registry) error {
+func (m *ModelsContainerImage) validateClusterInfo(formats strfmt.Registry) error {
 
-	if err := validate.Required("cluster_ids", "body", m.ClusterIds); err != nil {
+	if err := validate.Required("cluster_info", "body", m.ClusterInfo); err != nil {
 		return err
+	}
+
+	for i := 0; i < len(m.ClusterInfo); i++ {
+		if swag.IsZero(m.ClusterInfo[i]) { // not required
+			continue
+		}
+
+		if m.ClusterInfo[i] != nil {
+			if err := m.ClusterInfo[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cluster_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cluster_info" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -319,8 +338,42 @@ func (m *ModelsContainerImage) validateRunningContainerCount(formats strfmt.Regi
 	return nil
 }
 
-// ContextValidate validates this models container image based on context it is used
+// ContextValidate validate this models container image based on the context it is used
 func (m *ModelsContainerImage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClusterInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelsContainerImage) contextValidateClusterInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ClusterInfo); i++ {
+
+		if m.ClusterInfo[i] != nil {
+
+			if swag.IsZero(m.ClusterInfo[i]) { // not required
+				return nil
+			}
+
+			if err := m.ClusterInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cluster_info" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cluster_info" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

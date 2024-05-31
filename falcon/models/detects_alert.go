@@ -79,6 +79,9 @@ type DetectsAlert struct {
 	// internal only
 	EsRoutingID string `json:"es_routing_id,omitempty"`
 
+	// internal only
+	EsSourceSize int32 `json:"es_source_size,omitempty"`
+
 	// Boolean indicating if this Alert is internal or external
 	External bool `json:"external,omitempty"`
 
@@ -121,8 +124,15 @@ type DetectsAlert struct {
 	// Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
 	Severity int64 `json:"severity,omitempty"`
 
+	// Severity name is a UI friendly bucketing of the severity integer
+	SeverityName string `json:"severity_name,omitempty"`
+
 	// Boolean indicating if this Alert will be shown in the UI or if it's hidden'
 	ShowInUI bool `json:"show_in_ui,omitempty"`
+
+	// show in ui updated timestamp
+	// Format: date-time
+	ShowInUIUpdatedTimestamp strfmt.DateTime `json:"show_in_ui_updated_timestamp,omitempty"`
 
 	// Source Products are products that produced events which contributed to this alert
 	SourceProducts []string `json:"source_products"`
@@ -186,6 +196,10 @@ func (m *DetectsAlert) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSecondsToTriaged(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateShowInUIUpdatedTimestamp(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -264,6 +278,18 @@ func (m *DetectsAlert) validateSecondsToResolved(formats strfmt.Registry) error 
 func (m *DetectsAlert) validateSecondsToTriaged(formats strfmt.Registry) error {
 
 	if err := validate.Required("seconds_to_triaged", "body", m.SecondsToTriaged); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectsAlert) validateShowInUIUpdatedTimestamp(formats strfmt.Registry) error {
+	if swag.IsZero(m.ShowInUIUpdatedTimestamp) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("show_in_ui_updated_timestamp", "body", "date-time", m.ShowInUIUpdatedTimestamp.String(), formats); err != nil {
 		return err
 	}
 

@@ -109,6 +109,9 @@ type DeviceDevice struct {
 	// groups
 	Groups []string `json:"groups"`
 
+	// host deleted status
+	HostDeletedStatus string `json:"host_deleted_status,omitempty"`
+
 	// host hidden status
 	HostHiddenStatus string `json:"host_hidden_status,omitempty"`
 

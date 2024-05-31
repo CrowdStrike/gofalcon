@@ -13,6 +13,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
+	"github.com/crowdstrike/gofalcon/falcon/client/config"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_alerts"
@@ -20,6 +21,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/container_images"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_packages"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_vulnerabilities"
+	"github.com/crowdstrike/gofalcon/falcon/client/cspg_iacapi"
 	"github.com/crowdstrike/gofalcon/falcon/client/cspm_registration"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_ioa"
 	"github.com/crowdstrike/gofalcon/falcon/client/custom_storage"
@@ -31,6 +33,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
+	"github.com/crowdstrike/gofalcon/falcon/client/execution"
 	"github.com/crowdstrike/gofalcon/falcon/client/exposure_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
@@ -82,6 +85,7 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/spotlight_vulnerabilities"
 	"github.com/crowdstrike/gofalcon/falcon/client/tailored_intelligence"
+	"github.com/crowdstrike/gofalcon/falcon/client/threatgraph"
 	"github.com/crowdstrike/gofalcon/falcon/client/unidentified_containers"
 	"github.com/crowdstrike/gofalcon/falcon/client/user_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/workflows"
@@ -133,6 +137,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.Alerts = alerts.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
+	cli.Config = config.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.ContainerAlerts = container_alerts.New(transport, formats)
@@ -140,6 +145,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.ContainerImages = container_images.New(transport, formats)
 	cli.ContainerPackages = container_packages.New(transport, formats)
 	cli.ContainerVulnerabilities = container_vulnerabilities.New(transport, formats)
+	cli.CspgIacapi = cspg_iacapi.New(transport, formats)
 	cli.CspmRegistration = cspm_registration.New(transport, formats)
 	cli.CustomIoa = custom_ioa.New(transport, formats)
 	cli.CustomStorage = custom_storage.New(transport, formats)
@@ -151,6 +157,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
+	cli.Execution = execution.New(transport, formats)
 	cli.ExposureManagement = exposure_management.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconContainer = falcon_container.New(transport, formats)
@@ -202,6 +209,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.SpotlightEvaluationLogic = spotlight_evaluation_logic.New(transport, formats)
 	cli.SpotlightVulnerabilities = spotlight_vulnerabilities.New(transport, formats)
 	cli.TailoredIntelligence = tailored_intelligence.New(transport, formats)
+	cli.Threatgraph = threatgraph.New(transport, formats)
 	cli.UnidentifiedContainers = unidentified_containers.New(transport, formats)
 	cli.UserManagement = user_management.New(transport, formats)
 	cli.Workflows = workflows.New(transport, formats)
@@ -256,6 +264,8 @@ type CrowdStrikeAPISpecification struct {
 
 	CloudSnapshots cloud_snapshots.ClientService
 
+	Config config.ClientService
+
 	ConfigurationAssessment configuration_assessment.ClientService
 
 	ConfigurationAssessmentEvaluationLogic configuration_assessment_evaluation_logic.ClientService
@@ -269,6 +279,8 @@ type CrowdStrikeAPISpecification struct {
 	ContainerPackages container_packages.ClientService
 
 	ContainerVulnerabilities container_vulnerabilities.ClientService
+
+	CspgIacapi cspg_iacapi.ClientService
 
 	CspmRegistration cspm_registration.ClientService
 
@@ -291,6 +303,8 @@ type CrowdStrikeAPISpecification struct {
 	EventSchema event_schema.ClientService
 
 	EventStreams event_streams.ClientService
+
+	Execution execution.ClientService
 
 	ExposureManagement exposure_management.ClientService
 
@@ -394,6 +408,8 @@ type CrowdStrikeAPISpecification struct {
 
 	TailoredIntelligence tailored_intelligence.ClientService
 
+	Threatgraph threatgraph.ClientService
+
 	UnidentifiedContainers unidentified_containers.ClientService
 
 	UserManagement user_management.ClientService
@@ -411,6 +427,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.Alerts.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
+	c.Config.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.ContainerAlerts.SetTransport(transport)
@@ -418,6 +435,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.ContainerImages.SetTransport(transport)
 	c.ContainerPackages.SetTransport(transport)
 	c.ContainerVulnerabilities.SetTransport(transport)
+	c.CspgIacapi.SetTransport(transport)
 	c.CspmRegistration.SetTransport(transport)
 	c.CustomIoa.SetTransport(transport)
 	c.CustomStorage.SetTransport(transport)
@@ -429,6 +447,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DriftIndicators.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
+	c.Execution.SetTransport(transport)
 	c.ExposureManagement.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconContainer.SetTransport(transport)
@@ -480,6 +499,7 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.SpotlightEvaluationLogic.SetTransport(transport)
 	c.SpotlightVulnerabilities.SetTransport(transport)
 	c.TailoredIntelligence.SetTransport(transport)
+	c.Threatgraph.SetTransport(transport)
 	c.UnidentifiedContainers.SetTransport(transport)
 	c.UserManagement.SetTransport(transport)
 	c.Workflows.SetTransport(transport)

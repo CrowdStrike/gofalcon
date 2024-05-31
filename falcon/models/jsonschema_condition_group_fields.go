@@ -30,9 +30,6 @@ type JsonschemaConditionGroupFields struct {
 	// dependent control
 	DependentControl string `json:"dependent_control,omitempty"`
 
-	// requires meta
-	RequiresMeta string `json:"requires_meta,omitempty"`
-
 	// reset fields
 	ResetFields *JsonschemaResetFields `json:"reset_fields,omitempty"`
 }

@@ -28,6 +28,9 @@ type GraphValidationError struct {
 	// Display name for the property if it exists in a trigger or activity
 	DisplayName string `json:"display_name,omitempty"`
 
+	// Level is used to indicate if this is an error or warning validation. If empty it should be assumed to be Error Level
+	Level string `json:"level,omitempty"`
+
 	// Detail of why the node is invalid.
 	// Required: true
 	Message *string `json:"message"`
@@ -41,7 +44,7 @@ type GraphValidationError struct {
 	// Used to specify an exact property that is invalid for fql evaluation
 	Property string `json:"property,omitempty"`
 
-	// Resouce ID for property if it exists, e.g. trigger ID or activity ID
+	// Resource ID for property if it exists, e.g. trigger ID or activity ID
 	ResourceID string `json:"resource_id,omitempty"`
 }
 

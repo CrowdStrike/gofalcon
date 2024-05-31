@@ -65,9 +65,9 @@ type QueryIotHostsParams struct {
 	/* Filter.
 
 	     Filter assets using an FQL query. Common filter options include:<ul><li>entity_type:'managed'</li><li>product_type_desc:'Workstation'</li><li>platform_name:'Windows'</li><li>last_seen_timestamp:>'now-7d'</li></ul>
-				Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers
+				Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification
 				Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers
-				Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count
+				Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count, local_ips_count
 				All filter fields and operations supports negation (!).
 	*/
 	Filter *string

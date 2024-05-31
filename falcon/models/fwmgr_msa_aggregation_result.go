@@ -21,7 +21,6 @@ import (
 type FwmgrMsaAggregationResult struct {
 
 	// buckets
-	// Required: true
 	Buckets []*FwmgrMsaAggregationResultItem `json:"buckets"`
 
 	// doc count error upper bound
@@ -54,9 +53,8 @@ func (m *FwmgrMsaAggregationResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FwmgrMsaAggregationResult) validateBuckets(formats strfmt.Registry) error {
-
-	if err := validate.Required("buckets", "body", m.Buckets); err != nil {
-		return err
+	if swag.IsZero(m.Buckets) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Buckets); i++ {

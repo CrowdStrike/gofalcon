@@ -46,7 +46,11 @@ type ClientService interface {
 
 	DeleteScheduledExclusions(params *DeleteScheduledExclusionsParams, opts ...ClientOption) (*DeleteScheduledExclusionsOK, error)
 
+	GetActionsMixin0(params *GetActionsMixin0Params, opts ...ClientOption) (*GetActionsMixin0OK, error)
+
 	GetChanges(params *GetChangesParams, opts ...ClientOption) (*GetChangesOK, error)
+
+	GetContents(params *GetContentsParams, opts ...ClientOption) (*GetContentsOK, error)
 
 	GetPolicies(params *GetPoliciesParams, opts ...ClientOption) (*GetPoliciesOK, error)
 
@@ -58,6 +62,8 @@ type ClientService interface {
 
 	HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, opts ...ClientOption) (*HighVolumeQueryChangesOK, error)
 
+	QueryActionsMixin0(params *QueryActionsMixin0Params, opts ...ClientOption) (*QueryActionsMixin0OK, error)
+
 	QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error)
 
 	QueryPolicies(params *QueryPoliciesParams, opts ...ClientOption) (*QueryPoliciesOK, error)
@@ -65,6 +71,10 @@ type ClientService interface {
 	QueryRuleGroups(params *QueryRuleGroupsParams, opts ...ClientOption) (*QueryRuleGroupsOK, error)
 
 	QueryScheduledExclusions(params *QueryScheduledExclusionsParams, opts ...ClientOption) (*QueryScheduledExclusionsOK, error)
+
+	SignalChangesExternal(params *SignalChangesExternalParams, opts ...ClientOption) (*SignalChangesExternalOK, error)
+
+	StartActions(params *StartActionsParams, opts ...ClientOption) (*StartActionsAccepted, error)
 
 	UpdatePolicies(params *UpdatePoliciesParams, opts ...ClientOption) (*UpdatePoliciesOK, error)
 
@@ -408,6 +418,46 @@ func (a *Client) DeleteScheduledExclusions(params *DeleteScheduledExclusionsPara
 }
 
 /*
+GetActionsMixin0 retrieves the processing results for 1 or more actions
+
+The processing results of each action that match the provided ids will be returned.
+*/
+func (a *Client) GetActionsMixin0(params *GetActionsMixin0Params, opts ...ClientOption) (*GetActionsMixin0OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetActionsMixin0Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getActionsMixin0",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetActionsMixin0Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetActionsMixin0OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getActionsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetChanges retrieves information on changes
 
 Retrieve key attributes of Falcon FileVantage changes for the specified ids.
@@ -444,6 +494,46 @@ func (a *Client) GetChanges(params *GetChangesParams, opts ...ClientOption) (*Ge
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getChanges: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetContents retrieves the content captured for the provided change id
+
+Retrieves the before and after change content for the provided change id.
+*/
+func (a *Client) GetContents(params *GetContentsParams, opts ...ClientOption) (*GetContentsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetContentsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getContents",
+		Method:             "GET",
+		PathPattern:        "/filevantage/entities/change-content/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetContentsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetContentsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getContents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -610,7 +700,7 @@ func (a *Client) GetScheduledExclusions(params *GetScheduledExclusionsParams, op
 /*
 HighVolumeQueryChanges returns 1 or more change ids
 
-Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
 */
 func (a *Client) HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, opts ...ClientOption) (*HighVolumeQueryChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -648,9 +738,49 @@ func (a *Client) HighVolumeQueryChanges(params *HighVolumeQueryChangesParams, op
 }
 
 /*
+QueryActionsMixin0 returns one or more action ids
+
+Returns the list of action ids filtered, sorted, and limited to the query parameters provided.
+*/
+func (a *Client) QueryActionsMixin0(params *QueryActionsMixin0Params, opts ...ClientOption) (*QueryActionsMixin0OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryActionsMixin0Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "queryActionsMixin0",
+		Method:             "GET",
+		PathPattern:        "/filevantage/queries/actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryActionsMixin0Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*QueryActionsMixin0OK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for queryActionsMixin0: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 QueryChanges returns 1 or more change ids
 
-Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
+Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
 */
 func (a *Client) QueryChanges(params *QueryChangesParams, opts ...ClientOption) (*QueryChangesOK, error) {
 	// TODO: Validate the params before sending
@@ -804,6 +934,86 @@ func (a *Client) QueryScheduledExclusions(params *QueryScheduledExclusionsParams
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for queryScheduledExclusions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+SignalChangesExternal initiates workflows for the provided change ids
+
+Provides the ability to initiate workflows for the specified change ids. Only 100 change ids can be provided per workflow request.
+*/
+func (a *Client) SignalChangesExternal(params *SignalChangesExternalParams, opts ...ClientOption) (*SignalChangesExternalOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSignalChangesExternalParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "signalChangesExternal",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/workflow/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SignalChangesExternalReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*SignalChangesExternalOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for signalChangesExternal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+StartActions initiates the specified action on the provided change ids
+
+Initiates the suppression, unsuppression, or purging of the provided change ids. Note that only 1 action may be initiated and active at a time.
+*/
+func (a *Client) StartActions(params *StartActionsParams, opts ...ClientOption) (*StartActionsAccepted, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewStartActionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "startActions",
+		Method:             "POST",
+		PathPattern:        "/filevantage/entities/actions/v1",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &StartActionsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*StartActionsAccepted)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for startActions: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

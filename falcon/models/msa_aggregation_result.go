@@ -21,7 +21,6 @@ import (
 type MsaAggregationResult struct {
 
 	// buckets
-	// Required: true
 	Buckets []*MsaAggregationResultItem `json:"buckets"`
 
 	// doc count error upper bound
@@ -54,9 +53,8 @@ func (m *MsaAggregationResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MsaAggregationResult) validateBuckets(formats strfmt.Registry) error {
-
-	if err := validate.Required("buckets", "body", m.Buckets); err != nil {
-		return err
+	if swag.IsZero(m.Buckets) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.Buckets); i++ {
