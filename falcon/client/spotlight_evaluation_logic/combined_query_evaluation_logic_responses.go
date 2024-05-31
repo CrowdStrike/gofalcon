@@ -55,6 +55,12 @@ func (o *CombinedQueryEvaluationLogicReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
+	case 503:
+		result := NewCombinedQueryEvaluationLogicServiceUnavailable()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	default:
 		return nil, runtime.NewAPIError("[GET /spotlight/combined/evaluation-logic/v1] combinedQueryEvaluationLogic", response, response.Code())
 	}
@@ -566,6 +572,103 @@ func (o *CombinedQueryEvaluationLogicInternalServerError) String() string {
 }
 
 func (o *CombinedQueryEvaluationLogicInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// hydrates response header X-CS-TRACEID
+	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")
+
+	if hdrXCSTRACEID != "" {
+		o.XCSTRACEID = hdrXCSTRACEID
+	}
+
+	// hydrates response header X-RateLimit-Limit
+	hdrXRateLimitLimit := response.GetHeader("X-RateLimit-Limit")
+
+	if hdrXRateLimitLimit != "" {
+		valxRateLimitLimit, err := swag.ConvertInt64(hdrXRateLimitLimit)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Limit", "header", "int64", hdrXRateLimitLimit)
+		}
+		o.XRateLimitLimit = valxRateLimitLimit
+	}
+
+	// hydrates response header X-RateLimit-Remaining
+	hdrXRateLimitRemaining := response.GetHeader("X-RateLimit-Remaining")
+
+	if hdrXRateLimitRemaining != "" {
+		valxRateLimitRemaining, err := swag.ConvertInt64(hdrXRateLimitRemaining)
+		if err != nil {
+			return errors.InvalidType("X-RateLimit-Remaining", "header", "int64", hdrXRateLimitRemaining)
+		}
+		o.XRateLimitRemaining = valxRateLimitRemaining
+	}
+
+	return nil
+}
+
+// NewCombinedQueryEvaluationLogicServiceUnavailable creates a CombinedQueryEvaluationLogicServiceUnavailable with default headers values
+func NewCombinedQueryEvaluationLogicServiceUnavailable() *CombinedQueryEvaluationLogicServiceUnavailable {
+	return &CombinedQueryEvaluationLogicServiceUnavailable{}
+}
+
+/*
+CombinedQueryEvaluationLogicServiceUnavailable describes a response with status code 503, with default header values.
+
+Service Unavailable
+*/
+type CombinedQueryEvaluationLogicServiceUnavailable struct {
+
+	/* Trace-ID: submit to support if resolving an issue
+	 */
+	XCSTRACEID string
+
+	/* Request limit per minute.
+	 */
+	XRateLimitLimit int64
+
+	/* The number of requests remaining for the sliding one minute window.
+	 */
+	XRateLimitRemaining int64
+}
+
+// IsSuccess returns true when this combined query evaluation logic service unavailable response has a 2xx status code
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this combined query evaluation logic service unavailable response has a 3xx status code
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this combined query evaluation logic service unavailable response has a 4xx status code
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this combined query evaluation logic service unavailable response has a 5xx status code
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this combined query evaluation logic service unavailable response a status code equal to that given
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
+// Code gets the status code for the combined query evaluation logic service unavailable response
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) Code() int {
+	return 503
+}
+
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable ", 503)
+}
+
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) String() string {
+	return fmt.Sprintf("[GET /spotlight/combined/evaluation-logic/v1][%d] combinedQueryEvaluationLogicServiceUnavailable ", 503)
+}
+
+func (o *CombinedQueryEvaluationLogicServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// hydrates response header X-CS-TRACEID
 	hdrXCSTRACEID := response.GetHeader("X-CS-TRACEID")

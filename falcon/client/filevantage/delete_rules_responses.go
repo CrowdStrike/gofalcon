@@ -404,7 +404,7 @@ func NewDeleteRulesNotFound() *DeleteRulesNotFound {
 /*
 DeleteRulesNotFound describes a response with status code 404, with default header values.
 
-OK
+Not Found
 */
 type DeleteRulesNotFound struct {
 

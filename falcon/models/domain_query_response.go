@@ -20,15 +20,15 @@ import (
 // swagger:model domain.QueryResponse
 type DomainQueryResponse struct {
 
-	// errors
+	// Array of API Errors
 	// Required: true
-	Errors []*DomainReconAPIError `json:"errors"`
+	Errors []*MsaAPIError `json:"errors"`
 
-	// meta
+	// Meta information of a request, including traceID of the request and pagination information
 	// Required: true
 	Meta *MsaMetaInfo `json:"meta"`
 
-	// resources
+	// Array of string IDs that matches the query request
 	// Required: true
 	Resources []string `json:"resources"`
 }

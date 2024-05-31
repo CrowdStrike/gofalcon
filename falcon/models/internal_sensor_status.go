@@ -30,6 +30,9 @@ type InternalSensorStatus struct {
 	// Required: true
 	DeviceID *string `json:"device_id"`
 
+	// heartbeat time
+	HeartbeatTime int64 `json:"heartbeat_time,omitempty"`
+
 	// hostname
 	Hostname string `json:"hostname,omitempty"`
 

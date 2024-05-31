@@ -19,6 +19,10 @@ import (
 // swagger:model domain.ExecutionMetadataV1
 type DomainExecutionMetadataV1 struct {
 
+	// report params
+	// Required: true
+	ReportParams *DomainReportParams `json:"report_params"`
+
 	// retry allowed
 	// Required: true
 	RetryAllowed *bool `json:"retry_allowed"`
@@ -52,6 +56,10 @@ type DomainExecutionMetadataV1 struct {
 func (m *DomainExecutionMetadataV1) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateReportParams(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateRetryAllowed(formats); err != nil {
 		res = append(res, err)
 	}
@@ -83,6 +91,26 @@ func (m *DomainExecutionMetadataV1) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecutionMetadataV1) validateReportParams(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_params", "body", m.ReportParams); err != nil {
+		return err
+	}
+
+	if m.ReportParams != nil {
+		if err := m.ReportParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -175,6 +203,10 @@ func (m *DomainExecutionMetadataV1) validateXdrParams(formats strfmt.Registry) e
 func (m *DomainExecutionMetadataV1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateReportParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateXdrData(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -186,6 +218,23 @@ func (m *DomainExecutionMetadataV1) ContextValidate(ctx context.Context, formats
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecutionMetadataV1) contextValidateReportParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReportParams != nil {
+
+		if err := m.ReportParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

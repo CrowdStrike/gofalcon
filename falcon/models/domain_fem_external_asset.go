@@ -61,6 +61,10 @@ type DomainFemExternalAsset struct {
 	// DNS Domain details
 	DNSDomain *DomainFemDNSDomain `json:"dns_domain,omitempty"`
 
+	// this is similar with the entity_type field from DiscoverAPIHost; it will be always 'external' and it aligns this structure with other assets structures, making UI handling of assets more generic
+	// Required: true
+	EntityType *string `json:"entity_type"`
+
 	// The first time this asset has been observed as externally exposed
 	FirstSeen string `json:"first_seen,omitempty"`
 
@@ -123,6 +127,10 @@ func (m *DomainFemExternalAsset) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDNSDomain(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEntityType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -230,6 +238,15 @@ func (m *DomainFemExternalAsset) validateDNSDomain(formats strfmt.Registry) erro
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *DomainFemExternalAsset) validateEntityType(formats strfmt.Registry) error {
+
+	if err := validate.Required("entity_type", "body", m.EntityType); err != nil {
+		return err
 	}
 
 	return nil

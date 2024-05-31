@@ -8,8 +8,10 @@ package models
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DomainHost domain host
@@ -17,53 +19,316 @@ import (
 // swagger:model domain.Host
 type DomainHost struct {
 
-	// admin available
-	AdminAvailable bool `json:"admin_available,omitempty"`
+	// cloud ioas
+	CloudIoas *DomainIOACounts `json:"cloud_ioas,omitempty"`
 
-	// bandwidth mbps
-	BandwidthMbps float64 `json:"bandwidth_mbps,omitempty"`
+	// cloud ioms
+	CloudIoms *DomainIOMCounts `json:"cloud_ioms,omitempty"`
 
-	// behind nat
-	BehindNat bool `json:"behind_nat,omitempty"`
+	// configuration assessments
+	ConfigurationAssessments *DomainSCAMisconfigsCounts `json:"configuration_assessments,omitempty"`
 
-	// ip
-	IP string `json:"ip,omitempty"`
+	// entity p k
+	EntityPK string `json:"entityPK,omitempty"`
 
-	// ip parsed
-	IPParsed string `json:"ip_parsed,omitempty"`
+	// extra info
+	ExtraInfo *DomainXLR8Info `json:"extra_info,omitempty"`
 
-	// isp
-	Isp string `json:"isp,omitempty"`
+	// id
+	// Required: true
+	ID *string `json:"id"`
 
-	// os banner
-	OsBanner string `json:"os_banner,omitempty"`
+	// total count
+	// Required: true
+	TotalCount *float64 `json:"total_count"`
 
-	// ping ms
-	PingMs int64 `json:"ping_ms,omitempty"`
-
-	// processor banner
-	ProcessorBanner string `json:"processor_banner,omitempty"`
-
-	// ram gigs
-	RAMGigs float64 `json:"ram_gigs,omitempty"`
-
-	// ssl available
-	SslAvailable bool `json:"ssl_available,omitempty"`
-
-	// tld
-	Tld string `json:"tld,omitempty"`
-
-	// uptime hours
-	UptimeHours int64 `json:"uptime_hours,omitempty"`
+	// vulnerabilities
+	Vulnerabilities *DomainVulnerabilitiesCount `json:"vulnerabilities,omitempty"`
 }
 
 // Validate validates this domain host
 func (m *DomainHost) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCloudIoas(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCloudIoms(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConfigurationAssessments(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExtraInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTotalCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVulnerabilities(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this domain host based on context it is used
+func (m *DomainHost) validateCloudIoas(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudIoas) { // not required
+		return nil
+	}
+
+	if m.CloudIoas != nil {
+		if err := m.CloudIoas.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_ioas")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_ioas")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateCloudIoms(formats strfmt.Registry) error {
+	if swag.IsZero(m.CloudIoms) { // not required
+		return nil
+	}
+
+	if m.CloudIoms != nil {
+		if err := m.CloudIoms.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_ioms")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_ioms")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateConfigurationAssessments(formats strfmt.Registry) error {
+	if swag.IsZero(m.ConfigurationAssessments) { // not required
+		return nil
+	}
+
+	if m.ConfigurationAssessments != nil {
+		if err := m.ConfigurationAssessments.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configuration_assessments")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configuration_assessments")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateExtraInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExtraInfo) { // not required
+		return nil
+	}
+
+	if m.ExtraInfo != nil {
+		if err := m.ExtraInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("extra_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("extra_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("id", "body", m.ID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateTotalCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("total_count", "body", m.TotalCount); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainHost) validateVulnerabilities(formats strfmt.Registry) error {
+	if swag.IsZero(m.Vulnerabilities) { // not required
+		return nil
+	}
+
+	if m.Vulnerabilities != nil {
+		if err := m.Vulnerabilities.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerabilities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain host based on the context it is used
 func (m *DomainHost) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCloudIoas(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCloudIoms(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConfigurationAssessments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExtraInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVulnerabilities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainHost) contextValidateCloudIoas(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudIoas != nil {
+
+		if swag.IsZero(m.CloudIoas) { // not required
+			return nil
+		}
+
+		if err := m.CloudIoas.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_ioas")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_ioas")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) contextValidateCloudIoms(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloudIoms != nil {
+
+		if swag.IsZero(m.CloudIoms) { // not required
+			return nil
+		}
+
+		if err := m.CloudIoms.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cloud_ioms")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cloud_ioms")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) contextValidateConfigurationAssessments(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConfigurationAssessments != nil {
+
+		if swag.IsZero(m.ConfigurationAssessments) { // not required
+			return nil
+		}
+
+		if err := m.ConfigurationAssessments.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configuration_assessments")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configuration_assessments")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) contextValidateExtraInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExtraInfo != nil {
+
+		if swag.IsZero(m.ExtraInfo) { // not required
+			return nil
+		}
+
+		if err := m.ExtraInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("extra_info")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("extra_info")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainHost) contextValidateVulnerabilities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Vulnerabilities != nil {
+
+		if swag.IsZero(m.Vulnerabilities) { // not required
+			return nil
+		}
+
+		if err := m.Vulnerabilities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vulnerabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vulnerabilities")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

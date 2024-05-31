@@ -158,9 +158,6 @@ type JsonschemaSubSchema struct {
 	// x cs do not hide
 	XCsDoNotHide bool `json:"x-cs-do-not-hide,omitempty"`
 
-	// x cs immutable
-	XCsImmutable bool `json:"x-cs-immutable,omitempty"`
-
 	// x cs indexable
 	XCsIndexable bool `json:"x-cs-indexable,omitempty"`
 
@@ -196,9 +193,6 @@ type JsonschemaSubSchema struct {
 
 	// x cs tags
 	XCsTags []string `json:"x-cs-tags"`
-
-	// x cs ui
-	XCsUI *JsonschemaUIExtensions `json:"x-cs-ui,omitempty"`
 
 	// x cs workflow
 	XCsWorkflow *JsonschemaWorkflowExtensions `json:"x-cs-workflow,omitempty"`
@@ -273,10 +267,6 @@ func (m *JsonschemaSubSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateXCsSignals(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateXCsUI(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -662,25 +652,6 @@ func (m *JsonschemaSubSchema) validateXCsSignals(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *JsonschemaSubSchema) validateXCsUI(formats strfmt.Registry) error {
-	if swag.IsZero(m.XCsUI) { // not required
-		return nil
-	}
-
-	if m.XCsUI != nil {
-		if err := m.XCsUI.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("x-cs-ui")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("x-cs-ui")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *JsonschemaSubSchema) validateXCsWorkflow(formats strfmt.Registry) error {
 	if swag.IsZero(m.XCsWorkflow) { // not required
 		return nil
@@ -769,10 +740,6 @@ func (m *JsonschemaSubSchema) ContextValidate(ctx context.Context, formats strfm
 	}
 
 	if err := m.contextValidateXCsSignals(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateXCsUI(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1133,27 +1100,6 @@ func (m *JsonschemaSubSchema) contextValidateXCsSignals(ctx context.Context, for
 				return ve.ValidateName("x-cs-signals")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("x-cs-signals")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *JsonschemaSubSchema) contextValidateXCsUI(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.XCsUI != nil {
-
-		if swag.IsZero(m.XCsUI) { // not required
-			return nil
-		}
-
-		if err := m.XCsUI.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("x-cs-ui")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("x-cs-ui")
 			}
 			return err
 		}

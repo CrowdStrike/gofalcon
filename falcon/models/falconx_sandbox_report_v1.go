@@ -20,6 +20,9 @@ import (
 // swagger:model falconx.SandboxReportV1
 type FalconxSandboxReportV1 struct {
 
+	// all extracted strings artifact id
+	AllExtractedStringsArtifactID string `json:"all_extracted_strings_artifact_id,omitempty"`
+
 	// architecture
 	Architecture string `json:"architecture,omitempty"`
 

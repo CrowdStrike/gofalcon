@@ -21,7 +21,7 @@ type ModelsJobMetaData struct {
 
 	// cloud provider
 	// Required: true
-	CloudProvider *string `json:"cloud_provider"`
+	CloudProvider *int32 `json:"cloud_provider"`
 
 	// instance id
 	// Required: true
@@ -51,7 +51,7 @@ type ModelsJobMetaData struct {
 
 	// status
 	// Required: true
-	Status *string `json:"status"`
+	Status *int32 `json:"status"`
 }
 
 // Validate validates this models job meta data

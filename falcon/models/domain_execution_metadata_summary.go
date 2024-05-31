@@ -19,6 +19,10 @@ import (
 // swagger:model domain.ExecutionMetadataSummary
 type DomainExecutionMetadataSummary struct {
 
+	// report params
+	// Required: true
+	ReportParams *DomainReportParams `json:"report_params"`
+
 	// subtype
 	// Required: true
 	Subtype *string `json:"subtype"`
@@ -40,6 +44,10 @@ type DomainExecutionMetadataSummary struct {
 func (m *DomainExecutionMetadataSummary) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateReportParams(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSubtype(formats); err != nil {
 		res = append(res, err)
 	}
@@ -59,6 +67,26 @@ func (m *DomainExecutionMetadataSummary) Validate(formats strfmt.Registry) error
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecutionMetadataSummary) validateReportParams(formats strfmt.Registry) error {
+
+	if err := validate.Required("report_params", "body", m.ReportParams); err != nil {
+		return err
+	}
+
+	if m.ReportParams != nil {
+		if err := m.ReportParams.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -124,6 +152,10 @@ func (m *DomainExecutionMetadataSummary) validateXdrParams(formats strfmt.Regist
 func (m *DomainExecutionMetadataSummary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateReportParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateXdrData(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -135,6 +167,23 @@ func (m *DomainExecutionMetadataSummary) ContextValidate(ctx context.Context, fo
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DomainExecutionMetadataSummary) contextValidateReportParams(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReportParams != nil {
+
+		if err := m.ReportParams.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report_params")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report_params")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

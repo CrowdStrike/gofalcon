@@ -88,7 +88,7 @@ type QueryRuleGroupsMixin0Params struct {
 
 	/* Sort.
 
-	   Possible order by fields: {modified_by, modified_on, enabled, name, created_by, created_on}
+	   Possible order by fields: {modified_on, enabled, name, created_by, created_on, modified_by}
 	*/
 	Sort *string
 

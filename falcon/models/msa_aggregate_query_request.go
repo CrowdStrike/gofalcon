@@ -28,6 +28,9 @@ type MsaAggregateQueryRequest struct {
 	// Required: true
 	Exclude *string `json:"exclude"`
 
+	// extended bounds
+	ExtendedBounds *MsaExtendedBoundsSpec `json:"extended_bounds,omitempty"`
+
 	// field
 	// Required: true
 	Field *string `json:"field"`
@@ -100,6 +103,10 @@ func (m *MsaAggregateQueryRequest) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateExclude(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExtendedBounds(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -196,6 +203,25 @@ func (m *MsaAggregateQueryRequest) validateExclude(formats strfmt.Registry) erro
 
 	if err := validate.Required("exclude", "body", m.Exclude); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) validateExtendedBounds(formats strfmt.Registry) error {
+	if swag.IsZero(m.ExtendedBounds) { // not required
+		return nil
+	}
+
+	if m.ExtendedBounds != nil {
+		if err := m.ExtendedBounds.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("extended_bounds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("extended_bounds")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -371,6 +397,10 @@ func (m *MsaAggregateQueryRequest) ContextValidate(ctx context.Context, formats 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateExtendedBounds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateRanges(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -405,6 +435,27 @@ func (m *MsaAggregateQueryRequest) contextValidateDateRanges(ctx context.Context
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *MsaAggregateQueryRequest) contextValidateExtendedBounds(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExtendedBounds != nil {
+
+		if swag.IsZero(m.ExtendedBounds) { // not required
+			return nil
+		}
+
+		if err := m.ExtendedBounds.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("extended_bounds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("extended_bounds")
+			}
+			return err
+		}
 	}
 
 	return nil
