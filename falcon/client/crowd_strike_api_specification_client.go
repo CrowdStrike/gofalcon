@@ -11,9 +11,9 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/crowdstrike/gofalcon/falcon/client/alerts"
+	"github.com/crowdstrike/gofalcon/falcon/client/api_integrations"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_connect_aws"
 	"github.com/crowdstrike/gofalcon/falcon/client/cloud_snapshots"
-	"github.com/crowdstrike/gofalcon/falcon/client/config"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment"
 	"github.com/crowdstrike/gofalcon/falcon/client/configuration_assessment_evaluation_logic"
 	"github.com/crowdstrike/gofalcon/falcon/client/container_alerts"
@@ -33,7 +33,6 @@ import (
 	"github.com/crowdstrike/gofalcon/falcon/client/drift_indicators"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_schema"
 	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
-	"github.com/crowdstrike/gofalcon/falcon/client/execution"
 	"github.com/crowdstrike/gofalcon/falcon/client/exposure_management"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_complete_dashboard"
 	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
@@ -135,9 +134,9 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli := new(CrowdStrikeAPISpecification)
 	cli.Transport = transport
 	cli.Alerts = alerts.New(transport, formats)
+	cli.APIIntegrations = api_integrations.New(transport, formats)
 	cli.CloudConnectAws = cloud_connect_aws.New(transport, formats)
 	cli.CloudSnapshots = cloud_snapshots.New(transport, formats)
-	cli.Config = config.New(transport, formats)
 	cli.ConfigurationAssessment = configuration_assessment.New(transport, formats)
 	cli.ConfigurationAssessmentEvaluationLogic = configuration_assessment_evaluation_logic.New(transport, formats)
 	cli.ContainerAlerts = container_alerts.New(transport, formats)
@@ -157,7 +156,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrowdStrik
 	cli.DriftIndicators = drift_indicators.New(transport, formats)
 	cli.EventSchema = event_schema.New(transport, formats)
 	cli.EventStreams = event_streams.New(transport, formats)
-	cli.Execution = execution.New(transport, formats)
 	cli.ExposureManagement = exposure_management.New(transport, formats)
 	cli.FalconCompleteDashboard = falcon_complete_dashboard.New(transport, formats)
 	cli.FalconContainer = falcon_container.New(transport, formats)
@@ -260,11 +258,11 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type CrowdStrikeAPISpecification struct {
 	Alerts alerts.ClientService
 
+	APIIntegrations api_integrations.ClientService
+
 	CloudConnectAws cloud_connect_aws.ClientService
 
 	CloudSnapshots cloud_snapshots.ClientService
-
-	Config config.ClientService
 
 	ConfigurationAssessment configuration_assessment.ClientService
 
@@ -303,8 +301,6 @@ type CrowdStrikeAPISpecification struct {
 	EventSchema event_schema.ClientService
 
 	EventStreams event_streams.ClientService
-
-	Execution execution.ClientService
 
 	ExposureManagement exposure_management.ClientService
 
@@ -425,9 +421,9 @@ type CrowdStrikeAPISpecification struct {
 func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Alerts.SetTransport(transport)
+	c.APIIntegrations.SetTransport(transport)
 	c.CloudConnectAws.SetTransport(transport)
 	c.CloudSnapshots.SetTransport(transport)
-	c.Config.SetTransport(transport)
 	c.ConfigurationAssessment.SetTransport(transport)
 	c.ConfigurationAssessmentEvaluationLogic.SetTransport(transport)
 	c.ContainerAlerts.SetTransport(transport)
@@ -447,7 +443,6 @@ func (c *CrowdStrikeAPISpecification) SetTransport(transport runtime.ClientTrans
 	c.DriftIndicators.SetTransport(transport)
 	c.EventSchema.SetTransport(transport)
 	c.EventStreams.SetTransport(transport)
-	c.Execution.SetTransport(transport)
 	c.ExposureManagement.SetTransport(transport)
 	c.FalconCompleteDashboard.SetTransport(transport)
 	c.FalconContainer.SetTransport(transport)
