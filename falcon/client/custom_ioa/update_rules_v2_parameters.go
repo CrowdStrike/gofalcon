@@ -15,7 +15,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/falcon/models"
 )
 
 // NewUpdateRulesV2Params creates a new UpdateRulesV2Params object,

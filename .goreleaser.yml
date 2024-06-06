@@ -306,7 +306,7 @@ nfpms:
       - src: examples/falcon_intel_indicators
         dst: /usr/share/doc/gofalcon/falcon_intel_indicators
 
-    homepage: github.com/crowdstrike/gofalcon
+    homepage: github.com/aslape/gofalcon
     license: MIT
     description: Golang-based SDK to CrowdStrike's APIs
     release: 1

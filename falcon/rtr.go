@@ -6,10 +6,10 @@ import (
 	"io"
 	"time"
 
-	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response"
-	"github.com/crowdstrike/gofalcon/falcon/client/real_time_response_admin"
-	"github.com/crowdstrike/gofalcon/falcon/models"
-	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/aslape/gofalcon/falcon/client/real_time_response"
+	"github.com/aslape/gofalcon/falcon/client/real_time_response_admin"
+	"github.com/aslape/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/pkg/falcon_util"
 	"github.com/go-openapi/runtime"
 )
 

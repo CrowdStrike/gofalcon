@@ -2,7 +2,7 @@ This is a working standalone example of a program to fetch registry token for Cr
 
 ## Build
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_registry_token
+go get github.com/aslape/gofalcon/examples/falcon_registry_token
 ```
 
 ## Setup Environment Variables

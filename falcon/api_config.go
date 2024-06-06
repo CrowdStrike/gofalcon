@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/crowdstrike/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client"
 )
 
 // ApiConfig object is used to initialise and configure API Client. Together with NewClient function, ApiConfig provides preferred way to initiate API communication.

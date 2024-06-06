@@ -4,7 +4,7 @@ import (
 	"flag"
 	"os"
 
-	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/aslape/gofalcon/pkg/falcon_util"
 )
 
 // CommonAuthFlags is a struct that holds common authentication flags used for most examples

@@ -7,7 +7,7 @@ This page represents a stand-alone tool that uses Falcon Spotlight API to query 
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_vulnerabilities
+go get github.com/aslape/gofalcon/examples/falcon_vulnerabilities
 ```
 
 ## Exemplary Usage

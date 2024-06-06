@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/falcon/models"
 )
 
 // CreateSavedSearchesExecuteAltV1Reader is a Reader for the CreateSavedSearchesExecuteAltV1 structure.

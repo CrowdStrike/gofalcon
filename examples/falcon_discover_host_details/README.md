@@ -5,7 +5,7 @@ Stand-alone tool that uses Falcon Discover Host API to gain timely visibility in
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_discover_host_details
+go get github.com/aslape/gofalcon/examples/falcon_discover_host_details
 ```
 
 ## Exemplary Usage

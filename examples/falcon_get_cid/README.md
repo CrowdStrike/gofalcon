@@ -4,7 +4,7 @@ The ability to derive CID from API key pair is useful in various occasions like 
 
 ## Build
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_registry_token
+go get github.com/aslape/gofalcon/examples/falcon_registry_token
 ```
 
 ## Setup Environment Variables

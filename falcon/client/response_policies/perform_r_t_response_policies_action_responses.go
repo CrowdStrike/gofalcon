@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/falcon/models"
 )
 
 // PerformRTResponsePoliciesActionReader is a Reader for the PerformRTResponsePoliciesAction structure.

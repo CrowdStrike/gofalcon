@@ -15,7 +15,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/crowdstrike/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/falcon/models"
 )
 
 // NewPostMalQueryEntitiesSamplesMultidownloadV1Params creates a new PostMalQueryEntitiesSamplesMultidownloadV1Params object,

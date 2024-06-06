@@ -1,4 +1,4 @@
-module github.com/crowdstrike/gofalcon
+module github.com/aslape/gofalcon
 
 go 1.17
 

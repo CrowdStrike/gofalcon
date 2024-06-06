@@ -51,6 +51,12 @@ type ModelsContainer struct {
 	// config user
 	ConfigUser string `json:"config_user,omitempty"`
 
+	// container id
+	ContainerID string `json:"container_id,omitempty"`
+
+	// container name
+	ContainerName string `json:"container_name,omitempty"`
+
 	// container image id
 	ContainerImageID string `json:"container_image_id,omitempty"`
 
@@ -106,8 +112,8 @@ type ModelsContainer struct {
 	// image registry
 	ImageRegistry string `json:"image_registry,omitempty"`
 
-	// image repo
-	ImageRepo string `json:"image_repo,omitempty"`
+	// image repository
+	ImageRepository string `json:"image_repository,omitempty"`
 
 	// image tag
 	ImageTag string `json:"image_tag,omitempty"`

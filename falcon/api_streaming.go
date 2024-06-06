@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/event_streams"
-	"github.com/crowdstrike/gofalcon/falcon/models"
-	"github.com/crowdstrike/gofalcon/falcon/models/streaming_models"
+	"github.com/aslape/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client/event_streams"
+	"github.com/aslape/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/falcon/models/streaming_models"
 )
 
 // StreamingHandle is higher order type that allows for easy use of CrowdStrike Falcon Streaming API

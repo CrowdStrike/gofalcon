@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/crowdstrike/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client"
 	httpruntime "github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"

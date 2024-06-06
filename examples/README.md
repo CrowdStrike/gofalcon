@@ -32,7 +32,7 @@ Many of the examples are useful and valuable as a stand-alone tools. The followi
 ### Installation using local golang install
 
 ```
-go get -u github.com/crowdstrike/gofalcon/examples/...
+go get -u github.com/aslape/gofalcon/examples/...
 ```
 
 ### Installation using packaging system (rpm/deb)

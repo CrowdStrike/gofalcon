@@ -1,14 +1,14 @@
 # gofalcon
-![Build CI](https://github.com/CrowdStrike/gofalcon/workflows/Build%20CI/badge.svg)
-[![gosec](https://github.com/CrowdStrike/gofalcon/actions/workflows/gosec.yml/badge.svg)](https://github.com/CrowdStrike/gofalcon/actions/workflows/gosec.yml)
-[![CodeQL](https://github.com/CrowdStrike/gofalcon/actions/workflows/codeql.yml/badge.svg)](https://github.com/CrowdStrike/gofalcon/actions/workflows/codeql.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/crowdstrike/gofalcon)](https://goreportcard.com/report/github.com/crowdstrike/gofalcon)
-[![Go Reference](https://pkg.go.dev/badge/github.com/crowdstrike/gofalcon.svg)](https://pkg.go.dev/github.com/crowdstrike/gofalcon)
+![Build CI](https://github.com/aslape/gofalcon/workflows/Build%20CI/badge.svg)
+[![gosec](https://github.com/aslape/gofalcon/actions/workflows/gosec.yml/badge.svg)](https://github.com/aslape/gofalcon/actions/workflows/gosec.yml)
+[![CodeQL](https://github.com/aslape/gofalcon/actions/workflows/codeql.yml/badge.svg)](https://github.com/aslape/gofalcon/actions/workflows/codeql.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aslape/gofalcon)](https://goreportcard.com/report/github.com/aslape/gofalcon)
+[![Go Reference](https://pkg.go.dev/badge/github.com/aslape/gofalcon.svg)](https://pkg.go.dev/github.com/aslape/gofalcon)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/CrowdStrike/gofalcon)
 
 Golang-based SDK to CrowdStrike's Falcon APIs.
 
-Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/crowdstrike/gofalcon). Users are advised to consult this gofalcon documentation together with the comprehensive CrowdStrike API documentation published on [Developer Portal](https://developer.crowdstrike.com/crowdstrike/docs). The easiest way to learn about the SDK is to consult the set of [examples](examples) built on top of the SDK. What follows is a subset of these examples that can be found useful as stand-alone programs.
+Gofalcon documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/aslape/gofalcon). Users are advised to consult this gofalcon documentation together with the comprehensive CrowdStrike API documentation published on [Developer Portal](https://developer.crowdstrike.com/crowdstrike/docs). The easiest way to learn about the SDK is to consult the set of [examples](examples) built on top of the SDK. What follows is a subset of these examples that can be found useful as stand-alone programs.
 
 | Example                                                                       | Description                                                                                                                         |
 | :--------                                                                     | :------------                                                                                                                       |
@@ -37,7 +37,7 @@ Gofalcon is periodically refreshed to reflect the newest additions to the CrowdS
 
 ## Installation
 ```
-go get github.com/crowdstrike/gofalcon/falcon
+go get github.com/aslape/gofalcon/falcon
 ```
 
 ## Usage Example
@@ -52,8 +52,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client/incidents"
+	"github.com/aslape/gofalcon/falcon"
+	"github.com/aslape/gofalcon/falcon/client/incidents"
 )
 
 func main() {

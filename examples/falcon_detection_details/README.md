@@ -5,7 +5,7 @@ Stand-alone tool that uses Detects API to query all the detection details and ou
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_detection_details
+go get github.com/aslape/gofalcon/examples/falcon_detection_details
 ```
 
 ## Exemplary Usage

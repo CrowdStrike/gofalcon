@@ -6,7 +6,7 @@ Example run:
 ```
 FALCON_ACCESS_TOKEN="abc" \
 FALCON_CLOUD="us-1" \
-        go run github.com/crowdstrike/gofalcon/examples/simple_access_token
+        go run github.com/aslape/gofalcon/examples/simple_access_token
 ```
 
 Example output:

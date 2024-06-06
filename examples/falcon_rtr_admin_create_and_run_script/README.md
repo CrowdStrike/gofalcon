@@ -11,7 +11,7 @@ section of the Falcon developer API documentation.
 
 ## Build
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_rtr_upload_and_run_script
+go get github.com/aslape/gofalcon/examples/falcon_rtr_upload_and_run_script
 ```
 
 ## Setup Environment Variables

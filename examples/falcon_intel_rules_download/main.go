@@ -11,10 +11,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/intel"
-	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/aslape/gofalcon/falcon"
+	"github.com/aslape/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client/intel"
+	"github.com/aslape/gofalcon/pkg/falcon_util"
 )
 
 func main() {

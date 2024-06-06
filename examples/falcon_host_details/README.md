@@ -5,7 +5,7 @@ Stand-alone tool that uses Host devices scroll API to query all the host details
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_host_details
+go get github.com/aslape/gofalcon/examples/falcon_host_details
 ```
 
 ## Exemplary Usage

@@ -5,7 +5,7 @@ Minimalist example to show download CrowdStrike Falcon Intelligence Rules throug
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_intel_rules_download
+go get github.com/aslape/gofalcon/examples/falcon_intel_rules_download
 ```
 
 ## Example Run

@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/hosts"
-	"github.com/crowdstrike/gofalcon/falcon/client/zero_trust_assessment"
-	"github.com/crowdstrike/gofalcon/falcon/models"
-	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/aslape/gofalcon/falcon"
+	"github.com/aslape/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client/hosts"
+	"github.com/aslape/gofalcon/falcon/client/zero_trust_assessment"
+	"github.com/aslape/gofalcon/falcon/models"
+	"github.com/aslape/gofalcon/pkg/falcon_util"
 )
 
 func main() {

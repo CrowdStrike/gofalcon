@@ -7,7 +7,7 @@ Falcon Streaming API provides clients with stream of event data from CrowdStrike
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_event_stream
+go get github.com/aslape/gofalcon/examples/falcon_event_stream
 ```
 
 ## Example Run

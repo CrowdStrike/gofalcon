@@ -5,7 +5,7 @@ Stand-alone tool that uses cloud security posture management (CSPM) to list regi
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_cspm_aws_accounts
+go get github.com/aslape/gofalcon/examples/falcon_cspm_aws_accounts
 ```
 
 ## Example Run

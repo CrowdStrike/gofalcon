@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/pkg/falcon_util"
+	"github.com/aslape/gofalcon/falcon"
+	"github.com/aslape/gofalcon/pkg/falcon_util"
 	"golang.org/x/oauth2/clientcredentials"
 )
 

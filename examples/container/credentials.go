@@ -5,9 +5,9 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/crowdstrike/gofalcon/examples"
-	"github.com/crowdstrike/gofalcon/falcon"
-	"github.com/crowdstrike/gofalcon/falcon/client/falcon_container"
+	"github.com/aslape/gofalcon/examples"
+	"github.com/aslape/gofalcon/falcon"
+	"github.com/aslape/gofalcon/falcon/client/falcon_container"
 )
 
 func main() {

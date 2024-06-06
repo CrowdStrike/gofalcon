@@ -5,7 +5,7 @@ Stand-alone tool that uses Host API to find pods (Kubernetes Pods) that has been
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_cleanup_pods
+go get github.com/aslape/gofalcon/examples/falcon_cleanup_pods
 ```
 
 ## Example Run

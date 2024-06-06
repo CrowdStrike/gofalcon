@@ -9,7 +9,7 @@ This stand-alone tool uses host devices API and ZeroTrustAssessment API and outp
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/falcon_zta
+go get github.com/aslape/gofalcon/examples/falcon_zta
 ```
 
 ## Exemplary Usage

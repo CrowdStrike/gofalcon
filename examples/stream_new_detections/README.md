@@ -8,7 +8,7 @@ To learn more about detection and how to generate your first detection visit [Cr
 ## Installation
 
 ```
-go get github.com/crowdstrike/gofalcon/examples/stream_new_detections
+go get github.com/aslape/gofalcon/examples/stream_new_detections
 ```
 
 ## Example Run

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/crowdstrike/gofalcon/falcon/client"
-	"github.com/crowdstrike/gofalcon/falcon/client/oauth2"
+	"github.com/aslape/gofalcon/falcon/client"
+	"github.com/aslape/gofalcon/falcon/client/oauth2"
 	"github.com/go-openapi/strfmt"
 )
 
