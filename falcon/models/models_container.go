@@ -179,7 +179,7 @@ type ModelsContainer struct {
 	Namespace string `json:"namespace,omitempty"`
 
 	// node id
-	NodeID string `json:"node_id,omitempty"`
+	NodeID string `json:"node_uid,omitempty"`
 
 	// node name
 	NodeName string `json:"node_name,omitempty"`
