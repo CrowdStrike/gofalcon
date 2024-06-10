@@ -17,25 +17,49 @@ import (
 )
 
 func main() {
-	clientId := flag.String("client-id", os.Getenv("FALCON_CLIENT_ID"), "Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)")
-	clientSecret := flag.String("client-secret", os.Getenv("FALCON_CLIENT_SECRET"), "Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)")
-	memberCID := flag.String("member-cid", os.Getenv("FALCON_MEMBER_CID"), "Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)")
-	clientCloud := flag.String("cloud", os.Getenv("FALCON_CLOUD"), "Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)")
+	clientId := flag.String(
+		"client-id",
+		os.Getenv("FALCON_CLIENT_ID"),
+		"Client ID for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_ID env)",
+	)
+	clientSecret := flag.String(
+		"client-secret",
+		os.Getenv("FALCON_CLIENT_SECRET"),
+		"Client Secret for accessing CrowdStrike Falcon Platform (default taken from FALCON_CLIENT_SECRET)",
+	)
+	memberCID := flag.String(
+		"member-cid",
+		os.Getenv("FALCON_MEMBER_CID"),
+		"Member CID for MSSP (for cases when OAuth2 authenticates multiple CIDs)",
+	)
+	clientCloud := flag.String(
+		"cloud",
+		os.Getenv("FALCON_CLOUD"),
+		"Falcon cloud abbreviation (us-1, us-2, eu-1, us-gov-1)",
+	)
 	osName := flag.String("os-name", "", "Name of the operating system")
 	osVersion := flag.String("os-version", "", "Versin of the operating system")
-	sensorVersion := flag.String("sensor-version", "latest", "Version of the Falcon Sensor. Use: 'latest' to get the latest or '' to get prompted interactively")
+	sensorVersion := flag.String(
+		"sensor-version",
+		"latest",
+		"Version of the Falcon Sensor. Use: 'latest' to get the latest or '' to get prompted interactively",
+	)
 
 	all := flag.Bool("all", false, "Download all sensors")
 
 	flag.Parse()
 
 	if *clientId == "" {
-		*clientId = falcon_util.PromptUser(`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
-Falcon Client ID`)
+		*clientId = falcon_util.PromptUser(
+			`Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client ID`,
+		)
 	}
 	if *clientSecret == "" {
-		*clientSecret = falcon_util.PromptUser(`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
-Falcon Client Secret`)
+		*clientSecret = falcon_util.PromptUser(
+			`Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.
+Falcon Client Secret`,
+		)
 	}
 
 	client, err := falcon.NewClient(&falcon.ApiConfig{
@@ -92,7 +116,11 @@ Falcon Client Secret`)
 	}
 }
 
-func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainSensorInstallerV1, dir, filename string) {
+func download(
+	client *client.CrowdStrikeAPISpecification,
+	sensor *models.DomainSensorInstallerV1,
+	dir, filename string,
+) {
 	file, err := openFileForWriting(dir, filename)
 	if err != nil {
 		panic(err)
@@ -114,7 +142,10 @@ func download(client *client.CrowdStrikeAPISpecification, sensor *models.DomainS
 	fmt.Printf("Downloaded %s to %s\n", *sensor.Description, filename)
 }
 
-func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osVersion, sensorVersion string) *models.DomainSensorInstallerV1 {
+func querySuitableSensor(
+	client *client.CrowdStrikeAPISpecification,
+	osName, osVersion, sensorVersion string,
+) *models.DomainSensorInstallerV1 {
 	for _, sensor := range getSensors(client, osName) {
 		if osVersion == *sensor.OsVersion {
 			if *sensor.Version == sensorVersion || sensorVersion == "latest" {
@@ -125,7 +156,10 @@ func querySuitableSensor(client *client.CrowdStrikeAPISpecification, osName, osV
 	return nil
 }
 
-func getSensors(client *client.CrowdStrikeAPISpecification, osName string) []*models.DomainSensorInstallerV1 {
+func getSensors(
+	client *client.CrowdStrikeAPISpecification,
+	osName string,
+) []*models.DomainSensorInstallerV1 {
 	var filter *string
 	if osName != "" {
 		f := fmt.Sprintf("os:\"%s\"", osName)
@@ -184,7 +218,10 @@ func getValidOsVersions(client *client.CrowdStrikeAPISpecification, osName strin
 	return list
 }
 
-func getValidSensorVersions(client *client.CrowdStrikeAPISpecification, osName, osVersion string) []string {
+func getValidSensorVersions(
+	client *client.CrowdStrikeAPISpecification,
+	osName, osVersion string,
+) []string {
 	sensors := getSensors(client, osName)
 	sensorVersions := make(map[string]void)
 	for _, sensor := range sensors {
@@ -202,9 +239,12 @@ func getValidSensorVersions(client *client.CrowdStrikeAPISpecification, osName, 
 
 func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
 	for sensor := range oneSensorPerOsVersion(client) {
-		dir := filepath.Join(strings.ReplaceAll(*sensor.Os, "/", "-"), strings.ReplaceAll(*sensor.OsVersion, "/", "-"))
+		dir := filepath.Join(
+			strings.ReplaceAll(*sensor.Os, "/", "-"),
+			strings.ReplaceAll(*sensor.OsVersion, "/", "-"),
+		)
 		if dir != "" {
-			err := os.MkdirAll(dir, os.ModePerm)
+			err := os.MkdirAll(dir, 0750)
 			if err != nil {
 				panic(fmt.Sprintf("Could not create directory %s: %v", dir, err))
 			}
@@ -213,7 +253,9 @@ func downloadAllSensors(client *client.CrowdStrikeAPISpecification) {
 	}
 }
 
-func oneSensorPerOsVersion(client *client.CrowdStrikeAPISpecification) <-chan *models.DomainSensorInstallerV1 {
+func oneSensorPerOsVersion(
+	client *client.CrowdStrikeAPISpecification,
+) <-chan *models.DomainSensorInstallerV1 {
 	out := make(chan *models.DomainSensorInstallerV1)
 
 	sensors, err := client.SensorDownload.GetCombinedSensorInstallersByQuery(
